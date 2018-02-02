@@ -1,4 +1,6 @@
-local utils = require("Module:TemplateUtils")
+-- FORLIVE:
+--local utils = require("Module:TemplateUtils")
+local utils = require("templateutils")
  
 local p = {}
  
@@ -217,9 +219,7 @@ local function GenerateOtherCardPage(card)
         card.Name)..GetRulings(card)..p.GetCardCategories(card)
 end
 
-function p.GetCardsTable(frame)
-    local criteria = utils.RecreateTable(frame:getParent().args)
-    
+local function GetCardsTable(criteria)
 	local cards = utils.RecreateTable(mw.loadData("Module:Data/Cards"))
 	
 	local s = ""
@@ -233,13 +233,21 @@ function p.GetCardsTable(frame)
 	    end
     end
     s = [=[! colspan="3" align="right"|]=]..numresults.." result"..(numresults~=1 and "s\n" or "\n")..s
-    
-	return frame:preprocess(s)
+	return s
+end
+
+function p.GetCardsTable(frame)
+    local criteria = utils.RecreateTable(frame:getParent().args)
+	local result = GetCardsTable(criteria)
+	return frame:preprocess(result)
+end
+
+function p.TestGetCardsTable(criteria)
+    return GetCardsTable(criteria)
 end
 
 local function cardResultPageNavigation(startCard,endCard,numresults,page,linkBase)
-return [[! colspan="3" align="right"|Showing results ]]..startCard.." to "..endCard.." out of "..numresults.." "..((page == 1 ) and "" or([=[[[]=]..linkBase.. page - 1 ..[=[|Previous page]]]=])).." "..((startCard+numCardsPerPage>numresults) and "" or ([=[[[]=]..linkBase.. page + 1 ..[=[|Next page]]]=])).."\n"
-
+	return [[! colspan="3" align="right"|Showing results ]]..startCard.." to "..endCard.." out of "..numresults.." "..((page == 1 ) and "" or([=[[[]=]..linkBase.. page - 1 ..[=[|Previous page]]]=])).." "..((startCard+numCardsPerPage>numresults) and "" or ([=[[[]=]..linkBase.. page + 1 ..[=[|Next page]]]=])).."\n"
 end
 
 function p.GetPagedCardsTable(frame)
