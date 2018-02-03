@@ -32,6 +32,11 @@ local cardPageTemplate = [=[{| class="article-table CardPageTable" style="float:
 <br/>
 [[File:%s.png|link=]]]=]
 
+local otherSetsTemplate = [=[{| class="mdw-reprint"
+|-
+| align="center" |[[File:Reprint icon.png|link=]] || This card is a '''Reprint''' from<br />[[%s]], %s {{%s}}, Flavor Text: ''%s''
+|}]=]
+
 local totalNumberOfCards = 485
 local totalNumberOfOtherCards = 1
 
@@ -138,9 +143,11 @@ local criteriaList = {
     -- condition ∈ {Any Type, Subtype or Supertype} See their respective wiki pages for an exhaustive list
     Type = function(card,condition) return (TableContains(card.Types,condition) or TableContains(card.SubTypes,condition) or TableContains(card.SuperTypes,condition)) end;
     -- condition ∈ {D,ORI}
-    Set = function(card,condition) return (card.SetCode == condition) or (setNames[card.SetCode] == condition) end;
+    -- Set = function(card,condition) return (card.SetCode == condition) or (setNames[card.SetCode] == condition) end;
+    Set = function(card,condition) return (card.SetCode == condition) or (TableContains(card.Allsets, condition)) end;
     -- condition ∈ {Common,Uncommon,Rare,Mythic Rare}
-    Rarity = function(card,condition) return card.Rarity == condition end;
+    -- Rarity = function(card,condition) return card.Rarity == condition end;
+    Rarity = function(card,condition) return (card.Rarity == condition) or (TableContains(card.Rarities, condition)) end;
     -- condition ∈ {Any text}
     Text = function(card,condition) return card.Text ~= nil and string.find(string.lower(card.Text),string.lower(condition)) end;
     NotText = function(card,condition) return card.Text == nil or not string.find(string.lower(card.Text),string.lower(condition)) end;
@@ -191,10 +198,20 @@ local function GenerateCardPage(card)
     for i = 1,#contents do 
          cardContents = cardContents .. string.format(cardPageRowTemplate,contents[i][1],contents[i][2])
     end
+
+	local otherSets = ""
+	if card.Sets then
+		otherSets = "{{Clear}}"
+	    for _,set in pairs(card.Sets) do
+			local setTemplete = set.Set .. string.sub(set.Rarity,1,1)
+			local setEntry = string.format(otherSetsTemplate, setNames[set.Set], set.Rarity, setTemplete, set.Flavor);
+			otherSets = otherSets..setEntry
+		end
+	end
     
     return string.format(cardPageTemplate,
         cardContents,
-        card.Name)..GetRulings(card)..p.GetCardCategories(card)
+        card.Name)..GetRulings(card)..otherSets..p.GetCardCategories(card)
 end
 
 local function GenerateOtherCardPage(card)
@@ -213,7 +230,7 @@ local function GenerateOtherCardPage(card)
     for i = 1,#contents do 
          cardContents = cardContents .. string.format(cardPageRowTemplate,contents[i][1],contents[i][2])
     end
-    
+	
     return "{{CardUnavailable}}\n{{clear}}\n"..string.format(cardPageTemplate,
         cardContents,
         card.Name)..GetRulings(card)..p.GetCardCategories(card)
