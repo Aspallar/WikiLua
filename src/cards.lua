@@ -35,7 +35,8 @@ local cardPageTemplate = [=[{| class="article-table CardPageTable" style="float:
 local otherSetsTemplate = [=[{| class="mdw-reprint"
 |-
 | align="center" |[[File:Reprint icon.png|link=]] || This card is a '''Reprint''' from<br />[[%s]], %s {{%s}}, Flavor Text: ''%s''
-|}]=]
+|}
+]=]
 
 local totalNumberOfCards = 485
 local totalNumberOfOtherCards = 1
@@ -201,7 +202,7 @@ local function GenerateCardPage(card)
 
 	local otherSets = ""
 	if card.Sets then
-		otherSets = "{{Clear}}"
+		otherSets = "{{Clear}}\n"
 	    for _,set in pairs(card.Sets) do
 			local setTemplete = set.Set .. string.sub(set.Rarity,1,1)
 			local setEntry = string.format(otherSetsTemplate, setNames[set.Set], set.Rarity, setTemplete, set.Flavor);
@@ -292,7 +293,7 @@ function p.GetPagedCardsTable(frame)
 	        table.insert(validCards,card)
 	        numresults = numresults + 1
 	    end
-end
+	end
 
 	local startCard = (page-1)*numCardsPerPage+1
 	local endCard = math.min((page-1)*numCardsPerPage+numCardsPerPage,numresults)

@@ -1,4 +1,5 @@
 require("wikienv")
 local cards = require("cards")
 local result = cards.TestGetCardPage("Legion Conquistador")
+-- local result = cards.TestGetCardPage("Forest")
 print(result)
