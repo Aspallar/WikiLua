@@ -360,13 +360,16 @@ end
 function p.GetCardCategories(card)
     local categories = {}
     table.insert(categories,"Cards")
-    table.insert(categories,setNames[card.SetCode])
+	for _,setcode in pairs(card.Allsets) do
+		table.insert(categories,setNames[setcode])
+	end
     ConcatTables(categories,card.Colors)
     table.insert(categories,card.Rarity)
     ConcatTables(categories,card.SuperTypes)
     ConcatTables(categories,card.Types)
     ConcatTables(categories,card.SubTypes)
     if card.Watermark then table.insert(categories,card.Watermark) end
+	if card.Sets then table.insert(categories,"Reprint") end
     
     local s = ""
     for _,v in pairs(categories) do
