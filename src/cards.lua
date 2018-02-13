@@ -1,6 +1,7 @@
--- FORLIVE:
---local utils = require("Module:TemplateUtils")
-local utils = require("templateutils")
+-- FOR LIVE:
+local utils = require("Module:TemplateUtils")
+-- FOR LOCAL:
+-- local utils = require("templateutils")
  
 local p = {}
  
