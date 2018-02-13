@@ -38,6 +38,12 @@ local otherSetsTemplate = [=[{| class="mdw-reprint"
 |}
 ]=]
 
+local landOtherSetsTemplate = [=[{| class="mdw-reprint"
+|-
+| align="center" |[[File:Reprint icon.png|link=]] || This card is a '''Reprint''' from %s
+|}
+]=]
+
 local totalNumberOfCards = 485
 local totalNumberOfOtherCards = 1
 
@@ -203,10 +209,19 @@ local function GenerateCardPage(card)
 	local otherSets = ""
 	if card.Sets then
 		otherSets = "{{Clear}}\n"
-	    for _,set in pairs(card.Sets) do
-			local setTemplete = set.Set .. string.sub(set.Rarity,1,1)
-			local setEntry = string.format(otherSetsTemplate, setNames[set.Set], set.Rarity, setTemplete, set.Flavor);
-			otherSets = otherSets..setEntry
+		if card.Rarity == "Basic Land" then
+			local setsList = ""
+			for _,set in pairs(card.Sets) do
+				setsList = setsList .. "[[" .. setNames[set.Set] .. "]] "
+			end
+			otherSets = otherSets .. "\n\n" .. string.format(landOtherSetsTemplate, setsList)
+		else
+			for _,set in pairs(card.Sets) do
+				local setTemplate = set.Set .. string.sub(set.Rarity,1,1)
+				local flavor = set.Flavor or "None."
+				local setEntry = string.format(otherSetsTemplate, setNames[set.Set], set.Rarity, setTemplate, flavor);
+				otherSets = otherSets..setEntry
+			end
 		end
 	end
     

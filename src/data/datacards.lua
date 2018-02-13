@@ -4296,7 +4296,7 @@ Rulings={
 
 {Name="Legion Conquistador";
 SetCode="RIX";
-Allsets={"RIX", "XLN"};
+Allsets={"RIX";"XLN";};
 Manacost="{{2}}{{W}}";
 cmc=3;
 Colors={"White"};
@@ -4312,7 +4312,7 @@ Power="2";
 Toughness="2";
 MultiverseID=439668;
 Sets={
-	{Set="XLN"; Rarity="Common"; Flavor=[=[The Legion of Dusk sailed from Torrezon in search of glory, riches, and the Immortal Sun.]=];};
+	{Set="XLN";Rarity="Common";Flavor=[=[The Legion of Dusk sailed from Torrezon in search of glory, riches, and the Immortal Sun.]=];};
 };
 };
 
@@ -5346,13 +5346,18 @@ Rulings={
 
 {Name="Plains";
 SetCode="RIX";
+Allsets={"RIX", "XLN"};
 Type="Basic Land — Plains";
 SuperTypes={"Basic"};
 Types={"Land"};
 SubTypes={"Plains"};
 Rarity="Basic Land";
+Rarities={"Basic Land"};
 CardNumber="RIX192";
 MultiverseID=439856;
+Sets={
+	{Set="XLN"; Rarity="Basic Land";};
+};
 };
 
 {Name="Plummet";
