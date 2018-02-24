@@ -25,6 +25,10 @@ function mw.loadData(tableName)
 	return data
 end
 
+function mw.log(s)
+	print("**** LOG: " .. s)
+end
+
 function mw.text.split(s, delimiter)
   local result = { }
   local from  = 1
@@ -41,3 +45,4 @@ end
 function mw.text.encode(s)
 	return s
 end
+

@@ -97,14 +97,24 @@ local decklistTemplate = [=[<center><big><big><big>%s</big></big></big></center>
 {{Div col}}
 %s{{Div col end}}]=]
  
+local function ParseCardEntry(entry)
+	local pos1, pos2 = string.find(entry, "%(")
+	if pos1 ~= nil then
+		entry = string.sub(entry, 1, pos1-2)
+	end
+	local split = mw.text.split(entry," ")
+	local num, name = table.remove(split,1), table.concat(split," ")
+	local intnum = tonumber(num)
+	if intnum == nil then
+		intnum = 0
+	end
+	return intnum, name
+end
+
  
 local function SortListIntoTypes(list)
     for _,t in pairs(list) do
-        local split = mw.text.split(t," ")
-        local num, name = table.remove(split,1), table.concat(split," ")
-        if tonumber(num) == nil then
-            num = 0
-        end
+        local num, name = ParseCardEntry(t)
         local card = p.SingleCardNonSensitive(name)
         if card then
             if TableContains(card.Types,"Land") then
@@ -220,34 +230,33 @@ end
 
 
 local function WriteCardData(list)
+	local arenaExport = ""
 	local outcards = {}
 	Write("<div id='mdw-chartdata' style='display:none' data-chart='");
 	for _,t in pairs(list) do
-		local split = mw.text.split(t," ")
-		local num, name = table.remove(split,1), table.concat(split," ")
-		local intnum = tonumber(num)
-		if intnum == nil then
-			intnum = 0
-		end
+		local intnum, name = ParseCardEntry(t)
 		local card = p.SingleCardNonSensitive(name)
 		if card then
             local carddata={ num=intnum; colors=card.Colors; cmc=card.cmc; types=card.Types}
 			table.insert(outcards, carddata)
+			arenaExport = arenaExport .. intnum .. " " .. card.Name .. " (" .. card.SetCode .. ") " .. string.match(card.CardNumber, "%d+") .. "\n"
 		end
 	end
 	local cardJson = json.encode(outcards)
 	Write(mw.text.encode(cardJson))
 	WriteLine("'></div>");
+	return arenaExport
 end
 
+local function ArenaExportSection(exportText)
+	return "\n<pre id='mdw-arena-export-src' style='display:none'>\n" .. exportText .. "</pre>\n"
+end
 
 local function GenerateDeckFromList(name,list)
- 
     SortListIntoTypes(list)
     WriteTypeLists()
-    WriteCardData(list)
-
-    return string.format(decklistTemplate,name,buffer)
+    local arenaExport = WriteCardData(list)
+    return string.format(decklistTemplate,name,buffer) .. ArenaExportSection(arenaExport)
 end
  
  
