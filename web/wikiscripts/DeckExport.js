@@ -10,22 +10,22 @@
 //
 $(document).ready(function () {
     'use strict';
-    var arenaExportSrc = $('#mdw-arena-export-src');
+    var arenaExportSrc = document.getElementById('mdw-arena-export-src');
     if (arenaExportSrc === null)
         return;
-    var arenaExportDest = $('#mdw-arena-export-div');
+    var arenaExportDest = document.getElementById('mdw-arena-export-div');
     if (arenaExportDest === null)
         return;
 
-    arenaExportDest.append('<input type="button" id="mdw-copy-export" value="Copy"/>'
+    $(arenaExportDest).append('<input type="button" id="mdw-copy-export" value="Copy" />'
             + '<br />'
             + '<textarea id="mdw-arena-export-contents" cols="60" readonly>'
-            + arenaExportSrc.html()
+            + arenaExportSrc.innerHTML
             + '</textarea>'
     );
 
     // vertically size textbox to contents
-    var exportTextbox = document.getElementById("mdw-arena-export-contents");
+    var exportTextbox = document.getElementById('mdw-arena-export-contents');
     exportTextbox.style.overflow = 'hidden';
     exportTextbox.style.height = 'auto';
     exportTextbox.style.height = exportTextbox.scrollHeight + 'px'; 
