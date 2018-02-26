@@ -4,35 +4,17 @@ local json = require("Dev:Json")
 local p = {}
  
 local totalNumberOfCards = 485
-local totalNumberOfOtherCards = 1
+local totalNumberOfOtherCards = 4
 
 local setNames = {}
 setNames["XLN"]="Ixalan"
 setNames["RIX"]="Rivals of Ixalan"
  
- 
 function p.SingleCard(name)
- 
 	local cards = utils.RecreateTable(mw.loadData("Module:Data/Cards"))
 	for i = 1, totalNumberOfCards do
     	if cards[i].Name == name then return cards[i] end
 	end
-end
- 
-local function PT(card)
-    if ((card.Power == nil) or (card.Toughness == nil)) then
-        if card.Loyalty ~= nil then
-            return "("..card.Loyalty..")"
-        else
-            return ""
-        end
-    else
-        return "("..card.Power.."/"..card.Toughness..")"
-    end
-end
- 
-local function ExpansionSymbol(card)
-    return "{{"..card.SetCode..card.Rarity:sub(1,1).."}}"
 end
  
 local function TableContains(t,item)
@@ -44,19 +26,6 @@ local function TableContains(t,item)
     end
     return false
 end
- 
-local function splitString(inputstr, sep)
-        if sep == nil then
-                sep = "$"
-        end
-        local t={} ; i=1
-        for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
-                t[i] = str
-                i = i + 1
-        end
-        return t
-end
- 
  
 local function ConcatTables(target,source)
     if not source then return end
@@ -110,7 +79,6 @@ local function ParseCardEntry(entry)
 	end
 	return intNumber, name
 end
-
  
 local function SortListIntoTypes(list)
     for _,t in pairs(list) do
@@ -226,7 +194,6 @@ local function WriteTypeLists()
     WriteOtherCards(errors)
 end
 
-
 local function GetAdditionalData(cardList)
     local arenaExport = ""
     local cardlist = {}
@@ -272,7 +239,6 @@ end
 function p.GenerateDeckFromList(frame)
     local args = utils.RecreateTable(frame:getParent().args)
     local list = mw.text.split( args.Deck, "\n" )
- 
     return frame:preprocess(GenerateDeckFromList(args.Name,list))
 end
  
