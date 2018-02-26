@@ -67,17 +67,26 @@ local decklistTemplate = [=[<center><big><big><big>%s</big></big></big></center>
 %s{{Div col end}}]=]
  
 local function ParseCardEntry(entry)
-	local pos1, _ = string.find(entry, "%(")
-	if pos1 ~= nil then
-		entry = string.sub(entry, 1, pos1-2)
+	local pos, _ = string.find(entry, "%(")
+	if pos ~= nil and pos > 2 then
+		entry = string.sub(entry, 1, pos - 2)
 	end
-	local split = mw.text.split(entry," ")
-	local strNumber, name = table.remove(split,1), table.concat(split," ")
-	local intNumber = tonumber(strNumber)
-	if intNumber == nil then
-		intNumber = 0
-	end
-	return intNumber, name
+    local intNumber, cardName
+    pos, _ = string.find(entry, " ")
+    if pos ~= nil and pos > 1 then
+        local strNumber = string.sub(entry, 1, pos - 1)
+        intNumber = tonumber(strNumber)
+        if intNumber ~= nil then
+            cardName = string.sub(entry, pos + 1)
+        else
+            intNumber = 0
+            cardName = entry
+        end
+    else
+        intNumber = 0
+        cardName = entry
+    end
+	return intNumber, cardName
 end
  
 local function SortListIntoTypes(list)
