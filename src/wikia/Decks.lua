@@ -98,17 +98,17 @@ local decklistTemplate = [=[<center><big><big><big>%s</big></big></big></center>
 %s{{Div col end}}]=]
  
 local function ParseCardEntry(entry)
-	local pos1, pos2 = string.find(entry, "%(")
+	local pos1, _ = string.find(entry, "%(")
 	if pos1 ~= nil then
 		entry = string.sub(entry, 1, pos1-2)
 	end
 	local split = mw.text.split(entry," ")
-	local num, name = table.remove(split,1), table.concat(split," ")
-	local intnum = tonumber(num)
-	if intnum == nil then
-		intnum = 0
+	local strNumber, name = table.remove(split,1), table.concat(split," ")
+	local intNumber = tonumber(strNumber)
+	if intNumber == nil then
+		intNumber = 0
 	end
-	return intnum, name
+	return intNumber, name
 end
 
  
@@ -133,11 +133,9 @@ local function SortListIntoTypes(list)
                 table.insert(Planeswalker,{num,card})
             else
                 table.insert(errors,{num,{Name=name}})
-mw.log(num.." "..name)
             end
         else
             table.insert(errors,{num,{Name=name}})
-mw.log(num.." "..name)
         end
     end
 end
@@ -229,23 +227,28 @@ local function WriteTypeLists()
 end
 
 
-local function WriteCardData(list)
-	local arenaExport = ""
-	local outcards = {}
-	Write("<div id='mdw-chartdata' style='display:none' data-chart='");
-	for _,t in pairs(list) do
-		local intnum, name = ParseCardEntry(t)
-		local card = p.SingleCardNonSensitive(name)
-		if card then
-            local carddata={ num=intnum; colors=card.Colors; cmc=card.cmc; types=card.Types}
-			table.insert(outcards, carddata)
-			arenaExport = arenaExport .. intnum .. " " .. card.Name .. " (" .. card.SetCode .. ") " .. string.match(card.CardNumber, "%d+") .. "\n"
-		end
-	end
-	local cardJson = json.encode(outcards)
-	Write(mw.text.encode(cardJson))
-	WriteLine("'></div>");
-	return arenaExport
+local function GetAdditionalData(cardList)
+    local arenaExport = ""
+    local cardlist = {}
+    for _,cardEntry  in pairs(cardList) do
+        local number, name = ParseCardEntry(cardEntry)
+        local card = p.SingleCardNonSensitive(name)
+        if card then
+            local carddata = { num=number; colors=card.Colors; cmc=card.cmc; types=card.Types }
+            table.insert(cardlist, carddata)
+            arenaExport = arenaExport .. number .. " " .. 
+                card.Name .. " (" .. card.SetCode .. ") " ..
+                string.match(card.CardNumber, "%d+") .. "\n"
+        end
+    end
+    local cardJson = json.encode(cardlist)
+    return arenaExport, cardJson
+end
+
+local function CardJsonDataSection(cardJson)
+    return "\n<div id='mdw-chartdata' style='display:none' data-chart='" ..
+    mw.text.encode(cardJson) ..
+    "'></div>"
 end
 
 local function ArenaExportSection(exportText)
@@ -255,16 +258,16 @@ end
 local function GenerateDeckFromList(name,list)
     SortListIntoTypes(list)
     WriteTypeLists()
-    local arenaExport = WriteCardData(list)
-    return string.format(decklistTemplate,name,buffer) .. ArenaExportSection(arenaExport)
+    local arenaExport, cardJson = GetAdditionalData(list)
+    return string.format(decklistTemplate, name, buffer) ..
+        CardJsonDataSection(cardJson) ..
+        ArenaExportSection(arenaExport)
 end
- 
  
 function p.TestGenerateDeckFromList(name,inputList)
     local list = mw.text.split( inputList, "\n" )
     return (GenerateDeckFromList(name,list))
 end
- 
  
 function p.GenerateDeckFromList(frame)
     local args = utils.RecreateTable(frame:getParent().args)
