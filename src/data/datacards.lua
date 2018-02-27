@@ -4312,7 +4312,7 @@ Power="2";
 Toughness="2";
 MultiverseID=439668;
 Sets={
-	{Set="XLN";Rarity="Common";Flavor=[=[The Legion of Dusk sailed from Torrezon in search of glory, riches, and the Immortal Sun.]=];};
+	{Set="XLN";Rarity="Common";CardNumber="999";Flavor=[=[The Legion of Dusk sailed from Torrezon in search of glory, riches, and the Immortal Sun.]=];};
 };
 };
 

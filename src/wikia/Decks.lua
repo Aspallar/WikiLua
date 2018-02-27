@@ -205,6 +205,7 @@ end
 
 local function GetAdditionalData(cardList)
     local arenaExport = ""
+    local alternatives = ""
     local cardlist = {}
     for _,cardEntry  in pairs(cardList) do
         local number, name = ParseCardEntry(cardEntry)
@@ -215,29 +216,40 @@ local function GetAdditionalData(cardList)
             arenaExport = arenaExport .. number .. " " .. 
                 card.Name .. " (" .. card.SetCode .. ") " ..
                 string.match(card.CardNumber, "%d+") .. "\n"
+            if card.Sets ~= nil then
+                for _,set in pairs(card.Sets) do
+                    alternatives = alternatives .. card.Name .. " (" .. set.Set .. ") " .. set.CardNumber .. "\n"
+                end
+            end
         end
     end
     local cardJson = json.encode(cardlist)
-    return arenaExport, cardJson
+    return arenaExport, alternatives, cardJson
 end
 
 local function CardJsonDataSection(cardJson)
     return "\n<div id='mdw-chartdata' style='display:none' data-chart='" ..
     mw.text.encode(cardJson) ..
-    "'></div>"
+    "'></div>\n"
 end
 
-local function ArenaExportSection(exportText)
-	return "\n<pre id='mdw-arena-export-src' style='display:none'>\n" .. exportText .. "</pre>\n"
+local function ArenaExportSection(exportText, id)
+    if exportText == "" then
+        return ""
+    else
+        return "<pre id='mdw-arena-export-src-altenative' style='display:none'>\n" .. exportText .. "</pre>\n"
+    end
+    return "\n<pre id='mdw-arena-export-src' style='display:none'>\n" .. exportText .. "</pre>\n"
 end
 
 local function GenerateDeckFromList(name,list)
     SortListIntoTypes(list)
     WriteTypeLists()
-    local arenaExport, cardJson = GetAdditionalData(list)
+    local arenaExport, altExport, cardJson = GetAdditionalData(list)
     return string.format(decklistTemplate, name, buffer) ..
         CardJsonDataSection(cardJson) ..
-        ArenaExportSection(arenaExport)
+        ArenaExportSection(arenaExport, "mdw-arena-export-src") ..
+        ArenaExportSection(altExport, "mdw-arena-export-src-altenative")
 end
  
 function p.TestGenerateDeckFromList(name,inputList)

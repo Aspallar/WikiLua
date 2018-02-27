@@ -1,6 +1,12 @@
 (function ($) {
     'use strict';
 
+    function sizeTextareaToContents(textarea) {
+        textarea.style.overflow = 'hidden';
+        textarea.style.height = 'auto';
+        textarea.style.height = textarea.scrollHeight + 'px'; 
+    }
+
     function replaceExportCard(newCard) {
         var exportTextbox = document.getElementById('mdw-arena-export-contents');
         var cardLines = exportTextbox.value.split('\n');
@@ -9,15 +15,16 @@
             if (cardLines[k].indexOf(name) !== -1)
                 break; // for k
         }
-        var spacepos = cardLines[k].indexOf(' ');
-        var num = cardLines[k].substring(0, spacepos);
-        var oldCard = cardLines[k].substring(spacepos + 1);
-        cardLines[k] = num + " " + newCard;
+        var oldCard = cardLines[k];
+        var spacepos = oldCard.indexOf(' ');
+        var ammount = oldCard.substring(0, spacepos);
+        var oldCardWithoutAmount = oldCard.substring(spacepos + 1);
+        cardLines[k] = ammount + ' ' + newCard;
         exportTextbox.value = cardLines.join('\n');
-        return oldCard;
+        return oldCardWithoutAmount;
     }
 
-    function onSelectAlernative() 
+    function onSelectAlternative() 
     {
         /* jshint -W040 */ // allow old school jquery use of this
         var option = this.options[this.selectedIndex];
@@ -33,21 +40,15 @@
     }
 
     function setupTextBox(container, contents) {
-        var copyButton = $(
+        var elements = $(
                 '<input type="button" id="mdw-copy-export" value="Copy" />' +
                 '<br />' +
                 '<textarea id="mdw-arena-export-contents" cols="60" readonly>' +
                 contents +
                 '</textarea>'
         );
-        $(container).append(copyButton);
-
-        // vertically size textbox to contents
-        var exportTextbox = document.getElementById('mdw-arena-export-contents');
-        exportTextbox.style.overflow = 'hidden';
-        exportTextbox.style.height = 'auto';
-        exportTextbox.style.height = exportTextbox.scrollHeight + 'px'; 
-
+        $(container).append(elements);
+        sizeTextareaToContents(document.getElementById('mdw-arena-export-contents'));
         $('#mdw-copy-export').click(onClickCopy);
     }
 
@@ -58,7 +59,7 @@
 
         var altSelect = $('<select id="mdw-area-export-select"></select>');
         var altLines = alternativesSrc.innerHTML.split('\n');
-        altSelect.append('<option disabled selected>Select alternative card</option>');
+        altSelect.append('<option disabled selected>Select alternative cards --</option>');
         altLines.sort();
         altLines.forEach(function (line) {
             if (line.length !== 0)
@@ -69,12 +70,11 @@
             'This export contains reprints, you may select alternatives for these using the dropdown below.' +
             'The appropriate card above will be replaced with the selected alternative.' +
             '</p>'
-        );
-        $(container).append(altSelect);
-        altSelect.change(onSelectAlernative);
-    }
+        ).append(altSelect);
+        altSelect.change(onSelectAlternative);
+    }   
 
-    $(document).ready(function () {
+    function initialize () {
         var arenaExportSrc = document.getElementById('mdw-arena-export-src');
         if (arenaExportSrc === null)
             return;
@@ -84,8 +84,8 @@
 
         setupTextBox(arenaExportContainer, arenaExportSrc.innerHTML);
         setupAlternativesDropdown(arenaExportContainer);
-    });
+    }
+
+    $(document).ready(initialize);
 
 })(jQuery);
-
-

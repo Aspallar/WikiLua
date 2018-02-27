@@ -12,6 +12,7 @@ local inputList = [=[
 2 Sure Strike
 2 Fiery Cannonade
 2 Hijack
+1 Legion Conquistador
 3 Charging Monstrosaur
 2 Vance's Blasting Cannons
 1 Rampaging Ferocidon
