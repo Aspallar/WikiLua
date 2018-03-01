@@ -1,6 +1,7 @@
 local data = {
 {Name="Adanto Vanguard";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{W}}";
 cmc=2;
 Colors={"White"};
@@ -8,6 +9,7 @@ Type="Creature — Vampire Soldier";
 Types={"Creature"};
 SubTypes={"Vampire";"Soldier";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[As long as Adanto Vanguard is attacking, it gets +2/+0.<br/>
 Pay 4 life: Adanto Vanguard gains indestructible until end of turn. (Damage and effects that say "destroy" don't destroy it.)]=];
 CardNumber="XLN1";
@@ -18,11 +20,13 @@ MultiverseID=435152;
 
 {Name="Adanto, the First Fort";
 SetCode="XLN";
+Allsets={"XLN"};
 cmc=1;
 Type="Legendary Land";
 SuperTypes={"Legendary"};
 Types={"Land"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[(Transforms from Legion's Landing.)<br/>
 {{Tap}}: Add {{W}} to your mana pool.<br/>
 {{2}}{{W}}, {{Tap}}: Create a 1/1 white Vampire creature token with lifelink.]=];
@@ -32,6 +36,7 @@ MultiverseID=435174;
 
 {Name="Admiral Beckett Brass";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{U}}{{B}}{{R}}";
 cmc=4;
 Colors={"Blue";"Black";"Red";};
@@ -40,6 +45,7 @@ SuperTypes={"Legendary"};
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[Other Pirates you control get +1/+1.<br/>
 At the beginning of your end step, gain control of target nonland permanent controlled by a player who was dealt combat damage by three or more Pirates this turn.]=];
 Flavor=[=["You and your ship will make a fine addition to my fleet."]=];
@@ -59,12 +65,14 @@ Rulings={
 
 {Name="Admiral's Order";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{U}}{{U}}";
 cmc=3;
 Colors={"Blue"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Raid — If you attacked with a creature this turn, you may pay {{U}} rather than pay this spell's mana cost.<br/>
 Counter target spell.]=];
 Flavor=[=["Damn the cannons, mates. Charge!"]=];
@@ -78,12 +86,14 @@ Rulings={
 
 {Name="Aggressive Urge";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Target creature gets +1/+1 until end of turn.<br/>
 Draw a card.]=];
 Flavor=[=["Our lives, our homes, and all our history are at risk. Do not speak to me of peace."]=];
@@ -96,6 +106,7 @@ Rulings={
 
 {Name="Air Elemental";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{U}}{{U}}";
 cmc=5;
 Colors={"Blue"};
@@ -103,6 +114,7 @@ Type="Creature — Elemental";
 Types={"Creature"};
 SubTypes={"Elemental"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Flying]=];
 Flavor=[=[As the ship approached, the jade totem rose high overhead. Power rippled. Eyes of stone glowed and crackled. Out hissed a breath of the world, and a windstorm came alive.]=];
 CardNumber="XLN45";
@@ -113,6 +125,7 @@ MultiverseID=435197;
 
 {Name="Ancient Brontodon";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{6}}{{G}}{{G}}";
 cmc=8;
 Colors={"Green"};
@@ -120,6 +133,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
+Rarities={"Common"};
 Flavor=[=[It is taller than all but the tallest trees, and older than all but the oldest.]=];
 CardNumber="XLN175";
 Power="9";
@@ -129,6 +143,7 @@ MultiverseID=435330;
 
 {Name="Angrath, Minotaur Pirate";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{4}}{{B}}{{R}}";
 cmc=6;
 Colors={"Black";"Red";};
@@ -137,6 +152,7 @@ SuperTypes={"Legendary"};
 Types={"Planeswalker"};
 SubTypes={"Angrath"};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[+2: Angrath, Minotaur Pirate deals 1 damage to target opponent and each creature that player controls.<br/>
 −3: Return target Pirate card from your graveyard to the battlefield.<br/>
 −11: Destroy all creatures target opponent controls. Angrath, Minotaur Pirate deals damage to that player equal to their total power.]=];
@@ -154,6 +170,7 @@ Rulings={
 
 {Name="Angrath, the Flame-Chained";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{B}}{{R}}";
 cmc=5;
 Colors={"Black";"Red";};
@@ -162,6 +179,7 @@ SuperTypes={"Legendary"};
 Types={"Planeswalker"};
 SubTypes={"Angrath"};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[+1: Each opponent discards a card and loses 2 life.<br/>
 −3: Gain control of target creature until end of turn. Untap it. It gains haste until end of turn. Sacrifice it at the beginning of the next end step if it has converted mana cost 3 or less.<br/>
 −8: Each opponent loses life equal to the number of cards in his or her graveyard.]=];
@@ -178,6 +196,7 @@ Rulings={
 
 {Name="Angrath's Ambusher";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{B}}";
 cmc=3;
 Colors={"Black"};
@@ -185,6 +204,7 @@ Type="Creature — Orc Pirate";
 Types={"Creature"};
 SubTypes={"Orc";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Angrath's Ambusher gets +2/+0 as long as you control an Angrath planeswalker.]=];
 Flavor=[=[Orcs have been enemies of the Legion of Dusk since it was formed, and the entire race has been declared anathema.]=];
 CardNumber="RIX202";
@@ -195,12 +215,14 @@ MultiverseID=441896;
 
 {Name="Angrath's Fury";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{B}}{{R}}";
 cmc=5;
 Colors={"Black";"Red";};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Destroy target creature. Angrath's Fury deals 3 damage to target player. You may search your library and/or graveyard for a card named Angrath, Minotaur Pirate, reveal it, and put it into your hand. If you search your library this way, shuffle it.]=];
 CardNumber="RIX204";
 MultiverseID=441898;
@@ -212,6 +234,7 @@ Rulings={
 
 {Name="Angrath's Marauders";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{5}}{{R}}{{R}}";
 cmc=7;
 Colors={"Red"};
@@ -219,6 +242,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[If a source you control would deal damage to a permanent or player, it deals double that damage to that permanent or player instead.]=];
 Flavor=[=[Captain Angrath cares less about treasure than mayhem. If he can't leave Ixalan, he'll burn the plane down.]=];
 CardNumber="XLN132";
@@ -234,6 +258,7 @@ Rulings={
 
 {Name="Anointed Deacon";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{B}}";
 cmc=5;
 Colors={"Black"};
@@ -241,6 +266,7 @@ Type="Creature — Vampire Cleric";
 Types={"Creature"};
 SubTypes={"Vampire";"Cleric";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[At the beginning of combat on your turn, you may have target Vampire get +2/+0 until end of turn.]=];
 Flavor=[=[Inspiration is red as rubies, flowing like honeyed wine.]=];
 CardNumber="XLN89";
@@ -251,12 +277,14 @@ MultiverseID=435242;
 
 {Name="Aquatic Incursion";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{U}}";
 cmc=4;
 Colors={"Blue"};
 Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[When Aquatic Incursion enters the battlefield, create two 1/1 blue Merfolk creature tokens with hexproof. (They can't be the targets of spells or abilities your opponents control.)<br/>
 {{3}}{{U}}: Target Merfolk can't be blocked this turn.]=];
 CardNumber="RIX32";
@@ -268,12 +296,14 @@ Rulings={
 
 {Name="Arcane Adaptation";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{U}}";
 cmc=3;
 Colors={"Blue"};
 Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[As Arcane Adaptation enters the battlefield, choose a creature type.<br/>
 Creatures you control are the chosen type in addition to their other types. The same is true for creature spells you control and creature cards you own that aren't on the battlefield.]=];
 CardNumber="XLN46";
@@ -286,9 +316,11 @@ Rulings={
 
 {Name="Arch of Orazca";
 SetCode="RIX";
+Allsets={"RIX"};
 Type="Land";
 Types={"Land"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 {{Tap}}: Add {{C}} to your mana pool.<br/>
 {{5}}, {{Tap}}: Draw a card. Activate this ability only if you have the city's blessing.]=];
@@ -306,6 +338,7 @@ Rulings={
 
 {Name="Arguel's Blood Fast";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{B}}";
 cmc=2;
 Colors={"Black"};
@@ -313,6 +346,7 @@ Type="Legendary Enchantment";
 SuperTypes={"Legendary"};
 Types={"Enchantment"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[{{1}}{{B}}, Pay 2 life: Draw a card.<br/>
 At the beginning of your upkeep, if you have 5 or less life, you may transform Arguel's Blood Fast.]=];
 Flavor=[=[Arguel's vision led him into the jungles of Ixalan . . .]=];
@@ -327,12 +361,14 @@ Rulings={
 
 {Name="Arterial Flow";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{B}}{{B}}";
 cmc=3;
 Colors={"Black"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Each opponent discards two cards. If you control a Vampire, each opponent loses 2 life and you gain 2 life.]=];
 Flavor=[=["It is impious to admit, but I do enjoy pirate blood. Something in the salty tang of it, the spice of rebellion."]=];
 CardNumber="RIX62";
@@ -346,12 +382,14 @@ Rulings={
 
 {Name="Ashes of the Abhorrent";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{W}}";
 cmc=2;
 Colors={"White"};
 Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Players can't cast spells from graveyards or activate abilities of cards in graveyards.<br/>
 Whenever a creature dies, you gain 1 life.]=];
 Flavor=[=["Let no trace of the vampires' foulness remain."]=];
@@ -366,11 +404,13 @@ Rulings={
 
 {Name="Atzal, Cave of Eternity";
 SetCode="RIX";
+Allsets={"RIX"};
 cmc=3;
 Type="Legendary Land";
 SuperTypes={"Legendary"};
 Types={"Land"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[(Transforms from Journey to Eternity.)<br/>
 {{Tap}}: Add one mana of any color to your mana pool.<br/>
 {{3}}{{B}}{{G}}, {{Tap}}: Return target creature card from your graveyard to the battlefield.]=];
@@ -381,6 +421,7 @@ MultiverseID=439819;
 
 {Name="Atzocan Archer";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{G}}";
 cmc=3;
 Colors={"Green"};
@@ -388,6 +429,7 @@ Type="Creature — Human Archer";
 Types={"Creature"};
 SubTypes={"Human";"Archer";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Reach<br/>
 When Atzocan Archer enters the battlefield, you may have it fight another target creature. (Each deals damage equal to its power to the other.)]=];
 Flavor=[=[His arrows are fletched with feathers from the greatest of the winged dinosaurs.]=];
@@ -404,6 +446,7 @@ Rulings={
 
 {Name="Atzocan Seer";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{G}}{{W}}";
 cmc=3;
 Colors={"White";"Green";};
@@ -411,6 +454,7 @@ Type="Creature — Human Druid";
 Types={"Creature"};
 SubTypes={"Human";"Druid";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[{{Tap}}: Add one mana of any color to your mana pool.<br/>
 Sacrifice Atzocan Seer: Return target Dinosaur card from your graveyard to your hand.]=];
 Flavor=[=[Streams of gold and bright feathers flash in the orb, visions of past and future.]=];
@@ -426,12 +470,14 @@ Rulings={
 
 {Name="Awakened Amalgam";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{4}}";
 cmc=4;
 Type="Artifact Creature — Golem";
 Types={"Artifact";"Creature";};
 SubTypes={"Golem"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Awakened Amalgam's power and toughness are each equal to the number of differently named lands you control.]=];
 Flavor=[=["The fools have done it."<br/>
 —Tishana]=];
@@ -447,12 +493,14 @@ Rulings={
 
 {Name="Axis of Mortality";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{W}}{{W}}";
 cmc=6;
 Colors={"White"};
 Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[At the beginning of your upkeep, you may have two target players exchange life totals.]=];
 Flavor=[=[The Church of Dusk teaches there is no gain without loss, no triumph without sacrifice, no drink of exquisite crimson without a dying gasp.]=];
 CardNumber="XLN3";
@@ -467,11 +515,13 @@ Rulings={
 
 {Name="Azcanta, the Sunken Ruin";
 SetCode="XLN";
+Allsets={"XLN"};
 cmc=2;
 Type="Legendary Land";
 SuperTypes={"Legendary"};
 Types={"Land"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[(Transforms from Search for Azcanta.)<br/>
 {{Tap}}: Add {{U}} to your mana pool.<br/>
 {{2}}{{U}}, {{Tap}}: Look at the top four cards of your library. You may reveal a noncreature, nonland card from among them and put it into your hand. Put the rest on the bottom of your library in any order.]=];
@@ -481,6 +531,7 @@ MultiverseID=435227;
 
 {Name="Azor, the Lawbringer";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{W}}{{W}}{{U}}{{U}}";
 cmc=6;
 Colors={"White";"Blue";};
@@ -489,6 +540,7 @@ SuperTypes={"Legendary"};
 Types={"Creature"};
 SubTypes={"Sphinx"};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[Flying<br/>
 When Azor, the Lawbringer enters the battlefield, each opponent can't cast instant or sorcery spells during that player's next turn.<br/>
 Whenever Azor attacks, you may pay {{X}}{{W}}{{U}}{{U}}. If you do, you gain X life and draw X cards.]=];
@@ -503,12 +555,14 @@ Rulings={
 
 {Name="Azor's Gateway";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}";
 cmc=2;
 Type="Legendary Artifact";
 SuperTypes={"Legendary"};
 Types={"Artifact"};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[{{1}}, {{Tap}}: Draw a card, then exile a card from your hand. If cards with five or more different converted mana costs are exiled with Azor's Gateway, you gain 5 life, untap Azor's Gateway, and transform it.]=];
 CardNumber="RIX176a";
 MultiverseID=439838;
@@ -523,12 +577,14 @@ Rulings={
 
 {Name="Baffling End";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{W}}";
 cmc=2;
 Colors={"White"};
 Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[When Baffling End enters the battlefield, exile target creature an opponent controls with converted mana cost 3 or less.<br/>
 When Baffling End leaves the battlefield, target opponent creates a 3/3 green Dinosaur creature token with trample.]=];
 CardNumber="RIX1";
@@ -541,6 +597,7 @@ Rulings={
 
 {Name="Belligerent Brontodon";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{5}}{{G}}{{W}}";
 cmc=7;
 Colors={"White";"Green";};
@@ -548,6 +605,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Each creature you control assigns combat damage equal to its toughness rather than its power.]=];
 Flavor=[=[Predators try to separate the young, old, or injured from the rest of the herd. The alternative is crushing defeat.]=];
 CardNumber="XLN218";
@@ -561,6 +619,7 @@ Rulings={
 
 {Name="Bellowing Aegisaur";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{5}}{{W}}";
 cmc=6;
 Colors={"White"};
@@ -568,6 +627,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Enrage — Whenever Bellowing Aegisaur is dealt damage, put a +1/+1 counter on each other creature you control.]=];
 Flavor=[=[Its roaring challenge is punctuated by the slam of its tail on the earth, rousing the herds of the plains.]=];
 CardNumber="XLN4";
@@ -583,6 +643,7 @@ Rulings={
 
 {Name="Bishop of Binding";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{W}}";
 cmc=4;
 Colors={"White"};
@@ -590,6 +651,7 @@ Type="Creature — Vampire Cleric";
 Types={"Creature"};
 SubTypes={"Vampire";"Cleric";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[When Bishop of Binding enters the battlefield, exile target creature an opponent controls until Bishop of Binding leaves the battlefield.<br/>
 Whenever Bishop of Binding attacks, target Vampire gets +X/+X until end of turn, where X is the power of the exiled card.]=];
 CardNumber="RIX2";
@@ -608,6 +670,7 @@ Rulings={
 
 {Name="Bishop of Rebirth";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{W}}{{W}}";
 cmc=5;
 Colors={"White"};
@@ -615,6 +678,7 @@ Type="Creature — Vampire Cleric";
 Types={"Creature"};
 SubTypes={"Vampire";"Cleric";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Vigilance<br/>
 Whenever Bishop of Rebirth attacks, you may return target creature card with converted mana cost 3 or less from your graveyard to the battlefield.]=];
 Flavor=[=["In the death of the foe lies the resurrection of the faithful."]=];
@@ -631,6 +695,7 @@ Rulings={
 
 {Name="Bishop of the Bloodstained";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{B}}{{B}}";
 cmc=5;
 Colors={"Black"};
@@ -638,6 +703,7 @@ Type="Creature — Vampire Cleric";
 Types={"Creature"};
 SubTypes={"Vampire";"Cleric";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[When Bishop of the Bloodstained enters the battlefield, target opponent loses 1 life for each Vampire you control.]=];
 Flavor=[=["They shall give us all they have as penance for their resistance. Their ships. Their goods. Their rebellious blood."]=];
 CardNumber="XLN91";
@@ -651,6 +717,7 @@ Rulings={
 
 {Name="Bishop's Soldier";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{W}}";
 cmc=2;
 Colors={"White"};
@@ -658,6 +725,7 @@ Type="Creature — Vampire Soldier";
 Types={"Creature"};
 SubTypes={"Vampire";"Soldier";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Lifelink]=];
 Flavor=[=[Vampires, the noble class of old Torrezon, are guided by their dual loyalties to church and crown.]=];
 CardNumber="XLN6";
@@ -668,12 +736,14 @@ MultiverseID=435157;
 
 {Name="Blazing Hope";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{W}}";
 cmc=1;
 Colors={"White"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Exile target creature with power greater than or equal to your life total.]=];
 Flavor=[=["No shadow remains for you to hide in."<br/>
 —Caparocti Sunborn]=];
@@ -683,6 +753,7 @@ MultiverseID=439660;
 
 {Name="Blight Keeper";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{B}}";
 cmc=1;
 Colors={"Black"};
@@ -690,6 +761,7 @@ Type="Creature — Bat Imp";
 Types={"Creature"};
 SubTypes={"Bat";"Imp";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Flying<br/>
 {{7}}{{B}}, {{Tap}}, Sacrifice Blight Keeper: Target opponent loses 4 life and you gain 4 life.]=];
 Flavor=[=[It withers fruit and flesh alike.]=];
@@ -701,12 +773,14 @@ MultiverseID=435246;
 
 {Name="Blinding Fog";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{G}}";
 cmc=3;
 Colors={"Green"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Prevent all damage that would be dealt to creatures this turn. Creatures you control gain hexproof until end of turn. (They can't be the targets of spells or abilities your opponents control.)]=];
 Flavor=[=["I see you, shiny soldiers, but you won't see me."]=];
 CardNumber="XLN177";
@@ -719,12 +793,14 @@ Rulings={
 
 {Name="Blood Sun";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{R}}";
 cmc=3;
 Colors={"Red"};
 Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[When Blood Sun enters the battlefield, draw a card.<br/>
 All lands lose all abilities except mana abilities.]=];
 Flavor=[=[As the struggle raged for control of the Immortal Sun, the world grew dark under a blood-red sky.]=];
@@ -742,6 +818,7 @@ Rulings={
 
 {Name="Bloodcrazed Paladin";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{B}}";
 cmc=2;
 Colors={"Black"};
@@ -749,6 +826,7 @@ Type="Creature — Vampire Knight";
 Types={"Creature"};
 SubTypes={"Vampire";"Knight";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Flash<br/>
 Bloodcrazed Paladin enters the battlefield with a +1/+1 counter on it for each creature that died this turn.]=];
 Flavor=[=[When a paladin undertaking the Blood Fast finally gives in to hunger, the violence is sudden, explosive, and complete.]=];
@@ -764,6 +842,7 @@ Rulings={
 
 {Name="Blossom Dryad";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{G}}";
 cmc=3;
 Colors={"Green"};
@@ -771,6 +850,7 @@ Type="Creature — Dryad";
 Types={"Creature"};
 SubTypes={"Dryad"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[{{Tap}}: Untap target land.]=];
 Flavor=[=[The only force on Ixalan not interested in finding the golden city is Ixalan itself.]=];
 CardNumber="XLN178";
@@ -781,12 +861,14 @@ MultiverseID=435333;
 
 {Name="Bombard";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{R}}";
 cmc=3;
 Colors={"Red"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Bombard deals 4 damage to target creature.]=];
 Flavor=[=["Want to sink a ship? Blow a hole in the hull. Want to kill a regisaur? Same answer."<br/>
 —Captain Brandis Thorn]=];
@@ -796,6 +878,7 @@ MultiverseID=439750;
 
 {Name="Bonded Horncrest";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{R}}";
 cmc=4;
 Colors={"Red"};
@@ -803,6 +886,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Bonded Horncrest can't attack or block alone.]=];
 Flavor=[=["You don't tame a horncrest. You convince it that it's easier to destroy something else."<br/>
 —Amautl, knight of Atzocan]=];
@@ -821,12 +905,14 @@ Rulings={
 
 {Name="Boneyard Parley";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{5}}{{B}}{{B}}";
 cmc=7;
 Colors={"Black"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[Exile up to five target creature cards from graveyards. An opponent separates those cards into two piles. Put all cards from the pile of your choice onto the battlefield under your control and the rest into their owners' graveyards.]=];
 CardNumber="XLN94";
 MultiverseID=435248;
@@ -841,12 +927,14 @@ Rulings={
 
 {Name="Brass's Bounty";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{6}}{{R}}";
 cmc=7;
 Colors={"Red"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[For each land you control, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
 Flavor=[=["Why squabble for trinkets when we could be living large off all this gold?"<br/>
 —Admiral Beckett Brass]=];
@@ -856,6 +944,7 @@ MultiverseID=439751;
 
 {Name="Brazen Buccaneers";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{R}}";
 cmc=4;
 Colors={"Red"};
@@ -863,6 +952,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Haste<br/>
 When Brazen Buccaneers enters the battlefield, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)]=];
 CardNumber="XLN134";
@@ -878,6 +968,7 @@ Rulings={
 
 {Name="Brazen Freebooter";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{R}}";
 cmc=4;
 Colors={"Red"};
@@ -885,6 +976,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[When Brazen Freebooter enters the battlefield, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
 Flavor=[=[Finders, keepers.]=];
 CardNumber="RIX95";
@@ -895,12 +987,14 @@ MultiverseID=439752;
 
 {Name="Bright Reprisal";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{W}}";
 cmc=5;
 Colors={"White"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Destroy target attacking creature.<br/>
 Draw a card.]=];
 Flavor=[=[Vampires know blood and the systems that carry it. And they know exactly where to strike to set it free.]=];
@@ -913,12 +1007,14 @@ Rulings={
 
 {Name="Buccaneer's Bravado";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{R}}";
 cmc=2;
 Colors={"Red"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Choose one —<br/>
 • Target creature gets +1/+1 and gains first strike until end of turn.<br/>
 • Target Pirate gets +1/+1 and gains double strike until end of turn.]=];
@@ -929,6 +1025,7 @@ MultiverseID=439753;
 
 {Name="Burning Sun's Avatar";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{R}}{{R}}{{R}}";
 cmc=6;
 Colors={"Red"};
@@ -936,6 +1033,7 @@ Type="Creature — Dinosaur Avatar";
 Types={"Creature"};
 SubTypes={"Dinosaur";"Avatar";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[When Burning Sun's Avatar enters the battlefield, it deals 3 damage to target opponent and 3 damage to up to one target creature.]=];
 Flavor=[=["Tilonalli's searing rays carry the spark of life's eventual destruction as all light fades."<br/>
 —Chitlati, Lightning Rider]=];
@@ -951,6 +1049,7 @@ Rulings={
 
 {Name="Cacophodon";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{G}}";
 cmc=4;
 Colors={"Green"};
@@ -958,6 +1057,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Enrage — Whenever Cacophodon is dealt damage, untap target permanent.]=];
 Flavor=[=[When a cacophodon is angry, the whole jungle knows.]=];
 CardNumber="RIX123";
@@ -972,12 +1072,14 @@ Rulings={
 
 {Name="Call to the Feast";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{W}}{{B}}";
 cmc=4;
 Colors={"White";"Black";};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Create three 1/1 white Vampire creature tokens with lifelink.]=];
 Flavor=[=[By the law of church and crown, vampires feed only on the blood of the guilty—those declared heretics, rebels, or enemies of war.]=];
 CardNumber="XLN219";
@@ -986,6 +1088,7 @@ MultiverseID=435375;
 
 {Name="Canal Monitor";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{4}}{{B}}";
 cmc=5;
 Colors={"Black"};
@@ -993,6 +1096,7 @@ Type="Creature — Lizard";
 Types={"Creature"};
 SubTypes={"Lizard"};
 Rarity="Common";
+Rarities={"Common"};
 Flavor=[=[The first goblin tried to swim the canal. The second built a raft. The last and craftiest goblin launched herself from a firecannon and soared over the canal, trailing smoke. All were eaten, but only one was cooked.]=];
 CardNumber="RIX63";
 Power="5";
@@ -1002,12 +1106,14 @@ MultiverseID=439720;
 
 {Name="Cancel";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{U}}{{U}}";
 cmc=3;
 Colors={"Blue"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Counter target spell.]=];
 Flavor=[=["Hold your fire, obviously."<br/>
 —Captain Brandis Thorn]=];
@@ -1017,6 +1123,7 @@ MultiverseID=435199;
 
 {Name="Captain Lannery Storm";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{R}}";
 cmc=3;
 Colors={"Red"};
@@ -1025,6 +1132,7 @@ SuperTypes={"Legendary"};
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Haste<br/>
 Whenever Captain Lannery Storm attacks, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."<br/>
 Whenever you sacrifice a Treasure, Captain Lannery Storm gets +1/+0 until end of turn.]=];
@@ -1041,12 +1149,14 @@ Rulings={
 
 {Name="Captain's Hook";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}";
 cmc=3;
 Type="Artifact — Equipment";
 Types={"Artifact"};
 SubTypes={"Equipment"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Equipped creature gets +2/+0, has menace, and is a Pirate in addition to its other creature types.<br/>
 Whenever Captain's Hook becomes unattached from a permanent, destroy that permanent.<br/>
 Equip {{1}}]=];
@@ -1059,6 +1169,7 @@ Rulings={
 
 {Name="Captivating Crew";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{R}}";
 cmc=4;
 Colors={"Red"};
@@ -1066,6 +1177,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[{{3}}{{R}}: Gain control of target creature an opponent controls until end of turn. Untap that creature. It gains haste until end of turn. Activate this ability only any time you could cast a sorcery.]=];
 Flavor=[=["We sail. We plunder. Then we dance."]=];
 CardNumber="XLN137";
@@ -1079,6 +1191,7 @@ Rulings={
 
 {Name="Carnage Tyrant";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{G}}{{G}}";
 cmc=6;
 Colors={"Green"};
@@ -1086,6 +1199,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[Carnage Tyrant can't be countered.<br/>
 Trample, hexproof]=];
 Flavor=[=[Sun Empire commanders are well versed in advanced martial strategy. Still, the correct maneuver is usually to deploy the giant, implacable death lizard.]=];
@@ -1097,6 +1211,7 @@ MultiverseID=435334;
 
 {Name="Castaway's Despair";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{U}}";
 cmc=4;
 Colors={"Blue"};
@@ -1104,6 +1219,7 @@ Type="Enchantment — Aura";
 Types={"Enchantment"};
 SubTypes={"Aura"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Enchant creature<br/>
 When Castaway's Despair enters the battlefield, tap enchanted creature.<br/>
 Enchanted creature doesn't untap during its controller's untap step.]=];
@@ -1116,6 +1232,7 @@ Rulings={
 
 {Name="Champion of Dusk";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{B}}{{B}}";
 cmc=5;
 Colors={"Black"};
@@ -1123,6 +1240,7 @@ Type="Creature — Vampire Knight";
 Types={"Creature"};
 SubTypes={"Vampire";"Knight";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[When Champion of Dusk enters the battlefield, you draw X cards and you lose X life, where X is the number of Vampires you control.]=];
 Flavor=[=["Drench these golden streets in the blood of our enemies."]=];
 CardNumber="RIX64";
@@ -1136,6 +1254,7 @@ Rulings={
 
 {Name="Charging Monstrosaur";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{R}}";
 cmc=5;
 Colors={"Red"};
@@ -1143,6 +1262,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Trample, haste]=];
 Flavor=[=["I knew I should have stayed with the boat. Always stay with the boat!"]=];
 CardNumber="XLN138";
@@ -1153,6 +1273,7 @@ MultiverseID=435292;
 
 {Name="Charging Tuskodon";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{R}}{{R}}";
 cmc=5;
 Colors={"Red"};
@@ -1160,6 +1281,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Trample<br/>
 If Charging Tuskodon would deal combat damage to a player, it deals double that damage to that player instead.]=];
 Flavor=[=[It doesn't hold grudges. It runs them down and impales them.]=];
@@ -1175,12 +1297,14 @@ Rulings={
 
 {Name="Chart a Course";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{U}}";
 cmc=2;
 Colors={"Blue"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Draw two cards. Then discard a card unless you attacked with a creature this turn.]=];
 Flavor=[=[While other pirates prowl for treasure, Captain Parrish plunders secrets.]=];
 CardNumber="XLN48";
@@ -1189,6 +1313,7 @@ MultiverseID=435200;
 
 {Name="Cherished Hatchling";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
@@ -1196,6 +1321,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[When Cherished Hatchling dies, you may cast Dinosaur spells this turn as though they had flash, and whenever you cast a Dinosaur spell this turn, it gains "When this creature enters the battlefield, you may have it fight another target creature."]=];
 Flavor=[=[Despite its appearance, it's anything but defenseless.]=];
 CardNumber="RIX124";
@@ -1213,9 +1339,11 @@ Rulings={
 
 {Name="Cinder Barrens";
 SetCode="RIX";
+Allsets={"RIX"};
 Type="Land";
 Types={"Land"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Cinder Barrens enters the battlefield tapped.<br/>
 {{Tap}}: Add {{B}} or {{R}} to your mana pool.]=];
 Flavor=[=["Burn their fleet to the waterline, and sink whatever's left."<br/>
@@ -1226,12 +1354,14 @@ MultiverseID=441899;
 
 {Name="Cleansing Ray";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{W}}";
 cmc=2;
 Colors={"White"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Choose one —<br/>
 • Destroy target Vampire.<br/>
 • Destroy target enchantment.]=];
@@ -1243,12 +1373,14 @@ MultiverseID=439661;
 
 {Name="Cobbled Wings";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}";
 cmc=2;
 Type="Artifact — Equipment";
 Types={"Artifact"};
 SubTypes={"Equipment"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Equipped creature has flying.<br/>
 Equip {{1}} ({{1}}: Attach to target creature you control. Equip only as a sorcery.)]=];
 Flavor=[=[Flotsam held together by optimism.]=];
@@ -1258,6 +1390,7 @@ MultiverseID=435389;
 
 {Name="Colossal Dreadmaw";
 SetCode="RIX";
+Allsets={"RIX";"XLN";};
 Manacost="{{4}}{{G}}{{G}}";
 cmc=6;
 Colors={"Green"};
@@ -1265,6 +1398,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Trample]=];
 Flavor=[=["Remember when it was the most terrifying thing you'd ever seen?"<br/>
 —Captain Lannery Storm]=];
@@ -1272,16 +1406,21 @@ CardNumber="RIX125";
 Power="6";
 Toughness="6";
 MultiverseID=439782;
+Sets={
+{Set="XLN";Rarity="Common";CardNumber="180";Flavor=[=[If you feel the ground quake, run. If you hear its bellow, flee. If you see its teeth, it's too late.]=];};
+};
 };
 
 {Name="Commune with Dinosaurs";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{G}}";
 cmc=1;
 Colors={"Green"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Look at the top five cards of your library. You may reveal a Dinosaur or land card from among them and put it into your hand. Put the rest on the bottom of your library in any order.]=];
 CardNumber="XLN181";
 MultiverseID=435336;
@@ -1292,10 +1431,12 @@ Rulings={
 
 {Name="Conqueror's Foothold";
 SetCode="XLN";
+Allsets={"XLN"};
 cmc=4;
 Type="Land";
 Types={"Land"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[(Transforms from Conqueror's Galleon.)<br/>
 {{Tap}}: Add {{C}} to your mana pool.<br/>
 {{2}}, {{Tap}}: Draw a card, then discard a card.<br/>
@@ -1307,12 +1448,14 @@ MultiverseID=435391;
 
 {Name="Conqueror's Galleon";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}";
 cmc=4;
 Type="Artifact — Vehicle";
 Types={"Artifact"};
 SubTypes={"Vehicle"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[When Conqueror's Galleon attacks, exile it at end of combat, then return it to the battlefield transformed under your control.<br/>
 Crew 4 (Tap any number of creatures you control with total power 4 or more: This Vehicle becomes an artifact creature until end of turn.)]=];
 CardNumber="XLN234a";
@@ -1340,12 +1483,14 @@ Rulings={
 
 {Name="Contract Killing";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{B}}{{B}}";
 cmc=5;
 Colors={"Black"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Destroy target creature. Create two colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
 Flavor=[=[For a price, the floating city of High and Dry offers all the amenities a pirate could want: rest, recreation, and revenge.]=];
 CardNumber="XLN95";
@@ -1357,12 +1502,14 @@ Rulings={
 
 {Name="Costly Plunder";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{B}}";
 cmc=2;
 Colors={"Black"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[As an additional cost to cast Costly Plunder, sacrifice an artifact or creature.<br/>
 Draw two cards.]=];
 Flavor=[=[No lock of iron is a match for Vraska's will of stone.]=];
@@ -1375,6 +1522,7 @@ Rulings={
 
 {Name="Crafty Cutpurse";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{U}}";
 cmc=4;
 Colors={"Blue"};
@@ -1382,6 +1530,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Flash<br/>
 When Crafty Cutpurse enters the battlefield, each token that would be created under an opponent's control this turn is created under your control instead.]=];
 Flavor=[=[Possession is eleven-tenths of the pirate code.]=];
@@ -1402,12 +1551,14 @@ Rulings={
 
 {Name="Crash the Ramparts";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{G}}";
 cmc=3;
 Colors={"Green"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Target creature gets +3/+3 and gains trample until end of turn.]=];
 Flavor=[=[The Legion's conquistadors could endure Ixalan's sun. Their forts could withstand a charging ceratops. But nothing can stop a ceratops strengthened by the sun.]=];
 CardNumber="XLN182";
@@ -1416,12 +1567,14 @@ MultiverseID=435337;
 
 {Name="Crashing Tide";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{U}}";
 cmc=3;
 Colors={"Blue"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Crashing Tide has flash as long as you control a Merfolk.<br/>
 Return target creature to its owner's hand.<br/>
 Draw a card.]=];
@@ -1435,6 +1588,7 @@ Rulings={
 
 {Name="Crested Herdcaller";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{G}}{{G}}";
 cmc=5;
 Colors={"Green"};
@@ -1442,6 +1596,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Trample<br/>
 When Crested Herdcaller enters the battlefield, create a 3/3 green Dinosaur creature token with trample.]=];
 Flavor=[=["Our survival, like theirs, depends on our ability to work together."<br/>
@@ -1454,12 +1609,14 @@ MultiverseID=439783;
 
 {Name="Crushing Canopy";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{G}}";
 cmc=3;
 Colors={"Green"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Choose one —<br/>
 • Destroy target creature with flying.<br/>
 • Destroy target enchantment.]=];
@@ -1471,6 +1628,7 @@ MultiverseID=435338;
 
 {Name="Curious Obsession";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{U}}";
 cmc=1;
 Colors={"Blue"};
@@ -1478,6 +1636,7 @@ Type="Enchantment — Aura";
 Types={"Enchantment"};
 SubTypes={"Aura"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Enchant creature<br/>
 Enchanted creature gets +1/+1 and has "Whenever this creature deals combat damage to a player, you may draw a card."<br/>
 At the beginning of your end step, if you didn't attack with a creature this turn, sacrifice Curious Obsession.]=];
@@ -1490,6 +1649,7 @@ Rulings={
 
 {Name="Daring Buccaneer";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{R}}";
 cmc=1;
 Colors={"Red"};
@@ -1497,6 +1657,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[As an additional cost to cast Daring Buccaneer, reveal a Pirate card from your hand or pay {{2}}.]=];
 Flavor=[=[No ancient lore ties the pirates of the Brazen Coalition to the Immortal Sun. But it's a powerful ancient artifact in a city of gold—what's not to covet?]=];
 CardNumber="RIX98";
@@ -1510,6 +1671,7 @@ Rulings={
 
 {Name="Daring Saboteur";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{U}}";
 cmc=2;
 Colors={"Blue"};
@@ -1517,6 +1679,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[{{2}}{{U}}: Daring Saboteur can't be blocked this turn.<br/>
 Whenever Daring Saboteur deals combat damage to a player, you may draw a card. If you do, discard a card.]=];
 Flavor=[=["They'll never see me coming."]=];
@@ -1531,12 +1694,14 @@ Rulings={
 
 {Name="Dark Inquiry";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{B}}";
 cmc=3;
 Colors={"Black"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Target opponent reveals his or her hand. You choose a nonland card from it. That player discards that card.]=];
 Flavor=[=["Your mind is no longer yours to waste."]=];
 CardNumber="RIX65";
@@ -1545,12 +1710,14 @@ MultiverseID=439722;
 
 {Name="Dark Nourishment";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{B}}";
 cmc=5;
 Colors={"Black"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Dark Nourishment deals 3 damage to target creature or player. You gain 3 life.]=];
 Flavor=[=[Demons lurk in the shadows of ancient ruins, spreading plague and corruption across the land.]=];
 CardNumber="XLN97";
@@ -1562,6 +1729,7 @@ Rulings={
 
 {Name="Dead Man's Chest";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{B}}";
 cmc=2;
 Colors={"Black"};
@@ -1569,6 +1737,7 @@ Type="Enchantment — Aura";
 Types={"Enchantment"};
 SubTypes={"Aura"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Enchant creature an opponent controls<br/>
 When enchanted creature dies, exile cards equal to its power from the top of its owner's library. You may cast nonland cards from among them for as long as they remain exiled, and you may spend mana as though it were mana of any type to cast those spells.]=];
 CardNumber="RIX66";
@@ -1586,6 +1755,7 @@ Rulings={
 
 {Name="Deadeye Brawler";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{U}}{{B}}";
 cmc=4;
 Colors={"Blue";"Black";};
@@ -1593,6 +1763,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Deathtouch<br/>
 Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 Whenever Deadeye Brawler deals combat damage to a player, if you have the city's blessing, draw a card.]=];
@@ -1613,6 +1784,7 @@ Rulings={
 
 {Name="Deadeye Plunderers";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{U}}{{B}}";
 cmc=5;
 Colors={"Blue";"Black";};
@@ -1620,6 +1792,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Deadeye Plunderers gets +1/+1 for each artifact you control.<br/>
 {{2}}{{U}}{{B}}: Create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
 Flavor=[=["Keep your friends close and your enemies within range."]=];
@@ -1634,6 +1807,7 @@ Rulings={
 
 {Name="Deadeye Quartermaster";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{U}}";
 cmc=4;
 Colors={"Blue"};
@@ -1641,6 +1815,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[When Deadeye Quartermaster enters the battlefield, you may search your library for an Equipment or Vehicle card, reveal it, put it into your hand, then shuffle your library.]=];
 Flavor=[=["Welcome aboard, mate! You're going to need this."]=];
 CardNumber="XLN50";
@@ -1651,6 +1826,7 @@ MultiverseID=435202;
 
 {Name="Deadeye Rig-Hauler";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{U}}";
 cmc=4;
 Colors={"Blue"};
@@ -1658,6 +1834,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Raid — When Deadeye Rig-Hauler enters the battlefield, if you attacked with a creature this turn, you may return target creature to its owner's hand.]=];
 Flavor=[=["Up you go, you soggy rat."]=];
 CardNumber="RIX36";
@@ -1672,6 +1849,7 @@ Rulings={
 
 {Name="Deadeye Tormentor";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{B}}";
 cmc=3;
 Colors={"Black"};
@@ -1679,6 +1857,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Raid — When Deadeye Tormentor enters the battlefield, if you attacked with a creature this turn, target opponent discards a card.]=];
 Flavor=[=[Despite their noble heritage, the pirates of the Deadeye Fleet are known for underhanded tactics and despicable trickery.]=];
 CardNumber="XLN98";
@@ -1693,6 +1872,7 @@ Rulings={
 
 {Name="Deadeye Tracker";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{B}}";
 cmc=1;
 Colors={"Black"};
@@ -1700,6 +1880,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[{{1}}{{B}}, {{Tap}}: Exile two target cards from an opponent's graveyard. Deadeye Tracker explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)]=];
 CardNumber="XLN99";
 Power="1";
@@ -1717,6 +1898,7 @@ Rulings={
 
 {Name="Deathgorge Scavenger";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{G}}";
 cmc=3;
 Colors={"Green"};
@@ -1724,6 +1906,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Whenever Deathgorge Scavenger enters the battlefield or attacks, you may exile target card from a graveyard. If a creature card is exiled this way, you gain 2 life. If a noncreature card is exiled this way, Deathgorge Scavenger gets +1/+1 until end of turn.]=];
 CardNumber="XLN184";
 Power="3";
@@ -1736,6 +1919,7 @@ Rulings={
 
 {Name="Deathless Ancient";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{B}}{{B}}";
 cmc=6;
 Colors={"Black"};
@@ -1743,6 +1927,7 @@ Type="Creature — Vampire Knight";
 Types={"Creature"};
 SubTypes={"Vampire";"Knight";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Flying<br/>
 Tap three untapped Vampires you control: Return Deathless Ancient from your graveyard to your hand.]=];
 Flavor=[=["Ancient one, we have reached the promised shore. The Immortal Sun is near. Drink and awake."]=];
@@ -1759,6 +1944,7 @@ Rulings={
 
 {Name="Deeproot Champion";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
@@ -1766,6 +1952,7 @@ Type="Creature — Merfolk Shaman";
 Types={"Creature"};
 SubTypes={"Merfolk";"Shaman";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Whenever you cast a noncreature spell, put a +1/+1 counter on Deeproot Champion.]=];
 Flavor=[=["No good will come from what you seek. Turn back now or suffer an ignoble death far from your home."]=];
 CardNumber="XLN185";
@@ -1779,6 +1966,7 @@ Rulings={
 
 {Name="Deeproot Elite";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
@@ -1786,6 +1974,7 @@ Type="Creature — Merfolk Warrior";
 Types={"Creature"};
 SubTypes={"Merfolk";"Warrior";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Whenever another Merfolk enters the battlefield under your control, put a +1/+1 counter on target Merfolk you control.]=];
 Flavor=[=["You think I stand alone? I have the forest at my call, the waters at my back. I outnumber you."]=];
 CardNumber="RIX127";
@@ -1799,6 +1988,7 @@ Rulings={
 
 {Name="Deeproot Warrior";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
@@ -1806,6 +1996,7 @@ Type="Creature — Merfolk Warrior";
 Types={"Creature"};
 SubTypes={"Merfolk";"Warrior";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Whenever Deeproot Warrior becomes blocked, it gets +1/+1 until end of turn.]=];
 Flavor=[=["We breathe from our soul and bones to give strength to the jungle. The jungle breathes from its roots and rivers to give strength to us."<br/>
 —Shaper Falani]=];
@@ -1820,12 +2011,14 @@ Rulings={
 
 {Name="Deeproot Waters";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{U}}";
 cmc=3;
 Colors={"Blue"};
 Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Whenever you cast a Merfolk spell, create a 1/1 blue Merfolk creature token with hexproof. (A creature with hexproof can't be the target of spells or abilities your opponents control.)]=];
 Flavor=[=[A visit to the Deeproot Tree and its ancient spring replenishes a merfolk's connection to nature.]=];
 CardNumber="XLN51";
@@ -1838,12 +2031,14 @@ Rulings={
 
 {Name="Demolish";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{R}}";
 cmc=4;
 Colors={"Red"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Destroy target artifact or land.]=];
 Flavor=[=[What took months for human hands to carve took just seconds for the dinosaur's tail to ruin.]=];
 CardNumber="XLN139";
@@ -1852,12 +2047,14 @@ MultiverseID=435293;
 
 {Name="Demystify";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{W}}";
 cmc=1;
 Colors={"White"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Destroy target enchantment.]=];
 Flavor=[=["The River Heralds carve spells into jade, hoping to steer us from our course. But what right do they have to keep us from that which once was ours?"]=];
 CardNumber="XLN8";
@@ -1866,12 +2063,14 @@ MultiverseID=435159;
 
 {Name="Depths of Desire";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{U}}";
 cmc=3;
 Colors={"Blue"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Return target creature to its owner's hand. Create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
 Flavor=[=[Pockets full of gold, lungs full of brine.]=];
 CardNumber="XLN52";
@@ -1880,6 +2079,7 @@ MultiverseID=435204;
 
 {Name="Desperate Castaways";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{B}}";
 cmc=2;
 Colors={"Black"};
@@ -1887,6 +2087,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Desperate Castaways can't attack unless you control an artifact.]=];
 Flavor=[=[A pirate crew without a ship is a crew that will do anything to get one.]=];
 CardNumber="XLN101";
@@ -1900,6 +2101,7 @@ Rulings={
 
 {Name="Dinosaur Hunter";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{B}}";
 cmc=2;
 Colors={"Black"};
@@ -1907,6 +2109,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Whenever Dinosaur Hunter deals damage to a Dinosaur, destroy that creature.]=];
 Flavor=[=["Aye, the foul beast chomped me, but I got away. You'd best believe when I find it again, it won't get away so easy."]=];
 CardNumber="RIX67";
@@ -1920,12 +2123,14 @@ Rulings={
 
 {Name="Dinosaur Stampede";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{R}}";
 cmc=3;
 Colors={"Red"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Attacking creatures get +2/+0 until end of turn. Dinosaurs you control gain trample until end of turn.]=];
 Flavor=[=[If you're in the way of a ceratops charge and you're made of mere flesh and bone, then you're not really in the way.]=];
 CardNumber="XLN140";
@@ -1937,6 +2142,7 @@ Rulings={
 
 {Name="Dire Fleet Captain";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{B}}{{R}}";
 cmc=2;
 Colors={"Black";"Red";};
@@ -1944,6 +2150,7 @@ Type="Creature — Orc Pirate";
 Types={"Creature"};
 SubTypes={"Orc";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Whenever Dire Fleet Captain attacks, it gets +1/+1 until end of turn for each other attacking Pirate.]=];
 Flavor=[=[Orcs are happiest under captains who steer toward battle. Orcs of the Dire Fleet are downright jovial.]=];
 CardNumber="XLN221";
@@ -1959,6 +2166,7 @@ Rulings={
 
 {Name="Dire Fleet Daredevil";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{R}}";
 cmc=2;
 Colors={"Red"};
@@ -1966,6 +2174,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[First strike<br/>
 When Dire Fleet Daredevil enters the battlefield, exile target instant or sorcery card from an opponent's graveyard. You may cast that card this turn, and you may spend mana as though it were mana of any type to cast that spell. If that card would be put into a graveyard this turn, exile it instead.]=];
 CardNumber="RIX99";
@@ -1980,6 +2189,7 @@ Rulings={
 
 {Name="Dire Fleet Hoarder";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{B}}";
 cmc=2;
 Colors={"Black"};
@@ -1987,6 +2197,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[When Dire Fleet Hoarder dies, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
 Flavor=[=[Among the pirates of the Brazen Coalition, the only thing more dangerous than failure is success.]=];
 CardNumber="XLN102";
@@ -1997,6 +2208,7 @@ MultiverseID=435256;
 
 {Name="Dire Fleet Interloper";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{B}}";
 cmc=4;
 Colors={"Black"};
@@ -2004,6 +2216,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Menace<br/>
 When Dire Fleet Interloper enters the battlefield, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)]=];
 CardNumber="XLN103";
@@ -2019,6 +2232,7 @@ Rulings={
 
 {Name="Dire Fleet Neckbreaker";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{B}}{{R}}";
 cmc=4;
 Colors={"Black";"Red";};
@@ -2026,6 +2240,7 @@ Type="Creature — Orc Pirate";
 Types={"Creature"};
 SubTypes={"Orc";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Attacking Pirates you control get +2/+0.]=];
 Flavor=[=[The buccaneers scaled the sides of buildings as easily as they boarded enemy ships.]=];
 CardNumber="RIX156";
@@ -2036,6 +2251,7 @@ MultiverseID=439813;
 
 {Name="Dire Fleet Poisoner";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{B}}";
 cmc=2;
 Colors={"Black"};
@@ -2043,6 +2259,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Flash<br/>
 Deathtouch<br/>
 When Dire Fleet Poisoner enters the battlefield, target attacking Pirate you control gets +1/+1 and gains deathtouch until end of turn.]=];
@@ -2054,6 +2271,7 @@ MultiverseID=439725;
 
 {Name="Dire Fleet Ravager";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{B}}{{B}}";
 cmc=5;
 Colors={"Black"};
@@ -2061,6 +2279,7 @@ Type="Creature — Orc Pirate Wizard";
 Types={"Creature"};
 SubTypes={"Orc";"Pirate";"Wizard";};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[Menace, deathtouch<br/>
 When Dire Fleet Ravager enters the battlefield, each player loses a third of his or her life, rounded up.]=];
 Flavor=[=[His fists fume with the decay of death, each strike a plague on the hearts of his enemies.]=];
@@ -2077,12 +2296,14 @@ Rulings={
 
 {Name="Dive Down";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{U}}";
 cmc=1;
 Colors={"Blue"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Target creature you control gets +0/+3 and gains hexproof until end of turn. (It can't be the target of spells or abilities your opponents control.)]=];
 Flavor=[=["Seeing the river is not the same as seeing the fish."]=];
 CardNumber="XLN53";
@@ -2091,12 +2312,14 @@ MultiverseID=435205;
 
 {Name="Divine Verdict";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{W}}";
 cmc=4;
 Colors={"White"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Destroy target attacking or blocking creature.]=];
 Flavor=[=[Cunning warriors and dim-witted beasts alike fall under the church's harsh judgment.]=];
 CardNumber="RIX5";
@@ -2110,12 +2333,14 @@ Rulings={
 
 {Name="Dowsing Dagger";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}";
 cmc=2;
 Type="Artifact — Equipment";
 Types={"Artifact"};
 SubTypes={"Equipment"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[When Dowsing Dagger enters the battlefield, target opponent creates two 0/2 green Plant creature tokens with defender.<br/>
 Equipped creature gets +2/+1.<br/>
 Whenever equipped creature deals combat damage to a player, you may transform Dowsing Dagger.<br/>
@@ -2130,9 +2355,11 @@ Rulings={
 
 {Name="Dragonskull Summit";
 SetCode="XLN";
+Allsets={"XLN"};
 Type="Land";
 Types={"Land"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Dragonskull Summit enters the battlefield tapped unless you control a Swamp or a Mountain.<br/>
 {{Tap}}: Add {{B}} or {{R}} to your mana pool.]=];
 Flavor=[=[When the Planeswalker Angrath called dinosaurs "dragons," the name stuck in certain pirate circles.]=];
@@ -2146,6 +2373,7 @@ Rulings={
 
 {Name="Dreamcaller Siren";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{U}}{{U}}";
 cmc=4;
 Colors={"Blue"};
@@ -2153,6 +2381,7 @@ Type="Creature — Siren Pirate";
 Types={"Creature"};
 SubTypes={"Siren";"Pirate";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Flash<br/>
 Flying<br/>
 Dreamcaller Siren can block only creatures with flying.<br/>
@@ -2168,6 +2397,7 @@ Rulings={
 
 {Name="Drover of the Mighty";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
@@ -2175,6 +2405,7 @@ Type="Creature — Human Druid";
 Types={"Creature"};
 SubTypes={"Human";"Druid";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Drover of the Mighty gets +2/+2 as long as you control a Dinosaur.<br/>
 {{Tap}}: Add one mana of any color to your mana pool.]=];
 Flavor=[=["I do not lead. They do not follow. We walk together."]=];
@@ -2189,9 +2420,11 @@ Rulings={
 
 {Name="Drowned Catacomb";
 SetCode="XLN";
+Allsets={"XLN"};
 Type="Land";
 Types={"Land"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Drowned Catacomb enters the battlefield tapped unless you control an Island or a Swamp.<br/>
 {{Tap}}: Add {{U}} or {{B}} to your mana pool.]=];
 Flavor=[=[None can tell how many vessels are tangled up on the sea floor—or how much treasure remains unclaimed.]=];
@@ -2205,12 +2438,14 @@ Rulings={
 
 {Name="Dual Shot";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{R}}";
 cmc=1;
 Colors={"Red"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Dual Shot deals 1 damage to each of up to two target creatures.]=];
 Flavor=[=["Through me the rage of Tilonalli burns twice as bright."]=];
 CardNumber="XLN141";
@@ -2222,12 +2457,14 @@ Rulings={
 
 {Name="Duress";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{B}}";
 cmc=1;
 Colors={"Black"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Target opponent reveals his or her hand. You choose a noncreature, nonland card from it. That player discards that card.]=];
 Flavor=[=[Solitude and starvation are brutal punishments, but even worse is all that time to think.]=];
 CardNumber="XLN105";
@@ -2236,6 +2473,7 @@ MultiverseID=435259;
 
 {Name="Dusk Charger";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{B}}";
 cmc=4;
 Colors={"Black"};
@@ -2243,6 +2481,7 @@ Type="Creature — Horse";
 Types={"Creature"};
 SubTypes={"Horse"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 Dusk Charger gets +2/+2 as long as you have the city's blessing.]=];
 Flavor=[=[Stories say demon blood runs in its veins, making it fearless and bloodthirsty.]=];
@@ -2263,12 +2502,14 @@ Rulings={
 
 {Name="Dusk Legion Dreadnought";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{5}}";
 cmc=5;
 Type="Artifact — Vehicle";
 Types={"Artifact"};
 SubTypes={"Vehicle"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Vigilance<br/>
 Crew 2 (Tap any number of creatures you control with total power 2 or more: This Vehicle becomes an artifact creature until end of turn.)]=];
 Flavor=[=[It loomed up over the horizon, silent and dark as a grave.]=];
@@ -2294,6 +2535,7 @@ Rulings={
 
 {Name="Dusk Legion Zealot";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{B}}";
 cmc=2;
 Colors={"Black"};
@@ -2301,6 +2543,7 @@ Type="Creature — Vampire Soldier";
 Types={"Creature"};
 SubTypes={"Vampire";"Soldier";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[When Dusk Legion Zealot enters the battlefield, you draw a card and you lose 1 life.]=];
 Flavor=[=[Once they reached Orazca, the Legion's explorers ransacked tombs and temples, hunting for the Immortal Sun.]=];
 CardNumber="RIX70";
@@ -2311,6 +2554,7 @@ MultiverseID=439727;
 
 {Name="Duskborne Skymarcher";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{W}}";
 cmc=1;
 Colors={"White"};
@@ -2318,6 +2562,7 @@ Type="Creature — Vampire Cleric";
 Types={"Creature"};
 SubTypes={"Vampire";"Cleric";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Flying<br/>
 {{W}}, {{Tap}}: Target attacking Vampire gets +1/+1 until end of turn.]=];
 Flavor=[=["The hour of Dusk is come."]=];
@@ -2329,11 +2574,13 @@ MultiverseID=435160;
 
 {Name="Elaborate Firecannon";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}";
 cmc=2;
 Type="Artifact";
 Types={"Artifact"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Elaborate Firecannon doesn't untap during your untap step.<br/>
 {{4}}, {{Tap}}: Elaborate Firecannon deals 2 damage to target creature or player.<br/>
 At the beginning of your upkeep, you may discard a card. If you do, untap Elaborate Firecannon.]=];
@@ -2343,6 +2590,7 @@ MultiverseID=435395;
 
 {Name="Elenda, the Dusk Rose";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{W}}{{B}}";
 cmc=4;
 Colors={"White";"Black";};
@@ -2351,6 +2599,7 @@ SuperTypes={"Legendary"};
 Types={"Creature"};
 SubTypes={"Vampire";"Knight";};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[Lifelink<br/>
 Whenever another creature dies, put a +1/+1 counter on Elenda, the Dusk Rose.<br/>
 When Elenda dies, create X 1/1 white Vampire creature tokens with lifelink, where X is Elenda's power.]=];
@@ -2368,12 +2617,14 @@ Rulings={
 
 {Name="Emergent Growth";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{G}}";
 cmc=4;
 Colors={"Green"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Target creature gets +5/+5 until end of turn and must be blocked this turn if able.]=];
 Flavor=[=["By accepting my smallness I am vast."]=];
 CardNumber="XLN188";
@@ -2385,6 +2636,7 @@ Rulings={
 
 {Name="Emissary of Sunrise";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{W}}";
 cmc=3;
 Colors={"White"};
@@ -2392,6 +2644,7 @@ Type="Creature — Human Cleric";
 Types={"Creature"};
 SubTypes={"Human";"Cleric";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[First strike<br/>
 When Emissary of Sunrise enters the battlefield, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)]=];
 CardNumber="XLN10";
@@ -2407,6 +2660,7 @@ Rulings={
 
 {Name="Emperor's Vanguard";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{G}}";
 cmc=4;
 Colors={"Green"};
@@ -2414,6 +2668,7 @@ Type="Creature — Human Scout";
 Types={"Creature"};
 SubTypes={"Human";"Scout";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Whenever Emperor's Vanguard deals combat damage to a player, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)]=];
 CardNumber="XLN189";
 Power="4";
@@ -2428,6 +2683,7 @@ Rulings={
 
 {Name="Encampment Keeper";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{W}}";
 cmc=1;
 Colors={"White"};
@@ -2435,6 +2691,7 @@ Type="Creature — Hound";
 Types={"Creature"};
 SubTypes={"Hound"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[First strike<br/>
 {{7}}{{W}}, {{Tap}}, Sacrifice Encampment Keeper: Creatures you control get +2/+2 until end of turn.]=];
 Flavor=[=[Paladins of the Sanctum Seeker order are an adventurous lot, venturing into the wilds with monstrous mastiffs at their side.]=];
@@ -2446,12 +2703,14 @@ MultiverseID=435162;
 
 {Name="Enter the Unknown";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{G}}";
 cmc=1;
 Colors={"Green"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Target creature you control explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on the creature, then put the card back or put it into your graveyard.)<br/>
 You may play an additional land this turn.]=];
 CardNumber="RIX128";
@@ -2468,12 +2727,14 @@ Rulings={
 
 {Name="Entrancing Melody";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{X}}{{U}}{{U}}";
 cmc=2;
 Colors={"Blue"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Gain control of target creature with converted mana cost X.]=];
 Flavor=[=[The stronger the will, the more bewitching the song.]=];
 CardNumber="XLN55";
@@ -2487,6 +2748,7 @@ Rulings={
 
 {Name="Etali, Primal Storm";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{4}}{{R}}{{R}}";
 cmc=6;
 Colors={"Red"};
@@ -2495,6 +2757,7 @@ SuperTypes={"Legendary"};
 Types={"Creature"};
 SubTypes={"Elder";"Dinosaur";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Whenever Etali, Primal Storm attacks, exile the top card of each player's library, then you may cast any number of nonland cards exiled this way without paying their mana costs.]=];
 Flavor=[=[The storm rages and the earth breaks.]=];
 CardNumber="RIX100";
@@ -2514,6 +2777,7 @@ Rulings={
 
 {Name="Everdawn Champion";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{W}}{{W}}";
 cmc=3;
 Colors={"White"};
@@ -2521,6 +2785,7 @@ Type="Creature — Human Soldier";
 Types={"Creature"};
 SubTypes={"Human";"Soldier";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Prevent all combat damage that would be dealt to Everdawn Champion.]=];
 Flavor=[=["Undefeated in battle, she is the shining future our empire deserves."<br/>
 —Huatli]=];
@@ -2535,9 +2800,11 @@ Rulings={
 
 {Name="Evolving Wilds";
 SetCode="RIX";
+Allsets={"RIX"};
 Type="Land";
 Types={"Land"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[{{Tap}}, Sacrifice Evolving Wilds: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle your library.]=];
 Flavor=[=[The Sun Empire bends nature—rivers, mountainsides, dinosaurs—to its unyielding will.]=];
 CardNumber="RIX186";
@@ -2546,12 +2813,14 @@ MultiverseID=439850;
 
 {Name="Expel from Orazca";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{U}}";
 cmc=2;
 Colors={"Blue"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 Return target nonland permanent to its owner's hand. If you have the city's blessing, you may put that permanent on top of its owner's library instead.]=];
 CardNumber="RIX37";
@@ -2568,6 +2837,7 @@ Rulings={
 
 {Name="Exultant Skymarcher";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{W}}{{W}}";
 cmc=3;
 Colors={"White"};
@@ -2575,6 +2845,7 @@ Type="Creature — Vampire Soldier";
 Types={"Creature"};
 SubTypes={"Vampire";"Soldier";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Flying]=];
 Flavor=[=["We have come at last to this holiest of holy places. What was stolen from us long ago is ours once again."]=];
 CardNumber="RIX7";
@@ -2585,6 +2856,7 @@ MultiverseID=439664;
 
 {Name="Famished Paladin";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{W}}";
 cmc=2;
 Colors={"White"};
@@ -2592,6 +2864,7 @@ Type="Creature — Vampire Knight";
 Types={"Creature"};
 SubTypes={"Vampire";"Knight";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Famished Paladin doesn't untap during your untap step.<br/>
 Whenever you gain life, untap Famished Paladin.]=];
 Flavor=[=[Loyal to his queen, slave to his thirst.]=];
@@ -2603,6 +2876,7 @@ MultiverseID=439665;
 
 {Name="Fanatical Firebrand";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{R}}";
 cmc=1;
 Colors={"Red"};
@@ -2610,6 +2884,7 @@ Type="Creature — Goblin Pirate";
 Types={"Creature"};
 SubTypes={"Goblin";"Pirate";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Haste<br/>
 {{Tap}}, Sacrifice Fanatical Firebrand: It deals 1 damage to target creature or player.]=];
 Flavor=[=["The Brazen Coalition is a firecannon pointed at our enemies. Goblins like him are the spark to its powder."<br/>
@@ -2622,6 +2897,7 @@ MultiverseID=439758;
 
 {Name="Fathom Fleet Boarder";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{B}}";
 cmc=3;
 Colors={"Black"};
@@ -2629,6 +2905,7 @@ Type="Creature — Orc Pirate";
 Types={"Creature"};
 SubTypes={"Orc";"Pirate";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[When Fathom Fleet Boarder enters the battlefield, you lose 2 life unless you control another Pirate.]=];
 Flavor=[=[Without frequent raids, orcs sometimes get bored and plunder their own ships.]=];
 CardNumber="RIX71";
@@ -2642,6 +2919,7 @@ Rulings={
 
 {Name="Fathom Fleet Captain";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{B}}";
 cmc=2;
 Colors={"Black"};
@@ -2649,6 +2927,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Menace<br/>
 Whenever Fathom Fleet Captain attacks, if you control another nontoken Pirate, you may pay {{2}}. If you do, create a 2/2 black Pirate creature token with menace.]=];
 Flavor=[=["Join me, and take the world for yourself!"]=];
@@ -2664,6 +2943,7 @@ Rulings={
 
 {Name="Fathom Fleet Cutthroat";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{B}}";
 cmc=4;
 Colors={"Black"};
@@ -2671,6 +2951,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[When Fathom Fleet Cutthroat enters the battlefield, destroy target creature an opponent controls that was dealt damage this turn.]=];
 Flavor=[=["It was a bad evening for you, mate. Now it's chow time for the sharks."]=];
 CardNumber="XLN107";
@@ -2681,6 +2962,7 @@ MultiverseID=435261;
 
 {Name="Fathom Fleet Firebrand";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{R}}";
 cmc=2;
 Colors={"Red"};
@@ -2688,6 +2970,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[{{1}}{{R}}: Fathom Fleet Firebrand gets +1/+0 until end of turn.]=];
 Flavor=[=[As she charges into battle, her arcane tattoos stir and crawl like fiery serpents.]=];
 CardNumber="XLN142";
@@ -2698,12 +2981,14 @@ MultiverseID=435296;
 
 {Name="Favorable Winds";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{U}}";
 cmc=2;
 Colors={"Blue"};
 Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Creatures you control with flying get +1/+1.]=];
 Flavor=[=["Like ribbons of wind and wisdom the coatls fly, twisting mystery into truth, shaping the clouds to suit their inscrutable will."<br/>
 —Huatli]=];
@@ -2713,12 +2998,14 @@ MultiverseID=435208;
 
 {Name="Fell Flagship";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}";
 cmc=3;
 Type="Artifact — Vehicle";
 Types={"Artifact"};
 SubTypes={"Vehicle"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Pirates you control get +1/+0.<br/>
 Whenever Fell Flagship deals combat damage to a player, that player discards a card.<br/>
 Crew 3 (Tap any number of creatures you control with total power 3 or more: This Vehicle becomes an artifact creature until end of turn.)]=];
@@ -2744,9 +3031,11 @@ Rulings={
 
 {Name="Field of Ruin";
 SetCode="XLN";
+Allsets={"XLN"};
 Type="Land";
 Types={"Land"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[{{Tap}}: Add {{C}} to your mana pool.<br/>
 {{2}}, {{Tap}}, Sacrifice Field of Ruin: Destroy target nonbasic land an opponent controls. Each player searches his or her library for a basic land card, puts it onto the battlefield, then shuffles his or her library.]=];
 CardNumber="XLN254";
@@ -2755,12 +3044,14 @@ MultiverseID=435415;
 
 {Name="Fiery Cannonade";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{R}}";
 cmc=3;
 Colors={"Red"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Fiery Cannonade deals 2 damage to each non-Pirate creature.]=];
 Flavor=[=[Wary of the ferocious dinosaurs, the Legion of Dusk built up the walls of their fort—just in time for the pirates to burn them down.]=];
 CardNumber="XLN143";
@@ -2769,6 +3060,7 @@ MultiverseID=435297;
 
 {Name="Fire Shrine Keeper";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{R}}";
 cmc=1;
 Colors={"Red"};
@@ -2776,6 +3068,7 @@ Type="Creature — Elemental";
 Types={"Creature"};
 SubTypes={"Elemental"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Menace<br/>
 {{7}}{{R}}, {{Tap}}, Sacrifice Fire Shrine Keeper: It deals 3 damage to each of up to two target creatures.]=];
 Flavor=[=[Though grimed with the dust of centuries, the ancient shrine was not unguarded.]=];
@@ -2790,12 +3083,14 @@ Rulings={
 
 {Name="Firecannon Blast";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{R}}{{R}}";
 cmc=3;
 Colors={"Red"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Firecannon Blast deals 3 damage to target creature.<br/>
 Raid — Firecannon Blast deals 6 damage to that creature instead if you attacked with a creature this turn.]=];
 Flavor=[=[Goblins' fearlessness and diminutive size make them the perfect cannoneers.]=];
@@ -2809,6 +3104,7 @@ Rulings={
 
 {Name="Fleet Swallower";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{5}}{{U}}{{U}}";
 cmc=7;
 Colors={"Blue"};
@@ -2816,6 +3112,7 @@ Type="Creature — Fish";
 Types={"Creature"};
 SubTypes={"Fish"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Whenever Fleet Swallower attacks, target player puts the top half of his or her library, rounded up, into his or her graveyard.]=];
 Flavor=[=["Captain, I think that island is following us."]=];
 CardNumber="XLN57";
@@ -2830,12 +3127,14 @@ Rulings={
 
 {Name="Flood of Recollection";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{U}}{{U}}";
 cmc=2;
 Colors={"Blue"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Return target instant or sorcery card from your graveyard to your hand. Exile Flood of Recollection.]=];
 Flavor=[=[Jace tumbled down the waterfall and plunged deep into his past.]=];
 CardNumber="RIX38";
@@ -2847,6 +3146,7 @@ Rulings={
 
 {Name="Forerunner of the Coalition";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{B}}";
 cmc=3;
 Colors={"Black"};
@@ -2854,6 +3154,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[When Forerunner of the Coalition enters the battlefield, you may search your library for a Pirate card, reveal it, then shuffle your library and put that card on top of it.<br/>
 Whenever another Pirate enters the battlefield under your control, each opponent loses 1 life.]=];
 CardNumber="RIX72";
@@ -2868,6 +3169,7 @@ Rulings={
 
 {Name="Forerunner of the Empire";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{R}}";
 cmc=4;
 Colors={"Red"};
@@ -2875,6 +3177,7 @@ Type="Creature — Human Soldier";
 Types={"Creature"};
 SubTypes={"Human";"Soldier";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[When Forerunner of the Empire enters the battlefield, you may search your library for a Dinosaur card, reveal it, then shuffle your library and put that card on top of it.<br/>
 Whenever a Dinosaur enters the battlefield under your control, you may have Forerunner of the Empire deal 1 damage to each creature.]=];
 CardNumber="RIX102";
@@ -2888,6 +3191,7 @@ Rulings={
 
 {Name="Forerunner of the Heralds";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{G}}";
 cmc=4;
 Colors={"Green"};
@@ -2895,6 +3199,7 @@ Type="Creature — Merfolk Scout";
 Types={"Creature"};
 SubTypes={"Merfolk";"Scout";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[When Forerunner of the Heralds enters the battlefield, you may search your library for a Merfolk card, reveal it, then shuffle your library and put that card on top of it.<br/>
 Whenever another Merfolk enters the battlefield under your control, put a +1/+1 counter on Forerunner of the Heralds.]=];
 CardNumber="RIX129";
@@ -2908,6 +3213,7 @@ Rulings={
 
 {Name="Forerunner of the Legion";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{W}}";
 cmc=3;
 Colors={"White"};
@@ -2915,6 +3221,7 @@ Type="Creature — Vampire Knight";
 Types={"Creature"};
 SubTypes={"Vampire";"Knight";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[When Forerunner of the Legion enters the battlefield, you may search your library for a Vampire card, reveal it, then shuffle your library and put that card on top of it.<br/>
 Whenever another Vampire enters the battlefield under your control, target creature gets +1/+1 until end of turn.]=];
 CardNumber="RIX9";
@@ -2928,23 +3235,30 @@ Rulings={
 
 {Name="Forest";
 SetCode="RIX";
+Allsets={"RIX";"XLN";};
 Type="Basic Land — Forest";
 SuperTypes={"Basic"};
 Types={"Land"};
 SubTypes={"Forest"};
 Rarity="Basic Land";
+Rarities={"Basic Land"};
 CardNumber="RIX196";
 MultiverseID=439860;
+Sets={
+{Set="XLN";Rarity="Basic Land";CardNumber="276";};
+};
 };
 
 {Name="Form of the Dinosaur";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{4}}{{R}}{{R}}";
 cmc=6;
 Colors={"Red"};
 Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[When Form of the Dinosaur enters the battlefield, your life total becomes 15.<br/>
 At the beginning of your upkeep, Form of the Dinosaur deals 15 damage to target creature an opponent controls and that creature deals damage equal to its power to you.]=];
 CardNumber="RIX103";
@@ -2958,9 +3272,11 @@ Rulings={
 
 {Name="Forsaken Sanctuary";
 SetCode="RIX";
+Allsets={"RIX"};
 Type="Land";
 Types={"Land"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Forsaken Sanctuary enters the battlefield tapped.<br/>
 {{Tap}}: Add {{W}} or {{B}} to your mana pool.]=];
 Flavor=[=[In the galleon's grand cathedral, conquistadors swore vows of faith. In its wreckage, they swore vows of revenge.]=];
@@ -2970,9 +3286,11 @@ MultiverseID=439851;
 
 {Name="Foul Orchard";
 SetCode="RIX";
+Allsets={"RIX"};
 Type="Land";
 Types={"Land"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Foul Orchard enters the battlefield tapped.<br/>
 {{Tap}}: Add {{B}} or {{G}} to your mana pool.]=];
 Flavor=[=[The stench of rotting meat lures flies, goblins, and young raptors.]=];
@@ -2982,6 +3300,7 @@ MultiverseID=439852;
 
 {Name="Frenzied Raptor";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{R}}";
 cmc=3;
 Colors={"Red"};
@@ -2989,6 +3308,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
+Rarities={"Common"};
 Flavor=[=[Sun Empire warriors are taught to emulate the fearless raptors that fling themselves against towers of horn and muscle a hundred times their size.]=];
 CardNumber="XLN146";
 Power="4";
@@ -2998,6 +3318,7 @@ MultiverseID=435300;
 
 {Name="Frilled Deathspitter";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{R}}";
 cmc=3;
 Colors={"Red"};
@@ -3005,6 +3326,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Enrage — Whenever Frilled Deathspitter is dealt damage, it deals 2 damage to target opponent.]=];
 Flavor=[=[Nothing says trouble like a reedy hiss with a hint of liquid gurgle.]=];
 CardNumber="RIX104";
@@ -3020,6 +3342,7 @@ Rulings={
 
 {Name="Ghalta, Primal Hunger";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{10}}{{G}}{{G}}";
 cmc=12;
 Colors={"Green"};
@@ -3028,6 +3351,7 @@ SuperTypes={"Legendary"};
 Types={"Creature"};
 SubTypes={"Elder";"Dinosaur";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Ghalta, Primal Hunger costs {{X}} less to cast, where X is the total power of creatures you control.<br/>
 Trample]=];
 Flavor=[=[The earth walks, strongest of all.]=];
@@ -3045,12 +3369,14 @@ Rulings={
 
 {Name="Gilded Sentinel";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}";
 cmc=4;
 Type="Artifact Creature — Golem";
 Types={"Artifact";"Creature";};
 SubTypes={"Golem"};
 Rarity="Common";
+Rarities={"Common"};
 Flavor=[=[The River Heralds fight to keep all others from reaching the golden city. The city has its own defenses.]=];
 CardNumber="XLN239";
 Power="3";
@@ -3060,6 +3386,7 @@ MultiverseID=435397;
 
 {Name="Giltgrove Stalker";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
@@ -3067,6 +3394,7 @@ Type="Creature — Merfolk Warrior";
 Types={"Creature"};
 SubTypes={"Merfolk";"Warrior";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Giltgrove Stalker can't be blocked by creatures with power 2 or less.]=];
 Flavor=[=["The only gold I need is the sheltering shimmer of the trees."]=];
 CardNumber="RIX131";
@@ -3080,6 +3408,7 @@ Rulings={
 
 {Name="Gishath, Sun's Avatar";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{5}}{{R}}{{G}}{{W}}";
 cmc=8;
 Colors={"White";"Red";"Green";};
@@ -3088,6 +3417,7 @@ SuperTypes={"Legendary"};
 Types={"Creature"};
 SubTypes={"Dinosaur";"Avatar";};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[Trample, vigilance, haste<br/>
 Whenever Gishath, Sun's Avatar deals combat damage to a player, reveal that many cards from the top of your library. Put any number of Dinosaur creature cards from among them onto the battlefield and the rest on the bottom of your library in a random order.]=];
 CardNumber="XLN222";
@@ -3101,9 +3431,11 @@ Rulings={
 
 {Name="Glacial Fortress";
 SetCode="XLN";
+Allsets={"XLN"};
 Type="Land";
 Types={"Land"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Glacial Fortress enters the battlefield tapped unless you control a Plains or an Island.<br/>
 {{Tap}}: Add {{W}} or {{U}} to your mana pool.]=];
 Flavor=[=[Ships blown north in their voyage across the Stormwreck Sea become trapped in the unmelting ice.]=];
@@ -3117,12 +3449,14 @@ Rulings={
 
 {Name="Gleaming Barrier";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}";
 cmc=2;
 Type="Artifact Creature — Wall";
 Types={"Artifact";"Creature";};
 SubTypes={"Wall"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Defender<br/>
 When Gleaming Barrier dies, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
 Flavor=[=["Gold without freedom might as well be lead."<br/>
@@ -3135,6 +3469,7 @@ MultiverseID=439841;
 
 {Name="Glorifier of Dusk";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{W}}{{W}}";
 cmc=5;
 Colors={"White"};
@@ -3142,6 +3477,7 @@ Type="Creature — Vampire Soldier";
 Types={"Creature"};
 SubTypes={"Vampire";"Soldier";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Pay 2 life: Glorifier of Dusk gains flying until end of turn.<br/>
 Pay 2 life: Glorifier of Dusk gains vigilance until end of turn.]=];
 Flavor=[=["The blood of the enemy is a sacrament. The strength it gives is proof that our cause is just."]=];
@@ -3153,6 +3489,7 @@ MultiverseID=435163;
 
 {Name="Goblin Trailblazer";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{R}}";
 cmc=2;
 Colors={"Red"};
@@ -3160,6 +3497,7 @@ Type="Creature — Goblin Pirate";
 Types={"Creature"};
 SubTypes={"Goblin";"Pirate";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Menace]=];
 Flavor=[=["Why are we following the goblin? Can he even read that map?"<br/>
 —Daphne Vail, Diremore first mate]=];
@@ -3171,12 +3509,14 @@ MultiverseID=439762;
 
 {Name="Golden Demise";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{B}}{{B}}";
 cmc=3;
 Colors={"Black"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 All creatures get -2/-2 until end of turn. If you have the city's blessing, instead only creatures your opponents control get -2/-2 until end of turn.]=];
 CardNumber="RIX73";
@@ -3193,12 +3533,14 @@ Rulings={
 
 {Name="Golden Guardian";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{4}}";
 cmc=4;
 Type="Artifact Creature — Golem";
 Types={"Artifact";"Creature";};
 SubTypes={"Golem"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Defender<br/>
 {{2}}: Golden Guardian fights another target creature you control. When Golden Guardian dies this turn, return it to the battlefield transformed under your control.]=];
 CardNumber="RIX179a";
@@ -3215,10 +3557,12 @@ Rulings={
 
 {Name="Gold-Forge Garrison";
 SetCode="RIX";
+Allsets={"RIX"};
 cmc=4;
 Type="Land";
 Types={"Land"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[(Transforms from Golden Guardian.)<br/>
 {{Tap}}: Add two mana of any one color to your mana pool.<br/>
 {{4}}, {{Tap}}: Create a 4/4 colorless Golem artifact creature token.]=];
@@ -3229,6 +3573,7 @@ MultiverseID=439843;
 
 {Name="Goring Ceratops";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{5}}{{W}}{{W}}";
 cmc=7;
 Colors={"White"};
@@ -3236,6 +3581,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Double strike<br/>
 Whenever Goring Ceratops attacks, other creatures you control gain double strike until end of turn.]=];
 Flavor=[=["Follow her footsteps and she will show you the way."<br/>
@@ -3248,12 +3594,14 @@ MultiverseID=435164;
 
 {Name="Grasping Current";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{U}}";
 cmc=5;
 Colors={"Blue"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Return up to two target creatures to their owner's hand.<br/>
 Search your library and/or graveyard for a card named Jace, Ingenious Mind-Mage, reveal it, and put it into your hand. If you searched your library this way, shuffle it.]=];
 CardNumber="XLN282";
@@ -3265,6 +3613,7 @@ Rulings={
 
 {Name="Grasping Scoundrel";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{B}}";
 cmc=1;
 Colors={"Black"};
@@ -3272,6 +3621,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Grasping Scoundrel gets +1/+0 as long as it's attacking.]=];
 Flavor=[=["I can hear the plunder calling. It asks for me by name."]=];
 CardNumber="RIX74";
@@ -3282,6 +3632,7 @@ MultiverseID=439731;
 
 {Name="Grazing Whiptail";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{G}}{{G}}";
 cmc=4;
 Colors={"Green"};
@@ -3289,6 +3640,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Reach]=];
 Flavor=[=[Often found browsing on the upper canopies of Ixalan's jungles, whiptails are known to absently bat away anything foolish enough to interrupt their meal.]=];
 CardNumber="XLN190";
@@ -3299,12 +3651,14 @@ MultiverseID=435345;
 
 {Name="Grim Captain's Call";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{B}}";
 cmc=3;
 Colors={"Black"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Return a Pirate card from your graveyard to your hand, then do the same for Vampire, Dinosaur, and Merfolk.]=];
 Flavor=[=[When the battle is over, the bitterest foes at last find common ground.]=];
 CardNumber="XLN108";
@@ -3319,6 +3673,7 @@ Rulings={
 
 {Name="Growing Rites of Itlimoc";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{G}}";
 cmc=3;
 Colors={"Green"};
@@ -3326,6 +3681,7 @@ Type="Legendary Enchantment";
 SuperTypes={"Legendary"};
 Types={"Enchantment"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[When Growing Rites of Itlimoc enters the battlefield, look at the top four cards of your library. You may reveal a creature card from among them and put it into your hand. Put the rest on the bottom of your library in any order.<br/>
 At the beginning of your end step, if you control four or more creatures, transform Growing Rites of Itlimoc.]=];
 CardNumber="XLN191a";
@@ -3340,12 +3696,14 @@ Rulings={
 
 {Name="Gruesome Fate";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{B}}";
 cmc=3;
 Colors={"Black"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Each opponent loses 1 life for each creature you control.]=];
 Flavor=[=["You were keen enough to sink your fangs into us, vampire! And now you're afraid of a few little nibbles?"<br/>
 —Udvil "Ratty" Ratlock]=];
@@ -3358,6 +3716,7 @@ Rulings={
 
 {Name="Hadana's Climb";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{G}}{{U}}";
 cmc=3;
 Colors={"Blue";"Green";};
@@ -3365,6 +3724,7 @@ Type="Legendary Enchantment";
 SuperTypes={"Legendary"};
 Types={"Enchantment"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[At the beginning of combat on your turn, put a +1/+1 counter on target creature you control. Then if that creature has three or more +1/+1 counters on it, transform Hadana's Climb.]=];
 Flavor=[=[Hadana seeks power in the service of peace.]=];
 CardNumber="RIX158a";
@@ -3376,6 +3736,7 @@ Rulings={
 
 {Name="Hardy Veteran";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
@@ -3383,6 +3744,7 @@ Type="Creature — Human Warrior";
 Types={"Creature"};
 SubTypes={"Human";"Warrior";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[As long as it's your turn, Hardy Veteran gets +0/+2.]=];
 Flavor=[=[For the Sun Empire, the Immortal Sun is a symbol of national identity. When they reclaim it, the Empire will flourish once more.]=];
 CardNumber="RIX132";
@@ -3396,6 +3758,7 @@ Rulings={
 
 {Name="Headstrong Brute";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{R}}";
 cmc=3;
 Colors={"Red"};
@@ -3403,6 +3766,7 @@ Type="Creature — Orc Pirate";
 Types={"Creature"};
 SubTypes={"Orc";"Pirate";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Headstrong Brute can't block.<br/>
 Headstrong Brute has menace as long as you control another Pirate.]=];
 Flavor=[=["Watch your backs, keep your blades at hand, and let the orc go first!"<br/>
@@ -3415,6 +3779,7 @@ MultiverseID=435301;
 
 {Name="Headwater Sentries";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{U}}";
 cmc=4;
 Colors={"Blue"};
@@ -3422,6 +3787,7 @@ Type="Creature — Merfolk Warrior";
 Types={"Creature"};
 SubTypes={"Merfolk";"Warrior";};
 Rarity="Common";
+Rarities={"Common"};
 Flavor=[=["The elders say that if the intruders discovered the secret of the golden city, it would mean an end to our people."]=];
 CardNumber="XLN58";
 Power="2";
@@ -3431,12 +3797,14 @@ MultiverseID=435210;
 
 {Name="Heartless Pillage";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{B}}";
 cmc=3;
 Colors={"Black"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Target opponent discards two cards.<br/>
 Raid — If you attacked with a creature this turn, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
 CardNumber="XLN109";
@@ -3450,6 +3818,7 @@ Rulings={
 
 {Name="Herald of Secret Streams";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{U}}";
 cmc=4;
 Colors={"Blue"};
@@ -3457,6 +3826,7 @@ Type="Creature — Merfolk Warrior";
 Types={"Creature"};
 SubTypes={"Merfolk";"Warrior";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Creatures you control with +1/+1 counters on them can't be blocked.]=];
 Flavor=[=["You might as well try to stop the waterfall."]=];
 CardNumber="XLN59";
@@ -3470,11 +3840,13 @@ Rulings={
 
 {Name="Hierophant's Chalice";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}";
 cmc=3;
 Type="Artifact";
 Types={"Artifact"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[When Hierophant's Chalice enters the battlefield, target opponent loses 1 life and you gain 1 life.<br/>
 {{Tap}}: Add {{C}} to your mana pool.]=];
 Flavor=[=[In the Rite of Redemption, nobles take the same vows as Elenda, the first vampire, and make the same eternal sacrifice.]=];
@@ -3484,9 +3856,11 @@ MultiverseID=435398;
 
 {Name="Highland Lake";
 SetCode="RIX";
+Allsets={"RIX"};
 Type="Land";
 Types={"Land"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Highland Lake enters the battlefield tapped.<br/>
 {{Tap}}: Add {{U}} or {{R}} to your mana pool.]=];
 Flavor=[=["A place like this makes me wonder if there's more to life than blood and treasure . . . Nah."<br/>
@@ -3497,12 +3871,14 @@ MultiverseID=439853;
 
 {Name="Hijack";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{R}}{{R}}";
 cmc=3;
 Colors={"Red"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Gain control of target artifact or creature until end of turn. Untap it. It gains haste until end of turn.]=];
 Flavor=[=[Trapped on Ixalan, the Planeswalker Angrath is the only minotaur sailing the seas. No matter how many ships he captures, he cannot break free.]=];
 CardNumber="XLN148";
@@ -3514,12 +3890,14 @@ Rulings={
 
 {Name="Hornswoggle";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{U}}";
 cmc=3;
 Colors={"Blue"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Counter target creature spell. You create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
 Flavor=[=[Being a merciful pirate, she saved the vampire's gold from falling overboard.]=];
 CardNumber="RIX39";
@@ -3531,6 +3909,7 @@ Rulings={
 
 {Name="Hostage Taker";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{U}}{{B}}";
 cmc=4;
 Colors={"Blue";"Black";};
@@ -3538,6 +3917,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[When Hostage Taker enters the battlefield, exile another target creature or artifact until Hostage Taker leaves the battlefield. You may cast that card for as long as it remains exiled, and you may spend mana as though it were mana of any type to cast that spell.]=];
 CardNumber="XLN223";
 Power="2";
@@ -3557,6 +3937,7 @@ Rulings={
 
 {Name="Huatli, Dinosaur Knight";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{R}}{{W}}";
 cmc=6;
 Colors={"White";"Red";};
@@ -3565,6 +3946,7 @@ SuperTypes={"Legendary"};
 Types={"Planeswalker"};
 SubTypes={"Huatli"};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[+2: Put two +1/+1 counters on up to one target Dinosaur you control.<br/>
 −3: Target Dinosaur you control deals damage equal to its power to target creature you don't control.<br/>
 −7: Dinosaurs you control get +4/+4 until end of turn.]=];
@@ -3579,6 +3961,7 @@ Rulings={
 
 {Name="Huatli, Radiant Champion";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{G}}{{W}}";
 cmc=4;
 Colors={"White";"Green";};
@@ -3587,6 +3970,7 @@ SuperTypes={"Legendary"};
 Types={"Planeswalker"};
 SubTypes={"Huatli"};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[+1: Put a loyalty counter on Huatli, Radiant Champion for each creature you control.<br/>
 −1: Target creature gets +X/+X until end of turn, where X is the number of creatures you control.<br/>
 −8: You get an emblem with "Whenever a creature enters the battlefield under your control, you may draw a card."]=];
@@ -3601,6 +3985,7 @@ Rulings={
 
 {Name="Huatli, Warrior Poet";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{R}}{{W}}";
 cmc=5;
 Colors={"White";"Red";};
@@ -3609,6 +3994,7 @@ SuperTypes={"Legendary"};
 Types={"Planeswalker"};
 SubTypes={"Huatli"};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[+2: You gain life equal to the greatest power among creatures you control.<br/>
 0: Create a 3/3 green Dinosaur creature token with trample.<br/>
 −X: Huatli, Warrior Poet deals X damage divided as you choose among any number of target creatures. Creatures dealt damage this way can't block this turn.]=];
@@ -3625,6 +4011,7 @@ Rulings={
 
 {Name="Huatli's Snubhorn";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{W}}";
 cmc=2;
 Colors={"White"};
@@ -3632,6 +4019,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Vigilance (Attacking doesn't cause this creature to tap.)]=];
 Flavor=[=[Don't make the mistake of thinking blunt horns can't kill.]=];
 CardNumber="XLN286";
@@ -3642,12 +4030,14 @@ MultiverseID=435447;
 
 {Name="Huatli's Spurring";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{R}}";
 cmc=1;
 Colors={"Red"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Target creature gets +2/+0 until end of turn. If you control a Huatli planeswalker, that creature gets +4/+0 until end of turn instead.]=];
 Flavor=[=["Run like the wind, fierce one. The hunt has begun."]=];
 CardNumber="XLN287";
@@ -3659,12 +4049,14 @@ Rulings={
 
 {Name="Hunt the Weak";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{G}}";
 cmc=4;
 Colors={"Green"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Put a +1/+1 counter on target creature you control. Then that creature fights target creature you don't control. (Each deals damage equal to its power to the other.)]=];
 Flavor=[=["Death lizard approaching, cap'n!"<br/>
 —Brint Doobin, last words]=];
@@ -3679,12 +4071,14 @@ Rulings={
 
 {Name="Impale";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{B}}{{B}}";
 cmc=4;
 Colors={"Black"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Destroy target creature.]=];
 Flavor=[=[Never let the glitter of gold distract you from the gleam of steel in the shadows.]=];
 CardNumber="RIX76";
@@ -3693,6 +4087,7 @@ MultiverseID=439733;
 
 {Name="Imperial Aerosaur";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{W}}";
 cmc=4;
 Colors={"White"};
@@ -3700,6 +4095,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Flying<br/>
 When Imperial Aerosaur enters the battlefield, another target creature you control gets +1/+1 and gains flying until end of turn.]=];
 Flavor=[=[Its assistance is unnervingly similar to its hunting technique.]=];
@@ -3711,6 +4107,7 @@ MultiverseID=435165;
 
 {Name="Imperial Ceratops";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{4}}{{W}}";
 cmc=5;
 Colors={"White"};
@@ -3718,6 +4115,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Enrage — Whenever Imperial Ceratops is dealt damage, you gain 2 life.]=];
 Flavor=[=["The music of blades against its silver armor merely inspires it to bellow more full-throated melodies."<br/>
 —Huatli]=];
@@ -3734,6 +4132,7 @@ Rulings={
 
 {Name="Imperial Lancer";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{W}}";
 cmc=1;
 Colors={"White"};
@@ -3741,6 +4140,7 @@ Type="Creature — Human Knight";
 Types={"Creature"};
 SubTypes={"Human";"Knight";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Imperial Lancer has double strike as long as you control a Dinosaur.]=];
 Flavor=[=["Together my mount and I are stronger than either of us apart."]=];
 CardNumber="XLN15";
@@ -3754,12 +4154,14 @@ Rulings={
 
 {Name="Induced Amnesia";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{U}}";
 cmc=3;
 Colors={"Blue"};
 Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[When Induced Amnesia enters the battlefield, target player exiles all cards from his or her hand face down, then draws that many cards.<br/>
 When Induced Amnesia is put into a graveyard from the battlefield, return the exiled cards to their owner's hand.]=];
 CardNumber="RIX40";
@@ -3774,6 +4176,7 @@ Rulings={
 
 {Name="Inspiring Cleric";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{W}}";
 cmc=3;
 Colors={"White"};
@@ -3781,6 +4184,7 @@ Type="Creature — Vampire Cleric";
 Types={"Creature"};
 SubTypes={"Vampire";"Cleric";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[When Inspiring Cleric enters the battlefield, you gain 4 life.]=];
 Flavor=[=["The Immortal Sun will bring us true eternal life to replace the everlasting shadow of undeath."]=];
 CardNumber="XLN16";
@@ -3791,22 +4195,29 @@ MultiverseID=435167;
 
 {Name="Island";
 SetCode="RIX";
+Allsets={"RIX";"XLN";};
 Type="Basic Land — Island";
 SuperTypes={"Basic"};
 Types={"Land"};
 SubTypes={"Island"};
 Rarity="Basic Land";
+Rarities={"Basic Land"};
 CardNumber="RIX193";
 MultiverseID=439857;
+Sets={
+{Set="XLN";Rarity="Basic Land";CardNumber="264";};
+};
 };
 
 {Name="Itlimoc, Cradle of the Sun";
 SetCode="XLN";
+Allsets={"XLN"};
 cmc=3;
 Type="Legendary Land";
 SuperTypes={"Legendary"};
 Types={"Land"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[(Transforms from Growing Rites of Itlimoc.)<br/>
 {{Tap}}: Add {{G}} to your mana pool.<br/>
 {{Tap}}: Add {{G}} to your mana pool for each creature you control.]=];
@@ -3817,12 +4228,14 @@ MultiverseID=435347;
 
 {Name="Ixalan's Binding";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{W}}";
 cmc=4;
 Colors={"White"};
 Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[When Ixalan's Binding enters the battlefield, exile target nonland permanent an opponent controls until Ixalan's Binding leaves the battlefield.<br/>
 Your opponents can't cast spells with the same name as the exiled card.]=];
 Flavor=[=[Jace awoke to the certainty that he was lost.]=];
@@ -3843,6 +4256,7 @@ Rulings={
 
 {Name="Ixalli's Diviner";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
@@ -3850,6 +4264,7 @@ Type="Creature — Human Druid";
 Types={"Creature"};
 SubTypes={"Human";"Druid";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[When Ixalli's Diviner enters the battlefield, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)]=];
 CardNumber="XLN192";
 Power="0";
@@ -3864,6 +4279,7 @@ Rulings={
 
 {Name="Ixalli's Keeper";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
@@ -3871,6 +4287,7 @@ Type="Creature — Human Shaman";
 Types={"Creature"};
 SubTypes={"Human";"Shaman";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[{{7}}{{G}}, {{Tap}}, Sacrifice Ixalli's Keeper: Target creature gets +5/+5 and gains trample until end of turn.]=];
 Flavor=[=[The people of the Sun Empire worship the sun in three aspects. Ixalli is the Verdant Sun, who fosters growth in all things.]=];
 CardNumber="XLN193";
@@ -3881,6 +4298,7 @@ MultiverseID=435349;
 
 {Name="Jace, Cunning Castaway";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{U}}{{U}}";
 cmc=3;
 Colors={"Blue"};
@@ -3889,6 +4307,7 @@ SuperTypes={"Legendary"};
 Types={"Planeswalker"};
 SubTypes={"Jace"};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[+1: Whenever one or more creatures you control deal combat damage to a player this turn, draw a card, then discard a card.<br/>
 −2: Create a 2/2 blue Illusion creature token with "When this creature becomes the target of a spell, sacrifice it."<br/>
 −5: Create two tokens that are copies of Jace, Cunning Castaway, except they're not legendary.]=];
@@ -3906,6 +4325,7 @@ Rulings={
 
 {Name="Jace, Ingenious Mind-Mage";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{U}}{{U}}";
 cmc=6;
 Colors={"Blue"};
@@ -3914,6 +4334,7 @@ SuperTypes={"Legendary"};
 Types={"Planeswalker"};
 SubTypes={"Jace"};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[+1: Draw a card.<br/>
 +1: Untap all creatures you control.<br/>
 −9: Gain control of up to three target creatures.]=];
@@ -3928,6 +4349,7 @@ Rulings={
 
 {Name="Jace's Sentinel";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{U}}";
 cmc=2;
 Colors={"Blue"};
@@ -3935,6 +4357,7 @@ Type="Creature — Merfolk Warrior";
 Types={"Creature"};
 SubTypes={"Merfolk";"Warrior";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[As long as you control a Jace planeswalker, Jace's Sentinel gets +1/+0 and can't be blocked.]=];
 Flavor=[=["We drove the Sun Empire out of the forest long ago, and we will not let them return."]=];
 CardNumber="XLN283";
@@ -3945,6 +4368,7 @@ MultiverseID=435444;
 
 {Name="Jade Bearer";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{G}}";
 cmc=1;
 Colors={"Green"};
@@ -3952,6 +4376,7 @@ Type="Creature — Merfolk Shaman";
 Types={"Creature"};
 SubTypes={"Merfolk";"Shaman";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[When Jade Bearer enters the battlefield, put a +1/+1 counter on another target Merfolk you control.]=];
 Flavor=[=["Sisora wore this, who defeated the tyrant of Azcanta, and before her Natena of Vuhana's band. May it bring you their strength."]=];
 CardNumber="RIX134";
@@ -3962,6 +4387,7 @@ MultiverseID=439791;
 
 {Name="Jade Guardian";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{G}}";
 cmc=4;
 Colors={"Green"};
@@ -3969,6 +4395,7 @@ Type="Creature — Merfolk Shaman";
 Types={"Creature"};
 SubTypes={"Merfolk";"Shaman";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Hexproof (This creature can't be the target of spells or abilities your opponents control.)<br/>
 When Jade Guardian enters the battlefield, put a +1/+1 counter on target Merfolk you control.]=];
 Flavor=[=[The River Heralds believe that jade gives weight to their magic.]=];
@@ -3983,6 +4410,7 @@ Rulings={
 
 {Name="Jadecraft Artisan";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{G}}";
 cmc=4;
 Colors={"Green"};
@@ -3990,6 +4418,7 @@ Type="Creature — Merfolk Shaman";
 Types={"Creature"};
 SubTypes={"Merfolk";"Shaman";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[When Jadecraft Artisan enters the battlefield, target creature gets +2/+2 until end of turn.]=];
 Flavor=[=["A blade is not fully forged until it is given."]=];
 CardNumber="RIX135";
@@ -4000,6 +4429,7 @@ MultiverseID=439792;
 
 {Name="Jadelight Ranger";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{G}}{{G}}";
 cmc=3;
 Colors={"Green"};
@@ -4007,6 +4437,7 @@ Type="Creature — Merfolk Scout";
 Types={"Creature"};
 SubTypes={"Merfolk";"Scout";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[When Jadelight Ranger enters the battlefield, it explores, then it explores again. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard. Then repeat this process.)]=];
 CardNumber="RIX136";
 Power="2";
@@ -4022,6 +4453,7 @@ Rulings={
 
 {Name="Journey to Eternity";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{B}}{{G}}";
 cmc=3;
 Colors={"Black";"Green";};
@@ -4030,6 +4462,7 @@ SuperTypes={"Legendary"};
 Types={"Enchantment"};
 SubTypes={"Aura"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Enchant creature you control<br/>
 When enchanted creature dies, return it to the battlefield under your control, then return Journey to Eternity to the battlefield transformed under your control.]=];
 Flavor=[=[Every journey has its inevitable end . . .]=];
@@ -4045,6 +4478,7 @@ Rulings={
 
 {Name="Jungle Creeper";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{B}}{{G}}";
 cmc=3;
 Colors={"Black";"Green";};
@@ -4052,6 +4486,7 @@ Type="Creature — Elemental";
 Types={"Creature"};
 SubTypes={"Elemental"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[{{3}}{{B}}{{G}}: Return Jungle Creeper from your graveyard to your hand.]=];
 Flavor=[=["You cannot kill it, not for long. It ripens where the ground is soaked with the blood of the slaughtered."<br/>
 —Atiuru, priest of the Verdant Sun]=];
@@ -4063,6 +4498,7 @@ MultiverseID=439820;
 
 {Name="Jungle Delver";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{G}}";
 cmc=1;
 Colors={"Green"};
@@ -4070,6 +4506,7 @@ Type="Creature — Merfolk Warrior";
 Types={"Creature"};
 SubTypes={"Merfolk";"Warrior";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[{{3}}{{G}}: Put a +1/+1 counter on Jungle Delver.]=];
 Flavor=[=["There is no power too great to be used in the defense of our ancestral lands."]=];
 CardNumber="XLN195";
@@ -4080,6 +4517,7 @@ MultiverseID=435351;
 
 {Name="Jungleborn Pioneer";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{G}}";
 cmc=3;
 Colors={"Green"};
@@ -4087,6 +4525,7 @@ Type="Creature — Merfolk Scout";
 Types={"Creature"};
 SubTypes={"Merfolk";"Scout";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[When Jungleborn Pioneer enters the battlefield, create a 1/1 blue Merfolk creature token with hexproof. (It can't be the target of spells or abilities your opponents control.)]=];
 Flavor=[=["We fought so long to hide this place. Let us be first to learn its wonders!"]=];
 CardNumber="RIX137";
@@ -4097,6 +4536,7 @@ MultiverseID=439794;
 
 {Name="Kinjalli's Caller";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{W}}";
 cmc=1;
 Colors={"White"};
@@ -4104,6 +4544,7 @@ Type="Creature — Human Cleric";
 Types={"Creature"};
 SubTypes={"Human";"Cleric";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Dinosaur spells you cast cost {{1}} less to cast.]=];
 Flavor=[=[The people of the Sun Empire worship the sun in three aspects. Kinjalli is the Wakening Sun, who created humans from clay and baked them in the sun's warmth.]=];
 CardNumber="XLN18";
@@ -4118,6 +4559,7 @@ Rulings={
 
 {Name="Kinjalli's Sunwing";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{W}}";
 cmc=3;
 Colors={"White"};
@@ -4125,6 +4567,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Flying<br/>
 Creatures your opponents control enter the battlefield tapped.]=];
 Flavor=[=["There are moments when I feel I could fly like the sunwing. Far away I would soar, but always a golden gale pushes me back."<br/>
@@ -4140,6 +4583,7 @@ Rulings={
 
 {Name="Kitesail Corsair";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{U}}";
 cmc=2;
 Colors={"Blue"};
@@ -4147,6 +4591,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Kitesail Corsair has flying as long as it's attacking.]=];
 Flavor=[=["Why perch in the crow's nest when I can fly like the crows?"]=];
 CardNumber="RIX41";
@@ -4161,6 +4606,7 @@ Rulings={
 
 {Name="Kitesail Freebooter";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{B}}";
 cmc=2;
 Colors={"Black"};
@@ -4168,6 +4614,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Flying<br/>
 When Kitesail Freebooter enters the battlefield, target opponent reveals his or her hand. You choose a noncreature, nonland card from it. Exile that card until Kitesail Freebooter leaves the battlefield.]=];
 CardNumber="XLN110";
@@ -4183,6 +4630,7 @@ Rulings={
 
 {Name="Knight of the Stampede";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{G}}";
 cmc=4;
 Colors={"Green"};
@@ -4190,6 +4638,7 @@ Type="Creature — Human Knight";
 Types={"Creature"};
 SubTypes={"Human";"Knight";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Dinosaur spells you cast cost {{2}} less to cast.]=];
 Flavor=[=["My whisper becomes a thousand roars."]=];
 CardNumber="RIX138";
@@ -4203,6 +4652,7 @@ Rulings={
 
 {Name="Kopala, Warden of Waves";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{U}}{{U}}";
 cmc=3;
 Colors={"Blue"};
@@ -4211,6 +4661,7 @@ SuperTypes={"Legendary"};
 Types={"Creature"};
 SubTypes={"Merfolk";"Wizard";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Spells your opponents cast that target a Merfolk you control cost {{2}} more to cast.<br/>
 Abilities your opponents activate that target a Merfolk you control cost {{2}} more to activate.]=];
 Flavor=[=["I know these waters better than you know yourselves."]=];
@@ -4228,6 +4679,7 @@ Rulings={
 
 {Name="Kumena, Tyrant of Orazca";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{G}}{{U}}";
 cmc=3;
 Colors={"Blue";"Green";};
@@ -4236,6 +4688,7 @@ SuperTypes={"Legendary"};
 Types={"Creature"};
 SubTypes={"Merfolk";"Shaman";};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[Tap another untapped Merfolk you control: Kumena, Tyrant of Orazca can't be blocked this turn.<br/>
 Tap three untapped Merfolk you control: Draw a card.<br/>
 Tap five untapped Merfolk you control: Put a +1/+1 counter on each Merfolk you control.]=];
@@ -4251,12 +4704,14 @@ Rulings={
 
 {Name="Kumena's Awakening";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{U}}{{U}}";
 cmc=4;
 Colors={"Blue"};
 Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 At the beginning of your upkeep, each player draws a card. If you have the city's blessing, instead only you draw a card.]=];
 CardNumber="RIX42";
@@ -4274,6 +4729,7 @@ Rulings={
 
 {Name="Kumena's Speaker";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{G}}";
 cmc=1;
 Colors={"Green"};
@@ -4281,6 +4737,7 @@ Type="Creature — Merfolk Shaman";
 Types={"Creature"};
 SubTypes={"Merfolk";"Shaman";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Kumena's Speaker gets +1/+1 as long as you control another Merfolk or an Island.]=];
 Flavor=[=["The same power that drives the river ever onward flows through the roots and branches—to me."]=];
 CardNumber="XLN196";
@@ -4304,7 +4761,7 @@ Type="Creature — Vampire Soldier";
 Types={"Creature"};
 SubTypes={"Vampire";"Soldier";};
 Rarity="Common";
-Rarities={"Common", "Rare"};
+Rarities={"Common"};
 Text=[=[When Legion Conquistador enters the battlefield, you may search your library for any number of cards named Legion Conquistador, reveal them, put them into your hand, then shuffle your library.]=];
 Flavor=[=[The Legion of Dusk sailed from Torrezon in search of glory, riches, and the Immortal Sun.]=];
 CardNumber="RIX11";
@@ -4312,12 +4769,13 @@ Power="2";
 Toughness="2";
 MultiverseID=439668;
 Sets={
-	{Set="XLN";Rarity="Common";CardNumber="999";Flavor=[=[The Legion of Dusk sailed from Torrezon in search of glory, riches, and the Immortal Sun.]=];};
+{Set="XLN";Rarity="Common";CardNumber="20";Flavor=[=[The Legion of Dusk sailed from Torrezon in search of glory, riches, and the Immortal Sun.]=];};
 };
 };
 
 {Name="Legion Lieutenant";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{W}}{{B}}";
 cmc=2;
 Colors={"White";"Black";};
@@ -4325,6 +4783,7 @@ Type="Creature — Vampire Knight";
 Types={"Creature"};
 SubTypes={"Vampire";"Knight";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Other Vampires you control get +1/+1.]=];
 Flavor=[=["We long ago abandoned the things that make humans weak: friendship, marriage, family. All that remains is the strength of our devotion."]=];
 CardNumber="RIX163";
@@ -4338,12 +4797,14 @@ Rulings={
 
 {Name="Legion's Judgment";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{W}}";
 cmc=3;
 Colors={"White"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Destroy target creature with power 4 or greater.]=];
 Flavor=[=["My lance was once wielded by Venerable Tarrian. In his name and by his might, I cast you down!"]=];
 CardNumber="XLN21";
@@ -4352,6 +4813,7 @@ MultiverseID=435172;
 
 {Name="Legion's Landing";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{W}}";
 cmc=1;
 Colors={"White"};
@@ -4359,6 +4821,7 @@ Type="Legendary Enchantment";
 SuperTypes={"Legendary"};
 Types={"Enchantment"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[When Legion's Landing enters the battlefield, create a 1/1 white Vampire creature token with lifelink.<br/>
 When you attack with three or more creatures, transform Legion's Landing.]=];
 Flavor=[=["I claim this land in the name of the queen."<br/>
@@ -4374,12 +4837,14 @@ Rulings={
 
 {Name="Lightning Strike";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{R}}";
 cmc=2;
 Colors={"Red"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Lightning Strike deals 3 damage to target creature or player.]=];
 Flavor=[=["Storm on the horizon, cap'n!"<br/>
 —Grick Doobin, last words]=];
@@ -4389,6 +4854,7 @@ MultiverseID=435303;
 
 {Name="Lightning-Rig Crew";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{R}}";
 cmc=3;
 Colors={"Red"};
@@ -4396,6 +4862,7 @@ Type="Creature — Goblin Pirate";
 Types={"Creature"};
 SubTypes={"Goblin";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[{{Tap}}: Lightning-Rig Crew deals 1 damage to each opponent.<br/>
 Whenever you cast a Pirate spell, untap Lightning-Rig Crew.]=];
 Flavor=[=[A pirate ship in battle is a storm of activity.]=];
@@ -4411,12 +4878,14 @@ Rulings={
 
 {Name="Lookout's Dispersal";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{U}}";
 cmc=3;
 Colors={"Blue"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Lookout's Dispersal costs {{1}} less to cast if you control a Pirate.<br/>
 Counter target spell unless its controller pays {{4}}.]=];
 Flavor=[=[Her song plucks the strings of the storm, shifting wind and storm into a harmony that will carry her ship to safety.]=];
@@ -4429,6 +4898,7 @@ Rulings={
 
 {Name="Looming Altisaur";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{W}}";
 cmc=4;
 Colors={"White"};
@@ -4436,6 +4906,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
+Rarities={"Common"};
 Flavor=[=[Nature can't be tamed, but the Sun Empire believes that humans are made stronger when they test themselves against the wild strength of the dinosaurs.]=];
 CardNumber="XLN23";
 Power="1";
@@ -4445,10 +4916,12 @@ MultiverseID=435175;
 
 {Name="Lost Vale";
 SetCode="XLN";
+Allsets={"XLN"};
 cmc=2;
 Type="Land";
 Types={"Land"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[(Transforms from Dowsing Dagger.)<br/>
 {{Tap}}: Add three mana of any one color to your mana pool.]=];
 Flavor=[=[The pirates had ventured into the interior for treasure. They found something far greater.]=];
@@ -4458,6 +4931,7 @@ MultiverseID=435393;
 
 {Name="Luminous Bonds";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{W}}";
 cmc=3;
 Colors={"White"};
@@ -4465,6 +4939,7 @@ Type="Enchantment — Aura";
 Types={"Enchantment"};
 SubTypes={"Aura"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Enchant creature<br/>
 Enchanted creature can't attack or block.]=];
 Flavor=[=["Your part in this fight is done, vampire. Get used to your thirst."]=];
@@ -4474,6 +4949,7 @@ MultiverseID=439669;
 
 {Name="Lurking Chupacabra";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{B}}";
 cmc=4;
 Colors={"Black"};
@@ -4481,6 +4957,7 @@ Type="Creature — Beast Horror";
 Types={"Creature"};
 SubTypes={"Beast";"Horror";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Whenever a creature you control explores, target creature an opponent controls gets -2/-2 until end of turn.]=];
 Flavor=[=["Shadow birthed it. The moon gave it eyes, and the jungle gave it teeth. But it was Death that taught it cruelty."<br/>
 —Huatli]=];
@@ -4496,6 +4973,7 @@ Rulings={
 
 {Name="Majestic Heliopterus";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{W}}";
 cmc=4;
 Colors={"White"};
@@ -4503,6 +4981,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Flying<br/>
 Whenever Majestic Heliopterus attacks, another target Dinosaur you control gains flying until end of turn.]=];
 Flavor=[=["Its rise is like the sun's, a beautiful beginning. Its descent is like the sun's, a frightful ending."<br/>
@@ -4515,12 +4994,14 @@ MultiverseID=439670;
 
 {Name="Makeshift Munitions";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{R}}";
 cmc=2;
 Colors={"Red"};
 Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[{{1}}, Sacrifice an artifact or creature: Makeshift Munitions deals 1 damage to target creature or player.]=];
 Flavor=[=["Grease up a firecannon good and proper with dinosaur-liver oil, and it'll shoot just about anything."]=];
 CardNumber="XLN151";
@@ -4532,6 +5013,7 @@ Rulings={
 
 {Name="Marauding Looter";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{U}}{{R}}";
 cmc=4;
 Colors={"Blue";"Red";};
@@ -4539,6 +5021,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Raid — At the beginning of your end step, if you attacked with a creature this turn, you may draw a card. If you do, discard a card.]=];
 Flavor=[=["I'll be taking that."]=];
 CardNumber="XLN225";
@@ -4554,12 +5037,14 @@ Rulings={
 
 {Name="March of the Drowned";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{B}}";
 cmc=1;
 Colors={"Black"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Choose one —<br/>
 • Return target creature card from your graveyard to your hand.<br/>
 • Return two target Pirate cards from your graveyard to your hand.]=];
@@ -4572,6 +5057,7 @@ Rulings={
 
 {Name="Mark of the Vampire";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{B}}";
 cmc=4;
 Colors={"Black"};
@@ -4579,6 +5065,7 @@ Type="Enchantment — Aura";
 Types={"Enchantment"};
 SubTypes={"Aura"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Enchant creature<br/>
 Enchanted creature gets +2/+2 and has lifelink.]=];
 Flavor=[=["Through your sacrifice of self, you become holy. Through your strength, all will be saved."<br/>
@@ -4592,6 +5079,7 @@ Rulings={
 
 {Name="Martyr of Dusk";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{W}}";
 cmc=2;
 Colors={"White"};
@@ -4599,6 +5087,7 @@ Type="Creature — Vampire Soldier";
 Types={"Creature"};
 SubTypes={"Vampire";"Soldier";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[When Martyr of Dusk dies, create a 1/1 white Vampire creature token with lifelink.]=];
 Flavor=[=["Should I fall, take up our standard and carry on. The Legion must always prevail."]=];
 CardNumber="RIX14";
@@ -4609,12 +5098,14 @@ MultiverseID=439671;
 
 {Name="Mastermind's Acquisition";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{B}}{{B}}";
 cmc=4;
 Colors={"Black"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Choose one —<br/>
 • Search your library for a card, put it into your hand, then shuffle your library.<br/>
 • Choose a card you own from outside the game and put it into your hand.]=];
@@ -4629,6 +5120,7 @@ Rulings={
 
 {Name="Mausoleum Harpy";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{4}}{{B}}";
 cmc=5;
 Colors={"Black"};
@@ -4636,6 +5128,7 @@ Type="Creature — Harpy";
 Types={"Creature"};
 SubTypes={"Harpy"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Flying<br/>
 Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 Whenever another creature you control dies, if you have the city's blessing, put a +1/+1 counter on Mausoleum Harpy.]=];
@@ -4657,6 +5150,7 @@ Rulings={
 
 {Name="Mavren Fein, Dusk Apostle";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{W}}";
 cmc=3;
 Colors={"White"};
@@ -4665,6 +5159,7 @@ SuperTypes={"Legendary"};
 Types={"Creature"};
 SubTypes={"Vampire";"Cleric";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Whenever one or more nontoken Vampires you control attack, create a 1/1 white Vampire creature token with lifelink.]=];
 Flavor=[=[In the rapture of his Blood Fast, he destroyed the navigator's tools and steered the ship to shore by faith alone.]=];
 CardNumber="XLN24";
@@ -4678,6 +5173,7 @@ Rulings={
 
 {Name="Merfolk Branchwalker";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
@@ -4685,6 +5181,7 @@ Type="Creature — Merfolk Scout";
 Types={"Creature"};
 SubTypes={"Merfolk";"Scout";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[When Merfolk Branchwalker enters the battlefield, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)]=];
 CardNumber="XLN197";
 Power="2";
@@ -4699,6 +5196,7 @@ Rulings={
 
 {Name="Merfolk Mistbinder";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{G}}{{U}}";
 cmc=2;
 Colors={"Blue";"Green";};
@@ -4706,6 +5204,7 @@ Type="Creature — Merfolk Shaman";
 Types={"Creature"};
 SubTypes={"Merfolk";"Shaman";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Other Merfolk you control get +1/+1.]=];
 Flavor=[=["The mist clothes us when we are bare, hides us when we are alone, and unites us when we are together."<br/>
 —Nirit of Pashona's band]=];
@@ -4720,11 +5219,13 @@ Rulings={
 
 {Name="Metzali, Tower of Triumph";
 SetCode="RIX";
+Allsets={"RIX"};
 cmc=2;
 Type="Legendary Land";
 SuperTypes={"Legendary"};
 Types={"Land"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[(Transforms from Path of Mettle.)<br/>
 {{Tap}}: Add one mana of any color to your mana pool.<br/>
 {{1}}{{R}}, {{Tap}}: Metzali, Tower of Triumph deals 2 damage to each opponent.<br/>
@@ -4745,6 +5246,7 @@ Rulings={
 
 {Name="Mist-Cloaked Herald";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{U}}";
 cmc=1;
 Colors={"Blue"};
@@ -4752,6 +5254,7 @@ Type="Creature — Merfolk Warrior";
 Types={"Creature"};
 SubTypes={"Merfolk";"Warrior";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Mist-Cloaked Herald can't be blocked.]=];
 Flavor=[=[With matchless stealth, the River Heralds fought a running battle against the three enemy forces.]=];
 CardNumber="RIX43";
@@ -4762,12 +5265,14 @@ MultiverseID=439700;
 
 {Name="Moment of Craving";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{B}}";
 cmc=2;
 Colors={"Black"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Target creature gets -2/-2 until end of turn. You gain 2 life.]=];
 Flavor=[=["The time of condemnation is at hand. Dusk washes over the world, and I consign you to eternal darkness!"]=];
 CardNumber="RIX79";
@@ -4780,12 +5285,14 @@ Rulings={
 
 {Name="Moment of Triumph";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{W}}";
 cmc=1;
 Colors={"White"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Target creature gets +2/+2 until end of turn. You gain 2 life.]=];
 Flavor=[=["The time of salvation is at hand. Dusk washes over the world, and the Legion will rise immortal!"]=];
 CardNumber="RIX15";
@@ -4797,23 +5304,30 @@ Rulings={
 
 {Name="Mountain";
 SetCode="RIX";
+Allsets={"RIX";"XLN";};
 Type="Basic Land — Mountain";
 SuperTypes={"Basic"};
 Types={"Land"};
 SubTypes={"Mountain"};
 Rarity="Basic Land";
+Rarities={"Basic Land"};
 CardNumber="RIX195";
 MultiverseID=439859;
+Sets={
+{Set="XLN";Rarity="Basic Land";CardNumber="272";};
+};
 };
 
 {Name="Mutiny";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{R}}";
 cmc=1;
 Colors={"Red"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Target creature an opponent controls deals damage equal to its power to another target creature that player controls.]=];
 Flavor=[=[Pirate captains rarely enjoy a peaceful retirement.]=];
 CardNumber="RIX106";
@@ -4825,12 +5339,14 @@ Rulings={
 
 {Name="Naturalize";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Destroy target artifact or enchantment.]=];
 Flavor=[=["Better to let the sword go than to lose the arm with it."<br/>
 —Captain Lannery Storm]=];
@@ -4840,12 +5356,14 @@ MultiverseID=439796;
 
 {Name="Navigator's Ruin";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{U}}";
 cmc=3;
 Colors={"Blue"};
 Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Raid — At the beginning of your end step, if you attacked with a creature this turn, target opponent puts the top four cards of his or her library into his or her graveyard.]=];
 Flavor=[=["You won't be needing this. Or this. Or these . . ."]=];
 CardNumber="XLN63";
@@ -4859,6 +5377,7 @@ Rulings={
 
 {Name="Needletooth Raptor";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{R}}";
 cmc=4;
 Colors={"Red"};
@@ -4866,6 +5385,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Enrage — Whenever Needletooth Raptor is dealt damage, it deals 5 damage to target creature an opponent controls.]=];
 Flavor=[=[It hatches with its ferocity fully grown.]=];
 CardNumber="RIX107";
@@ -4880,12 +5400,14 @@ Rulings={
 
 {Name="Negate";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{U}}";
 cmc=2;
 Colors={"Blue"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Counter target noncreature spell.]=];
 Flavor=[=["As one, nature lifts its voice to tell you this: ‘No.'"]=];
 CardNumber="RIX44";
@@ -4897,6 +5419,7 @@ Rulings={
 
 {Name="Nest Robber";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{R}}";
 cmc=2;
 Colors={"Red"};
@@ -4904,6 +5427,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Haste]=];
 Flavor=[=["These sailors on our shores are like the dinosaurs that plunder eggs from nests. They live on the labors of others."<br/>
 —Itzama the Crested]=];
@@ -4915,6 +5439,7 @@ MultiverseID=435306;
 
 {Name="New Horizons";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{G}}";
 cmc=3;
 Colors={"Green"};
@@ -4922,6 +5447,7 @@ Type="Enchantment — Aura";
 Types={"Enchantment"};
 SubTypes={"Aura"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Enchant land<br/>
 When New Horizons enters the battlefield, put a +1/+1 counter on target creature you control.<br/>
 Enchanted land has "{{Tap}}: Add two mana of any one color to your mana pool."]=];
@@ -4935,6 +5461,7 @@ Rulings={
 
 {Name="Nezahal, Primal Tide";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{5}}{{U}}{{U}}";
 cmc=7;
 Colors={"Blue"};
@@ -4943,6 +5470,7 @@ SuperTypes={"Legendary"};
 Types={"Creature"};
 SubTypes={"Elder";"Dinosaur";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Nezahal, Primal Tide can't be countered.<br/>
 You have no maximum hand size.<br/>
 Whenever an opponent casts a noncreature spell, draw a card.<br/>
@@ -4961,6 +5489,7 @@ Rulings={
 
 {Name="Oathsworn Vampire";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{B}}";
 cmc=2;
 Colors={"Black"};
@@ -4968,6 +5497,7 @@ Type="Creature — Vampire Knight";
 Types={"Creature"};
 SubTypes={"Vampire";"Knight";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Oathsworn Vampire enters the battlefield tapped.<br/>
 You may cast Oathsworn Vampire from your graveyard if you gained life this turn.]=];
 Flavor=[=["My conquistadors are never slain, merely laid to rest."<br/>
@@ -4984,6 +5514,7 @@ Rulings={
 
 {Name="Old-Growth Dryads";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{G}}";
 cmc=1;
 Colors={"Green"};
@@ -4991,6 +5522,7 @@ Type="Creature — Dryad";
 Types={"Creature"};
 SubTypes={"Dryad"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[When Old-Growth Dryads enters the battlefield, each opponent may search his or her library for a basic land card, put it onto the battlefield tapped, then shuffle his or her library.]=];
 Flavor=[=["The jungle was here before any city. It will be here after the last city falls."]=];
 CardNumber="XLN199";
@@ -5001,6 +5533,7 @@ MultiverseID=435355;
 
 {Name="One With the Wind";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{U}}";
 cmc=2;
 Colors={"Blue"};
@@ -5008,6 +5541,7 @@ Type="Enchantment — Aura";
 Types={"Enchantment"};
 SubTypes={"Aura"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Enchant creature<br/>
 Enchanted creature gets +2/+2 and has flying.]=];
 Flavor=[=["River and sea, jungle and sky. Water flows freely between the two halves of the world. We are creatures of the water."<br/>
@@ -5018,12 +5552,14 @@ MultiverseID=435216;
 
 {Name="Opt";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{U}}";
 cmc=1;
 Colors={"Blue"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Scry 1. (Look at the top card of your library. You may put that card on the bottom of your library.)<br/>
 Draw a card.]=];
 Flavor=[=["It's easy to anticipate Captain Storm's orders: take the more dangerous route."]=];
@@ -5033,6 +5569,7 @@ MultiverseID=435217;
 
 {Name="Orazca Frillback";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{G}}";
 cmc=3;
 Colors={"Green"};
@@ -5040,6 +5577,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
+Rarities={"Common"};
 Flavor=[=[The frillbacks of Orazca soak up the sun on their tall spinal fins. They look slow and sleepy—until they catch the scent of prey.]=];
 CardNumber="RIX140";
 Power="4";
@@ -5049,6 +5587,7 @@ MultiverseID=439797;
 
 {Name="Orazca Raptor";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{R}}{{R}}";
 cmc=4;
 Colors={"Red"};
@@ -5056,6 +5595,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
+Rarities={"Common"};
 Flavor=[=["If you come across a raptor in the city, stay perfectly still. At least then you'll be well rested when you die."<br/>
 —Captain Brandis Thorn]=];
 CardNumber="RIX108";
@@ -5066,11 +5606,13 @@ MultiverseID=439765;
 
 {Name="Orazca Relic";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}";
 cmc=3;
 Type="Artifact";
 Types={"Artifact"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 {{Tap}}: Add {{C}} to your mana pool.<br/>
 {{Tap}}, Sacrifice Orazca Relic: You gain 3 life and draw a card. Activate this ability only if you have the city's blessing.]=];
@@ -5088,6 +5630,7 @@ Rulings={
 
 {Name="Otepec Huntmaster";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{R}}";
 cmc=2;
 Colors={"Red"};
@@ -5095,6 +5638,7 @@ Type="Creature — Human Shaman";
 Types={"Creature"};
 SubTypes={"Human";"Shaman";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Dinosaur spells you cast cost {{1}} less to cast.<br/>
 {{Tap}}: Target Dinosaur gains haste until end of turn.]=];
 Flavor=[=["Forward! Let the Burning Sun's light guide you to deserving prey!"]=];
@@ -5110,12 +5654,14 @@ Rulings={
 
 {Name="Overflowing Insight";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{U}}{{U}}{{U}}";
 cmc=7;
 Colors={"Blue"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[Target player draws seven cards.]=];
 Flavor=[=[The truth came to Kumena like the Great River's torrent: the only way to keep his enemies away from the hidden city was to claim its power for himself.]=];
 CardNumber="XLN66";
@@ -5124,6 +5670,7 @@ MultiverseID=435218;
 
 {Name="Overgrown Armasaur";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{G}}{{G}}";
 cmc=5;
 Colors={"Green"};
@@ -5131,6 +5678,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Enrage — Whenever Overgrown Armasaur is dealt damage, create a 1/1 green Saproling creature token.]=];
 Flavor=[=[It embodies the riotous growth of the jungle, where creatures crowd upon creatures, where roots sprawl and vines swarm.]=];
 CardNumber="RIX141";
@@ -5145,6 +5693,7 @@ Rulings={
 
 {Name="Paladin of Atonement";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{W}}";
 cmc=2;
 Colors={"White"};
@@ -5152,6 +5701,7 @@ Type="Creature — Vampire Knight";
 Types={"Creature"};
 SubTypes={"Vampire";"Knight";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[At the beginning of each upkeep, if you lost life last turn, put a +1/+1 counter on Paladin of Atonement.<br/>
 When Paladin of Atonement dies, you gain life equal to its toughness.]=];
 Flavor=[=[For every wound there is a blessing; for every death, a reckoning.]=];
@@ -5167,6 +5717,7 @@ Rulings={
 
 {Name="Paladin of the Bloodstained";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{W}}";
 cmc=4;
 Colors={"White"};
@@ -5174,6 +5725,7 @@ Type="Creature — Vampire Knight";
 Types={"Creature"};
 SubTypes={"Vampire";"Knight";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[When Paladin of the Bloodstained enters the battlefield, create a 1/1 white Vampire creature token with lifelink.]=];
 Flavor=[=[Closely linked to the Church of Dusk, the paladins of the Bloodstained order are devout to the point of fanaticism.]=];
 CardNumber="XLN25";
@@ -5184,12 +5736,14 @@ MultiverseID=435177;
 
 {Name="Path of Discovery";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{G}}";
 cmc=4;
 Colors={"Green"};
 Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Whenever a creature enters the battlefield under your control, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on the creature, then put the card back or put it into your graveyard.)]=];
 CardNumber="RIX142";
 MultiverseID=439799;
@@ -5203,6 +5757,7 @@ Rulings={
 
 {Name="Path of Mettle";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{R}}{{W}}";
 cmc=2;
 Colors={"White";"Red";};
@@ -5210,6 +5765,7 @@ Type="Legendary Enchantment";
 SuperTypes={"Legendary"};
 Types={"Enchantment"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[When Path of Mettle enters the battlefield, it deals 1 damage to each creature that doesn't have first strike, double strike, vigilance, or haste.<br/>
 Whenever you attack with at least two creatures that have first strike, double strike, vigilance, and/or haste, transform Path of Mettle.]=];
 CardNumber="RIX165a";
@@ -5223,12 +5779,14 @@ Rulings={
 
 {Name="Perilous Voyage";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{U}}";
 cmc=2;
 Colors={"Blue"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Return target nonland permanent you don't control to its owner's hand. If its converted mana cost was 2 or less, scry 2.]=];
 Flavor=[=[For the first time in her life, Vraska tried to prevent death.]=];
 CardNumber="XLN67";
@@ -5243,11 +5801,13 @@ Rulings={
 
 {Name="Pillar of Origins";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}";
 cmc=2;
 Type="Artifact";
 Types={"Artifact"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[As Pillar of Origins enters the battlefield, choose a creature type.<br/>
 {{Tap}}: Add one mana of any color to your mana pool. Spend this mana only to cast a creature spell of the chosen type.]=];
 CardNumber="XLN241";
@@ -5259,6 +5819,7 @@ Rulings={
 
 {Name="Pious Interdiction";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{W}}";
 cmc=4;
 Colors={"White"};
@@ -5266,6 +5827,7 @@ Type="Enchantment — Aura";
 Types={"Enchantment"};
 SubTypes={"Aura"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Enchant creature<br/>
 When Pious Interdiction enters the battlefield, you gain 2 life.<br/>
 Enchanted creature can't attack or block.]=];
@@ -5279,12 +5841,14 @@ Rulings={
 
 {Name="Pirate's Cutlass";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}";
 cmc=3;
 Type="Artifact — Equipment";
 Types={"Artifact"};
 SubTypes={"Equipment"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[When Pirate's Cutlass enters the battlefield, attach it to target Pirate you control.<br/>
 Equipped creature gets +2/+1.<br/>
 Equip {{2}} ({{2}}: Attach to target creature you control. Equip only as a sorcery.)]=];
@@ -5297,12 +5861,14 @@ Rulings={
 
 {Name="Pirate's Pillage";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{R}}";
 cmc=4;
 Colors={"Red"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[As an additional cost to cast Pirate's Pillage, discard a card.<br/>
 Draw two cards and create two colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
 Flavor=[=[Goblins can carry their body weight in loot.]=];
@@ -5312,12 +5878,14 @@ MultiverseID=439766;
 
 {Name="Pirate's Prize";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{U}}";
 cmc=4;
 Colors={"Blue"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Draw two cards. Create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
 Flavor=[=[Nothing warms the heart like plunder.]=];
 CardNumber="XLN68";
@@ -5326,6 +5894,7 @@ MultiverseID=435220;
 
 {Name="Pitiless Plunderer";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{B}}";
 cmc=4;
 Colors={"Black"};
@@ -5333,6 +5902,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Whenever another creature you control dies, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
 Flavor=[=["Shame to let good gold go to the grave."]=];
 CardNumber="RIX81";
@@ -5346,7 +5916,7 @@ Rulings={
 
 {Name="Plains";
 SetCode="RIX";
-Allsets={"RIX", "XLN"};
+Allsets={"RIX";"XLN";};
 Type="Basic Land — Plains";
 SuperTypes={"Basic"};
 Types={"Land"};
@@ -5356,18 +5926,20 @@ Rarities={"Basic Land"};
 CardNumber="RIX192";
 MultiverseID=439856;
 Sets={
-	{Set="XLN"; Rarity="Basic Land";};
+{Set="XLN";Rarity="Basic Land";CardNumber="260";};
 };
 };
 
 {Name="Plummet";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Destroy target creature with flying.]=];
 Flavor=[=["Still, the pterodon chasing the clouds from its skies must bow to the great forest below."<br/>
 —Mahuiz, Sun Empire archer]=];
@@ -5377,6 +5949,7 @@ MultiverseID=439800;
 
 {Name="Polyraptor";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{6}}{{G}}{{G}}";
 cmc=8;
 Colors={"Green"};
@@ -5384,6 +5957,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[Enrage — Whenever Polyraptor is dealt damage, create a token that's a copy of Polyraptor.]=];
 Flavor=[=[An innumerable pack is concealed in a single reflection.]=];
 CardNumber="RIX144";
@@ -5401,12 +5975,14 @@ Rulings={
 
 {Name="Pounce";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Target creature you control fights target creature you don't control. (Each deals damage equal to its power to the other.)]=];
 Flavor=[=[The drive to hunt and feed is raw instinct for dinosaurs. The trick is simply to channel it in the right direction.]=];
 CardNumber="XLN200";
@@ -5418,12 +5994,14 @@ Rulings={
 
 {Name="Pride of Conquerors";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{W}}";
 cmc=2;
 Colors={"White"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 Creatures you control get +1/+1 until end of turn. If you have the city's blessing, those creatures get +2/+2 until end of turn instead.]=];
 CardNumber="RIX17";
@@ -5441,6 +6019,7 @@ Rulings={
 
 {Name="Priest of the Wakening Sun";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{W}}";
 cmc=1;
 Colors={"White"};
@@ -5448,6 +6027,7 @@ Type="Creature — Human Cleric";
 Types={"Creature"};
 SubTypes={"Human";"Cleric";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[At the beginning of your upkeep, you may reveal a Dinosaur card from your hand. If you do, you gain 2 life.<br/>
 {{3}}{{W}}{{W}}, Sacrifice Priest of the Wakening Sun: Search your library for a Dinosaur card, reveal it, put it into your hand, then shuffle your library.]=];
 CardNumber="XLN27";
@@ -5464,11 +6044,13 @@ Rulings={
 
 {Name="Primal Amulet";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}";
 cmc=4;
 Type="Artifact";
 Types={"Artifact"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Instant and sorcery spells you cast cost {{1}} less to cast.<br/>
 Whenever you cast an instant or sorcery spell, put a charge counter on Primal Amulet. Then if there are four or more charge counters on it, you may remove those counters and transform it.]=];
 CardNumber="XLN243a";
@@ -5484,10 +6066,12 @@ Rulings={
 
 {Name="Primal Wellspring";
 SetCode="XLN";
+Allsets={"XLN"};
 cmc=4;
 Type="Land";
 Types={"Land"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[(Transforms from Primal Amulet.)<br/>
 {{Tap}}: Add one mana of any color to your mana pool. When that mana is spent to cast an instant or sorcery spell, copy that spell and you may choose new targets for the copy.]=];
 CardNumber="XLN243b";
@@ -5508,6 +6092,7 @@ Rulings={
 
 {Name="Profane Procession";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{W}}{{B}}";
 cmc=3;
 Colors={"White";"Black";};
@@ -5515,6 +6100,7 @@ Type="Legendary Enchantment";
 SuperTypes={"Legendary"};
 Types={"Enchantment"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[{{3}}{{W}}{{B}}: Exile target creature. Then if there are three or more cards exiled with Profane Procession, transform it.]=];
 Flavor=[=[Vona sought a conqueror. Mavren sought a savior. Both found what they sought . . .]=];
 CardNumber="RIX166a";
@@ -5528,6 +6114,7 @@ Rulings={
 
 {Name="Prosperous Pirates";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{U}}";
 cmc=5;
 Colors={"Blue"};
@@ -5535,6 +6122,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[When Prosperous Pirates enters the battlefield, create two colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
 Flavor=[=[The floating city of High and Dry hasn't yet sunk under the weight of gold, but it's not for want of trying.]=];
 CardNumber="XLN69";
@@ -5545,6 +6133,7 @@ MultiverseID=435221;
 
 {Name="Protean Raider";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{U}}{{R}}";
 cmc=3;
 Colors={"Blue";"Red";};
@@ -5552,6 +6141,7 @@ Type="Creature — Shapeshifter Pirate";
 Types={"Creature"};
 SubTypes={"Shapeshifter";"Pirate";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Raid — If you attacked with a creature this turn, you may have Protean Raider enter the battlefield as a copy of any creature on the battlefield.]=];
 Flavor=[=[Imitation is the sincerest form of piracy.]=];
 CardNumber="RIX167";
@@ -5572,12 +6162,14 @@ Rulings={
 
 {Name="Prying Blade";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}";
 cmc=1;
 Type="Artifact — Equipment";
 Types={"Artifact"};
 SubTypes={"Equipment"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Equipped creature gets +1/+0.<br/>
 Whenever equipped creature deals combat damage to a player, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."<br/>
 Equip {{2}} ({{2}}: Attach to target creature you control. Equip only as a sorcery.)]=];
@@ -5587,6 +6179,7 @@ MultiverseID=435403;
 
 {Name="Pterodon Knight";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{W}}";
 cmc=4;
 Colors={"White"};
@@ -5594,6 +6187,7 @@ Type="Creature — Human Knight";
 Types={"Creature"};
 SubTypes={"Human";"Knight";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Pterodon Knight has flying as long as you control a Dinosaur.]=];
 Flavor=[=["To rise like the sun—there is no greater feeling."]=];
 CardNumber="XLN28";
@@ -5604,6 +6198,7 @@ MultiverseID=435180;
 
 {Name="Queen's Agent";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{5}}{{B}}";
 cmc=6;
 Colors={"Black"};
@@ -5611,6 +6206,7 @@ Type="Creature — Vampire Scout";
 Types={"Creature"};
 SubTypes={"Vampire";"Scout";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Lifelink<br/>
 When Queen's Agent enters the battlefield, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)]=];
 CardNumber="XLN114";
@@ -5626,6 +6222,7 @@ Rulings={
 
 {Name="Queen's Bay Soldier";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{B}}";
 cmc=2;
 Colors={"Black"};
@@ -5633,6 +6230,7 @@ Type="Creature — Vampire Soldier";
 Types={"Creature"};
 SubTypes={"Vampire";"Soldier";};
 Rarity="Common";
+Rarities={"Common"};
 Flavor=[=[The soldiers of the Legion of Dusk have come to the colonies at Queen's Bay in search of glory and riches. They are veterans of centuries of warfare, and they thirst for conquest.]=];
 CardNumber="XLN115";
 Power="2";
@@ -5642,12 +6240,14 @@ MultiverseID=435269;
 
 {Name="Queen's Commission";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{W}}";
 cmc=3;
 Colors={"White"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Create two 1/1 white Vampire creature tokens with lifelink.]=];
 Flavor=[=["Let the blood of the impure flow through you. Only the blessings of the golden city will purge its acrid taste from your mouth."<br/>
 —High Marshal Arguel]=];
@@ -5657,12 +6257,14 @@ MultiverseID=435181;
 
 {Name="Radiant Destiny";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{W}}";
 cmc=3;
 Colors={"White"};
 Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 As Radiant Destiny enters the battlefield, choose a creature type.<br/>
 Creatures you control of the chosen type get +1/+1. As long as you have the city's blessing, they also have vigilance.]=];
@@ -5683,6 +6285,7 @@ Rulings={
 
 {Name="Raging Regisaur";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{R}}{{G}}";
 cmc=4;
 Colors={"Red";"Green";};
@@ -5690,6 +6293,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Whenever Raging Regisaur attacks, it deals 1 damage to target creature or player.]=];
 Flavor=[=[Its breath is a gale. Its roar is a volcano. Its anger tears soul from flesh.]=];
 CardNumber="RIX168";
@@ -5703,6 +6307,7 @@ Rulings={
 
 {Name="Raging Swordtooth";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{R}}{{G}}";
 cmc=5;
 Colors={"Red";"Green";};
@@ -5710,6 +6315,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Trample<br/>
 When Raging Swordtooth enters the battlefield, it deals 1 damage to each other creature.]=];
 Flavor=[=[Carnivorous dinosaurs developed a taste for undead flesh, tracking the vampires by the scent of blood on their breath.]=];
@@ -5721,12 +6327,14 @@ MultiverseID=435382;
 
 {Name="Raiders' Wake";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{B}}";
 cmc=4;
 Colors={"Black"};
 Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Whenever an opponent discards a card, that player loses 2 life.<br/>
 Raid — At the beginning of your end step, if you attacked with a creature this turn, target opponent discards a card.]=];
 Flavor=[=[One was spared to tell the gruesome tale.]=];
@@ -5741,12 +6349,14 @@ Rulings={
 
 {Name="Rallying Roar";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{W}}";
 cmc=3;
 Colors={"White"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Creatures you control get +1/+1 until end of turn. Untap them.]=];
 Flavor=[=["The sun's strength sings in our hearts! I have never been more proud of my home and my people."<br/>
 —Huatli]=];
@@ -5760,6 +6370,7 @@ Rulings={
 
 {Name="Rampaging Ferocidon";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{R}}";
 cmc=3;
 Colors={"Red"};
@@ -5767,6 +6378,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Menace<br/>
 Players can't gain life.<br/>
 Whenever another creature enters the battlefield, Rampaging Ferocidon deals 1 damage to that creature's controller.]=];
@@ -5785,6 +6397,7 @@ Rulings={
 
 {Name="Ranging Raptors";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{G}}";
 cmc=3;
 Colors={"Green"};
@@ -5792,6 +6405,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Enrage — Whenever Ranging Raptors is dealt damage, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle your library.]=];
 Flavor=[=[They cover their territory like a tide of teeth and claws.]=];
 CardNumber="XLN201";
@@ -5806,6 +6420,7 @@ Rulings={
 
 {Name="Raptor Companion";
 SetCode="RIX";
+Allsets={"RIX";"XLN";};
 Manacost="{{1}}{{W}}";
 cmc=2;
 Colors={"White"};
@@ -5813,15 +6428,20 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
+Rarities={"Common"};
 Flavor=[=[The abundance of foes in Orazca means the raptors no longer need any orders.]=];
 CardNumber="RIX19";
 Power="3";
 Toughness="1";
 MultiverseID=439676;
+Sets={
+{Set="XLN";Rarity="Common";CardNumber="31";Flavor=[=[A raptor will follow any order as long as that order is "hunt," "kill," or "go for the guts."]=];};
+};
 };
 
 {Name="Raptor Hatchling";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{R}}";
 cmc=2;
 Colors={"Red"};
@@ -5829,6 +6449,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Enrage — Whenever Raptor Hatchling is dealt damage, create a 3/3 green Dinosaur creature token with trample.]=];
 Flavor=[=["Every little hatchling has a parent's claws to guard it."<br/>
 —Sun Empire saying]=];
@@ -5844,6 +6465,7 @@ Rulings={
 
 {Name="Ravenous Chupacabra";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{B}}{{B}}";
 cmc=4;
 Colors={"Black"};
@@ -5851,6 +6473,7 @@ Type="Creature — Beast Horror";
 Types={"Creature"};
 SubTypes={"Beast";"Horror";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[When Ravenous Chupacabra enters the battlefield, destroy target creature an opponent controls.]=];
 Flavor=[=[Opening Orazca unleashed more horrors than just the Immortal Sun.]=];
 CardNumber="RIX82";
@@ -5861,6 +6484,7 @@ MultiverseID=439739;
 
 {Name="Ravenous Daggertooth";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{G}}";
 cmc=3;
 Colors={"Green"};
@@ -5868,6 +6492,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Enrage — Whenever Ravenous Daggertooth is dealt damage, you gain 2 life.]=];
 Flavor=[=[A daggertooth's triumphant roar makes all the sounds of jungle life fall silent.]=];
 CardNumber="XLN202";
@@ -5883,12 +6508,14 @@ Rulings={
 
 {Name="Reaver Ambush";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{B}}";
 cmc=3;
 Colors={"Black"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Exile target creature with power 3 or less.]=];
 Flavor=[=[Onora knew with sudden, grim certainty he would never see the Great River again.]=];
 CardNumber="RIX83";
@@ -5897,12 +6524,14 @@ MultiverseID=439740;
 
 {Name="Reckless Rage";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{R}}";
 cmc=1;
 Colors={"Red"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Reckless Rage deals 4 damage to target creature you don't control and 2 damage to target creature you control.]=];
 Flavor=[=["Hard to starboard! Starb— Abandon ship! Abandon ship!"]=];
 CardNumber="RIX110";
@@ -5915,12 +6544,14 @@ Rulings={
 
 {Name="Recover";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{B}}";
 cmc=3;
 Colors={"Black"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Return target creature card from your graveyard to your hand.<br/>
 Draw a card.]=];
 Flavor=[=["No more fear of death's oblivion—is this not the greatest treasure of all?"<br/>
@@ -5931,6 +6562,7 @@ MultiverseID=439741;
 
 {Name="Regisaur Alpha";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{R}}{{G}}";
 cmc=5;
 Colors={"Red";"Green";};
@@ -5938,6 +6570,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Other Dinosaurs you control have haste.<br/>
 When Regisaur Alpha enters the battlefield, create a 3/3 green Dinosaur creature token with trample.]=];
 Flavor=[=["Seeing a pack of these monsters hunt together, I'm at a loss to imagine the size of their prey."<br/>
@@ -5950,6 +6583,7 @@ MultiverseID=435383;
 
 {Name="Rekindling Phoenix";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{R}}{{R}}";
 cmc=4;
 Colors={"Red"};
@@ -5957,6 +6591,7 @@ Type="Creature — Phoenix";
 Types={"Creature"};
 SubTypes={"Phoenix"};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[Flying<br/>
 When Rekindling Phoenix dies, create a 0/1 red Elemental creature token with "At the beginning of your upkeep, sacrifice this creature and return target card named Rekindling Phoenix from your graveyard to the battlefield. It gains haste until end of turn."]=];
 CardNumber="RIX111";
@@ -5971,12 +6606,14 @@ Rulings={
 
 {Name="Release to the Wind";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{U}}";
 cmc=3;
 Colors={"Blue"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Exile target nonland permanent. For as long as that card remains exiled, its owner may cast it without paying its mana cost.]=];
 Flavor=[=["Here and gone like a fleeting breeze."]=];
 CardNumber="RIX46";
@@ -5991,6 +6628,7 @@ Rulings={
 
 {Name="Relentless Raptor";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{R}}{{W}}";
 cmc=2;
 Colors={"White";"Red";};
@@ -5998,6 +6636,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Vigilance<br/>
 Relentless Raptor attacks or blocks each combat if able.]=];
 Flavor=[=[As the battle for Orazca unfolded, the contenders discovered that others had already staked a claim.]=];
@@ -6012,12 +6651,14 @@ Rulings={
 
 {Name="Repeating Barrage";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{R}}{{R}}";
 cmc=3;
 Colors={"Red"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Repeating Barrage deals 3 damage to target creature or player.<br/>
 Raid — {{3}}{{R}}{{R}}: Return Repeating Barrage from your graveyard to your hand. Activate this ability only if you attacked with a creature this turn.]=];
 CardNumber="XLN156";
@@ -6030,6 +6671,7 @@ Rulings={
 
 {Name="Resplendent Griffin";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{W}}{{U}}";
 cmc=3;
 Colors={"White";"Blue";};
@@ -6037,6 +6679,7 @@ Type="Creature — Griffin";
 Types={"Creature"};
 SubTypes={"Griffin"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Flying<br/>
 Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 Whenever Resplendent Griffin attacks, if you have the city's blessing, put a +1/+1 counter on it.]=];
@@ -6057,12 +6700,14 @@ Rulings={
 
 {Name="Revel in Riches";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{B}}";
 cmc=5;
 Colors={"Black"};
 Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Whenever a creature an opponent controls dies, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."<br/>
 At the beginning of your upkeep, if you control ten or more Treasures, you win the game.]=];
 CardNumber="XLN117";
@@ -6077,6 +6722,7 @@ Rulings={
 
 {Name="Rigging Runner";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{R}}";
 cmc=1;
 Colors={"Red"};
@@ -6084,6 +6730,7 @@ Type="Creature — Goblin Pirate";
 Types={"Creature"};
 SubTypes={"Goblin";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[First strike<br/>
 Raid — Rigging Runner enters the battlefield with a +1/+1 counter on it if you attacked with a creature this turn.]=];
 Flavor=[=[The hook makes him feel brave, and the hat makes him feel fancy.]=];
@@ -6099,12 +6746,14 @@ Rulings={
 
 {Name="Rile";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{R}}";
 cmc=1;
 Colors={"Red"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Rile deals 1 damage to target creature you control. That creature gains trample until end of turn.<br/>
 Draw a card.]=];
 Flavor=[=[The enormous can still be at the mercy of the small.]=];
@@ -6119,6 +6768,7 @@ Rulings={
 
 {Name="Ripjaw Raptor";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{G}}{{G}}";
 cmc=4;
 Colors={"Green"};
@@ -6126,6 +6776,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Enrage — Whenever Ripjaw Raptor is dealt damage, draw a card.]=];
 Flavor=[=[Raptors are clever enough to tear away a hard metal shell to get at the tasty morsel inside.]=];
 CardNumber="XLN203";
@@ -6140,12 +6791,14 @@ Rulings={
 
 {Name="Ritual of Rejuvenation";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{W}}";
 cmc=3;
 Colors={"White"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[You gain 4 life.<br/>
 Draw a card.]=];
 Flavor=[=["Nothing is more sacred than the gift of blood. Blessed are the vein that empties and the heart that is renewed."]=];
@@ -6155,6 +6808,7 @@ MultiverseID=435184;
 
 {Name="River Darter";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{U}}";
 cmc=3;
 Colors={"Blue"};
@@ -6162,6 +6816,7 @@ Type="Creature — Merfolk Warrior";
 Types={"Creature"};
 SubTypes={"Merfolk";"Warrior";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[River Darter can't be blocked by Dinosaurs.]=];
 Flavor=[=["Don't make splashes. Make progress."<br/>
 —Tishana]=];
@@ -6173,12 +6828,14 @@ MultiverseID=439704;
 
 {Name="River Heralds' Boon";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Put a +1/+1 counter on target creature and a +1/+1 counter on up to one target Merfolk.]=];
 Flavor=[=["We are kin to the trees, and their strength is our own."]=];
 CardNumber="XLN204";
@@ -6190,6 +6847,7 @@ Rulings={
 
 {Name="River Sneak";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{U}}";
 cmc=2;
 Colors={"Blue"};
@@ -6197,6 +6855,7 @@ Type="Creature — Merfolk Warrior";
 Types={"Creature"};
 SubTypes={"Merfolk";"Warrior";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[River Sneak can't be blocked.<br/>
 Whenever another Merfolk enters the battlefield under your control, River Sneak gets +1/+1 until end of turn.]=];
 Flavor=[=[No ripples, no splashes, no warning.]=];
@@ -6208,12 +6867,14 @@ MultiverseID=435222;
 
 {Name="River's Rebuke";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{U}}{{U}}";
 cmc=6;
 Colors={"Blue"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Return all nonland permanents target player controls to their owner's hand.]=];
 Flavor=[=[Carefully following the thaumatic compass Bolas had given her, Vraska blundered straight into the River Heralds' trap.]=];
 CardNumber="XLN71";
@@ -6225,6 +6886,7 @@ Rulings={
 
 {Name="Riverwise Augur";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{U}}";
 cmc=4;
 Colors={"Blue"};
@@ -6232,6 +6894,7 @@ Type="Creature — Merfolk Wizard";
 Types={"Creature"};
 SubTypes={"Merfolk";"Wizard";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[When Riverwise Augur enters the battlefield, draw three cards, then put two cards from your hand on top of your library in any order.]=];
 Flavor=[=["Time flows as the rivers do, toward an unknown sea. The wise know to look downstream."]=];
 CardNumber="RIX48";
@@ -6245,9 +6908,11 @@ Rulings={
 
 {Name="Rootbound Crag";
 SetCode="XLN";
+Allsets={"XLN"};
 Type="Land";
 Types={"Land"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Rootbound Crag enters the battlefield tapped unless you control a Mountain or a Forest.<br/>
 {{Tap}}: Add {{R}} or {{G}} to your mana pool.]=];
 Flavor=[=[Cliffs echo and branches quake at the roar of life.]=];
@@ -6261,6 +6926,7 @@ Rulings={
 
 {Name="Rowdy Crew";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{R}}{{R}}";
 cmc=4;
 Colors={"Red"};
@@ -6268,6 +6934,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[Trample<br/>
 When Rowdy Crew enters the battlefield, draw three cards, then discard two cards at random. If two cards that share a card type are discarded this way, put two +1/+1 counters on Rowdy Crew.]=];
 CardNumber="XLN159";
@@ -6284,6 +6951,7 @@ Rulings={
 
 {Name="Ruin Raider";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{B}}";
 cmc=3;
 Colors={"Black"};
@@ -6291,6 +6959,7 @@ Type="Creature — Orc Pirate";
 Types={"Creature"};
 SubTypes={"Orc";"Pirate";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Raid — At the beginning of your end step, if you attacked with a creature this turn, reveal the top card of your library and put that card into your hand. You lose life equal to the card's converted mana cost.]=];
 CardNumber="XLN118";
 Power="3";
@@ -6308,6 +6977,7 @@ Rulings={
 
 {Name="Rummaging Goblin";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{R}}";
 cmc=3;
 Colors={"Red"};
@@ -6315,6 +6985,7 @@ Type="Creature — Goblin Rogue";
 Types={"Creature"};
 SubTypes={"Goblin";"Rogue";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[{{Tap}}, Discard a card: Draw a card.]=];
 Flavor=[=[Goblins' eager curiosity leads them to scavenging, petty theft, and the rigging of sleek pirate ships. Some stop at scavenging.]=];
 CardNumber="XLN160";
@@ -6328,12 +6999,14 @@ Rulings={
 
 {Name="Run Aground";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{U}}";
 cmc=4;
 Colors={"Blue"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Put target artifact or creature on top of its owner's library.]=];
 Flavor=[=["That's the first time I've seen the ground do the running."<br/>
 —Captain Brinely Rage]=];
@@ -6343,6 +7016,7 @@ MultiverseID=435224;
 
 {Name="Ruthless Knave";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{B}}";
 cmc=3;
 Colors={"Black"};
@@ -6350,6 +7024,7 @@ Type="Creature — Orc Pirate";
 Types={"Creature"};
 SubTypes={"Orc";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[{{2}}{{B}}, Sacrifice a creature: Create two colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."<br/>
 Sacrifice three Treasures: Draw a card.]=];
 Flavor=[=["This scum is barely worth the trouble."]=];
@@ -6365,6 +7040,7 @@ Rulings={
 
 {Name="Sadistic Skymarcher";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{B}}";
 cmc=3;
 Colors={"Black"};
@@ -6372,6 +7048,7 @@ Type="Creature — Vampire Soldier";
 Types={"Creature"};
 SubTypes={"Vampire";"Soldier";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[As an additional cost to cast Sadistic Skymarcher, reveal a Vampire card from your hand or pay {{1}}.<br/>
 Flying, lifelink]=];
 Flavor=[=["I will catch you, child of the sun. I will drink your life and leave you a husk, discarded in the shadows."]=];
@@ -6386,6 +7063,7 @@ Rulings={
 
 {Name="Sailor of Means";
 SetCode="RIX";
+Allsets={"RIX";"XLN";};
 Manacost="{{2}}{{U}}";
 cmc=3;
 Colors={"Blue"};
@@ -6393,21 +7071,27 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[When Sailor of Means enters the battlefield, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
 Flavor=[=[The rising tide of Orazca's plunder lifted all ships.]=];
 CardNumber="RIX49";
 Power="1";
 Toughness="4";
 MultiverseID=439706;
+Sets={
+{Set="XLN";Rarity="Common";CardNumber="73";Flavor=[=[In the Brazen Coalition, the wheels of business are greased with plunder.]=];};
+};
 };
 
 {Name="Sanctum of the Sun";
 SetCode="RIX";
+Allsets={"RIX"};
 cmc=2;
 Type="Legendary Land";
 SuperTypes={"Legendary"};
 Types={"Land"};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[(Transforms from Azor's Gateway.)<br/>
 {{Tap}}: Add X mana of any one color to your mana pool, where X is your life total.]=];
 Flavor=[=[As soon as Jace laid eyes on the great sphinx's chamber, the shards of memory began sliding into place.]=];
@@ -6420,6 +7104,7 @@ Rulings={
 
 {Name="Sanctum Seeker";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{B}}{{B}}";
 cmc=4;
 Colors={"Black"};
@@ -6427,6 +7112,7 @@ Type="Creature — Vampire Knight";
 Types={"Creature"};
 SubTypes={"Vampire";"Knight";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Whenever a Vampire you control attacks, each opponent loses 1 life and you gain 1 life.]=];
 Flavor=[=[The Sanctum Seekers were the first of the knightly orders to cross the sea and are still the most zealous.]=];
 CardNumber="XLN120";
@@ -6440,6 +7126,7 @@ Rulings={
 
 {Name="Sanguine Glorifier";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{W}}";
 cmc=4;
 Colors={"White"};
@@ -6447,6 +7134,7 @@ Type="Creature — Vampire Cleric";
 Types={"Creature"};
 SubTypes={"Vampire";"Cleric";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[When Sanguine Glorifier enters the battlefield, put a +1/+1 counter on another target Vampire you control.]=];
 Flavor=[=[For the Legion of Dusk, the Immortal Sun is a source of eternal life. When they reclaim it, they will no longer be forced to subsist on the blood of the wicked.]=];
 CardNumber="RIX20";
@@ -6457,12 +7145,14 @@ MultiverseID=439677;
 
 {Name="Sanguine Sacrament";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{X}}{{W}}{{W}}";
 cmc=2;
 Colors={"White"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[You gain twice X life. Put Sanguine Sacrament on the bottom of its owner's library.]=];
 Flavor=[=["As the sun sets to make way for dawn, so we turn to darkness to bring about the coming salvation."]=];
 CardNumber="XLN33";
@@ -6474,12 +7164,14 @@ Rulings={
 
 {Name="Savage Stomp";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{G}}";
 cmc=3;
 Colors={"Green"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Savage Stomp costs {{2}} less to cast if it targets a Dinosaur you control.<br/>
 Put a +1/+1 counter on target creature you control. Then that creature fights target creature you don't control. (Each deals damage equal to its power to the other.)]=];
 CardNumber="XLN205";
@@ -6493,6 +7185,7 @@ Rulings={
 
 {Name="Sea Legs";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{U}}";
 cmc=1;
 Colors={"Blue"};
@@ -6500,6 +7193,7 @@ Type="Enchantment — Aura";
 Types={"Enchantment"};
 SubTypes={"Aura"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Flash<br/>
 Enchant creature<br/>
 Enchanted creature gets +0/+2 as long as it's a Pirate. Otherwise, it gets -2/-0.]=];
@@ -6510,6 +7204,7 @@ MultiverseID=439707;
 
 {Name="Seafloor Oracle";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{U}}{{U}}";
 cmc=4;
 Colors={"Blue"};
@@ -6517,6 +7212,7 @@ Type="Creature — Merfolk Wizard";
 Types={"Creature"};
 SubTypes={"Merfolk";"Wizard";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Whenever a Merfolk you control deals combat damage to a player, draw a card.]=];
 Flavor=[=[Where the light falls dim and blue on broken ships, secrets lie unclaimed.]=];
 CardNumber="RIX51";
@@ -6530,6 +7226,7 @@ Rulings={
 
 {Name="Search for Azcanta";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{U}}";
 cmc=2;
 Colors={"Blue"};
@@ -6537,6 +7234,7 @@ Type="Legendary Enchantment";
 SuperTypes={"Legendary"};
 Types={"Enchantment"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[At the beginning of your upkeep, look at the top card of your library. You may put it into your graveyard. Then if you have seven or more cards in your graveyard, you may transform Search for Azcanta.]=];
 Flavor=[=[The Sunken Ruin houses all the learning of a long-forgotten age.]=];
 CardNumber="XLN74a";
@@ -6551,12 +7249,14 @@ Rulings={
 
 {Name="Secrets of the Golden City";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{U}}{{U}}";
 cmc=3;
 Colors={"Blue"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 Draw two cards. If you have the city's blessing, draw three cards instead.]=];
 Flavor=[=[Stolen knowledge can never be stolen back.]=];
@@ -6573,6 +7273,7 @@ Rulings={
 
 {Name="See Red";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{R}}";
 cmc=2;
 Colors={"Red"};
@@ -6580,6 +7281,7 @@ Type="Enchantment — Aura";
 Types={"Enchantment"};
 SubTypes={"Aura"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Enchant creature<br/>
 Enchanted creature gets +2/+1 and has first strike.<br/>
 At the beginning of your end step, if you didn't attack with a creature this turn, sacrifice See Red.]=];
@@ -6592,6 +7294,7 @@ Rulings={
 
 {Name="Seekers' Squire";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{B}}";
 cmc=2;
 Colors={"Black"};
@@ -6599,6 +7302,7 @@ Type="Creature — Human Scout";
 Types={"Creature"};
 SubTypes={"Human";"Scout";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[When Seekers' Squire enters the battlefield, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)]=];
 Flavor=[=[Dusk follows the light.]=];
 CardNumber="XLN121";
@@ -6614,11 +7318,13 @@ Rulings={
 
 {Name="Sentinel Totem";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}";
 cmc=1;
 Type="Artifact";
 Types={"Artifact"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[When Sentinel Totem enters the battlefield, scry 1. (Look at the top card of your library. You may put that card on the bottom of your library.)<br/>
 {{Tap}}, Exile Sentinel Totem: Exile all cards from all graveyards.]=];
 CardNumber="XLN245";
@@ -6627,12 +7333,14 @@ MultiverseID=435404;
 
 {Name="Settle the Wreckage";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{W}}{{W}}";
 cmc=4;
 Colors={"White"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Exile all attacking creatures target player controls. That player may search his or her library for that many basic land cards, put those cards onto the battlefield tapped, then shuffle his or her library.]=];
 CardNumber="XLN34";
 MultiverseID=435186;
@@ -6645,12 +7353,14 @@ Rulings={
 
 {Name="Shadowed Caravel";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}";
 cmc=2;
 Type="Artifact — Vehicle";
 Types={"Artifact"};
 SubTypes={"Vehicle"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Whenever a creature you control explores, put a +1/+1 counter on Shadowed Caravel.<br/>
 Crew 2 (Tap any number of creatures you control with total power 2 or more: This Vehicle becomes an artifact creature until end of turn.)]=];
 CardNumber="XLN246";
@@ -6677,12 +7387,14 @@ Rulings={
 
 {Name="Shake the Foundations";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{R}}";
 cmc=3;
 Colors={"Red"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Shake the Foundations deals 1 damage to each creature without flying.<br/>
 Draw a card.]=];
 Flavor=[=[A threefold calamity with a single will.]=];
@@ -6692,6 +7404,7 @@ MultiverseID=439770;
 
 {Name="Shaper Apprentice";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{U}}";
 cmc=2;
 Colors={"Blue"};
@@ -6699,6 +7412,7 @@ Type="Creature — Merfolk Wizard";
 Types={"Creature"};
 SubTypes={"Merfolk";"Wizard";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Shaper Apprentice has flying as long as you control another Merfolk.]=];
 Flavor=[=[The River Heralds would wreck a thousand ships to keep intruders from finding the golden city.]=];
 CardNumber="XLN75";
@@ -6709,6 +7423,7 @@ MultiverseID=435228;
 
 {Name="Shapers of Nature";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{G}}{{U}}";
 cmc=3;
 Colors={"Blue";"Green";};
@@ -6716,6 +7431,7 @@ Type="Creature — Merfolk Shaman";
 Types={"Creature"};
 SubTypes={"Merfolk";"Shaman";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[{{3}}{{G}}: Put a +1/+1 counter on target creature.<br/>
 {{2}}{{U}}, Remove a +1/+1 counter from a creature you control: Draw a card.]=];
 Flavor=[=[Shapers adapt nature to fit their needs and then return it to the way it was, leaving no trace of their passing.]=];
@@ -6727,12 +7443,14 @@ MultiverseID=435384;
 
 {Name="Shapers' Sanctuary";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{G}}";
 cmc=1;
 Colors={"Green"};
 Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Whenever a creature you control becomes the target of a spell or ability an opponent controls, you may draw a card.]=];
 Flavor=[=[Protection is woven into every vine and branch.]=];
 CardNumber="XLN206";
@@ -6745,12 +7463,14 @@ Rulings={
 
 {Name="Shatter";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{R}}";
 cmc=2;
 Colors={"Red"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Destroy target artifact.]=];
 Flavor=[=[Today it's a miracle of architecture, a marvel of stained glass, a symbol of the Legion's power. Tomorrow, driftwood.]=];
 CardNumber="RIX114";
@@ -6762,12 +7482,14 @@ Rulings={
 
 {Name="Sheltering Light";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{W}}";
 cmc=1;
 Colors={"White"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Target creature gains indestructible until end of turn. Scry 1. (Damage and effects that say "destroy" don't destroy the creature.)]=];
 Flavor=[=[Those who wield the power of the sun protect the Empire from darkness.]=];
 CardNumber="XLN35";
@@ -6776,6 +7498,7 @@ MultiverseID=435187;
 
 {Name="Shining Aerosaur";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{W}}";
 cmc=5;
 Colors={"White"};
@@ -6783,6 +7506,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Flying]=];
 Flavor=[=["The invaders cloak themselves in the shadows of dusk. Aerosaurs hide in the brilliance of the noonday sun."<br/>
 —Caparocti Sunborn]=];
@@ -6794,6 +7518,7 @@ MultiverseID=435188;
 
 {Name="Shipwreck Looter";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{U}}";
 cmc=2;
 Colors={"Blue"};
@@ -6801,6 +7526,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Raid — When Shipwreck Looter enters the battlefield, if you attacked with a creature this turn, you may draw a card. If you do, discard a card.]=];
 Flavor=[=[One pirate's wreck is another's reward.]=];
 CardNumber="XLN76";
@@ -6815,6 +7541,7 @@ Rulings={
 
 {Name="Shore Keeper";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{U}}";
 cmc=1;
 Colors={"Blue"};
@@ -6822,6 +7549,7 @@ Type="Creature — Trilobite";
 Types={"Creature"};
 SubTypes={"Trilobite"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[{{7}}{{U}}, {{Tap}}, Sacrifice Shore Keeper: Draw three cards.]=];
 Flavor=[=[Over their long life spans, the larger trilobites accumulate vast treasure troves in their guts.]=];
 CardNumber="XLN77";
@@ -6832,6 +7560,7 @@ MultiverseID=435230;
 
 {Name="Siegehorn Ceratops";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{G}}{{W}}";
 cmc=2;
 Colors={"White";"Green";};
@@ -6839,6 +7568,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Enrage — Whenever Siegehorn Ceratops is dealt damage, put two +1/+1 counters on it. (It must survive the damage to get the counters.)]=];
 Flavor=[=[To a siegehorn, there is no such thing as a dead end.]=];
 CardNumber="RIX171";
@@ -6853,11 +7583,13 @@ Rulings={
 
 {Name="Silent Gravestone";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}";
 cmc=1;
 Type="Artifact";
 Types={"Artifact"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Cards in graveyards can't be the targets of spells or abilities.<br/>
 {{4}}, {{Tap}}: Exile Silent Gravestone and all cards from all graveyards. Draw a card.]=];
 Flavor=[=[Made to ward off the Grim Captain and silence the lure of undeath.]=];
@@ -6871,6 +7603,7 @@ Rulings={
 
 {Name="Silverclad Ferocidons";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{5}}{{R}}{{R}}";
 cmc=7;
 Colors={"Red"};
@@ -6878,6 +7611,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Enrage — Whenever Silverclad Ferocidons is dealt damage, each opponent sacrifices a permanent.]=];
 Flavor=[=["Control them? No. I gird them in armor and let them loose."<br/>
 —Yacha, Otepec huntmaster]=];
@@ -6895,6 +7629,7 @@ Rulings={
 
 {Name="Silvergill Adept";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{U}}";
 cmc=2;
 Colors={"Blue"};
@@ -6902,6 +7637,7 @@ Type="Creature — Merfolk Wizard";
 Types={"Creature"};
 SubTypes={"Merfolk";"Wizard";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[As an additional cost to cast Silvergill Adept, reveal a Merfolk card from your hand or pay {{3}}.<br/>
 When Silvergill Adept enters the battlefield, draw a card.]=];
 Flavor=[=["If you keep to the shallows, you'll never learn the secrets of the depths."]=];
@@ -6913,6 +7649,7 @@ MultiverseID=439710;
 
 {Name="Siren Lookout";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{U}}";
 cmc=3;
 Colors={"Blue"};
@@ -6920,6 +7657,7 @@ Type="Creature — Siren Pirate";
 Types={"Creature"};
 SubTypes={"Siren";"Pirate";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Flying<br/>
 When Siren Lookout enters the battlefield, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)]=];
 CardNumber="XLN78";
@@ -6935,6 +7673,7 @@ Rulings={
 
 {Name="Siren Reaver";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{U}}";
 cmc=4;
 Colors={"Blue"};
@@ -6942,6 +7681,7 @@ Type="Creature — Siren Pirate";
 Types={"Creature"};
 SubTypes={"Siren";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Raid — Siren Reaver costs {{1}} less to cast if you attacked with a creature this turn.<br/>
 Flying]=];
 Flavor=[=["Prepare to be boarded."]=];
@@ -6957,6 +7697,7 @@ Rulings={
 
 {Name="Siren Stormtamer";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{U}}";
 cmc=1;
 Colors={"Blue"};
@@ -6964,6 +7705,7 @@ Type="Creature — Siren Pirate Wizard";
 Types={"Creature"};
 SubTypes={"Siren";"Pirate";"Wizard";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Flying<br/>
 {{U}}, Sacrifice Siren Stormtamer: Counter target spell or ability that targets you or a creature you control.]=];
 Flavor=[=[He's the calm that hides the coming storm.]=];
@@ -6978,12 +7720,14 @@ Rulings={
 
 {Name="Siren's Ruse";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{U}}";
 cmc=2;
 Colors={"Blue"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Exile target creature you control, then return that card to the battlefield under its owner's control. If a Pirate was exiled this way, draw a card.]=];
 Flavor=[=[Deception and misdirection are the heart of the pirate's arsenal.]=];
 CardNumber="XLN80";
@@ -6998,6 +7742,7 @@ Rulings={
 
 {Name="Skittering Heartstopper";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{B}}";
 cmc=1;
 Colors={"Black"};
@@ -7005,6 +7750,7 @@ Type="Creature — Insect";
 Types={"Creature"};
 SubTypes={"Insect"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[{{B}}: Skittering Heartstopper gains deathtouch until end of turn.]=];
 Flavor=[=[It flows like water over the forest floor, as deadly as the swiftest current.]=];
 CardNumber="XLN122";
@@ -7015,12 +7761,14 @@ MultiverseID=435276;
 
 {Name="Skulduggery";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{B}}";
 cmc=1;
 Colors={"Black"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Until end of turn, target creature you control gets +1/+1 and target creature an opponent controls gets -1/-1.]=];
 Flavor=[=["They're so much more willing to parley once they're hanging from a boom by the ankle!"]=];
 CardNumber="XLN123";
@@ -7033,6 +7781,7 @@ Rulings={
 
 {Name="Sky Terror";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{R}}{{W}}";
 cmc=2;
 Colors={"White";"Red";};
@@ -7040,6 +7789,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Flying, menace]=];
 Flavor=[=["Wherever the Threefold Sun shines, great wings may go."<br/>
 —Emperor Apatzec Intli III]=];
@@ -7051,6 +7801,7 @@ MultiverseID=435385;
 
 {Name="Skyblade of the Legion";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{W}}";
 cmc=2;
 Colors={"White"};
@@ -7058,6 +7809,7 @@ Type="Creature — Vampire Soldier";
 Types={"Creature"};
 SubTypes={"Vampire";"Soldier";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Flying]=];
 Flavor=[=[Vampires call the gift of flight "exultation." For their enemies, it brings only sorrow.]=];
 CardNumber="XLN37";
@@ -7068,6 +7820,7 @@ MultiverseID=435189;
 
 {Name="Skymarch Bloodletter";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{B}}";
 cmc=3;
 Colors={"Black"};
@@ -7075,6 +7828,7 @@ Type="Creature — Vampire Soldier";
 Types={"Creature"};
 SubTypes={"Vampire";"Soldier";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Flying<br/>
 When Skymarch Bloodletter enters the battlefield, target opponent loses 1 life and you gain 1 life.]=];
 Flavor=[=[From the perpetual shadowsmoke that hung above the ship, a silent form emerged, lips curled with malice and anticipation.]=];
@@ -7086,6 +7840,7 @@ MultiverseID=435278;
 
 {Name="Skymarcher Aspirant";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{W}}";
 cmc=1;
 Colors={"White"};
@@ -7093,6 +7848,7 @@ Type="Creature — Vampire Soldier";
 Types={"Creature"};
 SubTypes={"Vampire";"Soldier";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 Skymarcher Aspirant has flying as long as you have the city's blessing.]=];
 Flavor=[=["I was born to glory."]=];
@@ -7113,12 +7869,14 @@ Rulings={
 
 {Name="Slash of Talons";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{W}}";
 cmc=1;
 Colors={"White"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Slash of Talons deals 2 damage to target attacking or blocking creature.]=];
 Flavor=[=["The amber sun smokes with fury, gazing on foes that gather like ants invading our home. We are ready! Blade and claw strike as one."<br/>
 —Huatli]=];
@@ -7128,12 +7886,14 @@ MultiverseID=435190;
 
 {Name="Slaughter the Strong";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{W}}{{W}}";
 cmc=3;
 Colors={"White"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Each player chooses any number of creatures he or she controls with total power 4 or less, then sacrifices all other creatures he or she controls.]=];
 Flavor=[=["Cut the beasts out from under them and their strength is nothing."<br/>
 —Vona of Iedo, Butcher of Magan]=];
@@ -7148,12 +7908,14 @@ Rulings={
 
 {Name="Sleek Schooner";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}";
 cmc=3;
 Type="Artifact — Vehicle";
 Types={"Artifact"};
 SubTypes={"Vehicle"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Crew 1 (Tap any number of creatures you control with total power 1 or more: This Vehicle becomes an artifact creature until end of turn.)]=];
 Flavor=[=[The pirates had left the open sea behind, but they were still in their element: reckless adventure.]=];
 CardNumber="XLN247";
@@ -7178,12 +7940,14 @@ Rulings={
 
 {Name="Slice in Twain";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{G}}{{G}}";
 cmc=4;
 Colors={"Green"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Destroy target artifact or enchantment.<br/>
 Draw a card.]=];
 Flavor=[=[The magic of the River Heralds is so great that even a single shaman can fend off a pirate landing party.]=];
@@ -7196,6 +7960,7 @@ Rulings={
 
 {Name="Slippery Scoundrel";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{U}}";
 cmc=3;
 Colors={"Blue"};
@@ -7203,6 +7968,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 As long as you have the city's blessing, Slippery Scoundrel has hexproof and can't be blocked.]=];
 Flavor=[=["I'd rather be caught red-handed than leave empty-handed!"]=];
@@ -7224,6 +7990,7 @@ Rulings={
 
 {Name="Snapping Sailback";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{G}}";
 cmc=5;
 Colors={"Green"};
@@ -7231,6 +7998,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Flash<br/>
 Enrage — Whenever Snapping Sailback is dealt damage, put a +1/+1 counter on it. (It must survive the damage to get the counter.)]=];
 Flavor=[=[Lurking beneath the murky waters of Ixalan's rivers, sailbacks can rip a meal off the shore in the blink of an eye.]=];
@@ -7246,6 +8014,7 @@ Rulings={
 
 {Name="Snubhorn Sentry";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{W}}";
 cmc=1;
 Colors={"White"};
@@ -7253,6 +8022,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 Snubhorn Sentry gets +3/+0 as long as you have the city's blessing.]=];
 Flavor=[=[They're fun to train—if you like stubborn, aggressive, and fiercely territorial.]=];
@@ -7273,11 +8043,13 @@ Rulings={
 
 {Name="Sorcerous Spyglass";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}";
 cmc=2;
 Type="Artifact";
 Types={"Artifact"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[As Sorcerous Spyglass enters the battlefield, look at an opponent's hand, then choose any card name.<br/>
 Activated abilities of sources with the chosen name can't be activated unless they're mana abilities.]=];
 CardNumber="XLN248";
@@ -7293,6 +8065,7 @@ Rulings={
 
 {Name="Soul of the Rapids";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{U}}{{U}}";
 cmc=5;
 Colors={"Blue"};
@@ -7300,6 +8073,7 @@ Type="Creature — Elemental";
 Types={"Creature"};
 SubTypes={"Elemental"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Flying<br/>
 Hexproof (This creature can't be the target of spells or abilities your opponents control.)]=];
 Flavor=[=[With Kumena in control of the Immortal Sun, the rapids rose from their riverbeds and the waterfalls took flight.]=];
@@ -7311,12 +8085,14 @@ MultiverseID=439713;
 
 {Name="Spell Pierce";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{U}}";
 cmc=1;
 Colors={"Blue"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Counter target noncreature spell unless its controller pays {{2}}.]=];
 Flavor=[=["A fool's fire is quickly quenched."<br/>
 —Shaper Kumena]=];
@@ -7326,12 +8102,14 @@ MultiverseID=435234;
 
 {Name="Spell Swindle";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{U}}{{U}}";
 cmc=5;
 Colors={"Blue"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Counter target spell. Create X colorless Treasure artifact tokens, where X is that spell's converted mana cost. They have "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
 CardNumber="XLN82";
 MultiverseID=435235;
@@ -7343,12 +8121,14 @@ Rulings={
 
 {Name="Sphinx's Decree";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{W}}";
 cmc=2;
 Colors={"White"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Each opponent can't cast instant or sorcery spells during that player's next turn.]=];
 Flavor=[=["Be still."<br/>
 —Azor]=];
@@ -7361,6 +8141,7 @@ Rulings={
 
 {Name="Spike-Tailed Ceratops";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{G}}";
 cmc=5;
 Colors={"Green"};
@@ -7368,6 +8149,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Spike-Tailed Ceratops can block an additional creature each combat.]=];
 Flavor=[=[The conquistadors surrounded the dinosaur only to find that it had outflanked them.]=];
 CardNumber="XLN209";
@@ -7378,6 +8160,7 @@ MultiverseID=435365;
 
 {Name="Spire Winder";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{U}}";
 cmc=4;
 Colors={"Blue"};
@@ -7385,6 +8168,7 @@ Type="Creature — Snake";
 Types={"Creature"};
 SubTypes={"Snake"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Flying<br/>
 Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 Spire Winder gets +1/+1 as long as you have the city's blessing.]=];
@@ -7405,10 +8189,12 @@ Rulings={
 
 {Name="Spires of Orazca";
 SetCode="XLN";
+Allsets={"XLN"};
 cmc=2;
 Type="Land";
 Types={"Land"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[(Transforms from Thaumatic Compass.)<br/>
 {{Tap}}: Add {{C}} to your mana pool.<br/>
 {{Tap}}: Untap target attacking creature an opponent controls and remove it from combat.]=];
@@ -7423,11 +8209,13 @@ Rulings={
 
 {Name="Spitfire Bastion";
 SetCode="XLN";
+Allsets={"XLN"};
 cmc=4;
 Type="Legendary Land";
 SuperTypes={"Legendary"};
 Types={"Land"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[(Transforms from Vance's Blasting Cannons.)<br/>
 {{Tap}}: Add {{R}} to your mana pool.<br/>
 {{2}}{{R}}, {{Tap}}: Spitfire Bastion deals 3 damage to target creature or player.]=];
@@ -7438,12 +8226,14 @@ MultiverseID=435328;
 
 {Name="Spreading Rot";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{B}}";
 cmc=5;
 Colors={"Black"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Destroy target land. Its controller loses 2 life.]=];
 Flavor=[=["What is this foul presence that defies the sun's cleansing rays?"<br/>
 —Itzama the Crested]=];
@@ -7453,6 +8243,7 @@ MultiverseID=435279;
 
 {Name="Squire's Devotion";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{W}}";
 cmc=3;
 Colors={"White"};
@@ -7460,6 +8251,7 @@ Type="Enchantment — Aura";
 Types={"Enchantment"};
 SubTypes={"Aura"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Enchant creature<br/>
 Enchanted creature gets +1/+1 and has lifelink.<br/>
 When Squire's Devotion enters the battlefield, create a 1/1 white Vampire creature token with lifelink.]=];
@@ -7473,6 +8265,7 @@ Rulings={
 
 {Name="Stampeding Horncrest";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{4}}{{R}}";
 cmc=5;
 Colors={"Red"};
@@ -7480,6 +8273,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Stampeding Horncrest has haste as long as you control another Dinosaur.]=];
 Flavor=[=[When the golden city opened, the dinosaurs inside were eager to greet the new visitors.]=];
 CardNumber="RIX116";
@@ -7493,12 +8287,14 @@ Rulings={
 
 {Name="Star of Extinction";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{5}}{{R}}{{R}}";
 cmc=7;
 Colors={"Red"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[Destroy target land. Star of Extinction deals 20 damage to each creature and each planeswalker.]=];
 Flavor=[=["The visions haunt me. I see the end of the world, brought on by the search for the Immortal Sun."<br/>
 —Shaper Pashona]=];
@@ -7508,6 +8304,7 @@ MultiverseID=435315;
 
 {Name="Steadfast Armasaur";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{W}}";
 cmc=4;
 Colors={"White"};
@@ -7515,6 +8312,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Vigilance<br/>
 {{1}}{{W}}, {{Tap}}: Steadfast Armasaur deals damage equal to its toughness to target creature blocking or blocked by it.]=];
 Flavor=[=["Like the mighty armasaur, we will defend against all who invade our shores."<br/>
@@ -7531,18 +8329,24 @@ Rulings={
 
 {Name="Stone Quarry";
 SetCode="RIX";
+Allsets={"RIX";"XLN";};
 Type="Land";
 Types={"Land"};
 Rarity="Uncommon";
+Rarities={"Uncommon";"Common";};
 Text=[=[Stone Quarry enters the battlefield tapped.<br/>
 {{Tap}}: Add {{R}} or {{W}} to your mana pool.]=];
 Flavor=[=[The Sun Empire's cities are built from the bones of the earth.]=];
 CardNumber="RIX190";
 MultiverseID=439854;
+Sets={
+{Set="XLN";Rarity="Common";CardNumber="289";Flavor=[=[The Sun Empire's cities are built from the bones of the earth.]=];};
+};
 };
 
 {Name="Storm Fleet Aerialist";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{U}}";
 cmc=2;
 Colors={"Blue"};
@@ -7550,6 +8354,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Flying<br/>
 Raid — Storm Fleet Aerialist enters the battlefield with a +1/+1 counter on it if you attacked with a creature this turn.]=];
 Flavor=[=["Only one thing beats the freedom of the sea: the freedom of the sky."]=];
@@ -7565,6 +8370,7 @@ Rulings={
 
 {Name="Storm Fleet Arsonist";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{R}}";
 cmc=5;
 Colors={"Red"};
@@ -7572,6 +8378,7 @@ Type="Creature — Orc Pirate";
 Types={"Creature"};
 SubTypes={"Orc";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Raid — When Storm Fleet Arsonist enters the battlefield, if you attacked with a creature this turn, target opponent sacrifices a permanent.]=];
 Flavor=[=["Go ahead, build another. I'll burn that down as well."]=];
 CardNumber="XLN162";
@@ -7586,6 +8393,7 @@ Rulings={
 
 {Name="Storm Fleet Pyromancer";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{R}}";
 cmc=5;
 Colors={"Red"};
@@ -7593,6 +8401,7 @@ Type="Creature — Human Pirate Wizard";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";"Wizard";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Raid — When Storm Fleet Pyromancer enters the battlefield, if you attacked with a creature this turn, Storm Fleet Pyromancer deals 2 damage to target creature or player.]=];
 CardNumber="XLN163";
 Power="3";
@@ -7606,6 +8415,7 @@ Rulings={
 
 {Name="Storm Fleet Sprinter";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{U}}{{R}}";
 cmc=3;
 Colors={"Blue";"Red";};
@@ -7613,6 +8423,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Haste<br/>
 Storm Fleet Sprinter can't be blocked.]=];
 Flavor=[=["Charge like a red-hot cannonball straight to your target. You slow down, you sink."<br/>
@@ -7625,6 +8436,7 @@ MultiverseID=439833;
 
 {Name="Storm Fleet Spy";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{U}}";
 cmc=3;
 Colors={"Blue"};
@@ -7632,6 +8444,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Raid — When Storm Fleet Spy enters the battlefield, if you attacked with a creature this turn, draw a card.]=];
 Flavor=[=["They're searching in the same direction we are. And for the same thing, I'll wager."]=];
 CardNumber="XLN84";
@@ -7646,6 +8459,7 @@ Rulings={
 
 {Name="Storm Fleet Swashbuckler";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{R}}";
 cmc=2;
 Colors={"Red"};
@@ -7653,6 +8467,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 Storm Fleet Swashbuckler has double strike as long as you have the city's blessing.]=];
 Flavor=[=["A bolt to the eye, a blade to the neck. That's the way to clear the deck!"]=];
@@ -7674,6 +8489,7 @@ Rulings={
 
 {Name="Storm Sculptor";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{U}}";
 cmc=4;
 Colors={"Blue"};
@@ -7681,6 +8497,7 @@ Type="Creature — Merfolk Wizard";
 Types={"Creature"};
 SubTypes={"Merfolk";"Wizard";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Storm Sculptor can't be blocked.<br/>
 When Storm Sculptor enters the battlefield, return a creature you control to its owner's hand.]=];
 Flavor=[=[In his hands, the wind can become a weapon or a means of escape.]=];
@@ -7696,6 +8513,7 @@ Rulings={
 
 {Name="Storm the Vault";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{U}}{{R}}";
 cmc=4;
 Colors={"Blue";"Red";};
@@ -7703,6 +8521,7 @@ Type="Legendary Enchantment";
 SuperTypes={"Legendary"};
 Types={"Enchantment"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Whenever one or more creatures you control deal combat damage to a player, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."<br/>
 At the beginning of your end step, if you control five or more artifacts, transform Storm the Vault.]=];
 CardNumber="RIX173a";
@@ -7717,12 +8536,14 @@ Rulings={
 
 {Name="Strength of the Pack";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{4}}{{G}}{{G}}";
 cmc=6;
 Colors={"Green"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Put two +1/+1 counters on each creature you control.]=];
 Flavor=[=[The pack that ambushes, eviscerates, and devours together stays together.]=];
 CardNumber="RIX145";
@@ -7731,12 +8552,14 @@ MultiverseID=439802;
 
 {Name="Strider Harness";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}";
 cmc=3;
 Type="Artifact — Equipment";
 Types={"Artifact"};
 SubTypes={"Equipment"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Equipped creature gets +1/+1 and has haste.<br/>
 Equip {{1}} ({{1}}: Attach to target creature you control. Equip only as a sorcery.)]=];
 Flavor=[=["Because the giant, implacable death lizard wasn't scary enough already."<br/>
@@ -7750,6 +8573,7 @@ Rulings={
 
 {Name="Sun Sentinel";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{W}}";
 cmc=2;
 Colors={"White"};
@@ -7757,6 +8581,7 @@ Type="Creature — Human Soldier";
 Types={"Creature"};
 SubTypes={"Human";"Soldier";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Vigilance]=];
 Flavor=[=["I will not sleep until Orazca is ours once more."]=];
 CardNumber="RIX26";
@@ -7767,12 +8592,14 @@ MultiverseID=439683;
 
 {Name="Sunbird's Invocation";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{5}}{{R}}";
 cmc=6;
 Colors={"Red"};
 Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Whenever you cast a spell from your hand, reveal the top X cards of your library, where X is that spell's converted mana cost. You may cast a card revealed this way with converted mana cost X or less without paying its mana cost. Put the rest on the bottom of your library in a random order.]=];
 CardNumber="XLN165";
 MultiverseID=435319;
@@ -7790,6 +8617,7 @@ Rulings={
 
 {Name="Sun-Blessed Mount";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{R}}{{W}}";
 cmc=5;
 Colors={"White";"Red";};
@@ -7797,6 +8625,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[When Sun-Blessed Mount enters the battlefield, you may search your library and/or graveyard for a card named Huatli, Dinosaur Knight, reveal it, then put it into your hand. If you searched your library this way, shuffle it.]=];
 Flavor=[=[When Huatli chooses a mount, its eyes glow with the flames of the sun.]=];
 CardNumber="XLN288";
@@ -7807,6 +8636,7 @@ MultiverseID=435449;
 
 {Name="Sun-Collared Raptor";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{R}}";
 cmc=2;
 Colors={"Red"};
@@ -7814,6 +8644,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Trample<br/>
 {{2}}{{R}}: Sun-Collared Raptor gets +3/+0 until end of turn.]=];
 Flavor=[=["With Tilonalli's gifts, even the smallest of us can become great."<br/>
@@ -7826,6 +8657,7 @@ MultiverseID=439775;
 
 {Name="Sun-Crested Pterodon";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{4}}{{W}}";
 cmc=5;
 Colors={"White"};
@@ -7833,6 +8665,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Flying<br/>
 Sun-Crested Pterodon has vigilance as long as you control another Dinosaur.]=];
 Flavor=[=["Pterodons tolerate no intrusion into their skies. Even the clouds must ask permission."<br/>
@@ -7848,6 +8681,7 @@ Rulings={
 
 {Name="Sun-Crowned Hunters";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{R}}{{R}}";
 cmc=6;
 Colors={"Red"};
@@ -7855,6 +8689,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Enrage — Whenever Sun-Crowned Hunters is dealt damage, it deals 3 damage to target opponent.]=];
 Flavor=[=[One alone is dangerous, and they are never alone.]=];
 CardNumber="XLN164";
@@ -7870,9 +8705,11 @@ Rulings={
 
 {Name="Sunpetal Grove";
 SetCode="XLN";
+Allsets={"XLN"};
 Type="Land";
 Types={"Land"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Sunpetal Grove enters the battlefield tapped unless you control a Forest or a Plains.<br/>
 {{Tap}}: Add {{G}} or {{W}} to your mana pool.]=];
 Flavor=[=[To the Sun Empire, any place where daylight brightens the jungle floor is sacred ground.]=];
@@ -7886,6 +8723,7 @@ Rulings={
 
 {Name="Sunrise Seeker";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{W}}";
 cmc=5;
 Colors={"White"};
@@ -7893,6 +8731,7 @@ Type="Creature — Human Scout";
 Types={"Creature"};
 SubTypes={"Human";"Scout";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Vigilance<br/>
 When Sunrise Seeker enters the battlefield, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)]=];
 CardNumber="XLN40";
@@ -7908,12 +8747,14 @@ Rulings={
 
 {Name="Sure Strike";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{R}}";
 cmc=2;
 Colors={"Red"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Target creature gets +3/+0 and gains first strike until end of turn.]=];
 Flavor=[=["Everyone has a weak spot."]=];
 CardNumber="XLN166";
@@ -7922,6 +8763,7 @@ MultiverseID=435320;
 
 {Name="Swab Goblin";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{R}}";
 cmc=2;
 Colors={"Red"};
@@ -7929,6 +8771,7 @@ Type="Creature — Goblin Pirate";
 Types={"Creature"};
 SubTypes={"Goblin";"Pirate";};
 Rarity="Common";
+Rarities={"Common"};
 Flavor=[=[Though small, goblins can hold their own in a fight. Foolhardy confidence goes a long way.]=];
 CardNumber="RIX203";
 Power="2";
@@ -7938,6 +8781,7 @@ MultiverseID=441897;
 
 {Name="Swaggering Corsair";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{R}}";
 cmc=3;
 Colors={"Red"};
@@ -7945,6 +8789,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Raid — Swaggering Corsair enters the battlefield with a +1/+1 counter on it if you attacked with a creature this turn.]=];
 Flavor=[=["I'm about to make you famous. From the golden city to High and Dry, they'll talk about how fast you died!"]=];
 CardNumber="RIX119";
@@ -7955,17 +8800,23 @@ MultiverseID=439776;
 
 {Name="Swamp";
 SetCode="RIX";
+Allsets={"RIX";"XLN";};
 Type="Basic Land — Swamp";
 SuperTypes={"Basic"};
 Types={"Land"};
 SubTypes={"Swamp"};
 Rarity="Basic Land";
+Rarities={"Basic Land"};
 CardNumber="RIX194";
 MultiverseID=439858;
+Sets={
+{Set="XLN";Rarity="Basic Land";CardNumber="268";};
+};
 };
 
 {Name="Swashbuckling";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{R}}";
 cmc=2;
 Colors={"Red"};
@@ -7973,6 +8824,7 @@ Type="Enchantment — Aura";
 Types={"Enchantment"};
 SubTypes={"Aura"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Enchant creature<br/>
 Enchanted creature gets +2/+2 and has haste.]=];
 Flavor=[=[The pirates of the Brazen Coalition are the descendants of those displaced by the Legion of Dusk, and they are eager for vengeance.]=];
@@ -7982,6 +8834,7 @@ MultiverseID=435321;
 
 {Name="Swift Warden";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{G}}{{G}}";
 cmc=3;
 Colors={"Green"};
@@ -7989,6 +8842,7 @@ Type="Creature — Merfolk Warrior";
 Types={"Creature"};
 SubTypes={"Merfolk";"Warrior";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Flash<br/>
 When Swift Warden enters the battlefield, target Merfolk you control gains hexproof until end of turn. (It can't be the target of spells or abilities your opponents control.)]=];
 Flavor=[=[A warning shout would take too long.]=];
@@ -8000,12 +8854,14 @@ MultiverseID=439803;
 
 {Name="Sword-Point Diplomacy";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{B}}";
 cmc=3;
 Colors={"Black"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Reveal the top three cards of your library. For each of those cards, put that card into your hand unless any opponent pays 3 life. Then exile the rest.]=];
 Flavor=[=["Take my blood if you want. Just don't take my gold!"]=];
 CardNumber="XLN126";
@@ -8018,6 +8874,7 @@ Rulings={
 
 {Name="Sworn Guardian";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{U}}";
 cmc=2;
 Colors={"Blue"};
@@ -8025,6 +8882,7 @@ Type="Creature — Merfolk Warrior";
 Types={"Creature"};
 SubTypes={"Merfolk";"Warrior";};
 Rarity="Common";
+Rarities={"Common"};
 Flavor=[=[For the River Heralds, the Immortal Sun is an object of terror and devastation. The idea that anyone would retrieve it for their own use is utterly abhorrent.]=];
 CardNumber="RIX58";
 Power="1";
@@ -8034,6 +8892,7 @@ MultiverseID=439715;
 
 {Name="Tempest Caller";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{U}}{{U}}";
 cmc=4;
 Colors={"Blue"};
@@ -8041,6 +8900,7 @@ Type="Creature — Merfolk Wizard";
 Types={"Creature"};
 SubTypes={"Merfolk";"Wizard";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[When Tempest Caller enters the battlefield, tap all creatures target opponent controls.]=];
 Flavor=[=["I am the storm."]=];
 CardNumber="XLN86";
@@ -8054,6 +8914,7 @@ Rulings={
 
 {Name="Temple Altisaur";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{4}}{{W}}";
 cmc=5;
 Colors={"White"};
@@ -8061,6 +8922,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[If a source would deal damage to another Dinosaur you control, prevent all but 1 of that damage.]=];
 Flavor=[=["Kinjalli sculpted humans from clay, but the dinosaurs were carved from unyielding stone."<br/>
 —Itzama the Crested]=];
@@ -8078,11 +8940,13 @@ Rulings={
 
 {Name="Temple of Aclazotz";
 SetCode="XLN";
+Allsets={"XLN"};
 cmc=2;
 Type="Legendary Land";
 SuperTypes={"Legendary"};
 Types={"Land"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[(Transforms from Arguel's Blood Fast.)<br/>
 {{Tap}}: Add {{B}} to your mana pool.<br/>
 {{Tap}}, Sacrifice a creature: You gain life equal to the sacrificed creature's toughness.]=];
@@ -8097,6 +8961,7 @@ Rulings={
 
 {Name="Tendershoot Dryad";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{4}}{{G}}";
 cmc=5;
 Colors={"Green"};
@@ -8104,6 +8969,7 @@ Type="Creature — Dryad";
 Types={"Creature"};
 SubTypes={"Dryad"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 At the beginning of each upkeep, create a 1/1 green Saproling creature token.<br/>
 Saprolings you control get +2/+2 as long as you have the city's blessing.]=];
@@ -8125,6 +8991,7 @@ Rulings={
 
 {Name="Territorial Hammerskull";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{W}}";
 cmc=3;
 Colors={"White"};
@@ -8132,6 +8999,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Whenever Territorial Hammerskull attacks, tap target creature an opponent controls.]=];
 Flavor=[=[From the eyes up, it's solid bone and stubbornness.]=];
 CardNumber="XLN41";
@@ -8142,6 +9010,7 @@ MultiverseID=435193;
 
 {Name="Tetzimoc, Primal Death";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{4}}{{B}}{{B}}";
 cmc=6;
 Colors={"Black"};
@@ -8150,6 +9019,7 @@ SuperTypes={"Legendary"};
 Types={"Creature"};
 SubTypes={"Elder";"Dinosaur";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Deathtouch<br/>
 {{B}}, Reveal Tetzimoc, Primal Death from your hand: Put a prey counter on target creature. Activate this ability only during your turn.<br/>
 When Tetzimoc enters the battlefield, destroy each creature your opponents control with a prey counter on it.]=];
@@ -8165,11 +9035,13 @@ Rulings={
 
 {Name="Thaumatic Compass";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}";
 cmc=2;
 Type="Artifact";
 Types={"Artifact"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[{{3}}, {{Tap}}: Search your library for a basic land card, reveal it, put it into your hand, then shuffle your library.<br/>
 At the beginning of your end step, if you control seven or more lands, transform Thaumatic Compass.]=];
 Flavor=[=["Clearly, it indicates the aetheric azimuth of . . ."<br/>
@@ -8184,12 +9056,14 @@ Rulings={
 
 {Name="The Immortal Sun";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{6}}";
 cmc=6;
 Type="Legendary Artifact";
 SuperTypes={"Legendary"};
 Types={"Artifact"};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[Players can't activate planeswalkers' loyalty abilities.<br/>
 At the beginning of your draw step, draw an additional card.<br/>
 Spells you cast cost {{1}} less to cast.<br/>
@@ -8203,6 +9077,7 @@ Rulings={
 
 {Name="Thrash of Raptors";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{R}}";
 cmc=4;
 Colors={"Red"};
@@ -8210,6 +9085,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[As long as you control another Dinosaur, Thrash of Raptors gets +2/+0 and has trample.]=];
 Flavor=[=[They glide through the undergrowth, drawn to sounds of disturbance. They attack in unison and all share in the kill. And then they move on.]=];
 CardNumber="XLN168";
@@ -8220,6 +9096,7 @@ MultiverseID=435322;
 
 {Name="Thrashing Brontodon";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{G}}{{G}}";
 cmc=3;
 Colors={"Green"};
@@ -8227,6 +9104,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[{{1}}, Sacrifice Thrashing Brontodon: Destroy target artifact or enchantment.]=];
 Flavor=[=[It cares more about preserving the herd's territory than about preserving itself.]=];
 CardNumber="RIX148";
@@ -8237,12 +9115,14 @@ MultiverseID=439805;
 
 {Name="Thunderherd Migration";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[As an additional cost to cast Thunderherd Migration, reveal a Dinosaur card from your hand or pay {{1}}.<br/>
 Search your library for a basic land card, put it onto the battlefield tapped, then shuffle your library.]=];
 Flavor=[=[The herds follow as new growth arises.]=];
@@ -8255,6 +9135,7 @@ Rulings={
 
 {Name="Thundering Spineback";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{5}}{{G}}{{G}}";
 cmc=7;
 Colors={"Green"};
@@ -8262,6 +9143,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Other Dinosaurs you control get +1/+1.<br/>
 {{5}}{{G}}: Create a 3/3 green Dinosaur creature token with trample.]=];
 Flavor=[=["It appears that nature has risen against us."<br/>
@@ -8274,6 +9156,7 @@ MultiverseID=435366;
 
 {Name="Tilonalli's Crown";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{R}}";
 cmc=2;
 Colors={"Red"};
@@ -8281,6 +9164,7 @@ Type="Enchantment — Aura";
 Types={"Enchantment"};
 SubTypes={"Aura"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Enchant creature<br/>
 When Tilonalli's Crown enters the battlefield, it deals 1 damage to enchanted creature.<br/>
 Enchanted creature gets +3/+0 and has trample.]=];
@@ -8290,6 +9174,7 @@ MultiverseID=439777;
 
 {Name="Tilonalli's Knight";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{R}}";
 cmc=2;
 Colors={"Red"};
@@ -8297,6 +9182,7 @@ Type="Creature — Human Knight";
 Types={"Creature"};
 SubTypes={"Human";"Knight";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Whenever Tilonalli's Knight attacks, if you control a Dinosaur, Tilonalli's Knight gets +1/+1 until end of turn.]=];
 Flavor=[=[The people of the Sun Empire worship the sun in three aspects. Tilonalli is the Burning Sun, associated with ferocity, fire, and passion.]=];
 CardNumber="XLN169";
@@ -8311,6 +9197,7 @@ Rulings={
 
 {Name="Tilonalli's Skinshifter";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{R}}";
 cmc=3;
 Colors={"Red"};
@@ -8318,6 +9205,7 @@ Type="Creature — Human Shaman";
 Types={"Creature"};
 SubTypes={"Human";"Shaman";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Haste<br/>
 Whenever Tilonalli's Skinshifter attacks, it becomes a copy of another target nonlegendary attacking creature until end of turn.]=];
 Flavor=[=["I am the ferocity of the Burning Sun. I am hide and feather, fang and claw."]=];
@@ -8339,6 +9227,7 @@ Rulings={
 
 {Name="Tilonalli's Summoner";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{R}}";
 cmc=2;
 Colors={"Red"};
@@ -8346,6 +9235,7 @@ Type="Creature — Human Shaman";
 Types={"Creature"};
 SubTypes={"Human";"Shaman";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 Whenever Tilonalli's Summoner attacks, you may pay {{X}}{{R}}. If you do, create X 1/1 red Elemental creature tokens that are tapped and attacking. At the beginning of the next end step, exile those tokens unless you have the city's blessing.]=];
 CardNumber="RIX121";
@@ -8367,6 +9257,7 @@ Rulings={
 
 {Name="Timestream Navigator";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{U}}";
 cmc=2;
 Colors={"Blue"};
@@ -8374,6 +9265,7 @@ Type="Creature — Human Pirate Wizard";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";"Wizard";};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 {{2}}{{U}}{{U}}, {{Tap}}, Put Timestream Navigator on the bottom of its owner's library: Take an extra turn after this one. Activate this ability only if you have the city's blessing.]=];
 CardNumber="RIX59";
@@ -8392,6 +9284,7 @@ Rulings={
 
 {Name="Tishana, Voice of Thunder";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{5}}{{G}}{{U}}";
 cmc=7;
 Colors={"Blue";"Green";};
@@ -8400,6 +9293,7 @@ SuperTypes={"Legendary"};
 Types={"Creature"};
 SubTypes={"Merfolk";"Shaman";};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[Tishana, Voice of Thunder's power and toughness are each equal to the number of cards in your hand.<br/>
 You have no maximum hand size.<br/>
 When Tishana enters the battlefield, draw a card for each creature you control.]=];
@@ -8416,6 +9310,7 @@ Rulings={
 
 {Name="Tishana's Wayfinder";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{G}}";
 cmc=3;
 Colors={"Green"};
@@ -8423,6 +9318,7 @@ Type="Creature — Merfolk Scout";
 Types={"Creature"};
 SubTypes={"Merfolk";"Scout";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[When Tishana's Wayfinder enters the battlefield, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)]=];
 Flavor=[=["There is always another way."]=];
 CardNumber="XLN211";
@@ -8438,6 +9334,7 @@ Rulings={
 
 {Name="Tocatli Honor Guard";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{W}}";
 cmc=2;
 Colors={"White"};
@@ -8445,6 +9342,7 @@ Type="Creature — Human Soldier";
 Types={"Creature"};
 SubTypes={"Human";"Soldier";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Creatures entering the battlefield don't cause abilities to trigger.]=];
 Flavor=[=[The glorious city of Pachatupa is the center of the Sun Empire, and Tocatli, the emperor's palace, is its glowing heart.]=];
 CardNumber="XLN42";
@@ -8463,11 +9361,13 @@ Rulings={
 
 {Name="Tomb of the Dusk Rose";
 SetCode="RIX";
+Allsets={"RIX"};
 cmc=3;
 Type="Legendary Land";
 SuperTypes={"Legendary"};
 Types={"Land"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[(Transforms from Profane Procession.)<br/>
 {{Tap}}: Add one mana of any color to your mana pool.<br/>
 {{2}}{{W}}{{B}}, {{Tap}}: Put a creature card exiled with this permanent onto the battlefield under your control.]=];
@@ -8482,6 +9382,7 @@ Rulings={
 
 {Name="Tomb Robber";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{B}}";
 cmc=3;
 Colors={"Black"};
@@ -8489,6 +9390,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Menace<br/>
 {{1}}, Discard a card: Tomb Robber explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)]=];
 CardNumber="RIX87";
@@ -8499,6 +9401,7 @@ MultiverseID=439744;
 
 {Name="Trapjaw Tyrant";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{W}}{{W}}";
 cmc=5;
 Colors={"White"};
@@ -8506,6 +9409,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[Enrage — Whenever Trapjaw Tyrant is dealt damage, exile target creature an opponent controls until Trapjaw Tyrant leaves the battlefield.]=];
 Flavor=[=["I would advise you not to struggle."<br/>
 —Huatli]=];
@@ -8524,11 +9428,13 @@ Rulings={
 
 {Name="Traveler's Amulet";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}";
 cmc=1;
 Type="Artifact";
 Types={"Artifact"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[{{1}}, Sacrifice Traveler's Amulet: Search your library for a basic land card, reveal it, put it into your hand, then shuffle your library.]=];
 Flavor=[=["The best kind of treasure is the kind that leads to more treasure!"<br/>
 —Captain Lannery Storm]=];
@@ -8538,10 +9444,12 @@ MultiverseID=439848;
 
 {Name="Treasure Cove";
 SetCode="XLN";
+Allsets={"XLN"};
 cmc=2;
 Type="Land";
 Types={"Land"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[(Transforms from Treasure Map.)<br/>
 {{Tap}}: Add {{C}} to your mana pool.<br/>
 {{Tap}}, Sacrifice a Treasure: Draw a card.]=];
@@ -8552,11 +9460,13 @@ MultiverseID=435411;
 
 {Name="Treasure Map";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}";
 cmc=2;
 Type="Artifact";
 Types={"Artifact"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[{{1}}, {{Tap}}: Scry 1. Put a landmark counter on Treasure Map. Then if there are three or more landmark counters on it, remove those counters, transform Treasure Map, and create three colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
 CardNumber="XLN250a";
 MultiverseID=435410;
@@ -8569,12 +9479,14 @@ Rulings={
 
 {Name="Trove of Temptation";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{R}}";
 cmc=4;
 Colors={"Red"};
 Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Each opponent must attack you or a planeswalker you control with at least one creature each combat if able.<br/>
 At the beginning of your end step, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
 CardNumber="XLN171";
@@ -8588,6 +9500,7 @@ Rulings={
 
 {Name="Twilight Prophet";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{B}}{{B}}";
 cmc=4;
 Colors={"Black"};
@@ -8595,6 +9508,7 @@ Type="Creature — Vampire Cleric";
 Types={"Creature"};
 SubTypes={"Vampire";"Cleric";};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[Flying<br/>
 Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 At the beginning of your upkeep, if you have the city's blessing, reveal the top card of your library and put it into your hand. Each opponent loses X life and you gain X life, where X is that card's converted mana cost.]=];
@@ -8619,9 +9533,11 @@ Rulings={
 
 {Name="Unclaimed Territory";
 SetCode="XLN";
+Allsets={"XLN"};
 Type="Land";
 Types={"Land"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[As Unclaimed Territory enters the battlefield, choose a creature type.<br/>
 {{Tap}}: Add {{C}} to your mana pool.<br/>
 {{Tap}}: Add one mana of any color to your mana pool. Spend this mana only to cast a creature spell of the chosen type.]=];
@@ -8634,12 +9550,14 @@ Rulings={
 
 {Name="Unfriendly Fire";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{R}}";
 cmc=5;
 Colors={"Red"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Unfriendly Fire deals 4 damage to target creature or player.]=];
 Flavor=[=[Disputes within the Brazen Coalition can escalate from insult to broadside in the blink of an eye.]=];
 CardNumber="XLN172";
@@ -8648,9 +9566,11 @@ MultiverseID=435326;
 
 {Name="Unknown Shores";
 SetCode="XLN";
+Allsets={"XLN"};
 Type="Land";
 Types={"Land"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[{{Tap}}: Add {{C}} to your mana pool.<br/>
 {{1}}, {{Tap}}: Add one mana of any color to your mana pool.]=];
 Flavor=[=["Just imagine what's waiting around the bend. Adventure. Discovery. Riches for the taking. This is why I sail."<br/>
@@ -8661,6 +9581,7 @@ MultiverseID=435420;
 
 {Name="Vampire Champion";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{B}}";
 cmc=4;
 Colors={"Black"};
@@ -8668,6 +9589,7 @@ Type="Creature — Vampire Soldier";
 Types={"Creature"};
 SubTypes={"Vampire";"Soldier";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Deathtouch (Any amount of damage this deals to a creature is enough to destroy it.)]=];
 Flavor=[=["These pirates must answer for their ancestors, who renounced the Church of Dusk and sailed from Torrezon as heretics."]=];
 CardNumber="RIX198";
@@ -8678,6 +9600,7 @@ MultiverseID=441892;
 
 {Name="Vampire Revenant";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{B}}";
 cmc=4;
 Colors={"Black"};
@@ -8685,6 +9608,7 @@ Type="Creature — Vampire Spirit";
 Types={"Creature"};
 SubTypes={"Vampire";"Spirit";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Flying]=];
 Flavor=[=["A thick fog obscures the port of Leor, but it's not thick enough to muffle the screams."<br/>
 —Admiral Beckett Brass]=];
@@ -8696,12 +9620,14 @@ MultiverseID=439746;
 
 {Name="Vampire's Zeal";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{W}}";
 cmc=1;
 Colors={"White"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Target creature gets +2/+2 until end of turn. If it's a Vampire, it gains first strike until end of turn.]=];
 Flavor=[=[The Feast of Blood sends new life essence flowing through the vampire who partakes, manifesting as even greater strength and speed.]=];
 CardNumber="XLN43";
@@ -8713,6 +9639,7 @@ Rulings={
 
 {Name="Vance's Blasting Cannons";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{R}}";
 cmc=4;
 Colors={"Red"};
@@ -8720,6 +9647,7 @@ Type="Legendary Enchantment";
 SuperTypes={"Legendary"};
 Types={"Enchantment"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[At the beginning of your upkeep, exile the top card of your library. If it's a nonland card, you may cast that card this turn.<br/>
 Whenever you cast your third spell in a turn, you may transform Vance's Blasting Cannons.]=];
 Flavor=[=[With a broadside assault, Captain Vance carved the cliffs to form her new home.]=];
@@ -8737,12 +9665,14 @@ Rulings={
 
 {Name="Vanquish the Weak";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{B}}";
 cmc=3;
 Colors={"Black"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Destroy target creature with power 3 or less.]=];
 Flavor=[=[The clerics known as condemners punish those who do not recognize the righteous authority of the church.]=];
 CardNumber="XLN127";
@@ -8751,11 +9681,13 @@ MultiverseID=435281;
 
 {Name="Vanquisher's Banner";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{5}}";
 cmc=5;
 Type="Artifact";
 Types={"Artifact"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[As Vanquisher's Banner enters the battlefield, choose a creature type.<br/>
 Creatures you control of the chosen type get +1/+1.<br/>
 Whenever you cast a creature spell of the chosen type, draw a card.]=];
@@ -8770,11 +9702,13 @@ Rulings={
 
 {Name="Vault of Catlacan";
 SetCode="RIX";
+Allsets={"RIX"};
 cmc=4;
 Type="Legendary Land";
 SuperTypes={"Legendary"};
 Types={"Land"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[(Transforms from Storm the Vault.)<br/>
 {{Tap}}: Add one mana of any color to your mana pool.<br/>
 {{Tap}}: Add {{U}} to your mana pool for each artifact you control.]=];
@@ -8785,12 +9719,14 @@ MultiverseID=439835;
 
 {Name="Verdant Rebirth";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Until end of turn, target creature gains "When this creature dies, return it to its owner's hand."<br/>
 Draw a card.]=];
 Flavor=[=[The dryads of the forest have no stake in Ixalan's conflict, but they hate to see any living being suffer.]=];
@@ -8803,6 +9739,7 @@ Rulings={
 
 {Name="Verdant Sun's Avatar";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{5}}{{G}}{{G}}";
 cmc=7;
 Colors={"Green"};
@@ -8810,6 +9747,7 @@ Type="Creature — Dinosaur Avatar";
 Types={"Creature"};
 SubTypes={"Dinosaur";"Avatar";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Whenever Verdant Sun's Avatar or another creature enters the battlefield under your control, you gain life equal to that creature's toughness.]=];
 Flavor=[=["Ixalli's fertile rays enliven us all. Each of us is a testament to the sun's strength and love."<br/>
 —Chitlati, Lightning Rider]=];
@@ -8824,6 +9762,7 @@ Rulings={
 
 {Name="Vicious Conquistador";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{B}}";
 cmc=1;
 Colors={"Black"};
@@ -8831,6 +9770,7 @@ Type="Creature — Vampire Soldier";
 Types={"Creature"};
 SubTypes={"Vampire";"Soldier";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Whenever Vicious Conquistador attacks, each opponent loses 1 life.]=];
 Flavor=[=["He is ambitious. Tireless. And utterly ruthless. Ideal for the frontier."<br/>
 —Viceroy Elia Sotonores, report to the queen]=];
@@ -8842,6 +9782,7 @@ MultiverseID=435282;
 
 {Name="Vineshaper Mystic";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{G}}";
 cmc=3;
 Colors={"Green"};
@@ -8849,6 +9790,7 @@ Type="Creature — Merfolk Shaman";
 Types={"Creature"};
 SubTypes={"Merfolk";"Shaman";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[When Vineshaper Mystic enters the battlefield, put a +1/+1 counter on each of up to two target Merfolk you control.]=];
 Flavor=[=[She has never touched a loom, yet the tapestries she weaves are vast and beautiful.]=];
 CardNumber="XLN214";
@@ -8863,6 +9805,7 @@ Rulings={
 
 {Name="Vona, Butcher of Magan";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{3}}{{W}}{{B}}";
 cmc=5;
 Colors={"White";"Black";};
@@ -8871,6 +9814,7 @@ SuperTypes={"Legendary"};
 Types={"Creature"};
 SubTypes={"Vampire";"Knight";};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[Vigilance, lifelink<br/>
 {{Tap}}, Pay 7 life: Destroy target nonland permanent. Activate this ability only during your turn.]=];
 Flavor=[=["For four hundred years, I have led armies of conquest. These lands hold nothing that can stand against me."]=];
@@ -8885,12 +9829,14 @@ Rulings={
 
 {Name="Vona's Hunger";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{B}}";
 cmc=3;
 Colors={"Black"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 Each opponent sacrifices a creature. If you have the city's blessing, instead each opponent sacrifices half the creatures he or she controls, rounded up.]=];
 CardNumber="RIX90";
@@ -8907,6 +9853,7 @@ Rulings={
 
 {Name="Voracious Vampire";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{B}}";
 cmc=3;
 Colors={"Black"};
@@ -8914,6 +9861,7 @@ Type="Creature — Vampire Knight";
 Types={"Creature"};
 SubTypes={"Vampire";"Knight";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Menace<br/>
 When Voracious Vampire enters the battlefield, target Vampire you control gets +1/+1 and gains menace until end of turn.]=];
 Flavor=[=[The purest devotion isn't the Blood Fast itself, but the craving that follows.]=];
@@ -8925,6 +9873,7 @@ MultiverseID=439748;
 
 {Name="Vraska, Relic Seeker";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{B}}{{G}}";
 cmc=6;
 Colors={"Black";"Green";};
@@ -8933,6 +9882,7 @@ SuperTypes={"Legendary"};
 Types={"Planeswalker"};
 SubTypes={"Vraska"};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[+2: Create a 2/2 black Pirate creature token with menace.<br/>
 −3: Destroy target artifact, creature, or enchantment. Create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."<br/>
 −10: Target player's life total becomes 1.]=];
@@ -8947,6 +9897,7 @@ Rulings={
 
 {Name="Vraska, Scheming Gorgon";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{4}}{{B}}{{B}}";
 cmc=6;
 Colors={"Black"};
@@ -8955,6 +9906,7 @@ SuperTypes={"Legendary"};
 Types={"Planeswalker"};
 SubTypes={"Vraska"};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[+2: Creatures you control get +1/+0 until end of turn.<br/>
 −3: Destroy target creature.<br/>
 −10: Until end of turn, creatures you control gain deathtouch and "Whenever this creature deals damage to an opponent, that player loses the game."]=];
@@ -8969,6 +9921,7 @@ Rulings={
 
 {Name="Vraska's Conquistador";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{B}}";
 cmc=2;
 Colors={"Black"};
@@ -8976,6 +9929,7 @@ Type="Creature — Vampire Soldier";
 Types={"Creature"};
 SubTypes={"Vampire";"Soldier";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Whenever Vraska's Conquistador attacks or blocks, if you control a Vraska planeswalker, target opponent loses 2 life and you gain 2 life.]=];
 Flavor=[=[Abandoning both queen and church, he chose to follow power.]=];
 CardNumber="RIX199";
@@ -8986,12 +9940,14 @@ MultiverseID=441893;
 
 {Name="Vraska's Contempt";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{B}}{{B}}";
 cmc=4;
 Colors={"Black"};
 Type="Instant";
 Types={"Instant"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Exile target creature or planeswalker. You gain 2 life.]=];
 Flavor=[=[It wasn't long before the taverns of High and Dry were full of whispers about the new captain who could turn a person to stone with a glance.]=];
 CardNumber="XLN129";
@@ -9004,12 +9960,14 @@ Rulings={
 
 {Name="Vraska's Scorn";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{B}}{{B}}";
 cmc=4;
 Colors={"Black"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Target opponent loses 4 life. You may search your library and/or graveyard for a card named Vraska, Scheming Gorgon, reveal it, and put it into your hand. If you search your library this way, shuffle it.]=];
 CardNumber="RIX200";
 MultiverseID=441894;
@@ -9017,6 +9975,7 @@ MultiverseID=441894;
 
 {Name="Wakening Sun's Avatar";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{5}}{{W}}{{W}}{{W}}";
 cmc=8;
 Colors={"White"};
@@ -9024,6 +9983,7 @@ Type="Creature — Dinosaur Avatar";
 Types={"Creature"};
 SubTypes={"Dinosaur";"Avatar";};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[When Wakening Sun's Avatar enters the battlefield, if you cast it from your hand, destroy all non-Dinosaur creatures.]=];
 Flavor=[=["Kinjalli's encompassing rays herald new life in the moment of the sun's dawning."<br/>
 —Chitlati, Lightning Rider]=];
@@ -9039,6 +9999,7 @@ Rulings={
 
 {Name="Waker of the Wilds";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{G}}{{G}}";
 cmc=4;
 Colors={"Green"};
@@ -9046,6 +10007,7 @@ Type="Creature — Merfolk Shaman";
 Types={"Creature"};
 SubTypes={"Merfolk";"Shaman";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[{{X}}{{G}}{{G}}: Put X +1/+1 counters on target land you control. That land becomes a 0/0 Elemental creature with haste. It's still a land.]=];
 Flavor=[=["Our foes are many and mighty, but not as many as the trees or as mighty as the sea."]=];
 CardNumber="XLN215";
@@ -9060,12 +10022,14 @@ Rulings={
 
 {Name="Walk the Plank";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{B}}{{B}}";
 cmc=2;
 Colors={"Black"};
 Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Destroy target non-Merfolk creature.]=];
 Flavor=[=[When Captain Thorn adds a new ship to his fleet, he gives the crew a simple choice: follow me, or fall in the sea.]=];
 CardNumber="XLN130";
@@ -9074,6 +10038,7 @@ MultiverseID=435284;
 
 {Name="Wanted Scoundrels";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{B}}";
 cmc=2;
 Colors={"Black"};
@@ -9081,6 +10046,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[When Wanted Scoundrels dies, target opponent creates two colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
 Flavor=[=["Trust me. The reward's not worth it."]=];
 CardNumber="XLN131";
@@ -9091,6 +10057,7 @@ MultiverseID=435285;
 
 {Name="Warkite Marauder";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{U}}";
 cmc=2;
 Colors={"Blue"};
@@ -9098,6 +10065,7 @@ Type="Creature — Human Pirate";
 Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Flying<br/>
 Whenever Warkite Marauder attacks, target creature defending player controls loses all abilities and has base power and toughness 0/1 until end of turn.]=];
 CardNumber="RIX60";
@@ -9113,6 +10081,7 @@ Rulings={
 
 {Name="Waterknot";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{1}}{{U}}{{U}}";
 cmc=3;
 Colors={"Blue"};
@@ -9120,6 +10089,7 @@ Type="Enchantment — Aura";
 Types={"Enchantment"};
 SubTypes={"Aura"};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Enchant creature<br/>
 When Waterknot enters the battlefield, tap enchanted creature.<br/>
 Enchanted creature doesn't untap during its controller's untap step.]=];
@@ -9129,6 +10099,7 @@ MultiverseID=439718;
 
 {Name="Watertrap Weaver";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{2}}{{U}}";
 cmc=3;
 Colors={"Blue"};
@@ -9136,6 +10107,7 @@ Type="Creature — Merfolk Wizard";
 Types={"Creature"};
 SubTypes={"Merfolk";"Wizard";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[When Watertrap Weaver enters the battlefield, tap target creature an opponent controls. That creature doesn't untap during its controller's next untap step.]=];
 Flavor=[=[The river is a powerful friend.]=];
 CardNumber="XLN87";
@@ -9149,6 +10121,7 @@ Rulings={
 
 {Name="Wayward Swordtooth";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{2}}{{G}}";
 cmc=3;
 Colors={"Green"};
@@ -9156,6 +10129,7 @@ Type="Creature — Dinosaur";
 Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
 You may play an additional land on each of your turns.<br/>
 Wayward Swordtooth can't attack or block unless you have the city's blessing.]=];
@@ -9176,6 +10150,7 @@ Rulings={
 
 {Name="Wildgrowth Walker";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
@@ -9183,6 +10158,7 @@ Type="Creature — Elemental";
 Types={"Creature"};
 SubTypes={"Elemental"};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[Whenever a creature you control explores, put a +1/+1 counter on Wildgrowth Walker and you gain 3 life.]=];
 Flavor=[=["Hear me, stone, root, branch: be the fist of this land. Turn back those who trample upon your domain."<br/>
 —Song of the Shaper]=];
@@ -9198,6 +10174,7 @@ Rulings={
 
 {Name="Wily Goblin";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{R}}{{R}}";
 cmc=2;
 Colors={"Red"};
@@ -9205,6 +10182,7 @@ Type="Creature — Goblin Pirate";
 Types={"Creature"};
 SubTypes={"Goblin";"Pirate";};
 Rarity="Uncommon";
+Rarities={"Uncommon"};
 Text=[=[When Wily Goblin enters the battlefield, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
 Flavor=[=[Goblins climb and swing with ease, whether through a pirate ship's rigging or a tree's branches.]=];
 CardNumber="XLN174";
@@ -9215,6 +10193,7 @@ MultiverseID=435329;
 
 {Name="Wind Strider";
 SetCode="XLN";
+Allsets={"XLN"};
 Manacost="{{4}}{{U}}";
 cmc=5;
 Colors={"Blue"};
@@ -9222,6 +10201,7 @@ Type="Creature — Merfolk Wizard";
 Types={"Creature"};
 SubTypes={"Merfolk";"Wizard";};
 Rarity="Common";
+Rarities={"Common"};
 Text=[=[Flash<br/>
 Flying]=];
 Flavor=[=["Currents are currents, whether in sea or sky."]=];
@@ -9233,11 +10213,13 @@ MultiverseID=435241;
 
 {Name="Winged Temple of Orazca";
 SetCode="RIX";
+Allsets={"RIX"};
 cmc=3;
 Type="Legendary Land";
 SuperTypes={"Legendary"};
 Types={"Land"};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[(Transforms from Hadana's Climb.)<br/>
 {{Tap}}: Add one mana of any color to your mana pool.<br/>
 {{1}}{{G}}{{U}}, {{Tap}}: Target creature you control gains flying and gets +X/+X until end of turn, where X is its power.]=];
@@ -9247,18 +10229,24 @@ MultiverseID=439816;
 
 {Name="Woodland Stream";
 SetCode="RIX";
+Allsets={"RIX";"XLN";};
 Type="Land";
 Types={"Land"};
 Rarity="Uncommon";
+Rarities={"Uncommon";"Common";};
 Text=[=[Woodland Stream enters the battlefield tapped.<br/>
 {{Tap}}: Add {{G}} or {{U}} to your mana pool.]=];
 Flavor=[=[Countless streams flow into the nine rivers, and the nine rivers flow into the Great River. The River Heralds guard them all.]=];
 CardNumber="RIX191";
 MultiverseID=439855;
+Sets={
+{Set="XLN";Rarity="Common";CardNumber="284";Flavor=[=[Countless streams flow into the nine rivers, and the nine rivers flow into the Great River. The River Heralds guard them all.]=];};
+};
 };
 
 {Name="World Shaper";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{3}}{{G}}";
 cmc=4;
 Colors={"Green"};
@@ -9266,6 +10254,7 @@ Type="Creature — Merfolk Shaman";
 Types={"Creature"};
 SubTypes={"Merfolk";"Shaman";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Whenever World Shaper attacks, you may put the top three cards of your library into your graveyard.<br/>
 When World Shaper dies, put all land cards from your graveyard onto the battlefield tapped.]=];
 Flavor=[=["The Great River will not be tamed."]=];
@@ -9277,6 +10266,7 @@ MultiverseID=439808;
 
 {Name="Zacama, Primal Calamity";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{6}}{{R}}{{G}}{{W}}";
 cmc=9;
 Colors={"White";"Red";"Green";};
@@ -9285,6 +10275,7 @@ SuperTypes={"Legendary"};
 Types={"Creature"};
 SubTypes={"Elder";"Dinosaur";};
 Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
 Text=[=[Vigilance, reach, trample<br/>
 When Zacama, Primal Calamity enters the battlefield, if you cast it, untap all lands you control.<br/>
 {{2}}{{R}}: Zacama deals 3 damage to target creature.<br/>
@@ -9302,6 +10293,7 @@ Rulings={
 
 {Name="Zetalpa, Primal Dawn";
 SetCode="RIX";
+Allsets={"RIX"};
 Manacost="{{6}}{{W}}{{W}}";
 cmc=8;
 Colors={"White"};
@@ -9310,6 +10302,7 @@ SuperTypes={"Legendary"};
 Types={"Creature"};
 SubTypes={"Elder";"Dinosaur";};
 Rarity="Rare";
+Rarities={"Rare"};
 Text=[=[Flying, double strike, vigilance, trample, indestructible]=];
 Flavor=[=[The sky takes flight and the earth trembles.]=];
 CardNumber="RIX30";
@@ -9323,4 +10316,3 @@ Rulings={
 
 };
 return data
-

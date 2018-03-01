@@ -216,7 +216,7 @@ local function GetAdditionalData(cardList)
             arenaExport = arenaExport .. number .. " " .. 
                 card.Name .. " (" .. card.SetCode .. ") " ..
                 string.match(card.CardNumber, "%d+") .. "\n"
-            if card.Sets ~= nil then
+            if card.Sets ~= nil and card.Rarity ~= "Basic Land" then
                 for _,set in pairs(card.Sets) do
                     alternatives = alternatives .. card.Name .. " (" .. set.Set .. ") " .. set.CardNumber .. "\n"
                 end
@@ -237,9 +237,8 @@ local function ArenaExportSection(exportText, id)
     if exportText == "" then
         return ""
     else
-        return "<pre id='mdw-arena-export-src-altenative' style='display:none'>\n" .. exportText .. "</pre>\n"
+        return "<pre id='" .. id .. "' style='display:none'>\n" .. exportText .. "</pre>\n"
     end
-    return "\n<pre id='mdw-arena-export-src' style='display:none'>\n" .. exportText .. "</pre>\n"
 end
 
 local function GenerateDeckFromList(name,list)

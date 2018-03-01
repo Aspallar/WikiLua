@@ -1,10 +1,11 @@
 <html>
 <head>
-<style>
-</style>
+	<title>Test DeckExport</title>
+	<link rel="stylesheet" type="text/css" href="wikicss/common.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
-<h1>Test</h1>
+<h1>DeckExport.js Test Page</h1>
 <p>some text</p>
 <pre id="mdw-arena-export-src" style="display:none">
 4 Rekindling Phoenix (RIX) 111
@@ -27,17 +28,26 @@
 2 Field of Ruin (XLN) 254
 1 Mutiny (RIX) 106
 </pre>
+<pre id="mdw-arena-export-src-altenative" style="display:none">
+Rekindling Phoenix (XLN) 999
+Mountain (XLN) 998
+Fanatical Firebrand (XLN) 997
+Mutiny (BOO) 1
+</pre>
 <p>some more text</p>
 
-<h2>Import Code</h2>
-<div id="mdw-arena-export-div">
-</div>
+<div id="arenaimport-template"></div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
 		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 		crossorigin="anonymous">
 </script>
-<script src="wikiscripts/DeckExport.js">
+<script src="scripts\wikiParse.js"></script>
+<script>
+    $.get('wikitemplates/ArenaImport.html', function (data) {
+        $('#arenaimport-template').html(wikiParse(data));
+        $.getScript('wikiscripts/DeckExport.js');
+    });
 </script>
 </body>
 </html>
