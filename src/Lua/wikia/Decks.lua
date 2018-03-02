@@ -1,22 +1,22 @@
 local utils = require("Module:TemplateUtils")
 local json = require("Dev:Json")
- 
+
 local p = {}
- 
+
 local totalNumberOfCards = 485
 local totalNumberOfOtherCards = 4
 
 local setNames = {}
 setNames["XLN"]="Ixalan"
 setNames["RIX"]="Rivals of Ixalan"
- 
+
 function p.SingleCard(name)
 	local cards = utils.RecreateTable(mw.loadData("Module:Data/Cards"))
 	for i = 1, totalNumberOfCards do
-    	if cards[i].Name == name then return cards[i] end
-	end
+       if cards[i].Name == name then return cards[i] end
+   end
 end
- 
+
 local function TableContains(t,item)
     if(not t) or (not item) then return false end
     for _,v in pairs(t) do
@@ -26,14 +26,14 @@ local function TableContains(t,item)
     end
     return false
 end
- 
+
 local function ConcatTables(target,source)
     if not source then return end
     for _,v in pairs(source) do
-        table.insert(target,v)   
+        table.insert(target,v)
     end
 end
- 
+
 function p.GetCardCategories(card)
     local categories = {}
     table.insert(categories,"Cards")
@@ -44,15 +44,15 @@ function p.GetCardCategories(card)
     ConcatTables(categories,card.Types)
     ConcatTables(categories,card.SubTypes)
     if card.Watermark then table.insert(categories,card.Watermark) end
- 
+
     local s = ""
     for _,v in pairs(categories) do
-         s = s .. "[[Category:"..v.."]]"
-    end
- 
-    return s
+       s = s .. "[[Category:"..v.."]]"
+   end
+
+   return s
 end
- 
+
 local Land = {}
 local Creature = {}
 local Artifact = {}
@@ -61,11 +61,7 @@ local Instant = {}
 local Sorcery = {}
 local Planeswalker = {}
 local errors = {}
- 
-local decklistTemplate = [=[<center><big><big><big>%s</big></big></big></center><br/>
-{{Div col}}
-%s{{Div col end}}]=]
- 
+
 local function ParseCardEntry(entry)
 	local pos, _ = string.find(entry, "%(")
 	if pos ~= nil and pos > 2 then
@@ -86,37 +82,37 @@ local function ParseCardEntry(entry)
         intNumber = 0
         cardName = entry
     end
-	return intNumber, cardName
+    return intNumber, cardName
 end
- 
+
 local function SortListIntoTypes(list)
     for _,t in pairs(list) do
         local num, name = ParseCardEntry(t)
         local card = p.SingleCardNonSensitive(name)
         if card then
             if TableContains(card.Types,"Land") then
-                table.insert(Land,{num,card})
+                table.insert(Land, {num, card})
             elseif TableContains(card.Types,"Creature") then
-                table.insert(Creature,{num,card})
+                table.insert(Creature, {num, card})
             elseif TableContains(card.Types,"Artifact") then
-                table.insert(Artifact,{num,card})
+                table.insert(Artifact, {num, card})
             elseif TableContains(card.Types,"Enchantment") then
-                table.insert(Enchantment,{num,card})
+                 table.insert(Enchantment, {num, card})
             elseif TableContains(card.Types,"Instant") then
-                table.insert(Instant,{num,card})
+                 table.insert(Instant, {num, card})
             elseif TableContains(card.Types,"Sorcery") then
-                table.insert(Sorcery,{num,card})
+                 table.insert(Sorcery, {num, card})
             elseif TableContains(card.Types,"Planeswalker") then
-                table.insert(Planeswalker,{num,card})
+                table.insert(Planeswalker, {num, card})
             else
-                table.insert(errors,{num,{Name=name}})
+                table.insert(errors, {num, {Name=name} })
             end
         else
-            table.insert(errors,{num,{Name=name}})
+            table.insert(errors, {num, {Name=name} })
         end
     end
 end
- 
+
 local function LogTypes()
     mw.log("Land : "..#Land)
     mw.log("Creature : "..#Creature)
@@ -127,37 +123,37 @@ local function LogTypes()
     mw.log("Planeswalker : "..#Planeswalker)
     mw.log("errors : "..#errors)
 end
- 
+
 function p.SingleCardNonSensitive(name)
     name = string.lower(name)
-	local cards = utils.RecreateTable(mw.loadData("Module:Data/Cards"))
-	for i = 1, totalNumberOfCards do
-    	if string.lower(cards[i].Name) == name then
-    	    local foundCard = utils.MakeTableWriteable(cards[i])
-    	    foundCard.Playable = true
-    	    return foundCard
-    	end
-	end
-	local otherCards = utils.RecreateTable(mw.loadData("Module:Data/OtherCards"))
-	for i = 1, totalNumberOfOtherCards do
-    	if string.lower(otherCards[i].Name) == name then 
-    	    local foundOtherCard = utils.MakeTableWriteable(otherCards[i]);
-    	    foundOtherCard.Playable = false
-    	    return foundOtherCard
-    	end
-	end
+    local cards = utils.RecreateTable(mw.loadData("Module:Data/Cards"))
+    for i = 1, totalNumberOfCards do
+       if string.lower(cards[i].Name) == name then
+           local foundCard = utils.MakeTableWriteable(cards[i])
+           foundCard.Playable = true
+           return foundCard
+       end
+   end
+   local otherCards = utils.RecreateTable(mw.loadData("Module:Data/OtherCards"))
+   for i = 1, totalNumberOfOtherCards do
+       if string.lower(otherCards[i].Name) == name then 
+           local foundOtherCard = utils.MakeTableWriteable(otherCards[i]);
+           foundOtherCard.Playable = false
+           return foundOtherCard
+       end
+   end
 end
- 
+
 local buffer = ""
- 
+
 local function Write(s)
     buffer = buffer..s
 end
- 
+
 local function WriteLine(s)
     buffer = buffer..s.."\n"
 end
- 
+
 local function WriteCardsFromType(typeCards,typeName)
     if typeCards[1] and typeCards[1][2].cmc then
         table.sort(typeCards,function(a,b) return (a[2].cmc < b[2].cmc) or ((a[2].cmc == b[2].cmc) and (a[2].Name < b[2].Name)) end)
@@ -177,7 +173,7 @@ local function WriteCardsFromType(typeCards,typeName)
         end
     end
 end
- 
+
 local function WriteOtherCards(typeCards)
     local numType = 0
     for i = 1, #typeCards do
@@ -190,16 +186,15 @@ local function WriteOtherCards(typeCards)
         end
     end
 end
- 
+
 local function WriteTypeLists()
- 
-    WriteCardsFromType(Land,"Lands [[File:Icon land.png|23px|link=]]")
-    WriteCardsFromType(Creature,"Creatures [[File:Icon creature.png|23px|link=]]")
-    WriteCardsFromType(Artifact,"Artifacts [[File:Icon artifact.png|23px|link=]]")
-    WriteCardsFromType(Enchantment,"Enchantments [[File:Icon enchantment.png|23px|link=]]")
-    WriteCardsFromType(Instant,"Instants [[File:Icon instant.png|23px|link=]]")
-    WriteCardsFromType(Sorcery,"Sorceries [[File:Icon sorcery.png|23px|link=]]")
-    WriteCardsFromType(Planeswalker,"Planeswalkers [[File:Icon planeswalker.png|23px|link=]]")
+    WriteCardsFromType(Land, "Lands [[File:Icon land.png|23px|link=]]")
+    WriteCardsFromType(Creature, "Creatures [[File:Icon creature.png|23px|link=]]")
+    WriteCardsFromType(Artifact, "Artifacts [[File:Icon artifact.png|23px|link=]]")
+    WriteCardsFromType(Enchantment, "Enchantments [[File:Icon enchantment.png|23px|link=]]")
+    WriteCardsFromType(Instant, "Instants [[File:Icon instant.png|23px|link=]]")
+    WriteCardsFromType(Sorcery, "Sorceries [[File:Icon sorcery.png|23px|link=]]")
+    WriteCardsFromType(Planeswalker, "Planeswalkers [[File:Icon planeswalker.png|23px|link=]]")
     WriteOtherCards(errors)
 end
 
@@ -213,14 +208,18 @@ local function GetAdditionalData(cardList)
         if card then
             local carddata = { num=number; colors=card.Colors; cmc=card.cmc; types=card.Types }
             table.insert(cardlist, carddata)
-            arenaExport = arenaExport .. number .. " " .. 
+
+            arenaExport = arenaExport .. number .. " " ..
                 card.Name .. " (" .. card.SetCode .. ") " ..
                 string.match(card.CardNumber, "%d+") .. "\n"
+
             if card.Sets ~= nil and card.Rarity ~= "Basic Land" then
                 for _,set in pairs(card.Sets) do
-                    alternatives = alternatives .. card.Name .. " (" .. set.Set .. ") " .. set.CardNumber .. "\n"
+                    alternatives = alternatives .. card.Name ..
+                    " (" .. set.Set .. ") " .. set.CardNumber .. "\n"
                 end
             end
+
         end
     end
     local cardJson = json.encode(cardlist)
@@ -241,26 +240,33 @@ local function ArenaExportSection(exportText, id)
     end
 end
 
+local function DeckListSection( name, contents )
+    local decklistTemplate = [=[<center><big><big><big>%s</big></big></big></center><br/>
+{{Div col}}
+%s{{Div col end}}]=]
+    return string.format(decklistTemplate, name, contents)
+end
+
 local function GenerateDeckFromList(name,list)
     SortListIntoTypes(list)
     WriteTypeLists()
     local arenaExport, altExport, cardJson = GetAdditionalData(list)
-    return string.format(decklistTemplate, name, buffer) ..
+    return  DeckListSection(name, buffer) ..
         CardJsonDataSection(cardJson) ..
         ArenaExportSection(arenaExport, "mdw-arena-export-src") ..
         ArenaExportSection(altExport, "mdw-arena-export-src-altenative")
 end
- 
+
 function p.TestGenerateDeckFromList(name,inputList)
     local list = mw.text.split( inputList, "\n" )
     return (GenerateDeckFromList(name,list))
 end
- 
+
 function p.GenerateDeckFromList(frame)
     local args = utils.RecreateTable(frame:getParent().args)
     local list = mw.text.split( args.Deck, "\n" )
     return frame:preprocess(GenerateDeckFromList(args.Name,list))
 end
- 
+
 return p
 

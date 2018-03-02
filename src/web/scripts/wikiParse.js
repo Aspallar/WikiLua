@@ -1,3 +1,4 @@
+/* jshint -W098 */ // disable wikiParse is defined but never used
 function wikiParse(contents) {
     'use strict';
 
@@ -7,7 +8,7 @@ function wikiParse(contents) {
 
     function resolveLinks(contents) {
         return contents.replace(/\[\[(.*)\|(.*)\]\]/g, function (match, url, text) {
-            return '<a href="http://magicduels.wikia.com/wiki/' + url + '">' + text + "</a>";
+            return '<a href="http://magicduels.wikia.com/wiki/' + url + '">' + text + '</a>';
         });
     }
 
@@ -21,3 +22,4 @@ function wikiParse(contents) {
 
     return contents;
 }
+/* jshint +W098 */ //
