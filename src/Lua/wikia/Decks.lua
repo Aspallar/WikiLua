@@ -10,13 +10,6 @@ local setNames = {}
 setNames["XLN"]="Ixalan"
 setNames["RIX"]="Rivals of Ixalan"
 
-function p.SingleCard(name)
-	local cards = utils.RecreateTable(mw.loadData("Module:Data/Cards"))
-	for i = 1, totalNumberOfCards do
-       if cards[i].Name == name then return cards[i] end
-   end
-end
-
 local function TableContains(t,item)
     if(not t) or (not item) then return false end
     for _,v in pairs(t) do
@@ -32,25 +25,6 @@ local function ConcatTables(target,source)
     for _,v in pairs(source) do
         table.insert(target,v)
     end
-end
-
-function p.GetCardCategories(card)
-    local categories = {}
-    table.insert(categories,"Cards")
-    table.insert(categories,setNames[card.SetCode])
-    ConcatTables(categories,card.Colors)
-    table.insert(categories,card.Rarity)
-    ConcatTables(categories,card.SuperTypes)
-    ConcatTables(categories,card.Types)
-    ConcatTables(categories,card.SubTypes)
-    if card.Watermark then table.insert(categories,card.Watermark) end
-
-    local s = ""
-    for _,v in pairs(categories) do
-       s = s .. "[[Category:"..v.."]]"
-   end
-
-   return s
 end
 
 local Land = {}
@@ -85,10 +59,30 @@ local function ParseCardEntry(entry)
     return intNumber, cardName
 end
 
+local function SingleCardNonSensitive(name)
+    name = string.lower(name)
+    local cards = utils.RecreateTable(mw.loadData("Module:Data/Cards"))
+    for i = 1, totalNumberOfCards do
+       if string.lower(cards[i].Name) == name then
+           local foundCard = utils.MakeTableWriteable(cards[i])
+           foundCard.Playable = true
+           return foundCard
+       end
+   end
+   local otherCards = utils.RecreateTable(mw.loadData("Module:Data/OtherCards"))
+   for i = 1, totalNumberOfOtherCards do
+       if string.lower(otherCards[i].Name) == name then 
+           local foundOtherCard = utils.MakeTableWriteable(otherCards[i]);
+           foundOtherCard.Playable = false
+           return foundOtherCard
+       end
+   end
+end
+
 local function SortListIntoTypes(list)
     for _,t in pairs(list) do
         local num, name = ParseCardEntry(t)
-        local card = p.SingleCardNonSensitive(name)
+        local card = SingleCardNonSensitive(name)
         if card then
             if TableContains(card.Types,"Land") then
                 table.insert(Land, {num, card})
@@ -122,26 +116,6 @@ local function LogTypes()
     mw.log("Sorcery : "..#Sorcery)
     mw.log("Planeswalker : "..#Planeswalker)
     mw.log("errors : "..#errors)
-end
-
-function p.SingleCardNonSensitive(name)
-    name = string.lower(name)
-    local cards = utils.RecreateTable(mw.loadData("Module:Data/Cards"))
-    for i = 1, totalNumberOfCards do
-       if string.lower(cards[i].Name) == name then
-           local foundCard = utils.MakeTableWriteable(cards[i])
-           foundCard.Playable = true
-           return foundCard
-       end
-   end
-   local otherCards = utils.RecreateTable(mw.loadData("Module:Data/OtherCards"))
-   for i = 1, totalNumberOfOtherCards do
-       if string.lower(otherCards[i].Name) == name then 
-           local foundOtherCard = utils.MakeTableWriteable(otherCards[i]);
-           foundOtherCard.Playable = false
-           return foundOtherCard
-       end
-   end
 end
 
 local buffer = ""
@@ -204,7 +178,7 @@ local function GetAdditionalData(cardList)
     local cardlist = {}
     for _,cardEntry  in pairs(cardList) do
         local number, name = ParseCardEntry(cardEntry)
-        local card = p.SingleCardNonSensitive(name)
+        local card = SingleCardNonSensitive(name)
         if card then
             local carddata = { num=number; colors=card.Colors; cmc=card.cmc; types=card.Types }
             table.insert(cardlist, carddata)
