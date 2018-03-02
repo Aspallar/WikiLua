@@ -29,14 +29,14 @@ function mw.log(s)
 	print("**** LOG: " .. s)
 end
 
-function mw.text.split(s, delimiter)
+function mw.text.split(s, delimiter, plain)
   local result = { }
   local from  = 1
-  local delim_from, delim_to = string.find( s, delimiter, from  )
+  local delim_from, delim_to = string.find( s, delimiter, from, plain  )
   while delim_from do
-    table.insert( result, string.sub( s, from , delim_from-1 ) )
+    table.insert( result, string.sub( s, from , delim_from-1, plain ) )
     from  = delim_to + 1
-    delim_from, delim_to = string.find( s, delimiter, from  )
+    delim_from, delim_to = string.find( s, delimiter, from, plain  )
   end
   table.insert( result, string.sub( s, from  ) )
   return result
