@@ -35,10 +35,10 @@ local Planeswalker = {}
 local errors = {}
 
 local function ParseCardEntry(entry)
-    local pos, _ = string.find(entry, "%(")
-    if pos ~= nil and pos > 2 then
-        entry = string.sub(entry, 1, pos - 2)
-    end
+	local pos, _ = string.find(entry, "%(")
+	if pos ~= nil and pos > 2 then
+		entry = string.sub(entry, 1, pos - 2)
+	end
     local intNumber, cardName
     pos, _ = string.find(entry, " ")
     if pos ~= nil and pos > 1 then
