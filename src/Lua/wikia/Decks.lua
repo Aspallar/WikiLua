@@ -4,10 +4,6 @@ local json = require("Dev:Json")
 
 local p = {}
 
-local setNames = {}
-setNames["XLN"]="Ixalan"
-setNames["RIX"]="Rivals of Ixalan"
-
 local function TableContains(t,item)
     if(not t) or (not item) then return false end
     for _,v in pairs(t) do
@@ -16,13 +12,6 @@ local function TableContains(t,item)
         end
     end
     return false
-end
-
-local function ConcatTables(target,source)
-    if not source then return end
-    for _,v in pairs(source) do
-        table.insert(target,v)
-    end
 end
 
 local Land = {}
@@ -85,6 +74,8 @@ local function SortListIntoTypes(list)
     end
 end
 
+--luacheck: push
+--luacheck: no unused
 local function LogTypes()
     mw.log("Land : "..#Land)
     mw.log("Creature : "..#Creature)
@@ -95,15 +86,19 @@ local function LogTypes()
     mw.log("Planeswalker : "..#Planeswalker)
     mw.log("errors : "..#errors)
 end
+--luacheck: pop
 
 local buffer = ""
 
+--luacheck: push
+--luacheck: no unused
 local function Write(s)
-    buffer = buffer..s
+    buffer = buffer .. s
 end
+--luacheck: pop
 
 local function WriteLine(s)
-    buffer = buffer..s.."\n"
+    buffer = buffer .. s .. "\n"
 end
 
 local function WriteCardsFromType(typeCards,typeName)
