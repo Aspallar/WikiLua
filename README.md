@@ -28,6 +28,7 @@ whitespace is significant in wikitext.
 | File | Deploy to |
 | ---- | ---- |
 | ArenaImport.html | http://magicarena.wikia.com/wiki/Template:ArenaImport |
+| Deck.html | http://magicarena.wikia.com/wiki/Template:Deck |
 
 #### Client javascript
 
