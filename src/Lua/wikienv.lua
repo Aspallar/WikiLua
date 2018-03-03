@@ -17,7 +17,7 @@ end
 
 function unpack(arg)
 	return table.unpack(arg)
-end 
+end
 
 mw = {}
 mw.text = {}

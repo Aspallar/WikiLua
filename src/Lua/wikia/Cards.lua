@@ -123,7 +123,7 @@ local criteriaList = {
     CMC = function(card,condition) return (card.cmc or 0) - condition == 0 end;
 }
 
-function p.CardMeetsCriteria(card,criteria)
+function p.CardMeetsCriteria(card, criteria)
     if criteria and (#criteria > 0) then
         for _, criterion in pairs(criteria) do
             local func,cond = unpack(mw.text.split(criterion, "$", true))
@@ -150,6 +150,7 @@ end
 local function GenerateCardPage(card)
     local contents = {}
     table.insert(contents,{"Card name",card.Name})
+
     if card.Manacost then table.insert(contents,{"Mana Cost",card.Manacost}) end
     table.insert(contents,{"Converted Mana Cost",card.cmc or 0})
     if card.Type then table.insert(contents,{"Types",card.Type}) end
