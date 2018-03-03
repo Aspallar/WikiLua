@@ -83,54 +83,11 @@ local function GetRulings(card)
 {| class="article-table"
 |+ Card rulings ([[Card rulings|?]])
 ]=]
-    for _,ruling in pairs(card.Rulings) do
-        s = s..string.format(rulingTemplate,ruling.Date,ruling.Text)
+    for _, ruling in pairs(card.Rulings) do
+        s = s .. string.format(rulingTemplate,ruling.Date,ruling.Text)
     end
-    s = s.."|}"
+    s = s .. "|}"
     return s
-end
-
-local function TableContains(t,item)
-    if(not t) or (not item) then return false end
-    for _,v in pairs(t) do
-        if v == item then
-            return true
-        end
-    end
-    return false
-end
-
--- Any number of these criteria can be used as arguments for searches.
--- For each one of them, condition can be one of ( ∈ ) a pre-defined set of possibilities.
-local criteriaList = {
-    -- condition ∈ {White,Blue,Black,Red,Green}
-    Color = function(card,condition) return TableContains(card.Colors,condition) end;
-    -- condition ∈ {true,false}
-    Colorless = function(card,condition) return (card.Colors == nil) == (condition=="true") end;
-    Multicolor = function(card,condition) return ((card.Colors ~= nil) and (#utils.RecreateTable(card.Colors) >= 2)) == (condition=="true") end;
-    -- condition ∈ {Any Type, Subtype or Supertype} See their respective wiki pages for an exhaustive list
-    Type = function(card,condition) return (TableContains(card.Types,condition) or TableContains(card.SubTypes,condition) or TableContains(card.SuperTypes,condition)) end;
-    -- condition ∈ {D,ORI}
-    -- Set = function(card,condition) return (card.SetCode == condition) or (setNames[card.SetCode] == condition) end;
-    Set = function(card,condition) return (card.SetCode == condition) or (TableContains(card.Allsets, condition)) end;
-    -- condition ∈ {Common,Uncommon,Rare,Mythic Rare}
-    -- Rarity = function(card,condition) return card.Rarity == condition end;
-    Rarity = function(card,condition) return (card.Rarity == condition) or (TableContains(card.Rarities, condition)) end;
-    -- condition ∈ {Any text}
-    Text = function(card,condition) return card.Text ~= nil and string.find(string.lower(card.Text),string.lower(condition)) end;
-    NotText = function(card,condition) return card.Text == nil or not string.find(string.lower(card.Text),string.lower(condition)) end;
-    -- condition ∈ {Any number}
-    CMC = function(card,condition) return (card.cmc or 0) - condition == 0 end;
-}
-
-function p.CardMeetsCriteria(card, criteria)
-    if criteria and (#criteria > 0) then
-        for _, criterion in pairs(criteria) do
-            local func,cond = unpack(mw.text.split(criterion, "$", true))
-            if not criteriaList[func](card,cond) then return false end
-        end
-    end
-    return true
 end
 
 local function GenerateCardRow(card)
@@ -140,11 +97,32 @@ local function GenerateCardRow(card)
         ExpansionSymbol(card))
 end
 
-
 local function GenerateAnyCardRow(card)
     return string.format(anyCardRowTemplate,
         "[[File:"..card.Name..".png|95px|link="..card.Name.."]]",
         DescriptionBox(card))
+end
+
+local function GetReprints(card)
+    local reprints = ""
+    if card.Sets then
+        reprints = "{{Clear}}\n"
+        if card.Rarity == "Basic Land" then
+            local setsList = ""
+            for _, set in pairs(card.Sets) do
+                setsList = setsList .. "[[" .. setNames[set.Set] .. "]] "
+            end
+            reprints = reprints .. "\n\n" .. string.format(landOtherSetsTemplate, setsList)
+        else
+            for _, set in pairs(card.Sets) do
+                local setTemplate = set.Set .. string.sub(set.Rarity,1,1)
+                local flavor = set.Flavor or "None."
+                local setEntry = string.format(otherSetsTemplate, setNames[set.Set], set.Rarity, setTemplate, flavor);
+                reprints = reprints .. setEntry
+            end
+        end
+    end
+    return reprints
 end
 
 local function GenerateCardPage(card)
@@ -162,32 +140,15 @@ local function GenerateCardPage(card)
     table.insert(contents,{"Rarity",card.Rarity})
 
     local cardContents = ""
-    for i = 1,#contents do
+    for i = 1, #contents do
          cardContents = cardContents .. string.format(cardPageRowTemplate,contents[i][1],contents[i][2])
     end
 
-	local otherSets = ""
-	if card.Sets then
-		otherSets = "{{Clear}}\n"
-		if card.Rarity == "Basic Land" then
-			local setsList = ""
-			for _,set in pairs(card.Sets) do
-				setsList = setsList .. "[[" .. setNames[set.Set] .. "]] "
-			end
-			otherSets = otherSets .. "\n\n" .. string.format(landOtherSetsTemplate, setsList)
-		else
-			for _,set in pairs(card.Sets) do
-				local setTemplate = set.Set .. string.sub(set.Rarity,1,1)
-				local flavor = set.Flavor or "None."
-				local setEntry = string.format(otherSetsTemplate, setNames[set.Set], set.Rarity, setTemplate, flavor);
-				otherSets = otherSets..setEntry
-			end
-		end
-	end
+	local reprints = GetReprints(card)
 
     return string.format(cardPageTemplate,
         cardContents,
-        card.Name)..GetRulings(card)..otherSets..p.GetCardCategories(card)
+        card.Name) .. GetRulings(card) .. reprints .. p.GetCardCategories(card)
 end
 
 local function GenerateOtherCardPage(card)
@@ -213,16 +174,11 @@ local function GenerateOtherCardPage(card)
 end
 
 local function GetCardsTable(criteria)
-	local cards, totalNumberOfCards = cardService.GetCards()
 	local s = ""
 	local numresults = 0
-
-	for i = 1, totalNumberOfCards do
-	    local card = cards[i]
-	    if p.CardMeetsCriteria(card, criteria) then
-	        s = s .. GenerateCardRow(card)
-	        numresults = numresults + 1
-	    end
+    for card in cardService.GetByCriteria(criteria) do
+        s = s .. GenerateCardRow(card)
+        numresults = numresults + 1
     end
     s = [=[! colspan="3" align="right"|]=]..numresults.." result"..(numresults~=1 and "s\n" or "\n")..s
 	return s
@@ -243,40 +199,35 @@ local function cardResultPageNavigation(startCard,endCard,numresults,page,linkBa
 end
 
 local function GetPagedCardsTable(criteria, title)
-    local titleparts = mw.text.split( title, '/', true )
+    local titleparts = mw.text.split(title, '/', true)
     local page
     if (#titleparts == 0) or (tonumber(titleparts[#titleparts]) == nil) then
         page = 1
     else
         page = tonumber(titleparts[#titleparts])
-        table.remove(titleparts,#titleparts)
+        table.remove(titleparts, #titleparts)
     end
-    local linkBase = table.concat(titleparts,'/')..'/'
-
-    local cards, totalNumberOfCards = cardService.GetCards()
+    local linkBase = table.concat(titleparts, '/') .. '/'
 
     local s = ""
     local numresults = 0
     local validCards = {}
 
-    for i = 1, totalNumberOfCards do
-        local card = cards[i]
-        if p.CardMeetsCriteria(card, criteria) then
-            table.insert(validCards, card)
-            numresults = numresults + 1
-        end
+    for card in cardService.GetByCriteria(criteria) do
+        table.insert(validCards, card)
+        numresults = numresults + 1
     end
 
-    local startCard = (page-1)*numCardsPerPage+1
-    local endCard = math.min((page-1)*numCardsPerPage+numCardsPerPage,numresults)
+    local startCard = (page - 1) * numCardsPerPage + 1
+    local endCard = math.min((page - 1) * numCardsPerPage + numCardsPerPage, numresults)
 
     for i = startCard, endCard do
-        local card = validCards[i]
-        if p.CardMeetsCriteria(card,criteria) then
-            s = s..GenerateCardRow(card)
-        end
+        s = s .. GenerateCardRow(validCards[i])
     end
-    s = cardResultPageNavigation(startCard,endCard,numresults,page,linkBase)..s.."\n|-\n"..cardResultPageNavigation(startCard,endCard,numresults,page,linkBase)
+
+    s = cardResultPageNavigation(startCard, endCard, numresults, page, linkBase) ..
+        s .. "\n|-\n" ..
+        cardResultPageNavigation(startCard,endCard,numresults,page,linkBase)
     return s
 end
 
