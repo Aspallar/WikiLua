@@ -29,6 +29,7 @@ whitespace is significant in wikitext.
 | ---- | ---- |
 | ArenaImport.html | http://magicarena.wikia.com/wiki/Template:ArenaImport |
 | Deck.html | http://magicarena.wikia.com/wiki/Template:Deck |
+| DeckCharts.html | http://magicarena.wikia.com/wiki/Template:DeckCharts |
 
 #### Client javascript
 
