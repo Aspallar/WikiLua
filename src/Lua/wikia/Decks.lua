@@ -23,6 +23,27 @@ local Sorcery = {}
 local Planeswalker = {}
 local errors = {}
 
+-- luacheck: push ignore 512
+-- lucheck falsely emits a "Loop will execute at most once" warning
+local function AllTypelistEntries()
+    local typelists = {Land, Creature, Artifact, Enchantment, Instant, Sorcery, Planeswalker}
+    local entryIndex = 1
+    local typelistIndex = 1
+    return function ()
+        while (typelistIndex <= #typelists) do
+            local typelist = typelists[typelistIndex]
+            while (entryIndex <= #typelist) do
+                local entry = typelist[entryIndex]
+                entryIndex = entryIndex + 1
+                return entry
+            end
+            typelistIndex = typelistIndex + 1
+            entryIndex = 1
+        end
+    end
+end
+-- luacheck: pop
+
 local function ParseCardEntry(entry)
     local pos, _ = string.find(entry, "%(")
     if pos ~= nil and pos > 2 then
@@ -47,8 +68,8 @@ local function ParseCardEntry(entry)
 end
 
 local function SortListIntoTypes(list)
-    for _,t in pairs(list) do
-        local num, name = ParseCardEntry(t)
+    for _, cardEntry in pairs(list) do
+        local num, name = ParseCardEntry(cardEntry)
         local card = cardService.GetByNameIgnoreCase(name)
         if card then
             if TableContains(card.Types,"Land") then
@@ -74,8 +95,7 @@ local function SortListIntoTypes(list)
     end
 end
 
---luacheck: push
---luacheck: no unused
+--luacheck: push no unused
 local function LogTypes()
     mw.log("Land : "..#Land)
     mw.log("Creature : "..#Creature)
@@ -90,8 +110,7 @@ end
 
 local buffer = ""
 
---luacheck: push
---luacheck: no unused
+--luacheck: push no unused
 local function Write(s)
     buffer = buffer .. s
 end
@@ -145,28 +164,27 @@ local function WriteTypeLists()
     WriteOtherCards(errors)
 end
 
-local function GetAdditionalData(cardList)
+local function GetAdditionalData()
     local arenaExport = ""
     local alternatives = ""
     local cardlist = {}
-    for _,cardEntry  in pairs(cardList) do
-        local number, name = ParseCardEntry(cardEntry)
-        local card = cardService.GetByNameIgnoreCase(name)
-        if card then
-            local carddata = { num=number; colors=card.Colors; cmc=card.cmc; types=card.Types }
-            table.insert(cardlist, carddata)
 
-            arenaExport = arenaExport .. number .. " " ..
-                card.Name .. " (" .. card.SetCode .. ") " ..
-                string.match(card.CardNumber, "%d+") .. "\n"
+    for cardEntry in AllTypelistEntries() do
+        local number = cardEntry[1]
+        local card = cardEntry[2]
 
-            if card.Sets ~= nil and card.Rarity ~= "Basic Land" then
-                for _,set in pairs(card.Sets) do
-                    alternatives = alternatives .. card.Name ..
-                    " (" .. set.Set .. ") " .. set.CardNumber .. "\n"
-                end
+        local carddata = { num=number; colors=card.Colors; cmc=card.cmc; types=card.Types }
+        table.insert(cardlist, carddata)
+
+        arenaExport = arenaExport .. number .. " " ..
+            card.Name .. " (" .. card.SetCode .. ") " ..
+            string.match(card.CardNumber, "%d+") .. "\n"
+
+        if card.Sets ~= nil and card.Rarity ~= "Basic Land" then
+            for _, set in pairs(card.Sets) do
+                alternatives = alternatives .. card.Name ..
+                " (" .. set.Set .. ") " .. set.CardNumber .. "\n"
             end
-
         end
     end
     local cardJson = json.encode(cardlist)
@@ -197,7 +215,7 @@ end
 local function GenerateDeckFromList(name,list)
     SortListIntoTypes(list)
     WriteTypeLists()
-    local arenaExport, altExport, cardJson = GetAdditionalData(list)
+    local arenaExport, altExport, cardJson = GetAdditionalData()
     return  DeckListSection(name, buffer) ..
         CardJsonDataSection(cardJson) ..
         ArenaExportSection(arenaExport, "mdw-arena-export-src") ..
