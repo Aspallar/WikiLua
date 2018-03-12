@@ -4,12 +4,9 @@ var mw = mw || {};
 mw.config = mw.config || {};
 
 mw.config.get = function(param) {
-	// TODO: implement test mw.config.get(param)
 	switch (param) {
-		// case 'wgArticlePath':
-		// 	return wgArticlePath || param;
-		// case 'wgPageName':
-		// 	return wgPageName || param;
+		case 'wgPageName':
+			return 'Decks/Test Two';
 		case 'wgScriptPath':
 			return 'http://aspallar.wikia.com';
 	}
