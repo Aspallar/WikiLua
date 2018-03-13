@@ -15,7 +15,7 @@
     }
 
     function calcRating(total, numberOfVotes) {
-        return Math.floor(total / numberOfVotes);
+        return Math.round(total / numberOfVotes);
     }
 
     function showError(error) {
