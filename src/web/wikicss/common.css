@@ -171,3 +171,46 @@
 	width: 50%;
 }
 
+#mdw-arena-export-alt-div {
+    margin-bottom: 20px;
+}
+
+/* Ratings */
+.mdw-rating {
+     /*background: url("https://vignette.wikia.nocookie.net/magicarena/images/6/64/RatingsInactivated.png/revision/latest?cb=20180308213046") no-repeat scroll 0 0 transparent;*/
+     background: url("/images/RatingsInactivated.png") no-repeat scroll 0 0 transparent;
+     height: 25px;
+     width: 20px;
+     float: left;
+     cursor: pointer;
+}
+
+.mdw-rating-score {
+     /*background: url("https://vignette.wikia.nocookie.net/magicarena/images/6/64/RatingsInactivated.png/revision/latest?cb=20180308213046") no-repeat scroll 0 0 transparent;*/
+     background: url("/images/RatingsInactivated.png") no-repeat scroll 0 0 transparent;
+     height: 25px;
+     width: 20px;
+     float: left;
+}
+ 
+.mdw-rating-active {
+     /*background: url("https://vignette.wikia.nocookie.net/magicarena/images/9/96/RatingsActivated.png/revision/latest?cb=20180308213030") no-repeat scroll 0 0 transparent;*/
+     background: url("/images/RatingsActivated.png") no-repeat scroll 0 0 transparent;
+     height: 25px;
+     width: 20px;
+     float: left;
+}
+
+.mdw-ratings-box {
+    margin:1em 0 1em 1em;
+    border:3px solid #A4A4A4;
+    font-size: 85%;
+    box-shadow: 0px 7px 7px;
+    border-radius:15px;
+    padding:0 10px 10px 10px;
+}
+ 
+.mdw-rating {
+     font-weight: bold;
+}
+

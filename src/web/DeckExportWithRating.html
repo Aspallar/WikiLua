@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>Test DeckExport</title>
+    <link rel="stylesheet" type="text/css" href="wikicss/common.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+<h1>Test Page</h1>
+<p>some text</p>
+<pre id="mdw-arena-export-src" style="display:none">
+4 Rekindling Phoenix (RIX) 111
+20 Mountain (RIX) 195
+4 Fanatical Firebrand (RIX) 101
+3 Rigging Runner (XLN) 157
+3 Lightning Strike (XLN) 149
+3 Goblin Trailblazer (RIX) 105
+1 Tilonalli's Summoner (RIX) 121
+1 Captain Lannery Storm (XLN) 136
+2 Sure Strike (XLN) 166
+2 Fiery Cannonade (XLN) 143
+2 Hijack (XLN) 148
+3 Charging Monstrosaur (XLN) 138
+2 Vance's Blasting Cannons (XLN) 173
+1 Rampaging Ferocidon (XLN) 154
+2 Nest Robber (XLN) 152
+3 Daring Buccaneer (RIX) 98
+1 Arch of Orazca (RIX) 185
+2 Field of Ruin (XLN) 254
+1 Mutiny (RIX) 106
+</pre>
+<pre id="mdw-arena-export-src-altenative" style="display:none">
+Rekindling Phoenix (XLN) 999
+Mountain (XLN) 998
+Fanatical Firebrand (XLN) 997
+Mutiny (BOO) 1
+</pre>
+<p>some more text</p>
+
+<div id="arenaimport-template"></div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+</script>
+<script src="scripts/wikiParse.js"></script>
+<script src="scripts/mediawiki.js"></script>
+<script>
+    $.get('wikitemplates/ArenaImportWithRating.html', function (data) {
+        $('#arenaimport-template').html(wikiParse(data));
+        $.getScript('wikiscripts/Ratings2.js', function () {
+            $.getScript('wikiscripts/DeckExport.js');
+        });
+    });
+</script>
+</body>
+</html>

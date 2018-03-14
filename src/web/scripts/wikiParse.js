@@ -8,7 +8,7 @@ function wikiParse(contents) {
 
     function resolveLinks(contents) {
         return contents.replace(/\[\[(.*)\|(.*)\]\]/g, function (match, url, text) {
-            return '<a href="http://magicduels.wikia.com/wiki/' + url + '">' + text + '</a>';
+            return '<a href="http://magicarena.wikia.com/wiki/' + url + '">' + text + '</a>';
         });
     }
 
@@ -16,9 +16,16 @@ function wikiParse(contents) {
         return contents.replace(/<noinclude>.*<\/noinclude>/, '');
     }
 
+    function replaceTitles(contents) {
+        return contents.replace(/==(.*)==/g, function(match, titleText) {
+            return '<h2>' + titleText + '</h2>';
+        });
+    }
+
+    contents = removeNoInclude(contents);
     contents = replaceClearTemplates(contents);
     contents = resolveLinks(contents);
-    contents = removeNoInclude(contents);
+    contents = replaceTitles(contents);
 
     return contents;
 }
