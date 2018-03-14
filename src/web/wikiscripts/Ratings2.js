@@ -48,10 +48,19 @@
                 return ratingData[k];
             }
         }
-        return {total:0, votes:1};
+        return null;
     }
 
-    function setRating(rating) {
+    function getRating(name, ratingData) {
+        var rating = findRating(name, ratingData);
+        if (rating === null) {
+            rating = {name:name, total:0, votes:0};
+            ratingData.push(rating);
+        }
+        return rating;
+    }
+
+    function updateRatingUiValue(rating) {
         $('.mdw-rating-score').each(function () {
             var $this = $(this);
             if (rating >= parseInt($this.attr('data-rating'), 10))
@@ -98,19 +107,18 @@
         });
     }
 
-    function updateRatingData(deckName, score) {
+    function addScore(rating, score) {
+        rating.total += score;
+        ++rating.votes;
+    }
+
+    function updateRating(deckName, score) {
         fetchRatingPage(function (page) {
             var data = getDataFromPage(page);
-            var rating = findRating(deckName, data);
-            if (rating.name === undefined) {
-                rating = {name:deckName, total:score, votes:1};
-                data.push(rating);
-            } else {
-                rating.total += score;
-                ++rating.votes;
-            }
+            var rating = getRating(deckName, data);
+            addScore(rating, score);
             var newContent = JSON.stringify(data);
-            setRating(calcRating(rating.total, rating.votes));
+            updateRatingUiValue(calcRating(rating.total, rating.votes));
             wikiApiCall({
                 'minor': 'yes',
                 'summary': 'Rating update (automatic)',
@@ -125,7 +133,7 @@
             'POST',
             function (response) {
                 if (response.edit.result !== 'Success')
-                    showError('Update fail in updateRatingData: ' + response.edit.result);
+                    showError('Update fail in updateRating: ' + response.edit.result);
             });
         });
     }
@@ -150,13 +158,14 @@
         /* jshint -W040 */ // allow old school jquery use of this
         var rating = parseInt($(this).attr('data-rating'), 10);
         $('#mdw-rating').css('display', 'none');
-        updateRatingData(getPageName(), rating);
+        updateRating(getPageName(), rating);
     }
 
     function initializeRating() {
         fetchRatingData(function (data) {
             var rating = findRating(getPageName(), data);
-            setRating(calcRating(rating.total, rating.votes));
+            if (rating !== null)
+                updateRatingUiValue(calcRating(rating.total, rating.votes));
         });
     }
 
