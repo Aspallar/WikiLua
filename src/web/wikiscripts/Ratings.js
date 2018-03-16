@@ -5,7 +5,7 @@
 // Version 1.0.0
 // Author: Aspallar
 //
-// ** Please dont edit this code directly in the wikia.
+// ** Please do not edit this code directly in the wikia.
 // ** Instead use the git repository https://github.com/Aspallar/WikiLua
 //
 // This code was inspired by the rating system used on http://de.sonic.wikia.com
@@ -93,12 +93,12 @@
     }
 
     function getPageFromResponse(response) {
-        /* jshint -W089 */ // no need for hasOwnProperty guard here
         var pages = response.query.pages;
-        var page;
-        for (var i in pages)
-            page = pages[i];
-        return page;
+        for (var property in pages) {
+            if (pages.hasOwnProperty(property))
+                return pages[property];
+        }
+        return null;
     }
 
     function fetchRatingPage(cbDone) {
@@ -138,7 +138,7 @@
             updateRatingUiValue(calcScore(rating));
             wikiApiCall({
                 'minor': 'yes',
-                'summary': 'Rating update (automatic)',
+                'summary': 'Rating for ' + deckName + ' (' + score + ')',
                 'action': 'edit',
                 'title': ratingsDataPageName,
                 'basetimestamp': page.revisions[0].timestamp,
@@ -235,11 +235,11 @@
 
     $(document).ready(function () {
         if (document.getElementById('mdw-rating') !== null) {
-            // deck page with rating
+            // we are on a deck page with rating
             initializeStars();
         }
         else {
-            // decklists page
+            // we are on the decklists page
             updateRatingColumn();
         }
     });
