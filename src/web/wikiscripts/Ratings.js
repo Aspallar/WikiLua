@@ -19,6 +19,10 @@
 
     var ratingsDataPageName = 'Ratings:DeckRatings';
 
+    function showError(error) {
+        console.log(error);
+    }
+
     function stripDeckPrefix(deckName) {
         if (deckName.substring(0, 6) === 'Decks/')
             return deckName.substring(6);
@@ -31,12 +35,27 @@
         return name;
     }
 
+    function validRating(rating) {
+        return typeof rating === 'object' &&
+            typeof rating.votes === 'number' &&
+            rating.votes !== 0 &&
+            typeof rating.total === 'number';
+    }
+
     function calcScore(rating) {
+        if (!validRating(rating))
+            return 0;
         return Math.round(rating.total / rating.votes);
     }
 
-    function showError(error) {
-        console.log(error);
+    function parseData(dataText) {
+        try {
+            return JSON.parse(dataText);
+        } catch(error) {
+            $('.mdw-ratings-box').css('display', 'none');
+            showError('Ratings data error: ' + error);
+            return null; 
+        }
     }
 
     function wikiApiCall(data, method, cbSuccess) {
@@ -89,7 +108,7 @@
 
     function getDataFromPage(page) {
         var content = page.revisions[0]['*'];
-        return JSON.parse(content);
+        return parseData(content);
     }
 
     function getPageFromResponse(response) {
@@ -120,6 +139,8 @@
     function fetchRatingData(cbDone) {
         fetchRatingPage(function (page) {
             var data = getDataFromPage(page);
+            if (data === null)
+                data = [];
             cbDone(data);
         });
     }
@@ -132,6 +153,8 @@
     function updateRating(deckName, score) {
         fetchRatingPage(function (page) {
             var data = getDataFromPage(page);
+            if (data === null)
+                return; 
             var rating = getRating(deckName, data);
             addScore(rating, score);
             var newContent = JSON.stringify(data);
