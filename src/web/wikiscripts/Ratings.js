@@ -14,7 +14,7 @@
     /* global mw */
     'use strict';
 
-    if (document.getElementById('mdw-rating') === null && $('.mdw-decklist').length === null)
+    if (document.getElementById('mdw-rating') === null && $('.mdw-decklist').length === 0)
         return;
 
     var ratingsDataPageName = 'Ratings:DeckRatings';
