@@ -183,6 +183,7 @@
      width: 20px;
      float: left;
      cursor: pointer;
+     font-weight: bold;
 }
 
 .mdw-rating-score {
@@ -210,7 +211,3 @@
     padding:0 10px 10px 10px;
 }
  
-.mdw-rating {
-     font-weight: bold;
-}
-
