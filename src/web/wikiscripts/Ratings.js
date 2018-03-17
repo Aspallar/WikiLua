@@ -98,11 +98,11 @@
 
     function updateRatingUiValue(rating) {
         $('.mdw-rating-score').each(function () {
-            var $this = $(this);
-            if (rating >= parseInt($this.attr('data-rating'), 10))
-                $this.addClass('mdw-rating-active');
+            var ratingStar = $(this);
+            if (rating >= parseInt(ratingStar.attr('data-rating'), 10))
+                ratingStar.addClass('mdw-rating-active');
             else
-                $this.removeClass('mdw-rating-active');
+                ratingStar.removeClass('mdw-rating-active');
         });
     }
 
@@ -157,7 +157,7 @@
                 return; 
             var rating = getRating(deckName, data);
             addScore(rating, score);
-            var newContent = JSON.stringify(data);
+            var newContent = JSON.stringify(data, null, 1);
             updateRatingUiValue(calcScore(rating));
             wikiApiCall({
                 'minor': 'yes',
@@ -182,10 +182,10 @@
         /* jshint -W040 */ // allow old school jquery use of this
         var rating = parseInt($(this).attr('data-rating'), 10);
         $('.mdw-rating').each(function () {
-            var $this = $(this);
-            var thisRating = parseInt($this.attr('data-rating'), 10);
-            if (thisRating <= rating) {
-                $this.addClass('mdw-rating-active');
+            var voteStar = $(this);
+            var voteStarRating = parseInt(voteStar.attr('data-rating'), 10);
+            if (voteStarRating <= rating) {
+                voteStar.addClass('mdw-rating-active');
             }
         });
     }
