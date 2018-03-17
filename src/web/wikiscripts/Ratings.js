@@ -122,12 +122,12 @@
 
     function fetchRatingPage(cbDone) {
         wikiApiCall({
-            'action': 'query',
-            'prop': 'info|revisions',
-            'intoken': 'edit',
-            'titles': ratingsDataPageName,
-            'rvprop': 'content',
-            'rvlimit': '1'
+            action: 'query',
+            prop: 'info|revisions',
+            intoken: 'edit',
+            titles: ratingsDataPageName,
+            rvprop: 'content',
+            rvlimit: '1'
         },
         'GET',
         function (response) {
@@ -160,15 +160,15 @@
             var newContent = JSON.stringify(data, null, 1);
             updateRatingUiValue(calcScore(rating));
             wikiApiCall({
-                'minor': 'yes',
-                'summary': 'Rating for ' + deckName + ' (' + score + ')',
-                'action': 'edit',
-                'title': ratingsDataPageName,
-                'basetimestamp': page.revisions[0].timestamp,
-                'startimestamp': page.starttimestamp,
-                'token': page.edittoken,
-                'watchlist': 'unwatch',
-                'text': newContent
+                minor: 'yes',
+                summary: 'Rating for ' + deckName + ' (' + score + ')',
+                action: 'edit',
+                title: ratingsDataPageName,
+                basetimestamp: page.revisions[0].timestamp,
+                startimestamp: page.starttimestamp,
+                token: page.edittoken,
+                watchlist: 'unwatch',
+                text: newContent
             },
             'POST',
             function (response) {
