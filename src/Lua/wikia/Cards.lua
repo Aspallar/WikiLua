@@ -32,7 +32,7 @@ local cardPageTemplate = [=[{| class="article-table CardPageTable" style="float:
 
 local otherSetsTemplate = [=[{| class="mdw-reprint"
 |-
-| align="center" |[[File:Reprint icon.png|link=]] || This card is a '''Reprint''' from<br />[[%s]], %s {{%s}}, Flavor Text: ''%s''
+| align="center" |[[File:Reprint icon.png|link=]] || This card is a '''Reprint''' from<br />%s, %s {{%s}}, Flavor Text: ''%s''
 |}
 ]=]
 
@@ -45,8 +45,17 @@ local landOtherSetsTemplate = [=[{| class="mdw-reprint"
 local numCardsPerPage = 100
 
 local setNames = {}
+setNames["AKH"]="Amonkhet"
+setNames["HOU"]="Hour of Devastation"
 setNames["XLN"]="Ixalan"
 setNames["RIX"]="Rivals of Ixalan"
+
+local function SetLink(setCode)
+    if setCode == "HOU" then
+        return "[[Hour of Devastation (set)|Hour of Devastation]]"
+    end
+    return "[[" .. setNames[setCode] .. "]]"
+end
 
 local function ConcatTables(target,source)
     if not source then return end
@@ -103,6 +112,7 @@ local function GenerateAnyCardRow(card)
         DescriptionBox(card))
 end
 
+
 local function GetReprints(card)
     local reprints = ""
     if card.Sets then
@@ -110,14 +120,14 @@ local function GetReprints(card)
         if card.Rarity == "Basic Land" then
             local setsList = ""
             for _, set in pairs(card.Sets) do
-                setsList = setsList .. "[[" .. setNames[set.Set] .. "]] "
+                setsList = setsList .. SetLink(set.Set)
             end
             reprints = reprints .. "\n\n" .. string.format(landOtherSetsTemplate, setsList)
         else
             for _, set in pairs(card.Sets) do
                 local setTemplate = set.Set .. string.sub(set.Rarity,1,1)
                 local flavor = set.Flavor or "None."
-                local setEntry = string.format(otherSetsTemplate, setNames[set.Set], set.Rarity, setTemplate, flavor);
+                local setEntry = string.format(otherSetsTemplate, SetLink(set.Set), set.Rarity, setTemplate, flavor);
                 reprints = reprints .. setEntry
             end
         end
@@ -136,7 +146,7 @@ local function GenerateCardPage(card)
     if card.Flavor then table.insert(contents,{"Flavor Text",card.Flavor}) end
     if card.Loyalty then table.insert(contents,{"Loyalty",card.Loyalty}) end
     if card.Power then table.insert(contents,{"P/T",PT(card)}) end
-    table.insert(contents,{"Expansion",ExpansionSymbol(card).." [["..setNames[card.SetCode].."]]"})
+    table.insert(contents,{"Expansion",ExpansionSymbol(card) .. " " .. SetLink(card.SetCode)})
     table.insert(contents,{"Rarity",card.Rarity})
 
     local cardContents = ""

@@ -21,6 +21,7 @@ end
 
 mw = {}
 mw.text = {}
+
 function mw.loadData(tableName)
 	return data
 end
@@ -41,6 +42,13 @@ function mw.text.split(s, delimiter, plain)
   table.insert( result, string.sub( s, from  ) )
   return result
 end
+
+function mw.text.trim(s)
+    local _, i1 = string.find(s,'^%s*')
+    local i2 = string.find(s,'%s*$')
+    return string.sub(s, i1 + 1, i2 - 1)
+end
+
 
 function mw.text.encode(s)
 	return s

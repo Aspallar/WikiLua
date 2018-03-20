@@ -64,7 +64,7 @@ local function ParseCardEntry(entry)
         intNumber = 0
         cardName = entry
     end
-    return intNumber, cardName
+    return intNumber, mw.text.trim(cardName)
 end
 
 local function SortListIntoTypes(list)

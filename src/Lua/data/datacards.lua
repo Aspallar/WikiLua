@@ -4753,7 +4753,7 @@ Rulings={
 
 {Name="Legion Conquistador";
 SetCode="RIX";
-Allsets={"RIX";"XLN";};
+Allsets={"RIX";"HOU";};
 Manacost="{{2}}{{W}}";
 cmc=3;
 Colors={"White"};
@@ -4769,7 +4769,7 @@ Power="2";
 Toughness="2";
 MultiverseID=439668;
 Sets={
-{Set="XLN";Rarity="Common";CardNumber="20";Flavor=[=[The Legion of Dusk sailed from Torrezon in search of glory, riches, and the Immortal Sun.]=];};
+{Set="HOU";Rarity="Common";CardNumber="20";Flavor=[=[The Legion of Dusk sailed from Torrezon in search of glory, riches, and the Immortal Sun.]=];};
 };
 };
 
