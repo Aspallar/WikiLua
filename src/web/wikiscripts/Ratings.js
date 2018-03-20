@@ -8,7 +8,7 @@
 // ** Please do not edit this code directly in the wikia.
 // ** Instead use the git repository https://github.com/Aspallar/WikiLua
 //
-// This code was inspired by the rating system used on http://de.sonic.wikia.com
+// This code was inspired by the rating system used on https://de.sonic.wikia.com
 //
 (function ($) {
     /* global mw */
