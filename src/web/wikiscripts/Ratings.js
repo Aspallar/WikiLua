@@ -2,7 +2,7 @@
 // Start: Deck Ratings
 //    1. Supports the rating 'stars' on deck pages
 //    2. Updates the rating column on the decklists page
-// Version 1.0.0
+// Version 1.0.1
 // Author: Aspallar
 //
 // ** Please do not edit this code directly in the wikia.
@@ -30,7 +30,7 @@
     }
 
     function getDeckName() {
-        var name = mw.config.get('wgPageName');
+        var name = mw.config.get('wgTitle');
         name = stripDeckPrefix(name);
         return name;
     }
