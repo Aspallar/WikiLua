@@ -36,7 +36,7 @@ Mutiny (BOO) 1
 </pre>
 <p>some more text</p>
 
-<div id="arenaimport-template"></div>
+<div id="template"></div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -45,10 +45,13 @@ Mutiny (BOO) 1
 <script src="scripts/wikiParse.js"></script>
 <script src="scripts/mediawiki.js"></script>
 <script>
-    $.get('wikitemplates/ArenaImportWithRating.html', function (data) {
-        $('#arenaimport-template').html(wikiParse(data));
-        $.getScript('wikiscripts/Ratings2.js', function () {
-            $.getScript('wikiscripts/DeckExport.js');
+    $.get('wikitemplates/ArenaImportWithRating.html', function (importHtml) {
+        $.get('wikitemplates/DeckRating.html', function (ratingHtml) {
+            var finalHtml = importHtml.replace('{{DeckRating}}', ratingHtml);
+            $('#template').html(wikiParse(finalHtml));
+            $.getScript('wikiscripts/Ratings.js', function () {
+                $.getScript('wikiscripts/DeckExport.js');
+            });
         });
     });
 </script>
