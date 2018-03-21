@@ -28,14 +28,17 @@ whitespace is significant in wikitext.
 | File | Deploy to |
 | ---- | ---- |
 | ArenaImport.html | http://magicarena.wikia.com/wiki/Template:ArenaImport |
+| ArenaImportWithRating.html | http://magicarena.wikia.com/wiki/Template:ArenaImportWithRating |
 | Deck.html | http://magicarena.wikia.com/wiki/Template:Deck |
 | DeckCharts.html | http://magicarena.wikia.com/wiki/Template:DeckCharts |
+| DeckRating.html | http://magicarena.wikia.com/wiki/Template:DeckRating |
 
 #### Client javascript
 
 | File | Deploy to |
 | ---- | ---- |
 | DeckExport.js | http://magicarena.wikia.com/wiki/MediaWiki:DeckExport.js |
+| Ratings.js | http://magicarena.wikia.com/wiki/MediaWiki:Ratings.js |
 
 #### Styles
 
