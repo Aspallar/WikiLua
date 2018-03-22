@@ -22,11 +22,8 @@ local decks = require("wikia\\decks")
 -- 2 Field of Ruin
 -- 1 Mutiny]=]
 local inputList = [=[
-
 20 Mountain
-1 Legion Conquistador
-2 Arch of Orazca
-
+1 Consign
 ]=]
 
 local result = decks.TestGenerateDeckFromList("Test Deck",inputList)

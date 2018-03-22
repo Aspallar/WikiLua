@@ -45,7 +45,10 @@ end
 -- luacheck: pop
 
 local function ParseCardEntry(entry)
-    local pos, _ = string.find(entry, "%(")
+    local pos, _ = string.find(entry, "///")
+    if pos == nil then
+        pos, _ = string.find(entry, "%(")
+    end
     if pos ~= nil and pos > 2 then
         entry = string.sub(entry, 1, pos - 2)
     end
@@ -164,6 +167,16 @@ local function WriteTypeLists()
     WriteOtherCards(errors)
 end
 
+local function exportCardName(card)
+    if card.CardNumber and (string.find(card.CardNumber,"a")) then
+        local card2 = cardService.GetByNumber(string.gsub(card.CardNumber,"a","b"))
+        if card2 ~= nil and card2.Text ~= nil and string.find(card2.Text, "Aftermath") ~= nil then
+            return card.Name .. " /// " .. card2.Name
+        end
+    end
+    return card.Name
+end
+
 local function GetAdditionalData()
     local arenaExport = ""
     local alternatives = ""
@@ -176,13 +189,15 @@ local function GetAdditionalData()
         local carddata = { num=number; colors=card.Colors; cmc=card.cmc; types=card.Types }
         table.insert(cardlist, carddata)
 
+        local exportName = exportCardName(card)
+
         arenaExport = arenaExport .. number .. " " ..
-            card.Name .. " (" .. card.SetCode .. ") " ..
+            exportName .. " (" .. card.SetCode .. ") " ..
             string.match(card.CardNumber, "%d+") .. "\n"
 
         if card.Sets ~= nil and card.Rarity ~= "Basic Land" then
             for _, set in pairs(card.Sets) do
-                alternatives = alternatives .. card.Name ..
+                alternatives = alternatives .. exportName ..
                 " (" .. set.Set .. ") " .. set.CardNumber .. "\n"
             end
         end
