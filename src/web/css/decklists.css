@@ -1,0 +1,21 @@
+html,
+body {
+    background-color: #5D5D5D;
+}
+
+h1 {
+    color: #0006FF;
+    text-shadow: 2px 2px #3C40FF;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #79B6F5;
+}
+
+a:active {
+    color: #79B6F5;
+}

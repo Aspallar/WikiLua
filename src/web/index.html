@@ -1,56 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Test Harness</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
-<h1>Arena Wiki</h1>
-<hr />
-<h3>Local Test Harnesses</h3>
-<ul class="testlist">
-    <li>
-        <a href="DeckExport.html">DeckExport</a>
-    </li>
-    <li>
-        <a href="DeckRating.html">DeckRating</a>
-    </li>
-    <li>
-        <a href="DeckExportWithRating.html">DeckExportWithRating</a>
-    </li>
-    <li>
-        <a href="Decklists.html">Decklists with ratings</a>
-    </li>
-</ul>
-<hr />
-<h3>Arena Wiki Links</h3>
-<ul class="testlist">
-    <li>
-        <a href="http://magicarena.wikia.com/MediaWiki:DeckExport.js" target="deckexportjs">
-            DeckExport.js
-        </a>
-    </li>
-    <li>
-        <a href="http://magicarena.wikia.com/MediaWiki:Ratings.js" target="ratingsjs">
-            Ratings.js
-        </a>
-    </li>
-    <li>
-        <a href="http://magicarena.wikia.com/index.php?title=Special%3APrefixIndex&prefix=&namespace=828" target="allluamodules">
-            All Lua Modules
-        </a>
-    </li>
-    <li>
-        <a href="http://magicarena.wikia.com/index.php?title=Special%3APrefixIndex&prefix=&namespace=8" target="allmediawiki">
-            All MediaWiki files
-        </a>
-    </li>
-    <li>
-        <a href="http://magicarena.wikia.com/wiki/Special:RecentChanges" target="wikiactivity">
-            Activity log
-        </a>
-    </li>
-</ul>
-<hr />
+<div class="container">
+    <h1>Arena Wiki Code</h1>
+    <hr />
+    <div class="row">
+        <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Local</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Local Test Harnesses</h6>
+                <p class="card-text">
+                    <ul class="linklist">
+                        <li>
+                            <a href="DeckExport.html" target="deckexport" >DeckExport</a>
+                        </li>
+                        <li>
+                            <a href="DeckRating.html" target="deckrating">DeckRating</a>
+                        </li>
+                        <li>
+                            <a href="DeckExportWithRating.html" target="deckexportrating">DeckExportWithRating</a>
+                        </li>
+                        <li>
+                            <a href="Decklists.html" target="decklists">Decklists with ratings</a>
+                        </li>
+                    </ul>
+                </p>
+              </div>
+            </div>
+        </div>
+         <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Remote</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Arena Wiki Pages</h6>
+                <p class="card-text">
+                    <ul class="linklist">
+                        <li>
+                            <a href="http://magicarena.wikia.com/MediaWiki:DeckExport.js" target="deckexportjs">
+                                DeckExport.js
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://magicarena.wikia.com/MediaWiki:Ratings.js" target="ratingsjs">
+                                Ratings.js
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://magicarena.wikia.com/index.php?title=Special%3APrefixIndex&prefix=&namespace=828" target="allluamodules">
+                                All Lua Modules
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://magicarena.wikia.com/index.php?title=Special%3APrefixIndex&prefix=&namespace=8" target="allmediawiki">
+                                All MediaWiki files
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://magicarena.wikia.com/wiki/Special:RecentChanges" target="wikiactivity">
+                                Activity log
+                            </a>
+                        </li>
+                    </ul>                    
+                </p>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous">
+</script>
 </body>
 </html>
