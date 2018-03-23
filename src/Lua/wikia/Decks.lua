@@ -23,8 +23,6 @@ local Sorcery = {}
 local Planeswalker = {}
 local errors = {}
 
--- luacheck: push ignore 512
--- lucheck falsely emits a "Loop will execute at most once" warning
 local function AllTypelistEntries()
     local typelists = {Land, Creature, Artifact, Enchantment, Instant, Sorcery, Planeswalker}
     local entryIndex = 1
@@ -32,7 +30,7 @@ local function AllTypelistEntries()
     return function ()
         while (typelistIndex <= #typelists) do
             local typelist = typelists[typelistIndex]
-            while (entryIndex <= #typelist) do
+            if entryIndex <= #typelist then
                 local entry = typelist[entryIndex]
                 entryIndex = entryIndex + 1
                 return entry
@@ -42,7 +40,6 @@ local function AllTypelistEntries()
         end
     end
 end
--- luacheck: pop
 
 local function ParseCardEntry(entry)
     local pos, _ = string.find(entry, "///")
@@ -168,8 +165,8 @@ local function WriteTypeLists()
 end
 
 local function exportCardName(card)
-    if card.CardNumber and (string.find(card.CardNumber,"a")) then
-        local card2 = cardService.GetByNumber(string.gsub(card.CardNumber,"a","b"))
+    if card.CardNumber and string.find(card.CardNumber, "a") ~= nil then
+        local card2 = cardService.GetByNumber(string.gsub(card.CardNumber, "a", "b"))
         if card2 ~= nil and card2.Text ~= nil and string.find(card2.Text, "Aftermath") ~= nil then
             return card.Name .. " /// " .. card2.Name
         end
@@ -238,13 +235,13 @@ local function GenerateDeckFromList(name,list)
 end
 
 function p.TestGenerateDeckFromList(name,inputList)
-    local list = mw.text.split( inputList, "\n" )
-    return (GenerateDeckFromList(name,list))
+    local list = mw.text.split(inputList, "\n" )
+    return GenerateDeckFromList(name, list)
 end
 
 function p.GenerateDeckFromList(frame)
     local args = utils.RecreateTable(frame:getParent().args)
-    local list = mw.text.split( args.Deck, "\n" )
+    local list = mw.text.split(args.Deck, "\n")
     return frame:preprocess(GenerateDeckFromList(args.Name,list))
 end
 

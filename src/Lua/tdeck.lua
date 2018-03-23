@@ -24,7 +24,7 @@ local decks = require("wikia\\decks")
 local inputList = [=[
 20 Mountain
 1 Consign
-]=]
+1 Farm]=]
 
 local result = decks.TestGenerateDeckFromList("Test Deck",inputList)
 print(result)

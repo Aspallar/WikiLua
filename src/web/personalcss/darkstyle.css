@@ -1,0 +1,17 @@
+.asp-darkdeckbox {
+    background-color: #343434;
+}
+
+.asp-darkdeckbox a:link {
+    text-decoration: none;
+}
+
+.asp-darkdeckbox a:hover {
+    font-weight: bold;
+    color: #79B6F5;
+}
+
+.asp-darkdeckbox a:active {
+    font-weight: bold;
+    color: #79B6F5;
+}
