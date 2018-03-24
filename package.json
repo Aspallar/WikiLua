@@ -1,0 +1,24 @@
+{
+  "name": "WikiLua",
+  "version": "1.0.0",
+  "description": "Code for [Magic Arena Wiki](http://magicarena.wikia.com)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aspallar/WikiLua.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aspallar/WikiLua/issues"
+  },
+  "homepage": "https://github.com/Aspallar/WikiLua#readme",
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1"
+  }
+}
