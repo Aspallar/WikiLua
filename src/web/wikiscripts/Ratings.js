@@ -2,13 +2,13 @@
 // Start: Deck Ratings
 //    1. Supports the rating 'stars' on deck pages
 //    2. Updates the rating column on the decklists page
-// Version 1.0.1
+// Version 1.0.2
 // Author: Aspallar
 //
 // ** Please do not edit this code directly in the wikia.
 // ** Instead use the git repository https://github.com/Aspallar/WikiLua
 //
-// This code was inspired by the rating system used on https://de.sonic.wikia.com
+// This code was inspired by the rating system used on http://de.sonic.wikia.com
 //
 (function ($) {
     /* global mw */
@@ -126,7 +126,7 @@
             prop: 'info|revisions',
             intoken: 'edit',
             titles: ratingsDataPageName,
-            rvprop: 'content',
+            rvprop: 'content|timestamp',
             rvlimit: '1'
         },
         'GET',
