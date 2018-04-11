@@ -1,18 +1,12 @@
 // ==========================================================================
 // Start: Sample Hand
 // Implements sample hand generation for deck articles
-// Version 1.0.0
+// Version 1.1.0
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wikia.
-// ** Instead clone the git repository https://github.com/Aspallar/WikiaCharts
-// ** and modify that, then copy your changes to the wikia.
-// ** this file is the randomHand.js file in the Web\scripts folder.
-// ** don't forget to push your changes to github.
-//
-// To develop this code locally you will need an addin for your browser that
-// disables cross origin checking, and change apiParseCommandUrl() so that the correct
-// absolute url for the target wikia is used.
+// ** Instead clone the git repository https://github.com/Aspallar/WikiLua
+// ** this file is the sampleHand.js file in the src\Web\wikiscripts folder.
 //
 // NOTE TO FANDOM CODE REVIEWERS
 // This script inserts image tags into the page, but all of the images are internal to 
@@ -24,7 +18,6 @@
 (function ($) {
     'use strict';
     /*global alert*/
-    /*jshint curly: false, maxlen: 200 */
 
     // do nothing on articles with no random hand
     if (document.getElementById('mdw-random-hand') === null) {
@@ -206,12 +199,12 @@
 
         function setRandomHandButtonText(haveHand) {
             var text = haveHand ? 'New Hand' : 'Draw Sample Hand';
-            randomHandButton.html(text);
+            randomHandButton.attr('value', text);
         }
 
         function setImageSizeButtonText() {
             var text = cardPanel.small() ? 'Large Images' : 'Small Images';
-            imageSizeButton.html(text);
+            imageSizeButton.attr('value', text);
         }
 
         function showHandOnlyButtons(show) {
@@ -277,8 +270,19 @@
         return $('<img id="mdw-card-hover" class="mdw-card-hover" />').prependTo('body');
     }
 
+    function createCardSection() {
+        var sampleHandContents = $(document.createDocumentFragment())
+            .append('<input type="button" id="mdw-random-hand-button" value="Sample Hand" />&nbsp;')
+            .append('<input type="button" id="mdw-random-hand-image-size" class="mdw-hidden" value="Large Images" />&nbsp;')
+            .append('<input type="button" id="mdw-random-hand-draw-card" class="mdw-hidden" value="Draw Card" />&nbsp')
+            .append('<input type="button" id="mdw-random-hand-clear" class="mdw-hidden" value="Clear" />')
+            .append('<div id="mdw-random-hand" style="padding-top:5px;"></div>');
+        $('#mdw-random-hand-section').html(sampleHandContents); 
+    }
+
     var controller;
     $(document).ready(function () {
+        createCardSection();
         var deck = new Deck().scrapeFromPage();
         var cardPanel = new CardPanel($('#mdw-random-hand'), tooltipElement(), new ImageSource());
         controller = new Controller(cardPanel, deck).start();
