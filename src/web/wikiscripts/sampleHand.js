@@ -270,21 +270,22 @@
         return $('<img id="mdw-card-hover" class="mdw-card-hover" />').prependTo('body');
     }
 
-    function createCardSection() {
+    function cardSection() {
+        var sampleHandDiv = $('<div id="mdw-random-hand" style="padding-top:5px;"></div>');
         var sampleHandContents = $(document.createDocumentFragment())
             .append('<input type="button" id="mdw-random-hand-button" value="Sample Hand" />&nbsp;')
             .append('<input type="button" id="mdw-random-hand-image-size" class="mdw-hidden" value="Large Images" />&nbsp;')
             .append('<input type="button" id="mdw-random-hand-draw-card" class="mdw-hidden" value="Draw Card" />&nbsp')
             .append('<input type="button" id="mdw-random-hand-clear" class="mdw-hidden" value="Clear" />')
-            .append('<div id="mdw-random-hand" style="padding-top:5px;"></div>');
+            .append(sampleHandDiv);
         $('#mdw-random-hand-section').html(sampleHandContents); 
+        return sampleHandDiv;
     }
 
     var controller;
     $(document).ready(function () {
-        createCardSection();
         var deck = new Deck().scrapeFromPage();
-        var cardPanel = new CardPanel($('#mdw-random-hand'), tooltipElement(), new ImageSource());
+        var cardPanel = new CardPanel(cardSection(), tooltipElement(), new ImageSource());
         controller = new Controller(cardPanel, deck).start();
     });
 })(jQuery);
