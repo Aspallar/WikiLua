@@ -17,7 +17,6 @@
 // extracts the src from the returned json.
 (function ($) {
     'use strict';
-    /*global alert*/
 
     // do nothing on articles with no random hand
     if (document.getElementById('mdw-random-hand') === null) {
@@ -49,14 +48,19 @@
             return this;
         },
         drawCard: function () {
-            var card, index;
-            do {
-                index = Math.floor(Math.random() * this.cards.length);
-                card = this.cards[index];
-            } while (!card.available);
-            card.available = false;
-            this.cardsLeft--;
-            return card;
+            var randomAvailable = Math.floor(Math.random() * this.cardsLeft);
+            var availableCount = 0;
+            for (var k = 0, l = this.cards.length; k < l; k++) {
+                var card = this.cards[k];
+                if (card.available) {
+                    if (availableCount === randomAvailable) {
+                        --this.cardsLeft;
+                        card.available = false;
+                        return card;
+                    }
+                    ++availableCount;
+                }
+            }
         },
         drawCards: function (numCards) {
             var cards = [];
@@ -213,7 +217,7 @@
 
         function updateUi() {
             if (deck.cards.length < 7) {
-                showMessage("There must be at least 7 cards in a deck for a sample hand.");
+                showMessage('There must be at least 7 cards in a deck for a sample hand.');
                 randomHandButton.prop('disabled', true);
                 return;
             }
