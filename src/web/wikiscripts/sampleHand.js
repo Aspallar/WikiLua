@@ -5,7 +5,7 @@
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wikia.
-// ** Instead clone the git repository https://github.com/Aspallar/WikiLua
+// ** Instead use the git repository https://github.com/Aspallar/WikiLua
 // ** this file is the sampleHand.js file in the src\Web\wikiscripts folder.
 //
 // NOTE TO FANDOM CODE REVIEWERS
@@ -197,6 +197,10 @@
         var clearButton = $('#mdw-random-hand-clear');
         var handOnlyButtons = [imageSizeButton, drawCardButton, clearButton];
 
+        function showMessage(msg) {
+            $('#mdw-random-hand-message').text(msg);
+        }
+
         function setRandomHandButtonText(haveHand) {
             var text = haveHand ? 'New Hand' : 'Draw Sample Hand';
             randomHandButton.attr('value', text);
@@ -205,6 +209,21 @@
         function setImageSizeButtonText() {
             var text = cardPanel.small() ? 'Large Images' : 'Small Images';
             imageSizeButton.attr('value', text);
+        }
+
+        function updateUi() {
+            if (deck.cards.length < 7) {
+                showMessage("There must be at least 7 cards in a deck for a sample hand.");
+                randomHandButton.prop('disabled', true);
+                return;
+            }
+            if (deck.cardsLeft === 0) {
+                showMessage('The deck is empty.');
+                drawCardButton.prop('disabled', true);
+                return;
+            }
+            showMessage('');
+            drawCardButton.prop('disabled', false);
         }
 
         function showHandOnlyButtons(show) {
@@ -225,29 +244,25 @@
         }
 
         function drawCardClick() {
-            if (deck.cardsLeft === 0) {
-                alert('The deck is empty. There are no cards left to draw.');
-                return;
-            }
             cardPanel.add(deck.drawCard());
+            updateUi();
         }
 
         function clearClick() {
             cardPanel.clear();
+            deck.shuffle();
             showHandOnlyButtons(false);
             setRandomHandButtonText(false);
+            updateUi();
         }
 
         function randomHandClick() {
-            if (deck.cards.length < 7) {
-                alert('There must be at least seven cards in a deck for a random hand.');
-                return;
-            }
             var hand = deck.shuffle().drawCards(7);
             cardPanel.addAll(hand);
             setRandomHandButtonText(true);
             setImageSizeButtonText();
             showHandOnlyButtons(true);
+            updateUi();
         }
 
         function wireButtonEvents() {
@@ -261,6 +276,7 @@
             start: function () {
                 setRandomHandButtonText(false);
                 wireButtonEvents();
+                updateUi();
                 return this;
             }
         };
@@ -275,8 +291,9 @@
         var sampleHandContents = $(document.createDocumentFragment())
             .append('<input type="button" id="mdw-random-hand-button" value="Sample Hand" />&nbsp;')
             .append('<input type="button" id="mdw-random-hand-image-size" class="mdw-hidden" value="Large Images" />&nbsp;')
-            .append('<input type="button" id="mdw-random-hand-draw-card" class="mdw-hidden" value="Draw Card" />&nbsp')
-            .append('<input type="button" id="mdw-random-hand-clear" class="mdw-hidden" value="Clear" />')
+            .append('<input type="button" id="mdw-random-hand-draw-card" class="mdw-hidden" value="Draw Card" />&nbsp;')
+            .append('<input type="button" id="mdw-random-hand-clear" class="mdw-hidden" value="Clear" />&nbsp;')
+            .append('<span id="mdw-random-hand-message"></span>')
             .append(sampleHandDiv);
         $('#mdw-random-hand-section').html(sampleHandContents); 
         return sampleHandDiv;

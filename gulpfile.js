@@ -2,10 +2,18 @@ var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
 var proxyMiddleware = require('http-proxy-middleware');
 
-const arenaJsonProxy = proxyMiddleware('/api.php', {
+const logLevel = 'silent';
+
+const apiProxy = proxyMiddleware('/api.php', {
   target: 'http://magicarena.wikia.com/api.php',
   changeOrigin: true,
-  logLevel: 'silent'
+  logLevel: logLevel
+});
+
+const wikiProxy = proxyMiddleware('/wiki/', {
+  target: 'http://magicarena.wikia.com',
+  changeOrigin: true,
+  logLevel: logLevel
 });
 
 gulp.task('serve', function() {
@@ -15,7 +23,7 @@ gulp.task('serve', function() {
         port: 10200,
         server: {
             baseDir: "./src/web",
-            middleware: [arenaJsonProxy]
+            middleware: [apiProxy, wikiProxy]
         }
     });
 
