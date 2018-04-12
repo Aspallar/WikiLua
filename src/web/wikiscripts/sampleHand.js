@@ -179,6 +179,7 @@
             },
             clear: function () {
                 container.html('');
+                container.addClass('mdw-hidden');
             },
             small: function () {
                 return cardSize.small;
@@ -187,6 +188,9 @@
                 cardSize.small = !cardSize.small;
                 cardSize.scale(cardSize.small ? 50 : 100);
                 update();
+            },
+            show : function () {
+                container.removeClass('mdw-hidden');
             }
         };
     } // End CardPanel
@@ -222,7 +226,7 @@
                 return;
             }
             if (deck.cardsLeft === 0) {
-                showMessage('The deck is empty.');
+                showMessage('The library is empty.');
                 drawCardButton.prop('disabled', true);
                 return;
             }
@@ -263,6 +267,7 @@
         function randomHandClick() {
             var hand = deck.shuffle().drawCards(7);
             cardPanel.addAll(hand);
+            cardPanel.show();
             setRandomHandButtonText(true);
             setImageSizeButtonText();
             showHandOnlyButtons(true);
@@ -291,7 +296,7 @@
     }
 
     function cardSection() {
-        var sampleHandDiv = $('<div id="mdw-random-hand" style="padding-top:5px;"></div>');
+        var sampleHandDiv = $('<div id="mdw-random-hand" class="mdw-hidden"></div>');
         var sampleHandContents = $(document.createDocumentFragment())
             .append('<input type="button" id="mdw-random-hand-button" value="Sample Hand" />&nbsp;')
             .append('<input type="button" id="mdw-random-hand-image-size" class="mdw-hidden" value="Large Images" />&nbsp;')
@@ -312,5 +317,3 @@
 })(jQuery);
 // End: Sample Hand
 // ==========================================================================
-
-
