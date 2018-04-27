@@ -174,6 +174,13 @@ local function exportCardName(card)
     return card.Name
 end
 
+local function ExportSetName(setCode)
+    if setCode == "DOM" then
+        return "DAR"
+    end
+    return setCode
+end
+
 local function GetAdditionalData()
     local arenaExport = ""
     local alternatives = ""
@@ -189,7 +196,7 @@ local function GetAdditionalData()
         local exportName = exportCardName(card)
 
         arenaExport = arenaExport .. number .. " " ..
-            exportName .. " (" .. card.SetCode .. ") " ..
+            exportName .. " (" .. ExportSetName(card.SetCode) .. ") " ..
             string.match(card.CardNumber, "%d+") .. "\n"
 
         if card.Sets ~= nil and card.Rarity ~= "Basic Land" then
