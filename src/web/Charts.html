@@ -43,9 +43,9 @@
     <script>
         (function () {
             'use strict';
-            $.get('Templates/DeckCharts.html', function (data) {
+            $.get('wikitemplates/DeckCharts.html', function (data) {
                 $('#deckcharts-template').html(wikiParse(data));
-                $.getScript('scripts/charts.js');
+                $.getScript('wikiscripts/DeckCharts.js');
             });
         })();
     </script>
