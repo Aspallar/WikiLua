@@ -1,18 +1,16 @@
 // ==========================================================================
 // Start: Deck Charts
 // Renders charts on deck articles
-// Version 1.1.0
+// Version 1.2.0
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wikia.
-// ** Instead clone the git repository https://github.com/Aspallar/WikiaCharts
+// ** Instead clone the git repository https://github.com/Aspallar/WikiLua
 // ** and modify that, then copy your changes to the wikia.
-// ** this file is the charts.js file in the Web\scripts folder.
-// ** don't forget to push your changes to github.
+// ** this file is the DeckCharts.js in the src\Web\wikiscripts folder.
 
 (function ($) {
     /*globals google */
-    /*jshint curly: false */
     'use strict';
 
     function getChartColor(dataColor) {
@@ -41,7 +39,7 @@
         return colors[type];
     }
 
-    var chartDataId = 'mdw-chartdata';
+    var chartDataId = 'mdw-chartdata-pre';
     var colorPieChartId = 'mdw-cardsbycolor-chart';
     var manaCurveChartId = 'mdw-manacurve-chart';
     var typesPieChartId = 'mdw-types-chart';
@@ -184,7 +182,7 @@
         pmf: function (N, m, n, k) {
             return (this.nck(m, k) * this.nck(N - m, n - k)) / this.nck(N, n);
         }
-    }
+    };
 
     function isLand(card) {
         return $.inArray('Land', card.types) !== -1;
@@ -208,7 +206,7 @@
     }
 
     function getChartData() {
-        var dataString = document.getElementById(chartDataId).getAttribute('data-chart');
+        var dataString = document.getElementById(chartDataId).innerText;
         var cardData = JSON.parse(dataString);
         return addCalculatedFieldsToData(cardData);
     }

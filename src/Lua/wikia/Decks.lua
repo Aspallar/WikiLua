@@ -211,9 +211,12 @@ local function GetAdditionalData()
 end
 
 local function CardJsonDataSection(cardJson)
-    return "\n<div id='mdw-chartdata' style='display:none' data-chart='" ..
-    mw.text.encode(cardJson) ..
-    "'></div>\n"
+    -- TODO: once the new deckcharts.js goes live remove the writing of the div
+    -- write both the div and pre for now to avoid breaking old js during transition
+    return "\n<pre id='mdw-chartdata-pre' style='display:none'>" .. cardJson .. "</pre>" ..
+        "\n<div id='mdw-chartdata' style='display:none' data-chart='" ..
+        mw.text.encode(cardJson) ..
+        "'></div>\n"
 end
 
 local function ArenaExportSection(exportText, id)
