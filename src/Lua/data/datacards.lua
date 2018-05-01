@@ -39,6 +39,50 @@ CardNumber="HOU83";
 MultiverseID=430772;
 };
 
+{Name="Academy Drake";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Creature — Drake";
+Types={"Creature"};
+SubTypes={"Drake"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Kicker {{4}} (You may pay an additional {{4}} as you cast this spell.)<br/>
+Flying<br/>
+If Academy Drake was kicked, it enters the battlefield with two +1/+1 counters on it.]=];
+CardNumber="DOM40";
+Power="2";
+Toughness="2";
+MultiverseID=442928;
+};
+
+{Name="Academy Journeymage";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{U}}";
+cmc=5;
+Colors={"Blue"};
+Type="Creature — Human Wizard";
+Types={"Creature"};
+SubTypes={"Human";"Wizard";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[This spell costs {{1}} less to cast if you control a Wizard.<br/>
+When Academy Journeymage enters the battlefield, return target creature an opponent controls to its owner's hand.]=];
+Flavor=[=["We don't choose who comes here. We choose how long they stay."]=];
+CardNumber="DOM41";
+Power="3";
+Toughness="2";
+MultiverseID=442929;
+Rulings={
+    {Date="2018-04-27";Text=[=[If you control more than one Wizard, Academy Journeymage’s cost is reduced by only {1}.]=];};
+    {Date="2018-04-27";Text=[=[Once you announce that you’re casting Academy Journeymage, no player may take other actions until the spell’s been paid for. Notably, players can’t try to raise the spell’s cost by removing your Wizards.]=];};
+};
+};
+
 {Name="Accursed Horde";
 SetCode="HOU";
 Allsets={"HOU"};
@@ -77,11 +121,27 @@ Flavor=[=["On every plane, there are those who run toward danger."<br/>
 CardNumber="HOU1";
 MultiverseID=430690;
 Rulings={
-    {Date="2018-03-13";Text=[=[You can cast Act of Heroism even if the target creature won’t be able to block right away, perhaps because you’re the attacking player.]=];};
-    {Date="2018-03-13";Text=[=[Untapping an attacking creature doesn’t remove it from combat.]=];};
-    {Date="2018-03-13";Text=[=[Act of Heroism can target an untapped creature. It still gets +2/+2 and can block an additional creature.]=];};
-    {Date="2018-03-13";Text=[=[The effects of Act of Heroism are cumulative. If multiples resolve targeting the same creature, that creature can block that many additional creatures this turn.]=];};
+    {Date="2018-03-16";Text=[=[You can cast Act of Heroism even if the target creature won’t be able to block right away, perhaps because you’re the attacking player.]=];};
+    {Date="2018-03-16";Text=[=[Untapping an attacking creature doesn’t remove it from combat.]=];};
+    {Date="2018-03-16";Text=[=[Act of Heroism can target an untapped creature. It still gets +2/+2 and can block an additional creature.]=];};
+    {Date="2018-03-16";Text=[=[The effects of Act of Heroism are cumulative. If multiples resolve targeting the same creature, that creature can block that many additional creatures this turn.]=];};
 };
+};
+
+{Name="Adamant Will";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target creature gets +2/+2 and gains indestructible until end of turn. (Damage and effects that say "destroy" don't destroy it.)]=];
+Flavor=[=[The shield took a year to craft, a month to enchant, and a decade to master—all for one glorious moment.]=];
+CardNumber="DOM2";
+MultiverseID=442890;
 };
 
 {Name="Adanto Vanguard";
@@ -113,10 +173,35 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[(Transforms from Legion's Landing.)<br/>
-{{Tap}}: Add {{W}} to your mana pool.<br/>
+{{Tap}}: Add {{W}}.<br/>
 {{2}}{{W}}, {{Tap}}: Create a 1/1 white Vampire creature token with lifelink.]=];
 CardNumber="XLN22b";
 MultiverseID=435174;
+};
+
+{Name="Adeliz, the Cinder Wind";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{U}}{{R}}";
+cmc=3;
+Colors={"Blue";"Red";};
+Type="Legendary Creature — Human Wizard";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Wizard";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying, haste<br/>
+Whenever you cast an instant or sorcery spell, Wizards you control get +1/+1 until end of turn.]=];
+Flavor=[=[The passionate intensity of the Ghitu tempered by the cool insight of Tolarian training.]=];
+CardNumber="DOM190";
+Power="2";
+Toughness="2";
+MultiverseID=443078;
+Rulings={
+    {Date="2018-04-27";Text=[=[Adeliz’s last ability affects only Wizards you control at the time it resolves, including Adeliz itself. Creatures you begin to control later in the turn or that become Wizards later in the turn won’t get +1/+1.]=];};
+    {Date="2018-04-27";Text=[=[Adeliz’s last ability resolves before the spell that caused it to trigger. It resolves even if that spell is countered.]=];};
+};
 };
 
 {Name="Admiral Beckett Brass";
@@ -144,7 +229,7 @@ Rulings={
     {Date="2017-09-29";Text=[=[If more than one player was dealt combat damage by three Pirates, you target only one permanent. It may be controlled by either of those players.]=];};
     {Date="2017-09-29";Text=[=[The control-change effect of Admiral Beckett Brass’s triggered ability lasts indefinitely. It doesn’t wear off during the cleanup step or when you lose control of Admiral Beckett Brass.]=];};
     {Date="2017-09-29";Text=[=[In a multiplayer game, if a player leaves the game, all cards that player owns leave as well, and any effects that give the player control of permanents immediately end.]=];};
-    {Date="2017-09-29";Text=[=[In a Two-Headed Giant game, an unblocked attacking creature deals its combat damage to one of the two players it’s attacking. The attacking team chooses which player that is for each creature as combat damage is assigned. Combat damage dealt by Pirates your teammate controls will count when checking for Admiral Beckett Brass’s ability.]=];};
+    {Date="2017-09-29";Text=[=[In a Two-Headed Giant game, combat damage dealt by Pirates your teammate controls will count when checking for Admiral Beckett Brass’s ability.]=];};
 };
 };
 
@@ -195,6 +280,22 @@ Rulings={
 };
 };
 
+{Name="Adventurous Impulse";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{G}}";
+cmc=1;
+Colors={"Green"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Look at the top three cards of your library. You may reveal a creature or land card from among them and put it into your hand. Put the rest on the bottom of your library in any order.]=];
+Flavor=[=[Every odyssey begins with a single step.]=];
+CardNumber="DOM153";
+MultiverseID=443041;
+};
+
 {Name="Aerial Guide";
 SetCode="HOU";
 Allsets={"HOU"};
@@ -216,6 +317,25 @@ Toughness="2";
 MultiverseID=430718;
 };
 
+{Name="Aesthir Glider";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}";
+cmc=3;
+Type="Artifact Creature — Bird Construct";
+Types={"Artifact";"Creature";};
+SubTypes={"Bird";"Construct";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+Aesthir Glider can't block.]=];
+Flavor=[=[An ancient device recovered from a thawing glacier high in the Karplusan mountains.]=];
+CardNumber="DOM209";
+Power="2";
+Toughness="1";
+MultiverseID=443097;
+};
+
 {Name="Aggressive Urge";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -232,7 +352,7 @@ Flavor=[=["Our lives, our homes, and all our history are at risk. Do not speak t
 CardNumber="RIX122";
 MultiverseID=439779;
 Rulings={
-    {Date="2018-01-19";Text=[=[If the target creature is an illegal target by the time Aggressive Urge tries to resolve, the spell is countered. You won’t draw a card.]=];};
+    {Date="2018-01-19";Text=[=[If the target creature is an illegal target by the time Aggressive Urge tries to resolve, the spell doesn’t resolve. You won’t draw a card.]=];};
 };
 };
 
@@ -311,6 +431,25 @@ Toughness="4";
 MultiverseID=435197;
 };
 
+{Name="Amaranthine Wall";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}";
+cmc=4;
+Type="Artifact Creature — Wall";
+Types={"Artifact";"Creature";};
+SubTypes={"Wall"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Defender<br/>
+{{2}}: Amaranthine Wall gains indestructible until end of turn. (Damage and effects that say "destroy" don't destroy it.)]=];
+Flavor=[=[Neither its appearance nor its temperature varies as the years pass, an eternal testament to the forces that shaped Dominaria.]=];
+CardNumber="DOM210";
+Power="0";
+Toughness="6";
+MultiverseID=443098;
+};
+
 {Name="Ambuscade";
 SetCode="HOU";
 Allsets={"HOU"};
@@ -354,6 +493,28 @@ Rulings={
     {Date="2017-07-14";Text=[=[Afflict causes the defending player to lose life; it’s not damage or combat damage.]=];};
     {Date="2017-07-14";Text=[=[If a creature is attacking a planeswalker, that planeswalker’s controller is the defending player.]=];};
     {Date="2017-07-14";Text=[=[Afflict resolves before combat damage is dealt. If this loss of life brings a player to 0 life or less, that player loses the game immediately. A blocking creature with lifelink won’t deal combat damage in time to save that player.]=];};
+};
+};
+
+{Name="Ancient Animus";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Put a +1/+1 counter on target creature you control if it's legendary. Then it fights target creature an opponent controls. (Each deals damage equal to its power to the other.)]=];
+Flavor=[=[Multani's mind grasped for consciousness as rage itself rebuilt his body.]=];
+CardNumber="DOM154";
+MultiverseID=443042;
+Rulings={
+    {Date="2018-04-27";Text=[=[You can’t cast Ancient Animus unless you choose both a creature you control and a creature you don’t control as targets.]=];};
+    {Date="2018-04-27";Text=[=[The creature you control doesn’t have to be legendary. It simply won’t receive a +1/+1 counter before it fights if it isn’t legendary.]=];};
+    {Date="2018-04-27";Text=[=[If either target is an illegal target as Ancient Animus tries to resolve, neither creature will deal or be dealt damage.]=];};
+    {Date="2018-04-27";Text=[=[If the creature you control is an illegal target as Ancient Animus tries to resolve, you won’t put a +1/+1 counter on it. If that creature is a legal target but the creature you don’t control isn’t, you’ll still put the counter on the creature you control if it’s legendary.]=];};
 };
 };
 
@@ -510,7 +671,7 @@ Types={"Planeswalker"};
 SubTypes={"Angrath"};
 Rarity="Mythic Rare";
 Rarities={"Mythic Rare"};
-Text=[=[+2: Angrath, Minotaur Pirate deals 1 damage to target opponent and each creature that player controls.<br/>
+Text=[=[+2: Angrath, Minotaur Pirate deals 1 damage to target opponent or planeswalker and each creature that player or that planeswalker's controller controls.<br/>
 −3: Return target Pirate card from your graveyard to the battlefield.<br/>
 −11: Destroy all creatures target opponent controls. Angrath, Minotaur Pirate deals damage to that player equal to their total power.]=];
 CardNumber="RIX201";
@@ -539,7 +700,7 @@ Rarity="Mythic Rare";
 Rarities={"Mythic Rare"};
 Text=[=[+1: Each opponent discards a card and loses 2 life.<br/>
 −3: Gain control of target creature until end of turn. Untap it. It gains haste until end of turn. Sacrifice it at the beginning of the next end step if it has converted mana cost 3 or less.<br/>
-−8: Each opponent loses life equal to the number of cards in his or her graveyard.]=];
+−8: Each opponent loses life equal to the number of cards in their graveyard.]=];
 CardNumber="RIX152";
 Loyalty="4";
 MultiverseID=439809;
@@ -580,12 +741,12 @@ Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[Destroy target creature. Angrath's Fury deals 3 damage to target player. You may search your library and/or graveyard for a card named Angrath, Minotaur Pirate, reveal it, and put it into your hand. If you search your library this way, shuffle it.]=];
+Text=[=[Destroy target creature. Angrath's Fury deals 3 damage to target player or planeswalker. You may search your library and/or graveyard for a card named Angrath, Minotaur Pirate, reveal it, and put it into your hand. If you search your library this way, shuffle it.]=];
 CardNumber="RIX204";
 MultiverseID=441898;
 Rulings={
-    {Date="2018-01-19";Text=[=[You can’t cast Angrath’s Fury unless you choose both a target creature and a target player.]=];};
-    {Date="2018-01-19";Text=[=[If either target becomes illegal after you cast Angrath’s Fury but before it resolves, the other is still affected as appropriate and you’ll search for Angrath. However, if both targets become illegal, the spell is countered and you won’t search.]=];};
+    {Date="2018-01-19";Text=[=[You can’t cast Angrath’s Fury unless you choose both a target creature and a target player or planeswalker.]=];};
+    {Date="2018-01-19";Text=[=[If either target becomes illegal after you cast Angrath’s Fury but before it resolves, the other is still affected as appropriate and you’ll search for Angrath. However, if both targets become illegal, the spell doesn’t resolve and you won’t search.]=];};
 };
 };
 
@@ -779,6 +940,24 @@ Rulings={
 };
 };
 
+{Name="Arbor Armament";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{G}}";
+cmc=1;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Put a +1/+1 counter on target creature. That creature gains reach until end of turn.]=];
+Flavor=[=["Llanowar's boughs are ever ready<br/>
+To unleash an autumn of steel leaves."<br/>
+—"Song of Freyalise"]=];
+CardNumber="DOM155";
+MultiverseID=443043;
+};
+
 {Name="Arcane Adaptation";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -799,6 +978,24 @@ Rulings={
 };
 };
 
+{Name="Arcane Flight";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{U}}";
+cmc=1;
+Colors={"Blue"};
+Type="Enchantment — Aura";
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Enchant creature<br/>
+Enchanted creature gets +1/+1 and has flying.]=];
+Flavor=[=[The Tolarian Academies are known for their magical research, powerful sorcerers, and accidental destruction of ecosystems.]=];
+CardNumber="DOM43";
+MultiverseID=442931;
+};
+
 {Name="Arch of Orazca";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -807,7 +1004,7 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
-{{Tap}}: Add {{C}} to your mana pool.<br/>
+{{Tap}}: Add {{C}}.<br/>
 {{5}}, {{Tap}}: Draw a card. Activate this ability only if you have the city's blessing.]=];
 CardNumber="RIX185";
 MultiverseID=439849;
@@ -843,7 +1040,7 @@ Rulings={
     {Date="2017-04-18";Text=[=[Some cards have an ability that triggers whenever you cycle any card. These triggered abilities resolve before you draw from the cycling ability.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you discard a card doesn’t give you permission to discard cards. You’ll need another effect that instructs or allows you to discard them.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you “cycle or discard” a card triggers only once if you cycle a card. The ability “Whenever you discard a card” is functionally identical to this ability; cycling is mentioned for clarity.]=];};
-    {Date="2017-04-18";Text=[=[If a player discards a card during his or her cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
+    {Date="2017-04-18";Text=[=[If a player discards a card during their cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
 };
 };
 
@@ -888,6 +1085,82 @@ Rulings={
     {Date="2018-01-19";Text=[=[Whether you control a Vampire is checked as Arterial Flow resolves.]=];};
     {Date="2018-01-19";Text=[=[Arterial Flow causes each opponent to lose 2 life if you control a Vampire, even if some or all of those players were unable to discard any cards.]=];};
     {Date="2018-01-19";Text=[=[In a Two-Headed Giant game, Arterial Flow causes the opposing team to lose 4 life, and each player on that team discards two cards. You gain 2 life.]=];};
+};
+};
+
+{Name="Artificer's Assistant";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{U}}";
+cmc=1;
+Colors={"Blue"};
+Type="Creature — Bird";
+Types={"Creature"};
+SubTypes={"Bird"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+Whenever you cast a historic spell, scry 1. (Artifacts, legendaries, and Sagas are historic. To scry 1, look at the top card of your library, then you may put that card on the bottom of your library.)]=];
+CardNumber="DOM44";
+Power="1";
+Toughness="1";
+MultiverseID=442932;
+Rulings={
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
+    {Date="2018-04-27";Text=[=[Some abilities trigger “whenever you cast a historic spell.” Such an ability resolves before the spell that caused it to trigger. It resolves even if that spell is countered.]=];};
+    {Date="2018-04-27";Text=[=[An ability that triggers “whenever you cast a historic spell” doesn’t trigger if a historic card is put onto the battlefield without being cast.]=];};
+    {Date="2018-04-27";Text=[=[Lands are never cast, so abilities that trigger “whenever you cast a historic spell” won’t trigger if you play a legendary land. They also won’t trigger if a card on the battlefield transforms into a legendary land, as the Ixalan and Rivals of Ixalan double-faced cards do.]=];};
+};
+};
+
+{Name="Arvad the Cursed";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{W}}{{B}}";
+cmc=5;
+Colors={"White";"Black";};
+Type="Legendary Creature — Vampire Knight";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Vampire";"Knight";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Deathtouch, lifelink<br/>
+Other legendary creatures you control get +2/+2.]=];
+Flavor=[=["I won't abandon the Weatherlight. My destiny is to serve at Jhoira's side. This ‘illness' means I must trust my faith more and myself less."]=];
+CardNumber="DOM191";
+Power="3";
+Toughness="3";
+MultiverseID=443079;
+Rulings={
+    {Date="2018-04-27";Text=[=[Because damage remains marked on a creature until it’s removed as the turn ends, nonlethal damage dealt to a legendary creature you control may become lethal if Arvad leaves the battlefield during that turn.]=];};
+};
+};
+
+{Name="Aryel, Knight of Windgrace";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{W}}{{B}}";
+cmc=4;
+Colors={"White";"Black";};
+Type="Legendary Creature — Human Knight";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Knight";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Vigilance<br/>
+{{2}}{{W}}, {{Tap}}: Create a 2/2 white Knight creature token with vigilance.<br/>
+{{B}}, {{Tap}}, Tap X untapped Knights you control: Destroy target creature with power X or less.]=];
+CardNumber="DOM192";
+Power="4";
+Toughness="4";
+MultiverseID=443080;
+Rulings={
+    {Date="2018-04-27";Text=[=[Tapping Aryel to activate either of its abilities while it’s attacking doesn’t remove it from combat.]=];};
+    {Date="2018-04-27";Text=[=[You can tap any untapped Knights you control, including ones you haven’t controlled continuously since the beginning of your most recent turn, to pay the cost of Aryel’s last ability. However, you must have controlled Aryel continuously since the beginning of your most recent turn in order to use either of its activated abilities.]=];};
+    {Date="2018-04-27";Text=[=[Once you announce that you’re activating Aryel’s last ability, no player may take other actions until the ability’s been paid for. Notably, players can’t try to make the value of X invalid by removing or tapping your Knights.]=];};
+    {Date="2018-04-27";Text=[=[If the target creature’s power is greater than X as Aryel’s last ability tries to resolve, the ability doesn’t resolve. You can’t tap extra Knights once the ability has been activated.]=];};
 };
 };
 
@@ -948,7 +1221,7 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[(Transforms from Journey to Eternity.)<br/>
-{{Tap}}: Add one mana of any color to your mana pool.<br/>
+{{Tap}}: Add one mana of any color.<br/>
 {{3}}{{B}}{{G}}, {{Tap}}: Return target creature card from your graveyard to the battlefield.]=];
 Flavor=[=[. . . but every end is a new beginning.]=];
 CardNumber="RIX160b";
@@ -991,7 +1264,7 @@ Types={"Creature"};
 SubTypes={"Human";"Druid";};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[{{Tap}}: Add one mana of any color to your mana pool.<br/>
+Text=[=[{{Tap}}: Add one mana of any color.<br/>
 Sacrifice Atzocan Seer: Return target Dinosaur card from your graveyard to your hand.]=];
 Flavor=[=[Streams of gold and bright feathers flash in the orb, visions of past and future.]=];
 CardNumber="RIX153";
@@ -1019,7 +1292,7 @@ Tap up to two target creatures your opponents control. Creatures you control gai
 CardNumber="HOU152b";
 MultiverseID=430841;
 Rulings={
-    {Date="2017-07-14";Text=[=[You may cast Authority without choosing any target creatures. Creatures you control will still gain vigilance until end of turn. However, if you choose any targets and each of those targets become illegal before Authority resolves, the spell will be countered and your creatures won’t gain vigilance.]=];};
+    {Date="2017-07-14";Text=[=[You may cast Authority without choosing any target creatures. Creatures you control will still gain vigilance until end of turn. However, if you choose any targets and each of those targets become illegal before Authority resolves, the spell won’t resolve and your creatures won’t gain vigilance.]=];};
     {Date="2017-07-14";Text=[=[Once you’ve started to cast a spell with aftermath from your graveyard, the card is immediately moved to the stack. Opponents can’t try to stop the ability by exiling the card with an effect such as that of Crook of Condemnation.]=];};
 };
 };
@@ -1070,7 +1343,7 @@ Power="2";
 Toughness="1";
 MultiverseID=426707;
 Rulings={
-    {Date="2017-04-18";Text=[=[Each search works exactly the same as normal except that the opponent doing the searching sees only the top four cards of that library. He or she can’t look at the other cards in that library at all. Cards not in the top four cards of the library can’t be found in the search, even if they’re identifiable in some manner.]=];};
+    {Date="2017-04-18";Text=[=[Each search works exactly the same as normal except that the opponent doing the searching sees only the top four cards of that library. They can’t look at the other cards in that library at all. Cards not in the top four cards of the library can’t be found in the search, even if they’re identifiable in some manner.]=];};
     {Date="2017-04-18";Text=[=[For effects that check whether a player searched a library, searching the top four cards of that library counts as searching that library.]=];};
     {Date="2017-04-18";Text=[=[If an effect uses the word “search” once but allows an opponent to search for multiple cards, the top four cards remain the same throughout the entire search. Finding one card won’t cause the fifth card to be included in the search.]=];};
     {Date="2017-04-18";Text=[=[After the search is complete, the entire library is shuffled.]=];};
@@ -1117,6 +1390,25 @@ Toughness="3";
 MultiverseID=430719;
 };
 
+{Name="Aven Sentry";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Creature — Bird Soldier";
+Types={"Creature"};
+SubTypes={"Bird";"Soldier";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying]=];
+Flavor=[=["My flock flew from a distant continent ruined by cataclysm and war. Benalia gave us shelter to end our exodus."]=];
+CardNumber="DOM3";
+Power="3";
+Toughness="2";
+MultiverseID=442891;
+};
+
 {Name="Aven Wind Guide";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -1155,7 +1447,7 @@ Types={"Creature"};
 SubTypes={"Human";"Druid";};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[{{Tap}}: Add {{G}} or {{U}} to your mana pool. If you control a Nissa planeswalker, you gain 2 life.]=];
+Text=[=[{{Tap}}: Add {{G}} or {{U}}. If you control a Nissa planeswalker, you gain 2 life.]=];
 Flavor=[=["All can't be lost. Nissa has shown me that."]=];
 CardNumber="HOU201";
 Power="2";
@@ -1208,7 +1500,7 @@ Rulings={
     {Date="2017-09-29";Text=[=[If one of the targeted players is an illegal target when the triggered ability of Axis of Mortality tries to resolve, the exchange won’t happen. Neither player’s life total will change.]=];};
     {Date="2017-09-29";Text=[=[When the life totals are exchanged, each player gains or loses the amount of life necessary to equal the other player’s previous life total. For example, if player A has 5 life and player B has 3 life before the exchange, player A will lose 2 life and player B will gain 2 life. Replacement effects may modify these gains and losses, and triggered abilities may trigger on them.]=];};
     {Date="2017-09-29";Text=[=[If a player can’t gain life, that player can’t exchange life totals with a player with a higher life total. If a player can’t lose life, that player can’t exchange life totals with a player with a lower life total. In either of these cases, neither player’s life total will change.]=];};
-    {Date="2017-09-29";Text=[=[In a Two-Headed Giant game, each player is considered to have the same life total as his or her team. If the two targeted players are on different teams, those players gain or lose the appropriate amount of life so that the teams end up exchanging life totals. If the two targeted players are teammates, they can’t exchange life totals.]=];};
+    {Date="2017-09-29";Text=[=[In a Two-Headed Giant game, each player is considered to have the same life total as their team. If the two targeted players are on different teams, those players gain or lose the appropriate amount of life so that the teams end up exchanging life totals. If the two targeted players are teammates, they can’t exchange life totals.]=];};
 };
 };
 
@@ -1222,7 +1514,7 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[(Transforms from Search for Azcanta.)<br/>
-{{Tap}}: Add {{U}} to your mana pool.<br/>
+{{Tap}}: Add {{U}}.<br/>
 {{2}}{{U}}, {{Tap}}: Look at the top four cards of your library. You may reveal a noncreature, nonland card from among them and put it into your hand. Put the rest on the bottom of your library in any order.]=];
 CardNumber="XLN74b";
 MultiverseID=435227;
@@ -1294,6 +1586,31 @@ Rulings={
 };
 };
 
+{Name="Baird, Steward of Argive";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{W}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Legendary Creature — Human Soldier";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Soldier";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Vigilance<br/>
+Creatures can't attack you or a planeswalker you control unless their controller pays {{1}} for each of those creatures.]=];
+Flavor=[=["The walls of Argive were built by a peaceful dynastic union that has guarded us against war for fifteen centuries. The lesson is clear."]=];
+CardNumber="DOM4";
+Power="2";
+Toughness="4";
+MultiverseID=442892;
+Rulings={
+    {Date="2018-04-27";Text=[=[If you control Baird, your opponents can choose not to pay to attack with a creature that attacks “if able.” If there’s no other player or planeswalker to attack, that creature simply doesn’t attack.]=];};
+    {Date="2018-04-27";Text=[=[In a Two-Headed Giant game, creatures can attack your teammate and planeswalkers your teammate controls without requiring a mana payment. This is a change from previous rules.]=];};
+};
+};
+
 {Name="Baleful Ammit";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -1313,6 +1630,26 @@ CardNumber="AKH79";
 Power="4";
 Toughness="3";
 MultiverseID=426781;
+};
+
+{Name="Baloth Gorger";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{G}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Creature — Beast";
+Types={"Creature"};
+SubTypes={"Beast"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Kicker {{4}} (You may pay an additional {{4}} as you cast this spell.)<br/>
+If Baloth Gorger was kicked, it enters the battlefield with three +1/+1 counters on it.]=];
+Flavor=[=[A baloth only cares about the many things it eats and the few things that eat it.]=];
+CardNumber="DOM156";
+Power="4";
+Toughness="4";
+MultiverseID=443044;
 };
 
 {Name="Banewhip Punisher";
@@ -1358,6 +1695,27 @@ Rulings={
     {Date="2017-04-18";Text=[=[If you gain control of another player’s creature until end of turn and exert it, it will untap during that player’s untap step.]=];};
     {Date="2017-04-18";Text=[=[Some cards have abilities that trigger whenever you exert any creature. These abilities trigger when you exert that creature or any other creature you control.]=];};
     {Date="2017-04-18";Text=[=[All cards in the Amonkhet set that let you exert a creature let you do so as you declare it as an attacking creature, as do some of the cards in the Hour of Devastation set. You can’t do so later in combat, and creatures put onto the battlefield attacking can’t be exerted. Any abilities that trigger on exerting an attacking creature will resolve before blockers are declared.]=];};
+};
+};
+
+{Name="Befuddle";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target creature gets -4/-0 until end of turn.<br/>
+Draw a card.]=];
+Flavor=[=["The trick to talking sense into Keldons is getting them to hold still. I learned that from Radha."<br/>
+—Jhoira]=];
+CardNumber="DOM45";
+MultiverseID=442933;
+Rulings={
+    {Date="2018-04-27";Text=[=[If the target creature is an illegal target by the time Befuddle tries to resolve, the spell doesn’t resolve. You won’t draw a card.]=];};
 };
 };
 
@@ -1425,6 +1783,49 @@ Rulings={
     {Date="2017-09-29";Text=[=[If another creature you control is dealt lethal damage at the same time that Bellowing Aegisaur is dealt damage, the other creature won’t be saved by the +1/+1 counter that would have been put on it.]=];};
     {Date="2018-01-19";Text=[=[If multiple sources deal damage to a creature with an enrage ability at the same time, most likely because multiple creatures blocked that creature, the enrage ability triggers only once.]=];};
     {Date="2018-01-19";Text=[=[If lethal damage is dealt to a creature with an enrage ability, that ability triggers. The creature with that enrage ability leaves the battlefield before that ability resolves, so it won’t be affected by the resolving ability.]=];};
+};
+};
+
+{Name="Benalish Honor Guard";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Creature — Human Knight";
+Types={"Creature"};
+SubTypes={"Human";"Knight";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Benalish Honor Guard gets +1/+0 for each legendary creature you control.]=];
+Flavor=[=["The true measure of all heroes is not what they achieve, but who they inspire."<br/>
+—Triumph of Gerrard]=];
+CardNumber="DOM5";
+Power="2";
+Toughness="2";
+MultiverseID=442893;
+};
+
+{Name="Benalish Marshal";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{W}}{{W}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Creature — Human Knight";
+Types={"Creature"};
+SubTypes={"Human";"Knight";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Other creatures you control get +1/+1.]=];
+Flavor=[=["Some aspire to climb the mountain of Honor. The Benalish are born upon its peak, and from there ascend among the stars."<br/>
+—History of Benalia]=];
+CardNumber="DOM6";
+Power="3";
+Toughness="3";
+MultiverseID=442894;
+Rulings={
+    {Date="2018-04-27";Text=[=[Because damage remains marked on a creature until it’s removed as the turn ends, nonlethal damage dealt to a creature you control may become lethal if Benalish Marshal leaves the battlefield during that turn.]=];};
 };
 };
 
@@ -1621,6 +2022,29 @@ Toughness="4";
 MultiverseID=430801;
 };
 
+{Name="Blackblade Reforged";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}";
+cmc=2;
+Type="Legendary Artifact — Equipment";
+SuperTypes={"Legendary"};
+Types={"Artifact"};
+SubTypes={"Equipment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Equipped creature gets +1/+1 for each land you control.<br/>
+Equip legendary creature {{3}}<br/>
+Equip {{7}}]=];
+Flavor=[=[It spilled the blood of one elder dragon. In Gideon's hands, it may yet taste another's.]=];
+CardNumber="DOM211";
+MultiverseID=443099;
+Rulings={
+    {Date="2018-04-27";Text=[=[“Equip [quality] creature” is a variant of the equip keyword. “Equip [quality] creature [cost]” means “[Cost]: Attach this Equipment to target [quality] creature you control. Activate this ability only any time you could cast a sorcery.”]=];};
+    {Date="2018-04-27";Text=[=[Whether the target creature is legendary is checked only as Blackblade Reforged’s first equip ability is activated and as that ability resolves. If the creature somehow becomes nonlegendary later, Blackblade Reforged remains attached to it.]=];};
+};
+};
+
 {Name="Blazing Hope";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -1652,6 +2076,39 @@ Text=[=[Blazing Volley deals 1 damage to each creature your opponents control.]=
 Flavor=[=[The arrows fell like fiery rain, and for a moment, the sky itself seemed to burn.]=];
 CardNumber="AKH119";
 MultiverseID=426821;
+};
+
+{Name="Blessed Light";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{W}}";
+cmc=5;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Exile target creature or enchantment.]=];
+Flavor=[=[Enchanted by mage-smiths and blessed by priests, Benalish windows let in light and cast out darkness.]=];
+CardNumber="DOM7";
+MultiverseID=442895;
+};
+
+{Name="Blessing of Belzenlok";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{B}}";
+cmc=1;
+Colors={"Black"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target creature gets +2/+1 until end of turn. If it's legendary, it also gains lifelink until end of turn.]=];
+Flavor=[=["My heart is not mine, it is Belzenlok's. All hearts are his, and all blood."<br/>
+—"Rite of Belzenlok"]=];
+CardNumber="DOM77";
+MultiverseID=442965;
 };
 
 {Name="Blight Keeper";
@@ -1711,6 +2168,25 @@ MultiverseID=435332;
 Rulings={
     {Date="2017-09-29";Text=[=[Blinding Fog prevents all damage that would be dealt to creatures, not just combat damage.]=];};
     {Date="2017-09-29";Text=[=[Damage that would be dealt to creatures that enter the battlefield later in the turn will also be prevented. However, creatures that come under your control later in the turn won’t gain hexproof.]=];};
+};
+};
+
+{Name="Blink of an Eye";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Kicker {{1}}{{U}} (You may pay an additional {{1}}{{U}} as you cast this spell.)<br/>
+Return target nonland permanent to its owner's hand. If this spell was kicked, draw a card.]=];
+CardNumber="DOM46";
+MultiverseID=442934;
+Rulings={
+    {Date="2018-04-27";Text=[=[If the target nonland permanent is an illegal target by the time Blink of an Eye tries to resolve, the spell doesn’t resolve. You won’t draw a card if it was kicked.]=];};
 };
 };
 
@@ -1804,6 +2280,44 @@ Rulings={
 };
 };
 
+{Name="Bloodstone Goblin";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Creature — Goblin Warrior";
+Types={"Creature"};
+SubTypes={"Goblin";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Whenever you cast a spell, if that spell was kicked, Bloodstone Goblin gets +1/+1 and gains menace until end of turn. (It can't be blocked except by two or more creatures.)]=];
+Flavor=[=[The stone whispers tales of darkness and fire. She replies, "Tell me more."]=];
+CardNumber="DOM115";
+Power="2";
+Toughness="2";
+MultiverseID=443003;
+Rulings={
+    {Date="2018-04-27";Text=[=[Bloodstone Goblin’s last ability resolves before the spell that caused it to trigger. It resolves even if that spell is countered.]=];};
+};
+};
+
+{Name="Bloodtallow Candle";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}";
+cmc=1;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{6}}, {{Tap}}, Sacrifice Bloodtallow Candle: Target creature gets -5/-5 until end of turn.]=];
+Flavor=[=["Bring me an angel feather, and I will give you one death in return. There can be no turning back once the candle is lit."<br/>
+—Whisper, blood liturgist]=];
+CardNumber="DOM212";
+MultiverseID=443100;
+};
+
 {Name="Bloodwater Entity";
 SetCode="HOU";
 Allsets={"HOU"};
@@ -1858,7 +2372,26 @@ Flavor=[=[Samut battled her way through the hordes, shouting the names of those 
 CardNumber="HOU84";
 MultiverseID=430773;
 Rulings={
-    {Date="2017-07-14";Text=[=[If the targeted creature is an illegal target by the time Blur of Blades resolves, it will be countered and none of its effects will happen. Blur of Blades won’t deal damage to any player.]=];};
+    {Date="2017-07-14";Text=[=[If the targeted creature is an illegal target by the time Blur of Blades resolves, it won’t resolve and none of its effects will happen. Blur of Blades won’t deal damage to any player.]=];};
+};
+};
+
+{Name="Board the Weatherlight";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Look at the top five cards of your library. You may reveal a historic card from among them and put it into your hand. Put the rest on the bottom of your library in a random order. (Artifacts, legendaries, and Sagas are historic.)]=];
+Flavor=[=[A new gathering for a new age.]=];
+CardNumber="DOM8";
+MultiverseID=442896;
+Rulings={
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
 };
 };
 
@@ -1917,7 +2450,7 @@ Types={"Creature"};
 SubTypes={"Bird"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[Bone Picker costs {{3}} less to cast if a creature died this turn.<br/>
+Text=[=[This spell costs {{3}} less to cast if a creature died this turn.<br/>
 Flying, deathtouch]=];
 Flavor=[=[They are the first to greet dissenters on their journey into exile.]=];
 CardNumber="AKH81";
@@ -1927,7 +2460,7 @@ MultiverseID=426783;
 Rulings={
     {Date="2017-04-18";Text=[=[The creature that died doesn’t have to still be in its owner’s graveyard as you cast Bone Picker for the first ability to apply.]=];};
     {Date="2017-04-18";Text=[=[Creature tokens that die are put into your graveyard as normal (and cease to exist soon after). If one died this turn, Bone Picker’s first ability applies.]=];};
-    {Date="2017-04-18";Text=[=[In a multiplayer game, a player may lose the game at the same time that his or her creatures die. If so, Bone Picker’s first ability applies.]=];};
+    {Date="2017-04-18";Text=[=[In a multiplayer game, a player may lose the game at the same time that their creatures die. If so, Bone Picker’s first ability applies.]=];};
 };
 };
 
@@ -2035,7 +2568,7 @@ Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[At the beginning of your precombat main phase, remove all flood counters from Bounty of the Luxa. If no counters were removed this way, put a flood counter on Bounty of the Luxa and draw a card. Otherwise, add {{C}}{{G}}{{U}} to your mana pool.]=];
+Text=[=[At the beginning of your precombat main phase, remove all flood counters from Bounty of the Luxa. If no counters were removed this way, put a flood counter on Bounty of the Luxa and draw a card. Otherwise, add {{C}}{{G}}{{U}}.]=];
 CardNumber="AKH196";
 MultiverseID=426898;
 Rulings={
@@ -2055,7 +2588,7 @@ Types={"Creature"};
 SubTypes={"Elemental"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[Trample (This creature can deal excess combat damage to defending player or planeswalker while attacking.)]=];
+Text=[=[Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)]=];
 Flavor=[=[Life will find a way, or it will make one.]=];
 CardNumber="HOU202";
 Power="6";
@@ -2073,7 +2606,7 @@ Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[For each land you control, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
+Text=[=[For each land you control, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
 Flavor=[=["Why squabble for trinkets when we could be living large off all this gold?"<br/>
 —Admiral Beckett Brass]=];
 CardNumber="RIX94";
@@ -2115,7 +2648,7 @@ Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[When Brazen Freebooter enters the battlefield, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
+Text=[=[When Brazen Freebooter enters the battlefield, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
 Flavor=[=[Finders, keepers.]=];
 CardNumber="RIX95";
 Power="3";
@@ -2139,7 +2672,28 @@ Flavor=[=[Vampires know blood and the systems that carry it. And they know exact
 CardNumber="XLN7";
 MultiverseID=435158;
 Rulings={
-    {Date="2017-09-29";Text=[=[If the target creature is an illegal target by the time Bright Reprisal resolves, the entire spell is countered. You won’t draw a card. If, on the other hand, the target is a legal target but isn’t destroyed (most likely because it has indestructible), you’ll draw a card.]=];};
+    {Date="2017-09-29";Text=[=[If the target creature is an illegal target by the time Bright Reprisal resolves, the entire spell doesn’t resolve. You won’t draw a card. If, on the other hand, the target is a legal target but isn’t destroyed (most likely because it has indestructible), you’ll draw a card.]=];};
+};
+};
+
+{Name="Broken Bond";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Destroy target artifact or enchantment. You may put a land card from your hand onto the battlefield.]=];
+Flavor=[=["I can't bear to see another plane broken before I make my own home whole. I'm sorry, but my watch is over."]=];
+CardNumber="DOM157";
+MultiverseID=443045;
+Rulings={
+    {Date="2018-04-27";Text=[=[You can’t cast Broken Bond unless you choose an artifact or enchantment as a target.]=];};
+    {Date="2018-04-27";Text=[=[Broken Bond’s effect doesn’t count as playing a land. It can put a land card onto the battlefield even if you’ve already played your land for the turn.]=];};
+    {Date="2018-04-27";Text=[=[If the target artifact or enchantment is an illegal target by the time Broken Bond tries to resolve, the spell doesn’t resolve. You won’t put a land card onto the battlefield.]=];};
 };
 };
 
@@ -2188,7 +2742,7 @@ Types={"Creature"};
 SubTypes={"Dinosaur";"Avatar";};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[When Burning Sun's Avatar enters the battlefield, it deals 3 damage to target opponent and 3 damage to up to one target creature.]=];
+Text=[=[When Burning Sun's Avatar enters the battlefield, it deals 3 damage to target opponent or planeswalker and 3 damage to up to one target creature.]=];
 Flavor=[=["Tilonalli's searing rays carry the spark of life's eventual destruction as all light fades."<br/>
 —Chitlati, Lightning Rider]=];
 CardNumber="XLN135";
@@ -2241,6 +2795,64 @@ Rulings={
 };
 };
 
+{Name="Cabal Evangel";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Creature — Human Cleric";
+Types={"Creature"};
+SubTypes={"Human";"Cleric";};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=["All hail the Demonlord Belzenlok, Evincar of the Stronghold, Scion of Darkness, Doom of Fools, Lord of the Wastes, Master of the Ebon Hand, Eternal Patriarch of the Cabal . . ."]=];
+CardNumber="DOM78";
+Power="2";
+Toughness="2";
+MultiverseID=442966;
+};
+
+{Name="Cabal Paladin";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Creature — Human Knight";
+Types={"Creature"};
+SubTypes={"Human";"Knight";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Whenever you cast a historic spell, Cabal Paladin deals 2 damage to each opponent. (Artifacts, legendaries, and Sagas are historic.)]=];
+Flavor=[=["The Demonlord has ruled every age. Every ruin, myth, and nightmare proves his power."<br/>
+—"Rite of Belzenlok"]=];
+CardNumber="DOM79";
+Power="4";
+Toughness="2";
+MultiverseID=442967;
+Rulings={
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
+    {Date="2018-04-27";Text=[=[Some abilities trigger “whenever you cast a historic spell.” Such an ability resolves before the spell that caused it to trigger. It resolves even if that spell is countered.]=];};
+    {Date="2018-04-27";Text=[=[An ability that triggers “whenever you cast a historic spell” doesn’t trigger if a historic card is put onto the battlefield without being cast.]=];};
+    {Date="2018-04-27";Text=[=[Lands are never cast, so abilities that trigger “whenever you cast a historic spell” won’t trigger if you play a legendary land. They also won’t trigger if a card on the battlefield transforms into a legendary land, as the Ixalan and Rivals of Ixalan double-faced cards do.]=];};
+};
+};
+
+{Name="Cabal Stronghold";
+SetCode="DOM";
+Allsets={"DOM"};
+Type="Land";
+Types={"Land"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[{{Tap}}: Add {{C}}.<br/>
+{{3}}, {{Tap}}: Add {{B}} for each basic Swamp you control.]=];
+Flavor=[=[The seat of Belzenlok's power, the Stronghold serves as the gathering place for the Cabal as their dark influence spreads from Urborg.]=];
+CardNumber="DOM238";
+MultiverseID=443126;
+};
+
 {Name="Cacophodon";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -2262,6 +2874,42 @@ Rulings={
     {Date="2018-01-19";Text=[=[If multiple sources deal damage to a creature with an enrage ability at the same time, most likely because multiple creatures blocked that creature, the enrage ability triggers only once.]=];};
     {Date="2018-01-19";Text=[=[If lethal damage is dealt to a creature with an enrage ability, that ability triggers. The creature with that enrage ability leaves the battlefield before that ability resolves, so it won’t be affected by the resolving ability.]=];};
 };
+};
+
+{Name="Caligo Skin-Witch";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Creature — Human Wizard";
+Types={"Creature"};
+SubTypes={"Human";"Wizard";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Kicker {{3}}{{B}} (You may pay an additional {{3}}{{B}} as you cast this spell.)<br/>
+When Caligo Skin-Witch enters the battlefield, if it was kicked, each opponent discards two cards.]=];
+Flavor=[=["Take their faces. The lips of these unbelievers may yet honor the Demonlord."]=];
+CardNumber="DOM80";
+Power="1";
+Toughness="3";
+MultiverseID=442968;
+};
+
+{Name="Call the Cavalry";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Create two 2/2 white Knight creature tokens with vigilance.]=];
+Flavor=[=[Benalish citizens born under the same constellations share a star-clan. Their loyalty to one another interlaces the Seven Houses.]=];
+CardNumber="DOM9";
+MultiverseID=442897;
 };
 
 {Name="Call to the Feast";
@@ -2326,7 +2974,7 @@ Types={"Land"};
 SubTypes={"Swamp";"Mountain";};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[({{Tap}}: Add {{B}} or {{R}} to your mana pool.)<br/>
+Text=[=[({{Tap}}: Add {{B}} or {{R}}.)<br/>
 Canyon Slough enters the battlefield tapped.<br/>
 Cycling {{2}} ({{2}}, Discard this card: Draw a card.)]=];
 CardNumber="AKH239";
@@ -2346,7 +2994,7 @@ SubTypes={"Human";"Pirate";};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[Haste<br/>
-Whenever Captain Lannery Storm attacks, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."<br/>
+Whenever Captain Lannery Storm attacks, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."<br/>
 Whenever you sacrifice a Treasure, Captain Lannery Storm gets +1/+0 until end of turn.]=];
 CardNumber="XLN136";
 Power="2";
@@ -2412,7 +3060,7 @@ Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Mythic Rare";
 Rarities={"Mythic Rare"};
-Text=[=[Carnage Tyrant can't be countered.<br/>
+Text=[=[This spell can't be countered.<br/>
 Trample, hexproof]=];
 Flavor=[=[Sun Empire commanders are well versed in advanced martial strategy. Still, the correct maneuver is usually to deploy the giant, implacable death lizard.]=];
 CardNumber="XLN179";
@@ -2459,7 +3107,7 @@ MultiverseID=426785;
 Rulings={
     {Date="2017-04-18";Text=[=[The target creature for the triggered ability of Cartouche of Ambition doesn’t have to be the creature it enchants.]=];};
     {Date="2017-04-18";Text=[=[Cartouche is an enchantment subtype with no special meaning. Other cards may care about which enchantments are Cartouches.]=];};
-    {Date="2017-04-18";Text=[=[If the target creature becomes an illegal target before a Cartouche spell resolves, the spell is countered. It doesn’t enter the battlefield.]=];};
+    {Date="2017-04-18";Text=[=[If the target creature becomes an illegal target before a Cartouche spell resolves, the spell doesn’t resolve. It doesn’t enter the battlefield.]=];};
     {Date="2017-04-18";Text=[=[Each Cartouche is an Aura with “Enchant creature you control.” If another player gains control of either the Cartouche or the enchanted creature (but not both), then the Cartouche will be enchanting an illegal permanent and be put into its owner’s graveyard as a state-based action.]=];};
 };
 };
@@ -2483,7 +3131,7 @@ CardNumber="AKH45";
 MultiverseID=426747;
 Rulings={
     {Date="2017-04-18";Text=[=[Cartouche is an enchantment subtype with no special meaning. Other cards may care about which enchantments are Cartouches.]=];};
-    {Date="2017-04-18";Text=[=[If the target creature becomes an illegal target before a Cartouche spell resolves, the spell is countered. It doesn’t enter the battlefield.]=];};
+    {Date="2017-04-18";Text=[=[If the target creature becomes an illegal target before a Cartouche spell resolves, the spell doesn’t resolve. It doesn’t enter the battlefield.]=];};
     {Date="2017-04-18";Text=[=[Each Cartouche is an Aura with “Enchant creature you control.” If another player gains control of either the Cartouche or the enchanted creature (but not both), then the Cartouche will be enchanting an illegal permanent and be put into its owner’s graveyard as a state-based action.]=];};
 };
 };
@@ -2506,7 +3154,7 @@ CardNumber="AKH7";
 MultiverseID=426709;
 Rulings={
     {Date="2017-04-18";Text=[=[Cartouche is an enchantment subtype with no special meaning. Other cards may care about which enchantments are Cartouches.]=];};
-    {Date="2017-04-18";Text=[=[If the target creature becomes an illegal target before a Cartouche spell resolves, the spell is countered. It doesn’t enter the battlefield.]=];};
+    {Date="2017-04-18";Text=[=[If the target creature becomes an illegal target before a Cartouche spell resolves, the spell doesn’t resolve. It doesn’t enter the battlefield.]=];};
     {Date="2017-04-18";Text=[=[Each Cartouche is an Aura with “Enchant creature you control.” If another player gains control of either the Cartouche or the enchanted creature (but not both), then the Cartouche will be enchanting an illegal permanent and be put into its owner’s graveyard as a state-based action.]=];};
 };
 };
@@ -2532,7 +3180,7 @@ Rulings={
     {Date="2017-04-18";Text=[=[The enchanted creature has +1/+1 and trample while it’s fighting. However, trample doesn’t apply during a fight.]=];};
     {Date="2017-04-18";Text=[=[If Cartouche of Strength leaves the battlefield before its triggered ability resolves, the creature it last enchanted will fight the target creature if it’s still on the battlefield at that time. However, it won’t have +1/+1 from Cartouche of Strength anymore.]=];};
     {Date="2017-04-18";Text=[=[Cartouche is an enchantment subtype with no special meaning. Other cards may care about which enchantments are Cartouches.]=];};
-    {Date="2017-04-18";Text=[=[If the target creature becomes an illegal target before a Cartouche spell resolves, the spell is countered. It doesn’t enter the battlefield.]=];};
+    {Date="2017-04-18";Text=[=[If the target creature becomes an illegal target before a Cartouche spell resolves, the spell doesn’t resolve. It doesn’t enter the battlefield.]=];};
     {Date="2017-04-18";Text=[=[Each Cartouche is an Aura with “Enchant creature you control.” If another player gains control of either the Cartouche or the enchanted creature (but not both), then the Cartouche will be enchanting an illegal permanent and be put into its owner’s graveyard as a state-based action.]=];};
 };
 };
@@ -2556,7 +3204,7 @@ CardNumber="AKH124";
 MultiverseID=426826;
 Rulings={
     {Date="2017-04-18";Text=[=[Cartouche is an enchantment subtype with no special meaning. Other cards may care about which enchantments are Cartouches.]=];};
-    {Date="2017-04-18";Text=[=[If the target creature becomes an illegal target before a Cartouche spell resolves, the spell is countered. It doesn’t enter the battlefield.]=];};
+    {Date="2017-04-18";Text=[=[If the target creature becomes an illegal target before a Cartouche spell resolves, the spell doesn’t resolve. It doesn’t enter the battlefield.]=];};
     {Date="2017-04-18";Text=[=[Each Cartouche is an Aura with “Enchant creature you control.” If another player gains control of either the Cartouche or the enchanted creature (but not both), then the Cartouche will be enchanting an illegal permanent and be put into its owner’s graveyard as a state-based action.]=];};
 };
 };
@@ -2569,12 +3217,29 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[Indestructible<br/>
-{{Tap}}: Add {{C}} to your mana pool.<br/>
-{{5}}, {{Tap}}: Add five mana in any combination of colors to your mana pool.]=];
+{{Tap}}: Add {{C}}.<br/>
+{{5}}, {{Tap}}: Add five mana in any combination of colors.]=];
 Flavor=[=["The power that flows here cannot be denied. But where is the source?"<br/>
 —Nissa Revane]=];
 CardNumber="AKH240";
 MultiverseID=426942;
+};
+
+{Name="Cast Down";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Destroy target nonlegendary creature.]=];
+Flavor=[=["Your life is finished, your name lost, and your work forgotten. It is as though Mazeura never existed."<br/>
+—Chainer's Torment]=];
+CardNumber="DOM81";
+MultiverseID=442969;
 };
 
 {Name="Cast Out";
@@ -2640,6 +3305,36 @@ CardNumber="AKH46";
 MultiverseID=426748;
 };
 
+{Name="Chainer's Torment";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Enchantment — Saga";
+Types={"Enchantment"};
+SubTypes={"Saga"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)<br/>
+I, II — Chainer's Torment deals 2 damage to each opponent and you gain 2 life.<br/>
+III — Create an X/X black Nightmare Horror creature token, where X is half your life total, rounded up. It deals X damage to you.]=];
+CardNumber="DOM82";
+MultiverseID=442970;
+Rulings={
+    {Date="2018-04-27";Text=[=[If another effect causes the Nightmare Horror token’s power or toughness to be a number other than X immediately after it enters the battlefield, the amount of damage it deals to you is still X, not its modified power or toughness.]=];};
+    {Date="2018-04-27";Text=[=[If an effect such as that of Anointed Procession causes the final chapter ability of Chainer’s Torment to create two Nightmare Horror tokens, each will deal X damage to you.]=];};
+    {Date="2018-04-27";Text=[=[In a Two-Headed Giant game, the first chapter abilities of Chainer’s Torment each cause the opposing team to lose 4 life and you to gain 2 life.]=];};
+    {Date="2018-04-27";Text=[=[As a Saga enters the battlefield, its controller puts a lore counter on it. As your precombat main phase begins (immediately after your draw step), you put another lore counter on each Saga you control. Putting a lore counter on a Saga in either of these ways doesn’t use the stack.]=];};
+    {Date="2018-04-27";Text=[=[Each symbol on the left of a Saga’s text box represents a chapter ability. A chapter ability is a triggered ability that triggers when a lore counter that is put on the Saga causes the number of lore counters on the Saga to become equal to or greater than the ability’s chapter number. Chapter abilities are put onto the stack and may be responded to.]=];};
+    {Date="2018-04-27";Text=[=[A chapter ability doesn’t trigger if a lore counter is put on a Saga that already had a number of lore counters greater than or equal to that chapter’s number. For example, the third lore counter put on a Saga causes the III chapter ability to trigger, but I and II won’t trigger again.]=];};
+    {Date="2018-04-27";Text=[=[Once a chapter ability has triggered, the ability on the stack won’t be affected if the Saga gains or loses counters, or if it leaves the battlefield.]=];};
+    {Date="2018-04-27";Text=[=[If multiple chapter abilities trigger at the same time, their controller puts them on the stack in any order. If any of them require targets, those targets are chosen as you put the abilities on the stack, before any of those abilities resolve.]=];};
+    {Date="2018-04-27";Text=[=[If counters are removed from a Saga, the appropriate chapter abilities will trigger again when the Saga receives lore counters. Removing lore counters won’t cause a previous chapter ability to trigger.]=];};
+    {Date="2018-04-27";Text=[=[Once the number of lore counters on a Saga is greater than or equal to the greatest number among its chapter abilities—in the Dominaria set, this is always three—the Saga’s controller sacrifices it as soon as its chapter ability has left the stack, most likely by resolving or being countered. This state-based action doesn’t use the stack.]=];};
+};
+};
+
 {Name="Champion of Dusk";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -2689,6 +3384,26 @@ Rulings={
 };
 };
 
+{Name="Champion of the Flame";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Creature — Human Warrior";
+Types={"Creature"};
+SubTypes={"Human";"Warrior";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Trample<br/>
+Champion of the Flame gets +2/+2 for each Aura and Equipment attached to it.]=];
+Flavor=[=[Grand Warlord Radha's challengers are always defeated, but she rewards the most passionate with the Flame of Keld. After that, they burn for her.]=];
+CardNumber="DOM116";
+Power="1";
+Toughness="1";
+MultiverseID=443004;
+};
+
 {Name="Champion of Wits";
 SetCode="HOU";
 Allsets={"HOU"};
@@ -2736,6 +3451,30 @@ Rulings={
 };
 };
 
+{Name="Chandra, Bold Pyromancer";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{R}}{{R}}";
+cmc=6;
+Colors={"Red"};
+Type="Legendary Planeswalker — Chandra";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Chandra"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[+1: Add {{R}}{{R}}. Chandra, Bold Pyromancer deals 2 damage to target player.<br/>
+−3: Chandra, Bold Pyromancer deals 3 damage to target creature or planeswalker.<br/>
+−7: Chandra, Bold Pyromancer deals 10 damage to target player and each creature and planeswalker they control.]=];
+CardNumber="DOM275";
+Loyalty="5";
+MultiverseID=445853;
+Rulings={
+    {Date="2018-04-27";Text=[=[Chandra’s first ability can’t target a planeswalker.]=];};
+    {Date="2018-04-27";Text=[=[Chandra’s last ability targets only the player. Creatures and planeswalkers that player controls with hexproof will be dealt damage.]=];};
+};
+};
+
 {Name="Chandra's Defeat";
 SetCode="HOU";
 Allsets={"HOU"};
@@ -2753,6 +3492,22 @@ CardNumber="HOU86";
 MultiverseID=430775;
 };
 
+{Name="Chandra's Outburst";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{R}}{{R}}";
+cmc=5;
+Colors={"Red"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Chandra's Outburst deals 4 damage to target player or planeswalker.<br/>
+Search your library and/or graveyard for a card named Chandra, Bold Pyromancer, reveal it, and put it into your hand. If you search your library this way, shuffle it.]=];
+CardNumber="DOM276";
+MultiverseID=445854;
+};
+
 {Name="Channeler Initiate";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -2765,7 +3520,7 @@ SubTypes={"Human";"Druid";};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[When Channeler Initiate enters the battlefield, put three -1/-1 counters on target creature you control.<br/>
-{{Tap}}, Remove a -1/-1 counter from Channeler Initiate: Add one mana of any color to your mana pool.]=];
+{{Tap}}, Remove a -1/-1 counter from Channeler Initiate: Add one mana of any color.]=];
 CardNumber="AKH160";
 Power="3";
 Toughness="4";
@@ -2789,6 +3544,26 @@ CardNumber="HOU87";
 Power="6";
 Toughness="6";
 MultiverseID=430776;
+};
+
+{Name="Charge";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{W}}";
+cmc=1;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Creatures you control get +1/+1 until end of turn.]=];
+Flavor=[=["Honor rides before us. All we have to do is catch up."<br/>
+—Danitha Capashen]=];
+CardNumber="DOM10";
+MultiverseID=442898;
+Rulings={
+    {Date="2018-04-27";Text=[=[Charge affects only creatures you control at the time it resolves. Creatures you begin to control later in the turn won’t get +1/+1.]=];};
+};
 };
 
 {Name="Charging Monstrosaur";
@@ -2884,7 +3659,7 @@ Types={"Land"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Cinder Barrens enters the battlefield tapped.<br/>
-{{Tap}}: Add {{B}} or {{R}} to your mana pool.]=];
+{{Tap}}: Add {{B}} or {{R}}.]=];
 Flavor=[=["Burn their fleet to the waterline, and sink whatever's left."<br/>
 —Angrath]=];
 CardNumber="RIX205";
@@ -2942,6 +3717,39 @@ CardNumber="RIX4";
 MultiverseID=439661;
 };
 
+{Name="Clifftop Retreat";
+SetCode="DOM";
+Allsets={"DOM"};
+Type="Land";
+Types={"Land"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Clifftop Retreat enters the battlefield tapped unless you control a Mountain or a Plains.<br/>
+{{Tap}}: Add {{R}} or {{W}}.]=];
+Flavor=[=[The sunlight falls pristine on the temple at Epityr, softened by the remembered shadows of angelic saviors' wings.]=];
+CardNumber="DOM239";
+MultiverseID=443127;
+};
+
+{Name="Cloudreader Sphinx";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{U}}";
+cmc=5;
+Colors={"Blue"};
+Type="Creature — Sphinx";
+Types={"Creature"};
+SubTypes={"Sphinx"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+When Cloudreader Sphinx enters the battlefield, scry 2. (Look at the top two cards of your library, then put any number of them on the bottom of your library and the rest on top in any order.)]=];
+CardNumber="DOM47";
+Power="3";
+Toughness="4";
+MultiverseID=442935;
+};
+
 {Name="Cobbled Wings";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -2957,6 +3765,25 @@ Equip {{1}} ({{1}}: Attach to target creature you control. Equip only as a sorce
 Flavor=[=[Flotsam held together by optimism.]=];
 CardNumber="XLN233";
 MultiverseID=435389;
+};
+
+{Name="Cold-Water Snapper";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{5}}{{U}}";
+cmc=6;
+Colors={"Blue"};
+Type="Creature — Turtle";
+Types={"Creature"};
+SubTypes={"Turtle"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Hexproof (This creature can't be the target of spells or abilities your opponents control.)]=];
+Flavor=[=[For generations, the inhabitants of Orvada have hungered for turtle soup. For generations, the turtles have frustrated their ambitions.]=];
+CardNumber="DOM48";
+Power="4";
+Toughness="5";
+MultiverseID=442936;
 };
 
 {Name="Colossal Dreadmaw";
@@ -3112,7 +3939,7 @@ Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[Target player puts the top five cards of his or her library into his or her graveyard.<br/>
+Text=[=[Target player puts the top five cards of their library into their graveyard.<br/>
 Cycling {{U}} ({{U}}, Discard this card: Draw a card.)]=];
 Flavor=[=["How can there be doubt in the presence of such blessings?"<br/>
 —Ukhat, vizier of initiation]=];
@@ -3173,7 +4000,7 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[(Transforms from Conqueror's Galleon.)<br/>
-{{Tap}}: Add {{C}} to your mana pool.<br/>
+{{Tap}}: Add {{C}}.<br/>
 {{2}}, {{Tap}}: Draw a card, then discard a card.<br/>
 {{4}}, {{Tap}}: Draw a card.<br/>
 {{6}}, {{Tap}}: Return target card from your graveyard to your hand.]=];
@@ -3203,7 +4030,7 @@ Rulings={
     {Date="2017-09-29";Text=[=[Each Vehicle is printed with a power and toughness, but it’s not a creature. If it becomes a creature (most likely through its crew ability), it will have that power and toughness.]=];};
     {Date="2017-09-29";Text=[=[If an effect causes a Vehicle to become an artifact creature with a specified power and toughness, that effect overwrites the Vehicle’s printed power and toughness.]=];};
     {Date="2017-09-29";Text=[=[Vehicle is an artifact type, not a creature type. A Vehicle that’s crewed won’t normally have any creature type.]=];};
-    {Date="2017-09-29";Text=[=[Once a player announces that he or she is activating a crew ability, no player may take other actions until the ability has been paid for. Notably, players can’t try to stop the ability by changing a creature’s power or by removing or tapping a creature.]=];};
+    {Date="2017-09-29";Text=[=[Once a player announces that they are activating a crew ability, no player may take other actions until the ability has been paid for. Notably, players can’t try to stop the ability by changing a creature’s power or by removing or tapping a creature.]=];};
     {Date="2017-09-29";Text=[=[Any untapped creature you control can be tapped to pay a crew cost, even one that just came under your control.]=];};
     {Date="2017-09-29";Text=[=[You may tap more creatures than necessary to activate a crew ability.]=];};
     {Date="2017-09-29";Text=[=[Creatures that crew a Vehicle aren’t attached to it or related in any other way. Effects that affect the Vehicle, such as by destroying it or giving it a +1/+1 counter, don’t affect the creatures that crewed it.]=];};
@@ -3275,12 +4102,12 @@ Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[Destroy target creature. Create two colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
+Text=[=[Destroy target creature. Create two colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
 Flavor=[=[For a price, the floating city of High and Dry offers all the amenities a pirate could want: rest, recreation, and revenge.]=];
 CardNumber="XLN95";
 MultiverseID=435249;
 Rulings={
-    {Date="2017-09-29";Text=[=[If the target creature is an illegal target by the time Contract Killing resolves, the entire spell is countered. You won’t get Treasures. If, on the other hand, the target is a legal target but isn’t destroyed (most likely because it has indestructible), you’ll get Treasures.]=];};
+    {Date="2017-09-29";Text=[=[If the target creature is an illegal target by the time Contract Killing resolves, the entire spell doesn’t resolve. You won’t get Treasures. If, on the other hand, the target is a legal target but isn’t destroyed (most likely because it has indestructible), you’ll get Treasures.]=];};
 };
 };
 
@@ -3311,6 +4138,29 @@ Rulings={
 };
 };
 
+{Name="Corrosive Ooze";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Creature — Ooze";
+Types={"Creature"};
+SubTypes={"Ooze"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Whenever Corrosive Ooze blocks or becomes blocked by an equipped creature, destroy all Equipment attached to that creature at end of combat.]=];
+Flavor=[=[Nothing tastes finer to an ooze than a priceless family heirloom.]=];
+CardNumber="DOM158";
+Power="2";
+Toughness="2";
+MultiverseID=443046;
+Rulings={
+    {Date="2018-04-27";Text=[=[The set of Equipment to be destroyed is determined only as Corrosive Ooze’s delayed triggered ability resolves at the end of combat. The Equipment will be destroyed even if Corrosive Ooze leaves the battlefield before that time.]=];};
+    {Date="2018-04-27";Text=[=[If the creature Corrosive Ooze blocks or is blocking leaves the battlefield, the Equipment that was attached to that creature immediately before it left the battlefield will be destroyed as Corrosive Ooze’s delayed triggered ability resolves at the end of combat.]=];};
+};
+};
+
 {Name="Costly Plunder";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -3321,7 +4171,7 @@ Type="Instant";
 Types={"Instant"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[As an additional cost to cast Costly Plunder, sacrifice an artifact or creature.<br/>
+Text=[=[As an additional cost to cast this spell, sacrifice an artifact or creature.<br/>
 Draw two cards.]=];
 Flavor=[=[No lock of iron is a match for Vraska's will of stone.]=];
 CardNumber="XLN96";
@@ -3359,7 +4209,7 @@ Types={"Land"};
 SubTypes={"Desert"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[{{Tap}}: Add {{C}} to your mana pool.<br/>
+Text=[=[{{Tap}}: Add {{C}}.<br/>
 {{3}}, {{Tap}}, Sacrifice Cradle of the Accursed: Create a 2/2 black Zombie creature token. Activate this ability only any time you could cast a sorcery.]=];
 Flavor=[=[Many such monuments dot the wasteland known as Ifnir.]=];
 CardNumber="AKH241";
@@ -3452,7 +4302,7 @@ CardNumber="RIX34";
 MultiverseID=439691;
 Rulings={
     {Date="2018-01-19";Text=[=[Once you announce that you’re casting Crashing Tide, players can’t try to remove your Merfolk to make it lose flash until you’re done casting it. If it loses flash after it’s been cast, it will still resolve if able.]=];};
-    {Date="2018-01-19";Text=[=[If the target creature is an illegal target by the time Crashing Tide tries to resolve, the spell is countered. You won’t draw a card.]=];};
+    {Date="2018-01-19";Text=[=[If the target creature is an illegal target by the time Crashing Tide tries to resolve, the spell doesn’t resolve. You won’t draw a card.]=];};
 };
 };
 
@@ -3552,13 +4402,13 @@ SubTypes={"Aura";"Curse";};
 Rarity="Mythic Rare";
 Rarities={"Mythic Rare"};
 Text=[=[Enchant player<br/>
-At the beginning of enchanted player's upkeep, that player sacrifices a creature or planeswalker. If the player can't, he or she loses 5 life.]=];
+At the beginning of enchanted player's upkeep, that player sacrifices a creature or planeswalker. If the player can't, they lose 5 life.]=];
 Flavor=[=[As Gideon watched the initiate murder his crop-mate, his admiration of the city of Naktamun gave way to horror.]=];
 CardNumber="AKH84";
 MultiverseID=426786;
 Rulings={
     {Date="2017-04-18";Text=[=[The enchanted player chooses a permanent to sacrifice from among the creatures and planeswalkers that player controls. You don’t choose which type of permanent the player has to sacrifice.]=];};
-    {Date="2017-04-18";Text=[=[The enchanted player can’t choose to lose 5 life if he or she has a creature or planeswalker that can be sacrificed.]=];};
+    {Date="2017-04-18";Text=[=[The enchanted player can’t choose to lose 5 life if they have a creature or planeswalker that can be sacrificed.]=];};
     {Date="2018-01-19";Text=[=[There are many important moments in the story, but the most crucial—called “story spotlights”—are shown on cards. These cards have the Planeswalker symbol in their text box; this symbol has no effect on gameplay. You can read more about these events in the official Magic fiction at http://www.mtgstory.com.]=];};
 };
 };
@@ -3590,8 +4440,8 @@ Types={"Land"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
 Text=[=[When Crypt of the Eternals enters the battlefield, you gain 1 life.<br/>
-{{Tap}}: Add {{C}} to your mana pool.<br/>
-{{1}}, {{Tap}}: Add {{U}}, {{B}}, or {{R}} to your mana pool.]=];
+{{Tap}}: Add {{C}}.<br/>
+{{1}}, {{Tap}}: Add {{U}}, {{B}}, or {{R}}.]=];
 Flavor=[=[The dead entered as worthy. They exited as Eternals.]=];
 CardNumber="HOU169";
 MultiverseID=430858;
@@ -3608,7 +4458,7 @@ Types={"Creature"};
 SubTypes={"Serpent"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[Cryptic Serpent costs {{1}} less to cast for each instant and sorcery card in your graveyard.]=];
+Text=[=[This spell costs {{1}} less to cast for each instant and sorcery card in your graveyard.]=];
 Flavor=[=[It slithers through the senses, constricting consciousness and poisoning perceptions.]=];
 CardNumber="AKH48";
 Power="6";
@@ -3642,7 +4492,7 @@ Rulings={
     {Date="2017-04-18";Text=[=[Some cards have an ability that triggers whenever you cycle any card. These triggered abilities resolve before you draw from the cycling ability.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you discard a card doesn’t give you permission to discard cards. You’ll need another effect that instructs or allows you to discard them.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you “cycle or discard” a card triggers only once if you cycle a card. The ability “Whenever you discard a card” is functionally identical to this ability; cycling is mentioned for clarity.]=];};
-    {Date="2017-04-18";Text=[=[If a player discards a card during his or her cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
+    {Date="2017-04-18";Text=[=[If a player discards a card during their cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
 };
 };
 
@@ -3669,7 +4519,30 @@ Rulings={
     {Date="2017-04-18";Text=[=[Some cards have an ability that triggers whenever you cycle any card. These triggered abilities resolve before you draw from the cycling ability.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you discard a card doesn’t give you permission to discard cards. You’ll need another effect that instructs or allows you to discard them.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you “cycle or discard” a card triggers only once if you cycle a card. The ability “Whenever you discard a card” is functionally identical to this ability; cycling is mentioned for clarity.]=];};
-    {Date="2017-04-18";Text=[=[If a player discards a card during his or her cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
+    {Date="2017-04-18";Text=[=[If a player discards a card during their cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
+};
+};
+
+{Name="Curator's Ward";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Enchantment — Aura";
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Enchant permanent<br/>
+Enchanted permanent has hexproof.<br/>
+When enchanted permanent leaves the battlefield, if it was historic, draw two cards. (Artifacts, legendaries, and Sagas are historic.)]=];
+CardNumber="DOM49";
+MultiverseID=442937;
+Rulings={
+    {Date="2018-04-27";Text=[=[If Curator’s Ward is attached to a historic permanent you don’t control, you draw two cards when that permanent leaves the battlefield, not that permanent’s controller.]=];};
+    {Date="2018-04-27";Text=[=[If you give hexproof to an opponent’s permanent, such as by enchanting it with Curator’s Ward, that player can still target that permanent, but you can’t.]=];};
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
 };
 };
 
@@ -3764,6 +4637,98 @@ Rulings={
 };
 };
 
+{Name="Damping Sphere";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}";
+cmc=2;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[If a land is tapped for two or more mana, it produces {{C}} instead of any other type and amount.<br/>
+Each spell a player casts costs {{1}} more to cast for each other spell that player has cast this turn.]=];
+Flavor=[=[A Thran relic, it has spent ten thousand years doing absolutely nothing.]=];
+CardNumber="DOM213";
+MultiverseID=443101;
+Rulings={
+    {Date="2018-04-27";Text=[=[If multiple replacement effects would modify what mana an ability you control produces, choose one to apply. After that, determine if any others are applicable. A replacement effect can’t apply to the same event more than once this way.]=];};
+    {Date="2018-04-27";Text=[=[Damping Sphere’s second ability counts spells that were cast during a turn even if Damping Sphere wasn’t on the battlefield as they were cast. For example, if Damping Sphere itself is the third spell you cast in a turn, the next spell you cast costs {3} more to cast.]=];};
+    {Date="2018-04-27";Text=[=[To determine a spell’s total cost, start with the mana cost (or an alternative cost), add any cost increases, then apply any cost reductions. The spell’s converted mana cost remains unchanged, no matter what the total cost to cast it was.]=];};
+};
+};
+
+{Name="Danitha Capashen, Paragon";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Legendary Creature — Human Knight";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Knight";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[First strike, vigilance, lifelink<br/>
+Aura and Equipment spells you cast cost {{1}} less to cast.]=];
+Flavor=[=["I will protect the less fortunate. I will love bravely. I will face despair and fight on. As a Capashen, I can do no less."]=];
+CardNumber="DOM12";
+Power="2";
+Toughness="2";
+MultiverseID=442900;
+};
+
+{Name="Darigaaz Reincarnated";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{B}}{{R}}{{G}}";
+cmc=7;
+Colors={"Black";"Red";"Green";};
+Type="Legendary Creature — Dragon";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Dragon"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Flying, trample, haste<br/>
+If Darigaaz Reincarnated would die, instead exile it with three egg counters on it.<br/>
+At the beginning of your upkeep, if Darigaaz is exiled with an egg counter on it, remove an egg counter from it. Then if Darigaaz has no egg counters on it, return it to the battlefield.]=];
+CardNumber="DOM193";
+Power="7";
+Toughness="7";
+MultiverseID=443081;
+Rulings={
+    {Date="2018-04-27";Text=[=[If another effect says to exile Darigaaz if it would die, you may apply Darigaaz’s own effect first, giving it three egg counters.]=];};
+    {Date="2018-04-27";Text=[=[If Darigaaz is exiled without any egg counters on it, its last ability won’t trigger and won’t return it to the battlefield.]=];};
+};
+};
+
+{Name="Daring Archaeologist";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Creature — Human Artificer";
+Types={"Creature"};
+SubTypes={"Human";"Artificer";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[When Daring Archaeologist enters the battlefield, you may return target artifact card from your graveyard to your hand.<br/>
+Whenever you cast a historic spell, put a +1/+1 counter on Daring Archaeologist. (Artifacts, legendaries, and Sagas are historic.)]=];
+CardNumber="DOM13";
+Power="3";
+Toughness="3";
+MultiverseID=442901;
+Rulings={
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
+    {Date="2018-04-27";Text=[=[Some abilities trigger “whenever you cast a historic spell.” Such an ability resolves before the spell that caused it to trigger. It resolves even if that spell is countered.]=];};
+    {Date="2018-04-27";Text=[=[An ability that triggers “whenever you cast a historic spell” doesn’t trigger if a historic card is put onto the battlefield without being cast.]=];};
+    {Date="2018-04-27";Text=[=[Lands are never cast, so abilities that trigger “whenever you cast a historic spell” won’t trigger if you play a legendary land. They also won’t trigger if a card on the battlefield transforms into a legendary land, as the Ixalan and Rivals of Ixalan double-faced cards do.]=];};
+};
+};
+
 {Name="Daring Buccaneer";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -3775,7 +4740,7 @@ Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[As an additional cost to cast Daring Buccaneer, reveal a Pirate card from your hand or pay {{2}}.]=];
+Text=[=[As an additional cost to cast this spell, reveal a Pirate card from your hand or pay {{2}}.]=];
 Flavor=[=[No ancient lore ties the pirates of the Brazen Coalition to the Immortal Sun. But it's a powerful ancient artifact in a city of gold—what's not to covet?]=];
 CardNumber="RIX98";
 Power="2";
@@ -3809,6 +4774,25 @@ Rulings={
 };
 };
 
+{Name="Dark Bargain";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Look at the top three cards of your library. Put two of them into your hand and the other into your graveyard. Dark Bargain deals 2 damage to you.]=];
+Flavor=[=["I have pustules of the great Ratadrabik, very cheap. No? Surely you'll want a tincture of Nevinyrral's pulverized remains. Genuine!"]=];
+CardNumber="DOM83";
+MultiverseID=442971;
+Rulings={
+    {Date="2018-04-27";Text=[=[If you have fewer than three cards in your library, you put them all into your hand and none into your graveyard.]=];};
+};
+};
+
 {Name="Dark Inquiry";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -3819,7 +4803,7 @@ Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[Target opponent reveals his or her hand. You choose a nonland card from it. That player discards that card.]=];
+Text=[=[Target opponent reveals their hand. You choose a nonland card from it. That player discards that card.]=];
 Flavor=[=["Your mind is no longer yours to waste."]=];
 CardNumber="RIX65";
 MultiverseID=439722;
@@ -3835,12 +4819,12 @@ Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[Dark Nourishment deals 3 damage to target creature or player. You gain 3 life.]=];
+Text=[=[Dark Nourishment deals 3 damage to any target. You gain 3 life.]=];
 Flavor=[=[Demons lurk in the shadows of ancient ruins, spreading plague and corruption across the land.]=];
 CardNumber="XLN97";
 MultiverseID=435251;
 Rulings={
-    {Date="2017-09-29";Text=[=[If the target creature or player is an illegal target by the time Dark Nourishment resolves, the entire spell is countered. You won’t gain life.]=];};
+    {Date="2017-09-29";Text=[=[If the target permanent or player is an illegal target by the time Dark Nourishment resolves, the entire spell doesn’t resolve. You won’t gain life.]=];};
 };
 };
 
@@ -3865,6 +4849,58 @@ MultiverseID=430696;
 Rulings={
     {Date="2017-07-14";Text=[=[Untapping an attacking creature doesn’t remove it from combat.]=];};
     {Date="2017-07-14";Text=[=[All attackers are chosen at once. You can’t attack with Dauntless Aven, untap a tapped creature, and then attack with that creature.]=];};
+};
+};
+
+{Name="Dauntless Bodyguard";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{W}}";
+cmc=1;
+Colors={"White"};
+Type="Creature — Human Knight";
+Types={"Creature"};
+SubTypes={"Human";"Knight";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[As Dauntless Bodyguard enters the battlefield, choose another creature you control.<br/>
+Sacrifice Dauntless Bodyguard: The chosen creature gains indestructible until end of turn.]=];
+Flavor=[=[The Benalish aristocracy is hereditary, but the loyalty of its subjects is earned.]=];
+CardNumber="DOM14";
+Power="2";
+Toughness="1";
+MultiverseID=442902;
+Rulings={
+    {Date="2018-04-27";Text=[=[Dauntless Bodyguard’s first ability isn’t a triggered ability and doesn’t use the stack. Players can’t respond to your choice of which creature it’s protecting.]=];};
+    {Date="2018-04-27";Text=[=[If Dauntless Bodyguard enters the battlefield at the same time as another creature, that creature can’t be chosen for its ability.]=];};
+    {Date="2018-04-27";Text=[=[If the chosen creature leaves the battlefield, you can’t choose a new creature for Dauntless Bodyguard to protect. If you activate its last ability in this case, no creature gains indestructible.]=];};
+};
+};
+
+{Name="D'Avenant Trapper";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Creature — Human Archer";
+Types={"Creature"};
+SubTypes={"Human";"Archer";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Whenever you cast a historic spell, tap target creature an opponent controls. (Artifacts, legendaries, and Sagas are historic.)]=];
+Flavor=[=["Go swiftly, clever arrow, and teach<br/>
+The philosophy of stillness."<br/>
+—D'Avenant verse]=];
+CardNumber="DOM11";
+Power="3";
+Toughness="2";
+MultiverseID=442899;
+Rulings={
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
+    {Date="2018-04-27";Text=[=[Some abilities trigger “whenever you cast a historic spell.” Such an ability resolves before the spell that caused it to trigger. It resolves even if that spell is countered.]=];};
+    {Date="2018-04-27";Text=[=[An ability that triggers “whenever you cast a historic spell” doesn’t trigger if a historic card is put onto the battlefield without being cast.]=];};
+    {Date="2018-04-27";Text=[=[Lands are never cast, so abilities that trigger “whenever you cast a historic spell” won’t trigger if you play a legendary land. They also won’t trigger if a card on the battlefield transforms into a legendary land, as the Ixalan and Rivals of Ixalan double-faced cards do.]=];};
 };
 };
 
@@ -3954,7 +4990,7 @@ SubTypes={"Human";"Pirate";};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
 Text=[=[Deadeye Plunderers gets +1/+1 for each artifact you control.<br/>
-{{2}}{{U}}{{B}}: Create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
+{{2}}{{U}}{{B}}: Create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
 Flavor=[=["Keep your friends close and your enemies within range."]=];
 CardNumber="XLN220";
 Power="3";
@@ -4049,11 +5085,31 @@ MultiverseID=435253;
 Rulings={
     {Date="2017-09-29";Text=[=[You can’t activate Deadeye Tracker’s ability without targeting two cards in a single opponent’s graveyard.]=];};
     {Date="2017-09-29";Text=[=[If one target card is an illegal target by the time Deadeye Tracker’s ability resolves, the remaining legal target is exiled and Deadeye Tracker explores.]=];};
-    {Date="2017-09-29";Text=[=[If each target card is an illegal target by the time Deadeye Tracker’s ability resolves, the entire ability is countered. Deadeye Tracker won’t explore.]=];};
+    {Date="2017-09-29";Text=[=[If each target card is an illegal target by the time Deadeye Tracker’s ability resolves, the entire ability doesn’t resolve. Deadeye Tracker won’t explore.]=];};
     {Date="2018-01-19";Text=[=[Once an ability that causes a creature to explore begins to resolve, no player may take any other actions until it’s done. Notably, opponents can’t try to remove the exploring creature after you reveal a nonland card but before it receives a counter.]=];};
     {Date="2018-01-19";Text=[=[If no card is revealed, most likely because that player’s library is empty, the exploring creature receives a +1/+1 counter.]=];};
     {Date="2018-01-19";Text=[=[If a resolving spell or ability instructs a specific creature to explore but that creature has left the battlefield, the creature still explores. If you reveal a nonland card this way, you won’t put a +1/+1 counter on anything, but you may put the revealed card into your graveyard. Effects that trigger “whenever a creature you control explores” trigger if appropriate.]=];};
 };
+};
+
+{Name="Deathbloom Thallid";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Creature — Fungus";
+Types={"Creature"};
+SubTypes={"Fungus"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Deathbloom Thallid dies, create a 1/1 green Saproling creature token.]=];
+Flavor=[=["Nature is not always gentle or kind, but all life begets life."<br/>
+—Marwyn of Llanowar]=];
+CardNumber="DOM84";
+Power="3";
+Toughness="2";
+MultiverseID=442972;
 };
 
 {Name="Deathgorge Scavenger";
@@ -4160,7 +5216,30 @@ MultiverseID=426829;
 Rulings={
     {Date="2017-04-18";Text=[=[Some cards with cycling have an ability that triggers when you cycle them. These triggered abilities resolve before you draw from the cycling ability.]=];};
     {Date="2017-04-18";Text=[=[Triggered abilities from cycling a card and the cycling ability itself aren’t spells. Effects that interact with spells (such as that of Cancel) won’t affect them.]=];};
-    {Date="2017-04-18";Text=[=[You can cycle a card even if it has a triggered ability from cycling that won’t have a legal target. This is because the cycling ability and the triggered ability are separate. This also means that if either ability is countered (with Disallow, for example, or if the triggered ability’s targets have become illegal), the other ability will still resolve.]=];};
+    {Date="2017-04-18";Text=[=[You can cycle a card even if it has a triggered ability from cycling that won’t have a legal target. This is because the cycling ability and the triggered ability are separate. This also means that if either ability doesn’t resolve (due to being countered with Disallow, for example, or if the triggered ability’s targets have become illegal), the other ability will still resolve.]=];};
+};
+};
+
+{Name="Deep Freeze";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Enchantment — Aura";
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Enchant creature<br/>
+Enchanted creature has base power and toughness 0/4, has defender, loses all other abilities, and is a blue Wall in addition to its other colors and types.]=];
+Flavor=[=[For cryomancers, studying the Ice Age isn't just an academic exercise.]=];
+CardNumber="DOM50";
+MultiverseID=442938;
+Rulings={
+    {Date="2018-04-27";Text=[=[Deep Freeze overwrites all previous effects that set the creature’s base power and toughness to specific values. Any power- or toughness-setting effects that start to apply after the ability resolves will overwrite this effect.]=];};
+    {Date="2018-04-27";Text=[=[Effects that modify a creature’s power and/or toughness, such as the effect of Titanic Growth, will apply to the creature no matter when they started to take effect. The same is true for any counters that change its power and/or toughness and effects that switch its power and toughness.]=];};
+    {Date="2018-04-27";Text=[=[If the enchanted creature has an ability that grants abilities to other objects, Deep Freeze’s effect will stop it from doing so. If the enchanted creature gains an ability after Deep Freeze resolves, it will keep that ability.]=];};
 };
 };
 
@@ -4308,6 +5387,56 @@ CardNumber="XLN139";
 MultiverseID=435293;
 };
 
+{Name="Demonic Vigor";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{B}}";
+cmc=1;
+Colors={"Black"};
+Type="Enchantment — Aura";
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Enchant creature<br/>
+Enchanted creature gets +1/+1.<br/>
+When enchanted creature dies, return that card to its owner's hand.]=];
+Flavor=[=[In the Cabal, death is just another mark of devotion.]=];
+CardNumber="DOM85";
+MultiverseID=442973;
+Rulings={
+    {Date="2018-04-27";Text=[=[Demonic Vigor can enchant a token, but its last ability won’t return the token to your hand.]=];};
+};
+};
+
+{Name="Demonlord Belzenlok";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{B}}{{B}}";
+cmc=6;
+Colors={"Black"};
+Type="Legendary Creature — Elder Demon";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Elder";"Demon";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Flying, trample<br/>
+When Demonlord Belzenlok enters the battlefield, exile cards from the top of your library until you exile a nonland card, then put that card into your hand. If the card's converted mana cost is 4 or greater, repeat this process. Demonlord Belzenlok deals 1 damage to you for each card put into your hand this way.]=];
+CardNumber="DOM86";
+Power="6";
+Toughness="6";
+MultiverseID=442974;
+Rulings={
+    {Date="2018-04-27";Text=[=[Once the triggered ability resolves, the ability will continue until you either exile a nonland card with converted mana cost 3 or less or fail to exile any nonland cards while performing the process. You can’t choose to stop receiving the blessings of Demonlord Belzenlok any sooner.]=];};
+    {Date="2018-04-27";Text=[=[Land cards exiled this way remain exiled.]=];};
+    {Date="2018-04-27";Text=[=[Demonlord Belzenlok’s ability causes it to deal an amount of damage to you all at once; it doesn’t deal 1 damage multiple times.]=];};
+    {Date="2018-04-27";Text=[=[If the mana cost of the nonland card includes {X}, X is considered to be 0.]=];};
+    {Date="2018-04-27";Text=[=[If the nonland card doesn’t have a mana cost, its converted mana cost is 0.]=];};
+    {Date="2018-04-27";Text=[=[The converted mana cost of a split card, such as a card with aftermath from the Amonkhet block, is equal to the combined mana cost of its two halves.]=];};
+};
+};
+
 {Name="Demystify";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -4334,7 +5463,7 @@ Type="Instant";
 Types={"Instant"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[Return target creature to its owner's hand. Create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
+Text=[=[Return target creature to its owner's hand. Create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
 Flavor=[=[Pockets full of gold, lungs full of brine.]=];
 CardNumber="XLN52";
 MultiverseID=435204;
@@ -4368,7 +5497,7 @@ SubTypes={"Desert"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Desert of the Fervent enters the battlefield tapped.<br/>
-{{Tap}}: Add {{R}} to your mana pool.<br/>
+{{Tap}}: Add {{R}}.<br/>
 Cycling {{1}}{{R}} ({{1}}{{R}}, Discard this card: Draw a card.)]=];
 CardNumber="HOU170";
 MultiverseID=430859;
@@ -4386,7 +5515,7 @@ SubTypes={"Desert"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Desert of the Glorified enters the battlefield tapped.<br/>
-{{Tap}}: Add {{B}} to your mana pool.<br/>
+{{Tap}}: Add {{B}}.<br/>
 Cycling {{1}}{{B}} ({{1}}{{B}}, Discard this card: Draw a card.)]=];
 CardNumber="HOU171";
 MultiverseID=430860;
@@ -4404,7 +5533,7 @@ SubTypes={"Desert"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Desert of the Indomitable enters the battlefield tapped.<br/>
-{{Tap}}: Add {{G}} to your mana pool.<br/>
+{{Tap}}: Add {{G}}.<br/>
 Cycling {{1}}{{G}} ({{1}}{{G}}, Discard this card: Draw a card.)]=];
 CardNumber="HOU172";
 MultiverseID=430861;
@@ -4422,7 +5551,7 @@ SubTypes={"Desert"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Desert of the Mindful enters the battlefield tapped.<br/>
-{{Tap}}: Add {{U}} to your mana pool.<br/>
+{{Tap}}: Add {{U}}.<br/>
 Cycling {{1}}{{U}} ({{1}}{{U}}, Discard this card: Draw a card.)]=];
 CardNumber="HOU173";
 MultiverseID=430862;
@@ -4440,7 +5569,7 @@ SubTypes={"Desert"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Desert of the True enters the battlefield tapped.<br/>
-{{Tap}}: Add {{W}} to your mana pool.<br/>
+{{Tap}}: Add {{W}}.<br/>
 Cycling {{1}}{{W}} ({{1}}{{W}}, Discard this card: Draw a card.)]=];
 CardNumber="HOU174";
 MultiverseID=430863;
@@ -4611,6 +5740,31 @@ Toughness="2";
 MultiverseID=430802;
 };
 
+{Name="Diligent Excavator";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Creature — Human Artificer";
+Types={"Creature"};
+SubTypes={"Human";"Artificer";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever you cast a historic spell, target player puts the top two cards of their library into their graveyard. (Artifacts, legendaries, and Sagas are historic.)]=];
+Flavor=[=[Archaeologists don't just dig in the dirt. They excavate time, scraping off the years grain by grain.]=];
+CardNumber="DOM51";
+Power="1";
+Toughness="3";
+MultiverseID=442939;
+Rulings={
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
+    {Date="2018-04-27";Text=[=[Some abilities trigger “whenever you cast a historic spell.” Such an ability resolves before the spell that caused it to trigger. It resolves even if that spell is countered.]=];};
+    {Date="2018-04-27";Text=[=[An ability that triggers “whenever you cast a historic spell” doesn’t trigger if a historic card is put onto the battlefield without being cast.]=];};
+    {Date="2018-04-27";Text=[=[Lands are never cast, so abilities that trigger “whenever you cast a historic spell” won’t trigger if you play a legendary land. They also won’t trigger if a card on the battlefield transforms into a legendary land, as the Ixalan and Rivals of Ixalan double-faced cards do.]=];};
+};
+};
+
 {Name="Dinosaur Hunter";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -4710,7 +5864,7 @@ Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[When Dire Fleet Hoarder dies, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
+Text=[=[When Dire Fleet Hoarder dies, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
 Flavor=[=[Among the pirates of the Brazen Coalition, the only thing more dangerous than failure is success.]=];
 CardNumber="XLN102";
 Power="2";
@@ -4793,7 +5947,7 @@ SubTypes={"Orc";"Pirate";"Wizard";};
 Rarity="Mythic Rare";
 Rarities={"Mythic Rare"};
 Text=[=[Menace, deathtouch<br/>
-When Dire Fleet Ravager enters the battlefield, each player loses a third of his or her life, rounded up.]=];
+When Dire Fleet Ravager enters the battlefield, each player loses a third of their life, rounded up.]=];
 Flavor=[=[His fists fume with the decay of death, each strike a plague on the hearts of his enemies.]=];
 CardNumber="XLN104";
 Power="4";
@@ -4835,7 +5989,7 @@ Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[Choose an artifact card name. Search target opponent's graveyard, hand, and library for any number of cards with the chosen name and exile them. Then that player shuffles his or her library.]=];
+Text=[=[Choose an artifact card name. Search target opponent's graveyard, hand, and library for any number of cards with the chosen name and exile them. Then that player shuffles their library.]=];
 CardNumber="AKH86";
 MultiverseID=426788;
 };
@@ -4872,6 +6026,39 @@ Text=[=[Target creature you control gets +0/+3 and gains hexproof until end of t
 Flavor=[=["Seeing the river is not the same as seeing the fish."]=];
 CardNumber="XLN53";
 MultiverseID=435205;
+};
+
+{Name="Divest";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{B}}";
+cmc=1;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target player reveals their hand. You choose an artifact or creature card from it. That player discards that card.]=];
+Flavor=[=[Flittersprites collect unusually valuable things: coins of fallen empires, baby teeth, and memories of treasured names.]=];
+CardNumber="DOM87";
+MultiverseID=442975;
+};
+
+{Name="Divination";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Draw two cards.]=];
+Flavor=[=["Half your studies will be learning the laws of magic. The other half will be bending them."<br/>
+—Naru Meha, master wizard]=];
+CardNumber="DOM52";
+MultiverseID=442940;
 };
 
 {Name="Divine Verdict";
@@ -4988,15 +6175,15 @@ Types={"Sorcery"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
 Text=[=[Choose one —<br/>
-• Target opponent exiles a creature he or she controls.<br/>
-• Target opponent reveals his or her hand. You choose a nonland card from it. Exile that card.]=];
+• Target opponent exiles a creature they control.<br/>
+• Target opponent reveals their hand. You choose a nonland card from it. Exile that card.]=];
 Flavor=[=["This place has outlived its usefulness."<br/>
 —Nicol Bolas]=];
 CardNumber="HOU62";
 MultiverseID=430751;
 Rulings={
     {Date="2017-07-14";Text=[=[If you choose Doomfall’s first mode, the target opponent chooses which creature to exile. That creature isn’t targeted, so a creature with hexproof can be exiled this way.]=];};
-    {Date="2017-07-14";Text=[=[If you choose Doomfall’s second mode, you must exile a nonland card from that player’s hand if able. If you can’t, most likely because that player’s hand contains only land cards, nothing happens. That player won’t exile a creature he or she controls instead.]=];};
+    {Date="2017-07-14";Text=[=[If you choose Doomfall’s second mode, you must exile a nonland card from that player’s hand if able. If you can’t, most likely because that player’s hand contains only land cards, nothing happens. That player won’t exile a creature they control instead.]=];};
 };
 };
 
@@ -5030,7 +6217,7 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[Dragonskull Summit enters the battlefield tapped unless you control a Swamp or a Mountain.<br/>
-{{Tap}}: Add {{B}} or {{R}} to your mana pool.]=];
+{{Tap}}: Add {{B}} or {{R}}.]=];
 Flavor=[=[When the Planeswalker Angrath called dinosaurs "dragons," the name stuck in certain pirate circles.]=];
 CardNumber="XLN252";
 MultiverseID=435413;
@@ -5060,8 +6247,28 @@ Rulings={
     {Date="2017-04-18";Text=[=[Some cards have an ability that triggers whenever you cycle any card. These triggered abilities resolve before you draw from the cycling ability.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you discard a card doesn’t give you permission to discard cards. You’ll need another effect that instructs or allows you to discard them.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you “cycle or discard” a card triggers only once if you cycle a card. The ability “Whenever you discard a card” is functionally identical to this ability; cycling is mentioned for clarity.]=];};
-    {Date="2017-04-18";Text=[=[If a player discards a card during his or her cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
+    {Date="2017-04-18";Text=[=[If a player discards a card during their cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
 };
+};
+
+{Name="Dread Shade";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{B}}{{B}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Creature — Shade";
+Types={"Creature"};
+SubTypes={"Shade"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[{{B}}: Dread Shade gets +1/+1 until end of turn.]=];
+Flavor=[=["The forest surrounding the Vess estate became the Caligo Morass, a vast bog stalked by horrors too terrible to name."<br/>
+—"The Fall of the House of Vess"]=];
+CardNumber="DOM88";
+Power="3";
+Toughness="3";
+MultiverseID=442976;
 };
 
 {Name="Dread Wanderer";
@@ -5177,7 +6384,7 @@ SubTypes={"Human";"Druid";};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
 Text=[=[Drover of the Mighty gets +2/+2 as long as you control a Dinosaur.<br/>
-{{Tap}}: Add one mana of any color to your mana pool.]=];
+{{Tap}}: Add one mana of any color.]=];
 Flavor=[=["I do not lead. They do not follow. We walk together."]=];
 CardNumber="XLN187";
 Power="1";
@@ -5196,13 +6403,37 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[Drowned Catacomb enters the battlefield tapped unless you control an Island or a Swamp.<br/>
-{{Tap}}: Add {{U}} or {{B}} to your mana pool.]=];
+{{Tap}}: Add {{U}} or {{B}}.]=];
 Flavor=[=[None can tell how many vessels are tangled up on the sea floor—or how much treasure remains unclaimed.]=];
 CardNumber="XLN253";
 MultiverseID=435414;
 Rulings={
     {Date="2009-10-01";Text=[=[This checks for lands you control with the land type Island or Swamp, not for lands named Island or Swamp. The lands it checks for don’t have to be basic lands. For example, if you control Blood Crypt (a nonbasic land with the land types Swamp and Mountain), Drowned Catacomb will enter the battlefield untapped.]=];};
     {Date="2009-10-01";Text=[=[As this is entering the battlefield, it checks for lands that are already on the battlefield. It won’t see lands that are entering the battlefield at the same time (due to Warp World, for example).]=];};
+};
+};
+
+{Name="Drudge Sentinel";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Creature — Skeleton Warrior";
+Types={"Creature"};
+SubTypes={"Skeleton";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{3}}: Tap Drudge Sentinel. It gains indestructible until end of turn. (Damage and effects that say "destroy" don't destroy it.)]=];
+Flavor=[=[The Cabal assured the Seven Houses<br/>
+that hostages receive all the food and<br/>
+rest they require.]=];
+CardNumber="DOM89";
+Power="2";
+Toughness="1";
+MultiverseID=442977;
+Rulings={
+    {Date="2018-04-27";Text=[=[You can activate Drudge Sentinel’s ability even if it’s already tapped. It will still gain indestructible.]=];};
 };
 };
 
@@ -5222,6 +6453,27 @@ CardNumber="XLN141";
 MultiverseID=435295;
 Rulings={
     {Date="2017-09-29";Text=[=[You can’t target the same creature twice to have Dual Shot deal 2 damage to it.]=];};
+};
+};
+
+{Name="Dub";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Enchantment — Aura";
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Enchant creature<br/>
+Enchanted creature gets +2/+2, has first strike, and is a Knight in addition to its other types.]=];
+Flavor=[=["Rise, knight of New Benalia."]=];
+CardNumber="DOM15";
+MultiverseID=442903;
+Rulings={
+    {Date="2018-04-27";Text=[=[Dub can enchant a creature that’s already a Knight. It will get +2/+2 and have first strike, but it won’t benefit from becoming a Knight.]=];};
 };
 };
 
@@ -5273,7 +6525,7 @@ Types={"Land"};
 SubTypes={"Desert"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[{{Tap}}: Add {{C}} to your mana pool.<br/>
+Text=[=[{{Tap}}: Add {{C}}.<br/>
 When Dunes of the Dead is put into a graveyard from the battlefield, create a 2/2 black Zombie creature token.]=];
 Flavor=[=[The Curse of Wandering permeated Amonkhet long before Nicol Bolas. He simply harnessed it.]=];
 CardNumber="HOU175";
@@ -5295,7 +6547,7 @@ Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[Target opponent reveals his or her hand. You choose a noncreature, nonland card from it. That player discards that card.]=];
+Text=[=[Target opponent reveals their hand. You choose a noncreature, nonland card from it. That player discards that card.]=];
 Flavor=[=[Solitude and starvation are brutal punishments, but even worse is all that time to think.]=];
 CardNumber="XLN105";
 MultiverseID=435259;
@@ -5378,7 +6630,7 @@ Rulings={
     {Date="2017-09-29";Text=[=[Each Vehicle is printed with a power and toughness, but it’s not a creature. If it becomes a creature (most likely through its crew ability), it will have that power and toughness.]=];};
     {Date="2017-09-29";Text=[=[If an effect causes a Vehicle to become an artifact creature with a specified power and toughness, that effect overwrites the Vehicle’s printed power and toughness.]=];};
     {Date="2017-09-29";Text=[=[Vehicle is an artifact type, not a creature type. A Vehicle that’s crewed won’t normally have any creature type.]=];};
-    {Date="2017-09-29";Text=[=[Once a player announces that he or she is activating a crew ability, no player may take other actions until the ability has been paid for. Notably, players can’t try to stop the ability by changing a creature’s power or by removing or tapping a creature.]=];};
+    {Date="2017-09-29";Text=[=[Once a player announces that they are activating a crew ability, no player may take other actions until the ability has been paid for. Notably, players can’t try to stop the ability by changing a creature’s power or by removing or tapping a creature.]=];};
     {Date="2017-09-29";Text=[=[Any untapped creature you control can be tapped to pay a crew cost, even one that just came under your control.]=];};
     {Date="2017-09-29";Text=[=[You may tap more creatures than necessary to activate a crew ability.]=];};
     {Date="2017-09-29";Text=[=[Creatures that crew a Vehicle aren’t attached to it or related in any other way. Effects that affect the Vehicle, such as by destroying it or giving it a +1/+1 counter, don’t affect the creatures that crewed it.]=];};
@@ -5532,7 +6784,7 @@ CardNumber="AKH226";
 MultiverseID=426928;
 Rulings={
     {Date="2017-04-18";Text=[=[Edifice of Authority can’t be used to undo an attack or block once it has been declared. Its abilities must be activated no later than the beginning of combat step to stop a creature from attacking, and no later than the declare attackers step to stop a creature from blocking.]=];};
-    {Date="2017-04-18";Text=[=[Once a player has announced that he or she is activating the ability of a creature, Edifice of Authority can’t be used to undo it. Its last ability must be activated before the player activates that creature’s ability. The player may respond to Edifice of Authority’s ability with the target creature’s ability if able.]=];};
+    {Date="2017-04-18";Text=[=[Once a player has announced that they are activating the ability of a creature, Edifice of Authority can’t be used to undo it. Its last ability must be activated before the player activates that creature’s ability. The player may respond to Edifice of Authority’s ability with the target creature’s ability if able.]=];};
     {Date="2017-04-18";Text=[=[Activated abilities contain a colon. They’re generally written “[Cost]: [Effect].” Some keyword abilities are activated abilities and will have colons in their reminder text. Triggered abilities (starting with “when,” “whenever,” or “at”) are unaffected by the last ability of Edifice of Authority. Notably, exerting a creature isn’t an activated ability.]=];};
 };
 };
@@ -5547,7 +6799,7 @@ Types={"Artifact"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
 Text=[=[Elaborate Firecannon doesn't untap during your untap step.<br/>
-{{4}}, {{Tap}}: Elaborate Firecannon deals 2 damage to target creature or player.<br/>
+{{4}}, {{Tap}}: Elaborate Firecannon deals 2 damage to any target.<br/>
 At the beginning of your upkeep, you may discard a card. If you do, untap Elaborate Firecannon.]=];
 CardNumber="XLN237";
 MultiverseID=435395;
@@ -5596,6 +6848,26 @@ Rulings={
 };
 };
 
+{Name="Elfhame Druid";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Creature — Elf Druid";
+Types={"Creature"};
+SubTypes={"Elf";"Druid";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{Tap}}: Add {{G}}.<br/>
+{{Tap}}: Add {{G}}{{G}}. Spend this mana only to cast kicked spells.]=];
+Flavor=[=[The bond between Llanowar elves and their kavu empowers both.]=];
+CardNumber="DOM159";
+Power="0";
+Toughness="2";
+MultiverseID=443047;
+};
+
 {Name="Embalmer's Tools";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -5606,7 +6878,7 @@ Types={"Artifact"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
 Text=[=[Activated abilities of creature cards in your graveyard cost {{1}} less to activate.<br/>
-Tap an untapped Zombie you control: Target player puts the top card of his or her library into his or her graveyard.]=];
+Tap an untapped Zombie you control: Target player puts the top card of their library into their graveyard.]=];
 Flavor=[=["They might be dead, but these mummies are masters of their trade."<br/>
 —Jace Beleren]=];
 CardNumber="AKH227";
@@ -5737,7 +7009,7 @@ Types={"Land"};
 SubTypes={"Desert"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[{{Tap}}: Add {{C}} to your mana pool.<br/>
+Text=[=[{{Tap}}: Add {{C}}.<br/>
 {{2}}, {{Tap}}: Exile target creature you control.<br/>
 {{4}}, {{Tap}}, Sacrifice Endless Sands: Return each creature card exiled with Endless Sands to the battlefield under its owner's control.]=];
 CardNumber="HOU176";
@@ -5791,7 +7063,7 @@ Rulings={
     {Date="2018-01-19";Text=[=[Enter the Unknown’s effect allows you to play an additional land during your main phase. Doing so follows the normal timing rules for playing lands.]=];};
     {Date="2018-01-19";Text=[=[The effects of multiples of Enter the Unknown in the same turn are cumulative. They’re also cumulative with other effects that let you play additional lands, such as the one from Wayward Swordtooth.]=];};
     {Date="2018-01-19";Text=[=[If you somehow manage to cast Enter the Unknown when it’s not your turn, the target creature explores when it resolves, but you won’t be able to play a land that turn.]=];};
-    {Date="2018-01-19";Text=[=[If the target creature is an illegal target by the time Enter the Unknown tries to resolve, the spell is countered. It won’t explore, and you won’t be able to play an additional land.]=];};
+    {Date="2018-01-19";Text=[=[If the target creature is an illegal target by the time Enter the Unknown tries to resolve, the spell doesn’t resolve. It won’t explore, and you won’t be able to play an additional land.]=];};
     {Date="2018-01-19";Text=[=[Once an ability that causes a creature to explore begins to resolve, no player may take any other actions until it’s done. Notably, opponents can’t try to remove the exploring creature after you reveal a nonland card but before it receives a counter.]=];};
     {Date="2018-01-19";Text=[=[If no card is revealed, most likely because that player’s library is empty, the exploring creature receives a +1/+1 counter.]=];};
 };
@@ -5917,6 +7189,23 @@ Rulings={
 };
 };
 
+{Name="Eviscerate";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Destroy target creature.]=];
+Flavor=[=["Fear the dark if you must, but don't mistake sunlight for safety."<br/>
+—Josu Vess]=];
+CardNumber="DOM91";
+MultiverseID=442979;
+};
+
 {Name="Evolving Wilds";
 SetCode="RIX";
 Allsets={"RIX";"AKH";};
@@ -5932,6 +7221,52 @@ Sets={
 {Set="AKH";Rarity="Common";CardNumber="242";Flavor=[=["Don't you ever wonder what lies beyond the Hekma? Beyond the reach of the gods? Beyond the horns on the horizon?"
 —Samut, initiate of Tah crop]=];};
 };
+};
+
+{Name="Evra, Halcyon Witness";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{W}}{{W}}";
+cmc=6;
+Colors={"White"};
+Type="Legendary Creature — Avatar";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Avatar"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Lifelink<br/>
+{{4}}: Exchange your life total with Evra, Halcyon Witness's power.]=];
+Flavor=[=["Light from the Null Moon took form—a mirage made real, alone in grandeur, isolated in a world that once had been its own."<br/>
+—Fall of the Thran]=];
+CardNumber="DOM16";
+Power="4";
+Toughness="4";
+MultiverseID=442904;
+Rulings={
+    {Date="2018-04-27";Text=[=[If Evra isn’t on the battlefield when its activated ability resolves, the exchange can’t happen and the ability will have no effect. However, if Evra is on the battlefield but has power 0 or less, the exchange happens and you’ll lose the game.]=];};
+    {Date="2018-04-27";Text=[=[When its activated ability resolves, Evra’s power will become your former life total and you will gain or lose an amount of life such that your life total equals Evra’s former power. Other effects that interact with life gain or life loss will interact with this effect accordingly.]=];};
+    {Date="2018-04-27";Text=[=[Any power-modifying effects, counters, Auras, or Equipment will apply after Evra’s power is set to your former life total. For example, say Evra is enchanted with Dub (which makes it 6/6) and your life total is 7. After the exchange, Evra would be a 9/6 creature (its power became 7, which was then modified by Dub) and your life total would be 6.]=];};
+};
+};
+
+{Name="Excavation Elephant";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{W}}";
+cmc=5;
+Colors={"White"};
+Type="Creature — Elephant";
+Types={"Creature"};
+SubTypes={"Elephant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Kicker {{1}}{{W}} (You may pay an additional {{1}}{{W}} as you cast this spell.)<br/>
+When Excavation Elephant enters the battlefield, if it was kicked, return target artifact card from your graveyard to your hand.]=];
+CardNumber="DOM17";
+Power="3";
+Toughness="5";
+MultiverseID=442905;
 };
 
 {Name="Exemplar of Strength";
@@ -6050,6 +7385,34 @@ Rulings={
 };
 };
 
+{Name="Fall of the Thran";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{5}}{{W}}";
+cmc=6;
+Colors={"White"};
+Type="Enchantment — Saga";
+Types={"Enchantment"};
+SubTypes={"Saga"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)<br/>
+I — Destroy all lands.<br/>
+II, III — Each player returns two land cards from their graveyard to the battlefield.]=];
+CardNumber="DOM18";
+MultiverseID=442906;
+Rulings={
+    {Date="2018-04-27";Text=[=[If a player somehow has only one land card in their graveyard when either of Fall of the Thran’s last two chapter abilities resolves, that player returns that one card to the battlefield.]=];};
+    {Date="2018-04-27";Text=[=[As a Saga enters the battlefield, its controller puts a lore counter on it. As your precombat main phase begins (immediately after your draw step), you put another lore counter on each Saga you control. Putting a lore counter on a Saga in either of these ways doesn’t use the stack.]=];};
+    {Date="2018-04-27";Text=[=[Each symbol on the left of a Saga’s text box represents a chapter ability. A chapter ability is a triggered ability that triggers when a lore counter that is put on the Saga causes the number of lore counters on the Saga to become equal to or greater than the ability’s chapter number. Chapter abilities are put onto the stack and may be responded to.]=];};
+    {Date="2018-04-27";Text=[=[A chapter ability doesn’t trigger if a lore counter is put on a Saga that already had a number of lore counters greater than or equal to that chapter’s number. For example, the third lore counter put on a Saga causes the III chapter ability to trigger, but I and II won’t trigger again.]=];};
+    {Date="2018-04-27";Text=[=[Once a chapter ability has triggered, the ability on the stack won’t be affected if the Saga gains or loses counters, or if it leaves the battlefield.]=];};
+    {Date="2018-04-27";Text=[=[If multiple chapter abilities trigger at the same time, their controller puts them on the stack in any order. If any of them require targets, those targets are chosen as you put the abilities on the stack, before any of those abilities resolve.]=];};
+    {Date="2018-04-27";Text=[=[If counters are removed from a Saga, the appropriate chapter abilities will trigger again when the Saga receives lore counters. Removing lore counters won’t cause a previous chapter ability to trigger.]=];};
+    {Date="2018-04-27";Text=[=[Once the number of lore counters on a Saga is greater than or equal to the greatest number among its chapter abilities—in the Dominaria set, this is always three—the Saga’s controller sacrifices it as soon as its chapter ability has left the stack, most likely by resolving or being countered. This state-based action doesn’t use the stack.]=];};
+};
+};
+
 {Name="Fame";
 SetCode="HOU";
 Allsets={"HOU"};
@@ -6120,7 +7483,7 @@ SubTypes={"Goblin";"Pirate";};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Haste<br/>
-{{Tap}}, Sacrifice Fanatical Firebrand: It deals 1 damage to target creature or player.]=];
+{{Tap}}, Sacrifice Fanatical Firebrand: It deals 1 damage to any target.]=];
 Flavor=[=["The Brazen Coalition is a firecannon pointed at our enemies. Goblins like him are the spark to its powder."<br/>
 —Admiral Beckett Brass]=];
 CardNumber="RIX101";
@@ -6297,7 +7660,7 @@ Rulings={
     {Date="2017-09-29";Text=[=[Each Vehicle is printed with a power and toughness, but it’s not a creature. If it becomes a creature (most likely through its crew ability), it will have that power and toughness.]=];};
     {Date="2017-09-29";Text=[=[If an effect causes a Vehicle to become an artifact creature with a specified power and toughness, that effect overwrites the Vehicle’s printed power and toughness.]=];};
     {Date="2017-09-29";Text=[=[Vehicle is an artifact type, not a creature type. A Vehicle that’s crewed won’t normally have any creature type.]=];};
-    {Date="2017-09-29";Text=[=[Once a player announces that he or she is activating a crew ability, no player may take other actions until the ability has been paid for. Notably, players can’t try to stop the ability by changing a creature’s power or by removing or tapping a creature.]=];};
+    {Date="2017-09-29";Text=[=[Once a player announces that they are activating a crew ability, no player may take other actions until the ability has been paid for. Notably, players can’t try to stop the ability by changing a creature’s power or by removing or tapping a creature.]=];};
     {Date="2017-09-29";Text=[=[Any untapped creature you control can be tapped to pay a crew cost, even one that just came under your control.]=];};
     {Date="2017-09-29";Text=[=[You may tap more creatures than necessary to activate a crew ability.]=];};
     {Date="2017-09-29";Text=[=[Creatures that crew a Vehicle aren’t attached to it or related in any other way. Effects that affect the Vehicle, such as by destroying it or giving it a +1/+1 counter, don’t affect the creatures that crewed it.]=];};
@@ -6307,6 +7670,26 @@ Rulings={
     {Date="2017-09-29";Text=[=[When a Vehicle becomes a creature, that doesn’t count as having a creature enter the battlefield. The permanent was already on the battlefield; it only changed its types. Abilities that trigger whenever a creature enters the battlefield won’t trigger.]=];};
     {Date="2017-09-29";Text=[=[If a permanent becomes a copy of a Vehicle, the copy won’t be a creature, even if the Vehicle it’s copying has become an artifact creature.]=];};
 };
+};
+
+{Name="Feral Abomination";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{5}}{{B}}";
+cmc=6;
+Colors={"Black"};
+Type="Creature — Thrull";
+Types={"Creature"};
+SubTypes={"Thrull"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Deathtouch]=];
+Flavor=[=["Urborg used to be lovely—scenic volcanoes, respectable lich lords. Since the Cabal came with their nightmares and thrulls, it's all gone to the worms."<br/>
+—Mister Lostspoons, Skulltown gossip]=];
+CardNumber="DOM92";
+Power="5";
+Toughness="5";
+MultiverseID=442980;
 };
 
 {Name="Feral Prowler";
@@ -6339,7 +7722,7 @@ Types={"Creature"};
 SubTypes={"Human";"Wizard";};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[{{Tap}}: Fervent Paincaster deals 1 damage to target player.<br/>
+Text=[=[{{Tap}}: Fervent Paincaster deals 1 damage to target player or planeswalker.<br/>
 {{Tap}}, Exert Fervent Paincaster: It deals 1 damage to target creature. (An exerted creature won't untap during your next untap step.)]=];
 Flavor=[=["Everyone here is a honed fighter. We'll respond the only way we know how."]=];
 CardNumber="HOU91";
@@ -6352,6 +7735,23 @@ Rulings={
     {Date="2017-04-18";Text=[=[If you gain control of another player’s creature until end of turn and exert it, it will untap during that player’s untap step.]=];};
     {Date="2017-07-14";Text=[=[Some cards in the Hour of Devastation set let you exert a creature as a cost to activate one of its abilities. You can exert it to pay that cost even if you’ve already exerted it earlier in the turn. Exerting it multiple times will keep it tapped only during your next untap step.]=];};
 };
+};
+
+{Name="Fervent Strike";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{R}}";
+cmc=1;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target creature gets +1/+0 and gains first strike and haste until end of turn.]=];
+Flavor=[=["The flame paints a bright wheel on the sky, then shifts into a stabbing spark. The enemy falls; the smoke of victory rises."<br/>
+—"Legends of the Firedancer"]=];
+CardNumber="DOM117";
+MultiverseID=443005;
 };
 
 {Name="Festering Mummy";
@@ -6381,7 +7781,7 @@ Types={"Land"};
 SubTypes={"Island";"Swamp";};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[({{Tap}}: Add {{U}} or {{B}} to your mana pool.)<br/>
+Text=[=[({{Tap}}: Add {{U}} or {{B}}.)<br/>
 Fetid Pools enters the battlefield tapped.<br/>
 Cycling {{2}} ({{2}}, Discard this card: Draw a card.)]=];
 CardNumber="AKH243";
@@ -6395,8 +7795,8 @@ Type="Land";
 Types={"Land"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[{{Tap}}: Add {{C}} to your mana pool.<br/>
-{{2}}, {{Tap}}, Sacrifice Field of Ruin: Destroy target nonbasic land an opponent controls. Each player searches his or her library for a basic land card, puts it onto the battlefield, then shuffles his or her library.]=];
+Text=[=[{{Tap}}: Add {{C}}.<br/>
+{{2}}, {{Tap}}, Sacrifice Field of Ruin: Destroy target nonbasic land an opponent controls. Each player searches their library for a basic land card, puts it onto the battlefield, then shuffles their library.]=];
 CardNumber="XLN254";
 MultiverseID=435415;
 };
@@ -6417,6 +7817,24 @@ CardNumber="XLN143";
 MultiverseID=435297;
 };
 
+{Name="Fiery Intervention";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{R}}";
+cmc=5;
+Colors={"Red"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Choose one —<br/>
+• Fiery Intervention deals 5 damage to target creature.<br/>
+• Destroy target artifact.]=];
+Flavor=[=[Burning something is easy. Choosing a target can be more difficult.]=];
+CardNumber="DOM118";
+MultiverseID=443006;
+};
+
 {Name="Fight";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -6435,6 +7853,44 @@ Rulings={
     {Date="2017-04-18";Text=[=[If either or both targets are illegal when Fight tries to resolve, no creature will deal or be dealt damage.]=];};
     {Date="2017-07-14";Text=[=[Once you’ve started to cast a spell with aftermath from your graveyard, the card is immediately moved to the stack. Opponents can’t try to stop the ability by exiling the card with an effect such as that of Crook of Condemnation.]=];};
 };
+};
+
+{Name="Fight with Fire";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Kicker {{5}}{{R}} (You may pay an additional {{5}}{{R}} as you cast this spell.)<br/>
+Fight with Fire deals 5 damage to target creature. If this spell was kicked, it deals 10 damage divided as you choose among any number of targets instead. (Those targets can include players and planeswalkers.)]=];
+CardNumber="DOM119";
+MultiverseID=443007;
+Rulings={
+    {Date="2018-04-27";Text=[=[If Fight with Fire is kicked, it can target creatures, players, and planeswalkers.]=];};
+    {Date="2018-04-27";Text=[=[You choose how many targets Fight with Fire has and how the damage is divided as you put the spell onto the stack. Each target must receive at least 1 damage if Fight with Fire is kicked.]=];};
+    {Date="2018-04-27";Text=[=[If some of the targets are illegal targets as Fight with Fire tries to resolve, the original division of damage still applies and the damage that would have been dealt to the illegal targets is lost.]=];};
+};
+};
+
+{Name="Final Parting";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{B}}{{B}}";
+cmc=5;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Search your library for two cards. Put one into your hand and the other into your graveyard. Then shuffle your library.]=];
+Flavor=[=["Sleep now, brother. That is the one gift I can give you."<br/>
+—Liliana Vess]=];
+CardNumber="DOM93";
+MultiverseID=442981;
 };
 
 {Name="Final Reward";
@@ -6471,6 +7927,25 @@ MultiverseID=426917;
 Rulings={
     {Date="2017-07-14";Text=[=[Once you’ve started to cast a spell with aftermath from your graveyard, the card is immediately moved to the stack. Opponents can’t try to stop the ability by exiling the card with an effect such as that of Crook of Condemnation.]=];};
 };
+};
+
+{Name="Fire Elemental";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{R}}{{R}}";
+cmc=5;
+Colors={"Red"};
+Type="Creature — Elemental";
+Types={"Creature"};
+SubTypes={"Elemental"};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=["The best way to learn from a book on pyromancy is to burn it."<br/>
+—Jaya Ballard]=];
+CardNumber="DOM120";
+Power="5";
+Toughness="4";
+MultiverseID=443008;
 };
 
 {Name="Fire Shrine Keeper";
@@ -6540,6 +8015,59 @@ Rulings={
 };
 };
 
+{Name="Firefist Adept";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{R}}";
+cmc=5;
+Colors={"Red"};
+Type="Creature — Human Wizard";
+Types={"Creature"};
+SubTypes={"Human";"Wizard";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Firefist Adept enters the battlefield, it deals X damage to target creature an opponent controls, where X is the number of Wizards you control.]=];
+Flavor=[=[The versatile "fiery gauntlet" is among the first spells young Ghitu mages learn.]=];
+CardNumber="DOM121";
+Power="3";
+Toughness="3";
+MultiverseID=443009;
+Rulings={
+    {Date="2018-04-27";Text=[=[The number of Wizards you control is counted only as Firefist Adept’s ability resolves. If Firefist Adept is still on the battlefield, it will count itself.]=];};
+};
+};
+
+{Name="Firesong and Sunspeaker";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{R}}{{W}}";
+cmc=6;
+Colors={"White";"Red";};
+Type="Legendary Creature — Minotaur Cleric";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Minotaur";"Cleric";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Red instant and sorcery spells you control have lifelink.<br/>
+Whenever a white instant or sorcery spell causes you to gain life, Firesong and Sunspeaker deals 3 damage to target creature or player.]=];
+Flavor=[=[The peaks of Hurloon never fall silent.]=];
+CardNumber="DOM280";
+Power="4";
+Toughness="6";
+MultiverseID=445958;
+Rulings={
+    {Date="2018-04-27";Text=[=[If a source you control with lifelink deals damage to you, you gain and lose that much life simultaneously. Your life total doesn’t change.]=];};
+    {Date="2018-04-27";Text=[=[The last ability of Firesong and Sunspeaker can’t target a planeswalker.]=];};
+    {Date="2018-04-27";Text=[=[A spell causes you to gain life if its cost or effect instructs you to gain life or if an instruction in its cost or effect is modified by a replacement effect and the modified event includes you gaining life. If a spell’s cost or effect instructs a source with lifelink you control to deal damage, that spell causes that life gain as well.]=];};
+    {Date="2018-04-27";Text=[=[If a white instant or sorcery spell you don’t control causes you to gain life, Firesong and Sunspeaker’s last ability triggers.]=];};
+    {Date="2018-04-27";Text=[=[If you gain an amount of life “for each” of something, that life is gained as one event and Firesong and Sunspeaker’s last ability triggers only once.]=];};
+    {Date="2018-04-27";Text=[=[Firesong and Sunspeaker’s last ability doesn’t trigger if a triggered ability of a white instant or sorcery spell or card causes you to gain life, such as the triggered ability of Renewed Faith when it’s cycled.]=];};
+    {Date="2018-04-27";Text=[=[If a red and white spell you control deals damage to multiple things using the word “deals” only once, Firesong and Sunspeaker’s last ability triggers only once. Similarly, if a red and white spell’s effect causes it to deal damage to one thing and then deal more damage with a second instance of the word “deals,” Firesong and Sunspeaker’s last ability triggers twice, and so on.]=];};
+    {Date="2018-04-27";Text=[=[If a red and white spell you control deals damage and also instructs you to gain life, Firesong and Sunspeaker’s last ability triggers twice.]=];};
+};
+};
+
 {Name="Flameblade Adept";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -6563,7 +8091,7 @@ Rulings={
     {Date="2017-04-18";Text=[=[Some cards have an ability that triggers whenever you cycle any card. These triggered abilities resolve before you draw from the cycling ability.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you discard a card doesn’t give you permission to discard cards. You’ll need another effect that instructs or allows you to discard them.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you “cycle or discard” a card triggers only once if you cycle a card. The ability “Whenever you discard a card” is functionally identical to this ability; cycling is mentioned for clarity.]=];};
-    {Date="2017-04-18";Text=[=[If a player discards a card during his or her cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
+    {Date="2017-04-18";Text=[=[If a player discards a card during their cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
 };
 };
 
@@ -6578,7 +8106,7 @@ Types={"Creature"};
 SubTypes={"Fish"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[Whenever Fleet Swallower attacks, target player puts the top half of his or her library, rounded up, into his or her graveyard.]=];
+Text=[=[Whenever Fleet Swallower attacks, target player puts the top half of their library, rounded up, into their graveyard.]=];
 Flavor=[=["Captain, I think that island is following us."]=];
 CardNumber="XLN57";
 Power="6";
@@ -6586,7 +8114,7 @@ Toughness="6";
 MultiverseID=435209;
 Rulings={
     {Date="2017-09-29";Text=[=[Fleet Swallower’s triggered ability can target any player, not just the player it’s attacking.]=];};
-    {Date="2017-09-29";Text=[=[If two Fleet Swallowers attack, each trigger determines the top half of that player’s library separately. For example, if the target player has fifteen cards in his or her library, that player puts the top eight cards into the graveyard, then puts the top four cards into the graveyard.]=];};
+    {Date="2017-09-29";Text=[=[If two Fleet Swallowers attack, each trigger determines the top half of that player’s library separately. For example, if the target player has fifteen cards in their library, that player puts the top eight cards into the graveyard, then puts the top four cards into the graveyard.]=];};
 };
 };
 
@@ -6600,8 +8128,8 @@ Type="Instant";
 Types={"Instant"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[As an additional cost to cast Fling, sacrifice a creature.<br/>
-Fling deals damage equal to the sacrificed creature's power to target creature or player.]=];
+Text=[=[As an additional cost to cast this spell, sacrifice a creature.<br/>
+Fling deals damage equal to the sacrificed creature's power to any target.]=];
 Flavor=[=[Never flinch. Never falter. Never fear.]=];
 CardNumber="AKH132";
 MultiverseID=426834;
@@ -6648,6 +8176,26 @@ Flavor=[=["It usually appears placid, but don't be fooled. The Luxa River is a s
 —Neponem, vizier of Kefnet]=];
 CardNumber="AKH53";
 MultiverseID=426755;
+};
+
+{Name="Forebear's Blade";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}";
+cmc=3;
+Type="Artifact — Equipment";
+Types={"Artifact"};
+SubTypes={"Equipment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Equipped creature gets +3/+0 and has vigilance and trample.<br/>
+Whenever equipped creature dies, attach Forebear's Blade to target creature you control.<br/>
+Equip {{3}}]=];
+CardNumber="DOM214";
+MultiverseID=443102;
+Rulings={
+    {Date="2018-04-27";Text=[=[If there’s no target for the triggered ability of Forebear’s Blade, or if the ability’s target becomes illegal, Forebear’s Blade remains on the battlefield unattached.]=];};
+};
 };
 
 {Name="Forerunner of the Coalition";
@@ -6740,21 +8288,21 @@ Rulings={
 };
 
 {Name="Forest";
-SetCode="RIX";
-Allsets={"RIX";"AKH";"HOU";"XLN";};
+SetCode="DOM";
+Allsets={"DOM";"AKH";"HOU";"XLN";"RIX";};
 Type="Basic Land — Forest";
 SuperTypes={"Basic"};
 Types={"Land"};
 SubTypes={"Forest"};
 Rarity="Basic Land";
 Rarities={"Basic Land"};
-Text=[=[G]=];
-CardNumber="RIX196";
-MultiverseID=439860;
+CardNumber="DOM267";
+MultiverseID=443155;
 Sets={
 {Set="AKH";Rarity="Basic Land";CardNumber="254";};
 {Set="HOU";Rarity="Basic Land";CardNumber="189";};
 {Set="XLN";Rarity="Basic Land";CardNumber="276";};
+{Set="RIX";Rarity="Basic Land";CardNumber="196";};
 };
 };
 
@@ -6804,7 +8352,7 @@ Types={"Land"};
 Rarity="Uncommon";
 Rarities={"Uncommon";"Common";};
 Text=[=[Forsaken Sanctuary enters the battlefield tapped.<br/>
-{{Tap}}: Add {{W}} or {{B}} to your mana pool.]=];
+{{Tap}}: Add {{W}} or {{B}}.]=];
 Flavor=[=[In the galleon's grand cathedral, conquistadors swore vows of faith. In its wreckage, they swore vows of revenge.]=];
 CardNumber="RIX187";
 MultiverseID=439851;
@@ -6822,7 +8370,7 @@ Types={"Land"};
 Rarity="Uncommon";
 Rarities={"Uncommon";"Common";};
 Text=[=[Foul Orchard enters the battlefield tapped.<br/>
-{{Tap}}: Add {{B}} or {{G}} to your mana pool.]=];
+{{Tap}}: Add {{B}} or {{G}}.]=];
 Flavor=[=[The stench of rotting meat lures flies, goblins, and young raptors.]=];
 CardNumber="RIX188";
 MultiverseID=439852;
@@ -6843,14 +8391,33 @@ SubTypes={"Aura";"Curse";};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[Enchant player<br/>
-At the beginning of each end step, enchanted player puts the top X cards of his or her library into his or her graveyard, where X is the number of cards put into that graveyard from anywhere this turn.]=];
+At the beginning of each end step, enchanted player puts the top X cards of their library into their graveyard, where X is the number of cards put into that graveyard from anywhere this turn.]=];
 Flavor=[=[Those wound tightest are first to unravel.]=];
 CardNumber="HOU35";
 MultiverseID=430724;
 Rulings={
     {Date="2017-07-14";Text=[=[Fraying Sanity’s triggered ability counts the number of cards that were put into the enchanted player’s graveyard during the turn, even if Fraying Sanity wasn’t on the battlefield at the time those cards were put there, and even if those cards have left that graveyard.]=];};
-    {Date="2017-07-14";Text=[=[The value of X is determined only as Fraying Sanity’s triggered ability resolves. For example, if three Fraying Sanity Auras are attached to one player who had four cards put into his or her graveyard this turn, X will be four for the first ability to resolve, eight for the second, and sixteen for the third.]=];};
+    {Date="2017-07-14";Text=[=[The value of X is determined only as Fraying Sanity’s triggered ability resolves. For example, if three Fraying Sanity Auras are attached to one player who had four cards put into their graveyard this turn, X will be four for the first ability to resolve, eight for the second, and sixteen for the third.]=];};
 };
+};
+
+{Name="Frenzied Rage";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Enchantment — Aura";
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Enchant creature<br/>
+Enchanted creature gets +2/+1 and has menace. (It can't be blocked except by two or more creatures.)]=];
+Flavor=[=["The heat in our hearts sometimes rises to the surface."<br/>
+—Valduk, keeper of the Flame]=];
+CardNumber="DOM124";
+MultiverseID=443012;
 };
 
 {Name="Frenzied Raptor";
@@ -6882,7 +8449,7 @@ Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[Enrage — Whenever Frilled Deathspitter is dealt damage, it deals 2 damage to target opponent.]=];
+Text=[=[Enrage — Whenever Frilled Deathspitter is dealt damage, it deals 2 damage to target opponent or planeswalker.]=];
 Flavor=[=[Nothing says trouble like a reedy hiss with a hint of liquid gurgle.]=];
 CardNumber="RIX104";
 Power="3";
@@ -6940,6 +8507,88 @@ Rulings={
 };
 };
 
+{Name="Fungal Infection";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{B}}";
+cmc=1;
+Colors={"Black"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target creature gets -1/-1 until end of turn. Create a 1/1 green Saproling creature token.]=];
+Flavor=[=[To thallids, the whole world is just a pile of mulch to grow saprolings in.]=];
+CardNumber="DOM94";
+MultiverseID=442982;
+Rulings={
+    {Date="2018-04-27";Text=[=[If the target creature is an illegal target by the time Fungal Infection tries to resolve, the spell doesn’t resolve. You won’t create a Saproling token.]=];};
+    {Date="2018-04-27";Text=[=[The target creature will be on the battlefield when you create the Saproling token, even if it’s about to die for having 0 toughness or lethal damage. Its abilities may affect the token’s creation or trigger when the token enters the battlefield. Abilities that trigger this way will resolve after the target creature has died.]=];};
+};
+};
+
+{Name="Fungal Plots";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{1}}{{G}}, Exile a creature card from your graveyard: Create a 1/1 green Saproling creature token.<br/>
+Sacrifice two Saprolings: You gain 2 life and draw a card.]=];
+Flavor=[=[Thallids nurture saprolings, entertain them, and eat them.]=];
+CardNumber="DOM160";
+MultiverseID=443048;
+};
+
+{Name="Gaea's Blessing";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Target player shuffles up to three target cards from their graveyard into their library.<br/>
+Draw a card.<br/>
+When Gaea's Blessing is put into your graveyard from your library, shuffle your graveyard into your library.]=];
+CardNumber="DOM161";
+MultiverseID=443049;
+Rulings={
+    {Date="2018-04-27";Text=[=[If Gaea’s Blessing has no legal target cards in a graveyard, either because its targets became illegal or because you didn’t choose any, the target player shuffles their library.]=];};
+    {Date="2018-04-27";Text=[=[If an effect puts multiple cards from your library into your graveyard at once, put all of those cards there before Gaea’s Blessing shuffles your graveyard into your library.]=];};
+};
+};
+
+{Name="Gaea's Protector";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Creature — Elemental Warrior";
+Types={"Creature"};
+SubTypes={"Elemental";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Gaea's Protector must be blocked if able.]=];
+Flavor=[=[Fallen Phyrexians were transmuted into elementals by Gaea long ago, but Yavimaya's other inhabitants still regard them with unease.]=];
+CardNumber="DOM162";
+Power="4";
+Toughness="2";
+MultiverseID=443050;
+Rulings={
+    {Date="2018-04-27";Text=[=[Only one creature is required to block Gaea’s Protector. Other creatures may also block it, and are free to block other creatures or not block at all.]=];};
+    {Date="2018-04-27";Text=[=[The defending player, not you, chooses which creature blocks Gaea’s Protector.]=];};
+    {Date="2018-04-27";Text=[=[If each creature the defending player controls can’t block for any reason (such as being tapped), then Gaea’s Protector isn’t blocked. If there’s a cost associated with blocking Gaea’s Protector, the defending player isn’t forced to pay that cost, so it doesn’t have to be blocked in that case either.]=];};
+};
+};
+
 {Name="Galestrike";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -6956,7 +8605,31 @@ Flavor=[=[Strong wings make strong winds.]=];
 CardNumber="AKH54";
 MultiverseID=426756;
 Rulings={
-    {Date="2017-04-18";Text=[=[If the target creature is an illegal target by the time Galestrike resolves, the entire spell is countered. You won’t draw a card.]=];};
+    {Date="2017-04-18";Text=[=[If the target creature is an illegal target by the time Galestrike resolves, the entire spell doesn’t resolve. You won’t draw a card.]=];};
+};
+};
+
+{Name="Garna, the Bloodflame";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{B}}{{R}}";
+cmc=5;
+Colors={"Black";"Red";};
+Type="Legendary Creature — Human Warrior";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Warrior";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flash<br/>
+When Garna, the Bloodflame enters the battlefield, return to your hand all creature cards in your graveyard that were put there from anywhere this turn.<br/>
+Other creatures you control have haste.]=];
+CardNumber="DOM194";
+Power="3";
+Toughness="3";
+MultiverseID=443082;
+Rulings={
+    {Date="2018-04-27";Text=[=[Which creature cards to return to your hand is determined as Garna’s triggered ability resolves. If Garna somehow finds its way into your graveyard before that, perhaps due to the “legend rule,” it will be returned to your hand.]=];};
 };
 };
 
@@ -7003,6 +8676,72 @@ Rulings={
     {Date="2018-01-19";Text=[=[The total cost to cast Ghalta is locked in before you pay that cost. For example, if you control three 2/2 creatures, including one you can sacrifice to add {C} to your mana pool, the total cost of Ghalta is {4}{G}{G}. Then you can sacrifice the creature when you activate mana abilities just before paying the cost.]=];};
     {Date="2018-01-19";Text=[=[If a creature’s power is somehow less than 0, it subtracts from the total power of your other creatures. If the total power of your creatures is 0 or less, Ghalta’s cost remains {10}{G}{G}.]=];};
     {Date="2018-01-19";Text=[=[Ghalta’s first ability can’t reduce its cost below {G}{G}.]=];};
+};
+};
+
+{Name="Ghitu Chronicler";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Creature — Human Wizard";
+Types={"Creature"};
+SubTypes={"Human";"Wizard";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Kicker {{3}}{{R}} (You may pay an additional {{3}}{{R}} as you cast this spell.)<br/>
+When Ghitu Chronicler enters the battlefield, if it was kicked, return target instant or sorcery card from your graveyard to your hand.]=];
+Flavor=[=["What fire forged, fire remembers."]=];
+CardNumber="DOM125";
+Power="1";
+Toughness="3";
+MultiverseID=443013;
+};
+
+{Name="Ghitu Journeymage";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Creature — Human Wizard";
+Types={"Creature"};
+SubTypes={"Human";"Wizard";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Ghitu Journeymage enters the battlefield, if you control another Wizard, Ghitu Journeymage deals 2 damage to each opponent.]=];
+Flavor=[=[The Ghitu of Shiv are as fierce and uncompromising as their volcanic home.]=];
+CardNumber="DOM126";
+Power="3";
+Toughness="2";
+MultiverseID=443014;
+Rulings={
+    {Date="2018-04-27";Text=[=[Ghitu Journeymage’s ability doesn’t trigger if you don’t control another Wizard immediately after it enters the battlefield. If it does trigger but you don’t control another Wizard as it resolves, it does nothing.]=];};
+    {Date="2018-04-27";Text=[=[Ghitu Journeymage’s triggered ability doesn’t deal more damage if you control more than one other Wizard.]=];};
+    {Date="2018-04-27";Text=[=[In a Two-Headed Giant game, Ghitu Journeymage’s ability causes the opposing team to lose 4 life.]=];};
+};
+};
+
+{Name="Ghitu Lavarunner";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{R}}";
+cmc=1;
+Colors={"Red"};
+Type="Creature — Human Wizard";
+Types={"Creature"};
+SubTypes={"Human";"Wizard";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[As long as there are two or more instant and/or sorcery cards in your graveyard, Ghitu Lavarunner gets +1/+0 and has haste.]=];
+Flavor=[=[Tolarians teach the theory of pyromancy. The Ghitu prefer applied research.]=];
+CardNumber="DOM127";
+Power="1";
+Toughness="2";
+MultiverseID=443015;
+Rulings={
+    {Date="2018-04-27";Text=[=[If Ghitu Lavarunner loses haste after being declared as an attacker on the turn it comes under your control, it will continue to attack. It won’t be removed from combat. On the other hand, if it loses haste before your declare attackers step, it won’t be able to attack.]=];};
 };
 };
 
@@ -7127,6 +8866,22 @@ Rulings={
 };
 };
 
+{Name="Gideon's Reproach";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Gideon's Reproach deals 4 damage to target attacking or blocking creature.]=];
+Flavor=[=[On Amonkhet, Gideon lost both his sural and his faith in himself. But he can still throw a punch, and he still knows a bad guy when he sees one.]=];
+CardNumber="DOM19";
+MultiverseID=442907;
+};
+
 {Name="Gideon's Resolve";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -7143,6 +8898,25 @@ CardNumber="AKH272";
 MultiverseID=429664;
 };
 
+{Name="Gift of Growth";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Kicker {{2}} (You may pay an additional {{2}} as you cast this spell.)<br/>
+Untap target creature. It gets +2/+2 until end of turn. If this spell was kicked, that creature gets +4/+4 until end of turn instead.]=];
+CardNumber="DOM163";
+MultiverseID=443051;
+Rulings={
+    {Date="2018-04-27";Text=[=[If Gift of Growth was kicked, the target creature is untapped before getting +4/+4.]=];};
+};
+};
+
 {Name="Gift of Paradise";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -7156,7 +8930,7 @@ Rarity="Common";
 Rarities={"Common"};
 Text=[=[Enchant land<br/>
 When Gift of Paradise enters the battlefield, you gain 3 life.<br/>
-Enchanted land has "{{Tap}}: Add two mana of any one color to your mana pool."]=];
+Enchanted land has "{{Tap}}: Add two mana of any one color."]=];
 CardNumber="AKH167";
 MultiverseID=426869;
 };
@@ -7198,6 +8972,22 @@ Rulings={
     {Date="2017-07-14";Text=[=[If an ability checks whether you control a Desert or there is a Desert card in your graveyard, having more than one doesn’t matter. Controlling one is the same as controlling five. There is also no extra bonus for both controlling one and having one in your graveyard.]=];};
     {Date="2017-07-14";Text=[=[For abilities that trigger only if you control a Desert or there is a Desert card in your graveyard, one condition must be true as the ability triggers and one must be true as the ability resolves. They don’t have to be the same condition, though. For example, you could sacrifice your only Desert after the ability triggers but before it has resolved.]=];};
 };
+};
+
+{Name="Gilded Lotus";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{5}}";
+cmc=5;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[{{Tap}}: Add three mana of any one color.]=];
+Flavor=[=["The perfection of the lotus reminds me of my hopes for this world . . . and my failures. I will not rest until I've atoned for them."<br/>
+—Karn]=];
+CardNumber="DOM215";
+MultiverseID=443103;
 };
 
 {Name="Gilded Sentinel";
@@ -7251,7 +9041,7 @@ Types={"Creature"};
 SubTypes={"Dinosaur";"Avatar";};
 Rarity="Mythic Rare";
 Rarities={"Mythic Rare"};
-Text=[=[Trample, vigilance, haste<br/>
+Text=[=[Vigilance, trample, haste<br/>
 Whenever Gishath, Sun's Avatar deals combat damage to a player, reveal that many cards from the top of your library. Put any number of Dinosaur creature cards from among them onto the battlefield and the rest on the bottom of your library in a random order.]=];
 CardNumber="XLN222";
 Power="7";
@@ -7270,7 +9060,7 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[Glacial Fortress enters the battlefield tapped unless you control a Plains or an Island.<br/>
-{{Tap}}: Add {{W}} or {{U}} to your mana pool.]=];
+{{Tap}}: Add {{W}} or {{U}}.]=];
 Flavor=[=[Ships blown north in their voyage across the Stormwreck Sea become trapped in the unmelting ice.]=];
 CardNumber="XLN255";
 MultiverseID=435416;
@@ -7291,7 +9081,7 @@ SubTypes={"Wall"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Defender<br/>
-When Gleaming Barrier dies, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
+When Gleaming Barrier dies, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
 Flavor=[=["Gold without freedom might as well be lead."<br/>
 —Angrath]=];
 CardNumber="RIX178";
@@ -7330,7 +9120,7 @@ Type="Instant";
 Types={"Instant"};
 Rarity="Mythic Rare";
 Rarities={"Mythic Rare"};
-Text=[=[End the turn. (Exile all spells and abilities on the stack, including this card. The player whose turn it is discards down to his or her maximum hand size. Damage wears off, and "this turn" and "until end of turn" effects end.)<br/>
+Text=[=[End the turn. (Exile all spells and abilities on the stack, including this card. The player whose turn it is discards down to their maximum hand size. Damage wears off, and "this turn" and "until end of turn" effects end.)<br/>
 At the beginning of your next end step, you lose the game.]=];
 CardNumber="AKH133";
 MultiverseID=426835;
@@ -7423,6 +9213,49 @@ Rulings={
 };
 };
 
+{Name="Goblin Barrage";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Kicker—Sacrifice an artifact or Goblin. (You may sacrifice an artifact or Goblin in addition to any other costs as you cast this spell.)<br/>
+Goblin Barrage deals 4 damage to target creature. If this spell was kicked, it also deals 4 damage to target player or planeswalker.]=];
+CardNumber="DOM128";
+MultiverseID=443016;
+Rulings={
+    {Date="2018-04-27";Text=[=[You can’t cast Goblin Barrage unless you choose a creature as a target, even if it’s kicked. However, you can target a Goblin or artifact creature you control and then sacrifice it to pay the kicker cost. The target player or planeswalker will be dealt 4 damage.]=];};
+};
+};
+
+{Name="Goblin Chainwhirler";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{R}}{{R}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Creature — Goblin Warrior";
+Types={"Creature"};
+SubTypes={"Goblin";"Warrior";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[First strike<br/>
+When Goblin Chainwhirler enters the battlefield, it deals 1 damage to each opponent and each creature and planeswalker they control.]=];
+Flavor=[=["The trick is, once you get moving, don't stop!"]=];
+CardNumber="DOM129";
+Power="3";
+Toughness="3";
+MultiverseID=443017;
+Rulings={
+    {Date="2018-04-27";Text=[=[If the damage Goblin Chainwhirler would deal to a player is prevented, it still deals 1 damage to that player’s creatures and planeswalkers.]=];};
+    {Date="2018-04-27";Text=[=[In a Two-Headed Giant game, the Goblin Chainwhirler’s last ability causes the opposing team to lose 2 life.]=];};
+};
+};
+
 {Name="Goblin Trailblazer";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -7441,6 +9274,29 @@ CardNumber="RIX105";
 Power="2";
 Toughness="1";
 MultiverseID=439762;
+};
+
+{Name="Goblin Warchief";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{R}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Creature — Goblin Warrior";
+Types={"Creature"};
+SubTypes={"Goblin";"Warrior";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Goblin spells you cast cost {{1}} less to cast.<br/>
+Goblins you control have haste.]=];
+Flavor=[=[Not since the days of Pashalik Mons have the Rundvelt goblins been so united or effective.]=];
+CardNumber="DOM130";
+Power="2";
+Toughness="2";
+MultiverseID=443018;
+Rulings={
+    {Date="2018-04-27";Text=[=[Goblin Warchief’s effect reduces only generic mana in the cost of Goblin spells you cast. For example, it doesn’t reduce the cost of Skirk Prospector below {R}.]=];};
+};
 };
 
 {Name="God-Pharaoh's Faithful";
@@ -7544,7 +9400,7 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[(Transforms from Golden Guardian.)<br/>
-{{Tap}}: Add two mana of any one color to your mana pool.<br/>
+{{Tap}}: Add two mana of any one color.<br/>
 {{4}}, {{Tap}}: Create a 4/4 colorless Golem artifact creature token.]=];
 Flavor=[=[An army of living gold for the golden city.]=];
 CardNumber="RIX179b";
@@ -7591,6 +9447,31 @@ Toughness="2";
 MultiverseID=429665;
 };
 
+{Name="Grand Warlord Radha";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{R}}{{G}}";
+cmc=4;
+Colors={"Red";"Green";};
+Type="Legendary Creature — Elf Warrior";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Elf";"Warrior";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Haste<br/>
+Whenever one or more creatures you control attack, add that much mana in any combination of {{R}} and/or {{G}}. Until end of turn, you don't lose this mana as steps and phases end.]=];
+Flavor=[=["The future is my gift to Keld."]=];
+CardNumber="DOM195";
+Power="3";
+Toughness="4";
+MultiverseID=443083;
+Rulings={
+    {Date="2018-04-27";Text=[=[The amount of mana you’ll add is the number of creatures you attack with. Creatures that are put onto the battlefield attacking before Radha’s triggered ability resolves don’t count, and creatures that attacked but left combat before the triggered ability resolves do count.]=];};
+    {Date="2018-04-27";Text=[=[After Radha’s triggered ability resolves, you can cast spells and activate abilities before blockers are declared.]=];};
+};
+};
+
 {Name="Granitic Titan";
 SetCode="HOU";
 Allsets={"HOU"};
@@ -7627,7 +9508,7 @@ Search your library and/or graveyard for a card named Jace, Ingenious Mind-Mage,
 CardNumber="XLN282";
 MultiverseID=435443;
 Rulings={
-    {Date="2017-09-29";Text=[=[You may cast Grasping Current without choosing any target creatures. You’ll just search for Jace, Ingenious Mind-Mage. However, if you choose any targets and all of those targets become illegal before Grasping Current resolves, the spell will be countered and you won’t search.]=];};
+    {Date="2017-09-29";Text=[=[You may cast Grasping Current without choosing any target creatures. You’ll just search for Jace, Ingenious Mind-Mage. However, if you choose any targets and all of those targets become illegal before Grasping Current resolves, the spell won’t resolve and you won’t search.]=];};
 };
 };
 
@@ -7639,7 +9520,7 @@ Types={"Land"};
 SubTypes={"Desert"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[{{Tap}}: Add {{C}} to your mana pool.<br/>
+Text=[=[{{Tap}}: Add {{C}}.<br/>
 {{1}}, {{Tap}}, Sacrifice Grasping Dunes: Put a -1/-1 counter on target creature. Activate this ability only any time you could cast a sorcery.]=];
 CardNumber="AKH244";
 MultiverseID=426946;
@@ -7844,8 +9725,24 @@ Rulings={
     {Date="2017-04-18";Text=[=[Some cards have an ability that triggers whenever you cycle any card. These triggered abilities resolve before you draw from the cycling ability.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you discard a card doesn’t give you permission to discard cards. You’ll need another effect that instructs or allows you to discard them.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you “cycle or discard” a card triggers only once if you cycle a card. The ability “Whenever you discard a card” is functionally identical to this ability; cycling is mentioned for clarity.]=];};
-    {Date="2017-04-18";Text=[=[If a player discards a card during his or her cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
+    {Date="2017-04-18";Text=[=[If a player discards a card during their cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
 };
+};
+
+{Name="Grow from the Ashes";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Kicker {{2}} (You may pay an additional {{2}} as you cast this spell.)<br/>
+Search your library for a basic land card, put it onto the battlefield, then shuffle your library. If this spell was kicked, instead search your library for two basic land cards, put them onto the battlefield, then shuffle your library.]=];
+CardNumber="DOM164";
+MultiverseID=443052;
 };
 
 {Name="Growing Rites of Itlimoc";
@@ -7888,6 +9785,53 @@ CardNumber="RIX75";
 MultiverseID=439732;
 Rulings={
     {Date="2018-01-19";Text=[=[In a Two-Headed Giant game, Gruesome Fate causes the opposing team to lose 2 life for each creature you control.]=];};
+};
+};
+
+{Name="Grunn, the Lonely King";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{G}}{{G}}";
+cmc=6;
+Colors={"Green"};
+Type="Legendary Creature — Ape Warrior";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Ape";"Warrior";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Kicker {{3}} (You may pay an additional {{3}} as you cast this spell.)<br/>
+If Grunn, the Lonely King was kicked, it enters the battlefield with five +1/+1 counters on it.<br/>
+Whenever Grunn attacks alone, double its power and toughness until end of turn.]=];
+CardNumber="DOM165";
+Power="5";
+Toughness="5";
+MultiverseID=443053;
+Rulings={
+    {Date="2018-04-27";Text=[=[If an effect instructs you to “double” a creature’s power, that creature gets +X/+0, where X is its power. The same is true for its toughness.]=];};
+    {Date="2018-04-27";Text=[=[If a creature’s power is less than 0 when it’s doubled, instead that creature gets -X/-0, where X is how much less than 0 its power is. For example, if an effect has given Grunn -7/-0 so that it’s a -2/5 creature, doubling its power and toughness gives it -2/+5, and it’s a -4/10 until end of turn.]=];};
+    {Date="2018-04-27";Text=[=[A creature attacks alone if it’s the only creature declared as an attacker during the declare attackers step (including creatures controlled by your teammates, if applicable). For example, Grunn’s last ability won’t trigger if you attack with multiple creatures and all but one of them are removed from combat.]=];};
+};
+};
+
+{Name="Guardians of Koilos";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{5}}";
+cmc=5;
+Type="Artifact Creature — Construct";
+Types={"Artifact";"Creature";};
+SubTypes={"Construct"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Guardians of Koilos enters the battlefield, you may return another target historic permanent you control to its owner's hand. (Artifacts, legendaries, and Sagas are historic.)]=];
+Flavor=[=[Archaeologists depend on automatons inspired by their previous discoveries at Koilos to guard the excavations.]=];
+CardNumber="DOM216";
+Power="4";
+Toughness="4";
+MultiverseID=443104;
+Rulings={
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
 };
 };
 
@@ -7936,6 +9880,31 @@ Rulings={
 };
 };
 
+{Name="Hallar, the Firefletcher";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{R}}{{G}}";
+cmc=3;
+Colors={"Red";"Green";};
+Type="Legendary Creature — Elf Archer";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Elf";"Archer";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Trample<br/>
+Whenever you cast a spell, if that spell was kicked, put a +1/+1 counter on Hallar, the Firefletcher, then Hallar deals damage equal to the number of +1/+1 counters on it to each opponent.]=];
+CardNumber="DOM196";
+Power="3";
+Toughness="3";
+MultiverseID=443084;
+Rulings={
+    {Date="2018-04-27";Text=[=[Hallar’s last ability resolves before the spell that caused it to trigger. It resolves even if that spell is countered.]=];};
+    {Date="2018-04-27";Text=[=[If Hallar leaves the battlefield after its last ability has triggered but before it resolves, you don’t put a +1/+1 counter on anything as the ability resolves, but you do use the number of +1/+1 counters that were on Hallar before it left the battlefield to determine how much damage it deals to each opponent.]=];};
+    {Date="2018-04-27";Text=[=[In a Two-Headed Giant game, Hallar’s last ability causes the opposing team to lose 2 life for each +1/+1 counter on it.]=];};
+};
+};
+
 {Name="Hapatra, Vizier of Poisons";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -7979,6 +9948,28 @@ CardNumber="AKH169";
 MultiverseID=426871;
 Rulings={
     {Date="2017-04-18";Text=[=[You can target a creature with no -1/-1 counters on it. It will still gain hexproof.]=];};
+};
+};
+
+{Name="Haphazard Bombardment";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{5}}{{R}}";
+cmc=6;
+Colors={"Red"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[When Haphazard Bombardment enters the battlefield, choose four nonenchantment permanents you don't control and put an aim counter on each of them.<br/>
+At the beginning of your end step, if two or more permanents you don't control have an aim counter on them, destroy one of those permanents at random.]=];
+CardNumber="DOM131";
+MultiverseID=443019;
+Rulings={
+    {Date="2018-04-27";Text=[=[The nonenchantment permanents that receive aim counters aren’t targeted. Permanents with hexproof can be given an aim counter this way.]=];};
+    {Date="2018-04-27";Text=[=[Aim counters are interchangeable. Your Haphazard Bombardment can destroy any permanent you don’t control with an aim counter on it no matter how that counter got there—for example, those aim counters may have come from a second Haphazard Bombardment that you or another opponent cast.]=];};
+    {Date="2018-04-27";Text=[=[Players can’t take actions between the time the permanent is randomly selected and the time it’s destroyed. Notably, if a land is randomly selected, it can’t be tapped for mana before being destroyed.]=];};
+    {Date="2018-04-27";Text=[=[If one or more of the permanents with aim counters on them have indestructible, select the permanent destroyed at random from among the permanents with aim counters that don’t have indestructible.]=];};
 };
 };
 
@@ -8070,8 +10061,8 @@ Types={"Land"};
 SubTypes={"Desert"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[{{Tap}}: Add {{C}} to your mana pool.<br/>
-{{Tap}}, Pay 1 life: Add {{G}} to your mana pool.<br/>
+Text=[=[{{Tap}}: Add {{C}}.<br/>
+{{Tap}}, Pay 1 life: Add {{G}}.<br/>
 {{1}}{{G}}{{G}}, {{Tap}}, Sacrifice a Desert: Target creature gets +3/+3 until end of turn. Activate this ability only any time you could cast a sorcery.]=];
 CardNumber="HOU177";
 MultiverseID=430866;
@@ -8179,7 +10170,7 @@ MultiverseID=430785;
 Rulings={
     {Date="2017-07-14";Text=[=[Each individual spell you cast this way must have converted mana cost 5 or less. Their total converted mana cost could be greater.]=];};
     {Date="2017-07-14";Text=[=[No player may take any actions between the time you shuffle your library and the time you exile the top four cards.]=];};
-    {Date="2017-07-14";Text=[=[If you cast a card “without paying its mana cost,” you can’t pay any alternative costs, such as emerge costs. You can, however, pay additional costs. If the card has any mandatory additional costs, such as that of Tormenting Voice, you must pay those to cast the card.]=];};
+    {Date="2017-07-14";Text=[=[If you cast a card “without paying its mana cost,” you can’t choose to cast it for any alternative costs, such as emerge costs. You can, however, pay additional costs. If the card has any mandatory additional costs, such as that of Tormenting Voice, you must pay those to cast the card.]=];};
     {Date="2017-07-14";Text=[=[If the card has {X} in its mana cost, you must choose 0 as the value of X when casting it without paying its mana cost.]=];};
     {Date="2017-07-14";Text=[=[If any abilities trigger as you cast any of those cards, they won’t be put on the stack until after you’re done casting them. They’ll resolve before any of those spells.]=];};
     {Date="2017-07-14";Text=[=[If you cast any of those cards, you do so as part of the resolution of Hazoret’s Undying Fury. You can’t wait to cast them later in the turn.]=];};
@@ -8228,6 +10219,28 @@ Toughness="5";
 MultiverseID=435210;
 };
 
+{Name="Healing Grace";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{W}}";
+cmc=1;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Prevent the next 3 damage that would be dealt to any target this turn by a source of your choice. You gain 3 life.]=];
+Flavor=[=["Whatever faith you have in Serra, she has more in you."<br/>
+—Lyra Dawnbringer]=];
+CardNumber="DOM20";
+MultiverseID=442908;
+Rulings={
+    {Date="2018-04-27";Text=[=[Healing Grace only targets the creature, planeswalker, or player that will receive the damage prevention “shield.” The source isn’t targeted.]=];};
+    {Date="2018-04-27";Text=[=[You choose only one source, even if that source won’t deal 3 damage.]=];};
+    {Date="2018-04-27";Text=[=[You gain 3 life as Healing Grace resolves, even if there’s no damage to prevent.]=];};
+};
+};
+
 {Name="Heartless Pillage";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -8239,7 +10252,7 @@ Types={"Sorcery"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
 Text=[=[Target opponent discards two cards.<br/>
-Raid — If you attacked with a creature this turn, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
+Raid — If you attacked with a creature this turn, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
 CardNumber="XLN109";
 MultiverseID=435263;
 Rulings={
@@ -8260,7 +10273,7 @@ Types={"Creature"};
 SubTypes={"Manticore"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[When Heart-Piercer Manticore enters the battlefield, you may sacrifice another creature. When you do, Heart-Piercer Manticore deals damage equal to that creature's power to target creature or player.<br/>
+Text=[=[When Heart-Piercer Manticore enters the battlefield, you may sacrifice another creature. When you do, Heart-Piercer Manticore deals damage equal to that creature's power to any target.<br/>
 Embalm {{5}}{{R}} ({{5}}{{R}}, Exile this card from your graveyard: Create a token that's a copy of it, except it's a white Zombie Manticore with no mana cost. Embalm only as a sorcery.)]=];
 CardNumber="AKH138";
 Power="4";
@@ -8269,7 +10282,7 @@ MultiverseID=426840;
 Rulings={
     {Date="2017-04-18";Text=[=[The sacrificed creature’s last known existence on the battlefield is checked to determine its power.]=];};
     {Date="2017-04-18";Text=[=[You can’t sacrifice multiple creatures to deal damage multiple times.]=];};
-    {Date="2017-04-18";Text=[=[Heart-Piercer Manticore features a new style of triggered ability. When it enters the battlefield, its triggered ability goes on the stack without a target. While that ability is resolving, you may sacrifice a creature. If you do, a second ability triggers and you pick a target creature or player that will be dealt damage. This is different from other abilities that say “If you do . . .” in that players may cast spells and activate abilities before a creature is sacrificed and then again after the creature is sacrificed but before damage is dealt.]=];};
+    {Date="2017-04-18";Text=[=[Heart-Piercer Manticore features a new style of triggered ability. When it enters the battlefield, its triggered ability goes on the stack without a target. While that ability is resolving, you may sacrifice a creature. If you do, a second ability triggers and you pick a target that will be dealt damage. This is different from other abilities that say “If you do . . .” in that players may cast spells and activate abilities before a creature is sacrificed and then again after the creature is sacrificed but before damage is dealt.]=];};
     {Date="2017-04-18";Text=[=[Heart-Piercer Manticore’s damage-dealing ability triggers only when you sacrifice a creature as a result of the instruction of its triggered ability. It won’t trigger if you sacrifice a creature for any other reason.]=];};
     {Date="2017-04-18";Text=[=[For each card with embalm, a corresponding game play supplement token can be found in some Amonkhet booster packs. These supplements are not required to play with cards with embalm; you can use the same items to represent an embalmed token as you would any other token.]=];};
     {Date="2017-04-18";Text=[=[The token copies exactly what was printed on the original card and nothing else. It doesn’t copy any information about the object the card was before it was put into your graveyard.]=];};
@@ -8328,7 +10341,35 @@ Rulings={
     {Date="2017-04-18";Text=[=[Some cards have an ability that triggers whenever you cycle any card. These triggered abilities resolve before you draw from the cycling ability.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you discard a card doesn’t give you permission to discard cards. You’ll need another effect that instructs or allows you to discard them.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you “cycle or discard” a card triggers only once if you cycle a card. The ability “Whenever you discard a card” is functionally identical to this ability; cycling is mentioned for clarity.]=];};
-    {Date="2017-04-18";Text=[=[If a player discards a card during his or her cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
+    {Date="2017-04-18";Text=[=[If a player discards a card during their cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
+};
+};
+
+{Name="Helm of the Host";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}";
+cmc=4;
+Type="Legendary Artifact — Equipment";
+SuperTypes={"Legendary"};
+Types={"Artifact"};
+SubTypes={"Equipment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[At the beginning of combat on your turn, create a token that's a copy of equipped creature, except the token isn't legendary if equipped creature is legendary. That token gains haste.<br/>
+Equip {{5}}]=];
+Flavor=[=[Forged out of flowstone for the queen of Vesuva.]=];
+CardNumber="DOM217";
+MultiverseID=443105;
+Rulings={
+    {Date="2018-04-27";Text=[=[The token copies exactly what was printed on the original creature and nothing else (unless that creature is copying something else or is a token; see below). It doesn’t copy whether that creature is tapped or untapped, whether it has any counters on it or Auras and Equipment attached to it, or any non-copy effects that have changed its power, toughness, types, color, and so on.]=];};
+    {Date="2018-04-27";Text=[=[The token isn’t legendary, and this exception is copiable. If something else copies the token later, that copy also won’t be legendary. If you control two or more permanents with the same name but only one is legendary, the “legend rule” doesn’t apply.]=];};
+    {Date="2018-04-27";Text=[=[The token gains haste indefinitely, and this effect isn’t copiable. If something else copies the token later, that copy won’t have haste.]=];};
+    {Date="2018-04-27";Text=[=[If the copied creature has {X} in its mana cost, X is considered to be 0.]=];};
+    {Date="2018-04-27";Text=[=[If the copied creature is a token, the token that’s created copies the original characteristics of that token as stated by the effect that created that token.]=];};
+    {Date="2018-04-27";Text=[=[If the copied creature is copying something else (for example, if the copied creature is a Clone), then the token enters the battlefield as whatever that creature copied.]=];};
+    {Date="2018-04-27";Text=[=[Any enters-the-battlefield abilities of the copied creature will trigger when the token enters the battlefield. Any “as [this creature] enters the battlefield” or “[this creature] enters the battlefield with” abilities of the chosen creature will also work.]=];};
+    {Date="2018-04-27";Text=[=[If the equipped creature leaves the battlefield before the triggered ability of Helm of the Host resolves, or if there is no equipped creature, no token is created. However, if Helm of the Host leaves the battlefield while its triggered ability is on the stack, a token will be created of the creature it last equipped. If that creature has also left the battlefield, its last known information is used to determine what the token looks like.]=];};
 };
 };
 
@@ -8381,7 +10422,7 @@ Types={"Artifact"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[When Hierophant's Chalice enters the battlefield, target opponent loses 1 life and you gain 1 life.<br/>
-{{Tap}}: Add {{C}} to your mana pool.]=];
+{{Tap}}: Add {{C}}.]=];
 Flavor=[=[In the Rite of Redemption, nobles take the same vows as Elenda, the first vampire, and make the same eternal sacrifice.]=];
 CardNumber="XLN240";
 MultiverseID=435398;
@@ -8395,7 +10436,7 @@ Types={"Land"};
 Rarity="Uncommon";
 Rarities={"Uncommon";"Common";};
 Text=[=[Highland Lake enters the battlefield tapped.<br/>
-{{Tap}}: Add {{U}} or {{R}} to your mana pool.]=];
+{{Tap}}: Add {{U}} or {{R}}.]=];
 Flavor=[=["A place like this makes me wonder if there's more to life than blood and treasure . . . Nah."<br/>
 —Boyl Bucksalt, Storm Fleet swab]=];
 CardNumber="RIX189";
@@ -8424,6 +10465,49 @@ Rulings={
 };
 };
 
+{Name="Hinterland Harbor";
+SetCode="DOM";
+Allsets={"DOM"};
+Type="Land";
+Types={"Land"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Hinterland Harbor enters the battlefield tapped unless you control a Forest or an Island.<br/>
+{{Tap}}: Add {{G}} or {{U}}.]=];
+Flavor=[=["Our ancestors brought down a Phyrexian portal ship, then built our town on its hull. We're pretty proud of that."<br/>
+—Alene of Riverspan]=];
+CardNumber="DOM240";
+MultiverseID=443128;
+};
+
+{Name="History of Benalia";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{W}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Enchantment — Saga";
+Types={"Enchantment"};
+SubTypes={"Saga"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)<br/>
+I, II — Create a 2/2 white Knight creature token with vigilance.<br/>
+III — Knights you control get +2/+1 until end of turn.]=];
+CardNumber="DOM21";
+MultiverseID=442909;
+Rulings={
+    {Date="2018-04-27";Text=[=[The final chapter ability of History of Benalia affects only Knights you control at the time it resolves. Creatures you begin to control later in the turn or that become Knights later in the turn won’t get +2/+1.]=];};
+    {Date="2018-04-27";Text=[=[As a Saga enters the battlefield, its controller puts a lore counter on it. As your precombat main phase begins (immediately after your draw step), you put another lore counter on each Saga you control. Putting a lore counter on a Saga in either of these ways doesn’t use the stack.]=];};
+    {Date="2018-04-27";Text=[=[Each symbol on the left of a Saga’s text box represents a chapter ability. A chapter ability is a triggered ability that triggers when a lore counter that is put on the Saga causes the number of lore counters on the Saga to become equal to or greater than the ability’s chapter number. Chapter abilities are put onto the stack and may be responded to.]=];};
+    {Date="2018-04-27";Text=[=[A chapter ability doesn’t trigger if a lore counter is put on a Saga that already had a number of lore counters greater than or equal to that chapter’s number. For example, the third lore counter put on a Saga causes the III chapter ability to trigger, but I and II won’t trigger again.]=];};
+    {Date="2018-04-27";Text=[=[Once a chapter ability has triggered, the ability on the stack won’t be affected if the Saga gains or loses counters, or if it leaves the battlefield.]=];};
+    {Date="2018-04-27";Text=[=[If multiple chapter abilities trigger at the same time, their controller puts them on the stack in any order. If any of them require targets, those targets are chosen as you put the abilities on the stack, before any of those abilities resolve.]=];};
+    {Date="2018-04-27";Text=[=[If counters are removed from a Saga, the appropriate chapter abilities will trigger again when the Saga receives lore counters. Removing lore counters won’t cause a previous chapter ability to trigger.]=];};
+    {Date="2018-04-27";Text=[=[Once the number of lore counters on a Saga is greater than or equal to the greatest number among its chapter abilities—in the Dominaria set, this is always three—the Saga’s controller sacrifices it as soon as its chapter ability has left the stack, most likely by resolving or being countered. This state-based action doesn’t use the stack.]=];};
+};
+};
+
 {Name="Hollow One";
 SetCode="HOU";
 Allsets={"HOU"};
@@ -8434,7 +10518,7 @@ Types={"Artifact";"Creature";};
 SubTypes={"Golem"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[Hollow One costs {{2}} less to cast for each card you've cycled or discarded this turn.<br/>
+Text=[=[This spell costs {{2}} less to cast for each card you've cycled or discarded this turn.<br/>
 Cycling {{2}} ({{2}}, Discard this card: Draw a card.)]=];
 Flavor=[=[The embodiment of yearning, forever drifting the deserts to find what had once made it whole.]=];
 CardNumber="HOU163";
@@ -8446,6 +10530,26 @@ Rulings={
     {Date="2017-07-14";Text=[=[Once you’ve discarded three cards, Hollow One costs {0} to cast. It won’t stop at {1} or cost negative amounts of mana.]=];};
     {Date="2017-07-14";Text=[=[Hollow One’s first ability doesn’t give you permission to discard cards. You’ll need another effect that instructs or allows you to discard them.]=];};
 };
+};
+
+{Name="Homarid Explorer";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Creature — Homarid Scout";
+Types={"Creature"};
+SubTypes={"Homarid";"Scout";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Homarid Explorer enters the battlefield, target player puts the top four cards of their library into their graveyard.]=];
+Flavor=[=["Homarids spread northward from Sarpadia as the climate cooled, raiding coastal settlements for supplies."<br/>
+—Time of Ice]=];
+CardNumber="DOM53";
+Power="3";
+Toughness="3";
+MultiverseID=442941;
 };
 
 {Name="Honed Khopesh";
@@ -8572,7 +10676,7 @@ Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[Counter target creature spell. You create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
+Text=[=[Counter target creature spell. You create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
 Flavor=[=[Being a merciful pirate, she saved the vampire's gold from falling overboard.]=];
 CardNumber="RIX39";
 MultiverseID=439696;
@@ -8603,7 +10707,7 @@ Rulings={
     {Date="2017-04-18";Text=[=[Some cards have an ability that triggers whenever you cycle any card. These triggered abilities resolve before you draw from the cycling ability.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you discard a card doesn’t give you permission to discard cards. You’ll need another effect that instructs or allows you to discard them.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you “cycle or discard” a card triggers only once if you cycle a card. The ability “Whenever you discard a card” is functionally identical to this ability; cycling is mentioned for clarity.]=];};
-    {Date="2017-04-18";Text=[=[If a player discards a card during his or her cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
+    {Date="2017-04-18";Text=[=[If a player discards a card during their cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
 };
 };
 
@@ -8643,7 +10747,7 @@ Types={"Land"};
 SubTypes={"Desert"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[{{Tap}}: Add {{C}} to your mana pool.<br/>
+Text=[=[{{Tap}}: Add {{C}}.<br/>
 {{2}}, Exile a land card from your graveyard: Hostile Desert becomes a 3/4 Elemental creature until end of turn. It's still a land.]=];
 Flavor=[=[Amonkhet's desiccated land thirsts for blood.]=];
 CardNumber="HOU178";
@@ -8709,12 +10813,12 @@ Type="Instant";
 Types={"Instant"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[Exile target creature. If that creature was a God, its controller reveals his or her hand and exiles all cards from it with the same name as that creature.]=];
+Text=[=[Exile target creature. If that creature was a God, its controller reveals their hand and exiles all cards from it with the same name as that creature.]=];
 Flavor=[=[The gods of the trials also faced the opportunity to prove themselves worthy.]=];
 CardNumber="HOU65";
 MultiverseID=430754;
 Rulings={
-    {Date="2017-07-14";Text=[=[If the target creature is an illegal target by the time Hour of Glory resolves, the entire spell is countered. No player reveals his or her hand or exiles cards from it.]=];};
+    {Date="2017-07-14";Text=[=[If the target creature is an illegal target by the time Hour of Glory resolves, the entire spell doesn’t resolve. No player reveals their hand or exiles cards from it.]=];};
     {Date="2018-01-19";Text=[=[There are many important moments in the story, but the most crucial—called “story spotlights”—are shown on cards. These cards have the Planeswalker symbol in their text box; this symbol has no effect on gameplay. You can read more about these events in the official Magic fiction at http://www.mtgstory.com.]=];};
 };
 };
@@ -8749,7 +10853,7 @@ Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[Hour of Revelation costs {{3}} less to cast if there are ten or more nonland permanents on the battlefield.<br/>
+Text=[=[This spell costs {{3}} less to cast if there are ten or more nonland permanents on the battlefield.<br/>
 Destroy all nonland permanents.]=];
 Flavor=[=[In the first moments, the gate to the afterlife opened, and the people were prostrate in the light of the God-Pharaoh.]=];
 CardNumber="HOU15";
@@ -8757,6 +10861,27 @@ MultiverseID=430704;
 Rulings={
     {Date="2017-07-14";Text=[=[You determine the cost to cast Hour of Revelation before you pay any of that cost. For example, if the only nonland permanents on the battlefield are Tezzeret the Schemer and nine Etherium Cells he’s given you, Hour of Revelation costs {W}{W}{W} to cast. You may sacrifice three Etherium Cells to pay this cost, even though there are no longer ten or more nonland permanents after you produce {W}{W}{W}.]=];};
     {Date="2018-01-19";Text=[=[There are many important moments in the story, but the most crucial—called “story spotlights”—are shown on cards. These cards have the Planeswalker symbol in their text box; this symbol has no effect on gameplay. You can read more about these events in the official Magic fiction at http://www.mtgstory.com.]=];};
+};
+};
+
+{Name="Howling Golem";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}";
+cmc=3;
+Type="Artifact Creature — Golem";
+Types={"Artifact";"Creature";};
+SubTypes={"Golem"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever Howling Golem attacks or blocks, each player draws a card.]=];
+Flavor=[=[It wails of buried riches and the souls lost seeking them.]=];
+CardNumber="DOM218";
+Power="2";
+Toughness="3";
+MultiverseID=443106;
+Rulings={
+    {Date="2018-04-27";Text=[=[After Howling Golem’s triggered ability resolves, players can cast spells and activate abilities before blockers are declared if it’s attacking, or before damage is dealt if it’s blocking.]=];};
 };
 };
 
@@ -8830,7 +10955,7 @@ Rulings={
     {Date="2017-09-29";Text=[=[The greatest power among creatures you control is determined as Huatli’s first ability resolves. If that number is negative, you won’t gain or lose any life.]=];};
     {Date="2017-09-29";Text=[=[You can activate Huatli’s first ability even if you control no creatures. You simply won’t gain any life.]=];};
     {Date="2017-09-29";Text=[=[You divide the damage among the target creatures as you activate Huatli’s last ability. Each target must be assigned at least 1 damage. If X is 0, you can’t choose any targets.]=];};
-    {Date="2017-09-29";Text=[=[If some (but not all) of the targets become illegal, the original division of damage still applies, but no damage is dealt to illegal targets. If all targets become illegal, the ability will be countered.]=];};
+    {Date="2017-09-29";Text=[=[If some (but not all) of the targets become illegal, the original division of damage still applies, but no damage is dealt to illegal targets. If all targets become illegal, the ability won’t resolve.]=];};
 };
 };
 
@@ -8912,6 +11037,24 @@ Toughness="4";
 MultiverseID=426841;
 };
 
+{Name="Icy Manipulator";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}";
+cmc=4;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{1}}, {{Tap}}: Tap target artifact, creature, or land.]=];
+Flavor=[=[Ice may thaw, but malice never does.]=];
+CardNumber="DOM219";
+MultiverseID=443107;
+Rulings={
+    {Date="2018-04-27";Text=[=[Once a player announces that they’re casting a spell or activating an ability, no player may take other actions until the spell or ability has been paid for. Notably, other players can’t try to tap that player’s permanents to stop them from paying {Tap} or to stop them from producing enough mana.]=];};
+};
+};
+
 {Name="Ifnir Deadlands";
 SetCode="HOU";
 Allsets={"HOU"};
@@ -8920,8 +11063,8 @@ Types={"Land"};
 SubTypes={"Desert"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[{{Tap}}: Add {{C}} to your mana pool.<br/>
-{{Tap}}, Pay 1 life: Add {{B}} to your mana pool.<br/>
+Text=[=[{{Tap}}: Add {{C}}.<br/>
+{{Tap}}, Pay 1 life: Add {{B}}.<br/>
 {{2}}{{B}}{{B}}, {{Tap}}, Sacrifice a Desert: Put two -1/-1 counters on target creature an opponent controls. Activate this ability only any time you could cast a sorcery.]=];
 CardNumber="HOU179";
 MultiverseID=430868;
@@ -8964,14 +11107,14 @@ Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[Creatures target opponent controls attack this turn if able. During that player's next untap step, creatures he or she controls don't untap.<br/>
+Text=[=[Creatures target opponent controls attack this turn if able. During that player's next untap step, creatures they control don't untap.<br/>
 Cycling {{2}} ({{2}}, Discard this card: Draw a card.)]=];
 Flavor=[=[Liliana always knew Jace's illusions would come in handy.]=];
 CardNumber="HOU37";
 MultiverseID=430726;
 Rulings={
-    {Date="2017-07-14";Text=[=[No creatures that player controls will untap during his or her next untap step, even creatures that don’t attack. This includes creatures that enter the battlefield or become tapped after this spell resolves.]=];};
-    {Date="2017-07-14";Text=[=[If the opponent exerts any creatures he or she controls, exert and the effect from Imaginary Threats stopping them from untapping both apply in the same untap step. Those creatures will untap as normal in the player’s subsequent untap step.]=];};
+    {Date="2017-07-14";Text=[=[No creatures that player controls will untap during their next untap step, even creatures that don’t attack. This includes creatures that enter the battlefield or become tapped after this spell resolves.]=];};
+    {Date="2017-07-14";Text=[=[If the opponent exerts any creatures they control, exert and the effect from Imaginary Threats stopping them from untapping both apply in the same untap step. Those creatures will untap as normal in the player’s subsequent untap step.]=];};
     {Date="2017-07-14";Text=[=[If, during that player’s declare attackers step, a creature that player controls is tapped or is affected by a spell or ability that says it can’t attack, then it doesn’t attack. If there’s a cost associated with having a creature attack, its controller isn’t forced to pay that cost, so it doesn’t have to attack in that case either.]=];};
 };
 };
@@ -8987,7 +11130,7 @@ Types={"Enchantment"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[Imminent Doom enters the battlefield with a doom counter on it.<br/>
-Whenever you cast a spell with converted mana cost equal to the number of doom counters on Imminent Doom, Imminent Doom deals that much damage to target creature or player. Then put a doom counter on Imminent Doom.]=];
+Whenever you cast a spell with converted mana cost equal to the number of doom counters on Imminent Doom, Imminent Doom deals that much damage to any target. Then put a doom counter on Imminent Doom.]=];
 CardNumber="HOU98";
 MultiverseID=430787;
 Rulings={
@@ -9096,6 +11239,32 @@ Rulings={
 };
 };
 
+{Name="In Bolas's Clutches";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{U}}{{U}}";
+cmc=6;
+Colors={"Blue"};
+Type="Legendary Enchantment — Aura";
+SuperTypes={"Legendary"};
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Enchant permanent<br/>
+You control enchanted permanent.<br/>
+Enchanted permanent is legendary.]=];
+Flavor=[=["Your contract is in default. You belong to me now. Serve, or die."<br/>
+—Nicol Bolas]=];
+CardNumber="DOM54";
+MultiverseID=442942;
+Rulings={
+    {Date="2018-04-27";Text=[=[Gaining control of a permanent doesn’t cause you to gain control of any Auras or Equipment attached to it. They’ll remain attached, but an Aura’s effect that affects “you” still affects its controller rather than you, the controller of an Equipment can move it during their next main phase, and so on.]=];};
+    {Date="2018-04-27";Text=[=[If you control two In Bolas’s Clutches attached to two permanents with the same name, the “legend rule” applies to the enchanted permanents and to In Bolas’s Clutches at once. You can choose to keep the In Bolas’s Clutches that enchants the permanent you wish to keep.]=];};
+    {Date="2018-04-27";Text=[=[If you control two or more permanents with the same name but only one is legendary, the “legend rule” doesn’t apply.]=];};
+};
+};
+
 {Name="In Oketra's Name";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -9126,7 +11295,7 @@ Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[When Induced Amnesia enters the battlefield, target player exiles all cards from his or her hand face down, then draws that many cards.<br/>
+Text=[=[When Induced Amnesia enters the battlefield, target player exiles all cards from their hand face down, then draws that many cards.<br/>
 When Induced Amnesia is put into a graveyard from the battlefield, return the exiled cards to their owner's hand.]=];
 CardNumber="RIX40";
 MultiverseID=439697;
@@ -9148,7 +11317,7 @@ Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[Inferno Jet deals 6 damage to target opponent.<br/>
+Text=[=[Inferno Jet deals 6 damage to target opponent or planeswalker.<br/>
 Cycling {{2}} ({{2}}, Discard this card: Draw a card.)]=];
 Flavor=[=["When the whole world is crazy, it's important to find something you can rely on."]=];
 CardNumber="HOU99";
@@ -9186,7 +11355,7 @@ Types={"Sorcery"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[Aftermath (Cast this spell only from your graveyard. Then exile it.)<br/>
-Injury deals 2 damage to target creature and 2 damage to target player.]=];
+Injury deals 2 damage to target creature and 2 damage to target player or planeswalker.]=];
 CardNumber="AKH213b";
 MultiverseID=426915;
 Rulings={
@@ -9244,6 +11413,26 @@ Rulings={
 };
 };
 
+{Name="Invoke the Divine";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Destroy target artifact or enchantment. You gain 4 life.]=];
+Flavor=[=["Let go of all that harms you. Cast your burdens into the darkness, and build for the faithful a house of light."<br/>
+—Song of All, canto 1008]=];
+CardNumber="DOM22";
+MultiverseID=442910;
+Rulings={
+    {Date="2018-04-27";Text=[=[If the target artifact or enchantment is an illegal target by the time Invoke the Divine tries to resolve, the spell doesn’t resolve. You won’t gain any life.]=];};
+};
+};
+
 {Name="Ipnu Rivulet";
 SetCode="HOU";
 Allsets={"HOU"};
@@ -9252,9 +11441,9 @@ Types={"Land"};
 SubTypes={"Desert"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[{{Tap}}: Add {{C}} to your mana pool.<br/>
-{{Tap}}, Pay 1 life: Add {{U}} to your mana pool.<br/>
-{{1}}{{U}}, {{Tap}}, Sacrifice a Desert: Target player puts the top four cards of his or her library into his or her graveyard.]=];
+Text=[=[{{Tap}}: Add {{C}}.<br/>
+{{Tap}}, Pay 1 life: Add {{U}}.<br/>
+{{1}}{{U}}, {{Tap}}, Sacrifice a Desert: Target player puts the top four cards of their library into their graveyard.]=];
 CardNumber="HOU180";
 MultiverseID=430869;
 Rulings={
@@ -9271,7 +11460,7 @@ Types={"Land"};
 SubTypes={"Plains";"Island";};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[({{Tap}}: Add {{W}} or {{U}} to your mana pool.)<br/>
+Text=[=[({{Tap}}: Add {{W}} or {{U}}.)<br/>
 Irrigated Farmland enters the battlefield tapped.<br/>
 Cycling {{2}} ({{2}}, Discard this card: Draw a card.)]=];
 CardNumber="AKH245";
@@ -9279,22 +11468,36 @@ MultiverseID=426947;
 };
 
 {Name="Island";
-SetCode="RIX";
-Allsets={"RIX";"AKH";"HOU";"XLN";};
+SetCode="DOM";
+Allsets={"DOM";"AKH";"HOU";"XLN";"RIX";};
 Type="Basic Land — Island";
 SuperTypes={"Basic"};
 Types={"Land"};
 SubTypes={"Island"};
 Rarity="Basic Land";
 Rarities={"Basic Land"};
-Text=[=[U]=];
-CardNumber="RIX193";
-MultiverseID=439857;
+CardNumber="DOM255";
+MultiverseID=443143;
 Sets={
 {Set="AKH";Rarity="Basic Land";CardNumber="251";};
 {Set="HOU";Rarity="Basic Land";CardNumber="186";};
 {Set="XLN";Rarity="Basic Land";CardNumber="264";};
+{Set="RIX";Rarity="Basic Land";CardNumber="193";};
 };
+};
+
+{Name="Isolated Chapel";
+SetCode="DOM";
+Allsets={"DOM"};
+Type="Land";
+Types={"Land"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Isolated Chapel enters the battlefield tapped unless you control a Plains or a Swamp.<br/>
+{{Tap}}: Add {{W}} or {{B}}.]=];
+Flavor=[=[Serra's blessing lies strongest upon Sursi, where her holy chapels are untouched even as the Cabal encroaches.]=];
+CardNumber="DOM241";
+MultiverseID=443129;
 };
 
 {Name="Itlimoc, Cradle of the Sun";
@@ -9307,8 +11510,8 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[(Transforms from Growing Rites of Itlimoc.)<br/>
-{{Tap}}: Add {{G}} to your mana pool.<br/>
-{{Tap}}: Add {{G}} to your mana pool for each creature you control.]=];
+{{Tap}}: Add {{G}}.<br/>
+{{Tap}}: Add {{G}} for each creature you control.]=];
 Flavor=[=[Before the Sun Empire was born, humans and merfolk joined their magic to invoke a blessing of fertility on the land.]=];
 CardNumber="XLN191b";
 MultiverseID=435347;
@@ -9556,6 +11759,152 @@ Rulings={
 };
 };
 
+{Name="Jaya Ballard";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{R}}{{R}}{{R}}";
+cmc=5;
+Colors={"Red"};
+Type="Legendary Planeswalker — Jaya";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Jaya"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[+1: Add {{R}}{{R}}{{R}}. Spend this mana only to cast instant or sorcery spells.<br/>
++1: Discard up to three cards, then draw that many cards.<br/>
+−8: You get an emblem with "You may cast instant and sorcery cards from your graveyard. If a card cast this way would be put into your graveyard, exile it instead."]=];
+CardNumber="DOM132";
+Loyalty="5";
+MultiverseID=443020;
+Rulings={
+    {Date="2018-04-27";Text=[=[Mana produced by Jaya’s first ability can be spent among any number of instant and/or sorcery spells.]=];};
+    {Date="2018-04-27";Text=[=[You choose how many cards to discard while Jaya’s second ability is resolving. You can choose to discard zero cards this way (and then draw zero cards) if you wish.]=];};
+    {Date="2018-04-27";Text=[=[Jaya’s emblem doesn’t grant you permission to do anything with instant and sorcery cards in your graveyard except cast them. For example, you can’t cycle instant or sorcery cards with cycling from your graveyard.]=];};
+};
+};
+
+{Name="Jaya's Immolating Inferno";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{X}}{{R}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Legendary Sorcery";
+SuperTypes={"Legendary"};
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[(You may cast a legendary sorcery only if you control a legendary creature or planeswalker.)<br/>
+Jaya's Immolating Inferno deals X damage to each of up to three targets.]=];
+Flavor=[=[Centuries ago, a pyromancer's spark ignited a fiery conflagration.]=];
+CardNumber="DOM133";
+MultiverseID=443021;
+Rulings={
+    {Date="2018-04-27";Text=[=[You can’t target the same target more than once to have Jaya’s Immolating Inferno deal more damage to it.]=];};
+    {Date="2018-04-27";Text=[=[You can’t cast a legendary sorcery unless you control a legendary creature or a legendary planeswalker. Once you begin to cast a legendary sorcery, losing control of your legendary creatures and planeswalkers won’t affect that spell.]=];};
+    {Date="2018-04-27";Text=[=[Other than the casting restriction, the legendary supertype on a sorcery carries no additional rules. You may cast any number of legendary sorceries in a turn, and your deck may contain any number of legendary cards (but no more than four of any with the same name).]=];};
+};
+};
+
+{Name="Jhoira, Weatherlight Captain";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{U}}{{R}}";
+cmc=4;
+Colors={"Blue";"Red";};
+Type="Legendary Creature — Human Artificer";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Artificer";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Whenever you cast a historic spell, draw a card. (Artifacts, legendaries, and Sagas are historic.)]=];
+Flavor=[=[As she took the wheel of the Weatherlight for the first time in a millennium, Jhoira knew she'd been right to restore the ship. Anything was possible now.]=];
+CardNumber="DOM197";
+Power="3";
+Toughness="3";
+MultiverseID=443085;
+Rulings={
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
+    {Date="2018-04-27";Text=[=[Some abilities trigger “whenever you cast a historic spell.” Such an ability resolves before the spell that caused it to trigger. It resolves even if that spell is countered.]=];};
+    {Date="2018-04-27";Text=[=[An ability that triggers “whenever you cast a historic spell” doesn’t trigger if a historic card is put onto the battlefield without being cast.]=];};
+    {Date="2018-04-27";Text=[=[Lands are never cast, so abilities that trigger “whenever you cast a historic spell” won’t trigger if you play a legendary land. They also won’t trigger if a card on the battlefield transforms into a legendary land, as the Ixalan and Rivals of Ixalan double-faced cards do.]=];};
+};
+};
+
+{Name="Jhoira's Familiar";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}";
+cmc=4;
+Type="Artifact Creature — Bird";
+Types={"Artifact";"Creature";};
+SubTypes={"Bird"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying<br/>
+Historic spells you cast cost {{1}} less to cast. (Artifacts, legendaries, and Sagas are historic.)]=];
+Flavor=[=["You could say it was my pet project."<br/>
+—Jhoira]=];
+CardNumber="DOM220";
+Power="2";
+Toughness="2";
+MultiverseID=443108;
+Rulings={
+    {Date="2018-04-27";Text=[=[The last ability of Jhoira’s Familiar doesn’t reduce its own cost while you’re casting it.]=];};
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
+};
+};
+
+{Name="Jodah, Archmage Eternal";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{U}}{{R}}{{W}}";
+cmc=4;
+Colors={"White";"Blue";"Red";};
+Type="Legendary Creature — Human Wizard";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Wizard";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Flying<br/>
+You may pay {{W}}{{U}}{{B}}{{R}}{{G}} rather than pay the mana cost for spells that you cast.]=];
+Flavor=[=["Chronicles across the ages describe Jodah. They likely refer not to one mage, but to a family or an arcane title."<br/>
+—Arkol, Argivian scholar]=];
+CardNumber="DOM198";
+Power="4";
+Toughness="3";
+MultiverseID=443086;
+Rulings={
+    {Date="2018-04-27";Text=[=[Jodah’s ability is an alternative cost to cast a spell. You can’t combine this with other alternative costs, such as flashback. You can pay additional costs, such as kicker, in addition to this alternative cost.]=];};
+    {Date="2018-04-27";Text=[=[If you apply Jodah’s alternative cost to a spell with {X} in its mana cost, X is 0.]=];};
+    {Date="2018-04-27";Text=[=[If you cast a spell for which mana may be spent as though it were mana of any color, you may cast it for Jodah’s alternative cost and still spend mana as though it were mana of any color.]=];};
+};
+};
+
+{Name="Josu Vess, Lich Knight";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{B}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Legendary Creature — Zombie Knight";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Zombie";"Knight";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Kicker {{5}}{{B}} (You may pay an additional {{5}}{{B}} as you cast this spell.)<br/>
+Menace<br/>
+When Josu Vess, Lich Knight enters the battlefield, if it was kicked, create eight 2/2 black Zombie Knight creature tokens with menace.]=];
+CardNumber="DOM95";
+Power="4";
+Toughness="5";
+MultiverseID=442983;
+};
+
 {Name="Journey to Eternity";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -9578,6 +11927,46 @@ Rulings={
     {Date="2018-01-19";Text=[=[If Journey to Eternity and the enchanted creature are both put into graveyards at the same time, Journey to Eternity’s ability will return both to the battlefield.]=];};
     {Date="2018-01-19";Text=[=[If Journey to Eternity enchants a creature you control but don’t own, the creature will return to the battlefield under your control from its owner’s graveyard when it dies. In a multiplayer game, if a player leaves the game, all cards that player owns leave as well. If you leave the game, any creatures you control from Journey to Eternity’s effect are exiled.]=];};
     {Date="2018-01-19";Text=[=[For more information on double-faced cards, see the Ixalan mechanics article (http://magic.wizards.com/en/articles/archive/feature/ixalan-mechanics).]=];};
+};
+};
+
+{Name="Jousting Lance";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}";
+cmc=2;
+Type="Artifact — Equipment";
+Types={"Artifact"};
+SubTypes={"Equipment"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Equipped creature gets +2/+0.<br/>
+As long as it's your turn, equipped creature has first strike.<br/>
+Equip {{3}} ({{3}}: Attach to target creature you control. Equip only as a sorcery.)]=];
+CardNumber="DOM221";
+MultiverseID=443109;
+};
+
+{Name="Juggernaut";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}";
+cmc=4;
+Type="Artifact Creature — Juggernaut";
+Types={"Artifact";"Creature";};
+SubTypes={"Juggernaut"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Juggernaut attacks each combat if able.<br/>
+Juggernaut can't be blocked by Walls.]=];
+Flavor=[=["Urza's machines have a splendid habit of excavating themselves."<br/>
+—Rona, disciple of Gix]=];
+CardNumber="DOM222";
+Power="5";
+Toughness="3";
+MultiverseID=443110;
+Rulings={
+    {Date="2018-04-27";Text=[=[If Juggernaut can’t attack for any reason (such as being tapped or having come under that player’s control that turn), then it doesn’t attack. If there’s a cost associated with having it attack, its controller isn’t forced to pay that cost, so it doesn’t have to attack in that case either.]=];};
 };
 };
 
@@ -9639,6 +12028,122 @@ Toughness="2";
 MultiverseID=439794;
 };
 
+{Name="Kamahl's Druidic Vow";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{X}}{{G}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Legendary Sorcery";
+SuperTypes={"Legendary"};
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[(You may cast a legendary sorcery only if you control a legendary creature or planeswalker.)<br/>
+Look at the top X cards of your library. You may put any number of land and/or legendary permanent cards with converted mana cost X or less from among them onto the battlefield. Put the rest into your graveyard.]=];
+Flavor=[=[Centuries ago, a barbarian laid his rage to rest.]=];
+CardNumber="DOM166";
+MultiverseID=443054;
+Rulings={
+    {Date="2018-04-27";Text=[=[For cards in your library with {X} in their mana costs, X is considered to be 0.]=];};
+    {Date="2018-04-27";Text=[=[All of the permanents put onto the battlefield this way enter at the same time. If any have triggered abilities that trigger on something else entering the battlefield, they’ll see each other.]=];};
+    {Date="2018-04-27";Text=[=[You can’t cast a legendary sorcery unless you control a legendary creature or a legendary planeswalker. Once you begin to cast a legendary sorcery, losing control of your legendary creatures and planeswalkers won’t affect that spell.]=];};
+    {Date="2018-04-27";Text=[=[Other than the casting restriction, the legendary supertype on a sorcery carries no additional rules. You may cast any number of legendary sorceries in a turn, and your deck may contain any number of legendary cards (but no more than four of any with the same name).]=];};
+};
+};
+
+{Name="Karn, Scion of Urza";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}";
+cmc=4;
+Type="Legendary Planeswalker — Karn";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Karn"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[+1: Reveal the top two cards of your library. An opponent chooses one of them. Put that card into your hand and exile the other with a silver counter on it.<br/>
+−1: Put a card you own with a silver counter on it from exile into your hand.<br/>
+−2: Create a 0/0 colorless Construct artifact creature token with "This creature gets +1/+1 for each artifact you control."]=];
+CardNumber="DOM1";
+Loyalty="5";
+MultiverseID=442889;
+Rulings={
+    {Date="2018-04-27";Text=[=[A token created by Karn’s last ability will count itself, so it’ll be at least 1/1.]=];};
+    {Date="2018-04-27";Text=[=[Karn is colorless but not an artifact. The Construct tokens created by Karn’s last ability don’t count Karn.]=];};
+};
+};
+
+{Name="Karn's Temporal Sundering";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{U}}{{U}}";
+cmc=6;
+Colors={"Blue"};
+Type="Legendary Sorcery";
+SuperTypes={"Legendary"};
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[(You may cast a legendary sorcery only if you control a legendary creature or planeswalker.)<br/>
+Target player takes an extra turn after this one. Return up to one target nonland permanent to its owner's hand. Exile Karn's Temporal Sundering.]=];
+Flavor=[=[Centuries ago, a quest to harness time became a spiral into chaos.]=];
+CardNumber="DOM55";
+MultiverseID=442943;
+Rulings={
+    {Date="2018-04-27";Text=[=[If the target player or target nonland permanent is an illegal target as Karn’s Temporal Sundering resolves, the other target is affected as normal and Karn’s Temporal Sundering is exiled. If both targets are illegal, Karn’s Temporal Sundering doesn’t resolve and isn’t exiled.]=];};
+    {Date="2018-04-27";Text=[=[You can’t cast a legendary sorcery unless you control a legendary creature or a legendary planeswalker. Once you begin to cast a legendary sorcery, losing control of your legendary creatures and planeswalkers won’t affect that spell.]=];};
+    {Date="2018-04-27";Text=[=[Other than the casting restriction, the legendary supertype on a sorcery carries no additional rules. You may cast any number of legendary sorceries in a turn, and your deck may contain any number of legendary cards (but no more than four of any with the same name).]=];};
+};
+};
+
+{Name="Karplusan Hound";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Creature — Hound";
+Types={"Creature"};
+SubTypes={"Hound"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever Karplusan Hound attacks, if you control a Chandra planeswalker, this creature deals 2 damage to any target.]=];
+Flavor=[=["Don't worry, they don't bite. They much prefer setting people on fire."<br/>
+—Jaya Ballard, to Chandra]=];
+CardNumber="DOM277";
+Power="3";
+Toughness="3";
+MultiverseID=445855;
+};
+
+{Name="Kazarov, Sengir Pureblood";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{5}}{{B}}{{B}}";
+cmc=7;
+Colors={"Black"};
+Type="Legendary Creature — Vampire";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Vampire"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Flying<br/>
+Whenever a creature an opponent controls is dealt damage, put a +1/+1 counter on Kazarov, Sengir Pureblood.<br/>
+{{3}}{{R}}: Kazarov deals 2 damage to target creature.]=];
+CardNumber="DOM96";
+Power="4";
+Toughness="4";
+MultiverseID=442984;
+Rulings={
+    {Date="2018-04-27";Text=[=[If Kazarov is dealt damage at the same time that a creature an opponent controls is dealt damage, Kazarov must survive the damage to get a +1/+1 counter.]=];};
+    {Date="2018-04-27";Text=[=[Kazarov’s triggered ability triggers once for each creature dealt damage at one time.]=];};
+    {Date="2018-04-27";Text=[=[If a creature is dealt an amount of damage “for each” of something, that damage is dealt as one event and Kazarov’s triggered ability triggers only once.]=];};
+};
+};
+
 {Name="Kefnet the Mindful";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -9680,8 +12185,8 @@ CardNumber="HOU39";
 MultiverseID=430728;
 Rulings={
     {Date="2017-07-14";Text=[=[The control-change effect of Kefnet’s Last Word lasts indefinitely. It doesn’t wear off during the cleanup step.]=];};
-    {Date="2017-07-14";Text=[=[If the target permanent is an illegal target by the time Kefnet’s Last Word resolves, the entire spell is countered. Your lands will untap during your next untap step as normal.]=];};
-    {Date="2017-07-14";Text=[=[Gaining control of a creature doesn’t cause you to gain control of any Auras or Equipment attached to it. They’ll remain attached, but an Aura’s effect that affects “you” still affects its controller rather than you, the controller of an Equipment can move it during his or her next main phase, and so on.]=];};
+    {Date="2017-07-14";Text=[=[If the target permanent is an illegal target by the time Kefnet’s Last Word resolves, the entire spell doesn’t resolve. Your lands will untap during your next untap step as normal.]=];};
+    {Date="2017-07-14";Text=[=[Gaining control of a creature doesn’t cause you to gain control of any Auras or Equipment attached to it. They’ll remain attached, but an Aura’s effect that affects “you” still affects its controller rather than you, the controller of an Equipment can move it during their next main phase, and so on.]=];};
     {Date="2017-07-14";Text=[=[In a multiplayer game, if a player leaves the game, all cards that player owns leave as well, and any effects that give the player control of permanents immediately end.]=];};
     {Date="2017-07-14";Text=[=[No lands that you control will untap during your next untap step, even lands that aren’t tapped as this spell resolves. This includes lands that enter the battlefield after this spell resolves.]=];};
     {Date="2017-07-14";Text=[=[If more than one spell says that lands you control don’t untap during your next untap step, the effects will all wear off during that untap step. You’ll untap lands you control during your untap step after that one. ]=];};
@@ -9710,6 +12215,71 @@ Rulings={
     {Date="2017-04-18";Text=[=[A creature spell that’s multiple colors is each of those colors. For example, Ahn-Crop Champion is a white creature and a green creature, so it can benefit from either Oketra’s Monument or Rhonas’s Monument—or both at once.]=];};
     {Date="2017-04-18";Text=[=[To determine the total cost of a creature spell, start with the mana cost or alternative cost you’re paying, add any cost increases, then apply any cost reductions. The converted mana cost of the creature remains unchanged, no matter what the total cost to cast it was.]=];};
     {Date="2017-04-18";Text=[=[Each Monument’s triggered ability triggers as the creature spell is cast and resolves before that creature spell resolves. The ability will resolve even if that creature spell is countered.]=];};
+};
+};
+
+{Name="Keldon Overseer";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Creature — Human Warrior";
+Types={"Creature"};
+SubTypes={"Human";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Kicker {{3}}{{R}} (You may pay an additional {{3}}{{R}} as you cast this spell.)<br/>
+Haste<br/>
+When Keldon Overseer enters the battlefield, if it was kicked, gain control of target creature until end of turn. Untap that creature. It gains haste until end of turn.]=];
+CardNumber="DOM134";
+Power="3";
+Toughness="1";
+MultiverseID=443022;
+Rulings={
+    {Date="2018-04-27";Text=[=[You can target and gain control of an untapped creature with Keldon Overseer’s ability. You can also untap a creature you already control and give it haste.]=];};
+};
+};
+
+{Name="Keldon Raider";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{R}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Creature — Human Warrior";
+Types={"Creature"};
+SubTypes={"Human";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Keldon Raider enters the battlefield, you may discard a card. If you do, draw a card.]=];
+Flavor=[=[Keldon raiders' spoils are limited to what their colos can carry. No matter the value, the rest goes up in smoke.]=];
+CardNumber="DOM135";
+Power="4";
+Toughness="3";
+MultiverseID=443023;
+};
+
+{Name="Keldon Warcaller";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Creature — Human Warrior";
+Types={"Creature"};
+SubTypes={"Human";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Whenever Keldon Warcaller attacks, put a lore counter on target Saga you control.]=];
+Flavor=[=["The Mountain gave the Flame to Kradak to light the furnaces of his people's hearts. The wanderers became Keldons, and he the first warlord."<br/>
+—"The Flame of Keld"]=];
+CardNumber="DOM136";
+Power="2";
+Toughness="2";
+MultiverseID=443024;
+Rulings={
+    {Date="2018-04-27";Text=[=[The target Saga’s appropriate chapter ability triggers and resolves before blockers are declared.]=];};
 };
 };
 
@@ -9886,16 +12456,86 @@ SubTypes={"Human";"Pirate";};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
 Text=[=[Flying<br/>
-When Kitesail Freebooter enters the battlefield, target opponent reveals his or her hand. You choose a noncreature, nonland card from it. Exile that card until Kitesail Freebooter leaves the battlefield.]=];
+When Kitesail Freebooter enters the battlefield, target opponent reveals their hand. You choose a noncreature, nonland card from it. Exile that card until Kitesail Freebooter leaves the battlefield.]=];
 CardNumber="XLN110";
 Power="1";
 Toughness="2";
 MultiverseID=435264;
 Rulings={
-    {Date="2017-09-29";Text=[=[If Kitesail Freebooter leaves the battlefield before its enters-the-battlefield ability resolves, the opponent will reveal his or her hand, but no card will be exiled.]=];};
+    {Date="2017-09-29";Text=[=[If Kitesail Freebooter leaves the battlefield before its enters-the-battlefield ability resolves, the opponent will reveal their hand, but no card will be exiled.]=];};
     {Date="2017-09-29";Text=[=[The exiled card returns to its owner’s hand immediately after Kitesail Freebooter leaves the battlefield. Nothing happens between the two events, including state-based actions.]=];};
     {Date="2017-09-29";Text=[=[In a multiplayer game, if Kitesail Freebooter’s owner leaves the game, the exiled card will return to its owner’s hand. Because the one-shot effect that returns the card isn’t an ability that goes on the stack, it won’t cease to exist along with the leaving player’s spells and abilities on the stack.]=];};
 };
+};
+
+{Name="Knight of Grace";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Creature — Human Knight";
+Types={"Creature"};
+SubTypes={"Human";"Knight";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[First strike<br/>
+Hexproof from black (This creature can't be the target of black spells or abilities your opponents control.)<br/>
+Knight of Grace gets +1/+0 as long as any player controls a black permanent.]=];
+Flavor=[=[A light to pierce the shadows.]=];
+CardNumber="DOM23";
+Power="2";
+Toughness="2";
+MultiverseID=442911;
+Rulings={
+    {Date="2018-04-27";Text=[=[“Hexproof from [quality]” is a variant of the hexproof ability. “Hexproof from black” means “This permanent can’t be the target of black spells your opponents control or abilities of black sources your opponents control.”]=];};
+    {Date="2018-04-27";Text=[=[If an effect says that a creature loses hexproof or can be targeted as though it didn’t have hexproof, this applies to hexproof from black as well.]=];};
+    {Date="2018-04-27";Text=[=[Knight of Grace only gets +1/+0 if any player controls a black permanent, no matter how many black permanents players control.]=];};
+};
+};
+
+{Name="Knight of Malice";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Creature — Human Knight";
+Types={"Creature"};
+SubTypes={"Human";"Knight";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[First strike<br/>
+Hexproof from white (This creature can't be the target of white spells or abilities your opponents control.)<br/>
+Knight of Malice gets +1/+0 as long as any player controls a white permanent.]=];
+Flavor=[=[A shadow to swallow the light.]=];
+CardNumber="DOM97";
+Power="2";
+Toughness="2";
+MultiverseID=442985;
+Rulings={
+    {Date="2018-04-27";Text=[=[“Hexproof from [quality]” is a variant of the hexproof ability. “Hexproof from white” means “This permanent can’t be the target of white spells your opponents control or abilities of white sources your opponents control.”]=];};
+    {Date="2018-04-27";Text=[=[If an effect says that a creature loses hexproof or can be targeted as though it didn’t have hexproof, this applies to hexproof from white as well.]=];};
+    {Date="2018-04-27";Text=[=[Knight of Malice only gets +1/+0 if any player controls a white permanent, no matter how many white permanents players control.]=];};
+};
+};
+
+{Name="Knight of New Benalia";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Creature — Human Knight";
+Types={"Creature"};
+SubTypes={"Human";"Knight";};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=[The mage-smiths of New Benalia have perfected the art of blending fine steel and enchanted glass into weapons that are both beautiful and deadly. Only elite knights are entrusted with these martial works of art.]=];
+CardNumber="DOM24";
+Power="3";
+Toughness="1";
+MultiverseID=442912;
 };
 
 {Name="Knight of the Stampede";
@@ -9945,6 +12585,26 @@ Rulings={
     {Date="2017-09-29";Text=[=[Kopala’s abilities won’t affect triggered abilities (starting with “when,” “whenever,” or “at”) that target a Merfolk you control.]=];};
     {Date="2017-09-29";Text=[=[Spells and abilities that target more than one Merfolk you control cost only {2} more to cast or activate.]=];};
 };
+};
+
+{Name="Krosan Druid";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Creature — Centaur Druid";
+Types={"Creature"};
+SubTypes={"Centaur";"Druid";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Kicker {{4}}{{G}} (You may pay an additional {{4}}{{G}} as you cast this spell.)<br/>
+When Krosan Druid enters the battlefield, if it was kicked, you gain 10 life.]=];
+Flavor=[=["Druids endure disaster as seeds endure winter. Now Krosa blooms once more."]=];
+CardNumber="DOM167";
+Power="2";
+Toughness="3";
+MultiverseID=443055;
 };
 
 {Name="Kumena, Tyrant of Orazca";
@@ -10021,6 +12681,32 @@ Rulings={
 };
 };
 
+{Name="Kwende, Pride of Femeref";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Legendary Creature — Human Knight";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Knight";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Double strike<br/>
+Creatures you control with first strike have double strike.]=];
+Flavor=[=[Descendant of a vanished land, student of a forgotten general, and master of blades no smith could forge anew. He honors them all by living a life worthy of song.]=];
+CardNumber="DOM25";
+Power="2";
+Toughness="2";
+MultiverseID=442913;
+Rulings={
+    {Date="2018-04-27";Text=[=[A creature with first strike and double strike deals combat damage the same as a creature with double strike. It doesn’t deal damage three times or before other creatures with first strike.]=];};
+    {Date="2018-04-27";Text=[=[If a creature you control gains first strike after Kwende has entered the battlefield, that creature also gains double strike.]=];};
+    {Date="2018-04-27";Text=[=[If a creature loses double strike after first strike damage is dealt, it won’t deal normal combat damage.]=];};
+};
+};
+
 {Name="Labyrinth Guardian";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -10059,7 +12745,7 @@ Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[Target opponent reveals his or her hand. You choose a nonlegendary, nonland card from it. That player discards that card.]=];
+Text=[=[Target opponent reveals their hand. You choose a nonlegendary, nonland card from it. That player discards that card.]=];
 Flavor=[=["True intentions lie not in the head but in the heart."<br/>
 —Bontu, god of ambition]=];
 CardNumber="AKH96";
@@ -10084,7 +12770,7 @@ Flavor=[=[Initiates need worry only about the trials. Everything else is in the 
 CardNumber="AKH61";
 MultiverseID=426763;
 Rulings={
-    {Date="2017-04-18";Text=[=[Gaining control of a creature doesn’t cause you to gain control of any Auras or Equipment attached to it. They’ll remain attached, but an Aura’s effect that affects “you” still affects its controller rather than you, the controller of an Equipment can move it during his or her next main phase, and so on.]=];};
+    {Date="2017-04-18";Text=[=[Gaining control of a creature doesn’t cause you to gain control of any Auras or Equipment attached to it. They’ll remain attached, but an Aura’s effect that affects “you” still affects its controller rather than you, the controller of an Equipment can move it during their next main phase, and so on.]=];};
 };
 };
 
@@ -10231,13 +12917,40 @@ Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[As an additional cost to cast Lethal Sting, put a -1/-1 counter on a creature you control.<br/>
+Text=[=[As an additional cost to cast this spell, put a -1/-1 counter on a creature you control.<br/>
 Destroy target creature.]=];
 Flavor=[=[Initiates once believed defeat was the worst fate possible—a sentiment they quickly abandoned.]=];
 CardNumber="HOU67";
 MultiverseID=430756;
 Rulings={
     {Date="2017-07-14";Text=[=[If you don’t control any creatures or can’t put any -1/-1 counters on any creature you control, you can’t cast Lethal Sting.]=];};
+};
+};
+
+{Name="Lich's Mastery";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{B}}{{B}}{{B}}";
+cmc=6;
+Colors={"Black"};
+Type="Legendary Enchantment";
+SuperTypes={"Legendary"};
+Types={"Enchantment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Hexproof<br/>
+You can't lose the game.<br/>
+Whenever you gain life, draw that many cards.<br/>
+Whenever you lose life, for each 1 life you lost, exile a permanent you control or a card from your hand or graveyard.<br/>
+When Lich's Mastery leaves the battlefield, you lose the game.]=];
+CardNumber="DOM98";
+MultiverseID=442986;
+Rulings={
+    {Date="2018-04-27";Text=[=[While you can’t lose the game, your opponents can still win the game if an effect says so.]=];};
+    {Date="2018-04-27";Text=[=[While you control Lich’s Mastery, your life total still changes. Lich’s Mastery’s effects don’t replace the life gain or life loss.]=];};
+    {Date="2018-04-27";Text=[=[You don’t have to exile all the cards from one place. For example, if a source deals 5 damage to you, you may exile one permanent, two cards from hand, and two cards from your graveyard.]=];};
+    {Date="2018-04-27";Text=[=[If you run out of other permanents, cards in hand, and cards in graveyard, you’ll have to exile Lich’s Mastery itself and lose the game.]=];};
+    {Date="2018-04-27";Text=[=[If you’re dealt more damage than you have cards to exile, you’ll just exile everything you can.]=];};
 };
 };
 
@@ -10272,7 +12985,7 @@ Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[Lightning Strike deals 3 damage to target creature or player.]=];
+Text=[=[Lightning Strike deals 3 damage to any target.]=];
 Flavor=[=["Storm on the horizon, cap'n!"<br/>
 —Grick Doobin, last words]=];
 CardNumber="XLN149";
@@ -10413,6 +13126,93 @@ CardNumber="AKH140";
 MultiverseID=426842;
 };
 
+{Name="Lingering Phantom";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{5}}{{B}}";
+cmc=6;
+Colors={"Black"};
+Type="Creature — Spirit";
+Types={"Creature"};
+SubTypes={"Spirit"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever you cast a historic spell, you may pay {{B}}. If you do, return Lingering Phantom from your graveyard to your hand. (Artifacts, legendaries, and Sagas are historic.)]=];
+Flavor=[=["True power never dies, but lies awake, waiting for its name to be spoken."<br/>
+—The Eldest Reborn]=];
+CardNumber="DOM99";
+Power="5";
+Toughness="4";
+MultiverseID=442987;
+Rulings={
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
+    {Date="2018-04-27";Text=[=[Some abilities trigger “whenever you cast a historic spell.” Such an ability resolves before the spell that caused it to trigger. It resolves even if that spell is countered.]=];};
+    {Date="2018-04-27";Text=[=[An ability that triggers “whenever you cast a historic spell” doesn’t trigger if a historic card is put onto the battlefield without being cast.]=];};
+    {Date="2018-04-27";Text=[=[Lands are never cast, so abilities that trigger “whenever you cast a historic spell” won’t trigger if you play a legendary land. They also won’t trigger if a card on the battlefield transforms into a legendary land, as the Ixalan and Rivals of Ixalan double-faced cards do.]=];};
+};
+};
+
+{Name="Llanowar Elves";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{G}}";
+cmc=1;
+Colors={"Green"};
+Type="Creature — Elf Druid";
+Types={"Creature"};
+SubTypes={"Elf";"Druid";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{Tap}}: Add {{G}}.]=];
+Flavor=[=[As patient and generous as life, as harsh and merciless as nature.]=];
+CardNumber="DOM168";
+Power="1";
+Toughness="1";
+MultiverseID=443056;
+};
+
+{Name="Llanowar Envoy";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Creature — Elf Scout";
+Types={"Creature"};
+SubTypes={"Elf";"Scout";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{1}}{{G}}: Add one mana of any color.]=];
+Flavor=[=["Cherish this world in honor of the martyrs who saved it. We too must be prepared to give our lives."<br/>
+—The Mending of Dominaria]=];
+CardNumber="DOM169";
+Power="3";
+Toughness="2";
+MultiverseID=443057;
+};
+
+{Name="Llanowar Scout";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Creature — Elf Scout";
+Types={"Creature"};
+SubTypes={"Elf";"Scout";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{Tap}}: You may put a land card from your hand onto the battlefield.]=];
+Flavor=[=[Llanowar elfhames occupy different heights within the great forest. Elves of the Loridalh and Kelfae hames can see neither earth nor sky.]=];
+CardNumber="DOM170";
+Power="1";
+Toughness="3";
+MultiverseID=443058;
+Rulings={
+    {Date="2018-04-27";Text=[=[Llanowar Scout’s effect doesn’t count as playing a land. It can put a land card onto the battlefield even if you’ve already played as many lands as able this turn or if it’s not your turn.]=];};
+};
+};
+
 {Name="Lookout's Dispersal";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -10423,7 +13223,7 @@ Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[Lookout's Dispersal costs {{1}} less to cast if you control a Pirate.<br/>
+Text=[=[This spell costs {{1}} less to cast if you control a Pirate.<br/>
 Counter target spell unless its controller pays {{4}}.]=];
 Flavor=[=[Her song plucks the strings of the storm, shifting wind and storm into a harmony that will carry her ship to safety.]=];
 CardNumber="XLN62";
@@ -10480,7 +13280,7 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[(Transforms from Dowsing Dagger.)<br/>
-{{Tap}}: Add three mana of any one color to your mana pool.]=];
+{{Tap}}: Add three mana of any one color.]=];
 Flavor=[=[The pirates had ventured into the interior for treasure. They found something far greater.]=];
 CardNumber="XLN235b";
 MultiverseID=435393;
@@ -10561,6 +13361,31 @@ Text=[=[{{1}}, {{Tap}}: You gain 1 life. Put a brick counter on Luxa River Shrin
 Flavor=[=[Without the God-Pharaoh, there would be no Luxa. Without the Luxa, there would be no life.]=];
 CardNumber="AKH232";
 MultiverseID=426934;
+};
+
+{Name="Lyra Dawnbringer";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{W}}{{W}}";
+cmc=5;
+Colors={"White"};
+Type="Legendary Creature — Angel";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Angel"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Flying, first strike, lifelink<br/>
+Other Angels you control get +1/+1 and have lifelink.]=];
+Flavor=[=["You are not alone. You never were."]=];
+CardNumber="DOM26";
+Power="5";
+Toughness="5";
+MultiverseID=442914;
+Rulings={
+    {Date="2018-04-27";Text=[=[Multiple instances of lifelink on the same creature are redundant.]=];};
+    {Date="2018-04-27";Text=[=[Because damage remains marked on a creature until it’s removed as the turn ends, nonlethal damage dealt to an Angel you control may become lethal if Lyra leaves the battlefield during that turn.]=];};
+};
 };
 
 {Name="Magma Spray";
@@ -10663,13 +13488,32 @@ Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[{{1}}, Sacrifice an artifact or creature: Makeshift Munitions deals 1 damage to target creature or player.]=];
+Text=[=[{{1}}, Sacrifice an artifact or creature: Makeshift Munitions deals 1 damage to any target.]=];
 Flavor=[=["Grease up a firecannon good and proper with dinosaur-liver oil, and it'll shoot just about anything."]=];
 CardNumber="XLN151";
 MultiverseID=435305;
 Rulings={
     {Date="2017-09-29";Text=[=[You can’t sacrifice the same Treasure to pay both {1} and “sacrifice an artifact or creature.”]=];};
 };
+};
+
+{Name="Mammoth Spider";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{G}}";
+cmc=5;
+Colors={"Green"};
+Type="Creature — Spider";
+Types={"Creature"};
+SubTypes={"Spider"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Reach]=];
+Flavor=[=[Most spiders of Llanowar disdain elvish alliances. No elf has as many beautiful eyes or as many strong arms.]=];
+CardNumber="DOM171";
+Power="3";
+Toughness="5";
+MultiverseID=443059;
 };
 
 {Name="Manalith";
@@ -10681,7 +13525,7 @@ Type="Artifact";
 Types={"Artifact"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[{{Tap}}: Add one mana of any color to your mana pool.]=];
+Text=[=[{{Tap}}: Add one mana of any color.]=];
 Flavor=[=["Though the afterlife, the city, and even the God-Pharaoh himself were one great deception, the ideals championed by the gods remain true."<br/>
 —Djeru, former Tah-crop initiate]=];
 CardNumber="HOU164";
@@ -10750,7 +13594,7 @@ Types={"Creature"};
 SubTypes={"Manticore"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[When Manticore of the Gauntlet enters the battlefield, put a -1/-1 counter on target creature you control. Manticore of the Gauntlet deals 3 damage to target opponent.]=];
+Text=[=[When Manticore of the Gauntlet enters the battlefield, put a -1/-1 counter on target creature you control. Manticore of the Gauntlet deals 3 damage to target opponent or planeswalker.]=];
 Flavor=[=[In the training ground known as the Gauntlet, initiates are pushed to practice more destructive techniques.]=];
 CardNumber="AKH142";
 Power="5";
@@ -10889,6 +13733,30 @@ Toughness="1";
 MultiverseID=439671;
 };
 
+{Name="Marwyn, the Nurturer";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Legendary Creature — Elf Druid";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Elf";"Druid";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Whenever another Elf enters the battlefield under your control, put a +1/+1 counter on Marwyn, the Nurturer.<br/>
+{{Tap}}: Add an amount of {{G}} equal to Marwyn's power.]=];
+Flavor=[=[Midwife to mothers and leader to all.]=];
+CardNumber="DOM172";
+Power="1";
+Toughness="1";
+MultiverseID=443060;
+Rulings={
+    {Date="2018-04-27";Text=[=[Marwyn’s activated ability is a mana ability. It doesn’t use the stack and can’t be responded to.]=];};
+};
+};
+
 {Name="Mastermind's Acquisition";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -10965,17 +13833,91 @@ Rulings={
 };
 
 {Name="Meandering River";
-SetCode="AKH";
-Allsets={"AKH"};
+SetCode="DOM";
+Allsets={"DOM";"AKH";};
 Type="Land";
 Types={"Land"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Meandering River enters the battlefield tapped.<br/>
-{{Tap}}: Add {{W}} or {{U}} to your mana pool.]=];
-Flavor=[=[The river split into many channels as it flowed to the Halimar Sea. Few travelers could follow the same one twice.]=];
-CardNumber="AKH283";
-MultiverseID=429675;
+{{Tap}}: Add {{W}} or {{U}}.]=];
+Flavor=[=["Everywhere you look, this world is healing from its wounds. Aren't you ready to do the same?"<br/>
+—Jhoira, to Teferi]=];
+CardNumber="DOM274";
+MultiverseID=445852;
+Sets={
+{Set="AKH";Rarity="Common";CardNumber="283";Flavor=[=[The river split into many channels as it flowed to the Halimar Sea. Few travelers could follow the same one twice.]=];};
+};
+};
+
+{Name="Memorial to Folly";
+SetCode="DOM";
+Allsets={"DOM"};
+Type="Land";
+Types={"Land"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Memorial to Folly enters the battlefield tapped.<br/>
+{{Tap}}: Add {{B}}.<br/>
+{{2}}{{B}}, {{Tap}}, Sacrifice Memorial to Folly: Return target creature card from your graveyard to your hand.]=];
+CardNumber="DOM242";
+MultiverseID=443130;
+};
+
+{Name="Memorial to Genius";
+SetCode="DOM";
+Allsets={"DOM"};
+Type="Land";
+Types={"Land"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Memorial to Genius enters the battlefield tapped.<br/>
+{{Tap}}: Add {{U}}.<br/>
+{{4}}{{U}}, {{Tap}}, Sacrifice Memorial to Genius: Draw two cards.]=];
+CardNumber="DOM243";
+MultiverseID=443131;
+};
+
+{Name="Memorial to Glory";
+SetCode="DOM";
+Allsets={"DOM"};
+Type="Land";
+Types={"Land"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Memorial to Glory enters the battlefield tapped.<br/>
+{{Tap}}: Add {{W}}.<br/>
+{{3}}{{W}}, {{Tap}}, Sacrifice Memorial to Glory: Create two 1/1 white Soldier creature tokens.]=];
+CardNumber="DOM244";
+MultiverseID=443132;
+};
+
+{Name="Memorial to Unity";
+SetCode="DOM";
+Allsets={"DOM"};
+Type="Land";
+Types={"Land"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Memorial to Unity enters the battlefield tapped.<br/>
+{{Tap}}: Add {{G}}.<br/>
+{{2}}{{G}}, {{Tap}}, Sacrifice Memorial to Unity: Look at the top five cards of your library. You may reveal a creature card from among them and put it into your hand. Then put the rest on the bottom of your library in a random order.]=];
+CardNumber="DOM245";
+MultiverseID=443133;
+};
+
+{Name="Memorial to War";
+SetCode="DOM";
+Allsets={"DOM"};
+Type="Land";
+Types={"Land"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Memorial to War enters the battlefield tapped.<br/>
+{{Tap}}: Add {{R}}.<br/>
+{{4}}{{R}}, {{Tap}}, Sacrifice Memorial to War: Destroy target land.]=];
+CardNumber="DOM246";
+MultiverseID=443134;
 };
 
 {Name="Memory";
@@ -10989,7 +13931,7 @@ Types={"Sorcery"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[Aftermath (Cast this spell only from your graveyard. Then exile it.)<br/>
-Each player shuffles his or her hand and graveyard into his or her library, then draws seven cards.]=];
+Each player shuffles their hand and graveyard into their library, then draws seven cards.]=];
 CardNumber="AKH211b";
 MultiverseID=426913;
 Rulings={
@@ -11093,6 +14035,50 @@ Rulings={
 };
 };
 
+{Name="Merfolk Trickster";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{U}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Creature — Merfolk Wizard";
+Types={"Creature"};
+SubTypes={"Merfolk";"Wizard";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flash<br/>
+When Merfolk Trickster enters the battlefield, tap target creature an opponent controls. It loses all abilities until end of turn.]=];
+Flavor=[=[Saved from destruction by one planeswalker's sacrifice, the Eliterate colony forswore the taking of life.]=];
+CardNumber="DOM56";
+Power="2";
+Toughness="2";
+MultiverseID=442944;
+Rulings={
+    {Date="2018-04-27";Text=[=[Once you announce that you’re casting a spell or activating an ability, no player may take other actions until the spell or ability has been paid for. Notably, players can’t try to remove a permanent’s activated abilities to stop them from happening. Once activated, the ability on the stack will resolve even if the creature loses the ability.]=];};
+    {Date="2018-04-27";Text=[=[If the target creature has an ability that triggers when it becomes tapped, that ability triggers before it loses all abilities.]=];};
+    {Date="2018-04-27";Text=[=[If the target creature has power and toughness written as */* with an ability that defines its power and toughness, it’s 0/0 when it loses all abilities. If its power and toughness are written as */*+1, it’s 0/1, and so on.]=];};
+};
+};
+
+{Name="Mesa Unicorn";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Creature — Unicorn";
+Types={"Creature"};
+SubTypes={"Unicorn"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Lifelink]=];
+Flavor=[=[The unicorns of Sursi are a manifestation of Serra's joy and compassion. They frolic and dance like children, offering blessings to anyone they encounter.]=];
+CardNumber="DOM27";
+Power="2";
+Toughness="2";
+MultiverseID=442915;
+};
+
 {Name="Metzali, Tower of Triumph";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -11103,7 +14089,7 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[(Transforms from Path of Mettle.)<br/>
-{{Tap}}: Add one mana of any color to your mana pool.<br/>
+{{Tap}}: Add one mana of any color.<br/>
 {{1}}{{R}}, {{Tap}}: Metzali, Tower of Triumph deals 2 damage to each opponent.<br/>
 {{2}}{{W}}, {{Tap}}: Choose a creature at random that attacked this turn. Destroy that creature.]=];
 CardNumber="RIX165b";
@@ -11220,8 +14206,36 @@ Rulings={
     {Date="2017-07-14";Text=[=[If you activate Mirage Mirror’s ability multiple times in a turn in response to itself, then each time one of those abilities resolves, it will overwrite whatever Mirage Mirror is copying. Mirage Mirror will wind up as a copy of the permanent targeted by the last ability to resolve. When the turn ends, all instances of the ability will wear off at the same time.]=];};
     {Date="2017-07-14";Text=[=[If an effect begins to apply to Mirage Mirror before it becomes a copy of another permanent, that effect will continue to apply. For example, if Mirage Mirror is activated twice in response to itself targeting first Rampaging Hippo then Frilled Sandwalla, the ability it has while it’s a copy of Frilled Sandwalla can be activated and its effect will continue to apply while Mirage Mirror is a copy of Rampaging Hippo.]=];};
     {Date="2017-07-14";Text=[=[If Mirage Mirror becomes a creature the same turn it enters the battlefield, you can’t attack with it or use any of its {Tap} abilities (if it gains any) unless it has haste.]=];};
-    {Date="2017-07-14";Text=[=[If Mirage Mirror becomes a copy of a legendary permanent you control, you’ll put one of them into your graveyard. The same is true if it becomes a copy of a planeswalker creature you control (such as Gideon of the Trials that’s become a creature).]=];};
+    {Date="2017-07-14";Text=[=[If Mirage Mirror becomes a copy of a legendary permanent you control, you’ll put one of them into your graveyard.]=];};
     {Date="2017-07-14";Text=[=[If Mirage Mirror becomes a copy of an Aura, it’s put into its owner’s graveyard unless it’s somehow attached to an appropriate object or player already. If it becomes a copy of an Equipment and is attached to a creature, it’ll become unattached when it becomes a non-Equipment artifact again.]=];};
+};
+};
+
+{Name="Mishra's Self-Replicator";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{5}}";
+cmc=5;
+Type="Artifact Creature — Assembly-Worker";
+Types={"Artifact";"Creature";};
+SubTypes={"Assembly-Worker"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Whenever you cast a historic spell, you may pay {{1}}. If you do, create a token that's a copy of Mishra's Self-Replicator. (Artifacts, legendaries, and Sagas are historic.)]=];
+Flavor=[=[It has witnessed history's most significant events, one incarnation after another.]=];
+CardNumber="DOM223";
+Power="2";
+Toughness="2";
+MultiverseID=443111;
+Rulings={
+    {Date="2018-04-27";Text=[=[The token will have Mishra’s Self-Replicator’s ability. It will also be able to create copies of itself.]=];};
+    {Date="2018-04-27";Text=[=[While resolving the triggered ability of Mishra’s Self-Replicator, you can’t pay {1} multiple times to create more than one token. However, if you control more than one Mishra’s Self-Replicator, you can pay {1} for each of their abilities.]=];};
+    {Date="2018-04-27";Text=[=[The token won’t copy counters or damage marked on Mishra’s Self-Replicator, nor will it copy other effects that have changed Mishra’s Self-Replicator’s power, toughness, types, color, and so on. Normally, this means the token will simply be a Mishra’s Self-Replicator, but if any copy effects have affected that Mishra’s Self-Replicator, they’re taken into account.]=];};
+    {Date="2018-04-27";Text=[=[If Mishra’s Self-Replicator leaves the battlefield before its triggered ability resolves, the token will still enter the battlefield as a copy of Mishra’s Self-Replicator, using Mishra’s Self-Replicator’s copiable values from when it was last on the battlefield.]=];};
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
+    {Date="2018-04-27";Text=[=[Some abilities trigger “whenever you cast a historic spell.” Such an ability resolves before the spell that caused it to trigger. It resolves even if that spell is countered.]=];};
+    {Date="2018-04-27";Text=[=[An ability that triggers “whenever you cast a historic spell” doesn’t trigger if a historic card is put onto the battlefield without being cast.]=];};
+    {Date="2018-04-27";Text=[=[Lands are never cast, so abilities that trigger “whenever you cast a historic spell” won’t trigger if you play a legendary land. They also won’t trigger if a card on the battlefield transforms into a legendary land, as the Ixalan and Rivals of Ixalan double-faced cards do.]=];};
 };
 };
 
@@ -11279,7 +14293,7 @@ Flavor=[=["The time of condemnation is at hand. Dusk washes over the world, and 
 CardNumber="RIX79";
 MultiverseID=439736;
 Rulings={
-    {Date="2018-01-19";Text=[=[If the target creature is an illegal target by the time Moment of Craving tries to resolve, the spell is countered. You won’t gain 2 life.]=];};
+    {Date="2018-01-19";Text=[=[If the target creature is an illegal target by the time Moment of Craving tries to resolve, the spell doesn’t resolve. You won’t gain 2 life.]=];};
     {Date="2018-01-19";Text=[=[The target creature will still be on the battlefield when you gain life, even if its toughness has been reduced to 0 or less. Any abilities it has that interact with gaining life do so as appropriate. If any abilities trigger on you gaining life, the creature will be put into its owner’s graveyard after that ability triggers but before it resolves.]=];};
 };
 };
@@ -11299,26 +14313,26 @@ Flavor=[=["The time of salvation is at hand. Dusk washes over the world, and the
 CardNumber="RIX15";
 MultiverseID=439672;
 Rulings={
-    {Date="2018-01-19";Text=[=[If the target creature is an illegal target by the time Moment of Triumph tries to resolve, the spell is countered. You won’t gain 2 life.]=];};
+    {Date="2018-01-19";Text=[=[If the target creature is an illegal target by the time Moment of Triumph tries to resolve, the spell doesn’t resolve. You won’t gain 2 life.]=];};
 };
 };
 
 {Name="Mountain";
-SetCode="RIX";
-Allsets={"RIX";"AKH";"HOU";"XLN";};
+SetCode="DOM";
+Allsets={"DOM";"AKH";"HOU";"XLN";"RIX";};
 Type="Basic Land — Mountain";
 SuperTypes={"Basic"};
 Types={"Land"};
 SubTypes={"Mountain"};
 Rarity="Basic Land";
 Rarities={"Basic Land"};
-Text=[=[R]=];
-CardNumber="RIX195";
-MultiverseID=439859;
+CardNumber="DOM263";
+MultiverseID=443151;
 Sets={
 {Set="AKH";Rarity="Basic Land";CardNumber="253";};
 {Set="HOU";Rarity="Basic Land";CardNumber="188";};
 {Set="XLN";Rarity="Basic Land";CardNumber="272";};
+{Set="RIX";Rarity="Basic Land";CardNumber="195";};
 };
 };
 
@@ -11346,6 +14360,82 @@ Rulings={
     {Date="2017-04-18";Text=[=[If another effect allows you to cast a split card with aftermath from any zone other than a graveyard, you can’t cast the half with aftermath.]=];};
     {Date="2017-04-18";Text=[=[If another effect allows you to cast a split card with aftermath from a graveyard, you may cast either half. If you cast the half that has aftermath, you’ll exile the card if it would leave the stack.]=];};
     {Date="2017-04-18";Text=[=[A spell with aftermath cast from a graveyard will always be exiled afterward, whether it resolves, it’s countered, or it leaves the stack in some other way.]=];};
+};
+};
+
+{Name="Mox Amber";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{0}}";
+cmc=0;
+Type="Legendary Artifact";
+SuperTypes={"Legendary"};
+Types={"Artifact"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[{{Tap}}: Add one mana of any color among legendary creatures and planeswalkers you control.]=];
+Flavor=[=[A moment in time made tangible, it has the power to realize epic visions.]=];
+CardNumber="DOM224";
+MultiverseID=443112;
+Rulings={
+    {Date="2018-04-27";Text=[=[Mox Amber’s ability adds one mana of the color of your choice from among the colors of legendary creatures and planeswalkers you control. It doesn’t add one mana of each of those colors.]=];};
+    {Date="2018-04-27";Text=[=[If you control no legendary creatures or planeswalkers, you can activate Mox Amber’s ability, but you won’t add any mana.]=];};
+    {Date="2018-04-27";Text=[=[If your legendary creatures and planeswalkers are all colorless, you can activate Mox Amber’s ability, but you won’t add any mana. Colorless is not a color.]=];};
+};
+};
+
+{Name="Muldrotha, the Gravetide";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{B}}{{G}}{{U}}";
+cmc=6;
+Colors={"Blue";"Black";"Green";};
+Type="Legendary Creature — Elemental Avatar";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Elemental";"Avatar";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[During each of your turns, you may play up to one permanent card of each permanent type from your graveyard. (If a card has multiple permanent types, choose one as you play it.)]=];
+Flavor=[=["My child grew from rot and ruin, yet she bloomed."<br/>
+—Multani]=];
+CardNumber="DOM199";
+Power="6";
+Toughness="6";
+MultiverseID=443087;
+Rulings={
+    {Date="2018-04-27";Text=[=[For example, you may cast an artifact creature card as your artifact card and cast another artifact creature card as your creature card.]=];};
+    {Date="2018-04-27";Text=[=[You must follow the normal timing permissions and restrictions of the cards you play from your graveyard. For example, you can’t use Muldrotha to play an additional land, or to cast a planeswalker during your end step.]=];};
+    {Date="2018-04-27";Text=[=[You must pay the costs to cast a nonland card this way. If it has an alternative cost, you may cast it for that cost instead.]=];};
+    {Date="2018-04-27";Text=[=[Once you begin to cast a card, losing control of Muldrotha won’t affect the spell.]=];};
+    {Date="2018-04-27";Text=[=[If you play a card from your graveyard and then have a new Muldrotha come under your control in the same turn, you may play another card of that type from your graveyard that turn.]=];};
+    {Date="2018-04-27";Text=[=[If a permanent card is put into your graveyard during your main phase and the stack is empty, you have a chance to cast it before any player may attempt to remove that card from your graveyard.]=];};
+    {Date="2018-04-27";Text=[=[If multiple effects allow you to play a card from your graveyard, such as those of Gisa and Geralf and Karador, Ghost Chieftain, you must announce which permission you’re using as you begin to play the card.]=];};
+};
+};
+
+{Name="Multani, Yavimaya's Avatar";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{G}}{{G}}";
+cmc=6;
+Colors={"Green"};
+Type="Legendary Creature — Elemental Avatar";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Elemental";"Avatar";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Reach, trample<br/>
+Multani, Yavimaya's Avatar gets +1/+1 for each land you control and each land card in your graveyard.<br/>
+{{1}}{{G}}, Return two lands you control to their owner's hand: Return Multani from your graveyard to your hand.]=];
+CardNumber="DOM174";
+Power="0";
+Toughness="0";
+MultiverseID=443062;
+Rulings={
+    {Date="2018-04-27";Text=[=[Multani’s ability that modifies its power and toughness applies only while it’s on the battlefield. In all other zones, it’s a 0/0 creature card.]=];};
+    {Date="2018-04-27";Text=[=[To activate Multani’s last ability, you must return lands you control from the battlefield to their owner’s hand. Land cards in your graveyard can’t be returned this way.]=];};
 };
 };
 
@@ -11388,6 +14478,38 @@ Rulings={
 };
 };
 
+{Name="Naban, Dean of Iteration";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Legendary Creature — Human Wizard";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Wizard";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[If a Wizard entering the battlefield under your control causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.]=];
+Flavor=[=["Perfect. Now do it again."]=];
+CardNumber="DOM58";
+Power="2";
+Toughness="1";
+MultiverseID=442946;
+Rulings={
+    {Date="2018-04-27";Text=[=[Naban affects a Wizard’s own enters-the-battlefield triggered abilities as well as other triggered abilities that trigger when that Wizard enters the battlefield. Such triggered abilities start with “when” or “whenever.”]=];};
+    {Date="2018-04-27";Text=[=[Replacement effects are unaffected by Naban’s first ability. For example, a Wizard that enters the battlefield with one +1/+1 counter on it won’t receive an additional +1/+1 counter.]=];};
+    {Date="2018-04-27";Text=[=[Abilities that apply “as [this creature] enters the battlefield,” such as choosing a card name with Meddling Mage, are unaffected.]=];};
+    {Date="2018-04-27";Text=[=[Naban’s effect doesn’t copy the triggered ability; it just causes the ability to trigger twice. Any choices made as you put the ability onto the stack, such as modes and targets, are made separately for each instance of the ability. Any choices made on resolution, such as whether to put counters on a permanent, are also made individually.]=];};
+    {Date="2018-04-27";Text=[=[The trigger event doesn’t have to specifically refer to “Wizards.” For example, an ability that triggers “whenever a creature enters the battlefield under your control” would trigger twice if the entering creature is a Wizard.]=];};
+    {Date="2018-04-27";Text=[=[Look at each permanent as it exists on the battlefield, taking into account continuous effects, to determine whether any triggered abilities will trigger multiple times. For example, if you control Arcane Adaptation with Wizard as the chosen creature type, a Runeclaw Bear entering the battlefield will cause any abilities it triggers to trigger an additional time.]=];};
+    {Date="2018-04-27";Text=[=[If you somehow control two Nabans, a Wizard entering the battlefield causes abilities to trigger three times, not four. A third Naban causes abilities to trigger four times, a fourth causes abilities to trigger five times, and so on.]=];};
+    {Date="2018-04-27";Text=[=[If a Wizard entering the battlefield at the same time as Naban (including Naban itself) causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.]=];};
+    {Date="2018-04-27";Text=[=[If a triggered ability is linked to a second ability, additional instances of that triggered ability are also linked to that second ability. If the second ability refers to “the exiled card,” it refers to all cards exiled by instances of the triggered ability.]=];};
+    {Date="2018-04-27";Text=[=[In some cases involving linked abilities, an ability requires information about “the exiled card.” When this happens, the ability gets multiple answers. If these answers are being used to determine the value of a variable, the sum is used. For example, if Elite Arcanist’s enters-the-battlefield ability triggers twice, two cards are exiled. The value of X in the activation cost of Elite Arcanist’s other ability is the sum of the two cards’ converted mana costs. As the ability resolves, you create copies of both cards and can cast none, one, or both of the copies in any order.]=];};
+};
+};
+
 {Name="Naga Oracle";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -11418,7 +14540,7 @@ Types={"Creature"};
 SubTypes={"Naga";"Druid";};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[{{Tap}}: Add to your mana pool one mana of any type that a land you control could produce.]=];
+Text=[=[{{Tap}}: Add one mana of any type that a land you control could produce.]=];
 Flavor=[=["The lands of the God-Pharaoh are suffused with his breath."]=];
 CardNumber="AKH176";
 Power="1";
@@ -11429,6 +14551,37 @@ Rulings={
     {Date="2017-04-18";Text=[=[Any change to a land’s type or abilities gained by a land can affect the types of mana a land can produce.]=];};
     {Date="2017-04-18";Text=[=[Naga Vitalist checks the effects of all mana-producing abilities of lands you control, but it doesn’t check their costs or legality. For example, Spire of Industry says “{Tap}, Pay 1 life: Add one mana of any color to your mana pool. Activate this ability only if you control an artifact.” If you control Spire of Industry and Naga Vitalist, you can tap Naga Vitalist for any color of mana. It doesn’t matter whether you control an artifact, whether you can pay 1 life, or whether Spire of Industry is untapped.]=];};
     {Date="2017-04-18";Text=[=[Naga Vitalist doesn’t care about any restrictions or riders your lands put on the mana they produce, such as the one Cavern of Souls has. It just cares about types of mana.]=];};
+};
+};
+
+{Name="Naru Meha, Master Wizard";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{U}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Legendary Creature — Human Wizard";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Wizard";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Flash<br/>
+When Naru Meha, Master Wizard enters the battlefield, copy target instant or sorcery spell you control. You may choose new targets for the copy.<br/>
+Other Wizards you control get +1/+1.]=];
+CardNumber="DOM59";
+Power="3";
+Toughness="3";
+MultiverseID=442947;
+Rulings={
+    {Date="2018-04-27";Text=[=[Because damage remains marked on a creature until it’s removed as the turn ends, nonlethal damage dealt to a Wizard you control may become lethal if Naru leaves the battlefield during that turn.]=];};
+    {Date="2018-04-27";Text=[=[Naru’s triggered ability can copy any instant or sorcery spell, not just one with targets.]=];};
+    {Date="2018-04-27";Text=[=[The copy is created on the stack, so it’s not “cast.” Abilities that trigger when a player casts a spell won’t trigger.]=];};
+    {Date="2018-04-27";Text=[=[The copy will have the same targets as the spell it’s copying unless you choose new ones. You may change any number of the targets, including all of them or none of them. If, for one of the targets, you can’t choose a new legal target, then it remains unchanged (even if the current target is illegal).]=];};
+    {Date="2018-04-27";Text=[=[If the spell that’s copied is modal (that is, it says “Choose one —” or the like), the copy will have the same mode. A different mode can’t be chosen.]=];};
+    {Date="2018-04-27";Text=[=[If the spell that’s copied has an X whose value was determined as it was cast (like Jaya’s Immolating Inferno does), the copy will have the same value of X.]=];};
+    {Date="2018-04-27";Text=[=[If the spell has damage divided as it was cast (like Fight with Fire does when kicked), the division can’t be changed (although the targets receiving that damage still can).]=];};
+    {Date="2018-04-27";Text=[=[The controller of a copy can’t choose to pay any alternative or additional costs for the copy. However, effects based on any alternative or additional costs that were paid for the original spell are copied as though those same costs were paid for the copy.]=];};
 };
 };
 
@@ -11449,6 +14602,42 @@ CardNumber="RIX139";
 MultiverseID=439796;
 };
 
+{Name="Nature's Spiral";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Return target permanent card from your graveyard to your hand.]=];
+Flavor=[=["As Argoth's last defenders fell to Urza's juggernauts, Titania said, ‘Nature cannot be destroyed, only changed.'"<br/>
+—The Antiquities War]=];
+CardNumber="DOM175";
+MultiverseID=443063;
+};
+
+{Name="Navigator's Compass";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}";
+cmc=1;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Navigator's Compass enters the battlefield, you gain 3 life.<br/>
+{{Tap}}: Until end of turn, target land you control becomes the basic land type of your choice in addition to its other types.]=];
+Flavor=[=[The Weatherlight can no longer planeshift, but it can traverse Dominaria with ease.]=];
+CardNumber="DOM225";
+MultiverseID=443113;
+Rulings={
+    {Date="2018-04-27";Text=[=[Gaining a basic land type causes the target land to gain the corresponding mana ability. Because the new basic land type is “in addition to” its other types, it keeps the abilities it had previously.]=];};
+};
+};
+
 {Name="Navigator's Ruin";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -11459,7 +14648,7 @@ Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[Raid — At the beginning of your end step, if you attacked with a creature this turn, target opponent puts the top four cards of his or her library into his or her graveyard.]=];
+Text=[=[Raid — At the beginning of your end step, if you attacked with a creature this turn, target opponent puts the top four cards of their library into their graveyard.]=];
 Flavor=[=["You won't be needing this. Or this. Or these . . ."]=];
 CardNumber="XLN63";
 MultiverseID=435215;
@@ -11551,7 +14740,7 @@ SubTypes={"Zombie";"Minotaur";"Warrior";};
 Rarity="Mythic Rare";
 Rarities={"Mythic Rare"};
 Text=[=[Afflict 3 (Whenever this creature becomes blocked, defending player loses 3 life.)<br/>
-At the beginning of your postcombat main phase, add {{R}} to your mana pool for each 1 life your opponents have lost this turn.]=];
+At the beginning of your postcombat main phase, add {{R}} for each 1 life your opponents have lost this turn.]=];
 Flavor=[=["This is what glory looks like."<br/>
 —Nicol Bolas]=];
 CardNumber="HOU104";
@@ -11680,12 +14869,12 @@ Rarity="Common";
 Rarities={"Common"};
 Text=[=[Enchant land<br/>
 When New Horizons enters the battlefield, put a +1/+1 counter on target creature you control.<br/>
-Enchanted land has "{{Tap}}: Add two mana of any one color to your mana pool."]=];
+Enchanted land has "{{Tap}}: Add two mana of any one color."]=];
 CardNumber="XLN198";
 MultiverseID=435354;
 Rulings={
     {Date="2017-09-29";Text=[=[You can cast New Horizons even if you control no creatures.]=];};
-    {Date="2017-09-29";Text=[=[If the land this Aura would enchant is an illegal target by the time New Horizons resolves, the entire spell is countered. It won’t enter the battlefield, so its ability won’t trigger.]=];};
+    {Date="2017-09-29";Text=[=[If the land this Aura would enchant is an illegal target by the time New Horizons resolves, the entire spell doesn’t resolve. It won’t enter the battlefield, so its ability won’t trigger.]=];};
 };
 };
 
@@ -11739,6 +14928,26 @@ Rulings={
 };
 };
 
+{Name="Niambi, Faithful Healer";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{W}}{{U}}";
+cmc=3;
+Colors={"White";"Blue";};
+Type="Legendary Creature — Human Cleric";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Cleric";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[When Niambi, Faithful Healer enters the battlefield, you may search your library and/or graveyard for a card named Teferi, Timebender, reveal it, and put it into your hand. If you search your library this way, shuffle it.]=];
+Flavor=[=["My father will be happy to see you."]=];
+CardNumber="DOM272";
+Power="2";
+Toughness="2";
+MultiverseID=445850;
+};
+
 {Name="Nicol Bolas, God-Pharaoh";
 SetCode="HOU";
 Allsets={"HOU"};
@@ -11751,9 +14960,9 @@ Types={"Planeswalker"};
 SubTypes={"Bolas"};
 Rarity="Mythic Rare";
 Rarities={"Mythic Rare"};
-Text=[=[+2: Target opponent exiles cards from the top of his or her library until he or she exiles a nonland card. Until end of turn, you may cast that card without paying its mana cost.<br/>
-+1: Each opponent exiles two cards from his or her hand.<br/>
-−4: Nicol Bolas, God-Pharaoh deals 7 damage to target opponent or creature an opponent controls.<br/>
+Text=[=[+2: Target opponent exiles cards from the top of their library until they exile a nonland card. Until end of turn, you may cast that card without paying its mana cost.<br/>
++1: Each opponent exiles two cards from their hand.<br/>
+−4: Nicol Bolas, God-Pharaoh deals 7 damage to target opponent, creature an opponent controls, or planeswalker an opponent controls.<br/>
 −12: Exile each nonland permanent your opponents control.]=];
 CardNumber="HOU140";
 Loyalty="7";
@@ -11763,9 +14972,9 @@ Rulings={
     {Date="2017-07-14";Text=[=[You may cast the nonland card exiled by Nicol Bolas’s first ability that turn even if Nicol Bolas is no longer on the battlefield or under your control.]=];};
     {Date="2017-07-14";Text=[=[Casting the card exiled with Nicol Bolas’s first ability follows the normal timing rules for casting that card. For example, if the card is a creature card, you can cast that card only during your main phase while the stack is empty.]=];};
     {Date="2017-07-14";Text=[=[If you don’t cast the card exiled by Nicol Bolas’s first ability that turn, it will remain exiled.]=];};
-    {Date="2017-07-14";Text=[=[If you cast a card “without paying its mana cost,” you can’t pay any alternative costs, such as emerge costs. You can, however, pay additional costs. If the card has any mandatory additional costs, such as that of Tormenting Voice, you must pay those to cast the card.]=];};
+    {Date="2017-07-14";Text=[=[If you cast a card “without paying its mana cost,” you can’t choose to cast it for any alternative costs, such as emerge costs. You can, however, pay additional costs. If the card has any mandatory additional costs, such as that of Tormenting Voice, you must pay those to cast the card.]=];};
     {Date="2017-07-14";Text=[=[If the card has {X} in its mana cost, you must choose 0 as the value of X when casting it without paying its mana cost.]=];};
-    {Date="2017-07-14";Text=[=[While resolving Nicol Bolas’s second ability, each opponent chooses which cards to exile from his or her hand. Any opponent with two or fewer cards exiles his or her entire hand.]=];};
+    {Date="2017-07-14";Text=[=[While resolving Nicol Bolas’s second ability, each opponent chooses which cards to exile from their hand. Any opponent with two or fewer cards exiles their entire hand.]=];};
     {Date="2017-07-14";Text=[=[In a multiplayer game, if a player leaves the game, all cards that player owns leave as well. If you leave the game, any spell or permanent cards you control from Nicol Bolas’s first ability are exiled.]=];};
 };
 };
@@ -11789,9 +14998,9 @@ CardNumber="HOU205";
 Loyalty="5";
 MultiverseID=432884;
 Rulings={
-    {Date="2017-07-14";Text=[=[While resolving Nicol Bolas’s first ability, your opponent chooses a card to be discarded without revealing it, chooses a nonland permanent to be sacrificed, or chooses to do neither. Then that player discards that card, sacrifices that permanent, or loses 3 life. Your opponent can always choose to lose 3 life, even if he or she has cards to discard or nonland permanents to sacrifice.]=];};
-    {Date="2017-07-14";Text=[=[In a multiplayer game, each opponent in turn order makes his or her choice for Nicol Bolas’s first ability, then all of the actions occur simultaneously. Opponents will know choices made by earlier opponents when making their choices, although a card chosen to be discarded this way isn’t revealed until it’s discarded.]=];};
-    {Date="2017-07-14";Text=[=[If the target of Nicol Bolas’s second ability becomes illegal, the ability is countered and you won’t draw a card. If that target is legal but can’t be destroyed, most likely because it has indestructible, you still draw a card.]=];};
+    {Date="2017-07-14";Text=[=[While resolving Nicol Bolas’s first ability, your opponent chooses a card to be discarded without revealing it, chooses a nonland permanent to be sacrificed, or chooses to do neither. Then that player discards that card, sacrifices that permanent, or loses 3 life. Your opponent can always choose to lose 3 life, even if they have cards to discard or nonland permanents to sacrifice.]=];};
+    {Date="2017-07-14";Text=[=[In a multiplayer game, each opponent in turn order makes their choice for Nicol Bolas’s first ability, then all of the actions occur simultaneously. Opponents will know choices made by earlier opponents when making their choices, although a card chosen to be discarded this way isn’t revealed until it’s discarded.]=];};
+    {Date="2017-07-14";Text=[=[If the target of Nicol Bolas’s second ability becomes illegal, the ability doesn’t resolve and you won’t draw a card. If that target is legal but can’t be destroyed, most likely because it has indestructible, you still draw a card.]=];};
     {Date="2017-07-14";Text=[=[If Nicol Bolas’s third ability causes each opponent to have 0 or less life, but it also causes you to try to draw more cards than you have in your library, the game ends in a draw.]=];};
 };
 };
@@ -11818,7 +15027,7 @@ MultiverseID=430729;
 Rulings={
     {Date="2017-04-18";Text=[=[Some cards with cycling have an ability that triggers when you cycle them. These triggered abilities resolve before you draw from the cycling ability.]=];};
     {Date="2017-04-18";Text=[=[Triggered abilities from cycling a card and the cycling ability itself aren’t spells. Effects that interact with spells (such as that of Cancel) won’t affect them.]=];};
-    {Date="2017-04-18";Text=[=[You can cycle a card even if it has a triggered ability from cycling that won’t have a legal target. This is because the cycling ability and the triggered ability are separate. This also means that if either ability is countered (with Disallow, for example, or if the triggered ability’s targets have become illegal), the other ability will still resolve.]=];};
+    {Date="2017-04-18";Text=[=[You can cycle a card even if it has a triggered ability from cycling that won’t have a legal target. This is because the cycling ability and the triggered ability are separate. This also means that if either ability doesn’t resolve (due to being countered with Disallow, for example, or if the triggered ability’s targets have become illegal), the other ability will still resolve.]=];};
     {Date="2017-07-14";Text=[=[Activated abilities are written in the form “Cost: Effect.” Some keyword abilities, such as equip and eternalize, are activated abilities and will have colons in their reminder texts.]=];};
     {Date="2017-07-14";Text=[=[Triggered abilities use the word “when,” “whenever,” or “at.” They’re often written as “[Trigger condition], [effect].” Some keyword abilities, such as prowess and afflict, are triggered abilities and will have “when,” “whenever,” or “at” in their reminder text.]=];};
     {Date="2017-07-14";Text=[=[If you counter a delayed triggered ability that triggers at the beginning of the “next” occurrence of a specified step or phase, that ability won’t trigger again the following time that phase or step occurs.]=];};
@@ -11967,8 +15176,8 @@ Types={"Creature"};
 SubTypes={"Naga";"Druid";};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[{{Tap}}: Add one mana of any color to your mana pool.<br/>
-{{Tap}}, Exert Oasis Ritualist: Add two mana of any one color to your mana pool. (An exerted creature won't untap during your next untap step.)]=];
+Text=[=[{{Tap}}: Add one mana of any color.<br/>
+{{Tap}}, Exert Oasis Ritualist: Add two mana of any one color. (An exerted creature won't untap during your next untap step.)]=];
 Flavor=[=["It's only the end if we allow it."]=];
 CardNumber="HOU124";
 Power="2";
@@ -11979,6 +15188,31 @@ Rulings={
     {Date="2017-04-18";Text=[=[If an exerted creature is already untapped during your next untap step (most likely because it had vigilance or an effect untapped it), exert’s effect preventing it from untapping expires without having done anything.]=];};
     {Date="2017-04-18";Text=[=[If you gain control of another player’s creature until end of turn and exert it, it will untap during that player’s untap step.]=];};
     {Date="2017-07-14";Text=[=[Some cards in the Hour of Devastation set let you exert a creature as a cost to activate one of its abilities. You can exert it to pay that cost even if you’ve already exerted it earlier in the turn. Exerting it multiple times will keep it tapped only during your next untap step.]=];};
+};
+};
+
+{Name="Oath of Teferi";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{W}}{{U}}";
+cmc=5;
+Colors={"White";"Blue";};
+Type="Legendary Enchantment";
+SuperTypes={"Legendary"};
+Types={"Enchantment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[When Oath of Teferi enters the battlefield, exile another target permanent you control. Return it to the battlefield under its owner's control at the beginning of the next end step.<br/>
+You may activate the loyalty abilities of planeswalkers you control twice each turn rather than only once.]=];
+Flavor=[=["For the lost and forgotten, I will keep watch."]=];
+CardNumber="DOM200";
+MultiverseID=443088;
+Rulings={
+    {Date="2018-04-27";Text=[=[If a token is exiled this way, it ceases to exist and won’t return to the battlefield.]=];};
+    {Date="2018-04-27";Text=[=[The exiled card will return to the battlefield at the beginning of the next end step even if Oath of Teferi is no longer on the battlefield at that time.]=];};
+    {Date="2018-04-27";Text=[=[If the exiled card is an Aura, that card’s owner chooses what it will enchant as it returns to the battlefield. An Aura put onto the battlefield this way doesn’t target anything (so it could be attached to an opponent’s permanent with hexproof, for example), but the Aura’s enchant ability restricts what it can be attached to. If the Aura can’t legally be attached to anything, it remains exiled.]=];};
+    {Date="2018-04-27";Text=[=[For Oath of Teferi’s second ability, you may activate the same ability of a planeswalker twice, or you may activate two different abilities of that planeswalker.]=];};
+    {Date="2018-04-27";Text=[=[If you somehow control more than one Oath of Teferi, you won’t be able to activate abilities of planeswalkers you control more than twice in one turn.]=];};
 };
 };
 
@@ -12003,7 +15237,7 @@ Toughness="2";
 MultiverseID=439737;
 Rulings={
     {Date="2018-01-19";Text=[=[Oathsworn Vampire’s last ability cares only whether you gained life in the turn, even if Oathsworn Vampire wasn’t in your graveyard when that happened. It doesn’t care how much you gained, whether you also lost life, or even whether you lost more life than you gained.]=];};
-    {Date="2018-01-19";Text=[=[Casting Oathsworn Vampire from your graveyard follows the normal rules for casting that card. You must pay its costs, and you must follow all applicable timing rules. ]=];};
+    {Date="2018-01-19";Text=[=[Casting Oathsworn Vampire from your graveyard follows the normal rules for casting that card. You must pay its costs, and you must follow all applicable timing rules.]=];};
 };
 };
 
@@ -12189,7 +15423,7 @@ Types={"Creature"};
 SubTypes={"Dryad"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[When Old-Growth Dryads enters the battlefield, each opponent may search his or her library for a basic land card, put it onto the battlefield tapped, then shuffle his or her library.]=];
+Text=[=[When Old-Growth Dryads enters the battlefield, each opponent may search their library for a basic land card, put it onto the battlefield tapped, then shuffle their library.]=];
 Flavor=[=["The jungle was here before any city. It will be here after the last city falls."]=];
 CardNumber="XLN199";
 Power="3";
@@ -12219,7 +15453,32 @@ Rulings={
     {Date="2017-04-18";Text=[=[Some cards have an ability that triggers whenever you cycle any card. These triggered abilities resolve before you draw from the cycling ability.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you discard a card doesn’t give you permission to discard cards. You’ll need another effect that instructs or allows you to discard them.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you “cycle or discard” a card triggers only once if you cycle a card. The ability “Whenever you discard a card” is functionally identical to this ability; cycling is mentioned for clarity.]=];};
-    {Date="2017-04-18";Text=[=[If a player discards a card during his or her cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
+    {Date="2017-04-18";Text=[=[If a player discards a card during their cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
+};
+};
+
+{Name="On Serra's Wings";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Legendary Enchantment — Aura";
+SuperTypes={"Legendary"};
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Enchant creature<br/>
+Enchanted creature is legendary, gets +1/+1, and has flying, vigilance, and lifelink.]=];
+Flavor=[=["The spirit of Serra raised Brindri high and commanded her to keep the balance."<br/>
+—Song of All, canto 524]=];
+CardNumber="DOM28";
+MultiverseID=442916;
+Rulings={
+    {Date="2018-04-27";Text=[=[Multiple instances of flying, vigilance, and/or lifelink on the same creature are redundant.]=];};
+    {Date="2018-04-27";Text=[=[If you control two On Serra’s Wings attached to two creatures you control with the same name, the “legend rule” applies to the enchanted creatures and to On Serra’s Wings at once. You can choose to keep the On Serra’s Wings that enchants the creature you wish to keep.]=];};
+    {Date="2018-04-27";Text=[=[If you control two permanents with the same name but only one is legendary, the “legend rule” doesn’t apply.]=];};
 };
 };
 
@@ -12280,7 +15539,7 @@ Type="Instant";
 Types={"Instant"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[Open Fire deals 3 damage to target creature or player.]=];
+Text=[=[Open Fire deals 3 damage to any target.]=];
 Flavor=[=[Some khenra archers fashion their arrows with a personal touch.]=];
 CardNumber="HOU105";
 MultiverseID=430794;
@@ -12303,8 +15562,8 @@ MultiverseID=426766;
 };
 
 {Name="Opt";
-SetCode="XLN";
-Allsets={"XLN"};
+SetCode="DOM";
+Allsets={"DOM";"XLN";};
 Manacost="{{U}}";
 cmc=1;
 Colors={"Blue"};
@@ -12314,9 +15573,12 @@ Rarity="Common";
 Rarities={"Common"};
 Text=[=[Scry 1. (Look at the top card of your library. You may put that card on the bottom of your library.)<br/>
 Draw a card.]=];
-Flavor=[=["It's easy to anticipate Captain Storm's orders: take the more dangerous route."]=];
-CardNumber="XLN65";
-MultiverseID=435217;
+Flavor=[=[The crystal pulsed with the power of Teferi's planeswalker spark. Had Jhoira given him a blessing or a curse?]=];
+CardNumber="DOM60";
+MultiverseID=442948;
+Sets={
+{Set="XLN";Rarity="Common";CardNumber="65";Flavor=[=["It's easy to anticipate Captain Storm's orders: take the more dangerous route."]=];};
+};
 };
 
 {Name="Oracle's Vault";
@@ -12339,7 +15601,7 @@ Rulings={
     {Date="2017-04-18";Text=[=[If the exiled card is a land card, you may play it only if you have an available land play this turn.]=];};
     {Date="2017-04-18";Text=[=[If you don’t play the card, it will remain exiled.]=];};
     {Date="2017-04-18";Text=[=[The first ability of Oracle’s Vault puts a brick counter on it even if you can’t or don’t play the card.]=];};
-    {Date="2017-04-18";Text=[=[If you cast a card “without paying its mana cost,” you can’t pay any alternative costs, such as emerge costs. You can, however, pay additional costs. If the card has any mandatory additional costs, such as that of Tormenting Voice, those must be paid to cast the card.]=];};
+    {Date="2017-04-18";Text=[=[If you cast a card “without paying its mana cost,” you can’t choose to cast it for any alternative costs, such as emerge costs. You can, however, pay additional costs. If the card has any mandatory additional costs, such as that of Tormenting Voice, those must be paid to cast the card.]=];};
     {Date="2017-04-18";Text=[=[If the card has X in its mana cost, you must choose 0 as the value of X when casting it without paying its mana cost.]=];};
 };
 };
@@ -12391,7 +15653,7 @@ Types={"Artifact"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
-{{Tap}}: Add {{C}} to your mana pool.<br/>
+{{Tap}}: Add {{C}}.<br/>
 {{Tap}}, Sacrifice Orazca Relic: You gain 3 life and draw a card. Activate this ability only if you have the city's blessing.]=];
 CardNumber="RIX181";
 MultiverseID=439845;
@@ -12403,6 +15665,25 @@ Rulings={
     {Date="2018-01-19";Text=[=[If your tenth permanent enters the battlefield and then a permanent leaves the battlefield immediately afterwards (most likely due to the “Legend Rule” or due to being a creature with 0 toughness), you get the city’s blessing before it leaves the battlefield.]=];};
     {Date="2018-01-19";Text=[=[Ascend on a permanent isn’t a triggered ability and doesn’t use the stack. Players can respond to a spell that will give you your tenth permanent, but they can’t respond to getting the city’s blessing once you control that tenth permanent. This means that if your tenth permanent is a land you play, players can’t respond before you get the city’s blessing.]=];};
 };
+};
+
+{Name="Orcish Vandal";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Creature — Orc Warrior";
+Types={"Creature"};
+SubTypes={"Orc";"Warrior";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{Tap}}, Sacrifice an artifact: Orcish Vandal deals 2 damage to any target.]=];
+Flavor=[=[Every ancient relic is a weapon if you throw it hard enough.]=];
+CardNumber="DOM137";
+Power="1";
+Toughness="1";
+MultiverseID=443025;
 };
 
 {Name="Ornery Kudu";
@@ -12558,8 +15839,8 @@ Types={"Land"};
 SubTypes={"Desert"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[{{Tap}}: Add {{C}} to your mana pool.<br/>
-{{1}}, {{Tap}}: Add one mana of any color to your mana pool.]=];
+Text=[=[{{Tap}}: Add {{C}}.<br/>
+{{1}}, {{Tap}}: Add one mana of any color.]=];
 Flavor=[=[Centuries of scouring sands have carved and polished the rocky terrain of the Shefet Desert.]=];
 CardNumber="AKH246";
 MultiverseID=426948;
@@ -12609,6 +15890,25 @@ CardNumber="XLN25";
 Power="3";
 Toughness="2";
 MultiverseID=435177;
+};
+
+{Name="Pardic Wanderer";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{6}}";
+cmc=6;
+Type="Artifact Creature — Golem";
+Types={"Artifact";"Creature";};
+SubTypes={"Golem"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Trample]=];
+Flavor=[=["To the head of Archaeological Findings: The excavation schedule at dig site 93-beta must be revised. Part of the site has walked off."<br/>
+—Tolarian field dispatch]=];
+CardNumber="DOM226";
+Power="5";
+Toughness="5";
+MultiverseID=443114;
 };
 
 {Name="Path of Discovery";
@@ -12672,8 +15972,28 @@ Power="2";
 Toughness="1";
 MultiverseID=426848;
 Rulings={
-    {Date="2017-04-18";Text=[=[If the creature’s power is greater than 2 as the activated ability tries to resolve, the ability will be countered and none of its effects will happen. However, if instead the creature’s power is raised above 2 after the ability resolves, it still can’t be blocked that turn.]=];};
+    {Date="2017-04-18";Text=[=[If the creature’s power is greater than 2 as the activated ability tries to resolve, the ability won’t resolve and none of its effects will happen. However, if instead the creature’s power is raised above 2 after the ability resolves, it still can’t be blocked that turn.]=];};
 };
+};
+
+{Name="Pegasus Courser";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Creature — Pegasus";
+Types={"Creature"};
+SubTypes={"Pegasus"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+Whenever Pegasus Courser attacks, another target attacking creature gains flying until end of turn.]=];
+Flavor=[=[A pegasus chooses its rider, bearing the worthy into the clouds and tossing all others to the ground.]=];
+CardNumber="DOM29";
+Power="1";
+Toughness="3";
+MultiverseID=442917;
 };
 
 {Name="Perilous Voyage";
@@ -12691,11 +16011,56 @@ Flavor=[=[For the first time in her life, Vraska tried to prevent death.]=];
 CardNumber="XLN67";
 MultiverseID=435219;
 Rulings={
-    {Date="2017-09-29";Text=[=[If the target permanent is an illegal target by the time Perilous Voyage resolves, the entire spell is countered. You won’t scry.]=];};
+    {Date="2017-09-29";Text=[=[If the target permanent is an illegal target by the time Perilous Voyage resolves, the entire spell doesn’t resolve. You won’t scry.]=];};
     {Date="2017-09-29";Text=[=[Use the permanent’s converted mana cost as it existed on the battlefield to determine whether you scry.]=];};
     {Date="2017-09-29";Text=[=[If a permanent has {X} in its mana cost, X is considered to be 0.]=];};
     {Date="2018-01-19";Text=[=[There are many important moments in the story, but the most crucial—called “story spotlights”—are shown on cards. These cards have the Planeswalker symbol in their text box; this symbol has no effect on gameplay. You can read more about these events in the official Magic fiction at http://www.mtgstory.com.]=];};
 };
+};
+
+{Name="Phyrexian Scriptures";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{B}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Enchantment — Saga";
+Types={"Enchantment"};
+SubTypes={"Saga"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)<br/>
+I — Put a +1/+1 counter on up to one target creature. That creature becomes an artifact in addition to its other types.<br/>
+II — Destroy all nonartifact creatures.<br/>
+III — Exile all cards from all opponents' graveyards.]=];
+CardNumber="DOM100";
+MultiverseID=442988;
+Rulings={
+    {Date="2018-04-27";Text=[=[The effect of Phyrexian Scriptures’s first chapter ability lasts indefinitely. It doesn’t expire when Phyrexian Scriptures leaves the battlefield.]=];};
+    {Date="2018-04-27";Text=[=[As a Saga enters the battlefield, its controller puts a lore counter on it. As your precombat main phase begins (immediately after your draw step), you put another lore counter on each Saga you control. Putting a lore counter on a Saga in either of these ways doesn’t use the stack.]=];};
+    {Date="2018-04-27";Text=[=[Each symbol on the left of a Saga’s text box represents a chapter ability. A chapter ability is a triggered ability that triggers when a lore counter that is put on the Saga causes the number of lore counters on the Saga to become equal to or greater than the ability’s chapter number. Chapter abilities are put onto the stack and may be responded to.]=];};
+    {Date="2018-04-27";Text=[=[A chapter ability doesn’t trigger if a lore counter is put on a Saga that already had a number of lore counters greater than or equal to that chapter’s number. For example, the third lore counter put on a Saga causes the III chapter ability to trigger, but I and II won’t trigger again.]=];};
+    {Date="2018-04-27";Text=[=[Once a chapter ability has triggered, the ability on the stack won’t be affected if the Saga gains or loses counters, or if it leaves the battlefield.]=];};
+    {Date="2018-04-27";Text=[=[If multiple chapter abilities trigger at the same time, their controller puts them on the stack in any order. If any of them require targets, those targets are chosen as you put the abilities on the stack, before any of those abilities resolve.]=];};
+    {Date="2018-04-27";Text=[=[If counters are removed from a Saga, the appropriate chapter abilities will trigger again when the Saga receives lore counters. Removing lore counters won’t cause a previous chapter ability to trigger.]=];};
+    {Date="2018-04-27";Text=[=[Once the number of lore counters on a Saga is greater than or equal to the greatest number among its chapter abilities—in the Dominaria set, this is always three—the Saga’s controller sacrifices it as soon as its chapter ability has left the stack, most likely by resolving or being countered. This state-based action doesn’t use the stack.]=];};
+};
+};
+
+{Name="Pierce the Sky";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Pierce the Sky deals 7 damage to target creature with flying.]=];
+Flavor=[=[Llanowar elves conceal their ballistae in the upper canopy of the forest, ready to clear the skies of any intruder.]=];
+CardNumber="DOM176";
+MultiverseID=443064;
 };
 
 {Name="Pillar of Origins";
@@ -12708,7 +16073,7 @@ Types={"Artifact"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
 Text=[=[As Pillar of Origins enters the battlefield, choose a creature type.<br/>
-{{Tap}}: Add one mana of any color to your mana pool. Spend this mana only to cast a creature spell of the chosen type.]=];
+{{Tap}}: Add one mana of any color. Spend this mana only to cast a creature spell of the chosen type.]=];
 CardNumber="XLN241";
 MultiverseID=435399;
 Rulings={
@@ -12734,7 +16099,7 @@ Flavor=[=["Ours is the true and righteous path. You will bow before our might."]
 CardNumber="XLN26";
 MultiverseID=435178;
 Rulings={
-    {Date="2017-09-29";Text=[=[If the creature this Aura would enchant is an illegal target by the time Pious Interdiction resolves, the entire spell is countered. It won’t enter the battlefield, so its ability won’t trigger.]=];};
+    {Date="2017-09-29";Text=[=[If the creature this Aura would enchant is an illegal target by the time Pious Interdiction resolves, the entire spell doesn’t resolve. It won’t enter the battlefield, so its ability won’t trigger.]=];};
 };
 };
 
@@ -12768,8 +16133,8 @@ Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[As an additional cost to cast Pirate's Pillage, discard a card.<br/>
-Draw two cards and create two colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
+Text=[=[As an additional cost to cast this spell, discard a card.<br/>
+Draw two cards and create two colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
 Flavor=[=[Goblins can carry their body weight in loot.]=];
 CardNumber="RIX109";
 MultiverseID=439766;
@@ -12785,7 +16150,7 @@ Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[Draw two cards. Create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
+Text=[=[Draw two cards. Create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
 Flavor=[=[Nothing warms the heart like plunder.]=];
 CardNumber="XLN68";
 MultiverseID=435220;
@@ -12802,7 +16167,7 @@ Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[Whenever another creature you control dies, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
+Text=[=[Whenever another creature you control dies, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
 Flavor=[=["Shame to let good gold go to the grave."]=];
 CardNumber="RIX81";
 Power="1";
@@ -12833,7 +16198,7 @@ Rulings={
     {Date="2017-04-18";Text=[=[Some cards have an ability that triggers whenever you cycle any card. These triggered abilities resolve before you draw from the cycling ability.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you discard a card doesn’t give you permission to discard cards. You’ll need another effect that instructs or allows you to discard them.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you “cycle or discard” a card triggers only once if you cycle a card. The ability “Whenever you discard a card” is functionally identical to this ability; cycling is mentioned for clarity.]=];};
-    {Date="2017-04-18";Text=[=[If a player discards a card during his or her cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
+    {Date="2017-04-18";Text=[=[If a player discards a card during their cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
 };
 };
 
@@ -12862,21 +16227,21 @@ Rulings={
 };
 
 {Name="Plains";
-SetCode="RIX";
-Allsets={"RIX";"AKH";"HOU";"XLN";};
+SetCode="DOM";
+Allsets={"DOM";"AKH";"HOU";"XLN";"RIX";};
 Type="Basic Land — Plains";
 SuperTypes={"Basic"};
 Types={"Land"};
 SubTypes={"Plains"};
 Rarity="Basic Land";
 Rarities={"Basic Land"};
-Text=[=[W]=];
-CardNumber="RIX192";
-MultiverseID=439856;
+CardNumber="DOM251";
+MultiverseID=443139;
 Sets={
 {Set="AKH";Rarity="Basic Land";CardNumber="250";};
 {Set="HOU";Rarity="Basic Land";CardNumber="185";};
 {Set="XLN";Rarity="Basic Land";CardNumber="260";};
+{Set="RIX";Rarity="Basic Land";CardNumber="192";};
 };
 };
 
@@ -12959,6 +16324,50 @@ CardNumber="AKH179";
 Power="3";
 Toughness="2";
 MultiverseID=426881;
+};
+
+{Name="Powerstone Shard";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}";
+cmc=3;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{Tap}}: Add {{C}} for each artifact you control named Powerstone Shard.]=];
+Flavor=[=["Light passing through a powerstone is refracted by eternity and colored by planar energy. I wonder how the world appeared through Urza's eyes?"<br/>
+—Teferi]=];
+CardNumber="DOM227";
+MultiverseID=443115;
+Rulings={
+    {Date="2018-04-27";Text=[=[Powerstone Shard’s activated ability is a mana ability. It doesn’t use the stack and can’t be responded to.]=];};
+};
+};
+
+{Name="Precognition Field";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[You may look at the top card of your library. (You may do this at any time.)<br/>
+You may cast the top card of your library if it's an instant or sorcery card.<br/>
+{{3}}: Exile the top card of your library.]=];
+CardNumber="DOM61";
+MultiverseID=442949;
+Rulings={
+    {Date="2018-04-27";Text=[=[Precognition Field lets you look at the top card of your library whenever you want (with one restriction—see below), even if you don’t have priority. This action doesn’t use the stack. Knowing what that card is becomes part of the information you have access to, just like you can look at the cards in your hand.]=];};
+    {Date="2018-04-27";Text=[=[If the top card of your library changes while you’re casting a spell or activating an ability, you can’t look at the new top card until you finish casting that spell or activating that ability. This means that if you cast the top card of your library, you can’t look at the next one until you’re done paying for that spell.]=];};
+    {Date="2018-04-27";Text=[=[You must follow the normal timing permissions and restrictions of the cards you play from your library.]=];};
+    {Date="2018-04-27";Text=[=[You’ll still pay all costs for that spell, including additional costs. You may also pay alternative costs such as that granted by Jodah, Archmage Eternal.]=];};
+    {Date="2018-04-27";Text=[=[The top card of your library isn’t in your hand, so you can’t cycle it, discard it, or activate any of its activated abilities.]=];};
+    {Date="2018-04-27";Text=[=[The card you’ll exile from the top of your library is determined as Precognition Field’s last ability resolves. This might not be the card that was on top of your library when you activated that ability.]=];};
+};
 };
 
 {Name="Prepare";
@@ -13098,7 +16507,7 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[(Transforms from Primal Amulet.)<br/>
-{{Tap}}: Add one mana of any color to your mana pool. When that mana is spent to cast an instant or sorcery spell, copy that spell and you may choose new targets for the copy.]=];
+{{Tap}}: Add one mana of any color. When that mana is spent to cast an instant or sorcery spell, copy that spell and you may choose new targets for the copy.]=];
 CardNumber="XLN243b";
 MultiverseID=435402;
 Rulings={
@@ -13113,6 +16522,49 @@ Rulings={
     {Date="2017-09-29";Text=[=[If the copied spell has an X whose value was determined as it was cast, the copy has the same value of X.]=];};
     {Date="2017-09-29";Text=[=[You can’t choose to pay any additional costs for the copy. However, effects based on any additional costs that were paid for the original spell are copied as though those same costs were paid for the copy too. For example, if you sacrifice a 3/3 creature to cast Fling, and you copy it, the copy of Fling will also deal 3 damage to its target.]=];};
 };
+};
+
+{Name="Primevals' Glorious Rebirth";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{5}}{{W}}{{B}}";
+cmc=7;
+Colors={"White";"Black";};
+Type="Legendary Sorcery";
+SuperTypes={"Legendary"};
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[(You may cast a legendary sorcery only if you control a legendary creature or planeswalker.)<br/>
+Return all legendary permanent cards from your graveyard to the battlefield.]=];
+Flavor=[=[Centuries ago, five dragons conquered death to rule the living.]=];
+CardNumber="DOM201";
+MultiverseID=443089;
+Rulings={
+    {Date="2018-04-27";Text=[=[You must return all legendary permanent cards to the battlefield, even if the “legend rule” will put some right back into your graveyard. If any abilities triggered from the legendary permanents entering the battlefield, those abilities will be put onto the stack after applying the “legend rule.”]=];};
+    {Date="2018-04-27";Text=[=[All of the permanents put onto the battlefield this way enter at the same time. If any have triggered abilities that trigger on something else entering the battlefield, they’ll see each other.]=];};
+    {Date="2018-04-27";Text=[=[You can’t cast a legendary sorcery unless you control a legendary creature or a legendary planeswalker. Once you begin to cast a legendary sorcery, losing control of your legendary creatures and planeswalkers won’t affect that spell.]=];};
+    {Date="2018-04-27";Text=[=[Other than the casting restriction, the legendary supertype on a sorcery carries no additional rules. You may cast any number of legendary sorceries in a turn, and your deck may contain any number of legendary cards (but no more than four of any with the same name).]=];};
+};
+};
+
+{Name="Primordial Wurm";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{G}}{{G}}";
+cmc=6;
+Colors={"Green"};
+Type="Creature — Wurm";
+Types={"Creature"};
+SubTypes={"Wurm"};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=["You can hear its tail thrashing from a mile away. Keep in mind that its jaws may already be half a mile closer."<br/>
+—Jenson Carthalion, Yavimaya exile]=];
+CardNumber="DOM177";
+Power="7";
+Toughness="6";
+MultiverseID=443065;
 };
 
 {Name="Profane Procession";
@@ -13148,7 +16600,7 @@ Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[When Prosperous Pirates enters the battlefield, create two colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
+Text=[=[When Prosperous Pirates enters the battlefield, create two colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
 Flavor=[=[The floating city of High and Dry hasn't yet sunk under the weight of gold, but it's not for want of trying.]=];
 CardNumber="XLN69";
 Power="3";
@@ -13202,7 +16654,6 @@ MultiverseID=426725;
 Rulings={
     {Date="2017-04-18";Text=[=[If multiple sources would deal damage to you at once (for example, several attacking creatures), 1 damage from each of those sources is prevented.]=];};
     {Date="2017-04-18";Text=[=[Damage that would be dealt to creatures you control is unaffected.]=];};
-    {Date="2017-04-18";Text=[=[If a prevention effect applies to noncombat damage that would be dealt to you while you control a planeswalker, you choose whether to apply that prevention effect before or after the planeswalker redirection effect. If you apply Protection of the Hekma’s prevention effect first, the planeswalker redirection effect still applies to the remaining damage. If you apply the planeswalker redirection effect and your opponent chooses to have the damage dealt to a planeswalker you control, none of that damage is prevented.]=];};
 };
 };
 
@@ -13243,7 +16694,7 @@ Types={"Creature"};
 SubTypes={"Cat";"Snake";};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[Prowling Serpopard can't be countered.<br/>
+Text=[=[This spell can't be countered.<br/>
 Creature spells you control can't be countered.]=];
 Flavor=[=[The viziers serving Rhonas, the god of strength, maintain the menagerie of animals employed during his trial.]=];
 CardNumber="AKH180";
@@ -13266,7 +16717,7 @@ SubTypes={"Equipment"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Equipped creature gets +1/+0.<br/>
-Whenever equipped creature deals combat damage to a player, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."<br/>
+Whenever equipped creature deals combat damage to a player, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."<br/>
 Equip {{2}} ({{2}}: Attach to target creature you control. Equip only as a sorcery.)]=];
 CardNumber="XLN244";
 MultiverseID=435403;
@@ -13355,11 +16806,30 @@ Type="Artifact";
 Types={"Artifact"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[{{2}}, {{Tap}}: Add one mana of any color to your mana pool. Put a brick counter on Pyramid of the Pantheon.<br/>
-{{Tap}}: Add three mana of any one color to your mana pool. Activate this ability only if there are three or more brick counters on Pyramid of the Pantheon.]=];
+Text=[=[{{2}}, {{Tap}}: Add one mana of any color. Put a brick counter on Pyramid of the Pantheon.<br/>
+{{Tap}}: Add three mana of any one color. Activate this ability only if there are three or more brick counters on Pyramid of the Pantheon.]=];
 Flavor=[=[Five gods, one purpose.]=];
 CardNumber="AKH235";
 MultiverseID=426937;
+};
+
+{Name="Pyromantic Pilgrim";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Creature — Human Wizard";
+Types={"Creature"};
+SubTypes={"Human";"Wizard";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Haste (This creature can attack and {{Tap}} as soon as it comes under your control.)]=];
+Flavor=[=["From the volcanoes of Shiv to the Balduvian steppes, I have sought a worthy teacher. At last, I have found one."]=];
+CardNumber="DOM278";
+Power="3";
+Toughness="1";
+MultiverseID=445856;
 };
 
 {Name="Quarry Beetle";
@@ -13494,6 +16964,49 @@ Rulings={
 };
 };
 
+{Name="Radiating Lightning";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Radiating Lightning deals 3 damage to target player and 1 damage to each creature that player controls.]=];
+Flavor=[=[As the Cabal legions pushed into Shiv, they learned not to stand so close together.]=];
+CardNumber="DOM138";
+MultiverseID=443026;
+Rulings={
+    {Date="2018-04-27";Text=[=[Radiating Lightning targets only the player. Creatures that player controls with hexproof will be dealt damage.]=];};
+};
+};
+
+{Name="Raff Capashen, Ship's Mage";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{W}}{{U}}";
+cmc=4;
+Colors={"White";"Blue";};
+Type="Legendary Creature — Human Wizard";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Wizard";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flash<br/>
+Flying<br/>
+You may cast historic spells as though they had flash. (Artifacts, legendaries, and Sagas are historic.)]=];
+CardNumber="DOM202";
+Power="3";
+Toughness="3";
+MultiverseID=443090;
+Rulings={
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
+};
+};
+
 {Name="Raging Regisaur";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -13505,7 +17018,7 @@ Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[Whenever Raging Regisaur attacks, it deals 1 damage to target creature or player.]=];
+Text=[=[Whenever Raging Regisaur attacks, it deals 1 damage to any target.]=];
 Flavor=[=[Its breath is a gale. Its roar is a volcano. Its anger tears soul from flesh.]=];
 CardNumber="RIX168";
 Power="4";
@@ -13604,6 +17117,28 @@ MultiverseID=435182;
 Rulings={
     {Date="2017-09-29";Text=[=[Rallying Roar affects only creatures you control at the time it resolves. Creatures you begin to control later in the turn won’t get +1/+1.]=];};
     {Date="2017-09-29";Text=[=[Untapped creatures you control get +1/+1 even though Rallying Roar doesn’t untap them.]=];};
+};
+};
+
+{Name="Rampaging Cyclops";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Creature — Cyclops";
+Types={"Creature"};
+SubTypes={"Cyclops"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Rampaging Cyclops gets -2/-0 as long as two or more creatures are blocking it.]=];
+Flavor=[=[Keldon warriors take advantage of the cyclops's inability to focus on more than one thing at a time.]=];
+CardNumber="DOM139";
+Power="4";
+Toughness="4";
+MultiverseID=443027;
+Rulings={
+    {Date="2018-04-27";Text=[=[If all but one of Rampaging Cyclops’s blockers are removed from combat, Rampaging Cyclops’s effect immediately stops reducing its power.]=];};
 };
 };
 
@@ -13709,8 +17244,8 @@ Types={"Land"};
 SubTypes={"Desert"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[{{Tap}}: Add {{C}} to your mana pool.<br/>
-{{Tap}}, Pay 1 life: Add {{R}} to your mana pool.<br/>
+Text=[=[{{Tap}}: Add {{C}}.<br/>
+{{Tap}}, Pay 1 life: Add {{R}}.<br/>
 {{2}}{{R}}{{R}}, {{Tap}}, Sacrifice a Desert: Ramunap Ruins deals 2 damage to each opponent.]=];
 CardNumber="HOU181";
 MultiverseID=430870;
@@ -13786,6 +17321,29 @@ MultiverseID=435309;
 Rulings={
     {Date="2018-01-19";Text=[=[If multiple sources deal damage to a creature with an enrage ability at the same time, most likely because multiple creatures blocked that creature, the enrage ability triggers only once.]=];};
     {Date="2018-01-19";Text=[=[If lethal damage is dealt to a creature with an enrage ability, that ability triggers. The creature with that enrage ability leaves the battlefield before that ability resolves, so it won’t be affected by the resolving ability.]=];};
+};
+};
+
+{Name="Rat Colony";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Creature — Rat";
+Types={"Creature"};
+SubTypes={"Rat"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Rat Colony gets +1/+0 for each other Rat you control.<br/>
+A deck can have any number of cards named Rat Colony.]=];
+Flavor=[=[Wreckage from the Phyrexian Invasion provided the rats with a seemingly unlimited number of breeding grounds.]=];
+CardNumber="DOM101";
+Power="2";
+Toughness="1";
+MultiverseID=442989;
+Rulings={
+    {Date="2018-04-27";Text=[=[Rat Colony’s last ability lets you ignore only the “four-of” rule. It doesn’t let you ignore format legality.]=];};
 };
 };
 
@@ -14119,6 +17677,28 @@ Rulings={
 };
 };
 
+{Name="Relic Runner";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Creature — Human Rogue";
+Types={"Creature"};
+SubTypes={"Human";"Rogue";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Relic Runner can't be blocked if you've cast a historic spell this turn. (Artifacts, legendaries, and Sagas are historic.)]=];
+Flavor=[=[Her knack for tampering with wards got her kicked out of the academy, but they also got her back in.]=];
+CardNumber="DOM62";
+Power="2";
+Toughness="1";
+MultiverseID=442950;
+Rulings={
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
+};
+};
+
 {Name="Renewed Faith";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -14138,10 +17718,10 @@ MultiverseID=426727;
 Rulings={
     {Date="2008-10-01";Text=[=[Cycling is an activated ability. Effects that interact with activated abilities (such as Stifle or Rings of Brighthearth) will interact with cycling. Effects that interact with spells (such as Remove Soul or Faerie Tauntings) will not.]=];};
     {Date="2008-10-01";Text=[=[When you cycle this card, first the cycling ability goes on the stack, then the triggered ability goes on the stack on top of it. The triggered ability will resolve before you draw a card from the cycling ability.]=];};
-    {Date="2008-10-01";Text=[=[The cycling ability and the triggered ability are separate. If the triggered ability is countered (with Stifle, for example, or if all its targets have become illegal), the cycling ability will still resolve and you’ll draw a card.]=];};
+    {Date="2008-10-01";Text=[=[The cycling ability and the triggered ability are separate. If the triggered ability doesn’t resolve (due to being countered with Stifle, for example, or if all its targets have become illegal), the cycling ability will still resolve and you’ll draw a card.]=];};
     {Date="2017-04-18";Text=[=[Some cards with cycling have an ability that triggers when you cycle them. These triggered abilities resolve before you draw from the cycling ability.]=];};
     {Date="2017-04-18";Text=[=[Triggered abilities from cycling a card and the cycling ability itself aren’t spells. Effects that interact with spells (such as that of Cancel) won’t affect them.]=];};
-    {Date="2017-04-18";Text=[=[You can cycle a card even if it has a triggered ability from cycling that won’t have a legal target. This is because the cycling ability and the triggered ability are separate. This also means that if either ability is countered (with Disallow, for example, or if the triggered ability’s targets have become illegal), the other ability will still resolve.]=];};
+    {Date="2017-04-18";Text=[=[You can cycle a card even if it has a triggered ability from cycling that won’t have a legal target. This is because the cycling ability and the triggered ability are separate. This also means that if either ability doesn’t resolve (due to being countered with Disallow, for example, or if the triggered ability’s targets have become illegal), the other ability will still resolve.]=];};
     {Date="2018-01-19";Text=[=[There are many important moments in the story, but the most crucial—called “story spotlights”—are shown on cards. These cards have the Planeswalker symbol in their text box; this symbol has no effect on gameplay. You can read more about these events in the official Magic fiction at http://www.mtgstory.com.]=];};
 };
 };
@@ -14156,7 +17736,7 @@ Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[Repeating Barrage deals 3 damage to target creature or player.<br/>
+Text=[=[Repeating Barrage deals 3 damage to any target.<br/>
 Raid — {{3}}{{R}}{{R}}: Return Repeating Barrage from your graveyard to your hand. Activate this ability only if you attacked with a creature this turn.]=];
 CardNumber="XLN156";
 MultiverseID=435310;
@@ -14164,6 +17744,22 @@ Rulings={
     {Date="2018-01-19";Text=[=[Raid abilities care only that you attacked with a creature. It doesn’t matter how many creatures you attacked with, or which opponent or planeswalker controlled by an opponent those creatures attacked.]=];};
     {Date="2018-01-19";Text=[=[Raid abilities evaluate the entire turn to see if you attacked with a creature. That creature doesn’t have to still be on the battlefield. Similarly, the player or planeswalker it attacked doesn’t have to still be in the game or on the battlefield, respectively.]=];};
 };
+};
+
+{Name="Rescue";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{U}}";
+cmc=1;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Return target permanent you control to its owner's hand.]=];
+Flavor=[=[With just a few seconds to escape, Deryan saved Hurkyl's editions on restoring physical objects from ash.]=];
+CardNumber="DOM63";
+MultiverseID=442951;
 };
 
 {Name="Resilient Khenra";
@@ -14282,7 +17878,7 @@ Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[Whenever a creature an opponent controls dies, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."<br/>
+Text=[=[Whenever a creature an opponent controls dies, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."<br/>
 At the beginning of your upkeep, if you control ten or more Treasures, you win the game.]=];
 CardNumber="XLN117";
 MultiverseID=435271;
@@ -14446,14 +18042,14 @@ Types={"Sorcery"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[Aftermath (Cast this spell only from your graveyard. Then exile it.)<br/>
-Each opponent chooses a creature he or she controls. You gain control of those creatures.]=];
+Each opponent chooses a creature they control. You gain control of those creatures.]=];
 CardNumber="AKH222b";
 MultiverseID=426924;
 Rulings={
     {Date="2017-04-18";Text=[=[Riches’s effect doesn’t target. Creatures with hexproof may be lured away this way.]=];};
     {Date="2017-04-18";Text=[=[Riches’s effect lasts indefinitely. It doesn’t wear off during the cleanup step.]=];};
     {Date="2017-04-18";Text=[=[Once Riches begins to resolve, no player may take other actions until it’s done. Notably, opponents can’t try to remove a creature after choosing it but before you gain control of it.]=];};
-    {Date="2017-04-18";Text=[=[In a multiplayer game, each opponent in turn order chooses a creature he or she controls, if he or she controls any creatures. After each opponent has done so, you gain control of each chosen creature simultaneously.]=];};
+    {Date="2017-04-18";Text=[=[In a multiplayer game, each opponent in turn order chooses a creature they control, if they control any creatures. After each opponent has done so, you gain control of each chosen creature simultaneously.]=];};
     {Date="2017-04-18";Text=[=[In a multiplayer game, if a player leaves the game, all cards that player owns leave as well, and any effects that give the player control of permanents immediately end.]=];};
     {Date="2017-07-14";Text=[=[Once you’ve started to cast a spell with aftermath from your graveyard, the card is immediately moved to the stack. Opponents can’t try to stop the ability by exiling the card with an effect such as that of Crook of Condemnation.]=];};
 };
@@ -14521,7 +18117,7 @@ MultiverseID=435312;
 Rulings={
     {Date="2017-09-29";Text=[=[If Rile targets a creature with 1 toughness, that creature won’t be destroyed until after you’ve drawn a card. Its abilities may affect that draw or trigger on that draw if appropriate.]=];};
     {Date="2017-09-29";Text=[=[If the damage that would be dealt by Rile is prevented, the creature still gains trample until end of turn.]=];};
-    {Date="2017-09-29";Text=[=[If the target creature is an illegal target by the time Rile resolves, the entire spell is countered. You won’t draw a card.]=];};
+    {Date="2017-09-29";Text=[=[If the target creature is an illegal target by the time Rile resolves, the entire spell doesn’t resolve. You won’t draw a card.]=];};
 };
 };
 
@@ -14545,6 +18141,33 @@ MultiverseID=435359;
 Rulings={
     {Date="2018-01-19";Text=[=[If multiple sources deal damage to a creature with an enrage ability at the same time, most likely because multiple creatures blocked that creature, the enrage ability triggers only once.]=];};
     {Date="2018-01-19";Text=[=[If lethal damage is dealt to a creature with an enrage ability, that ability triggers. The creature with that enrage ability leaves the battlefield before that ability resolves, so it won’t be affected by the resolving ability.]=];};
+};
+};
+
+{Name="Rite of Belzenlok";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{B}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Enchantment — Saga";
+Types={"Enchantment"};
+SubTypes={"Saga"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)<br/>
+I, II — Create two 0/1 black Cleric creature tokens.<br/>
+III — Create a 6/6 black Demon creature token with flying, trample, and "At the beginning of your upkeep, sacrifice another creature. If you can't, this creature deals 6 damage to you."]=];
+CardNumber="DOM102";
+MultiverseID=442990;
+Rulings={
+    {Date="2018-04-27";Text=[=[As a Saga enters the battlefield, its controller puts a lore counter on it. As your precombat main phase begins (immediately after your draw step), you put another lore counter on each Saga you control. Putting a lore counter on a Saga in either of these ways doesn’t use the stack.]=];};
+    {Date="2018-04-27";Text=[=[Each symbol on the left of a Saga’s text box represents a chapter ability. A chapter ability is a triggered ability that triggers when a lore counter that is put on the Saga causes the number of lore counters on the Saga to become equal to or greater than the ability’s chapter number. Chapter abilities are put onto the stack and may be responded to.]=];};
+    {Date="2018-04-27";Text=[=[A chapter ability doesn’t trigger if a lore counter is put on a Saga that already had a number of lore counters greater than or equal to that chapter’s number. For example, the third lore counter put on a Saga causes the III chapter ability to trigger, but I and II won’t trigger again.]=];};
+    {Date="2018-04-27";Text=[=[Once a chapter ability has triggered, the ability on the stack won’t be affected if the Saga gains or loses counters, or if it leaves the battlefield.]=];};
+    {Date="2018-04-27";Text=[=[If multiple chapter abilities trigger at the same time, their controller puts them on the stack in any order. If any of them require targets, those targets are chosen as you put the abilities on the stack, before any of those abilities resolve.]=];};
+    {Date="2018-04-27";Text=[=[If counters are removed from a Saga, the appropriate chapter abilities will trigger again when the Saga receives lore counters. Removing lore counters won’t cause a previous chapter ability to trigger.]=];};
+    {Date="2018-04-27";Text=[=[Once the number of lore counters on a Saga is greater than or equal to the greatest number among its chapter abilities—in the Dominaria set, this is always three—the Saga’s controller sacrifices it as soon as its chapter ability has left the stack, most likely by resolving or being countered. This state-based action doesn’t use the stack.]=];};
 };
 };
 
@@ -14709,6 +18332,38 @@ Rulings={
 };
 };
 
+{Name="Rona, Disciple of Gix";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{U}}{{B}}";
+cmc=3;
+Colors={"Blue";"Black";};
+Type="Legendary Creature — Human Artificer";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Artificer";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Rona, Disciple of Gix enters the battlefield, you may exile target historic card from your graveyard. (Artifacts, legendaries, and Sagas are historic.)<br/>
+You may cast nonland cards exiled with Rona.<br/>
+{{4}}, {{Tap}}: Exile the top card of your library.]=];
+CardNumber="DOM203";
+Power="2";
+Toughness="2";
+MultiverseID=443091;
+Rulings={
+    {Date="2018-04-27";Text=[=[If Rona leaves the battlefield, the exiled cards will remain exiled indefinitely. If Rona enters the battlefield again, it won’t be associated with the cards the “other” Rona exiled. The new Rona will exile a new set of cards with its first and last abilities. Only those cards can be cast using the new Rona’s middle ability.]=];};
+    {Date="2018-04-27";Text=[=[The cards exiled from your library are exiled face up.]=];};
+    {Date="2018-04-27";Text=[=[After Rona’s last ability resolves, you have priority if it’s your turn. You can cast the exiled card before any player can take other actions if it’s legal to do so.]=];};
+    {Date="2018-04-27";Text=[=[You must follow the normal timing permissions and restrictions of the cards you cast from exile.]=];};
+    {Date="2018-04-27";Text=[=[You’ll still pay all costs for that spell, including additional costs. You may also pay alternative costs such as that granted by Jodah, Archmage Eternal.]=];};
+    {Date="2018-04-27";Text=[=[The exiled cards aren’t in your hand, so you can’t cycle them, discard them, or activate any of their activated abilities.]=];};
+    {Date="2018-04-27";Text=[=[Once you begin to cast a card, losing control of Rona won’t affect the spell.]=];};
+    {Date="2018-04-27";Text=[=[The card you’ll exile from the top of your library is determined as Rona’s last ability resolves. This might not be the card that was on top of your library when you activated that ability.]=];};
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
+};
+};
+
 {Name="Rootbound Crag";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -14717,7 +18372,7 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[Rootbound Crag enters the battlefield tapped unless you control a Mountain or a Forest.<br/>
-{{Tap}}: Add {{R}} or {{G}} to your mana pool.]=];
+{{Tap}}: Add {{R}} or {{G}}.]=];
 Flavor=[=[Cliffs echo and branches quake at the roar of life.]=];
 CardNumber="XLN256";
 MultiverseID=435417;
@@ -14859,6 +18514,22 @@ CardNumber="XLN72";
 MultiverseID=435224;
 };
 
+{Name="Run Amok";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target attacking creature gets +3/+3 and gains trample until end of turn.]=];
+Flavor=[=[Keld faced an apocalypse to fulfill a dire prophecy. Now Keldons have nothing left to believe in except themselves.]=];
+CardNumber="DOM140";
+MultiverseID=443028;
+};
+
 {Name="Ruthless Knave";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -14870,7 +18541,7 @@ Types={"Creature"};
 SubTypes={"Orc";"Pirate";};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[{{2}}{{B}}, Sacrifice a creature: Create two colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."<br/>
+Text=[=[{{2}}{{B}}, Sacrifice a creature: Create two colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."<br/>
 Sacrifice three Treasures: Draw a card.]=];
 Flavor=[=["This scum is barely worth the trouble."]=];
 CardNumber="XLN119";
@@ -14905,7 +18576,7 @@ Rulings={
     {Date="2017-04-18";Text=[=[Some cards have an ability that triggers whenever you cycle any card. These triggered abilities resolve before you draw from the cycling ability.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you discard a card doesn’t give you permission to discard cards. You’ll need another effect that instructs or allows you to discard them.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you “cycle or discard” a card triggers only once if you cycle a card. The ability “Whenever you discard a card” is functionally identical to this ability; cycling is mentioned for clarity.]=];};
-    {Date="2017-04-18";Text=[=[If a player discards a card during his or her cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
+    {Date="2017-04-18";Text=[=[If a player discards a card during their cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
 };
 };
 
@@ -14965,7 +18636,7 @@ Types={"Creature"};
 SubTypes={"Vampire";"Soldier";};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[As an additional cost to cast Sadistic Skymarcher, reveal a Vampire card from your hand or pay {{1}}.<br/>
+Text=[=[As an additional cost to cast this spell, reveal a Vampire card from your hand or pay {{1}}.<br/>
 Flying, lifelink]=];
 Flavor=[=["I will catch you, child of the sun. I will drink your life and leave you a husk, discarded in the shadows."]=];
 CardNumber="RIX85";
@@ -14975,6 +18646,25 @@ MultiverseID=439742;
 Rulings={
     {Date="2018-01-19";Text=[=[If an effect refers to a “[subtype] spell” or “[subtype] card,” it refers only to a spell or card that has that subtype. For example, March of the Drowned is a card that benefits Pirates and features Pirates in its illustration, but it isn’t a Pirate card.]=];};
 };
+};
+
+{Name="Sage of Lat-Nam";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Creature — Human Artificer";
+Types={"Creature"};
+SubTypes={"Human";"Artificer";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{Tap}}, Sacrifice an artifact: Draw a card.]=];
+Flavor=[=[Though it was laid to waste by the brothers, many schools of magic trace their origins to the College of Lat-Nam, including the first Tolarian Academy.]=];
+CardNumber="DOM64";
+Power="1";
+Toughness="2";
+MultiverseID=442952;
 };
 
 {Name="Sailor of Means";
@@ -14988,7 +18678,7 @@ Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[When Sailor of Means enters the battlefield, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
+Text=[=[When Sailor of Means enters the battlefield, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
 Flavor=[=[The rising tide of Orazca's plunder lifted all ships.]=];
 CardNumber="RIX49";
 Power="1";
@@ -15012,7 +18702,7 @@ SubTypes={"Samut"};
 Rarity="Mythic Rare";
 Rarities={"Mythic Rare"};
 Text=[=[+1: Up to one target creature gains double strike until end of turn.<br/>
-−2: Samut, the Tested deals 2 damage divided as you choose among one or two target creatures and/or players.<br/>
+−2: Samut, the Tested deals 2 damage divided as you choose among one or two targets.<br/>
 −7: Search your library for up to two creature and/or planeswalker cards, put them onto the battlefield, then shuffle your library.]=];
 CardNumber="HOU144";
 Loyalty="4";
@@ -15057,7 +18747,7 @@ Types={"Land"};
 Rarity="Mythic Rare";
 Rarities={"Mythic Rare"};
 Text=[=[(Transforms from Azor's Gateway.)<br/>
-{{Tap}}: Add X mana of any one color to your mana pool, where X is your life total.]=];
+{{Tap}}: Add X mana of any one color, where X is your life total.]=];
 Flavor=[=[As soon as Jace laid eyes on the great sphinx's chamber, the shards of memory began sliding into place.]=];
 CardNumber="RIX176b";
 MultiverseID=439839;
@@ -15085,6 +18775,30 @@ Toughness="4";
 MultiverseID=435274;
 Rulings={
     {Date="2017-09-29";Text=[=[In a Two-Headed Giant game, Sanctum Seeker’s ability causes the opposing team to lose 2 life and you to gain 1 life.]=];};
+};
+};
+
+{Name="Sanctum Spirit";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Creature — Spirit";
+Types={"Creature"};
+SubTypes={"Spirit"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Lifelink<br/>
+Discard a historic card: Sanctum Spirit gains indestructible until end of turn. (Artifacts, legendaries, and Sagas are historic.)]=];
+Flavor=[=["When history becomes too mournful, even good souls may choose to forget."<br/>
+—Shalai, voice of Plenty]=];
+CardNumber="DOM30";
+Power="3";
+Toughness="2";
+MultiverseID=442918;
+Rulings={
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
 };
 };
 
@@ -15185,6 +18899,23 @@ Rulings={
 };
 };
 
+{Name="Saproling Migration";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Kicker {{4}} (You may pay an additional {{4}} as you cast this spell.)<br/>
+Create two 1/1 green Saproling creature tokens. If this spell was kicked, create four of those tokens instead.]=];
+Flavor=[=[Thallids herd saprolings from place to place in search of detritus to feed them.]=];
+CardNumber="DOM178";
+MultiverseID=443066;
+};
+
 {Name="Savage Stomp";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -15195,7 +18926,7 @@ Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[Savage Stomp costs {{2}} less to cast if it targets a Dinosaur you control.<br/>
+Text=[=[This spell costs {{2}} less to cast if it targets a Dinosaur you control.<br/>
 Put a +1/+1 counter on target creature you control. Then that creature fights target creature you don't control. (Each deals damage equal to its power to the other.)]=];
 CardNumber="XLN205";
 MultiverseID=435361;
@@ -15229,7 +18960,6 @@ Rulings={
     {Date="2017-07-14";Text=[=[More damage can be redirected to the enchanted creature than it has toughness, as long as that damage is all dealt at once (like combat damage is).]=];};
     {Date="2017-07-14";Text=[=[Saving Grace’s redirection effect doesn’t change the source of the damage or whether the damage is combat damage.]=];};
     {Date="2017-07-14";Text=[=[If you have more than one Saving Grace enter the battlefield in one turn, all damage that would be dealt at once to you and/or permanents you control is dealt to one of the enchanted creatures of your choice. It’s not dealt to all of them, and you can’t split the damage between them.]=];};
-    {Date="2017-07-14";Text=[=[If noncombat damage would be dealt to a planeswalker you control, the planeswalker redirection effect and Saving Grace’s redirection effect apply in whichever order you choose. However, no matter which order you choose to apply them in, that damage will be dealt to the enchanted creature instead.]=];};
 };
 };
 
@@ -15278,7 +19008,7 @@ Types={"Land"};
 SubTypes={"Forest";"Plains";};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[({{Tap}}: Add {{G}} or {{W}} to your mana pool.)<br/>
+Text=[=[({{Tap}}: Add {{G}} or {{W}}.)<br/>
 Scattered Groves enters the battlefield tapped.<br/>
 Cycling {{2}} ({{2}}, Discard this card: Draw a card.)]=];
 CardNumber="AKH247";
@@ -15293,7 +19023,7 @@ Types={"Land"};
 SubTypes={"Desert"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[{{Tap}}: Add {{C}} to your mana pool.<br/>
+Text=[=[{{Tap}}: Add {{C}}.<br/>
 {{2}}, {{Tap}}, Sacrifice a Desert: Exile all cards from all graveyards.]=];
 Flavor=[=[When the last scrap of flesh is scoured away, the Curse of Wandering ends. Then the dead may sleep.]=];
 CardNumber="HOU182";
@@ -15382,6 +19112,28 @@ Toughness="3";
 MultiverseID=439708;
 Rulings={
     {Date="2018-01-19";Text=[=[If Seafloor Oracle is dealt lethal damage at the same time a Merfolk you control deals combat damage to a player, you’ll draw a card.]=];};
+};
+};
+
+{Name="Seal Away";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flash<br/>
+When Seal Away enters the battlefield, exile target tapped creature an opponent controls until Seal Away leaves the battlefield.]=];
+Flavor=[=[An ancient nemesis rendered harmless long ago.]=];
+CardNumber="DOM31";
+MultiverseID=442919;
+Rulings={
+    {Date="2018-04-27";Text=[=[If Seal Away leaves the battlefield before its triggered ability resolves, the target creature won’t be exiled.]=];};
+    {Date="2018-04-27";Text=[=[Auras attached to the exiled creature will be put into their owners’ graveyards. Any Equipment will become unattached and remain on the battlefield. Any counters on the exiled creature will cease to exist. When the card returns to the battlefield, it will be a new object with no connection to the card that was exiled.]=];};
+    {Date="2018-04-27";Text=[=[If a token is exiled this way, it will cease to exist and won’t return to the battlefield.]=];};
 };
 };
 
@@ -15510,12 +19262,55 @@ Types={"Creature"};
 SubTypes={"Naga";"Cleric";};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[{{U}}, {{Tap}}, Discard a card: Target player puts the top three cards of his or her library into his or her graveyard.]=];
+Text=[=[{{U}}, {{Tap}}, Discard a card: Target player puts the top three cards of their library into their graveyard.]=];
 Flavor=[=["The truth? It's been here all along. The Hours as we understood them are lies."]=];
 CardNumber="HOU44";
 Power="1";
 Toughness="4";
 MultiverseID=430733;
+};
+
+{Name="Seismic Shift";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Destroy target land. Up to two target creatures can't block this turn.]=];
+Flavor=[=["Shiv is a restless land. It heaves ash, bleeds lava, and scabs over in black obsidian."<br/>
+—The First Eruption]=];
+CardNumber="DOM141";
+MultiverseID=443029;
+};
+
+{Name="Sentinel of the Pearl Trident";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{U}}";
+cmc=5;
+Colors={"Blue"};
+Type="Creature — Merfolk Soldier";
+Types={"Creature"};
+SubTypes={"Merfolk";"Soldier";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flash<br/>
+When Sentinel of the Pearl Trident enters the battlefield, you may exile target historic permanent you control. If you do, return that card to the battlefield under its owner's control at the beginning of the next end step. (Artifacts, legendaries, and Sagas are historic.)]=];
+CardNumber="DOM65";
+Power="3";
+Toughness="3";
+MultiverseID=442953;
+Rulings={
+    {Date="2018-04-27";Text=[=[If a token is exiled this way, it ceases to exist and won’t return to the battlefield.]=];};
+    {Date="2018-04-27";Text=[=[The exiled card will return to the battlefield at the beginning of the next end step even if Sentinel of the Pearl Trident is no longer on the battlefield at that time.]=];};
+    {Date="2018-04-27";Text=[=[If the exiled card is an Aura, that card’s owner chooses what it will enchant as it comes back onto the battlefield. An Aura put onto the battlefield this way doesn’t target anything (so it could be attached to an opponent’s permanent with hexproof, for example), but the Aura’s enchant ability restricts what it can be attached to. If the Aura can’t legally be attached to anything, it remains exiled.]=];};
+    {Date="2018-04-27";Text=[=[If Sentinel of the Pearl Trident enters the battlefield during a turn’s end step, the exiled card won’t be returned to the battlefield until the beginning of the following turn’s end step.]=];};
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
+};
 };
 
 {Name="Sentinel Totem";
@@ -15554,6 +19349,93 @@ Toughness="4";
 MultiverseID=426730;
 };
 
+{Name="Sergeant-at-Arms";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Creature — Human Soldier";
+Types={"Creature"};
+SubTypes={"Human";"Soldier";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Kicker {{2}}{{W}} (You may pay an additional {{2}}{{W}} as you cast this spell.)<br/>
+When Sergeant-at-Arms enters the battlefield, if it was kicked, create two 1/1 white Soldier creature tokens.]=];
+Flavor=[=[Knights get the glory. Soldiers get things done.]=];
+CardNumber="DOM32";
+Power="2";
+Toughness="3";
+MultiverseID=442920;
+};
+
+{Name="Serra Angel";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{W}}{{W}}";
+cmc=5;
+Colors={"White"};
+Type="Creature — Angel";
+Types={"Creature"};
+SubTypes={"Angel"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying, vigilance]=];
+Flavor=[=[The angel remembers her past lives like dreams. Her song held up meadows. Her blade drove back darkness. Her wings carried her across the ages.]=];
+CardNumber="DOM33";
+Power="4";
+Toughness="4";
+MultiverseID=442921;
+};
+
+{Name="Serra Disciple";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Creature — Bird Cleric";
+Types={"Creature"};
+SubTypes={"Bird";"Cleric";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying, first strike<br/>
+Whenever you cast a historic spell, Serra Disciple gets +1/+1 until end of turn. (Artifacts, legendaries, and Sagas are historic.)]=];
+Flavor=[=[Theologians now believe the Ancestor was another divine form of Serra.]=];
+CardNumber="DOM34";
+Power="1";
+Toughness="1";
+MultiverseID=442922;
+Rulings={
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
+    {Date="2018-04-27";Text=[=[Some abilities trigger “whenever you cast a historic spell.” Such an ability resolves before the spell that caused it to trigger. It resolves even if that spell is countered.]=];};
+    {Date="2018-04-27";Text=[=[An ability that triggers “whenever you cast a historic spell” doesn’t trigger if a historic card is put onto the battlefield without being cast.]=];};
+    {Date="2018-04-27";Text=[=[Lands are never cast, so abilities that trigger “whenever you cast a historic spell” won’t trigger if you play a legendary land. They also won’t trigger if a card on the battlefield transforms into a legendary land, as the Ixalan and Rivals of Ixalan double-faced cards do.]=];};
+};
+};
+
+{Name="Settle the Score";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{B}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Exile target creature. Put two loyalty counters on a planeswalker you control.]=];
+Flavor=[=["You bound me with a contract only your death could end—and you thought me the fool?"<br/>
+—Liliana Vess]=];
+CardNumber="DOM103";
+MultiverseID=442991;
+Rulings={
+    {Date="2018-04-27";Text=[=[If the target creature is an illegal target by the time Settle the Score tries to resolve, the spell doesn’t resolve. You won’t put loyalty counters on a planeswalker.]=];};
+    {Date="2018-04-27";Text=[=[Both loyalty counters must be put onto the same planeswalker.]=];};
+    {Date="2018-04-27";Text=[=[You don’t choose which planeswalker receives loyalty counters until Settle the Score resolves. If you don’t control a planeswalker, you’ll simply exile the target creature and not put loyalty counters on anything.]=];};
+};
+};
+
 {Name="Settle the Wreckage";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -15564,12 +19446,12 @@ Type="Instant";
 Types={"Instant"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[Exile all attacking creatures target player controls. That player may search his or her library for that many basic land cards, put those cards onto the battlefield tapped, then shuffle his or her library.]=];
+Text=[=[Exile all attacking creatures target player controls. That player may search their library for that many basic land cards, put those cards onto the battlefield tapped, then shuffle their library.]=];
 CardNumber="XLN34";
 MultiverseID=435186;
 Rulings={
     {Date="2017-09-29";Text=[=[Settle the Wreckage targets only the player. Creatures with hexproof that player controls will be exiled as this spell resolves.]=];};
-    {Date="2017-09-29";Text=[=[That player can find fewer basic land cards than the number of exiled creatures, whether because he or she wants to or because he or she doesn’t have that many basic land cards left.]=];};
+    {Date="2017-09-29";Text=[=[That player can find fewer basic land cards than the number of exiled creatures, whether because they want to or because they don’t have that many basic land cards left.]=];};
     {Date="2017-09-29";Text=[=[The number of lands that player may find is the number of attacking creatures that were exiled, even if some of those creatures were tokens, weren’t creature cards, or didn’t end up in exile (most likely because one was that player’s commander in the Commander variant).]=];};
 };
 };
@@ -15617,7 +19499,7 @@ Rulings={
     {Date="2017-09-29";Text=[=[Each Vehicle is printed with a power and toughness, but it’s not a creature. If it becomes a creature (most likely through its crew ability), it will have that power and toughness.]=];};
     {Date="2017-09-29";Text=[=[If an effect causes a Vehicle to become an artifact creature with a specified power and toughness, that effect overwrites the Vehicle’s printed power and toughness.]=];};
     {Date="2017-09-29";Text=[=[Vehicle is an artifact type, not a creature type. A Vehicle that’s crewed won’t normally have any creature type.]=];};
-    {Date="2017-09-29";Text=[=[Once a player announces that he or she is activating a crew ability, no player may take other actions until the ability has been paid for. Notably, players can’t try to stop the ability by changing a creature’s power or by removing or tapping a creature.]=];};
+    {Date="2017-09-29";Text=[=[Once a player announces that they are activating a crew ability, no player may take other actions until the ability has been paid for. Notably, players can’t try to stop the ability by changing a creature’s power or by removing or tapping a creature.]=];};
     {Date="2017-09-29";Text=[=[Any untapped creature you control can be tapped to pay a crew cost, even one that just came under your control.]=];};
     {Date="2017-09-29";Text=[=[You may tap more creatures than necessary to activate a crew ability.]=];};
     {Date="2017-09-29";Text=[=[Creatures that crew a Vehicle aren’t attached to it or related in any other way. Effects that affect the Vehicle, such as by destroying it or giving it a +1/+1 counter, don’t affect the creatures that crewed it.]=];};
@@ -15651,7 +19533,7 @@ Rulings={
     {Date="2017-04-18";Text=[=[Some cards have an ability that triggers whenever you cycle any card. These triggered abilities resolve before you draw from the cycling ability.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you discard a card doesn’t give you permission to discard cards. You’ll need another effect that instructs or allows you to discard them.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you “cycle or discard” a card triggers only once if you cycle a card. The ability “Whenever you discard a card” is functionally identical to this ability; cycling is mentioned for clarity.]=];};
-    {Date="2017-04-18";Text=[=[If a player discards a card during his or her cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
+    {Date="2017-04-18";Text=[=[If a player discards a card during their cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
 };
 };
 
@@ -15670,6 +19552,54 @@ Draw a card.]=];
 Flavor=[=[A threefold calamity with a single will.]=];
 CardNumber="RIX113";
 MultiverseID=439770;
+};
+
+{Name="Shalai, Voice of Plenty";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Legendary Creature — Angel";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Angel"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Flying<br/>
+You, planeswalkers you control, and other creatures you control have hexproof.<br/>
+{{4}}{{G}}{{G}}: Put a +1/+1 counter on each creature you control.]=];
+CardNumber="DOM35";
+Power="3";
+Toughness="4";
+MultiverseID=442923;
+};
+
+{Name="Shanna, Sisay's Legacy";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{G}}{{W}}";
+cmc=2;
+Colors={"White";"Green";};
+Type="Legendary Creature — Human Warrior";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Warrior";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Shanna, Sisay's Legacy can't be the target of abilities your opponents control.<br/>
+Shanna gets +1/+1 for each creature you control.]=];
+Flavor=[=["I am heir to many treasures. None is as precious as knowing how my ancestor lived her life."]=];
+CardNumber="DOM204";
+Power="0";
+Toughness="0";
+MultiverseID=443092;
+Rulings={
+    {Date="2018-04-27";Text=[=[Spells your opponents control can target Shanna.]=];};
+    {Date="2018-04-27";Text=[=[Shanna’s ability that modifies its power and toughness applies only while it’s on the battlefield. In all other zones, it’s a 0/0 creature card.]=];};
+    {Date="2018-04-27";Text=[=[As long as it’s on the battlefield, Shanna’s last ability will count itself, so it’ll be at least 1/1.]=];};
+    {Date="2018-04-27";Text=[=[Because damage remains marked on a creature until it’s removed as the turn ends, nonlethal damage dealt to Shanna may become lethal if other creatures you control leave the battlefield during that turn.]=];};
+};
 };
 
 {Name="Shaper Apprentice";
@@ -15774,8 +19704,8 @@ Types={"Land"};
 SubTypes={"Desert"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[{{Tap}}: Add {{C}} to your mana pool.<br/>
-{{Tap}}, Pay 1 life: Add {{W}} to your mana pool.<br/>
+Text=[=[{{Tap}}: Add {{C}}.<br/>
+{{Tap}}, Pay 1 life: Add {{W}}.<br/>
 {{2}}{{W}}{{W}}, {{Tap}}, Sacrifice a Desert: Creatures you control get +1/+1 until end of turn. Activate this ability only any time you could cast a sorcery.]=];
 CardNumber="HOU183";
 MultiverseID=430872;
@@ -15805,7 +19735,7 @@ MultiverseID=426888;
 Rulings={
     {Date="2017-04-18";Text=[=[Some cards with cycling have an ability that triggers when you cycle them. These triggered abilities resolve before you draw from the cycling ability.]=];};
     {Date="2017-04-18";Text=[=[Triggered abilities from cycling a card and the cycling ability itself aren’t spells. Effects that interact with spells (such as that of Cancel) won’t affect them.]=];};
-    {Date="2017-04-18";Text=[=[You can cycle a card even if it has a triggered ability from cycling that won’t have a legal target. This is because the cycling ability and the triggered ability are separate. This also means that if either ability is countered (with Disallow, for example, or if the triggered ability’s targets have become illegal), the other ability will still resolve.]=];};
+    {Date="2017-04-18";Text=[=[You can cycle a card even if it has a triggered ability from cycling that won’t have a legal target. This is because the cycling ability and the triggered ability are separate. This also means that if either ability doesn’t resolve (due to being countered with Disallow, for example, or if the triggered ability’s targets have become illegal), the other ability will still resolve.]=];};
 };
 };
 
@@ -15817,7 +19747,7 @@ Types={"Land"};
 SubTypes={"Mountain";"Forest";};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[({{Tap}}: Add {{R}} or {{G}} to your mana pool.)<br/>
+Text=[=[({{Tap}}: Add {{R}} or {{G}}.)<br/>
 Sheltered Thicket enters the battlefield tapped.<br/>
 Cycling {{2}} ({{2}}, Discard this card: Draw a card.)]=];
 CardNumber="AKH248";
@@ -15838,6 +19768,28 @@ Text=[=[Target creature gains indestructible until end of turn. Scry 1. (Damage 
 Flavor=[=[Those who wield the power of the sun protect the Empire from darkness.]=];
 CardNumber="XLN35";
 MultiverseID=435187;
+};
+
+{Name="Shield of the Realm";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}";
+cmc=2;
+Type="Artifact — Equipment";
+Types={"Artifact"};
+SubTypes={"Equipment"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[If a source would deal damage to equipped creature, prevent 2 of that damage.<br/>
+Equip {{1}}]=];
+Flavor=[=[Benalish glazeplate is stained with salts from the Rift Era and enchanted to deflect blows.]=];
+CardNumber="DOM228";
+MultiverseID=443116;
+Rulings={
+    {Date="2018-04-27";Text=[=[If multiple sources would deal damage to the equipped creature at once (for example, several blocking creatures), 2 damage from each of those sources is prevented.]=];};
+    {Date="2018-04-27";Text=[=[If a creature is equipped with two Shields of the Realm, 4 damage will be prevented. Three Shields of the Realm will prevent 6 damage, and so on.]=];};
+    {Date="2018-04-27";Text=[=[If multiple replacement effects would modify how damage would be dealt, the controller of the permanent being dealt damage chooses the order in which to apply those effects.]=];};
+};
 };
 
 {Name="Shimmerscale Drake";
@@ -15903,6 +19855,23 @@ Rulings={
 };
 };
 
+{Name="Shivan Fire";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{R}}";
+cmc=1;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Kicker {{4}} (You may pay an additional {{4}} as you cast this spell.)<br/>
+Shivan Fire deals 2 damage to target creature. If this spell was kicked, it deals 4 damage to that creature instead.]=];
+Flavor=[=[Sometimes Shivan dragons toy with their food. Other times they just cook it.]=];
+CardNumber="DOM142";
+MultiverseID=443030;
+};
+
 {Name="Shore Keeper";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -15920,6 +19889,24 @@ CardNumber="XLN77";
 Power="0";
 Toughness="3";
 MultiverseID=435230;
+};
+
+{Name="Short Sword";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}";
+cmc=1;
+Type="Artifact — Equipment";
+Types={"Artifact"};
+SubTypes={"Equipment"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Equipped creature gets +1/+1.<br/>
+Equip {{1}} ({{1}}: Attach to target creature you control. Equip only as a sorcery.)]=];
+Flavor=[=["Sometimes the only difference between a martyr and a hero is a sword."<br/>
+—Captain Sisay, Memoirs]=];
+CardNumber="DOM229";
+MultiverseID=443117;
 };
 
 {Name="Sidewinder Naga";
@@ -15942,6 +19929,29 @@ Toughness="2";
 MultiverseID=430823;
 Rulings={
     {Date="2017-07-14";Text=[=[If an ability checks whether you control a Desert or there is a Desert card in your graveyard, having more than one doesn’t matter. Controlling one is the same as controlling five. There is also no extra bonus for both controlling one and having one in your graveyard.]=];};
+};
+};
+
+{Name="Siege-Gang Commander";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{R}}{{R}}";
+cmc=5;
+Colors={"Red"};
+Type="Creature — Goblin";
+Types={"Creature"};
+SubTypes={"Goblin"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[When Siege-Gang Commander enters the battlefield, create three 1/1 red Goblin creature tokens.<br/>
+{{1}}{{R}}, Sacrifice a Goblin: Siege-Gang Commander deals 2 damage to any target.]=];
+Flavor=[=["Ready . . . uh . . . fire!"]=];
+CardNumber="DOM143";
+Power="2";
+Toughness="2";
+MultiverseID=443031;
+Rulings={
+    {Date="2018-04-27";Text=[=[You can sacrifice any Goblin you control to activate Siege-Gang Commander’s activated ability, not just the ones its triggered ability puts onto the battlefield. You can even sacrifice Siege-Gang Commander itself.]=];};
 };
 };
 
@@ -16034,7 +20044,7 @@ Toughness="5";
 MultiverseID=439772;
 Rulings={
     {Date="2018-01-19";Text=[=[If creatures an opponent controls are dealt lethal damage at the same time that Silverclad Ferocidons is dealt damage, those creatures will be destroyed before that player chooses a permanent to sacrifice.]=];};
-    {Date="2018-01-19";Text=[=[When Silverclad Ferocidons’s triggered ability resolves, first the player whose turn it is (if that player is an opponent) chooses which permanent he or she will sacrifice, then each other opponent in turn order does the same, then all chosen permanents are sacrificed at the same time. Players will know choices made by earlier players when making their choices.]=];};
+    {Date="2018-01-19";Text=[=[When Silverclad Ferocidons’s triggered ability resolves, first the player whose turn it is (if that player is an opponent) chooses which permanent they will sacrifice, then each other opponent in turn order does the same, then all chosen permanents are sacrificed at the same time. Players will know choices made by earlier players when making their choices.]=];};
     {Date="2018-01-19";Text=[=[If multiple sources deal damage to a creature with an enrage ability at the same time, most likely because multiple creatures blocked that creature, the enrage ability triggers only once.]=];};
     {Date="2018-01-19";Text=[=[If lethal damage is dealt to a creature with an enrage ability, that ability triggers. The creature with that enrage ability leaves the battlefield before that ability resolves, so it won’t be affected by the resolving ability.]=];};
 };
@@ -16051,7 +20061,7 @@ Types={"Creature"};
 SubTypes={"Merfolk";"Wizard";};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[As an additional cost to cast Silvergill Adept, reveal a Merfolk card from your hand or pay {{3}}.<br/>
+Text=[=[As an additional cost to cast this spell, reveal a Merfolk card from your hand or pay {{3}}.<br/>
 When Silvergill Adept enters the battlefield, draw a card.]=];
 Flavor=[=["If you keep to the shallows, you'll never learn the secrets of the depths."]=];
 CardNumber="RIX53";
@@ -16122,7 +20132,7 @@ Types={"Creature"};
 SubTypes={"Siren";"Pirate";};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[Raid — Siren Reaver costs {{1}} less to cast if you attacked with a creature this turn.<br/>
+Text=[=[Raid — This spell costs {{1}} less to cast if you attacked with a creature this turn.<br/>
 Flying]=];
 Flavor=[=["Prepare to be boarded."]=];
 CardNumber="RIX54";
@@ -16198,6 +20208,25 @@ CardNumber="AKH187";
 MultiverseID=426889;
 };
 
+{Name="Skirk Prospector";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{R}}";
+cmc=1;
+Colors={"Red"};
+Type="Creature — Goblin";
+Types={"Creature"};
+SubTypes={"Goblin"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Sacrifice a Goblin: Add {{R}}.]=];
+Flavor=[=[Deep beneath the ruined continent of Otaria, there's a mine where goblins still work, ignorant of the destruction above.]=];
+CardNumber="DOM144";
+Power="1";
+Toughness="1";
+MultiverseID=443032;
+};
+
 {Name="Skittering Heartstopper";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -16215,6 +20244,48 @@ CardNumber="XLN122";
 Power="1";
 Toughness="2";
 MultiverseID=435276;
+};
+
+{Name="Skittering Surveyor";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}";
+cmc=3;
+Type="Artifact Creature — Construct";
+Types={"Artifact";"Creature";};
+SubTypes={"Construct"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Skittering Surveyor enters the battlefield, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle your library.]=];
+Flavor=[=[Like a cross between a spider and a spyglass, but friendlier.]=];
+CardNumber="DOM230";
+Power="1";
+Toughness="2";
+MultiverseID=443118;
+};
+
+{Name="Skizzik";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Creature — Elemental";
+Types={"Creature"};
+SubTypes={"Elemental"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Kicker {{R}} (You may pay an additional {{R}} as you cast this spell.)<br/>
+Trample, haste<br/>
+At the beginning of the end step, if Skizzik wasn't kicked, sacrifice it.]=];
+Flavor=[=[It skitters across Shiv, each tendril hitting the ground with a sharp snap.]=];
+CardNumber="DOM145";
+Power="5";
+Toughness="3";
+MultiverseID=443033;
+Rulings={
+    {Date="2018-04-27";Text=[=[Skizzik’s ability checks at each end step whether it was kicked while it was being cast. You don’t have to pay its kicker cost each turn (and can’t do so, even if you really want to kick it again).]=];};
+};
 };
 
 {Name="Skulduggery";
@@ -16352,7 +20423,7 @@ Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[Each player chooses any number of creatures he or she controls with total power 4 or less, then sacrifices all other creatures he or she controls.]=];
+Text=[=[Each player chooses any number of creatures they control with total power 4 or less, then sacrifices all other creatures they control.]=];
 Flavor=[=["Cut the beasts out from under them and their strength is nothing."<br/>
 —Vona of Iedo, Butcher of Magan]=];
 CardNumber="RIX22";
@@ -16384,7 +20455,7 @@ Rulings={
     {Date="2017-09-29";Text=[=[Each Vehicle is printed with a power and toughness, but it’s not a creature. If it becomes a creature (most likely through its crew ability), it will have that power and toughness.]=];};
     {Date="2017-09-29";Text=[=[If an effect causes a Vehicle to become an artifact creature with a specified power and toughness, that effect overwrites the Vehicle’s printed power and toughness.]=];};
     {Date="2017-09-29";Text=[=[Vehicle is an artifact type, not a creature type. A Vehicle that’s crewed won’t normally have any creature type.]=];};
-    {Date="2017-09-29";Text=[=[Once a player announces that he or she is activating a crew ability, no player may take other actions until the ability has been paid for. Notably, players can’t try to stop the ability by changing a creature’s power or by removing or tapping a creature.]=];};
+    {Date="2017-09-29";Text=[=[Once a player announces that they are activating a crew ability, no player may take other actions until the ability has been paid for. Notably, players can’t try to stop the ability by changing a creature’s power or by removing or tapping a creature.]=];};
     {Date="2017-09-29";Text=[=[Any untapped creature you control can be tapped to pay a crew cost, even one that just came under your control.]=];};
     {Date="2017-09-29";Text=[=[You may tap more creatures than necessary to activate a crew ability.]=];};
     {Date="2017-09-29";Text=[=[Creatures that crew a Vehicle aren’t attached to it or related in any other way. Effects that affect the Vehicle, such as by destroying it or giving it a +1/+1 counter, don’t affect the creatures that crewed it.]=];};
@@ -16412,8 +20483,53 @@ Flavor=[=[The magic of the River Heralds is so great that even a single shaman c
 CardNumber="XLN207";
 MultiverseID=435363;
 Rulings={
-    {Date="2017-09-29";Text=[=[If the target artifact or enchantment is an illegal target by the time Slice in Twain resolves, the entire spell is countered. You won’t draw a card. If, on the other hand, the target is a legal target but isn’t destroyed (most likely because it has indestructible), you’ll draw a card.]=];};
+    {Date="2017-09-29";Text=[=[If the target artifact or enchantment is an illegal target by the time Slice in Twain resolves, the entire spell doesn’t resolve. You won’t draw a card. If, on the other hand, the target is a legal target but isn’t destroyed (most likely because it has indestructible), you’ll draw a card.]=];};
 };
+};
+
+{Name="Slimefoot, the Stowaway";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{B}}{{G}}";
+cmc=3;
+Colors={"Black";"Green";};
+Type="Legendary Creature — Fungus";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Fungus"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever a Saproling you control dies, Slimefoot, the Stowaway deals 1 damage to each opponent and you gain 1 life.<br/>
+{{4}}: Create a 1/1 green Saproling creature token.]=];
+Flavor=[=[As Jhoira restored the Weatherlight, a mushroom growing in its hold unexpectedly became her first crew member.]=];
+CardNumber="DOM205";
+Power="2";
+Toughness="3";
+MultiverseID=443093;
+Rulings={
+    {Date="2018-04-27";Text=[=[If a Saproling you control dies at the same time as Slimefoot does, Slimefoot will deal damage and you’ll gain life.]=];};
+    {Date="2018-04-27";Text=[=[In a Two-Headed Giant game, Slimefoot’s first ability causes the opposing team to lose 2 life and you to gain 1 life.]=];};
+};
+};
+
+{Name="Slinn Voda, the Rising Deep";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{6}}{{U}}{{U}}";
+cmc=8;
+Colors={"Blue"};
+Type="Legendary Creature — Leviathan";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Leviathan"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Kicker {{1}}{{U}} (You may pay an additional {{1}}{{U}} as you cast this spell.)<br/>
+When Slinn Voda, the Rising Deep enters the battlefield, if it was kicked, return all creatures to their owners' hands except for Merfolk, Krakens, Leviathans, Octopuses, and Serpents.]=];
+CardNumber="DOM66";
+Power="8";
+Toughness="8";
+MultiverseID=442954;
 };
 
 {Name="Slippery Scoundrel";
@@ -16542,7 +20658,7 @@ Rulings={
     {Date="2017-07-14";Text=[=[Damage from a source with wither has no effect on creatures. No -1/-1 counters are put on them, and no damage is marked on them. The damage is still dealt for purposes of effects that care about damage, such as lifelink.]=];};
     {Date="2017-07-14";Text=[=[Damage from a source with infect has no effect on creatures or players. No -1/-1 counters are put on creatures, and no damage is marked on them. Players don’t get poison counters and they don’t lose life. The damage is still dealt for purposes of effects that care about damage, such as lifelink.]=];};
     {Date="2017-07-14";Text=[=[Counters can be put on cards that aren't on the battlefield. Notably, suspended cards will still get time counters.]=];};
-    {Date="2017-07-14";Text=[=[If a creature with tribute is entering the battlefield, the chosen opponent can’t pay tribute even if he or she wants to.]=];};
+    {Date="2017-07-14";Text=[=[If a creature with tribute is entering the battlefield, the chosen opponent can’t pay tribute even if they want to.]=];};
     {Date="2017-07-14";Text=[=[While resolving a cumulative upkeep trigger of a permanent, you’ll fail to put a counter on that permanent, then you may pay for the age counters already on it. If it has no age counters on it, you may pay {0}.]=];};
 };
 };
@@ -16566,6 +20682,54 @@ Toughness="2";
 MultiverseID=430712;
 Rulings={
     {Date="2017-07-14";Text=[=[If an ability checks whether you control a Desert or there is a Desert card in your graveyard, having more than one doesn’t matter. Controlling one is the same as controlling five. There is also no extra bonus for both controlling one and having one in your graveyard.]=];};
+};
+};
+
+{Name="Song of Freyalise";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Enchantment — Saga";
+Types={"Enchantment"};
+SubTypes={"Saga"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)<br/>
+I, II — Until your next turn, creatures you control gain "{{Tap}}: Add one mana of any color."<br/>
+III — Put a +1/+1 counter on each creature you control. Those creatures gain vigilance, trample, and indestructible until end of turn.]=];
+CardNumber="DOM179";
+MultiverseID=443067;
+Rulings={
+    {Date="2018-04-27";Text=[=[Each of Song of Freyalise’s chapter abilities affects only creatures you control at the time it resolves. Creatures you begin to control later in the turn won’t gain abilities or get a +1/+1 counter.]=];};
+    {Date="2018-04-27";Text=[=[As a Saga enters the battlefield, its controller puts a lore counter on it. As your precombat main phase begins (immediately after your draw step), you put another lore counter on each Saga you control. Putting a lore counter on a Saga in either of these ways doesn’t use the stack.]=];};
+    {Date="2018-04-27";Text=[=[Each symbol on the left of a Saga’s text box represents a chapter ability. A chapter ability is a triggered ability that triggers when a lore counter that is put on the Saga causes the number of lore counters on the Saga to become equal to or greater than the ability’s chapter number. Chapter abilities are put onto the stack and may be responded to.]=];};
+    {Date="2018-04-27";Text=[=[A chapter ability doesn’t trigger if a lore counter is put on a Saga that already had a number of lore counters greater than or equal to that chapter’s number. For example, the third lore counter put on a Saga causes the III chapter ability to trigger, but I and II won’t trigger again.]=];};
+    {Date="2018-04-27";Text=[=[Once a chapter ability has triggered, the ability on the stack won’t be affected if the Saga gains or loses counters, or if it leaves the battlefield.]=];};
+    {Date="2018-04-27";Text=[=[If multiple chapter abilities trigger at the same time, their controller puts them on the stack in any order. If any of them require targets, those targets are chosen as you put the abilities on the stack, before any of those abilities resolve.]=];};
+    {Date="2018-04-27";Text=[=[If counters are removed from a Saga, the appropriate chapter abilities will trigger again when the Saga receives lore counters. Removing lore counters won’t cause a previous chapter ability to trigger.]=];};
+    {Date="2018-04-27";Text=[=[Once the number of lore counters on a Saga is greater than or equal to the greatest number among its chapter abilities—in the Dominaria set, this is always three—the Saga’s controller sacrifices it as soon as its chapter ability has left the stack, most likely by resolving or being countered. This state-based action doesn’t use the stack.]=];};
+};
+};
+
+{Name="Sorcerer's Wand";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}";
+cmc=1;
+Type="Artifact — Equipment";
+Types={"Artifact"};
+SubTypes={"Equipment"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Equipped creature has "{{Tap}}: This creature deals 1 damage to target player or planeswalker. If this creature is a Wizard, it deals 2 damage to that player or planeswalker instead."<br/>
+Equip {{3}}]=];
+CardNumber="DOM231";
+MultiverseID=443119;
+Rulings={
+    {Date="2018-04-27";Text=[=[Whether the equipped creature is a Wizard is checked only as the ability resolves. If that creature has left the battlefield, use its last known information to determine if it was a Wizard.]=];};
+    {Date="2018-04-27";Text=[=[The equipped creature, not Sorcerer’s Wand, is the source of the damage-dealing ability and of the damage dealt.]=];};
 };
 };
 
@@ -16609,6 +20773,22 @@ CardNumber="RIX56";
 Power="3";
 Toughness="2";
 MultiverseID=439713;
+};
+
+{Name="Soul Salvage";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Return up to two target creature cards from your graveyard to your hand.]=];
+Flavor=[=[The first mistake the Grimnant knights made was bullying the owner of an Urborg corpse shop. Their second mistake was dying.]=];
+CardNumber="DOM104";
+MultiverseID=442992;
 };
 
 {Name="Soul-Scar Mage";
@@ -16658,6 +20838,27 @@ Rulings={
 };
 };
 
+{Name="Sparring Construct";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}";
+cmc=1;
+Type="Artifact Creature — Construct";
+Types={"Artifact";"Creature";};
+SubTypes={"Construct"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Sparring Construct dies, put a +1/+1 counter on target creature you control.]=];
+Flavor=[=[The trainers were a gift of gratitude from the wizards of Tolaria West to the knights of New Benalia for their aid during the Talas Incursion.]=];
+CardNumber="DOM232";
+Power="1";
+Toughness="1";
+MultiverseID=443120;
+Rulings={
+    {Date="2018-04-27";Text=[=[If another creature is dealt lethal damage at the same time as Sparring Construct, Sparring Construct’s ability can’t put a +1/+1 counter on the other creature in time to save it.]=];};
+};
+};
+
 {Name="Sparring Mummy";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -16704,7 +20905,7 @@ Type="Instant";
 Types={"Instant"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[Counter target spell. Create X colorless Treasure artifact tokens, where X is that spell's converted mana cost. They have "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
+Text=[=[Counter target spell. Create X colorless Treasure artifact tokens, where X is that spell's converted mana cost. They have "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
 CardNumber="XLN82";
 MultiverseID=435235;
 Rulings={
@@ -16836,7 +21037,7 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[(Transforms from Thaumatic Compass.)<br/>
-{{Tap}}: Add {{C}} to your mana pool.<br/>
+{{Tap}}: Add {{C}}.<br/>
 {{Tap}}: Untap target attacking creature an opponent controls and remove it from combat.]=];
 Flavor=[=[". . . a cryptic objective."<br/>
 —Jace Beleren]=];
@@ -16857,8 +21058,8 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[(Transforms from Vance's Blasting Cannons.)<br/>
-{{Tap}}: Add {{R}} to your mana pool.<br/>
-{{2}}{{R}}, {{Tap}}: Spitfire Bastion deals 3 damage to target creature or player.]=];
+{{Tap}}: Add {{R}}.<br/>
+{{2}}{{R}}, {{Tap}}: Spitfire Bastion deals 3 damage to any target.]=];
 Flavor=[=[Now instead of a ship, Ripley Vance commands a fortress.]=];
 CardNumber="XLN173b";
 MultiverseID=435328;
@@ -16882,6 +21083,46 @@ MultiverseID=426811;
 Rulings={
     {Date="2017-04-18";Text=[=[You choose how the counters will be distributed as you cast Splendid Agony. Each target creature must be assigned at least one counter.]=];};
     {Date="2017-04-18";Text=[=[If one of two target creatures becomes an illegal target in response to Splendid Agony, the -1/-1 counter that would have been put on that creature is lost. It can’t be put on the legal target.]=];};
+};
+};
+
+{Name="Spore Swarm";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Create three 1/1 green Saproling creature tokens.]=];
+Flavor=[=[As the irrepressible power of a dormant Multani courses through Yavimaya, the forest passes judgment on travelers and natives alike. Only the fungus prospers.]=];
+CardNumber="DOM180";
+MultiverseID=443068;
+};
+
+{Name="Sporecrown Thallid";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Creature — Fungus";
+Types={"Creature"};
+SubTypes={"Fungus"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Each other creature you control that's a Fungus or Saproling gets +1/+1.]=];
+Flavor=[=["The identifying ornamental growths of alpha thallids may be hereditary, or catalyzed by some chemical signal."<br/>
+—Sarpadian Empires, vol. III]=];
+CardNumber="DOM181";
+Power="2";
+Toughness="2";
+MultiverseID=443069;
+Rulings={
+    {Date="2018-04-27";Text=[=[Because damage remains marked on a creature until it’s removed as the turn ends, nonlethal damage dealt to a Fungus or Saproling creature you control may become lethal if Sporecrown Thallid leaves the battlefield during that turn.]=];};
+    {Date="2018-04-27";Text=[=[If a creature is somehow both a Fungus and a Saproling, Sporecrown Thallid’s ability gives it only +1/+1.]=];};
 };
 };
 
@@ -16929,6 +21170,30 @@ Rulings={
 };
 };
 
+{Name="Squee, the Immortal";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{R}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Legendary Creature — Goblin";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Goblin"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[You may cast Squee, the Immortal from your graveyard or from exile.]=];
+Flavor=[=["You gotta be pretty smart to live long as me, but not being able to die helps."]=];
+CardNumber="DOM146";
+Power="2";
+Toughness="1";
+MultiverseID=443034;
+Rulings={
+    {Date="2018-04-27";Text=[=[Squee’s ability doesn’t prevent you from casting Squee from any other zone.]=];};
+    {Date="2018-04-27";Text=[=[You must follow the normal timing permissions and restrictions and pay its cost to cast Squee from your graveyard or from exile.]=];};
+};
+};
+
 {Name="Squire's Devotion";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -16947,7 +21212,7 @@ CardNumber="RIX25";
 MultiverseID=439682;
 Rulings={
     {Date="2018-01-19";Text=[=[You need a creature for Squire’s Devotion to target as you cast it. There’s no way to have it enter the battlefield attached to the Vampire token it’ll create.]=];};
-    {Date="2018-01-19";Text=[=[If the creature this Aura would enchant is an illegal target by the time Squire’s Devotion tries to resolve, the Aura spell is countered. It won’t enter the battlefield, so its ability won’t trigger.]=];};
+    {Date="2018-01-19";Text=[=[If the creature this Aura would enchant is an illegal target by the time Squire’s Devotion tries to resolve, the Aura spell doesn’t resolve. It won’t enter the battlefield, so its ability won’t trigger.]=];};
 };
 };
 
@@ -17068,6 +21333,28 @@ Rulings={
 };
 };
 
+{Name="Steel Leaf Champion";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{G}}{{G}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Creature — Elf Knight";
+Types={"Creature"};
+SubTypes={"Elf";"Knight";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Steel Leaf Champion can't be blocked by creatures with power 2 or less.]=];
+Flavor=[=[One eye open to see the truth of the world. One eye covered to gaze at the goddess within.]=];
+CardNumber="DOM182";
+Power="5";
+Toughness="4";
+MultiverseID=443070;
+Rulings={
+    {Date="2018-04-27";Text=[=[Once a creature with power 3 or greater has blocked this creature, changing the power of the blocking creature won’t cause this creature to become unblocked.]=];};
+};
+};
+
 {Name="Steward of Solidarity";
 SetCode="HOU";
 Allsets={"HOU"};
@@ -17128,7 +21415,7 @@ MultiverseID=426812;
 Rulings={
     {Date="2017-04-18";Text=[=[Some cards with cycling have an ability that triggers when you cycle them. These triggered abilities resolve before you draw from the cycling ability.]=];};
     {Date="2017-04-18";Text=[=[Triggered abilities from cycling a card and the cycling ability itself aren’t spells. Effects that interact with spells (such as that of Cancel) won’t affect them.]=];};
-    {Date="2017-04-18";Text=[=[You can cycle a card even if it has a triggered ability from cycling that won’t have a legal target. This is because the cycling ability and the triggered ability are separate. This also means that if either ability is countered (with Disallow, for example, or if the triggered ability’s targets have become illegal), the other ability will still resolve.]=];};
+    {Date="2017-04-18";Text=[=[You can cycle a card even if it has a triggered ability from cycling that won’t have a legal target. This is because the cycling ability and the triggered ability are separate. This also means that if either ability doesn’t resolve (due to being countered with Disallow, for example, or if the triggered ability’s targets have become illegal), the other ability will still resolve.]=];};
 };
 };
 
@@ -17140,7 +21427,7 @@ Types={"Land"};
 Rarity="Uncommon";
 Rarities={"Uncommon";"Common";};
 Text=[=[Stone Quarry enters the battlefield tapped.<br/>
-{{Tap}}: Add {{R}} or {{W}} to your mana pool.]=];
+{{Tap}}: Add {{R}} or {{W}}.]=];
 Flavor=[=[The Sun Empire's cities are built from the bones of the earth.]=];
 CardNumber="RIX190";
 MultiverseID=439854;
@@ -17208,7 +21495,7 @@ Types={"Creature"};
 SubTypes={"Human";"Pirate";"Wizard";};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[Raid — When Storm Fleet Pyromancer enters the battlefield, if you attacked with a creature this turn, Storm Fleet Pyromancer deals 2 damage to target creature or player.]=];
+Text=[=[Raid — When Storm Fleet Pyromancer enters the battlefield, if you attacked with a creature this turn, Storm Fleet Pyromancer deals 2 damage to any target.]=];
 CardNumber="XLN163";
 Power="3";
 Toughness="2";
@@ -17328,14 +21615,14 @@ SuperTypes={"Legendary"};
 Types={"Enchantment"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[Whenever one or more creatures you control deal combat damage to a player, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."<br/>
+Text=[=[Whenever one or more creatures you control deal combat damage to a player, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."<br/>
 At the beginning of your end step, if you control five or more artifacts, transform Storm the Vault.]=];
 CardNumber="RIX173a";
 MultiverseID=439834;
 Rulings={
     {Date="2018-01-19";Text=[=[Storm the Vault’s first ability can trigger more than once in a turn if creatures you control deal combat damage at different times in a turn (most likely because one or more has first strike) or if creatures you control deal combat damage to more than one player at once.]=];};
     {Date="2018-01-19";Text=[=[The last ability of Storm the Vault doesn’t trigger if you don’t control five or more artifacts as your end step begins. If it does trigger but you don’t control five or more artifacts as it resolves, it does nothing.]=];};
-    {Date="2018-01-19";Text=[=[In a Two-Headed Giant game, if you control more than one attacking creature, you may have your creatures deal damage to different opponents so that Storm the Vault’s first ability triggers twice.]=];};
+    {Date="2018-01-19";Text=[=[In a Two-Headed Giant game, if you control more than one creature that can attack, you attack different opponents so that Storm the Vault’s first ability triggers twice.]=];};
     {Date="2018-01-19";Text=[=[For more information on double-faced cards, see the Ixalan mechanics article (http://magic.wizards.com/en/articles/archive/feature/ixalan-mechanics).]=];};
 };
 };
@@ -17417,6 +21704,26 @@ Toughness="5";
 MultiverseID=430737;
 };
 
+{Name="Stronghold Confessor";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{B}}";
+cmc=1;
+Colors={"Black"};
+Type="Creature — Human Cleric";
+Types={"Creature"};
+SubTypes={"Human";"Cleric";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Kicker {{3}} (You may pay an additional {{3}} as you cast this spell.)<br/>
+Menace (This creature can't be blocked except by two or more creatures.)<br/>
+If Stronghold Confessor was kicked, it enters the battlefield with two +1/+1 counters on it.]=];
+CardNumber="DOM105";
+Power="1";
+Toughness="1";
+MultiverseID=442993;
+};
+
 {Name="Struggle";
 SetCode="HOU";
 Allsets={"HOU"};
@@ -17452,10 +21759,25 @@ Types={"Land"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Submerged Boneyard enters the battlefield tapped.<br/>
-{{Tap}}: Add {{U}} or {{B}} to your mana pool.]=];
+{{Tap}}: Add {{U}} or {{B}}.]=];
 Flavor=[=[Aether currents in the sky mirror water currents below, including the deadly rapids.]=];
 CardNumber="AKH284";
 MultiverseID=429676;
+};
+
+{Name="Sulfur Falls";
+SetCode="DOM";
+Allsets={"DOM"};
+Type="Land";
+Types={"Land"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Sulfur Falls enters the battlefield tapped unless you control an Island or a Mountain.<br/>
+{{Tap}}: Add {{U}} or {{R}}.]=];
+Flavor=[=["We have inherited the mysteries of the Thran, but few of the answers."<br/>
+—Jhoira]=];
+CardNumber="DOM247";
+MultiverseID=443135;
 };
 
 {Name="Sun Sentinel";
@@ -17577,7 +21899,7 @@ Types={"Creature"};
 SubTypes={"Dinosaur"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[Enrage — Whenever Sun-Crowned Hunters is dealt damage, it deals 3 damage to target opponent.]=];
+Text=[=[Enrage — Whenever Sun-Crowned Hunters is dealt damage, it deals 3 damage to target opponent or planeswalker.]=];
 Flavor=[=[One alone is dangerous, and they are never alone.]=];
 CardNumber="XLN164";
 Power="5";
@@ -17598,7 +21920,7 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[Sunpetal Grove enters the battlefield tapped unless you control a Forest or a Plains.<br/>
-{{Tap}}: Add {{G}} or {{W}} to your mana pool.]=];
+{{Tap}}: Add {{G}} or {{W}}.]=];
 Flavor=[=[To the Sun Empire, any place where daylight brightens the jungle floor is sacred ground.]=];
 CardNumber="XLN257";
 MultiverseID=435418;
@@ -17640,8 +21962,8 @@ Types={"Land"};
 SubTypes={"Desert"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[When Sunscorched Desert enters the battlefield, it deals 1 damage to target player.<br/>
-{{Tap}}: Add {{C}} to your mana pool.]=];
+Text=[=[When Sunscorched Desert enters the battlefield, it deals 1 damage to target player or planeswalker.<br/>
+{{Tap}}: Add {{C}}.]=];
 Flavor=[=[The only relief in sight is a mirage.]=];
 CardNumber="AKH249";
 MultiverseID=426951;
@@ -17713,7 +22035,7 @@ Flavor=[=["All are not equal—neither in life nor after death. Bontu's favorite
 CardNumber="AKH111";
 MultiverseID=426813;
 Rulings={
-    {Date="2018-03-13";Text=[=[Supernatural Stamina’s effect works only once. If the targeted creature dies and is then returned to the battlefield, it’s considered to be a new creature. If that new creature dies, it won’t come back a second time.]=];};
+    {Date="2018-03-16";Text=[=[Supernatural Stamina’s effect works only once. If the targeted creature dies and is then returned to the battlefield, it’s considered to be a new creature. If that new creature dies, it won’t come back a second time.]=];};
 };
 };
 
@@ -17785,11 +22107,11 @@ Types={"Sorcery"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
 Text=[=[Aftermath (Cast this spell only from your graveyard. Then exile it.)<br/>
-Each player shuffles his or her graveyard into his or her library.]=];
+Each player shuffles their graveyard into their library.]=];
 CardNumber="HOU151b";
 MultiverseID=430840;
 Rulings={
-    {Date="2017-07-14";Text=[=[If a player has no cards in his or her graveyard when Survive resolves, that player just shuffles his or her library.]=];};
+    {Date="2017-07-14";Text=[=[If a player has no cards in their graveyard when Survive resolves, that player just shuffles their library.]=];};
     {Date="2017-07-14";Text=[=[Once you’ve started to cast a spell with aftermath from your graveyard, the card is immediately moved to the stack. Opponents can’t try to stop the ability by exiling the card with an effect such as that of Crook of Condemnation.]=];};
 };
 };
@@ -17802,8 +22124,8 @@ Types={"Land"};
 SubTypes={"Desert"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[{{Tap}}: Add {{C}} to your mana pool.<br/>
-{{Tap}}, Tap an untapped creature you control: Add one mana of any color to your mana pool.]=];
+Text=[=[{{Tap}}: Add {{C}}.<br/>
+{{Tap}}, Tap an untapped creature you control: Add one mana of any color.]=];
 Flavor=[=["What will happen to us?" they asked.<br/>
 The vizier paused. "I think . . . I think that's up to us now."]=];
 CardNumber="HOU184";
@@ -17852,21 +22174,21 @@ MultiverseID=439776;
 };
 
 {Name="Swamp";
-SetCode="RIX";
-Allsets={"RIX";"AKH";"HOU";"XLN";};
+SetCode="DOM";
+Allsets={"DOM";"AKH";"HOU";"XLN";"RIX";};
 Type="Basic Land — Swamp";
 SuperTypes={"Basic"};
 Types={"Land"};
 SubTypes={"Swamp"};
 Rarity="Basic Land";
 Rarities={"Basic Land"};
-Text=[=[B]=];
-CardNumber="RIX194";
-MultiverseID=439858;
+CardNumber="DOM259";
+MultiverseID=443147;
 Sets={
 {Set="AKH";Rarity="Basic Land";CardNumber="252";};
 {Set="HOU";Rarity="Basic Land";CardNumber="187";};
 {Set="XLN";Rarity="Basic Land";CardNumber="268";};
+{Set="RIX";Rarity="Basic Land";CardNumber="194";};
 };
 };
 
@@ -17989,6 +22311,28 @@ Toughness="3";
 MultiverseID=439715;
 };
 
+{Name="Sylvan Awakening";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Until your next turn, all lands you control become 2/2 Elemental creatures with reach, indestructible, and haste. They're still lands.]=];
+Flavor=[=["Yavimaya is aware, but not always awake. You will know the difference when you see it."<br/>
+—Karn]=];
+CardNumber="DOM183";
+MultiverseID=443071;
+Rulings={
+    {Date="2018-04-27";Text=[=[Sylvan Awakening doesn’t untap any of the lands that become creatures.]=];};
+    {Date="2018-04-27";Text=[=[Sylvan Awakening affects only lands you control at the time it resolves. Lands you begin to control before your next turn won’t become creatures.]=];};
+    {Date="2018-04-27";Text=[=[The lands affected by Sylvan Awakening stop being creatures as your next untap step begins, before you untap your permanents. If this causes any state-based actions to become applicable, or if any abilities trigger, those are handled during your upkeep.]=];};
+};
+};
+
 {Name="Synchronized Strike";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -18009,6 +22353,22 @@ Rulings={
     {Date="2017-04-18";Text=[=[If Synchronized Strike targets two creatures and one becomes an illegal target before it resolves, the remaining target creature will still be untapped and get +2/+2.]=];};
     {Date="2017-04-18";Text=[=[You can’t target the same creature twice to have it get +4/+4.]=];};
 };
+};
+
+{Name="Syncopate";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{X}}{{U}}";
+cmc=1;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Counter target spell unless its controller pays {{X}}. If that spell is countered this way, exile it instead of putting it into its owner's graveyard.]=];
+Flavor=[=[The fire spell stuttered and broke. Its pieces reached Teferi out of rhythm, meaningless.]=];
+CardNumber="DOM67";
+MultiverseID=442955;
 };
 
 {Name="Tah-Crop Elite";
@@ -18085,6 +22445,89 @@ Rulings={
 };
 };
 
+{Name="Tatyova, Benthic Druid";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{G}}{{U}}";
+cmc=5;
+Colors={"Blue";"Green";};
+Type="Legendary Creature — Merfolk Druid";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Merfolk";"Druid";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever a land enters the battlefield under your control, you gain 1 life and draw a card.]=];
+Flavor=[=["Yavimaya is one being—one vastness of rippling leaves, one deepness of roots, and one chatter of animals—of which I am one part."]=];
+CardNumber="DOM206";
+Power="3";
+Toughness="3";
+MultiverseID=443094;
+};
+
+{Name="Teferi, Hero of Dominaria";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{W}}{{U}}";
+cmc=5;
+Colors={"White";"Blue";};
+Type="Legendary Planeswalker — Teferi";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Teferi"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[+1: Draw a card. At the beginning of the next end step, untap two lands.<br/>
+−3: Put target nonland permanent into its owner's library third from the top.<br/>
+−8: You get an emblem with "Whenever you draw a card, exile target permanent an opponent controls."]=];
+CardNumber="DOM207";
+Loyalty="4";
+MultiverseID=443095;
+Rulings={
+    {Date="2018-04-27";Text=[=[You don’t decide which two lands to untap until the next end step.]=];};
+    {Date="2018-04-27";Text=[=[You choose the target for the triggered ability of Teferi’s emblem after you’ve seen the card you drew.]=];};
+};
+};
+
+{Name="Teferi, Timebender";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{W}}{{U}}";
+cmc=6;
+Colors={"White";"Blue";};
+Type="Legendary Planeswalker — Teferi";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Teferi"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[+2: Untap up to one target artifact or creature.<br/>
+−3: You gain 2 life and draw two cards.<br/>
+−9: Take an extra turn after this one.]=];
+CardNumber="DOM270";
+Loyalty="5";
+MultiverseID=445848;
+};
+
+{Name="Teferi's Sentinel";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{5}}";
+cmc=5;
+Type="Artifact Creature — Golem";
+Types={"Artifact";"Creature";};
+SubTypes={"Golem"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[As long as you control a Teferi planeswalker, Teferi's Sentinel gets +4/+0.]=];
+Flavor=[=["Long ago, I enchanted an army of statues to guard Zhalfir. My homeland is gone, but its protectors remain."<br/>
+—Teferi]=];
+CardNumber="DOM273";
+Power="2";
+Toughness="6";
+MultiverseID=445851;
+};
+
 {Name="Temmet, Vizier of Naktamun";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -18134,6 +22577,29 @@ Rulings={
 };
 };
 
+{Name="Tempest Djinn";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{U}}{{U}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Creature — Djinn";
+Types={"Creature"};
+SubTypes={"Djinn"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Flying<br/>
+Tempest Djinn gets +1/+0 for each basic Island you control.]=];
+Flavor=[=[The first to arrive on Dominaria from their distant home, the marids are the oldest tribe of djinn and the most respected by storm and sea.]=];
+CardNumber="DOM68";
+Power="0";
+Toughness="4";
+MultiverseID=442956;
+Rulings={
+    {Date="2018-04-27";Text=[=[Tempest Djinn’s ability that modifies its power applies only while it’s on the battlefield. In all other zones, it’s a 0/4 creature card.]=];};
+};
+};
+
 {Name="Temple Altisaur";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -18170,7 +22636,7 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[(Transforms from Arguel's Blood Fast.)<br/>
-{{Tap}}: Add {{B}} to your mana pool.<br/>
+{{Tap}}: Add {{B}}.<br/>
 {{Tap}}, Sacrifice a creature: You gain life equal to the sacrificed creature's toughness.]=];
 Flavor=[=[. . . to the lost temple of a bat-god of night, eternal enemy to the Threefold Sun.]=];
 CardNumber="XLN90b";
@@ -18178,6 +22644,26 @@ MultiverseID=435244;
 Rulings={
     {Date="2017-09-29";Text=[=[Once you’ve announced the last ability of Temple of Aclazotz, it’s too late for anyone to interrupt you by trying to remove the creature you sacrifice.]=];};
     {Date="2017-09-29";Text=[=[For the last ability of Temple of Aclazotz, use the creature’s toughness as it last existed on the battlefield to determine how much life you gain.]=];};
+};
+};
+
+{Name="Temporal Machinations";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Return target creature to its owner's hand. If you control an artifact, draw a card.]=];
+Flavor=[=[The Cabal soldier blinked and found day had become night, he had a face full of thistle seeds, and the old man was nowhere to be seen.]=];
+CardNumber="DOM271";
+MultiverseID=445849;
+Rulings={
+    {Date="2018-04-27";Text=[=[Whether you control an artifact is checked only after returning the target creature to its owner’s hand. If the target creature is the only artifact you control, you won’t draw a card.]=];};
+    {Date="2018-04-27";Text=[=[If the target creature is an illegal target by the time Temporal Machinations tries to resolve, the spell doesn’t resolve. You won’t draw a card.]=];};
 };
 };
 
@@ -18234,6 +22720,30 @@ Rulings={
 };
 };
 
+{Name="Territorial Allosaurus";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{G}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Creature — Dinosaur";
+Types={"Creature"};
+SubTypes={"Dinosaur"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Kicker {{2}}{{G}} (You may pay an additional {{2}}{{G}} as you cast this spell.)<br/>
+When Territorial Allosaurus enters the battlefield, if it was kicked, it fights another target creature.]=];
+Flavor=[=[A living remnant of the Ice Age.]=];
+CardNumber="DOM184";
+Power="5";
+Toughness="5";
+MultiverseID=443072;
+Rulings={
+    {Date="2018-04-27";Text=[=[If Territorial Allosaurus isn’t on the battlefield as its triggered ability resolves, or if the target of that ability is illegal, no creature will deal or be dealt damage.]=];};
+    {Date="2018-04-27";Text=[=[Territorial Allosaurus’s ability can target another creature you control (such as a Dinosaur with an enrage ability). If you kicked it but your opponent controls no creatures that are legal targets, the ability must target another one of your creatures. Plan carefully before kicking Dinosaurs.]=];};
+};
+};
+
 {Name="Territorial Hammerskull";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -18251,6 +22761,57 @@ CardNumber="XLN41";
 Power="2";
 Toughness="3";
 MultiverseID=435193;
+};
+
+{Name="Teshar, Ancestor's Apostle";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Legendary Creature — Bird Cleric";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Bird";"Cleric";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Flying<br/>
+Whenever you cast a historic spell, return target creature card with converted mana cost 3 or less from your graveyard to the battlefield. (Artifacts, legendaries, and Sagas are historic.)]=];
+Flavor=[=["The Ancestor saved us for a purpose."]=];
+CardNumber="DOM36";
+Power="2";
+Toughness="2";
+MultiverseID=442924;
+Rulings={
+    {Date="2018-04-27";Text=[=[If the mana cost of a card in your graveyard includes {X}, X is considered to be 0.]=];};
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
+    {Date="2018-04-27";Text=[=[Some abilities trigger “whenever you cast a historic spell.” Such an ability resolves before the spell that caused it to trigger. It resolves even if that spell is countered.]=];};
+    {Date="2018-04-27";Text=[=[An ability that triggers “whenever you cast a historic spell” doesn’t trigger if a historic card is put onto the battlefield without being cast.]=];};
+    {Date="2018-04-27";Text=[=[Lands are never cast, so abilities that trigger “whenever you cast a historic spell” won’t trigger if you play a legendary land. They also won’t trigger if a card on the battlefield transforms into a legendary land, as the Ixalan and Rivals of Ixalan double-faced cards do.]=];};
+};
+};
+
+{Name="Tetsuko Umezawa, Fugitive";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Legendary Creature — Human Rogue";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Rogue";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Creatures you control with power or toughness 1 or less can't be blocked.]=];
+Flavor=[=["My ancestor Toshiro used to say, ‘Life is a series of choices between bad and worse.' I'm a master of making great bad choices."]=];
+CardNumber="DOM69";
+Power="1";
+Toughness="3";
+MultiverseID=442957;
+Rulings={
+    {Date="2018-04-27";Text=[=[Once a creature you control has been blocked, changing its power to 1 or less won’t cause it to become unblocked. Changing its toughness to 1 won’t cause it to become unblocked, and changing its toughness to less than 1 will cause it to die.]=];};
+};
 };
 
 {Name="Tetzimoc, Primal Death";
@@ -18278,6 +22839,47 @@ Rulings={
 };
 };
 
+{Name="Thallid Omnivore";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Creature — Fungus";
+Types={"Creature"};
+SubTypes={"Fungus"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{1}}, Sacrifice another creature: Thallid Omnivore gets +2/+2 until end of turn. If a Saproling was sacrificed this way, you gain 2 life.]=];
+Flavor=[=[Thelon of Havenwood created thallids as a food source in times of darkness. Thallids did the same with saprolings.]=];
+CardNumber="DOM106";
+Power="3";
+Toughness="3";
+MultiverseID=442994;
+};
+
+{Name="Thallid Soothsayer";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Creature — Fungus";
+Types={"Creature"};
+SubTypes={"Fungus"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{2}}, Sacrifice a creature: Draw a card.]=];
+Flavor=[=[Some of the thallids that escaped into the fens of Urborg began emulating the Cabal's bloodsoaked rituals in their own peculiar way.]=];
+CardNumber="DOM107";
+Power="2";
+Toughness="3";
+MultiverseID=442995;
+Rulings={
+    {Date="2018-04-27";Text=[=[You can sacrifice Thallid Soothsayer to pay the cost for its own ability.]=];};
+};
+};
+
 {Name="Thaumatic Compass";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -18296,6 +22898,128 @@ MultiverseID=435408;
 Rulings={
     {Date="2018-01-19";Text=[=[For more information on double-faced cards, see the Ixalan mechanics article (http://magic.wizards.com/en/articles/archive/feature/ixalan-mechanics).]=];};
     {Date="2018-01-19";Text=[=[There are many important moments in the story, but the most crucial—called “story spotlights”—are shown on cards. These cards have the Planeswalker symbol in their text box; this symbol has no effect on gameplay. You can read more about these events in the official Magic fiction at http://www.mtgstory.com.]=];};
+};
+};
+
+{Name="The Antiquities War";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Enchantment — Saga";
+Types={"Enchantment"};
+SubTypes={"Saga"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)<br/>
+I, II — Look at the top five cards of your library. You may reveal an artifact card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.<br/>
+III — Artifacts you control become artifact creatures with base power and toughness 5/5 until end of turn.]=];
+CardNumber="DOM42";
+MultiverseID=442930;
+Rulings={
+    {Date="2018-04-27";Text=[=[The final chapter ability of The Antiquities War affects only artifacts you control at the time it resolves. Artifacts you begin to control later in the turn won’t become 5/5 creatures.]=];};
+    {Date="2018-04-27";Text=[=[The final chapter ability of The Antiquities War overwrites an artifact creature’s normal base power and toughness and all previous effects that set an artifact creature’s base power and toughness to specific values. Any power- or toughness-setting effects that start to apply after the ability resolves will overwrite this effect.]=];};
+    {Date="2018-04-27";Text=[=[Effects that modify an artifact creature’s power and/or toughness, such as the effect of Titanic Growth, will apply to the creature no matter when they started to take effect. The same is true for any counters that change its power and/or toughness and effects that switch its power and toughness.]=];};
+    {Date="2018-04-27";Text=[=[If The Antiquities War somehow becomes an artifact enchantment prior to resolving its final chapter ability, it will become a 5/5 Saga artifact enchantment creature, and will then be sacrificed after that ability resolves.]=];};
+    {Date="2018-04-27";Text=[=[An Equipment that becomes an artifact creature becomes unattached if it’s attached to a creature. Its equip ability can be activated, but it won’t become attached to the target creature.]=];};
+    {Date="2018-04-27";Text=[=[As a Saga enters the battlefield, its controller puts a lore counter on it. As your precombat main phase begins (immediately after your draw step), you put another lore counter on each Saga you control. Putting a lore counter on a Saga in either of these ways doesn’t use the stack.]=];};
+    {Date="2018-04-27";Text=[=[Each symbol on the left of a Saga’s text box represents a chapter ability. A chapter ability is a triggered ability that triggers when a lore counter that is put on the Saga causes the number of lore counters on the Saga to become equal to or greater than the ability’s chapter number. Chapter abilities are put onto the stack and may be responded to.]=];};
+    {Date="2018-04-27";Text=[=[A chapter ability doesn’t trigger if a lore counter is put on a Saga that already had a number of lore counters greater than or equal to that chapter’s number. For example, the third lore counter put on a Saga causes the III chapter ability to trigger, but I and II won’t trigger again.]=];};
+    {Date="2018-04-27";Text=[=[Once a chapter ability has triggered, the ability on the stack won’t be affected if the Saga gains or loses counters, or if it leaves the battlefield.]=];};
+    {Date="2018-04-27";Text=[=[If multiple chapter abilities trigger at the same time, their controller puts them on the stack in any order. If any of them require targets, those targets are chosen as you put the abilities on the stack, before any of those abilities resolve.]=];};
+    {Date="2018-04-27";Text=[=[If counters are removed from a Saga, the appropriate chapter abilities will trigger again when the Saga receives lore counters. Removing lore counters won’t cause a previous chapter ability to trigger.]=];};
+    {Date="2018-04-27";Text=[=[Once the number of lore counters on a Saga is greater than or equal to the greatest number among its chapter abilities—in the Dominaria set, this is always three—the Saga’s controller sacrifices it as soon as its chapter ability has left the stack, most likely by resolving or being countered. This state-based action doesn’t use the stack.]=];};
+};
+};
+
+{Name="The Eldest Reborn";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{B}}";
+cmc=5;
+Colors={"Black"};
+Type="Enchantment — Saga";
+Types={"Enchantment"};
+SubTypes={"Saga"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)<br/>
+I — Each opponent sacrifices a creature or planeswalker.<br/>
+II — Each opponent discards a card.<br/>
+III — Put target creature or planeswalker card from a graveyard onto the battlefield under your control.]=];
+CardNumber="DOM90";
+MultiverseID=442978;
+Rulings={
+    {Date="2018-04-27";Text=[=[When the first chapter ability of The Eldest Reborn resolves, the next opponent in turn order (or, if it’s an opponent’s turn, that opponent) chooses a creature or planeswalker they control, then each other opponent in turn order (if any) does the same. All chosen permanents are then sacrificed at the same time. Players will know the choices made by earlier players when making their choices.]=];};
+    {Date="2018-04-27";Text=[=[When the second chapter ability of The Eldest Reborn resolves, the next opponent in turn order (or, if it’s an opponent’s turn, that opponent) chooses a card in hand without revealing it, then each other opponent in turn order (if any) does the same. All chosen cards are then discarded at the same time.]=];};
+    {Date="2018-04-27";Text=[=[In a multiplayer game, if a player leaves the game, all cards that player owns leave as well. If you leave the game, the permanent you control from The Eldest Reborn’s final chapter ability is exiled.]=];};
+    {Date="2018-04-27";Text=[=[As a Saga enters the battlefield, its controller puts a lore counter on it. As your precombat main phase begins (immediately after your draw step), you put another lore counter on each Saga you control. Putting a lore counter on a Saga in either of these ways doesn’t use the stack.]=];};
+    {Date="2018-04-27";Text=[=[Each symbol on the left of a Saga’s text box represents a chapter ability. A chapter ability is a triggered ability that triggers when a lore counter that is put on the Saga causes the number of lore counters on the Saga to become equal to or greater than the ability’s chapter number. Chapter abilities are put onto the stack and may be responded to.]=];};
+    {Date="2018-04-27";Text=[=[A chapter ability doesn’t trigger if a lore counter is put on a Saga that already had a number of lore counters greater than or equal to that chapter’s number. For example, the third lore counter put on a Saga causes the III chapter ability to trigger, but I and II won’t trigger again.]=];};
+    {Date="2018-04-27";Text=[=[Once a chapter ability has triggered, the ability on the stack won’t be affected if the Saga gains or loses counters, or if it leaves the battlefield.]=];};
+    {Date="2018-04-27";Text=[=[If multiple chapter abilities trigger at the same time, their controller puts them on the stack in any order. If any of them require targets, those targets are chosen as you put the abilities on the stack, before any of those abilities resolve.]=];};
+    {Date="2018-04-27";Text=[=[If counters are removed from a Saga, the appropriate chapter abilities will trigger again when the Saga receives lore counters. Removing lore counters won’t cause a previous chapter ability to trigger.]=];};
+    {Date="2018-04-27";Text=[=[Once the number of lore counters on a Saga is greater than or equal to the greatest number among its chapter abilities—in the Dominaria set, this is always three—the Saga’s controller sacrifices it as soon as its chapter ability has left the stack, most likely by resolving or being countered. This state-based action doesn’t use the stack.]=];};
+};
+};
+
+{Name="The First Eruption";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Enchantment — Saga";
+Types={"Enchantment"};
+SubTypes={"Saga"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)<br/>
+I — The First Eruption deals 1 damage to each creature without flying.<br/>
+II — Add {{R}}{{R}}.<br/>
+III — Sacrifice a Mountain. If you do, The First Eruption deals 3 damage to each creature.]=];
+CardNumber="DOM122";
+MultiverseID=443010;
+Rulings={
+    {Date="2018-04-27";Text=[=[While resolving The First Eruption’s final chapter ability, you must sacrifice one Mountain if able. You can’t sacrifice multiple Mountains to deal more damage.]=];};
+    {Date="2018-04-27";Text=[=[As a Saga enters the battlefield, its controller puts a lore counter on it. As your precombat main phase begins (immediately after your draw step), you put another lore counter on each Saga you control. Putting a lore counter on a Saga in either of these ways doesn’t use the stack.]=];};
+    {Date="2018-04-27";Text=[=[Each symbol on the left of a Saga’s text box represents a chapter ability. A chapter ability is a triggered ability that triggers when a lore counter that is put on the Saga causes the number of lore counters on the Saga to become equal to or greater than the ability’s chapter number. Chapter abilities are put onto the stack and may be responded to.]=];};
+    {Date="2018-04-27";Text=[=[A chapter ability doesn’t trigger if a lore counter is put on a Saga that already had a number of lore counters greater than or equal to that chapter’s number. For example, the third lore counter put on a Saga causes the III chapter ability to trigger, but I and II won’t trigger again.]=];};
+    {Date="2018-04-27";Text=[=[Once a chapter ability has triggered, the ability on the stack won’t be affected if the Saga gains or loses counters, or if it leaves the battlefield.]=];};
+    {Date="2018-04-27";Text=[=[If multiple chapter abilities trigger at the same time, their controller puts them on the stack in any order. If any of them require targets, those targets are chosen as you put the abilities on the stack, before any of those abilities resolve.]=];};
+    {Date="2018-04-27";Text=[=[If counters are removed from a Saga, the appropriate chapter abilities will trigger again when the Saga receives lore counters. Removing lore counters won’t cause a previous chapter ability to trigger.]=];};
+    {Date="2018-04-27";Text=[=[Once the number of lore counters on a Saga is greater than or equal to the greatest number among its chapter abilities—in the Dominaria set, this is always three—the Saga’s controller sacrifices it as soon as its chapter ability has left the stack, most likely by resolving or being countered. This state-based action doesn’t use the stack.]=];};
+};
+};
+
+{Name="The Flame of Keld";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Enchantment — Saga";
+Types={"Enchantment"};
+SubTypes={"Saga"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)<br/>
+I — Discard your hand.<br/>
+II — Draw two cards.<br/>
+III — If a red source you control would deal damage to a permanent or player this turn, it deals that much damage plus 2 to that permanent or player instead.]=];
+CardNumber="DOM123";
+MultiverseID=443011;
+Rulings={
+    {Date="2018-04-27";Text=[=[If multiple replacement effects would modify how damage would be dealt, the player being dealt damage (or the controller of the permanent being dealt damage) chooses the order in which to apply those effects.]=];};
+    {Date="2018-04-27";Text=[=[If damage dealt by a source you control is being divided or assigned among multiple permanents an opponent controls or among an opponent and one or more permanents they control simultaneously, divide the original amount before adding 2. For example, if you attack with a 5/5 red creature with trample and your opponent blocks with a 2/2 creature, you can assign 2 damage to the blocker and 3 damage to the defending player. These amounts are then modified to 4 and 5, respectively.]=];};
+    {Date="2018-04-27";Text=[=[As a Saga enters the battlefield, its controller puts a lore counter on it. As your precombat main phase begins (immediately after your draw step), you put another lore counter on each Saga you control. Putting a lore counter on a Saga in either of these ways doesn’t use the stack.]=];};
+    {Date="2018-04-27";Text=[=[Each symbol on the left of a Saga’s text box represents a chapter ability. A chapter ability is a triggered ability that triggers when a lore counter that is put on the Saga causes the number of lore counters on the Saga to become equal to or greater than the ability’s chapter number. Chapter abilities are put onto the stack and may be responded to.]=];};
+    {Date="2018-04-27";Text=[=[A chapter ability doesn’t trigger if a lore counter is put on a Saga that already had a number of lore counters greater than or equal to that chapter’s number. For example, the third lore counter put on a Saga causes the III chapter ability to trigger, but I and II won’t trigger again.]=];};
+    {Date="2018-04-27";Text=[=[Once a chapter ability has triggered, the ability on the stack won’t be affected if the Saga gains or loses counters, or if it leaves the battlefield.]=];};
+    {Date="2018-04-27";Text=[=[If multiple chapter abilities trigger at the same time, their controller puts them on the stack in any order. If any of them require targets, those targets are chosen as you put the abilities on the stack, before any of those abilities resolve.]=];};
+    {Date="2018-04-27";Text=[=[If counters are removed from a Saga, the appropriate chapter abilities will trigger again when the Saga receives lore counters. Removing lore counters won’t cause a previous chapter ability to trigger.]=];};
+    {Date="2018-04-27";Text=[=[Once the number of lore counters on a Saga is greater than or equal to the greatest number among its chapter abilities—in the Dominaria set, this is always three—the Saga’s controller sacrifices it as soon as its chapter ability has left the stack, most likely by resolving or being countered. This state-based action doesn’t use the stack.]=];};
 };
 };
 
@@ -18344,6 +23068,68 @@ Rulings={
     {Date="2017-07-14";Text=[=[If a spell or ability causes you to put cards into your hand without specifically using the word “draw,” The Locust God’s first triggered ability won’t trigger.]=];};
     {Date="2017-07-14";Text=[=[If this creature dies but leaves your graveyard before the next end step, it will remain in its new zone.]=];};
     {Date="2017-07-14";Text=[=[The “next end step” refers to the next end step that occurs, not the end step of the next turn. If this creature dies before a turn’s end step (for example, during combat), it will be returned to its owner’s hand at the beginning of that turn’s end step.]=];};
+};
+};
+
+{Name="The Mending of Dominaria";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{G}}{{G}}";
+cmc=5;
+Colors={"Green"};
+Type="Enchantment — Saga";
+Types={"Enchantment"};
+SubTypes={"Saga"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)<br/>
+I, II — Put the top two cards of your library into your graveyard, then you may return a creature card from your graveyard to your hand.<br/>
+III — Return all land cards from your graveyard to the battlefield, then shuffle your graveyard into your library.]=];
+CardNumber="DOM173";
+MultiverseID=443061;
+Rulings={
+    {Date="2018-04-27";Text=[=[As a Saga enters the battlefield, its controller puts a lore counter on it. As your precombat main phase begins (immediately after your draw step), you put another lore counter on each Saga you control. Putting a lore counter on a Saga in either of these ways doesn’t use the stack.]=];};
+    {Date="2018-04-27";Text=[=[Each symbol on the left of a Saga’s text box represents a chapter ability. A chapter ability is a triggered ability that triggers when a lore counter that is put on the Saga causes the number of lore counters on the Saga to become equal to or greater than the ability’s chapter number. Chapter abilities are put onto the stack and may be responded to.]=];};
+    {Date="2018-04-27";Text=[=[A chapter ability doesn’t trigger if a lore counter is put on a Saga that already had a number of lore counters greater than or equal to that chapter’s number. For example, the third lore counter put on a Saga causes the III chapter ability to trigger, but I and II won’t trigger again.]=];};
+    {Date="2018-04-27";Text=[=[Once a chapter ability has triggered, the ability on the stack won’t be affected if the Saga gains or loses counters, or if it leaves the battlefield.]=];};
+    {Date="2018-04-27";Text=[=[If multiple chapter abilities trigger at the same time, their controller puts them on the stack in any order. If any of them require targets, those targets are chosen as you put the abilities on the stack, before any of those abilities resolve.]=];};
+    {Date="2018-04-27";Text=[=[If counters are removed from a Saga, the appropriate chapter abilities will trigger again when the Saga receives lore counters. Removing lore counters won’t cause a previous chapter ability to trigger.]=];};
+    {Date="2018-04-27";Text=[=[Once the number of lore counters on a Saga is greater than or equal to the greatest number among its chapter abilities—in the Dominaria set, this is always three—the Saga’s controller sacrifices it as soon as its chapter ability has left the stack, most likely by resolving or being countered. This state-based action doesn’t use the stack.]=];};
+};
+};
+
+{Name="The Mirari Conjecture";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{U}}";
+cmc=5;
+Colors={"Blue"};
+Type="Enchantment — Saga";
+Types={"Enchantment"};
+SubTypes={"Saga"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)<br/>
+I — Return target instant card from your graveyard to your hand.<br/>
+II — Return target sorcery card from your graveyard to your hand.<br/>
+III — Until end of turn, whenever you cast an instant or sorcery spell, copy it. You may choose new targets for the copy.]=];
+CardNumber="DOM57";
+MultiverseID=442945;
+Rulings={
+    {Date="2018-04-27";Text=[=[The Mirari Conjecture’s final chapter ability copies any instant or sorcery spell you cast, not just those with targets.]=];};
+    {Date="2018-04-27";Text=[=[The copy is created on the stack, so it’s not “cast.” Abilities that trigger when a player casts a spell won’t trigger.]=];};
+    {Date="2018-04-27";Text=[=[The copy will have the same targets as the spell it’s copying unless you choose new ones. You may change any number of the targets, including all of them or none of them. If, for one of the targets, you can’t choose a new legal target, then it remains unchanged (even if the current target is illegal).]=];};
+    {Date="2018-04-27";Text=[=[If the spell that’s copied is modal (that is, it says “Choose one —” or the like), the copy will have the same mode. A different mode can’t be chosen.]=];};
+    {Date="2018-04-27";Text=[=[If the spell that’s copied has an X whose value was determined as it was cast (like Jaya’s Immolating Inferno does), the copy will have the same value of X.]=];};
+    {Date="2018-04-27";Text=[=[If the spell has damage divided as it was cast (like Fight with Fire does when kicked), the division can’t be changed (although the targets receiving that damage still can).]=];};
+    {Date="2018-04-27";Text=[=[The controller of a copy can’t choose to pay any alternative or additional costs for the copy. However, effects based on any alternative or additional costs that were paid for the original spell are copied as though those same costs were paid for the copy.]=];};
+    {Date="2018-04-27";Text=[=[As a Saga enters the battlefield, its controller puts a lore counter on it. As your precombat main phase begins (immediately after your draw step), you put another lore counter on each Saga you control. Putting a lore counter on a Saga in either of these ways doesn’t use the stack.]=];};
+    {Date="2018-04-27";Text=[=[Each symbol on the left of a Saga’s text box represents a chapter ability. A chapter ability is a triggered ability that triggers when a lore counter that is put on the Saga causes the number of lore counters on the Saga to become equal to or greater than the ability’s chapter number. Chapter abilities are put onto the stack and may be responded to.]=];};
+    {Date="2018-04-27";Text=[=[A chapter ability doesn’t trigger if a lore counter is put on a Saga that already had a number of lore counters greater than or equal to that chapter’s number. For example, the third lore counter put on a Saga causes the III chapter ability to trigger, but I and II won’t trigger again.]=];};
+    {Date="2018-04-27";Text=[=[Once a chapter ability has triggered, the ability on the stack won’t be affected if the Saga gains or loses counters, or if it leaves the battlefield.]=];};
+    {Date="2018-04-27";Text=[=[If multiple chapter abilities trigger at the same time, their controller puts them on the stack in any order. If any of them require targets, those targets are chosen as you put the abilities on the stack, before any of those abilities resolve.]=];};
+    {Date="2018-04-27";Text=[=[If counters are removed from a Saga, the appropriate chapter abilities will trigger again when the Saga receives lore counters. Removing lore counters won’t cause a previous chapter ability to trigger.]=];};
+    {Date="2018-04-27";Text=[=[Once the number of lore counters on a Saga is greater than or equal to the greatest number among its chapter abilities—in the Dominaria set, this is always three—the Saga’s controller sacrifices it as soon as its chapter ability has left the stack, most likely by resolving or being countered. This state-based action doesn’t use the stack.]=];};
 };
 };
 
@@ -18405,6 +23191,33 @@ Rulings={
 };
 };
 
+{Name="Thorn Elemental";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{5}}{{G}}{{G}}";
+cmc=7;
+Colors={"Green"};
+Type="Creature — Elemental";
+Types={"Creature"};
+SubTypes={"Elemental"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[You may have Thorn Elemental assign its combat damage as though it weren't blocked.]=];
+Flavor=[=[The first law of Yavimaya is that guests may kill only to survive. As fires aren't needed in the warm weather, cutting trees for wood means death.]=];
+CardNumber="DOM185";
+Power="7";
+Toughness="7";
+MultiverseID=443073;
+Rulings={
+    {Date="2018-04-27";Text=[=[You can decide to assign damage to the defending player or planeswalker even if the blocking creature has protection from green or damage preventing effects on it.]=];};
+    {Date="2018-04-27";Text=[=[When assigning combat damage, you choose whether you want to assign all damage to blocking creatures, or if you want to assign all of it to the player or planeswalker this creature is attacking. You can’t split the damage assignment between them.]=];};
+    {Date="2018-04-27";Text=[=[If blocked by a creature with banding, the defending player decides whether or not the damage is assigned “as though it weren’t blocked”.]=];};
+    {Date="2018-04-27";Text=[=[You can decide to assign damage to the defending player or planeswalker even if the blocking creature has protection from green or damage preventing effects on it.]=];};
+    {Date="2018-04-27";Text=[=[When assigning combat damage, you choose whether you want to assign all damage to blocking creatures, or if you want to assign all of it to the player or planeswalker this creature is attacking. You can’t split the damage assignment between them.]=];};
+    {Date="2018-04-27";Text=[=[If blocked by a creature with banding, the defending player decides whether or not the damage is assigned “as though it weren’t blocked”.]=];};
+};
+};
+
 {Name="Thorned Moloch";
 SetCode="HOU";
 Allsets={"HOU"};
@@ -18442,6 +23255,25 @@ CardNumber="AKH32";
 Power="2";
 Toughness="4";
 MultiverseID=426734;
+};
+
+{Name="Thran Temporal Gateway";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}";
+cmc=4;
+Type="Legendary Artifact";
+SuperTypes={"Legendary"};
+Types={"Artifact"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[{{4}}, {{Tap}}: You may put a historic permanent card from your hand onto the battlefield. (Artifacts, legendaries, and Sagas are historic.)]=];
+Flavor=[=[The portal opens not to the past, but from it. Those who step through discover an unimaginable future.]=];
+CardNumber="DOM233";
+MultiverseID=443121;
+Rulings={
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
+};
 };
 
 {Name="Thrash of Raptors";
@@ -18500,7 +23332,7 @@ Power="3";
 Toughness="2";
 MultiverseID=426852;
 Rulings={
-    {Date="2018-03-13";Text=[=[Because damage remains marked on a creature until it’s removed as the turn ends, nonlethal damage dealt to Thresher Lizard while you have one or fewer cards in hand may become lethal if cards are put into your hand during that turn.]=];};
+    {Date="2018-03-16";Text=[=[Because damage remains marked on a creature until it’s removed as the turn ends, nonlethal damage dealt to Thresher Lizard while you have one or fewer cards in hand may become lethal if cards are put into your hand during that turn.]=];};
 };
 };
 
@@ -18521,7 +23353,7 @@ CardNumber="AKH237";
 MultiverseID=426939;
 Rulings={
     {Date="2017-04-18";Text=[=[Throne of the God-Pharaoh’s ability triggers at the beginning of each of your end steps, even if you control no tapped creatures. The number of tapped creatures you control is checked as the ability resolves.]=];};
-    {Date="2017-04-18";Text=[=[If other abilities trigger at the beginning of your end step, first those controlled by your opponents resolve, then yours resolve. Each player orders his or her triggers in any order.]=];};
+    {Date="2017-04-18";Text=[=[If other abilities trigger at the beginning of your end step, first those controlled by your opponents resolve, then yours resolve. Each player orders their triggers in any order.]=];};
     {Date="2017-04-18";Text=[=[In a Two-Headed Giant game, the triggered ability of Throne of the God-Pharaoh causes the opposing team to lose life equal to twice the number of tapped creatures you control. Tapped creatures your teammate controls aren’t counted.]=];};
 };
 };
@@ -18536,7 +23368,7 @@ Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[As an additional cost to cast Thunderherd Migration, reveal a Dinosaur card from your hand or pay {{1}}.<br/>
+Text=[=[As an additional cost to cast this spell, reveal a Dinosaur card from your hand or pay {{1}}.<br/>
 Search your library for a basic land card, put it onto the battlefield tapped, then shuffle your library.]=];
 Flavor=[=[The herds follow as new growth arises.]=];
 CardNumber="RIX149";
@@ -18565,6 +23397,34 @@ CardNumber="XLN210";
 Power="5";
 Toughness="5";
 MultiverseID=435366;
+};
+
+{Name="Tiana, Ship's Caretaker";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{R}}{{W}}";
+cmc=5;
+Colors={"White";"Red";};
+Type="Legendary Creature — Angel Artificer";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Angel";"Artificer";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying, first strike<br/>
+Whenever an Aura or Equipment you control is put into a graveyard from the battlefield, you may return that card to its owner's hand at the beginning of the next end step.]=];
+Flavor=[=["Nothing is too broken to mend."]=];
+CardNumber="DOM208";
+Power="3";
+Toughness="3";
+MultiverseID=443096;
+Rulings={
+    {Date="2018-04-27";Text=[=[Tiana’s last ability triggers and creates a delayed triggered ability that will let you return the Aura or Equipment during the next end step. It will do so even if Tiana leaves the battlefield before the next end step.]=];};
+    {Date="2018-04-27";Text=[=[If an Aura you control is put into a graveyard immediately after Tiana leaves the battlefield, most likely because Tiana left the battlefield but the Aura was put into the graveyard as a state-based action after it found itself not attached to anything, Tiana’s last ability won’t trigger.]=];};
+    {Date="2018-04-27";Text=[=[If an Aura or Equipment you control is put into a graveyard at the same time as Tiana is, most likely because an effect destroyed all nonland permanents, you’ll be able to return it to its owner’s hand at the beginning of the next end step.]=];};
+    {Date="2018-04-27";Text=[=[If an Aura or Equipment is put into your graveyard during an end step, you’ll be able to return it during the next end step, not the current one.]=];};
+    {Date="2018-04-27";Text=[=[If an Aura or Equipment leaves the graveyard after triggering Tiana’s last ability, it won’t be returned to its owner’s hand as the delayed triggered ability resolves.]=];};
+};
 };
 
 {Name="Tilonalli's Crown";
@@ -18669,17 +23529,49 @@ Rulings={
 };
 
 {Name="Timber Gorge";
-SetCode="AKH";
-Allsets={"AKH"};
+SetCode="DOM";
+Allsets={"DOM";"AKH";};
 Type="Land";
 Types={"Land"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Timber Gorge enters the battlefield tapped.<br/>
-{{Tap}}: Add {{R}} or {{G}} to your mana pool.]=];
-Flavor=[=[Tazeem's embrace is harsh, but for those that call it home, nothing else will do.]=];
-CardNumber="AKH285";
-MultiverseID=429677;
+{{Tap}}: Add {{R}} or {{G}}.]=];
+Flavor=[=[Glaciers, torrential floods, and temporal disturbances came and went. The mountains yet stood, unchanged.]=];
+CardNumber="DOM279";
+MultiverseID=445857;
+Sets={
+{Set="AKH";Rarity="Common";CardNumber="285";Flavor=[=[Tazeem's embrace is harsh, but for those that call it home, nothing else will do.]=];};
+};
+};
+
+{Name="Time of Ice";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Enchantment — Saga";
+Types={"Enchantment"};
+SubTypes={"Saga"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)<br/>
+I, II — Tap target creature an opponent controls. It doesn't untap during its controller's untap step for as long as you control Time of Ice.<br/>
+III — Return all tapped creatures to their owners' hands.]=];
+CardNumber="DOM70";
+MultiverseID=442958;
+Rulings={
+    {Date="2018-04-27";Text=[=[The effects of Time of Ice’s first two chapter abilities expire if you lose control of it, even if you immediately regain control of it or cast another Time of Ice.]=];};
+    {Date="2018-04-27";Text=[=[The effect of Time of Ice’s final chapter ability returns creatures that are tapped for any reason, not just those tapped by Time of Ice.]=];};
+    {Date="2018-04-27";Text=[=[As a Saga enters the battlefield, its controller puts a lore counter on it. As your precombat main phase begins (immediately after your draw step), you put another lore counter on each Saga you control. Putting a lore counter on a Saga in either of these ways doesn’t use the stack.]=];};
+    {Date="2018-04-27";Text=[=[Each symbol on the left of a Saga’s text box represents a chapter ability. A chapter ability is a triggered ability that triggers when a lore counter that is put on the Saga causes the number of lore counters on the Saga to become equal to or greater than the ability’s chapter number. Chapter abilities are put onto the stack and may be responded to.]=];};
+    {Date="2018-04-27";Text=[=[A chapter ability doesn’t trigger if a lore counter is put on a Saga that already had a number of lore counters greater than or equal to that chapter’s number. For example, the third lore counter put on a Saga causes the III chapter ability to trigger, but I and II won’t trigger again.]=];};
+    {Date="2018-04-27";Text=[=[Once a chapter ability has triggered, the ability on the stack won’t be affected if the Saga gains or loses counters, or if it leaves the battlefield.]=];};
+    {Date="2018-04-27";Text=[=[If multiple chapter abilities trigger at the same time, their controller puts them on the stack in any order. If any of them require targets, those targets are chosen as you put the abilities on the stack, before any of those abilities resolve.]=];};
+    {Date="2018-04-27";Text=[=[If counters are removed from a Saga, the appropriate chapter abilities will trigger again when the Saga receives lore counters. Removing lore counters won’t cause a previous chapter ability to trigger.]=];};
+    {Date="2018-04-27";Text=[=[Once the number of lore counters on a Saga is greater than or equal to the greatest number among its chapter abilities—in the Dominaria set, this is always three—the Saga’s controller sacrifices it as soon as its chapter ability has left the stack, most likely by resolving or being countered. This state-based action doesn’t use the stack.]=];};
+};
 };
 
 {Name="Time to Reflect";
@@ -18807,6 +23699,24 @@ Rulings={
 };
 };
 
+{Name="Tolarian Scholar";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Creature — Human Wizard";
+Types={"Creature"};
+SubTypes={"Human";"Wizard";};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=[The Tolarian Academies embrace a tradition of study and research while discouraging the kinds of experiments that ruined the original island of Tolaria.]=];
+CardNumber="DOM71";
+Power="2";
+Toughness="3";
+MultiverseID=442959;
+};
+
 {Name="Tomb of the Dusk Rose";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -18817,7 +23727,7 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[(Transforms from Profane Procession.)<br/>
-{{Tap}}: Add one mana of any color to your mana pool.<br/>
+{{Tap}}: Add one mana of any color.<br/>
 {{2}}{{W}}{{B}}, {{Tap}}: Put a creature card exiled with this permanent onto the battlefield under your control.]=];
 Flavor=[=[. . . resting in the splendor of the dead.]=];
 CardNumber="RIX166b";
@@ -18847,6 +23757,31 @@ Toughness="1";
 MultiverseID=439744;
 };
 
+{Name="Torgaar, Famine Incarnate";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{6}}{{B}}{{B}}";
+cmc=8;
+Colors={"Black"};
+Type="Legendary Creature — Avatar";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Avatar"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[As an additional cost to cast this spell, you may sacrifice any number of creatures. This spell costs {{2}} less to cast for each creature sacrificed this way.<br/>
+When Torgaar, Famine Incarnate enters the battlefield, up to one target player's life total becomes half their starting life total, rounded down.]=];
+CardNumber="DOM108";
+Power="7";
+Toughness="6";
+MultiverseID=442996;
+Rulings={
+    {Date="2018-04-27";Text=[=[Torgaar’s first ability can’t reduce its cost below {B}{B}. You can sacrifice any number of creatures, even if they won’t reduce Torgaar’s cost any further.]=];};
+    {Date="2018-04-27";Text=[=[For your life total to become half your starting life total (normally 10, half of 20), you gain or lose the appropriate amount of life. For example, if your life total is 4 when Torgaar’s ability resolves targeting you, it will cause you to gain 6 life; alternatively, if your life total is 25 when it resolves, it will cause you to lose 15 life. Other cards that interact with life gain or life loss will interact with this effect accordingly.]=];};
+    {Date="2018-04-27";Text=[=[In a Two-Headed Giant game, Torgaar’s ability causes the team’s life total to become half the team’s starting life total (normally 15, half of 30), but only the target player actually gains or loses life.]=];};
+};
+};
+
 {Name="Torment of Hailfire";
 SetCode="HOU";
 Allsets={"HOU"};
@@ -18863,10 +23798,10 @@ CardNumber="HOU77";
 MultiverseID=430766;
 Rulings={
     {Date="2017-07-14";Text=[=[If X is 0, Torment of Hailfire resolves with no effect.]=];};
-    {Date="2017-07-14";Text=[=[While resolving Torment of Hailfire, your opponent chooses a card to be discarded without revealing it, chooses a nonland permanent to be sacrificed, or chooses to do neither. Then that player discards that card, sacrifices that permanent, or loses 3 life, then repeats this process if it hasn’t been done X times yet. Your opponent can always choose to lose 3 life, even if he or she has cards to discard or nonland permanents to sacrifice.]=];};
+    {Date="2017-07-14";Text=[=[While resolving Torment of Hailfire, your opponent chooses a card to be discarded without revealing it, chooses a nonland permanent to be sacrificed, or chooses to do neither. Then that player discards that card, sacrifices that permanent, or loses 3 life, then repeats this process if it hasn’t been done X times yet. Your opponent can always choose to lose 3 life, even if they have cards to discard or nonland permanents to sacrifice.]=];};
     {Date="2017-07-14";Text=[=[Each repetition through this process is done separately. If an opponent sacrifices a creature with an ability that triggers when another creature dies, for example, it will see creatures that are sacrificed before it, but not those are sacrificed after it.]=];};
     {Date="2017-07-14";Text=[=[State-based actions aren’t checked in between repetitions of this process, so the game state may be a little unusual while making the choice. For example, a player may sacrifice a creature and then later sacrifice an Aura that was attached to that creature.]=];};
-    {Date="2017-07-14";Text=[=[In a multiplayer game, each opponent in turn order makes his or her choice once, then all of the actions occur simultaneously, then they repeat this process if it hasn’t been done X times yet. Opponents will know choices made by earlier opponents when making their choices, although a card chosen to be discarded this way isn’t revealed until it’s discarded.]=];};
+    {Date="2017-07-14";Text=[=[In a multiplayer game, each opponent in turn order makes their choice once, then all of the actions occur simultaneously, then they repeat this process if it hasn’t been done X times yet. Opponents will know choices made by earlier opponents when making their choices, although a card chosen to be discarded this way isn’t revealed until it’s discarded.]=];};
     {Date="2017-07-14";Text=[=[In a Two-Headed Giant game, Torment of Hailfire causes both opponents to sacrifice a nonland permanent, discard a card, or lose 3 life X times. Your opponents can choose the same torment or different ones each time.]=];};
 };
 };
@@ -18883,12 +23818,12 @@ SubTypes={"Aura";"Curse";};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
 Text=[=[Enchant player<br/>
-At the beginning of enchanted player's upkeep, that player loses 3 life unless he or she sacrifices a nonland permanent or discards a card.]=];
+At the beginning of enchanted player's upkeep, that player loses 3 life unless they sacrifice a nonland permanent or discard a card.]=];
 Flavor=[=[Like a carpet unrolling for their god, the scarabs poured out from the necropolis.]=];
 CardNumber="HOU78";
 MultiverseID=430767;
 Rulings={
-    {Date="2017-07-14";Text=[=[While resolving the triggered ability of Torment of Scarabs, the enchanted player chooses a card to be discarded without revealing it, chooses a nonland permanent to be sacrificed, or chooses to do neither. Then that player discards that card, sacrifices that permanent, or loses 3 life. That player can always choose to lose 3 life, even if he or she has cards to discard or nonland permanents to sacrifice.]=];};
+    {Date="2017-07-14";Text=[=[While resolving the triggered ability of Torment of Scarabs, the enchanted player chooses a card to be discarded without revealing it, chooses a nonland permanent to be sacrificed, or chooses to do neither. Then that player discards that card, sacrifices that permanent, or loses 3 life. That player can always choose to lose 3 life, even if they have cards to discard or nonland permanents to sacrifice.]=];};
 };
 };
 
@@ -18902,14 +23837,14 @@ Type="Instant";
 Types={"Instant"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[Put three -1/-1 counters on target creature. Its controller loses 3 life unless he or she sacrifices another nonland permanent or discards a card.]=];
+Text=[=[Put three -1/-1 counters on target creature. Its controller loses 3 life unless they sacrifice another nonland permanent or discards a card.]=];
 Flavor=[=[The Scorpion God's sting sends venom strong enough to poison blood, bone, and spirit.]=];
 CardNumber="HOU79";
 MultiverseID=430768;
 Rulings={
-    {Date="2017-07-14";Text=[=[If the target creature is an illegal target by the time Torment of Venom resolves, the entire spell is countered. The creature’s controller won’t be tormented.]=];};
+    {Date="2017-07-14";Text=[=[If the target creature is an illegal target by the time Torment of Venom resolves, the entire spell doesn’t resolve. The creature’s controller won’t be tormented.]=];};
     {Date="2017-07-14";Text=[=[Because state-based actions aren’t performed while Torment of Venom is resolving, the target creature is still on the battlefield while its controller is tormented. If that creature has an Aura attached to it, that Aura can be sacrificed.]=];};
-    {Date="2017-07-14";Text=[=[While resolving Torment of Venom, the creature’s controller chooses a card to be discarded without revealing it, chooses a nonland permanent to be sacrificed, or chooses to do neither. Then that player discards that card, sacrifices that permanent, or loses 3 life. That player can always choose to lose 3 life, even if he or she has cards to discard or nonland permanents to sacrifice.]=];};
+    {Date="2017-07-14";Text=[=[While resolving Torment of Venom, the creature’s controller chooses a card to be discarded without revealing it, chooses a nonland permanent to be sacrificed, or chooses to do neither. Then that player discards that card, sacrifices that permanent, or loses 3 life. That player can always choose to lose 3 life, even if they have cards to discard or nonland permanents to sacrifice.]=];};
 };
 };
 
@@ -18923,7 +23858,7 @@ Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[As an additional cost to cast Tormenting Voice, discard a card.<br/>
+Text=[=[As an additional cost to cast this spell, discard a card.<br/>
 Draw two cards.]=];
 Flavor=[=["You are undeserving of the afterlife. You will never feel the God-Pharaoh's embrace."]=];
 CardNumber="AKH151";
@@ -18952,6 +23887,25 @@ Rulings={
 };
 };
 
+{Name="Tragic Poet";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{W}}";
+cmc=1;
+Colors={"White"};
+Type="Creature — Human";
+Types={"Creature"};
+SubTypes={"Human"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{Tap}}, Sacrifice Tragic Poet: Return target enchantment card from your graveyard to your hand.]=];
+Flavor=[=["In a healing world I write—I, who will never be healed. Let my last gift be one of memory: from a thousand lost thoughts, choose one, and remember my name."]=];
+CardNumber="DOM37";
+Power="1";
+Toughness="1";
+MultiverseID=442925;
+};
+
 {Name="Tranquil Expanse";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -18960,7 +23914,7 @@ Types={"Land"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Tranquil Expanse enters the battlefield tapped.<br/>
-{{Tap}}: Add {{G}} or {{W}} to your mana pool.]=];
+{{Tap}}: Add {{G}} or {{W}}.]=];
 Flavor=[=[Beyond the chaos of Ghirapur lies a vibrant world where aether flows through nature.]=];
 CardNumber="AKH286";
 MultiverseID=429678;
@@ -19013,6 +23967,32 @@ Sets={
 };
 };
 
+{Name="Traxos, Scourge of Kroog";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}";
+cmc=4;
+Type="Legendary Artifact Creature — Construct";
+SuperTypes={"Legendary"};
+Types={"Artifact";"Creature";};
+SubTypes={"Construct"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Trample<br/>
+Traxos, Scourge of Kroog enters the battlefield tapped and doesn't untap during your untap step.<br/>
+Whenever you cast a historic spell, untap Traxos. (Artifacts, legendaries, and Sagas are historic.)]=];
+CardNumber="DOM234";
+Power="7";
+Toughness="7";
+MultiverseID=443122;
+Rulings={
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
+    {Date="2018-04-27";Text=[=[Some abilities trigger “whenever you cast a historic spell.” Such an ability resolves before the spell that caused it to trigger. It resolves even if that spell is countered.]=];};
+    {Date="2018-04-27";Text=[=[An ability that triggers “whenever you cast a historic spell” doesn’t trigger if a historic card is put onto the battlefield without being cast.]=];};
+    {Date="2018-04-27";Text=[=[Lands are never cast, so abilities that trigger “whenever you cast a historic spell” won’t trigger if you play a legendary land. They also won’t trigger if a card on the battlefield transforms into a legendary land, as the Ixalan and Rivals of Ixalan double-faced cards do.]=];};
+};
+};
+
 {Name="Treasure Cove";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -19022,7 +24002,7 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[(Transforms from Treasure Map.)<br/>
-{{Tap}}: Add {{C}} to your mana pool.<br/>
+{{Tap}}: Add {{C}}.<br/>
 {{Tap}}, Sacrifice a Treasure: Draw a card.]=];
 Flavor=[=[Half the treasure is the glory of finding it.]=];
 CardNumber="XLN250b";
@@ -19038,7 +24018,7 @@ Type="Artifact";
 Types={"Artifact"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[{{1}}, {{Tap}}: Scry 1. Put a landmark counter on Treasure Map. Then if there are three or more landmark counters on it, remove those counters, transform Treasure Map, and create three colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
+Text=[=[{{1}}, {{Tap}}: Scry 1. Put a landmark counter on Treasure Map. Then if there are three or more landmark counters on it, remove those counters, transform Treasure Map, and create three colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
 CardNumber="XLN250a";
 MultiverseID=435410;
 Rulings={
@@ -19159,13 +24139,41 @@ Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[When Trial of Zeal enters the battlefield, it deals 3 damage to target creature or player.<br/>
+Text=[=[When Trial of Zeal enters the battlefield, it deals 3 damage to any target.<br/>
 When a Cartouche enters the battlefield under your control, return Trial of Zeal to its owner's hand.]=];
 Flavor=[=["Eternal glory awaits you, my child."]=];
 CardNumber="AKH152";
 MultiverseID=426854;
 Rulings={
     {Date="2017-04-18";Text=[=[Each Trial has an ability to return to your hand when a Cartouche enters the battlefield under your control. The Trial is returned to its owner’s hand only if it’s on the battlefield as the ability resolves.]=];};
+};
+};
+
+{Name="Triumph of Gerrard";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Enchantment — Saga";
+Types={"Enchantment"};
+SubTypes={"Saga"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)<br/>
+I, II — Put a +1/+1 counter on target creature you control with the greatest power.<br/>
+III — Target creature you control with the greatest power gains flying, first strike, and lifelink until end of turn.]=];
+CardNumber="DOM38";
+MultiverseID=442926;
+Rulings={
+    {Date="2018-04-27";Text=[=[Triumph of Gerrard’s chapter abilities each target any creature you control with the greatest power among creatures you control. If the power of another creature you control becomes greater before that ability resolves, the target is illegal.]=];};
+    {Date="2018-04-27";Text=[=[As a Saga enters the battlefield, its controller puts a lore counter on it. As your precombat main phase begins (immediately after your draw step), you put another lore counter on each Saga you control. Putting a lore counter on a Saga in either of these ways doesn’t use the stack.]=];};
+    {Date="2018-04-27";Text=[=[Each symbol on the left of a Saga’s text box represents a chapter ability. A chapter ability is a triggered ability that triggers when a lore counter that is put on the Saga causes the number of lore counters on the Saga to become equal to or greater than the ability’s chapter number. Chapter abilities are put onto the stack and may be responded to.]=];};
+    {Date="2018-04-27";Text=[=[A chapter ability doesn’t trigger if a lore counter is put on a Saga that already had a number of lore counters greater than or equal to that chapter’s number. For example, the third lore counter put on a Saga causes the III chapter ability to trigger, but I and II won’t trigger again.]=];};
+    {Date="2018-04-27";Text=[=[Once a chapter ability has triggered, the ability on the stack won’t be affected if the Saga gains or loses counters, or if it leaves the battlefield.]=];};
+    {Date="2018-04-27";Text=[=[If multiple chapter abilities trigger at the same time, their controller puts them on the stack in any order. If any of them require targets, those targets are chosen as you put the abilities on the stack, before any of those abilities resolve.]=];};
+    {Date="2018-04-27";Text=[=[If counters are removed from a Saga, the appropriate chapter abilities will trigger again when the Saga receives lore counters. Removing lore counters won’t cause a previous chapter ability to trigger.]=];};
+    {Date="2018-04-27";Text=[=[Once the number of lore counters on a Saga is greater than or equal to the greatest number among its chapter abilities—in the Dominaria set, this is always three—the Saga’s controller sacrifices it as soon as its chapter ability has left the stack, most likely by resolving or being countered. This state-based action doesn’t use the stack.]=];};
 };
 };
 
@@ -19180,13 +24188,13 @@ Types={"Enchantment"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
 Text=[=[Each opponent must attack you or a planeswalker you control with at least one creature each combat if able.<br/>
-At the beginning of your end step, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
+At the beginning of your end step, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
 CardNumber="XLN171";
 MultiverseID=435325;
 Rulings={
     {Date="2017-09-29";Text=[=[Each opponent only has to attack you or a planeswalker you control with one creature total, not one creature for you and one for each planeswalker you control. Other creatures are free to attack other players or other planeswalkers, or to not attack at all.]=];};
     {Date="2017-09-29";Text=[=[If a creature isn’t able to attack you or a planeswalker you control for any reason (such as being tapped as its controller’s declare attackers step begins or being affected by “summoning sickness”), that creature doesn’t have to attack. If no creatures a player controls are able to attack you or a planeswalker you control, Trove of Temptation’s requirement has no effect during that combat. If there’s a cost associated with having a creature attack, its controller isn’t forced to pay that cost, so it doesn’t have to attack in that case either.]=];};
-    {Date="2017-09-29";Text=[=[In a Two-Headed Giant game, each of your two opponents must attack your team or a planeswalker you control with at least one creature if able. Attacking a planeswalker your teammate controls doesn’t satisfy Trove of Temptation’s requirement. Combat damage from creatures attacking your team may be assigned to your teammate.]=];};
+    {Date="2017-09-29";Text=[=[In a Two-Headed Giant game, each of your two opponents must attack you or a planeswalker you control with at least one creature if able. Attacking your teammate or a planeswalker your teammate controls doesn’t satisfy Trove of Temptation’s requirement.]=];};
 };
 };
 
@@ -19276,6 +24284,25 @@ Rulings={
 };
 };
 
+{Name="Two-Headed Giant";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{R}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Creature — Giant Warrior";
+Types={"Creature"};
+SubTypes={"Giant";"Warrior";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Whenever Two-Headed Giant attacks, flip two coins. If both coins come up heads, Two-Headed Giant gains double strike until end of turn. If both coins come up tails, Two-Headed Giant gains menace until end of turn.]=];
+Flavor=[=[He watches the pass in both directions, and all must pay his toll.]=];
+CardNumber="DOM147";
+Power="4";
+Toughness="4";
+MultiverseID=443035;
+};
+
 {Name="Unburden";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -19325,8 +24352,8 @@ Types={"Land"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
 Text=[=[As Unclaimed Territory enters the battlefield, choose a creature type.<br/>
-{{Tap}}: Add {{C}} to your mana pool.<br/>
-{{Tap}}: Add one mana of any color to your mana pool. Spend this mana only to cast a creature spell of the chosen type.]=];
+{{Tap}}: Add {{C}}.<br/>
+{{Tap}}: Add one mana of any color. Spend this mana only to cast a creature spell of the chosen type.]=];
 CardNumber="XLN258";
 MultiverseID=435419;
 Rulings={
@@ -19388,7 +24415,7 @@ Type="Instant";
 Types={"Instant"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[Unfriendly Fire deals 4 damage to target creature or player.]=];
+Text=[=[Unfriendly Fire deals 4 damage to any target.]=];
 Flavor=[=[Disputes within the Brazen Coalition can escalate from insult to broadside in the blink of an eye.]=];
 CardNumber="XLN172";
 MultiverseID=435326;
@@ -19401,8 +24428,8 @@ Type="Land";
 Types={"Land"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[{{Tap}}: Add {{C}} to your mana pool.<br/>
-{{1}}, {{Tap}}: Add one mana of any color to your mana pool.]=];
+Text=[=[{{Tap}}: Add {{C}}.<br/>
+{{1}}, {{Tap}}: Add one mana of any color.]=];
 Flavor=[=["Just imagine what's waiting around the bend. Adventure. Discovery. Riches for the taking. This is why I sail."<br/>
 —Captain Lannery Storm]=];
 CardNumber="XLN259";
@@ -19473,6 +24500,26 @@ CardNumber="HOU54";
 MultiverseID=430743;
 };
 
+{Name="Untamed Kavu";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Creature — Kavu";
+Types={"Creature"};
+SubTypes={"Kavu"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Kicker {{3}} (You may pay an additional {{3}} as you cast this spell.)<br/>
+Vigilance, trample<br/>
+If Untamed Kavu was kicked, it enters the battlefield with three +1/+1 counters on it.]=];
+CardNumber="DOM186";
+Power="2";
+Toughness="2";
+MultiverseID=443074;
+};
+
 {Name="Unwavering Initiate";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -19496,6 +24543,115 @@ Rulings={
     {Date="2017-04-18";Text=[=[The token is a Zombie in addition to its other types and is white instead of its other colors. It has no mana cost, and thus its converted mana cost is 0. These are copiable values of the token that other effects may copy.]=];};
     {Date="2017-07-14";Text=[=[If a spell or ability puts a creature card with embalm into your graveyard during your main phase, you’ll have priority immediately after that spell or ability resolves. You can activate the creature card’s embalm ability before any player can exile it with an effect, such as that of Crook of Condemnation, if it’s legal for you to do so.]=];};
     {Date="2017-07-14";Text=[=[Once you’ve activated an embalm ability, the card is immediately exiled. Opponents can’t try to stop the ability by exiling the card with an effect such as that of Crook of Condemnatnion.]=];};
+};
+};
+
+{Name="Unwind";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Counter target noncreature spell. Untap up to three lands.]=];
+Flavor=[=["A problem is only a problem if you don't have the tools to correct it."<br/>
+—Jhoira]=];
+CardNumber="DOM72";
+MultiverseID=442960;
+};
+
+{Name="Urgoros, the Empty One";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{B}}{{B}}";
+cmc=6;
+Colors={"Black"};
+Type="Legendary Creature — Specter";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Specter"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying<br/>
+Whenever Urgoros, the Empty One deals combat damage to a player, that player discards a card at random. If the player can't, you draw a card.]=];
+Flavor=[=[As the phantom flies overhead, the city of Vhelnish screams in silence.]=];
+CardNumber="DOM109";
+Power="4";
+Toughness="3";
+MultiverseID=442997;
+Rulings={
+    {Date="2018-04-27";Text=[=[If that player has one card in hand, it’s discarded at random (even though that’s not very random). You won’t draw a card.]=];};
+};
+};
+
+{Name="Urza's Ruinous Blast";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{W}}";
+cmc=5;
+Colors={"White"};
+Type="Legendary Sorcery";
+SuperTypes={"Legendary"};
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[(You may cast a legendary sorcery only if you control a legendary creature or planeswalker.)<br/>
+Exile all nonland permanents that aren't legendary.]=];
+Flavor=[=[Centuries ago, one man's vengeance plunged the world into ice and darkness.]=];
+CardNumber="DOM39";
+MultiverseID=442927;
+Rulings={
+    {Date="2018-04-27";Text=[=[You can’t cast a legendary sorcery unless you control a legendary creature or a legendary planeswalker. Once you begin to cast a legendary sorcery, losing control of your legendary creatures and planeswalkers won’t affect that spell.]=];};
+    {Date="2018-04-27";Text=[=[Other than the casting restriction, the legendary supertype on a sorcery carries no additional rules. You may cast any number of legendary sorceries in a turn, and your deck may contain any number of legendary cards (but no more than four of any with the same name).]=];};
+};
+};
+
+{Name="Urza's Tome";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}";
+cmc=2;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{3}}, {{Tap}}: Draw a card. Then discard a card unless you exile a historic card from your graveyard. (Artifacts, legendaries, and Sagas are historic.)]=];
+Flavor=[=["Truly understanding even one volume can be a life's work."<br/>
+—Naru Meha, master wizard]=];
+CardNumber="DOM235";
+MultiverseID=443123;
+Rulings={
+    {Date="2018-04-27";Text=[=[You don’t choose whether to discard or exile a card from your graveyard until after you see the card you draw.]=];};
+    {Date="2018-04-27";Text=[=[You can choose to discard a card even if there’s a historic card in your graveyard you could exile.]=];};
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
+};
+};
+
+{Name="Valduk, Keeper of the Flame";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Legendary Creature — Human Shaman";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Shaman";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[At the beginning of combat on your turn, for each Aura and Equipment attached to Valduk, Keeper of the Flame, create a 3/1 red Elemental creature token with trample and haste. Exile those tokens at the beginning of the next end step.]=];
+Flavor=[=[The hammer strikes. The Flame awakens.]=];
+CardNumber="DOM148";
+Power="3";
+Toughness="2";
+MultiverseID=443036;
+Rulings={
+    {Date="2018-04-27";Text=[=[Valduk counts all Auras and Equipment attached to it, not only Auras and Equipment you control.]=];};
+    {Date="2018-04-27";Text=[=[If Valduk leaves the battlefield after its ability has triggered but before it resolves, use the number of Auras and Equipment that were last attached to it before it left the battlefield to determine how many tokens to create.]=];};
+    {Date="2018-04-27";Text=[=[If Valduk leaves the battlefield after its ability has resolved, the tokens are still exiled at the beginning of the next end step.]=];};
 };
 };
 
@@ -19630,11 +24786,34 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[(Transforms from Storm the Vault.)<br/>
-{{Tap}}: Add one mana of any color to your mana pool.<br/>
-{{Tap}}: Add {{U}} to your mana pool for each artifact you control.]=];
+{{Tap}}: Add one mana of any color.<br/>
+{{Tap}}: Add {{U}} for each artifact you control.]=];
 Flavor=[=[Swimming in coins proved harder than they'd hoped, but dancing was a jingling delight.]=];
 CardNumber="RIX173b";
 MultiverseID=439835;
+};
+
+{Name="Verdant Force";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{5}}{{G}}{{G}}{{G}}";
+cmc=8;
+Colors={"Green"};
+Type="Creature — Elemental";
+Types={"Creature"};
+SubTypes={"Elemental"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[At the beginning of each upkeep, create a 1/1 green Saproling creature token.]=];
+Flavor=[=[The bower shuddered. The stillness broke. The scurf shifted, and a being emerged from the flowers and ferns.]=];
+CardNumber="DOM187";
+Power="7";
+Toughness="7";
+MultiverseID=443075;
+Rulings={
+    {Date="2006-05-01";Text=[=[In Two-Headed Giant, triggers only once per upkeep, not once for each player.]=];};
+    {Date="2018-04-27";Text=[=[Verdant Force’s ability triggers at the beginning of each upkeep, not just each of your upkeeps.]=];};
+};
 };
 
 {Name="Verdant Rebirth";
@@ -19653,7 +24832,7 @@ Flavor=[=[The dryads of the forest have no stake in Ixalan's conflict, but they 
 CardNumber="XLN212";
 MultiverseID=435368;
 Rulings={
-    {Date="2017-09-29";Text=[=[If the target creature is an illegal target by the time Verdant Rebirth resolves, the entire spell is countered. You won’t draw a card.]=];};
+    {Date="2017-09-29";Text=[=[If the target creature is an illegal target by the time Verdant Rebirth resolves, the entire spell doesn’t resolve. You won’t draw a card.]=];};
 };
 };
 
@@ -19680,6 +24859,30 @@ Rulings={
 };
 };
 
+{Name="Verix Bladewing";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{R}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Legendary Creature — Dragon";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Dragon"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Kicker {{3}} (You may pay an additional {{3}} as you cast this spell.)<br/>
+Flying<br/>
+When Verix Bladewing enters the battlefield, if it was kicked, create Karox Bladewing, a legendary 4/4 red Dragon creature token with flying.]=];
+CardNumber="DOM149";
+Power="4";
+Toughness="4";
+MultiverseID=443037;
+Rulings={
+    {Date="2018-04-27";Text=[=[Verix Bladewing features a new template for creating legendary tokens. It’s functionally identical to the text “create a legendary 4/4 red Dragon creature token with flying named Karox Bladewing.”]=];};
+};
+};
+
 {Name="Vicious Conquistador";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -19698,6 +24901,22 @@ CardNumber="XLN128";
 Power="1";
 Toughness="2";
 MultiverseID=435282;
+};
+
+{Name="Vicious Offering";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Kicker—Sacrifice a creature. (You may sacrifice a creature in addition to any other costs as you cast this spell.)<br/>
+Target creature gets -2/-2 until end of turn. If this spell was kicked, that creature gets -5/-5 until end of turn instead.]=];
+CardNumber="DOM110";
+MultiverseID=442998;
 };
 
 {Name="Victory";
@@ -19794,7 +25013,7 @@ Types={"Artifact"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[When Visage of Bolas enters the battlefield, you may search your library and/or graveyard for a card named Nicol Bolas, the Deceiver, reveal it, and put it into your hand. If you search your library this way, shuffle it.<br/>
-{{Tap}}: Add {{U}}, {{B}}, or {{R}} to your mana pool.]=];
+{{Tap}}: Add {{U}}, {{B}}, or {{R}}.]=];
 CardNumber="HOU208";
 MultiverseID=432887;
 };
@@ -19983,7 +25202,47 @@ MultiverseID=426777;
 Rulings={
     {Date="2017-04-18";Text=[=[Some cards with cycling have an ability that triggers when you cycle them. These triggered abilities resolve before you draw from the cycling ability.]=];};
     {Date="2017-04-18";Text=[=[Triggered abilities from cycling a card and the cycling ability itself aren’t spells. Effects that interact with spells (such as that of Cancel) won’t affect them.]=];};
-    {Date="2017-04-18";Text=[=[You can cycle a card even if it has a triggered ability from cycling that won’t have a legal target. This is because the cycling ability and the triggered ability are separate. This also means that if either ability is countered (with Disallow, for example, or if the triggered ability’s targets have become illegal), the other ability will still resolve.]=];};
+    {Date="2017-04-18";Text=[=[You can cycle a card even if it has a triggered ability from cycling that won’t have a legal target. This is because the cycling ability and the triggered ability are separate. This also means that if either ability doesn’t resolve (due to being countered with Disallow, for example, or if the triggered ability’s targets have become illegal), the other ability will still resolve.]=];};
+};
+};
+
+{Name="Vodalian Arcanist";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Creature — Merfolk Wizard";
+Types={"Creature"};
+SubTypes={"Merfolk";"Wizard";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{Tap}}: Add {{C}}. Spend this mana only to cast an instant or sorcery spell.]=];
+Flavor=[=[The Vodalian Empire tends to be insular. The scholarly Volshe caste are the exception, using education as an antidote to xenophobia.]=];
+CardNumber="DOM73";
+Power="1";
+Toughness="3";
+MultiverseID=442961;
+};
+
+{Name="Voltaic Servant";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}";
+cmc=2;
+Type="Artifact Creature — Construct";
+Types={"Artifact";"Creature";};
+SubTypes={"Construct"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[At the beginning of your end step, untap target artifact.]=];
+Flavor=[=[A missing piece in search of a puzzle.]=];
+CardNumber="DOM236";
+Power="1";
+Toughness="3";
+MultiverseID=443124;
+Rulings={
+    {Date="2018-04-27";Text=[=[Voltaic Servant’s ability can target an artifact creature, including itself.]=];};
 };
 };
 
@@ -20022,11 +25281,11 @@ Types={"Instant"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)<br/>
-Each opponent sacrifices a creature. If you have the city's blessing, instead each opponent sacrifices half the creatures he or she controls, rounded up.]=];
+Each opponent sacrifices a creature. If you have the city's blessing, instead each opponent sacrifices half the creatures they control, rounded up.]=];
 CardNumber="RIX90";
 MultiverseID=439747;
 Rulings={
-    {Date="2018-01-19";Text=[=[When Vona’s Hunger resolves, first the player whose turn it is (if that player is an opponent) chooses which creature or creatures he or she will sacrifice, then each other opponent in turn order does the same, then all chosen creatures are sacrificed at the same time. Players will know choices made by earlier players when making their choices.]=];};
+    {Date="2018-01-19";Text=[=[When Vona’s Hunger resolves, first the player whose turn it is (if that player is an opponent) chooses which creature or creatures they will sacrifice, then each other opponent in turn order does the same, then all chosen creatures are sacrificed at the same time. Players will know choices made by earlier players when making their choices.]=];};
     {Date="2018-01-19";Text=[=[Once you have the city’s blessing, you have it for the rest of the game, even if you lose control of some or all of your permanents. The city’s blessing isn’t a permanent itself and can’t be removed by any effect.]=];};
     {Date="2018-01-19";Text=[=[A permanent is any object on the battlefield, including tokens and lands. Spells and emblems aren’t permanents.]=];};
     {Date="2018-01-19";Text=[=[If you cast a spell with ascend, you don’t get the city’s blessing until it resolves. Players may respond to that spell by trying to change whether you get the city’s blessing.]=];};
@@ -20068,13 +25327,13 @@ SubTypes={"Vraska"};
 Rarity="Mythic Rare";
 Rarities={"Mythic Rare"};
 Text=[=[+2: Create a 2/2 black Pirate creature token with menace.<br/>
-−3: Destroy target artifact, creature, or enchantment. Create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."<br/>
+−3: Destroy target artifact, creature, or enchantment. Create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."<br/>
 −10: Target player's life total becomes 1.]=];
 CardNumber="XLN232";
 Loyalty="6";
 MultiverseID=435388;
 Rulings={
-    {Date="2017-09-29";Text=[=[If the target artifact, creature, or enchantment is an illegal target by the time Vraska’s second ability resolves, the entire ability is countered. You won’t get a Treasure. If, on the other hand, the target is a legal target but isn’t destroyed (most likely because it has indestructible), you will get a Treasure.]=];};
+    {Date="2017-09-29";Text=[=[If the target artifact, creature, or enchantment is an illegal target by the time Vraska’s second ability resolves, the entire ability doesn’t resolve. You won’t get a Treasure. If, on the other hand, the target is a legal target but isn’t destroyed (most likely because it has indestructible), you will get a Treasure.]=];};
     {Date="2017-09-29";Text=[=[For a player’s life total to become 1, what actually happens is that the player loses the appropriate amount of life (or in some rare cases, gains the appropriate amount of life). For example, if the targeted player’s life total is 4 when this ability resolves, that player loses 3 life. Other cards that interact with life loss will interact with this effect accordingly.]=];};
 };
 };
@@ -20137,7 +25396,7 @@ Flavor=[=[It wasn't long before the taverns of High and Dry were full of whisper
 CardNumber="XLN129";
 MultiverseID=435283;
 Rulings={
-    {Date="2017-09-29";Text=[=[If the target creature or planeswalker is an illegal target by the time Vraska’s Contempt resolves, the entire spell is countered. You won’t gain life.]=];};
+    {Date="2017-09-29";Text=[=[If the target creature or planeswalker is an illegal target by the time Vraska’s Contempt resolves, the entire spell doesn’t resolve. You won’t gain life.]=];};
     {Date="2018-01-19";Text=[=[There are many important moments in the story, but the most crucial—called “story spotlights”—are shown on cards. These cards have the Planeswalker symbol in their text box; this symbol has no effect on gameplay. You can read more about these events in the official Magic fiction at http://www.mtgstory.com.]=];};
 };
 };
@@ -20231,7 +25490,7 @@ SubTypes={"Wall"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Defender<br/>
-{{Tap}}: Wall of Forgotten Pharaohs deals 1 damage to target player. Activate this ability only if you control a Desert or there is a Desert card in your graveyard.]=];
+{{Tap}}: Wall of Forgotten Pharaohs deals 1 damage to target player or planeswalker. Activate this ability only if you control a Desert or there is a Desert card in your graveyard.]=];
 CardNumber="HOU168";
 Power="0";
 Toughness="4";
@@ -20269,12 +25528,36 @@ Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[When Wanted Scoundrels dies, target opponent creates two colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
+Text=[=[When Wanted Scoundrels dies, target opponent creates two colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
 Flavor=[=["Trust me. The reward's not worth it."]=];
 CardNumber="XLN131";
 Power="4";
 Toughness="3";
 MultiverseID=435285;
+};
+
+{Name="Warcry Phoenix";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Creature — Phoenix";
+Types={"Creature"};
+SubTypes={"Phoenix"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying, haste<br/>
+Whenever you attack with three or more creatures, you may pay {{2}}{{R}}. If you do, return Warcry Phoenix from your graveyard to the battlefield tapped and attacking.]=];
+Flavor=[=[War begins with one red ember.]=];
+CardNumber="DOM150";
+Power="2";
+Toughness="2";
+MultiverseID=443038;
+Rulings={
+    {Date="2018-04-27";Text=[=[As Warcry Phoenix returns to the battlefield because of its triggered ability, you choose which opponent or opposing planeswalker it’s attacking. It doesn’t have to attack the same opponent or opposing planeswalker as your other attacking creatures.]=];};
+    {Date="2018-04-27";Text=[=[If Warcry Phoenix enters the battlefield attacking, it wasn’t declared as an attacking creature that turn. Abilities that trigger when a creature attacks won’t trigger.]=];};
+};
 };
 
 {Name="Warfire Javelineer";
@@ -20323,6 +25606,27 @@ Rulings={
 };
 };
 
+{Name="Warlord's Fury";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{R}}";
+cmc=1;
+Colors={"Red"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Creatures you control gain first strike until end of turn.<br/>
+Draw a card.]=];
+Flavor=[=["The old ways were for a winter world. We do what's best for us, not for the past. We are Keldons!"<br/>
+—Grand Warlord Radha]=];
+CardNumber="DOM151";
+MultiverseID=443039;
+Rulings={
+    {Date="2018-04-27";Text=[=[You can cast Warlord’s Fury even if you control no creatures. You’ll still draw a card.]=];};
+};
+};
+
 {Name="Wasp of the Bitter End";
 SetCode="HOU";
 Allsets={"HOU"};
@@ -20342,7 +25646,7 @@ Power="2";
 Toughness="1";
 MultiverseID=432885;
 Rulings={
-    {Date="2017-07-14";Text=[=[You choose a target for Wasp of the Bitter End’s triggered ability right after casting a Bolas planeswalker spell, but you don’t choose whether to sacrifice Wasp of the Bitter End or not until that ability resolves. If the creature becomes an illegal target, the entire ability is countered and you can’t sacrifice Wasp of the Bitter End.]=];};
+    {Date="2017-07-14";Text=[=[You choose a target for Wasp of the Bitter End’s triggered ability right after casting a Bolas planeswalker spell, but you don’t choose whether to sacrifice Wasp of the Bitter End or not until that ability resolves. If the creature becomes an illegal target, the entire ability doesn’t resolve and you can’t sacrifice Wasp of the Bitter End.]=];};
 };
 };
 
@@ -20376,15 +25680,15 @@ Types={"Artifact";"Creature";};
 SubTypes={"Cat"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[Exile Watchers of the Dead: Each opponent chooses two cards in his or her graveyard and exiles the rest.]=];
+Text=[=[Exile Watchers of the Dead: Each opponent chooses two cards in their graveyard and exiles the rest.]=];
 Flavor=[=[They are tasked with protecting the entrance to the embalming chambers.]=];
 CardNumber="AKH238";
 Power="2";
 Toughness="2";
 MultiverseID=426940;
 Rulings={
-    {Date="2017-04-18";Text=[=[An opponent with one or two cards in his or her graveyard won’t exile any cards.]=];};
-    {Date="2017-04-18";Text=[=[When this ability resolves, first the player whose turn it is (if that player is an opponent) chooses two cards in his or her graveyard, then each other opponent in turn order does the same, then all of the other cards in their graveyards are exiled simultaneously. Each player will know the choices made by the players who chose before them.]=];};
+    {Date="2017-04-18";Text=[=[An opponent with one or two cards in their graveyard won’t exile any cards.]=];};
+    {Date="2017-04-18";Text=[=[When this ability resolves, first the player whose turn it is (if that player is an opponent) chooses two cards in their graveyard, then each other opponent in turn order does the same, then all of the other cards in their graveyards are exiled simultaneously. Each player will know the choices made by the players who chose before them.]=];};
 };
 };
 
@@ -20505,6 +25809,29 @@ Rulings={
 };
 };
 
+{Name="Weatherlight";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}";
+cmc=4;
+Type="Legendary Artifact — Vehicle";
+SuperTypes={"Legendary"};
+Types={"Artifact"};
+SubTypes={"Vehicle"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Flying<br/>
+Whenever Weatherlight deals combat damage to a player, look at the top five cards of your library. You may reveal a historic card from among them and put it into your hand. Put the rest on the bottom of your library in a random order. (Artifacts, legendaries, and Sagas are historic.)<br/>
+Crew 3]=];
+CardNumber="DOM237";
+Power="4";
+Toughness="5";
+MultiverseID=443125;
+Rulings={
+    {Date="2018-04-27";Text=[=[A card, spell, or permanent is historic if it has the legendary supertype, the artifact card type, or the Saga subtype. Having two of those qualities doesn’t make an object more historic than another or provide an additional bonus—an object either is historic or it isn’t.]=];};
+};
+};
+
 {Name="Weaver of Currents";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -20516,12 +25843,68 @@ Types={"Creature"};
 SubTypes={"Naga";"Druid";};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[{{Tap}}: Add {{C}}{{C}} to your mana pool.]=];
+Text=[=[{{Tap}}: Add {{C}}{{C}}.]=];
 Flavor=[=["Your waters sustain the living and carry the dead. Mighty Luxa, let your power flow through me!"]=];
 CardNumber="AKH209";
 Power="2";
 Toughness="2";
 MultiverseID=426911;
+};
+
+{Name="Weight of Memory";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{U}}{{U}}";
+cmc=5;
+Colors={"Blue"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Draw three cards. Target player puts the top three cards of their library into their graveyard.]=];
+Flavor=[=[In lives that have stretched for centuries, there are bound to be a few awkward silences.]=];
+CardNumber="DOM74";
+MultiverseID=442962;
+};
+
+{Name="Whisper, Blood Liturgist";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Legendary Creature — Human Cleric";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Cleric";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{Tap}}, Sacrifice two creatures: Return target creature card from your graveyard to the battlefield.]=];
+Flavor=[=["Look how they beg for the knife! The Demonlord has trained them well."]=];
+CardNumber="DOM111";
+Power="2";
+Toughness="2";
+MultiverseID=442999;
+Rulings={
+    {Date="2018-04-27";Text=[=[Whisper can be one of the creatures sacrificed to activate its ability.]=];};
+    {Date="2018-04-27";Text=[=[Neither sacrificed creature can be the target of Whisper’s ability.]=];};
+};
+};
+
+{Name="Wild Onslaught";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{3}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Kicker {{4}} (You may pay an additional {{4}} as you cast this spell.)<br/>
+Put a +1/+1 counter on each creature you control. If this spell was kicked, put two +1/+1 counters on each creature you control instead.]=];
+CardNumber="DOM188";
+MultiverseID=443076;
 };
 
 {Name="Wildfire Eternal";
@@ -20588,7 +25971,7 @@ Types={"Creature"};
 SubTypes={"Goblin";"Pirate";};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[When Wily Goblin enters the battlefield, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color to your mana pool."]=];
+Text=[=[When Wily Goblin enters the battlefield, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
 Flavor=[=[Goblins climb and swing with ease, whether through a pirate ship's rigging or a tree's branches.]=];
 CardNumber="XLN174";
 Power="1";
@@ -20616,6 +25999,26 @@ Toughness="3";
 MultiverseID=435241;
 };
 
+{Name="Windgrace Acolyte";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{B}}";
+cmc=5;
+Colors={"Black"};
+Type="Creature — Cat Warrior";
+Types={"Creature"};
+SubTypes={"Cat";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+When Windgrace Acolyte enters the battlefield, put the top three cards of your library into your graveyard and you gain 3 life.]=];
+Flavor=[=[Acolytes of the lost Lord Windgrace fight to keep Urborg relics out of Cabal hands.]=];
+CardNumber="DOM112";
+Power="3";
+Toughness="2";
+MultiverseID=443000;
+};
+
 {Name="Winds of Rebuke";
 SetCode="AKH";
 Allsets={"AKH"};
@@ -20626,12 +26029,12 @@ Type="Instant";
 Types={"Instant"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[Return target nonland permanent to its owner's hand. Each player puts the top two cards of his or her library into his or her graveyard.]=];
+Text=[=[Return target nonland permanent to its owner's hand. Each player puts the top two cards of their library into their graveyard.]=];
 Flavor=[=["I have foreseen that you will not pass my trial."]=];
 CardNumber="AKH76";
 MultiverseID=426778;
 Rulings={
-    {Date="2017-04-18";Text=[=[If the target nonland permanent is an illegal target by the time Winds of Rebuke resolves, the entire spell is countered. No player loses cards from the top of his or her library.]=];};
+    {Date="2017-04-18";Text=[=[If the target nonland permanent is an illegal target by the time Winds of Rebuke resolves, the entire spell doesn’t resolve. No player loses cards from the top of their library.]=];};
 };
 };
 
@@ -20666,7 +26069,7 @@ Types={"Land"};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[(Transforms from Hadana's Climb.)<br/>
-{{Tap}}: Add one mana of any color to your mana pool.<br/>
+{{Tap}}: Add one mana of any color.<br/>
 {{1}}{{G}}{{U}}, {{Tap}}: Target creature you control gains flying and gets +X/+X until end of turn, where X is its power.]=];
 CardNumber="RIX158b";
 MultiverseID=439816;
@@ -20688,6 +26091,63 @@ CardNumber="HOU81";
 MultiverseID=430770;
 };
 
+{Name="Wizard's Lightning";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[This spell costs {{2}} less to cast if you control a Wizard.<br/>
+Wizard's Lightning deals 3 damage to any target.]=];
+Flavor=[=["The study of magic began when the first mage taught herself to throw lightning."<br/>
+—Naban, dean of iteration]=];
+CardNumber="DOM152";
+MultiverseID=443040;
+Rulings={
+    {Date="2018-04-27";Text=[=[Once you announce that you’re casting Wizard’s Lightning, no player may take other actions until the spell’s been paid for. Notably, players can’t try to raise the spell’s cost by removing your Wizards.]=];};
+};
+};
+
+{Name="Wizard's Retort";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{1}}{{U}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[This spell costs {{1}} less to cast if you control a Wizard.<br/>
+Counter target spell.]=];
+Flavor=[=["The second mage learned to dissipate blasts of lightning. Threat and response: thus did the study of magic progress."<br/>
+—Naban, dean of iteration]=];
+CardNumber="DOM75";
+MultiverseID=442963;
+Rulings={
+    {Date="2018-04-27";Text=[=[Once you announce that you’re casting Wizard’s Retort, no player may take other actions until the spell’s been paid for. Notably, players can’t try to raise the spell’s cost by removing your Wizards.]=];};
+};
+};
+
+{Name="Woodland Cemetery";
+SetCode="DOM";
+Allsets={"DOM"};
+Type="Land";
+Types={"Land"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Woodland Cemetery enters the battlefield tapped unless you control a Swamp or a Forest.<br/>
+{{Tap}}: Add {{B}} or {{G}}.]=];
+Flavor=[=["They never found the body of young Josu, or that of his murderous sister."<br/>
+—"The Fall of the House of Vess"]=];
+CardNumber="DOM248";
+MultiverseID=443136;
+};
+
 {Name="Woodland Stream";
 SetCode="RIX";
 Allsets={"RIX";"AKH";"HOU";"XLN";};
@@ -20696,7 +26156,7 @@ Types={"Land"};
 Rarity="Uncommon";
 Rarities={"Uncommon";"Common";};
 Text=[=[Woodland Stream enters the battlefield tapped.<br/>
-{{Tap}}: Add {{G}} or {{U}} to your mana pool.]=];
+{{Tap}}: Add {{G}} or {{U}}.]=];
 Flavor=[=[Countless streams flow into the nine rivers, and the nine rivers flow into the Great River. The River Heralds guard them all.]=];
 CardNumber="RIX191";
 MultiverseID=439855;
@@ -20751,6 +26211,67 @@ Rulings={
 };
 };
 
+{Name="Yargle, Glutton of Urborg";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{B}}";
+cmc=5;
+Colors={"Black"};
+Type="Legendary Creature — Frog Spirit";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Frog";"Spirit";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Flavor=[=[When Belzenlok's lieutenant Yar-Kul grew too ambitious, the Demonlord transformed him into a maggot. The frog that ate the maggot grew and grew, until a ravenous spirit burst from its body.]=];
+CardNumber="DOM113";
+Power="9";
+Toughness="3";
+MultiverseID=443001;
+};
+
+{Name="Yavimaya Sapherd";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Creature — Fungus";
+Types={"Creature"};
+SubTypes={"Fungus"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Yavimaya Sapherd enters the battlefield, create a 1/1 green Saproling creature token.]=];
+Flavor=[=["When their community grows cluttered, thallids begin a traditional bobbing dance, then trek out in all directions."<br/>
+—Sarpadian Empires, vol. III]=];
+CardNumber="DOM189";
+Power="2";
+Toughness="2";
+MultiverseID=443077;
+};
+
+{Name="Yawgmoth's Vile Offering";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{B}}";
+cmc=5;
+Colors={"Black"};
+Type="Legendary Sorcery";
+SuperTypes={"Legendary"};
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[(You may cast a legendary sorcery only if you control a legendary creature or planeswalker.)<br/>
+Put up to one target creature or planeswalker card from a graveyard onto the battlefield under your control. Destroy up to one target creature or planeswalker. Exile Yawgmoth's Vile Offering.]=];
+Flavor=[=[Centuries ago, a mad god offered a simple trade.]=];
+CardNumber="DOM114";
+MultiverseID=443002;
+Rulings={
+    {Date="2018-04-27";Text=[=[You can’t cast a legendary sorcery unless you control a legendary creature or a legendary planeswalker. Once you begin to cast a legendary sorcery, losing control of your legendary creatures and planeswalkers won’t affect that spell.]=];};
+    {Date="2018-04-27";Text=[=[Other than the casting restriction, the legendary supertype on a sorcery carries no additional rules. You may cast any number of legendary sorceries in a turn, and your deck may contain any number of legendary cards (but no more than four of any with the same name).]=];};
+};
+};
+
 {Name="Zacama, Primal Calamity";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -20778,6 +26299,27 @@ Rulings={
 };
 };
 
+{Name="Zahid, Djinn of the Lamp";
+SetCode="DOM";
+Allsets={"DOM"};
+Manacost="{{4}}{{U}}{{U}}";
+cmc=6;
+Colors={"Blue"};
+Type="Legendary Creature — Djinn";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Djinn"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[You may pay {{3}}{{U}} and tap an untapped artifact you control rather than pay this spell's mana cost.<br/>
+Flying]=];
+Flavor=[=["I do as I please, little mortal. Do go on about your wishes, though—they amuse me to no end."]=];
+CardNumber="DOM76";
+Power="5";
+Toughness="6";
+MultiverseID=442964;
+};
+
 {Name="Zealot of the God-Pharaoh";
 SetCode="HOU";
 Allsets={"HOU"};
@@ -20789,7 +26331,7 @@ Types={"Creature"};
 SubTypes={"Minotaur";"Archer";};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[{{4}}{{R}}: Zealot of the God-Pharaoh deals 2 damage to target opponent.]=];
+Text=[=[{{4}}{{R}}: Zealot of the God-Pharaoh deals 2 damage to target opponent or planeswalker.]=];
 Flavor=[=[The God-Pharaoh's most devoted took it upon themselves to follow his example.]=];
 CardNumber="HOU207";
 Power="4";
@@ -20820,7 +26362,7 @@ Rulings={
     {Date="2017-04-18";Text=[=[Some cards have an ability that triggers whenever you cycle any card. These triggered abilities resolve before you draw from the cycling ability.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you discard a card doesn’t give you permission to discard cards. You’ll need another effect that instructs or allows you to discard them.]=];};
     {Date="2017-04-18";Text=[=[An ability that triggers whenever you “cycle or discard” a card triggers only once if you cycle a card. The ability “Whenever you discard a card” is functionally identical to this ability; cycling is mentioned for clarity.]=];};
-    {Date="2017-04-18";Text=[=[If a player discards a card during his or her cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
+    {Date="2017-04-18";Text=[=[If a player discards a card during their cleanup step due to having too many cards in hand, any appropriate abilities that trigger on discarding that card trigger. If this happens, those triggered abilities are put onto the stack and players receive priority in that cleanup step to cast spells or activate abilities (normally, no players may take actions during a cleanup step). Another cleanup step is created following that one.]=];};
 };
 };
 
@@ -20847,6 +26389,20 @@ Rulings={
 };
 };
 
+{Name="Zhalfirin Void";
+SetCode="DOM";
+Allsets={"DOM"};
+Type="Land";
+Types={"Land"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Zhalfirin Void enters the battlefield, scry 1. (Look at the top card of your library. You may put that card on the bottom of your library.)<br/>
+{{Tap}}: Add {{C}}.]=];
+Flavor=[=["The wind whispers, ‘come home,' but I cannot."<br/>
+—Teferi]=];
+CardNumber="DOM249";
+MultiverseID=443137;
+};
+
 };
 return data
-

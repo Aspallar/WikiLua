@@ -182,9 +182,8 @@ local function ExportSetName(setCode)
 end
 
 local function GetAdditionalData()
-    local arenaExport = ""
-    local alternatives = ""
     local cardlist = {}
+    local altCardList = {}
 
     for cardEntry in AllTypelistEntries() do
         local number = cardEntry[1]
@@ -202,37 +201,24 @@ local function GetAdditionalData()
             rarity=card.Rarity;
         }
         table.insert(cardlist, carddata)
-
-        arenaExport = arenaExport .. number .. " " ..
-            exportName .. " (" .. ExportSetName(card.SetCode) .. ") " ..
-            string.match(card.CardNumber, "%d+") .. "\n"
-
         if card.Sets ~= nil and card.Rarity ~= "Basic Land" then
             for _, set in pairs(card.Sets) do
-                alternatives = alternatives .. exportName ..
-                " (" .. set.Set .. ") " .. set.CardNumber .. "\n"
+                carddata = {
+                    name = exportName;
+                    set = set.Set;
+                    cardNumber = set.CardNumber;
+                }
+                table.insert(altCardList, carddata)
             end
         end
     end
     local cardJson = json.encode(cardlist)
-    return arenaExport, alternatives, cardJson
+    local altcardJson = json.encode(altCardList)
+    return cardJson, altcardJson
 end
 
-local function CardJsonDataSection(cardJson)
-    -- TODO: once the new deckcharts.js goes live remove the writing of the div
-    -- write both the div and pre for now to avoid breaking old js during transition
-    return "\n<pre id='mdw-chartdata-pre' style='display:none'>" .. cardJson .. "</pre>" -- ..
-        -- "\n<div id='mdw-chartdata' style='display:none' data-chart='" ..
-        -- mw.text.encode(cardJson) ..
-        -- "'></div>\n"
-end
-
-local function ArenaExportSection(exportText, id)
-    if exportText == "" then
-        return ""
-    else
-        return "<pre id='" .. id .. "' style='display:none'>\n" .. exportText .. "</pre>\n"
-    end
+local function DataSection(jsonString, id)
+    return "\n<pre id='" .. id .. "' style='display:none'>" .. jsonString .. "</pre>"
 end
 
 local function DeckListSection( name, contents )
@@ -245,11 +231,10 @@ end
 local function GenerateDeckFromList(name,list)
     SortListIntoTypes(list)
     WriteTypeLists()
-    local arenaExport, altExport, cardJson = GetAdditionalData()
+    local cardJson, altCardJson = GetAdditionalData()
     return  DeckListSection(name, buffer) ..
-        CardJsonDataSection(cardJson) ..
-        ArenaExportSection(arenaExport, "mdw-arena-export-src") ..
-        ArenaExportSection(altExport, "mdw-arena-export-src-altenative")
+        DataSection(cardJson, "mdw-chartdata-pre") ..
+        DataSection(altCardJson, "mdw-export-alt-data")
 end
 
 function p.TestGenerateDeckFromList(name,inputList)
