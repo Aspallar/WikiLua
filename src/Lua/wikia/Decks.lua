@@ -190,7 +190,15 @@ local function GetAdditionalData()
         local number = cardEntry[1]
         local card = cardEntry[2]
 
-        local carddata = { num=number; colors=card.Colors; cmc=card.cmc; types=card.Types }
+        local carddata = {
+            name=card.Name;
+            num=number;
+            colors=card.Colors;
+            cmc=card.cmc;
+            types=card.Types;
+            cardNumber=string.match(card.CardNumber, "%d+");
+            set=card.SetCode;
+        }
         table.insert(cardlist, carddata)
 
         local exportName = exportCardName(card)
