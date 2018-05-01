@@ -189,19 +189,19 @@ local function GetAdditionalData()
     for cardEntry in AllTypelistEntries() do
         local number = cardEntry[1]
         local card = cardEntry[2]
+        local exportName = exportCardName(card)
 
         local carddata = {
-            name=card.Name;
+            name=exportName;
             num=number;
             colors=card.Colors;
             cmc=card.cmc;
             types=card.Types;
             cardNumber=string.match(card.CardNumber, "%d+");
-            set=card.SetCode;
+            set=ExportSetName(card.SetCode);
+            rarity=card.Rarity;
         }
         table.insert(cardlist, carddata)
-
-        local exportName = exportCardName(card)
 
         arenaExport = arenaExport .. number .. " " ..
             exportName .. " (" .. ExportSetName(card.SetCode) .. ") " ..
@@ -221,10 +221,10 @@ end
 local function CardJsonDataSection(cardJson)
     -- TODO: once the new deckcharts.js goes live remove the writing of the div
     -- write both the div and pre for now to avoid breaking old js during transition
-    return "\n<pre id='mdw-chartdata-pre' style='display:none'>" .. cardJson .. "</pre>" ..
-        "\n<div id='mdw-chartdata' style='display:none' data-chart='" ..
-        mw.text.encode(cardJson) ..
-        "'></div>\n"
+    return "\n<pre id='mdw-chartdata-pre' style='display:none'>" .. cardJson .. "</pre>" -- ..
+        -- "\n<div id='mdw-chartdata' style='display:none' data-chart='" ..
+        -- mw.text.encode(cardJson) ..
+        -- "'></div>\n"
 end
 
 local function ArenaExportSection(exportText, id)

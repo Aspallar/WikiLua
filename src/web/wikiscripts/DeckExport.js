@@ -12,6 +12,9 @@
 (function ($) {
     'use strict';
 
+    var exportCards = [];
+    var altExportCards = [];
+
     function sizeTextareaToContents(textarea) {
         textarea.style.overflow = 'hidden';
         textarea.style.height = 'auto';
@@ -84,6 +87,26 @@
         $(container).append(altSelect).css('display', 'block');
     }   
 
+    function initializeImport()
+    {
+        var dataString = $('#mdw-chartdata-pre').text();
+        if (dataString !== null && dataString.length > 0) {
+            var data = JSON.parse(dataString);
+            data.forEach(function (card) {
+                exportCards.push(card);
+            });
+        }
+        dataString = $('mdw-alt-carddata').text();
+        if (dataString !== null && dataString.length > 0) {
+            var data = JSON.parse(dataString);
+            data.forEach(function (card) {
+                altExportCards.push(card);
+            });
+        }
+        buildExportTextArea();
+        initializeExportAlternativesSelect();
+    }
+
     function initialize () {
         var arenaExportSrc = document.getElementById('mdw-arena-export-src');
         if (arenaExportSrc === null)
@@ -91,6 +114,8 @@
         var arenaExportContainer = document.getElementById('mdw-arena-export-div');
         if (arenaExportContainer === null)
             return;
+
+        initializeImport();
 
         setupExportText(arenaExportContainer, arenaExportSrc.innerHTML);
         setupAlternativesSelect(document.getElementById('mdw-arena-export-alt-div'));
