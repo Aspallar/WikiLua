@@ -506,6 +506,13 @@
         $(window).resize(drawAllCharts);
     }
 
+    function changeMoreSpansToButtons() {
+        $('.mdw-charts-more-button').replaceWith(function () {
+            return '<input type="button" class="mdw-charts-more-button mdw-chart-box-button" value="' +
+                $(this).text() + '" />';
+        });
+    }
+
     function chartLibraryLoaded() {
         var chartData = getChartData();
         cacheColorPieData(chartData);
@@ -513,6 +520,7 @@
         cacheTypesPieData(chartData);
         drawAllCharts();
         setAllNonChartSections(chartData);
+        changeMoreSpansToButtons();
         wireEvents();
     }
 
