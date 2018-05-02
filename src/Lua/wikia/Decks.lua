@@ -207,6 +207,7 @@ local function GetAdditionalData()
                     name = exportName;
                     set = set.Set;
                     cardNumber = set.CardNumber;
+                    rarity = set.Rarity;
                 }
                 table.insert(altCardList, carddata)
             end
@@ -234,7 +235,7 @@ local function GenerateDeckFromList(name,list)
     local cardJson, altCardJson = GetAdditionalData()
     return  DeckListSection(name, buffer) ..
         DataSection(cardJson, "mdw-chartdata-pre") ..
-        DataSection(altCardJson, "mdw-export-alt-data")
+        DataSection(altCardJson, "mdw-alt-carddata")
 end
 
 function p.TestGenerateDeckFromList(name,inputList)

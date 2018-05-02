@@ -2,7 +2,7 @@
 // Start: Deck Export
 // Adds the export text box to deck articles with copy to clipboard button
 // and a select to allow export cards to be replaced with reprint alternatives.
-// Version 2.0.0
+// Version 3.0.0
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wikia.
@@ -12,38 +12,13 @@
 (function ($) {
     'use strict';
 
-    var exportCards = [];
-    var altExportCards = [];
+    var importCards = [];
+    var altImportCards = [];
 
     function sizeTextareaToContents(textarea) {
         textarea.style.overflow = 'hidden';
         textarea.style.height = 'auto';
         textarea.style.height = textarea.scrollHeight + 'px'; 
-    }
-
-    function replaceExportCard(newCard) {
-        var exportTextbox = document.getElementById('mdw-arena-export-contents');
-        var cardLines = exportTextbox.value.split('\n');
-        var name = newCard.substring(0, newCard.indexOf('(') - 1);    
-        for (var k = 0; k < cardLines.length; k++) {
-            if (cardLines[k].indexOf(name) !== -1)
-                break; // for k
-        }
-        var replacedCard = cardLines[k];
-        var spacepos = replacedCard.indexOf(' ');
-        var ammount = replacedCard.substring(0, spacepos);
-        var replacedWithoutAmount = replacedCard.substring(spacepos + 1);
-        cardLines[k] = ammount + ' ' + newCard;
-        exportTextbox.value = cardLines.join('\n');
-        return replacedWithoutAmount;
-    }
-
-    function onSelectAlternative() {
-        /* jshint -W040 */ // allow old school jquery use of this
-        var option = this.options[this.selectedIndex];
-        var replacedCard = replaceExportCard(option.text);
-        option.text = replacedCard;
-        this.selectedIndex = 0;
     }
 
     function onClickCopy() {
@@ -52,12 +27,76 @@
         document.execCommand('copy');
     }
 
-    function setupExportText(container, contents) {
+    function baseDisplayName(card) {
+        return card.name + ' (' + card.set + ') ' + card.cardNumber;
+    }
+
+    function importDisplayName(card) {
+        return card.num + ' ' + baseDisplayName(card);
+    }
+
+    function allImportText() {
+        var text = '';
+        importCards.forEach(function(card) {
+            text += importDisplayName(card) + '\n';
+        });
+        return text;
+    }
+
+    function findImportCardByName(name) {
+        for (var k = 0, l = importCards.length; k < l; k++) {
+            if (importCards[k].name === name)
+                return k;
+        }
+        return -1;
+    }
+
+    function getRarityTotals(cards) {
+        var totals = {};
+        cards.forEach(function (card) {
+            var rarity = card.rarity;
+            if (rarity !== "Basic Land")
+                totals[rarity] = (totals[rarity] || 0) + card.num;
+        });
+        return totals;
+    }
+
+    function onSelectAlternative() {
+        /* jshint -W040 */ // allow old school jquery use of this
+        var newCardIndex = this.selectedIndex - 1;
+        var newCard = altImportCards[newCardIndex];
+        var oldCardIndex = findImportCardByName(newCard.name);
+        var oldCard = importCards[oldCardIndex];
+
+        newCard.num = oldCard.num;
+        altImportCards[newCardIndex] = oldCard;
+        importCards[oldCardIndex] = newCard;
+        this.options[this.selectedIndex].text = baseDisplayName(oldCard);
+        $('#mdw-arena-export-contents').html(allImportText());
+        this.selectedIndex = 0;
+    }
+
+    function setupAlternativesSelect(container) {
+        if (container === null || altImportCards.length === 0)
+            return;
+
+        var altSelect = $('<select id="mdw-area-export-select"></select>')
+            .append('<option disabled selected>Select alternative cards --</option>')
+            .change(onSelectAlternative);
+
+        altImportCards.forEach(function (card) {
+            $('<option>').html(baseDisplayName(card)).appendTo(altSelect);
+        });
+
+        $(container).append(altSelect).css('display', 'block');
+    }
+
+    function setupExportText(container) {
         var elements = $(
                 '<input type="button" id="mdw-copy-export" value="Copy" />' +
                 '<br />' +
                 '<textarea id="mdw-arena-export-contents" style="width:90%" readonly>' +
-                contents +
+                allImportText() +
                 '</textarea>'
         );
         $(container).append(elements);
@@ -65,59 +104,29 @@
         $('#mdw-copy-export').click(onClickCopy);
     }
 
-    function setupAlternativesSelect(container) {
-        if (container === null)
-            return;
-
-        var alternativesSrc = document.getElementById('mdw-arena-export-src-altenative');
-        if (alternativesSrc === null)
-            return;
-
-        var altSelect = $('<select id="mdw-area-export-select"></select>')
-            .append('<option disabled selected>Select alternative cards --</option>')
-            .change(onSelectAlternative);
-
-        var altCardExportLines = alternativesSrc.innerHTML.split('\n');
-        altCardExportLines.sort();
-        altCardExportLines.forEach(function (exportCardLine) {
-            if (exportCardLine.length !== 0)
-                $('<option>').html(exportCardLine).appendTo(altSelect);
-        });
-
-        $(container).append(altSelect).css('display', 'block');
-    }   
-
-    function initializeImport()
+    function initializeImportData()
     {
         var dataString = $('#mdw-chartdata-pre').text();
         if (dataString !== null && dataString.length > 0) {
-            var data = JSON.parse(dataString);
-            data.forEach(function (card) {
-                exportCards.push(card);
-            });
+            importCards = JSON.parse(dataString);
         }
-        dataString = $('mdw-alt-carddata').text();
+        console.dir(getRarityTotals(importCards));
+        dataString = $('#mdw-alt-carddata').text();
         if (dataString !== null && dataString.length > 0) {
-            var data = JSON.parse(dataString);
-            data.forEach(function (card) {
-                altExportCards.push(card);
+            altImportCards = JSON.parse(dataString);
+            altImportCards.sort(function (a, b) {
+                return a.name.localeCompare(b.name);
             });
         }
-        buildExportTextArea();
-        initializeExportAlternativesSelect();
     }
 
     function initialize () {
-        var arenaExportSrc = document.getElementById('mdw-arena-export-src');
-        if (arenaExportSrc === null)
-            return;
         var arenaExportContainer = document.getElementById('mdw-arena-export-div');
         if (arenaExportContainer === null)
             return;
 
-        initializeImport();
-
-        setupExportText(arenaExportContainer, arenaExportSrc.innerHTML);
+        initializeImportData();
+        setupExportText(arenaExportContainer);
         setupAlternativesSelect(document.getElementById('mdw-arena-export-alt-div'));
     }
 
