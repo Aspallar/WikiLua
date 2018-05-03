@@ -103,6 +103,25 @@
         textarea.style.height = textarea.scrollHeight + 'px'; 
     }
 
+    function rarityContents(rarities) {
+        var text = '';
+        if (rarities.Common)
+            text += 'Common: ' + rarities.Common + '<br />';
+        if (rarities.Uncommon)
+            text += 'Uncommon: ' + rarities.Uncommon + '<br />';
+        if (rarities.Rare)
+            text += 'Rare: ' + rarities.Rare + '<br />';
+        if (rarities['Mythic Rare'])
+            text += 'Mythic Rare: ' + rarities['Mythic Rare'] + '<br />';
+        if (text.length > 0)
+            text = text.substring(0, text.length - 6);
+        return text;
+    }
+
+    function setRarityContents() {
+        $('#mdw-import-rarity').html(rarityContents(importData.getRarityTotals()));
+    }
+
     function onClickCopy() {
         var importText = document.getElementById('mdw-arena-export-contents');
         importText.select();
@@ -118,8 +137,8 @@
         var text = importData.swapCards(this.selectedIndex - 1);
         this.options[this.selectedIndex].text = text;
         $('#mdw-arena-export-contents').html(importData.text());
+        setRarityContents();
         this.selectedIndex = 0;
-        console.dir(importData.getRarityTotals());
     }
 
     function setupAlternativesUi(container) {
@@ -145,6 +164,7 @@
         );
         $(container).append(elements);
         sizeTextareaToContents(document.getElementById('mdw-arena-export-contents'));
+        setRarityContents();
         $('#mdw-copy-export').click(onClickCopy);
     }
 
@@ -154,7 +174,6 @@
         importData.parseCardData($('#mdw-chartdata-pre').text());
         importData.parseAltCardData($('#mdw-alt-carddata').text());
         importData.adjustToCheapest();
-        console.dir(importData.getRarityTotals());
     }
 
     function initialize () {
