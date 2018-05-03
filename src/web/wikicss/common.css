@@ -215,6 +215,17 @@
     padding-top:5px;
 }
 
-#mdw-arena-export-alt-div {
-    margin-bottom: 14px;
+#mdw-import-rarity {
+    margin-top: 22px;
+    margin-bottom: 10px;
+    width: 50%;
+    border: solid 1px;
+    border-radius:10px;
+    box-shadow: 0 0 10px #808080;
+    padding:10px;
+    background-color: white;
+}
+
+.mdw-rarity-value {
+    font-weight: bold;
 }

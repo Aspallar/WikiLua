@@ -103,18 +103,22 @@
         textarea.style.height = textarea.scrollHeight + 'px'; 
     }
 
+    function rarityEntry(label, value) {
+        return '<span class="mdw-rarity-label">' + label +': </span><span class="mdw-rarity-value">' + value + '</span><br />'
+    }
+
     function rarityContents(rarities) {
         var text = '';
         if (rarities.Common)
-            text += 'Common: ' + rarities.Common + '<br />';
+            text += rarityEntry("Common", rarities.Common);
         if (rarities.Uncommon)
-            text += 'Uncommon: ' + rarities.Uncommon + '<br />';
+            text += rarityEntry('Uncommon', rarities.Uncommon);
         if (rarities.Rare)
-            text += 'Rare: ' + rarities.Rare + '<br />';
+            text += rarityEntry('Rare', rarities.Rare);
         if (rarities['Mythic Rare'])
-            text += 'Mythic Rare: ' + rarities['Mythic Rare'] + '<br />';
+            text += rarityEntry('Mythic Rare', rarities['Mythic Rare']);
         if (text.length > 0)
-            text = text.substring(0, text.length - 6);
+            text = text.substring(0, text.length - '<br />'.length);
         return text;
     }
 
