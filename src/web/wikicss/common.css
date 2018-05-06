@@ -238,3 +238,46 @@
     margin-top: 24px;
     margin-bottom: 10px;
 }
+
+/* start decklists */
+.mdw-decklist {
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+    font: normal 12px/150% Arial, Helvetica, sans-serif;
+    background: #fff;
+    overflow: hidden;
+    /*border: 1px solid #006699;*/
+    border-radius: 3px;
+}
+.mdw-decklist td, .mdw-decklist th {
+     padding: 3px 10px;
+}
+.mdw-decklist th {
+    background: linear-gradient(to bottom, #174A9A, #1E5FC7, #cce6ff);
+    color:#FFFFFF;
+    font-size: 15px;
+    font-weight: bold;
+    border-left: 1px solid #0070A8;
+}
+ .mdw-decklist th:first-child {
+     border-left: none;
+     border-right: none;
+}
+.mdw-decklist td {
+    color: #00557F;
+    border-left: 1px solid #E1EEF4;
+    border-bottom: 1px solid #E1EEF4;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.mdw-decklist td:first-child {
+     border-left: none;
+}
+
+.mdw-decklist th:first-child {
+     border-left: none;
+}
+/* end decklists */
+
