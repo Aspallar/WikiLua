@@ -13,8 +13,11 @@
     'use strict';
 
     var importData;
+    var labelOption;
 
     function ImportData() {
+        var originalImportCards;
+        var originalAltImportCards;
         var importCards = [];
         var altImportCards = [];
 
@@ -68,7 +71,7 @@
                         this.swapCards(k);
                 }
             },
-            getRarityTotals: function getRarityTotals() {
+            getRarityTotals: function () {
                 var totals = {};
                 importCards.forEach(function (card) {
                     var rarity = card.rarity;
@@ -93,6 +96,14 @@
             },
             hasAlternatives: function () {
                 return altImportCards.length > 0;
+            },
+            save: function () {
+                originalImportCards = importCards.slice();
+                originalAltImportCards = altImportCards.slice();
+            },
+            reset: function () {
+                importCards = originalImportCards.slice();
+                altImportCards = originalAltImportCards.slice();
             }
         };
     } // End ImportData
@@ -104,13 +115,13 @@
     }
 
     function rarityEntry(label, value) {
-        return '<span class="mdw-rarity-label">' + label +': </span><span class="mdw-rarity-value">' + value + '</span><br />'
+        return '<span class="mdw-rarity-label">' + label +': </span><span class="mdw-rarity-value">' + value + '</span><br />';
     }
 
     function rarityContents(rarities) {
         var text = '';
         if (rarities.Common)
-            text += rarityEntry("Common", rarities.Common);
+            text += rarityEntry('Common', rarities.Common);
         if (rarities.Uncommon)
             text += rarityEntry('Uncommon', rarities.Uncommon);
         if (rarities.Rare)
@@ -136,11 +147,25 @@
         }, 1200);
     }
 
+    function onClickReset() {
+        importData.reset();
+        $('#mdw-import-reset')
+            .prop('disabled', true);
+        $('#mdw-import-select')
+            .html('')
+            .append(labelOption)
+            .append(importData.getAltOptions());
+        $('#mdw-arena-export-contents')
+            .html(importData.text());
+        setRarityContents();
+    }
+
     function onSelectAlternative() {
         /* jshint -W040 */ // allow old school jquery use of this
         var text = importData.swapCards(this.selectedIndex - 1);
         this.options[this.selectedIndex].text = text;
         $('#mdw-arena-export-contents').html(importData.text());
+        $('#mdw-import-reset').prop('disabled', false);
         setRarityContents();
         this.selectedIndex = 0;
     }
@@ -149,12 +174,17 @@
         if (container === null || !importData.hasAlternatives())
             return;
 
-        var altSelect = $('<select id="mdw-area-export-select"></select>')
-            .append('<option disabled selected>Select alternative cards --</option>')
+        labelOption =  $('<option disabled selected>Select alternative cards --</option>');
+
+        var altSelect = $('<select id="mdw-import-select"></select>')
+            .append(labelOption)
             .append(importData.getAltOptions())
             .change(onSelectAlternative);
 
-        $(container).append(altSelect).css('display', 'block');
+        var resetButton = $('<input type="button" id="mdw-import-reset" value="Reset" disabled title="Reset import contents" />')
+            .click(onClickReset);
+
+        $(container).append(altSelect).append(resetButton).css('display', 'block');
     }
 
     function setupImportUi(container) {
@@ -178,6 +208,7 @@
         importData.parseCardData($('#mdw-chartdata-pre').text());
         importData.parseAltCardData($('#mdw-alt-carddata').text());
         importData.adjustToCheapest();
+        importData.save();
     }
 
     function initialize () {
