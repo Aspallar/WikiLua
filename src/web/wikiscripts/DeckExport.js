@@ -2,7 +2,7 @@
 // Start: Deck Export
 // Adds the export text box to deck articles with copy to clipboard button
 // and a select to allow export cards to be replaced with reprint alternatives.
-// Version 3.0.0
+// Version 3.1.0
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wikia.
