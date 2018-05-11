@@ -2,3 +2,7 @@ body {
 	background: #ebf2f5;
 }
 
+.article-table th {
+    border-bottom: 5px solid red;
+}
+

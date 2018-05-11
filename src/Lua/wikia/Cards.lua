@@ -15,7 +15,7 @@ local anyCardRowTemplate= [[|-valign="top"
 ]]
 
 local cardPageRowTemplate = [[|-
-!%s:
+!%s
 | %s
 ]]
 
@@ -24,7 +24,7 @@ local rulingTemplate = [[|-
 |%s
 ]]
 
-local cardPageTemplate = [=[{| class="article-table CardPageTable" style="float:right; width: 60%%;"
+local cardPageTemplate = [=[{| class="article-table mdw-cardinfo-table"
 %s
 |}
 <br/>
@@ -49,6 +49,7 @@ setNames["AKH"]="Amonkhet"
 setNames["HOU"]="Hour of Devastation"
 setNames["XLN"]="Ixalan"
 setNames["RIX"]="Rivals of Ixalan"
+setNames["DOM"]="Dominaria"
 
 local function SetLink(setCode)
     if setCode == "HOU" then
@@ -89,7 +90,7 @@ end
 local function GetRulings(card)
     if not card.Rulings then return "" end
     local s = [=[{{clear}}
-{| class="article-table"
+{| class="article-table mdw-cardrulings-table"
 |+ Card rulings ([[Card rulings|?]])
 ]=]
     for _, ruling in pairs(card.Rulings) do
@@ -137,13 +138,13 @@ end
 
 local function GenerateCardPage(card)
     local contents = {}
-    table.insert(contents,{"Card name",card.Name})
+    table.insert(contents,{"Name",card.Name})
 
     if card.Manacost then table.insert(contents,{"Mana Cost",card.Manacost}) end
     table.insert(contents,{"Converted Mana Cost",card.cmc or 0})
     if card.Type then table.insert(contents,{"Types",card.Type}) end
-    if card.Text then table.insert(contents,{"Card Text",card.Text}) end
-    if card.Flavor then table.insert(contents,{"Flavor Text",card.Flavor}) end
+    if card.Text then table.insert(contents,{"Text",card.Text}) end
+    if card.Flavor then table.insert(contents,{"Flavor",card.Flavor}) end
     if card.Loyalty then table.insert(contents,{"Loyalty",card.Loyalty}) end
     if card.Power then table.insert(contents,{"P/T",PT(card)}) end
     table.insert(contents,{"Expansion",ExpansionSymbol(card) .. " " .. SetLink(card.SetCode)})

@@ -239,6 +239,10 @@
     margin-bottom: 10px;
 }
 
+#mdw-import-reset {
+    margin-left: 5px;
+}
+
 /* start decklists */
 .mdw-decklist {
     border-collapse: collapse;
@@ -281,3 +285,83 @@
 }
 /* end decklists */
 
+/* card page */
+.mdw-cardinfo-table {
+    float:right;
+    width: 60%;
+    text-align: left;
+    background: #fff;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.mdw-cardinfo-table th {
+    background-color: #1E5FC7;
+    color:#FFFFFF;
+    font-size: 14px;
+}
+
+.mdw-cardrulings-table td:first-child {
+    white-space: nowrap;
+    font-size: 12px;
+}
+/* end card page */
+
+/* toc */
+#toctitle {
+    background-color: #1E5FC7;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+ 
+.toctoggle a {
+    color: #FFFFFF;
+}
+/* end toc */
+
+/* card list filters */
+.mdw-cardlist-filter {
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+    font: normal 12px/150% Arial, Helvetica, sans-serif;
+    background: #fff;
+    overflow: hidden;
+    border-radius: 3px;
+    margin-top: 0;
+}
+.mdw-cardlist-filter td, .mdw-cardlist-filter th {
+     padding: 3px 10px;
+}
+.mdw-cardlist-filter th {
+    background-color: #1E5FC7;
+    color:#FFFFFF;
+    font-size: 12px;
+}
+.mdw-cardlist-filter th.mdw-filter-continued {
+    border-bottom: none;
+}
+ .mdw-cardlist-filter th:first-child {
+     border-left: none;
+     border-right: none;
+}
+.mdw-cardlist-filter td {
+    color: #00557F;
+    border-bottom: 1px solid #E1EEF4;
+    font-size: 12px;
+    font-weight: normal;
+}
+.mdw-cardlist-filter td:first-child {
+     border-left: none;
+}
+.mdw-cardlist-filter th:first-child {
+     border-left: none;
+}
+.mdw-cardlist-filter .selflink {
+    background-color: #00557F;
+    color: #FFFFFF;
+    border-radius: 8px;
+    padding: 4px 10px 4px 10px;
+    font-weight: normal;
+}
+/* card list filters */

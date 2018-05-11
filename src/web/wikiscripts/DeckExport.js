@@ -181,7 +181,7 @@
             .append(importData.getAltOptions())
             .change(onSelectAlternative);
 
-        var resetButton = $('<input type="button" id="mdw-import-reset" value="Reset" disabled title="Reset import contents" />')
+        var resetButton = $('<input type="button" id="mdw-import-reset" value="Reset" disabled title="Reset import contents to original content." />')
             .click(onClickReset);
 
         $(container).append(altSelect).append(resetButton).css('display', 'block');
