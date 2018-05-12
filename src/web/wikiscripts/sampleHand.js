@@ -1,20 +1,13 @@
 // ==========================================================================
 // Start: Sample Hand
 // Implements sample hand generation for deck articles
-// Version 1.1.0
+// Version 1.2.0
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wikia.
 // ** Instead use the git repository https://github.com/Aspallar/WikiLua
 // ** this file is the sampleHand.js file in the src\Web\wikiscripts folder.
 //
-// NOTE TO FANDOM CODE REVIEWERS
-// This script inserts image tags into the page, but all of the images are internal to 
-// the wikia, no external images are used.
-// The only function that sets the src attribute of the img tags is ImageSource.setCardImageSource()
-// which sets the image source from a cache if its already known and if not makes an
-// ajax call to the MediaWiki API to parse a [[File:cardname.png|size=160px|link=]], and
-// extracts the src from the returned json.
 (function ($) {
     'use strict';
 
@@ -26,6 +19,11 @@
     function cardArticle(cardName) {
         var article = encodeURIComponent(cardName.replace(' ', '_'));
         return '/wiki/' + article;
+    }
+
+    function adjustName(name) {
+        var pos = name.indexOf('///');
+        return pos === -1 ? name : name.substring(0, pos-1);
     }
 
     function DeckEntry(name) {
@@ -68,17 +66,18 @@
                 cards.push(this.drawCard());
             return cards;
         },
-        scrapeFromPage: function () {
+        initialize: function (dataString) {
             var deck = [];
-            var cardElements = $('div.div-col.columns.column-count.column-count-2 span.card-image-tooltip');
-            cardElements.each(function () {
-                var name = $(this).text();
-                var amount = parseInt($.trim(this.previousSibling.textContent), 10);
-                if (!isNaN(amount)) {
-                    for (var k = 0; k < amount; k++)
-                        deck.push(new DeckEntry(name));
-                }
-            });
+            try {
+                var data = JSON.parse(dataString);
+                data.forEach(function (entry) {
+                    var adjustedName = adjustName(entry.name);
+                    for (var k = 0; k < entry.num; k++)
+                        deck.push(new DeckEntry(adjustedName));
+                });
+            } catch (error) {
+                console.log('sampleHand.js Deck:init() error parsing deck data\n' + error);
+            }
             this.cards = deck;
             this.cardsLeft = deck.length;
             return this;
@@ -310,7 +309,7 @@
 
     var controller;
     $(document).ready(function () {
-        var deck = new Deck().scrapeFromPage();
+        var deck = new Deck().initialize($('#mdw-chartdata-pre').text());
         var cardPanel = new CardPanel(cardSection(), tooltipElement(), new ImageSource());
         controller = new Controller(cardPanel, deck).start();
     });
