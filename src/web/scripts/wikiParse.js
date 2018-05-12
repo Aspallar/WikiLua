@@ -13,7 +13,7 @@ function wikiParse(contents) {
     }
 
     function removeNoInclude(contents) {
-        return contents.replace(/<noinclude>.*<\/noinclude>/, '');
+        return contents.replace(/<noinclude>.*<\/noinclude>/g, '');
     }
 
     function replaceTitles(contents) {
@@ -22,10 +22,16 @@ function wikiParse(contents) {
         });
     }
 
+    function removeVariables(contents) {
+        contents = contents.replace(/__NOEDITSECTION__|__NOTOC__/g, '');
+        return contents;
+    }
+
     contents = removeNoInclude(contents);
     contents = replaceClearTemplates(contents);
     contents = resolveLinks(contents);
     contents = replaceTitles(contents);
+    contents = removeVariables(contents);
 
     return contents;
 }
