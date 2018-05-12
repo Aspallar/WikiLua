@@ -21,6 +21,7 @@ local Enchantment = {}
 local Instant = {}
 local Sorcery = {}
 local Planeswalker = {}
+local Sideboard = {}
 local errors = {}
 
 local function AllTypelistEntries()
@@ -67,30 +68,44 @@ local function ParseCardEntry(entry)
     return intNumber, mw.text.trim(cardName)
 end
 
+local function InsertDeckEntry(num, card)
+    if TableContains(card.Types,"Land") then
+        table.insert(Land, {num, card})
+    elseif TableContains(card.Types,"Creature") then
+        table.insert(Creature, {num, card})
+    elseif TableContains(card.Types,"Artifact") then
+        table.insert(Artifact, {num, card})
+    elseif TableContains(card.Types,"Enchantment") then
+         table.insert(Enchantment, {num, card})
+    elseif TableContains(card.Types,"Instant") then
+         table.insert(Instant, {num, card})
+    elseif TableContains(card.Types,"Sorcery") then
+         table.insert(Sorcery, {num, card})
+    elseif TableContains(card.Types,"Planeswalker") then
+        table.insert(Planeswalker, {num, card})
+    else
+        table.insert(errors, {num, {Name=card.Name} })
+    end
+end
+
 local function SortListIntoTypes(list)
+    local sideboardMarker = "sideboard"
+    local isSideboard = false;
     for _, cardEntry in pairs(list) do
-        local num, name = ParseCardEntry(cardEntry)
-        local card = cardService.GetByNameIgnoreCase(name)
-        if card then
-            if TableContains(card.Types,"Land") then
-                table.insert(Land, {num, card})
-            elseif TableContains(card.Types,"Creature") then
-                table.insert(Creature, {num, card})
-            elseif TableContains(card.Types,"Artifact") then
-                table.insert(Artifact, {num, card})
-            elseif TableContains(card.Types,"Enchantment") then
-                 table.insert(Enchantment, {num, card})
-            elseif TableContains(card.Types,"Instant") then
-                 table.insert(Instant, {num, card})
-            elseif TableContains(card.Types,"Sorcery") then
-                 table.insert(Sorcery, {num, card})
-            elseif TableContains(card.Types,"Planeswalker") then
-                table.insert(Planeswalker, {num, card})
+        if mw.text.trim(cardEntry) == sideboardMarker then
+            isSideboard = true
+        else
+            local num, name = ParseCardEntry(cardEntry)
+            local card = cardService.GetByNameIgnoreCase(name)
+            if card then
+                if isSideboard then
+                    table.insert(Sideboard, {num, card})
+                else
+                    InsertDeckEntry(num, card)
+                end
             else
                 table.insert(errors, {num, {Name=name} })
             end
-        else
-            table.insert(errors, {num, {Name=name} })
         end
     end
 end
@@ -161,6 +176,7 @@ local function WriteTypeLists()
     WriteCardsFromType(Instant, "Instants [[File:Icon instant.png|23px|link=]]")
     WriteCardsFromType(Sorcery, "Sorceries [[File:Icon sorcery.png|23px|link=]]")
     WriteCardsFromType(Planeswalker, "Planeswalkers [[File:Icon planeswalker.png|23px|link=]]")
+    WriteCardsFromType(Sideboard, "Sideboard [[File:Icon sideboard.png|23px|link=]]")
     WriteOtherCards(errors)
 end
 
@@ -179,6 +195,42 @@ local function ExportSetName(setCode)
         return "DAR"
     end
     return setCode
+end
+
+local function AddAltCards(name, card, altCardList)
+    if card.Sets ~= nil and card.Rarity ~= "Basic Land" then
+        for _, set in pairs(card.Sets) do
+            local carddata = {
+                name = name;
+                set = set.Set;
+                cardNumber = set.CardNumber;
+                rarity = set.Rarity;
+            }
+            table.insert(altCardList, carddata)
+        end
+    end
+end
+
+local function GetSideboardData(altCardList)
+    local data = {}
+    for i = 1, #Sideboard do
+        local num = Sideboard[i][1]
+        local card = Sideboard[i][2]
+        print(card.Name)
+        local exportName = exportCardName(card)
+        print(exportName)
+
+        local carddata = {
+            name = exportName;
+            num = num;
+            set = ExportSetName(card.SetCode);
+            cardNumber = string.match(card.CardNumber, "%d+");
+            rarity = card.Rarity;
+        }
+        table.insert(data, carddata)
+        AddAltCards(exportName, card, altCardList)
+    end
+    return data
 end
 
 local function GetAdditionalData()
@@ -201,21 +253,9 @@ local function GetAdditionalData()
             rarity=card.Rarity;
         }
         table.insert(cardlist, carddata)
-        if card.Sets ~= nil and card.Rarity ~= "Basic Land" then
-            for _, set in pairs(card.Sets) do
-                carddata = {
-                    name = exportName;
-                    set = set.Set;
-                    cardNumber = set.CardNumber;
-                    rarity = set.Rarity;
-                }
-                table.insert(altCardList, carddata)
-            end
-        end
+        AddAltCards(exportName, card, altCardList)
     end
-    local cardJson = json.encode(cardlist)
-    local altcardJson = json.encode(altCardList)
-    return cardJson, altcardJson
+    return cardlist, altCardList
 end
 
 local function DataSection(jsonString, id)
@@ -232,10 +272,12 @@ end
 local function GenerateDeckFromList(name,list)
     SortListIntoTypes(list)
     WriteTypeLists()
-    local cardJson, altCardJson = GetAdditionalData()
+    local cardList, altCardList = GetAdditionalData()
+    local sideboard = GetSideboardData(altCardList)
     return  DeckListSection(name, buffer) ..
-        DataSection(cardJson, "mdw-chartdata-pre") ..
-        DataSection(altCardJson, "mdw-alt-carddata")
+        DataSection(json.encode(cardList), "mdw-chartdata-pre") ..
+        DataSection(json.encode(altCardList), "mdw-alt-carddata") ..
+        DataSection(json.encode(sideboard), "mdw-sideboard-data")
 end
 
 function p.TestGenerateDeckFromList(name,inputList)

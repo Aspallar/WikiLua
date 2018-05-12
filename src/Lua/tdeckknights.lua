@@ -17,7 +17,12 @@ local inputList = [=[
 13 Plains
 4 Radiant Destiny
 2 Swamp
-1 Vanquisher's Banner]=]
+1 Vanquisher's Banner
+sideboard
+4 Forsaken Sanctuary
+4 History of Benalia
+3 Isolated Chapel
+2 Ixalan's Binding]=]
 
 local result = decks.TestGenerateDeckFromList("Test Deck",inputList)
 print(result)
