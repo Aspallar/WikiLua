@@ -111,11 +111,7 @@
         };
     } // End ImageSource
 
-    function CardPanel(xContainer, xTtooltip, xImageSource) {
-        var container = xContainer;
-        var tooltip = xTtooltip;
-        var imageSource = xImageSource;
-
+    function CardPanel(container, tooltip, imageSource) {
         var cardSize = {
             small: true,
             fullWidth: 223,
@@ -194,15 +190,12 @@
         };
     } // End CardPanel
 
-    function Controller(xCardPanel, xDeck) {
-        var cardPanel = xCardPanel;
-        var deck = xDeck;
-
+    function Controller(cardPanel, deck) {
         var randomHandButton = $('#mdw-random-hand-button');
         var imageSizeButton = $('#mdw-random-hand-image-size');
         var drawCardButton = $('#mdw-random-hand-draw-card');
         var clearButton = $('#mdw-random-hand-clear');
-        var handOnlyButtons = [imageSizeButton, drawCardButton, clearButton];
+        var handOnlyButtons = $(imageSizeButton).add(drawCardButton).add(clearButton);
 
         function showMessage(msg) {
             $('#mdw-random-hand-message').text(msg);
@@ -234,15 +227,10 @@
         }
 
         function showHandOnlyButtons(show) {
-            if (show) {
-                handOnlyButtons.forEach(function (button) {
-                    button.removeClass('mdw-hidden');
-                });
-            } else {
-                handOnlyButtons.forEach(function (button) {
-                    button.addClass('mdw-hidden');
-                });
-            }
+            if (show)
+                handOnlyButtons.removeClass('mdw-hidden');
+            else
+                handOnlyButtons.addClass('mdw-hidden');
         }
 
         function imageSizeButtonClick() {
