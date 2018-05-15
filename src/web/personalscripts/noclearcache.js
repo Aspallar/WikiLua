@@ -1,0 +1,3 @@
+$(function () {
+    $('#mw-clearyourcache').remove();
+});
