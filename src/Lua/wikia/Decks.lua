@@ -24,6 +24,7 @@ local Planeswalker = {}
 local Sideboard = {}
 local errors = {}
 
+
 local function AllTypelistEntries()
     local typelists = {Land, Creature, Artifact, Enchantment, Instant, Sorcery, Planeswalker}
     local entryIndex = 1
@@ -135,8 +136,8 @@ local function WriteLine(s)
     buffer = buffer .. s .. "\n"
 end
 
-local function WriteCardsFromType(typeCards,typeName)
-    if typeCards[1] and typeCards[1][2].cmc then
+local function WriteCardsFromType(typeCards, typeName, sort)
+    if sort and typeCards[1] and typeCards[1][2].cmc then
         table.sort(typeCards,function(a,b) return (a[2].cmc < b[2].cmc) or ((a[2].cmc == b[2].cmc) and (a[2].Name < b[2].Name)) end)
     end
     local numType = 0
@@ -169,14 +170,14 @@ local function WriteOtherCards(typeCards)
 end
 
 local function WriteTypeLists()
-    WriteCardsFromType(Land, "Lands [[File:Icon land.png|23px|link=]]")
-    WriteCardsFromType(Creature, "Creatures [[File:Icon creature.png|23px|link=]]")
-    WriteCardsFromType(Artifact, "Artifacts [[File:Icon artifact.png|23px|link=]]")
-    WriteCardsFromType(Enchantment, "Enchantments [[File:Icon enchantment.png|23px|link=]]")
-    WriteCardsFromType(Instant, "Instants [[File:Icon instant.png|23px|link=]]")
-    WriteCardsFromType(Sorcery, "Sorceries [[File:Icon sorcery.png|23px|link=]]")
-    WriteCardsFromType(Planeswalker, "Planeswalkers [[File:Icon planeswalker.png|23px|link=]]")
-    WriteCardsFromType(Sideboard, "Sideboard [[File:Icon sideboard.png|23px|link=]]")
+    WriteCardsFromType(Land, "Lands [[File:Icon land.png|23px|link=]]", false)
+    WriteCardsFromType(Creature, "Creatures [[File:Icon creature.png|23px|link=]]", true)
+    WriteCardsFromType(Artifact, "Artifacts [[File:Icon artifact.png|23px|link=]]", true)
+    WriteCardsFromType(Enchantment, "Enchantments [[File:Icon enchantment.png|23px|link=]]", true)
+    WriteCardsFromType(Instant, "Instants [[File:Icon instant.png|23px|link=]]", true)
+    WriteCardsFromType(Sorcery, "Sorceries [[File:Icon sorcery.png|23px|link=]]", true)
+    WriteCardsFromType(Planeswalker, "Planeswalkers [[File:Icon planeswalker.png|23px|link=]]", true)
+    WriteCardsFromType(Sideboard, "Sideboard [[File:Icon sideboard.png|23px|link=]]", false)
     WriteOtherCards(errors)
 end
 
@@ -202,7 +203,7 @@ local function AddAltCards(name, card, altCardList)
         for _, set in pairs(card.Sets) do
             local carddata = {
                 name = name;
-                set = set.Set;
+                set = ExportSetName(set.Set);
                 cardNumber = set.CardNumber;
                 rarity = set.Rarity;
             }
@@ -216,9 +217,7 @@ local function GetSideboardData(altCardList)
     for i = 1, #Sideboard do
         local num = Sideboard[i][1]
         local card = Sideboard[i][2]
-        print(card.Name)
         local exportName = exportCardName(card)
-        print(exportName)
 
         local carddata = {
             name = exportName;
