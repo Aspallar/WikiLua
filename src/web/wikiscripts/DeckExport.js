@@ -2,7 +2,7 @@
 // Start: Deck Export
 // Adds the export text box to deck articles with copy to clipboard button
 // and a select to allow export cards to be replaced with reprint alternatives.
-// Version 3.1.0
+// Version 3.2.0
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wikia.
@@ -12,14 +12,17 @@
 (function ($) {
     'use strict';
 
+    // don't run if this version disabled on page
+    if ($('#mdw-disabled-js').attr('data-deckexport-3-2-0'))
+        return;
+
     var importData;
     var labelOption;
 
     function ImportData() {
-        var originalImportCards;
-        var originalAltImportCards;
         var importCards = [];
         var altImportCards = [];
+        var sideboardCards = [];
 
         function baseDisplayName(card) {
             return card.name + ' (' + card.set + ') ' + card.cardNumber;
@@ -30,61 +33,118 @@
         }
 
         function rarityValue(rarity) {
-            return { 'Common': 0, 'Uncommon': 1, 'Rare': 2, 'Mythic Rare': 3, 'Legendary': 5}[rarity];
+            return { 'Common': 0, 'Uncommon': 1, 'Rare': 2, 'Mythic Rare': 3 }[rarity];
         }
 
-        function findImportCardByName(name) {
+        function findCardByName(name) {
             for (var k = 0, l = importCards.length; k < l; k++) {
                 if (importCards[k].name === name)
-                    return k;
+                    return importCards[k];
             }
-            return -1;
+            for (k = 0, l = sideboardCards.length; k < l; k++) {
+                if (sideboardCards[k].name === name)
+                    return sideboardCards[k];
+            }
+            return null;
+        }
+
+        function findAllCardsByName(cards, name) {
+            return cards.reduce(function (result, card) {
+                if (card.name === name) result.push(card);
+                return result;
+            }, []);
+        }
+
+        function parseCardData(dataString) {
+            if (dataString !== null && dataString.length > 0)
+                importCards = JSON.parse(dataString);
+        }
+
+        function parseSideboardData(dataString) {
+            if (dataString !== null && dataString.length > 0)
+                sideboardCards = JSON.parse(dataString);
+        }
+
+        function parseAltCardData(dataString) {
+            altImportCards = [];
+            if (dataString !== null && dataString.length > 0) {
+                var cards = JSON.parse(dataString);
+                cards.forEach(function(card) {
+                    if (!altImportCards.some(function (altCard) {
+                        return card.name === altCard.name &&
+                            card.set === altCard.set;
+                    })) altImportCards.push(card);
+                });
+                altImportCards.sort(function (a, b) {
+                    return a.name.localeCompare(b.name);
+                });
+            }
+        }
+
+        function getRarityTotals(cards) {
+            var totals = { 'Common': 0, 'Uncommon': 0, 'Rare': 0, 'Mythic Rare': 0 };
+            cards.forEach(function (card) {
+                var rarity = card.rarity;
+                if (rarity !== 'Basic Land')
+                    totals[rarity] += card.num;
+            });
+            return totals;
+        }
+
+        function swapCards(altCardIndex) {
+            var newCard = altImportCards[altCardIndex];
+            var oldCard = findCardByName(newCard.name);
+            var oldSet = oldCard.set;
+            var oldCardNumber = oldCard.cardNumber;
+            var oldCardRarity = oldCard.rarity;
+
+            findAllCardsByName(importCards, newCard.name).forEach(function (card) {
+                card.set = newCard.set;
+                card.cardNumber = newCard.cardNumber;
+                card.rarity = newCard.rarity;
+            });
+            findAllCardsByName(sideboardCards, newCard.name).forEach(function (card) {
+                card.set = newCard.set;
+                card.cardNumber = newCard.cardNumber;
+                card.rarity = newCard.rarity;
+            });
+
+            newCard.set = oldSet;
+            newCard.cardNumber = oldCardNumber;
+            newCard.rarity = oldCardRarity;
+
+            return baseDisplayName(newCard);
+        }
+
+        function adjustToCheapest() {
+            for (var k = 0, l = altImportCards.length; k < l; k++) {
+                var card = findCardByName(altImportCards[k].name);
+                if (rarityValue(altImportCards[k].rarity) < rarityValue(card.rarity))
+                    swapCards(k);
+            }
         }
 
         return {
-            parseCardData: function (dataString) {
-                 if (dataString !== null && dataString.length > 0)
-                    importCards = JSON.parse(dataString);
-            },
-            parseAltCardData: function (dataString) {
-                if (dataString !== null && dataString.length > 0) {
-                    altImportCards = JSON.parse(dataString);
-                    altImportCards.sort(function (a, b) {
-                        return a.name.localeCompare(b.name);
-                    });
-                }
-            },
             swapCards: function (altCardIndex) {
-                var newCard = altImportCards[altCardIndex];
-                var oldCardIndex = findImportCardByName(newCard.name);
-                var oldCard = importCards[oldCardIndex];
-
-                newCard.num = oldCard.num;
-                altImportCards[altCardIndex] = oldCard;
-                importCards[oldCardIndex] = newCard;
-                return baseDisplayName(oldCard);
+                return swapCards(altCardIndex);
             },
-            adjustToCheapest: function () {
-                for (var k = 0, l = altImportCards.length; k < l; k++) {
-                    var cardIndex = findImportCardByName(altImportCards[k].name);
-                    if (rarityValue(altImportCards[k].rarity) < rarityValue(importCards[cardIndex].rarity))
-                        this.swapCards(k);
-                }
+            getDeckRarityTotals: function () {
+                return getRarityTotals(importCards);
             },
-            getRarityTotals: function () {
-                var totals = {};
-                importCards.forEach(function (card) {
-                    var rarity = card.rarity;
-                    if (rarity !== 'Basic Land')
-                        totals[rarity] = (totals[rarity] || 0) + card.num;
-                });
-                return totals;
+            getSideboardRarityTotals: function () {
+                return getRarityTotals(sideboardCards);
             },
             text: function () {
                 var text = '';
                 importCards.forEach(function(card) {
                     text += importDisplayName(card) + '\n';
                 });
+                if (sideboardCards.length > 0) {
+                    text += '\n';
+                    sideboardCards.forEach(function (card) {
+                        text += importDisplayName(card) + '\n';
+                    });
+                }
                 return text;
             },
             getAltOptions: function () {
@@ -97,13 +157,14 @@
             hasAlternatives: function () {
                 return altImportCards.length > 0;
             },
-            save: function () {
-                originalImportCards = importCards.slice();
-                originalAltImportCards = altImportCards.slice();
+            hasSideboard: function () {
+                return sideboardCards.length > 0;
             },
-            reset: function () {
-                importCards = originalImportCards.slice();
-                altImportCards = originalAltImportCards.slice();
+            initialize: function(deckData, sideboardData, altData) {
+                parseCardData(deckData);
+                parseSideboardData(sideboardData);
+                parseAltCardData(altData);
+                adjustToCheapest();
             }
         };
     } // End ImportData
@@ -112,6 +173,14 @@
         textarea.style.overflow = 'hidden';
         textarea.style.height = 'auto';
         textarea.style.height = textarea.scrollHeight + 'px'; 
+    }
+
+    function setImportData() {
+        importData.initialize(
+            $('#mdw-chartdata-pre').text(),
+            $('#mdw-sideboard-data').text(),
+            $('#mdw-alt-carddata').text()
+        );
     }
 
     function rarityEntry(label, value) {
@@ -133,8 +202,34 @@
         return text;
     }
 
+    function addRarities(a, b) {
+        var result = {};
+        result.Common = a.Common + b.Common;
+        result.Uncommon = a.Uncommon + b.Uncommon;
+        result.Rare = a.Rare + b.Rare;
+        result['Mythic Rare'] = a['Mythic Rare'] + b['Mythic Rare'];
+        return result;
+    }
+
+    function setRarityColumn(col, totals) {
+        col.get(0).innerHTML = totals.Common;
+        col.get(1).innerHTML = totals.Uncommon;
+        col.get(2).innerHTML = totals.Rare;
+        col.get(3).innerHTML = totals['Mythic Rare'];
+    }
+
     function setRarityContents() {
-        $('#mdw-import-rarity').html(rarityContents(importData.getRarityTotals()));
+        if (!importData.hasSideboard()) {
+            $('#mdw-import-rarity').html(rarityContents(importData.getDeckRarityTotals())).show();
+        } else {
+            var table = $('#mdw-rarity-table');
+            var deck = importData.getDeckRarityTotals();
+            var sideboard = importData.getSideboardRarityTotals();
+            setRarityColumn(table.find('td:nth-child(2)'), deck);
+            setRarityColumn(table.find('td:nth-child(3)'), sideboard);
+            setRarityColumn(table.find('td:nth-child(4)'), addRarities(deck, sideboard));
+            table.show();
+        }
     }
 
     function onClickCopy() {
@@ -148,7 +243,7 @@
     }
 
     function onClickReset() {
-        importData.reset();
+        setImportData();
         $('#mdw-import-reset')
             .prop('disabled', true);
         $('#mdw-import-select')
@@ -202,21 +297,13 @@
         $('#mdw-copy-export').click(onClickCopy);
     }
 
-    function initializeImportData()
-    {
-        importData = new ImportData();
-        importData.parseCardData($('#mdw-chartdata-pre').text());
-        importData.parseAltCardData($('#mdw-alt-carddata').text());
-        importData.adjustToCheapest();
-        importData.save();
-    }
-
     function initialize () {
         var arenaImportContainer = document.getElementById('mdw-arena-export-div');
         if (arenaImportContainer === null)
             return;
 
-        initializeImportData();
+        importData = new ImportData();
+        setImportData();
         setupImportUi(arenaImportContainer);
         setupAlternativesUi(document.getElementById('mdw-arena-export-alt-div'));
     }
