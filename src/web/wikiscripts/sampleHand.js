@@ -11,8 +11,9 @@
 (function ($) {
     'use strict';
 
-    // do nothing on articles with no random hand
-    if (document.getElementById('mdw-random-hand') === null) {
+    // do nothing on articles with no random hand or this version is disabled on page
+    if (document.getElementById('mdw-random-hand') === null ||
+            $('#mdw-disabled-js').attr('data-samplehand-1-2-0')) {
         return;
     }
 
