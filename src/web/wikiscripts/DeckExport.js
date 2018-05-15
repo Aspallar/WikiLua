@@ -18,6 +18,7 @@
 
     var importData;
     var labelOption;
+    var useSideboard;
 
     function ImportData() {
         var importCards = [];
@@ -134,12 +135,12 @@
             getSideboardRarityTotals: function () {
                 return getRarityTotals(sideboardCards);
             },
-            text: function () {
+            text: function (includeSideboard) {
                 var text = '';
                 importCards.forEach(function(card) {
                     text += importDisplayName(card) + '\n';
                 });
-                if (sideboardCards.length > 0) {
+                if (includeSideboard && sideboardCards.length > 0) {
                     text += '\n';
                     sideboardCards.forEach(function (card) {
                         text += importDisplayName(card) + '\n';
@@ -219,17 +220,27 @@
     }
 
     function setRarityContents() {
-        if (!importData.hasSideboard()) {
-            $('#mdw-import-rarity').html(rarityContents(importData.getDeckRarityTotals())).show();
+        var table = $('#mdw-rarity-table');
+        var div = $('#mdw-import-rarity');
+        if (!useSideboard || !importData.hasSideboard()) {
+            div.html(rarityContents(importData.getDeckRarityTotals())).show();
+            table.hide();
         } else {
-            var table = $('#mdw-rarity-table');
             var deck = importData.getDeckRarityTotals();
             var sideboard = importData.getSideboardRarityTotals();
             setRarityColumn(table.find('td:nth-child(2)'), deck);
             setRarityColumn(table.find('td:nth-child(3)'), sideboard);
             setRarityColumn(table.find('td:nth-child(4)'), addRarities(deck, sideboard));
+            div.hide();
             table.show();
         }
+    }
+
+    function onChangeUseSideboard() {
+        /* jshint -W040 */ // allow old school jquery use of this
+        useSideboard = this.checked;
+        $('#mdw-arena-export-contents').html(importData.text(useSideboard));
+        setRarityContents();
     }
 
     function onClickCopy() {
@@ -259,7 +270,7 @@
         /* jshint -W040 */ // allow old school jquery use of this
         var text = importData.swapCards(this.selectedIndex - 1);
         this.options[this.selectedIndex].text = text;
-        $('#mdw-arena-export-contents').html(importData.text());
+        $('#mdw-arena-export-contents').html(importData.text(useSideboard));
         $('#mdw-import-reset').prop('disabled', false);
         setRarityContents();
         this.selectedIndex = 0;
@@ -268,6 +279,10 @@
     function setupAlternativesUi(container) {
         if (container === null || !importData.hasAlternatives())
             return;
+
+        var sideboardCheckbox = importData.hasSideboard() ? $('<input type="checkbox" id="mdw-use-sideboard" checked><label for="mdw-use-sideboard">Include sideboard</label>') : null;
+        if (sideboardCheckbox !== null)
+            sideboardCheckbox.change(onChangeUseSideboard);
 
         labelOption =  $('<option disabled selected>Select alternative cards --</option>');
 
@@ -279,7 +294,11 @@
         var resetButton = $('<input type="button" id="mdw-import-reset" value="Reset" disabled title="Reset import contents to original content." />')
             .click(onClickReset);
 
-        $(container).append(altSelect).append(resetButton).css('display', 'block');
+        $(container)
+            .prepend(sideboardCheckbox)
+            .append(altSelect)
+            .append(resetButton)
+            .css('display', 'block');
     }
 
     function setupImportUi(container) {
@@ -288,7 +307,7 @@
                 '<span id="mdw-copied-message" />' +
                 '<br />' +
                 '<textarea id="mdw-arena-export-contents" style="width:90%" readonly>' +
-                importData.text() +
+                importData.text(useSideboard) +
                 '</textarea>'
         );
         $(container).append(elements);
@@ -304,6 +323,7 @@
 
         importData = new ImportData();
         setImportData();
+        useSideboard = importData.hasSideboard();
         setupImportUi(arenaImportContainer);
         setupAlternativesUi(document.getElementById('mdw-arena-export-alt-div'));
     }
