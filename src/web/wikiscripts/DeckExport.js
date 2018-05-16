@@ -58,7 +58,7 @@
 
         function parseCardData(dataString) {
             if (dataString !== null && dataString.length > 0)
-                importCards = JSON.parse(dataString);
+               importCards = JSON.parse(dataString);
         }
 
         function parseSideboardData(dataString) {
@@ -92,28 +92,28 @@
             return totals;
         }
 
+        function setCard(dest, source) {
+            dest.set = source.set;
+            dest.cardNumber = source.cardNumber;
+            dest.rarity = source.rarity;
+        }
+
         function swapCards(altCardIndex) {
             var newCard = altImportCards[altCardIndex];
             var oldCard = findCardByName(newCard.name);
-            var oldSet = oldCard.set;
-            var oldCardNumber = oldCard.cardNumber;
-            var oldCardRarity = oldCard.rarity;
+            var oldCardData = {
+                set: oldCard.set,
+                cardNumber: oldCard.cardNumber,
+                rarity: oldCard.rarity
+            };
 
             findAllCardsByName(importCards, newCard.name).forEach(function (card) {
-                card.set = newCard.set;
-                card.cardNumber = newCard.cardNumber;
-                card.rarity = newCard.rarity;
+                setCard(card, newCard);
             });
             findAllCardsByName(sideboardCards, newCard.name).forEach(function (card) {
-                card.set = newCard.set;
-                card.cardNumber = newCard.cardNumber;
-                card.rarity = newCard.rarity;
+                setCard(card, newCard);
             });
-
-            newCard.set = oldSet;
-            newCard.cardNumber = oldCardNumber;
-            newCard.rarity = oldCardRarity;
-
+            setCard(newCard, oldCardData);
             return baseDisplayName(newCard);
         }
 
@@ -262,7 +262,7 @@
             .append(labelOption)
             .append(importData.getAltOptions());
         $('#mdw-arena-export-contents')
-            .html(importData.text());
+            .html(importData.text(useSideboard));
         setRarityContents();
     }
 
@@ -321,8 +321,14 @@
         if (arenaImportContainer === null)
             return;
 
-        importData = new ImportData();
-        setImportData();
+        try {
+            importData = new ImportData();
+            setImportData();
+        } catch(error) {
+            console.log(error);
+            return;
+        }
+
         useSideboard = importData.hasSideboard();
         setupImportUi(arenaImportContainer);
         setupAlternativesUi(document.getElementById('mdw-arena-export-alt-div'));
