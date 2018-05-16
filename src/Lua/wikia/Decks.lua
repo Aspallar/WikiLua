@@ -90,10 +90,9 @@ local function InsertDeckEntry(num, card)
 end
 
 local function SortListIntoTypes(list)
-    local sideboardMarker = "sideboard"
     local isSideboard = false;
     for _, cardEntry in pairs(list) do
-        if mw.text.trim(cardEntry) == sideboardMarker then
+        if string.sub(cardEntry, 1, 2) == "--" then
             isSideboard = true
         else
             local num, name = ParseCardEntry(cardEntry)
