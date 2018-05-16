@@ -1,5 +1,5 @@
 // ==========================================================================
-// Start: Deck Export
+// Deck Export
 // Adds the export text box to deck articles with copy to clipboard button
 // and a select to allow export cards to be replaced with reprint alternatives.
 // Version 3.2.0
@@ -12,13 +12,10 @@
 (function ($) {
     'use strict';
 
-    // don't run if this version disabled on page
-    if ($('#mdw-disabled-js').attr('data-deckexport-3-2-0'))
+    // don't run if wrong page or this version is disabled on page
+    if (document.getElementById('mdw-arena-export-div') === null ||
+            $('#mdw-disabled-js').attr('data-deckexport-3-2-0'))
         return;
-
-    var importData;
-    var labelOption;
-    var useSideboard;
 
     function ImportData() {
         var importCards = [];
@@ -70,6 +67,7 @@
             altImportCards = [];
             if (dataString !== null && dataString.length > 0) {
                 var cards = JSON.parse(dataString);
+                // cards may contain duplicates, don't add duplicates
                 cards.forEach(function(card) {
                     if (!altImportCards.some(function (altCard) {
                         return card.name === altCard.name &&
@@ -170,170 +168,180 @@
         };
     } // End ImportData
 
-    function sizeTextareaToContents(textarea) {
-        textarea.style.overflow = 'hidden';
-        textarea.style.height = 'auto';
-        textarea.style.height = textarea.scrollHeight + 'px'; 
-    }
 
-    function setImportData() {
-        importData.initialize(
-            $('#mdw-chartdata-pre').text(),
-            $('#mdw-sideboard-data').text(),
-            $('#mdw-alt-carddata').text()
-        );
-    }
+    function Ui() {
+        var importData;
+        var labelOption;
+        var useSideboard;
 
-    function rarityEntry(label, value) {
-        return '<span class="mdw-rarity-label">' + label +': </span><span class="mdw-rarity-value">' + value + '</span><br />';
-    }
-
-    function rarityContents(rarities) {
-        var text = '';
-        if (rarities.Common)
-            text += rarityEntry('Common', rarities.Common);
-        if (rarities.Uncommon)
-            text += rarityEntry('Uncommon', rarities.Uncommon);
-        if (rarities.Rare)
-            text += rarityEntry('Rare', rarities.Rare);
-        if (rarities['Mythic Rare'])
-            text += rarityEntry('Mythic Rare', rarities['Mythic Rare']);
-        if (text.length > 0)
-            text = text.substring(0, text.length - '<br />'.length);
-        return text;
-    }
-
-    function addRarities(a, b) {
-        var result = {};
-        result.Common = a.Common + b.Common;
-        result.Uncommon = a.Uncommon + b.Uncommon;
-        result.Rare = a.Rare + b.Rare;
-        result['Mythic Rare'] = a['Mythic Rare'] + b['Mythic Rare'];
-        return result;
-    }
-
-    function setRarityColumn(col, totals) {
-        col.get(0).innerHTML = totals.Common;
-        col.get(1).innerHTML = totals.Uncommon;
-        col.get(2).innerHTML = totals.Rare;
-        col.get(3).innerHTML = totals['Mythic Rare'];
-    }
-
-    function setRarityContents() {
-        var table = $('#mdw-rarity-table');
-        var div = $('#mdw-import-rarity');
-        if (!useSideboard || !importData.hasSideboard()) {
-            div.html(rarityContents(importData.getDeckRarityTotals())).show();
-            table.hide();
-        } else {
-            var deck = importData.getDeckRarityTotals();
-            var sideboard = importData.getSideboardRarityTotals();
-            setRarityColumn(table.find('td:nth-child(2)'), deck);
-            setRarityColumn(table.find('td:nth-child(3)'), sideboard);
-            setRarityColumn(table.find('td:nth-child(4)'), addRarities(deck, sideboard));
-            div.hide();
-            table.show();
+        function sizeTextareaToContents(textarea) {
+            textarea.style.overflow = 'hidden';
+            textarea.style.height = 'auto';
+            textarea.style.height = textarea.scrollHeight + 'px'; 
         }
-    }
 
-    function onChangeUseSideboard() {
-        /* jshint -W040 */ // allow old school jquery use of this
-        useSideboard = this.checked;
-        $('#mdw-arena-export-contents').html(importData.text(useSideboard));
-        setRarityContents();
-    }
+        function setImportData() {
+            importData.initialize(
+                $('#mdw-chartdata-pre').text(),
+                $('#mdw-sideboard-data').text(),
+                $('#mdw-alt-carddata').text()
+            );
+        }
 
-    function onClickCopy() {
-        var importText = document.getElementById('mdw-arena-export-contents');
-        importText.select();
-        document.execCommand('copy');
-        $('#mdw-copied-message').html(' copied to clipboard.');
-        setTimeout(function () {
-            $('#mdw-copied-message').html('');
-        }, 1200);
-    }
+        function rarityEntry(label, value) {
+            return '<span class="mdw-rarity-label">' + label +': </span><span class="mdw-rarity-value">' + value + '</span><br />';
+        }
 
-    function onClickReset() {
-        setImportData();
-        $('#mdw-import-reset')
-            .prop('disabled', true);
-        $('#mdw-import-select')
-            .html('')
-            .append(labelOption)
-            .append(importData.getAltOptions());
-        $('#mdw-arena-export-contents')
-            .html(importData.text(useSideboard));
-        setRarityContents();
-    }
+        function rarityContents(rarities) {
+            var text = '';
+            if (rarities.Common)
+                text += rarityEntry('Common', rarities.Common);
+            if (rarities.Uncommon)
+                text += rarityEntry('Uncommon', rarities.Uncommon);
+            if (rarities.Rare)
+                text += rarityEntry('Rare', rarities.Rare);
+            if (rarities['Mythic Rare'])
+                text += rarityEntry('Mythic Rare', rarities['Mythic Rare']);
+            if (text.length > 0)
+                text = text.substring(0, text.length - '<br />'.length);
+            return text;
+        }
 
-    function onSelectAlternative() {
-        /* jshint -W040 */ // allow old school jquery use of this
-        var text = importData.swapCards(this.selectedIndex - 1);
-        this.options[this.selectedIndex].text = text;
-        $('#mdw-arena-export-contents').html(importData.text(useSideboard));
-        $('#mdw-import-reset').prop('disabled', false);
-        setRarityContents();
-        this.selectedIndex = 0;
-    }
+        function addRarities(a, b) {
+            var result = {};
+            result.Common = a.Common + b.Common;
+            result.Uncommon = a.Uncommon + b.Uncommon;
+            result.Rare = a.Rare + b.Rare;
+            result['Mythic Rare'] = a['Mythic Rare'] + b['Mythic Rare'];
+            return result;
+        }
 
-    function setupAlternativesUi(container) {
-        if (container === null || !importData.hasAlternatives())
-            return;
+        function setRarityColumn(col, totals) {
+            col.get(0).innerHTML = totals.Common;
+            col.get(1).innerHTML = totals.Uncommon;
+            col.get(2).innerHTML = totals.Rare;
+            col.get(3).innerHTML = totals['Mythic Rare'];
+        }
 
-        var sideboardCheckbox = importData.hasSideboard() ? $('<input type="checkbox" id="mdw-use-sideboard" checked><label for="mdw-use-sideboard">Include sideboard</label>') : null;
-        if (sideboardCheckbox !== null)
-            sideboardCheckbox.change(onChangeUseSideboard);
+        function setRarityContents() {
+            var table = $('#mdw-rarity-table');
+            var div = $('#mdw-import-rarity');
+            if (!useSideboard || !importData.hasSideboard()) {
+                div.html(rarityContents(importData.getDeckRarityTotals())).show();
+                table.hide();
+            } else {
+                var deck = importData.getDeckRarityTotals();
+                var sideboard = importData.getSideboardRarityTotals();
+                setRarityColumn(table.find('td:nth-child(2)'), deck);
+                setRarityColumn(table.find('td:nth-child(3)'), sideboard);
+                setRarityColumn(table.find('td:nth-child(4)'), addRarities(deck, sideboard));
+                div.hide();
+                table.show();
+            }
+        }
 
-        labelOption =  $('<option disabled selected>Select alternative cards --</option>');
+        function onChangeUseSideboard() {
+            /* jshint -W040 */ // allow old school jquery use of this
+            useSideboard = this.checked;
+            $('#mdw-arena-export-contents').html(importData.text(useSideboard));
+            setRarityContents();
+        }
 
-        var altSelect = $('<select id="mdw-import-select"></select>')
-            .append(labelOption)
-            .append(importData.getAltOptions())
-            .change(onSelectAlternative);
+        function onClickCopy() {
+            var importText = document.getElementById('mdw-arena-export-contents');
+            importText.select();
+            document.execCommand('copy');
+            $('#mdw-copied-message').html(' copied to clipboard.');
+            setTimeout(function () {
+                $('#mdw-copied-message').html('');
+            }, 1200);
+        }
 
-        var resetButton = $('<input type="button" id="mdw-import-reset" value="Reset" disabled title="Reset import contents to original content." />')
-            .click(onClickReset);
-
-        $(container)
-            .prepend(sideboardCheckbox)
-            .append(altSelect)
-            .append(resetButton)
-            .css('display', 'block');
-    }
-
-    function setupImportUi(container) {
-        var elements = $(
-                '<input type="button" id="mdw-copy-export" value="Copy" />' +
-                '<span id="mdw-copied-message" />' +
-                '<br />' +
-                '<textarea id="mdw-arena-export-contents" style="width:90%" readonly>' +
-                importData.text(useSideboard) +
-                '</textarea>'
-        );
-        $(container).append(elements);
-        sizeTextareaToContents(document.getElementById('mdw-arena-export-contents'));
-        setRarityContents();
-        $('#mdw-copy-export').click(onClickCopy);
-    }
-
-    function initialize () {
-        var arenaImportContainer = document.getElementById('mdw-arena-export-div');
-        if (arenaImportContainer === null)
-            return;
-
-        try {
-            importData = new ImportData();
+        function onClickReset() {
             setImportData();
-        } catch(error) {
-            console.log(error);
-            return;
+            $('#mdw-import-reset')
+                .prop('disabled', true);
+            $('#mdw-import-select')
+                .html('')
+                .append(labelOption)
+                .append(importData.getAltOptions());
+            $('#mdw-arena-export-contents')
+                .html(importData.text(useSideboard));
+            setRarityContents();
         }
 
-        useSideboard = importData.hasSideboard();
-        setupImportUi(arenaImportContainer);
-        setupAlternativesUi(document.getElementById('mdw-arena-export-alt-div'));
-    }
+        function onSelectAlternative() {
+            /* jshint -W040 */ // allow old school jquery use of this
+            var text = importData.swapCards(this.selectedIndex - 1);
+            this.options[this.selectedIndex].text = text;
+            $('#mdw-arena-export-contents').html(importData.text(useSideboard));
+            $('#mdw-import-reset').prop('disabled', false);
+            setRarityContents();
+            this.selectedIndex = 0;
+        }
 
-    $(document).ready(initialize);
+        function setupAlternativesUi(container) {
+            if (container === null || !importData.hasAlternatives())
+                return;
+
+            var sideboardCheckbox = importData.hasSideboard() ? $('<input type="checkbox" id="mdw-use-sideboard" checked><label for="mdw-use-sideboard">Include sideboard</label>') : null;
+            if (sideboardCheckbox !== null)
+                sideboardCheckbox.change(onChangeUseSideboard);
+
+            labelOption =  $('<option disabled selected>Select alternative cards --</option>');
+
+            var altSelect = $('<select id="mdw-import-select"></select>')
+                .append(labelOption)
+                .append(importData.getAltOptions())
+                .change(onSelectAlternative);
+
+            var resetButton = $('<input type="button" id="mdw-import-reset" value="Reset" disabled title="Reset import contents to original content." />')
+                .click(onClickReset);
+
+            $(container)
+                .prepend(sideboardCheckbox)
+                .append(altSelect)
+                .append(resetButton)
+                .css('display', 'block');
+        }
+
+        function setupImportUi(container) {
+            var elements = $(
+                    '<input type="button" id="mdw-copy-export" value="Copy" />' +
+                    '<span id="mdw-copied-message" />' +
+                    '<br />' +
+                    '<textarea id="mdw-arena-export-contents" style="width:90%" readonly>' +
+                    importData.text(useSideboard) +
+                    '</textarea>'
+            );
+            $(container).append(elements);
+            sizeTextareaToContents(document.getElementById('mdw-arena-export-contents'));
+            setRarityContents();
+            $('#mdw-copy-export').click(onClickCopy);
+        }
+
+        return {
+            start: function() {
+                var arenaImportContainer = document.getElementById('mdw-arena-export-div');
+                try {
+                    importData = new ImportData();
+                    setImportData();
+                } catch(error) {
+                    console.log(error);
+                    return;
+                }
+                useSideboard = importData.hasSideboard();
+                setupImportUi(arenaImportContainer);
+                setupAlternativesUi(document.getElementById('mdw-arena-export-alt-div'));
+                return this;
+            }
+        };
+
+    } // End Ui
+
+    var ui;
+    $(document).ready(function() {
+        ui = new Ui().start();
+    });
 
 }(jQuery));
