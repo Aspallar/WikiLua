@@ -188,25 +188,6 @@
             );
         }
 
-        function rarityEntry(label, value) {
-            return '<span class="mdw-rarity-label">' + label +': </span><span class="mdw-rarity-value">' + value + '</span><br />';
-        }
-
-        function rarityContents(rarities) {
-            var text = '';
-            if (rarities.Common)
-                text += rarityEntry('Common', rarities.Common);
-            if (rarities.Uncommon)
-                text += rarityEntry('Uncommon', rarities.Uncommon);
-            if (rarities.Rare)
-                text += rarityEntry('Rare', rarities.Rare);
-            if (rarities['Mythic Rare'])
-                text += rarityEntry('Mythic Rare', rarities['Mythic Rare']);
-            if (text.length > 0)
-                text = text.substring(0, text.length - '<br />'.length);
-            return text;
-        }
-
         function addRarities(a, b) {
             var result = {};
             result.Common = a.Common + b.Common;
@@ -224,19 +205,20 @@
         }
 
         function setRarityContents() {
-            var table = $('#mdw-rarity-table');
-            var div = $('#mdw-import-rarity');
+            var deckTotals = importData.getDeckRarityTotals();
+            var tableFull = $('#mdw-rarity-table-full');
+            var tableSmall = $('#mdw-rarity-table-small');
             if (!useSideboard || !importData.hasSideboard()) {
-                div.html(rarityContents(importData.getDeckRarityTotals())).show();
-                table.hide();
+                setRarityColumn(tableSmall.find('td:nth-child(2)'), deckTotals);
+                tableFull.hide();
+                tableSmall.show();
             } else {
-                var deck = importData.getDeckRarityTotals();
-                var sideboard = importData.getSideboardRarityTotals();
-                setRarityColumn(table.find('td:nth-child(2)'), deck);
-                setRarityColumn(table.find('td:nth-child(3)'), sideboard);
-                setRarityColumn(table.find('td:nth-child(4)'), addRarities(deck, sideboard));
-                div.hide();
-                table.show();
+                var sideboardTotals = importData.getSideboardRarityTotals();
+                setRarityColumn(tableFull.find('td:nth-child(2)'), deckTotals);
+                setRarityColumn(tableFull.find('td:nth-child(3)'), sideboardTotals);
+                setRarityColumn(tableFull.find('td:nth-child(4)'), addRarities(deckTotals, sideboardTotals));
+                tableSmall.hide();
+                tableFull.show();
             }
         }
 
