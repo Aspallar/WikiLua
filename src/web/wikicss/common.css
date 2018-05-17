@@ -126,19 +126,19 @@
 
 .mdw-table
 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-	font-size: 12px;
-	border-collapse: collapse;
-	text-align: center;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;
+    border-collapse: collapse;
+    text-align: center;
     width: 100%;
 }
  
 .mdw-table th
 {
-	font-size: 14px;
-	font-weight: normal;
-	color: #039;
-	border-bottom: 2px solid #6678b1;
+    font-size: 14px;
+    font-weight: normal;
+    color: #039;
+    border-bottom: 2px solid #6678b1;
 }
 
 .mdw-table th:first-child
@@ -149,7 +149,7 @@
  
 .mdw-table td
 {
-	color: #669;
+    color: #669;
 }
 
 .mdw-table td:first-child
@@ -166,16 +166,7 @@
     border:2px solid;
 }
 
-.mdw-export-alternatives-column {
-	float:left;
-	width: 50%;
-}
-
-#mdw-arena-export-alt-div {
-    margin-bottom: 20px;
-}
-
-/* Ratings */
+/* Deck Ratings */
 .mdw-rating {
      /*background: url("https://vignette.wikia.nocookie.net/magicarena/images/6/64/RatingsInactivated.png/revision/latest?cb=20180308213046") no-repeat scroll 0 0 transparent;*/
      background: url("/images/RatingsInactivated.png") no-repeat scroll 0 0 transparent;
@@ -210,9 +201,15 @@
     border-radius:15px;
     padding:0 10px 10px 10px;
 }
- 
+/* end Deck Ratings */
+
 #mdw-random-hand {
     padding-top:5px;
+}
+
+.mdw-export-alternatives-column {
+    float:left;
+    width: 50%;
 }
 
 #mdw-import-rarity {
@@ -243,6 +240,42 @@
     margin-left: 5px;
 }
 
+#mdw-rarity-table {
+    border-collapse: collapse;
+    font: normal 12px Arial, Helvetica, sans-serif;
+    width: 240px;
+}
+
+#mdw-rarity-table th {
+    font-weight: normal;
+    font-size: small;
+    padding: 2px 8px 2px 8px;
+    background: #1E5FC7;
+    color: #FFFFFF;
+}
+
+#mdw-rarity-table th:first-child {
+    background: transparent;
+}
+
+#mdw-rarity-table td {
+    font-weight: normal;
+    font-size: small;
+    text-align: center;
+    padding: 0;
+    border: none;
+    background: #FFFFFF;
+}
+
+#mdw-rarity-table td:first-child {
+    text-align: left;
+    font-size: small;
+    padding: 2px 8px 2px 8px;
+    background: #1E5FC7;
+    color: #FFFFFF;
+    white-space: nowrap;
+}
+
 /* start decklists */
 .mdw-decklist {
     border-collapse: collapse;
@@ -257,6 +290,7 @@
 .mdw-decklist td, .mdw-decklist th {
      padding: 3px 10px;
 }
+
 .mdw-decklist th {
     background: linear-gradient(to bottom, #174A9A, #1E5FC7, #cce6ff);
     color:#FFFFFF;
@@ -313,7 +347,7 @@
     border-radius: 5px;
     color: #FFFFFF;
 }
- 
+
 .toctoggle a {
     color: #FFFFFF;
 }
@@ -360,8 +394,10 @@
 .mdw-cardlist-filter .selflink {
     background-color: #00557F;
     color: #FFFFFF;
-    border-radius: 8px;
-    padding: 4px 10px 4px 10px;
+    padding: 3px 6px 3px 6px;
     font-weight: normal;
+    white-space: nowrap;
+    border-radius: 3px;
 }
 /* card list filters */
+
