@@ -123,19 +123,8 @@ local function LogTypes()
 end
 --luacheck: pop
 
-local buffer = ""
-
---luacheck: push no unused
-local function Write(s)
-    buffer = buffer .. s
-end
---luacheck: pop
-
-local function WriteLine(s)
-    buffer = buffer .. s .. "\n"
-end
-
-local function WriteCardsFromType(typeCards, typeName, sort)
+local function CardsFromType(typeCards, typeName, sort)
+    local s = ""
     if sort and typeCards[1] and typeCards[1][2].cmc then
         table.sort(typeCards,function(a,b) return (a[2].cmc < b[2].cmc) or ((a[2].cmc == b[2].cmc) and (a[2].Name < b[2].Name)) end)
     end
@@ -144,40 +133,45 @@ local function WriteCardsFromType(typeCards, typeName, sort)
         numType = numType + typeCards[i][1]
     end
     if #typeCards > 0 then
-        WriteLine("<big><big>"..numType.." "..typeName.."</big></big><br/>")
+        s = s .. "<big><big>"..numType.." "..typeName.."</big></big><br/>" .. "\n"
         for i = 1, #typeCards do
             if (typeCards[i][2].Playable) then
-                WriteLine(typeCards[i][1].." {{Card|"..typeCards[i][2].Name.."}}<br/>")
+                s = s.. typeCards[i][1].." {{Card|"..typeCards[i][2].Name.."}}<br/>" .. "\n"
             else
-                WriteLine(typeCards[i][1].." {{CardTooltip|"..typeCards[i][2].Name.."}}<br/>")
+                s = s .. typeCards[i][1].." {{CardTooltip|"..typeCards[i][2].Name.."}}<br/>" .. "\n"
             end
         end
     end
+    return s
 end
 
-local function WriteOtherCards(typeCards)
+local function OtherCards(typeCards)
+    local s = ""
     local numType = 0
     for i = 1, #typeCards do
         numType = numType + typeCards[i][1]
     end
     if #typeCards > 0 then
-        WriteLine("<big><big>"..numType.." Others</big></big><br/>")
+        s = s .. "<big><big>"..numType.." Others</big></big><br/>" .. "\n"
         for i = 1, #typeCards do
-            WriteLine(typeCards[i][1].." {{CardTooltip|"..typeCards[i][2].Name.."}}<br/>")
+            s = s .. typeCards[i][1].." {{CardTooltip|"..typeCards[i][2].Name.."}}<br/>" .. "\n"
         end
     end
+    return s
 end
 
-local function WriteTypeLists()
-    WriteCardsFromType(Land, "Lands [[File:Icon land.png|23px|link=]]", false)
-    WriteCardsFromType(Creature, "Creatures [[File:Icon creature.png|23px|link=]]", true)
-    WriteCardsFromType(Artifact, "Artifacts [[File:Icon artifact.png|23px|link=]]", true)
-    WriteCardsFromType(Enchantment, "Enchantments [[File:Icon enchantment.png|23px|link=]]", true)
-    WriteCardsFromType(Instant, "Instants [[File:Icon instant.png|23px|link=]]", true)
-    WriteCardsFromType(Sorcery, "Sorceries [[File:Icon sorcery.png|23px|link=]]", true)
-    WriteCardsFromType(Planeswalker, "Planeswalkers [[File:Icon planeswalker.png|23px|link=]]", true)
-    WriteCardsFromType(Sideboard, "Sideboard [[File:Icon sideboard.png|23px|link=]]", false)
-    WriteOtherCards(errors)
+local function GetTypeLists()
+    local s = ""
+    s = s .. CardsFromType(Land, "Lands [[File:Icon land.png|23px|link=]]", false)
+    s = s .. CardsFromType(Creature, "Creatures [[File:Icon creature.png|23px|link=]]", true)
+    s = s .. CardsFromType(Artifact, "Artifacts [[File:Icon artifact.png|23px|link=]]", true)
+    s = s .. CardsFromType(Enchantment, "Enchantments [[File:Icon enchantment.png|23px|link=]]", true)
+    s = s .. CardsFromType(Instant, "Instants [[File:Icon instant.png|23px|link=]]", true)
+    s = s .. CardsFromType(Sorcery, "Sorceries [[File:Icon sorcery.png|23px|link=]]", true)
+    s = s .. CardsFromType(Planeswalker, "Planeswalkers [[File:Icon planeswalker.png|23px|link=]]", true)
+    s = s .. CardsFromType(Sideboard, "Sideboard [[File:Icon sideboard.png|23px|link=]]", false)
+    s = s .. OtherCards(errors)
+    return s
 end
 
 local function exportCardName(card)
@@ -269,10 +263,10 @@ end
 
 local function GenerateDeckFromList(name,list)
     SortListIntoTypes(list)
-    WriteTypeLists()
+    local deckDefinition = GetTypeLists()
     local cardList, altCardList = GetAdditionalData()
     local sideboard = GetSideboardData(altCardList)
-    return  DeckListSection(name, buffer) ..
+    return  DeckListSection(name, deckDefinition) ..
         DataSection(json.encode(cardList), "mdw-chartdata-pre") ..
         DataSection(json.encode(altCardList), "mdw-alt-carddata") ..
         DataSection(json.encode(sideboard), "mdw-sideboard-data")
