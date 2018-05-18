@@ -8,7 +8,6 @@
 // ** Please dont edit this code directly in the wikia.
 // ** Instead use the git repository https://github.com/Aspallar/WikiLua
 //
-//
 (function ($) {
     'use strict';
 
@@ -16,6 +15,34 @@
     if (document.getElementById('mdw-arena-export-div') === null ||
             $('#mdw-disabled-js').attr('data-deckexport-3-2-0'))
         return;
+
+    function RarityTotals(cards) {
+        this.Common = 0;
+        this.Uncommon = 0;
+        this.Rare = 0;
+        this['Mythic Rare'] = 0;
+
+        if (Array.isArray(cards)) {
+            var that = this;
+            cards.forEach(function (card) {
+                var rarity = card.rarity;
+                if (rarity !== 'Basic Land')
+                    that[rarity] += card.num;
+            });
+        }
+    }
+
+    RarityTotals.prototype = {
+        constructor: RarityTotals,
+        add: function(other) {
+            var result = new RarityTotals();
+            result.Common = this.Common + other.Common;
+            result.Uncommon = this.Uncommon + other.Uncommon;
+            result.Rare = this.Rare + other.Rare;
+            result['Mythic Rare'] = this['Mythic Rare'] + other['Mythic Rare'];
+            return result;
+        }
+    }; // End RarityTotals
 
     function ImportData() {
         var importCards = [];
@@ -80,16 +107,6 @@
             }
         }
 
-        function getRarityTotals(cards) {
-            var totals = { 'Common': 0, 'Uncommon': 0, 'Rare': 0, 'Mythic Rare': 0 };
-            cards.forEach(function (card) {
-                var rarity = card.rarity;
-                if (rarity !== 'Basic Land')
-                    totals[rarity] += card.num;
-            });
-            return totals;
-        }
-
         function setCard(dest, source) {
             dest.set = source.set;
             dest.cardNumber = source.cardNumber;
@@ -128,10 +145,10 @@
                 return swapCards(altCardIndex);
             },
             getDeckRarityTotals: function () {
-                return getRarityTotals(importCards);
+                return new RarityTotals(importCards);
             },
             getSideboardRarityTotals: function () {
-                return getRarityTotals(sideboardCards);
+                return new RarityTotals(sideboardCards);
             },
             text: function (includeSideboard) {
                 var text = '';
@@ -188,15 +205,6 @@
             );
         }
 
-        function addRarities(a, b) {
-            var result = {};
-            result.Common = a.Common + b.Common;
-            result.Uncommon = a.Uncommon + b.Uncommon;
-            result.Rare = a.Rare + b.Rare;
-            result['Mythic Rare'] = a['Mythic Rare'] + b['Mythic Rare'];
-            return result;
-        }
-
         function setRarityColumn(col, totals) {
             col.get(0).innerHTML = totals.Common;
             col.get(1).innerHTML = totals.Uncommon;
@@ -216,7 +224,7 @@
                 var sideboardTotals = importData.getSideboardRarityTotals();
                 setRarityColumn(tableFull.find('td:nth-child(2)'), deckTotals);
                 setRarityColumn(tableFull.find('td:nth-child(3)'), sideboardTotals);
-                setRarityColumn(tableFull.find('td:nth-child(4)'), addRarities(deckTotals, sideboardTotals));
+                setRarityColumn(tableFull.find('td:nth-child(4)'), deckTotals.add(sideboardTotals));
                 tableSmall.hide();
                 tableFull.show();
             }
