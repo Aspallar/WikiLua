@@ -13,6 +13,8 @@
 
     // don't run if wrong page or this version is disabled on page
     if (document.getElementById('mdw-arena-export-div') === null ||
+            document.getElementById('mdw-rarity-table-full') === null ||
+            document.getElementById('mdw-rarity-table-small') === null ||
             $('#mdw-disabled-js').attr('data-deckexport-3-2-0'))
         return;
 
@@ -249,14 +251,9 @@
 
         function onClickReset() {
             setImportData();
-            $('#mdw-import-reset')
-                .prop('disabled', true);
-            $('#mdw-import-select')
-                .html('')
-                .append(labelOption)
-                .append(importData.getAltOptions());
-            $('#mdw-arena-export-contents')
-                .html(importData.text(useSideboard));
+            $('#mdw-import-reset').prop('disabled', true);
+            $('#mdw-import-select').html(labelOption).append(importData.getAltOptions());
+            $('#mdw-arena-export-contents').html(importData.text(useSideboard));
             setRarityContents();
         }
 
