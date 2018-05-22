@@ -1,47 +1,9 @@
 local cardService = require("Module:CardService")
 local utils = require("Module:TemplateUtils")
+local deck = require("Module:Deck")
 local json = require("Dev:Json")
 
 local p = {}
-
-local function TableContains(t,item)
-    if(not t) or (not item) then return false end
-    for _,v in pairs(t) do
-        if v == item then
-            return true
-        end
-    end
-    return false
-end
-
-local Land = {}
-local Creature = {}
-local Artifact = {}
-local Enchantment = {}
-local Instant = {}
-local Sorcery = {}
-local Planeswalker = {}
-local Sideboard = {}
-local errors = {}
-
-
-local function AllCardListEntries()
-    local cardlists = {Land, Creature, Artifact, Enchantment, Instant, Sorcery, Planeswalker}
-    local entryIndex = 1
-    local cardlistIndex = 1
-    return function ()
-        while (cardlistIndex <= #cardlists) do
-            local cardlist = cardlists[cardlistIndex]
-            if entryIndex <= #cardlist then
-                local entry = cardlist[entryIndex]
-                entryIndex = entryIndex + 1
-                return entry
-            end
-            cardlistIndex = cardlistIndex + 1
-            entryIndex = 1
-        end
-    end
-end
 
 local function ParseCardEntry(entry)
     local pos, _ = string.find(entry, "///")
@@ -69,40 +31,7 @@ local function ParseCardEntry(entry)
     return intAmount, mw.text.trim(cardName)
 end
 
-local function InsertCardInCardLists(amount, card)
-    if TableContains(card.Types,"Land") then
-        table.insert(Land, {amount, card})
-    elseif TableContains(card.Types,"Creature") then
-        table.insert(Creature, {amount, card})
-    elseif TableContains(card.Types,"Artifact") then
-        table.insert(Artifact, {amount, card})
-    elseif TableContains(card.Types,"Enchantment") then
-         table.insert(Enchantment, {amount, card})
-    elseif TableContains(card.Types,"Instant") then
-         table.insert(Instant, {amount, card})
-    elseif TableContains(card.Types,"Sorcery") then
-         table.insert(Sorcery, {amount, card})
-    elseif TableContains(card.Types,"Planeswalker") then
-        table.insert(Planeswalker, {amount, card})
-    else
-        table.insert(errors, {amount, {Name=card.Name} })
-    end
-end
-
---luacheck: push no unused
-local function LogTypes()
-    mw.log("Land : "..#Land)
-    mw.log("Creature : "..#Creature)
-    mw.log("Artifact : "..#Artifact)
-    mw.log("Enchantment : "..#Enchantment)
-    mw.log("Instant : "..#Instant)
-    mw.log("Sorcery : "..#Sorcery)
-    mw.log("Planeswalker : "..#Planeswalker)
-    mw.log("errors : "..#errors)
-end
---luacheck: pop
-
-local function SumCards(cards)
+local function SumAmounts(cards)
     local sum = 0
     for i = 1, #cards do
         sum = sum + cards[i][1]
@@ -122,12 +51,12 @@ local function CardList(cards)
     return s
 end
 
-local function CardsFromType(cards, cardTypeName, sort)
+local function CardTypeSection(cards, cardTypeName, sort)
     local s = ""
     if sort and cards[1] and cards[1][2].cmc then
         table.sort(cards,function(a,b) return (a[2].cmc < b[2].cmc) or ((a[2].cmc == b[2].cmc) and (a[2].Name < b[2].Name)) end)
     end
-    local totalAmount = SumCards(cards)
+    local totalAmount = SumAmounts(cards)
     if #cards > 0 then
         s = s .. "<big><big>"..totalAmount.." "..cardTypeName.."</big></big><br/>" .. "\n"
         s = s .. CardList(cards)
@@ -137,7 +66,7 @@ end
 
 local function OtherCards(cards)
     local s = ""
-    local totalAmount = SumCards(cards)
+    local totalAmount = SumAmounts(cards)
     if #cards > 0 then
         s = s .. "<big><big>"..totalAmount.." Others</big></big><br/>" .. "\n"
         for i = 1, #cards do
@@ -148,28 +77,28 @@ local function OtherCards(cards)
 end
 
 local function SideboardSection()
-    if #Sideboard == 0 then return "" end
-    local totalAmount = SumCards(Sideboard)
+    if #deck.Sideboard == 0 then return "" end
+    local totalAmount = SumAmounts(deck.Sideboard)
     local s = "{{Sideboard|" .. totalAmount .. "}}\n{{Div col}}\n" ..
-        CardList(Sideboard) ..
+        CardList(deck.Sideboard) ..
         "{{Div col end}}"
     return s
 end
 
 local function GetCardLists()
     local s = ""
-    s = s .. CardsFromType(Land, "Lands [[File:Icon land.png|23px|link=]]", false)
-    s = s .. CardsFromType(Creature, "Creatures [[File:Icon creature.png|23px|link=]]", true)
-    s = s .. CardsFromType(Artifact, "Artifacts [[File:Icon artifact.png|23px|link=]]", true)
-    s = s .. CardsFromType(Enchantment, "Enchantments [[File:Icon enchantment.png|23px|link=]]", true)
-    s = s .. CardsFromType(Instant, "Instants [[File:Icon instant.png|23px|link=]]", true)
-    s = s .. CardsFromType(Sorcery, "Sorceries [[File:Icon sorcery.png|23px|link=]]", true)
-    s = s .. CardsFromType(Planeswalker, "Planeswalkers [[File:Icon planeswalker.png|23px|link=]]", true)
-    s = s .. OtherCards(errors)
+    s = s .. CardTypeSection(deck.Land, "Lands [[File:Icon land.png|23px|link=]]", false)
+    s = s .. CardTypeSection(deck.Creature, "Creatures [[File:Icon creature.png|23px|link=]]", true)
+    s = s .. CardTypeSection(deck.Artifact, "Artifacts [[File:Icon artifact.png|23px|link=]]", true)
+    s = s .. CardTypeSection(deck.Enchantment, "Enchantments [[File:Icon enchantment.png|23px|link=]]", true)
+    s = s .. CardTypeSection(deck.Instant, "Instants [[File:Icon instant.png|23px|link=]]", true)
+    s = s .. CardTypeSection(deck.Sorcery, "Sorceries [[File:Icon sorcery.png|23px|link=]]", true)
+    s = s .. CardTypeSection(deck.Planeswalker, "Planeswalkers [[File:Icon planeswalker.png|23px|link=]]", true)
+    s = s .. OtherCards(deck.errors)
     return s
 end
 
-local function exportCardName(card)
+local function ExportCardName(card)
     if card.CardNumber and string.find(card.CardNumber, "a") ~= nil then
         local card2 = cardService.GetByNumber(string.gsub(card.CardNumber, "a", "b"))
         if card2 ~= nil and card2.Text ~= nil and string.find(card2.Text, "Aftermath") ~= nil then
@@ -202,10 +131,10 @@ end
 
 local function GetSideboardData(altCardList)
     local data = {}
-    for i = 1, #Sideboard do
-        local amount = Sideboard[i][1]
-        local card = Sideboard[i][2]
-        local exportName = exportCardName(card)
+    for i = 1, #deck.Sideboard do
+        local amount = deck.Sideboard[i][1]
+        local card = deck.Sideboard[i][2]
+        local exportName = ExportCardName(card)
 
         local carddata = {
             name = exportName;
@@ -224,10 +153,10 @@ local function GetAdditionalData()
     local cardlist = {}
     local altCardList = {}
 
-    for cardEntry in AllCardListEntries() do
+    for cardEntry in deck.All() do
         local amount = cardEntry[1]
         local card = cardEntry[2]
-        local exportName = exportCardName(card)
+        local exportName = ExportCardName(card)
 
         local carddata = {
             name=exportName;
@@ -257,7 +186,7 @@ local function DeckListSection(name)
     return string.format(decklistTemplate, name, contents)
 end
 
-local function SetCardLists(list)
+local function ParseDeck(list)
     local isSideboard = false;
     for _, cardEntry in pairs(list) do
         if string.sub(cardEntry, 1, 2) == "--" then
@@ -267,19 +196,19 @@ local function SetCardLists(list)
             local card = cardService.GetByNameIgnoreCase(name)
             if card then
                 if isSideboard then
-                    table.insert(Sideboard, {amount, card})
+                    deck.AddSideboard(amount, card)
                 else
-                    InsertCardInCardLists(amount, card)
+                    deck.AddCard(amount, card)
                 end
             else
-                table.insert(errors, {amount, {Name=name} })
+                deck.AddError(amount, name)
             end
         end
     end
 end
 
 local function GenerateDeckFromList(name, list)
-    SetCardLists(list)
+    ParseDeck(list)
     local cardList, altCardList = GetAdditionalData()
     local sideboard = GetSideboardData(altCardList)
     return  DeckListSection(name) ..
