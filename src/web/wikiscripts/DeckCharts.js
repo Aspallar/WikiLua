@@ -1,7 +1,7 @@
 // ==========================================================================
 // Start: Deck Charts
 // Renders charts on deck articles
-// Version 1.2.0
+// Version 1.2.1
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wikia.
@@ -12,6 +12,16 @@
 (function ($) {
     /*globals google */
     'use strict';
+
+    var chartDataId = 'mdw-chartdata-pre';
+
+    function hasCardData() {
+        return document.getElementById(chartDataId) !== null;
+    }
+
+    // do nothing on pages with no {{Deck}}, or this js disabled on page
+    if (!hasCardData() || $('#mdw-disabled-js').attr('data-deckcharts-1-2-1'))
+        return;
 
     function getChartColor(dataColor) {
         var colors = {
@@ -39,7 +49,6 @@
         return colors[type];
     }
 
-    var chartDataId = 'mdw-chartdata-pre';
     var colorPieChartId = 'mdw-cardsbycolor-chart';
     var manaCurveChartId = 'mdw-manacurve-chart';
     var typesPieChartId = 'mdw-types-chart';
@@ -137,10 +146,6 @@
         };
         var chart = new google.visualization.PieChart(document.getElementById(typesPieChartId));
         chart.draw(dataCache.typesPie.data, options);
-    }
-
-    function hasCardData() {
-        return document.getElementById(chartDataId) !== null;
     }
 
     function hasColorPieChart() {
@@ -523,10 +528,6 @@
         changeMoreSpansToButtons();
         wireEvents();
     }
-
-    // do nothing on pages with no {{Deck}}
-    if (!hasCardData())
-        return;
 
     if (!hasCharts()) {
         setAllNonChartSections(getChartData());

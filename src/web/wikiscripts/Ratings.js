@@ -2,7 +2,7 @@
 // Start: Deck Ratings
 //    1. Supports the rating 'stars' on deck pages
 //    2. Updates the rating column on the decklists page
-// Version 1.0.2
+// Version 1.0.3
 // Author: Aspallar
 //
 // ** Please do not edit this code directly in the wikia.
@@ -14,7 +14,8 @@
     /* global mw */
     'use strict';
 
-    if (document.getElementById('mdw-rating') === null && $('.mdw-decklist').length === 0)
+    if ((document.getElementById('mdw-rating') === null && $('.mdw-decklist').length === 0) ||
+            $('#mdw-disabled-js').attr('data-ratings-1-0-3'))
         return;
 
     var ratingsDataPageName = 'Ratings:DeckRatings';
