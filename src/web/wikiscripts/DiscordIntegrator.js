@@ -5,8 +5,10 @@
  * TODO:        I18N
  *
  * Mofified for use on magicarena.wikia.com, original at https://dev.wikia.com/wiki/DiscordIntegrator
- * Custom Version 1.0.0
+ * Mod Version 1.0.0
  *      Aspallar: Added exclude and optout configuration messages.
+ * Mod Version 2.0.0
+ *      Aspallar: added open/close, excluded pages always show closed (instead of nothing), removed optout
  */
 (function() {
     /* global mw */
@@ -21,6 +23,7 @@
         return;
     }
     window.DiscordIntegratorLoaded = true;
+
     /**
      * Main object
      * @static
@@ -36,6 +39,7 @@
          * Preload resources
          */
         preload: function() {
+            this.config.open = !this.getClosedStatus();
             mw.hook('wikipage.content').add($.proxy(this.insertToContent, this));
             if (mconfig.skin !== 'oasis') {
                 return;
@@ -45,7 +49,7 @@
                 this.api.get({
                     action: 'query',
                     meta: 'allmessages',
-                    ammessages: ['id', 'title', 'moduleHeight', 'theme', 'width', 'height', 'text', 'logged-in', 'footer', 'exclude', 'optout'].map(function(el) {
+                    ammessages: ['id', 'title', 'moduleHeight', 'theme', 'width', 'height', 'text', 'logged-in', 'footer', 'exclude', 'closed'].map(function(el) {
                         return 'Custom-DiscordIntegrator-config-' + el;
                     }).join('|'),
                     amlang: mconfig.wgUserLanguage
@@ -57,16 +61,12 @@
                             }
                         }, this);
                         if (this.config.exclude) {
-                            if (this.config.exclude.split('|').some(function (prefix) {
+                            this.config.exclude = this.config.exclude.split('|').some(function (prefix) {
                                 return mconfig.wgTitle.substring(0, prefix.length) === prefix;
-                            }))
-                                return;
-                        }
-                        if (this.config.optout && mconfig.wgUserName && this.config.optout.indexOf(mconfig.wgUserName + '|') !== -1) {
-                            return;
+                            });
                         }
                         this._loading = 0;
-                        ['text', 'title', 'footer'].forEach(this.parse, this);
+                        ['text', 'title', 'footer', 'closed'].forEach(this.parse, this);
                         if (this._loading === 0) {
                             this.init();
                         }
@@ -160,12 +160,47 @@
             }, this));
         },
         /**
+         * click event handler for open close link
+         */
+        clickOpenCloseLink: function (event) {
+            event.preventDefault();
+            this.config.open = !this.config.open;
+            this.persistClosedStatus(this.config.open);
+            $(event.target).parent().replaceWith(this.generateContent(this.config));
+        },
+        getClosedStatus: function () {
+            try {
+                return Boolean(localStorage.getItem('DiscordIntegratorClosed'));
+            } catch (error) {
+                return false;
+            }
+        },
+        persistClosedStatus: function (isOpen) {
+            try {
+                if (isOpen)
+                    localStorage.removeItem('DiscordIntegratorClosed');
+                else
+                    localStorage.setItem('DiscordIntegratorClosed', '1');
+            } catch (error) { }
+        },
+        /**
          * Generating widget content from an object
          * @todo i18n
          * @return [String] content of the widget
          */
         generateContent: function(config) {
-            return config.id ? ((config.loggedIn === true || Boolean(config['logged-in']) === true) && !mconfig.wgUserName) ? 'Please log in to see this widget' : mw.html.element('iframe', {
+            if (!config.id)
+                return 'Error: ID of the widget is not supplied';
+            if ((config.loggedIn === true || Boolean(config['logged-in']) === true) && !mconfig.wgUserName)
+                return 'Please log in to see this widget';
+            if (config.exclude) {
+                return $('<div>').append(config.closed);
+            }
+            var openCloseLink = $('<a href="#" />').click($.proxy(this.clickOpenCloseLink, this));
+            if (!config.open) {
+                return $('<div>').append(openCloseLink.text('open')).append(config.closed);
+            }
+            var discordFrame = mw.html.element('iframe', {
                 src: 'https://discordapp.com/widget?id=' +
                      config.id +
                      '&theme=' +
@@ -174,8 +209,9 @@
                 height: config.height || '400px',
                 allowtransparency: 'true',
                 frameborder: '0'
-            }) : 'Error: ID of the widget is not supplied';
-        }
+            });
+            return $('<div>').append(openCloseLink.text('close')).append(discordFrame);
+        },
     };
     $($.proxy(DiscordIntegrator.preload, DiscordIntegrator));
 })();
