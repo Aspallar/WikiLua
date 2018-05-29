@@ -39,7 +39,6 @@
          * Preload resources
          */
         preload: function() {
-            this.config.open = !this.getClosedStatus();
             mw.hook('wikipage.content').add($.proxy(this.insertToContent, this));
             if (mconfig.skin !== 'oasis') {
                 return;
@@ -49,7 +48,7 @@
                 this.api.get({
                     action: 'query',
                     meta: 'allmessages',
-                    ammessages: ['id', 'title', 'moduleHeight', 'theme', 'width', 'height', 'text', 'logged-in', 'footer', 'exclude', 'closed'].map(function(el) {
+                    ammessages: ['id', 'title', 'moduleHeight', 'theme', 'width', 'height', 'text', 'footer', 'exclude', 'closed'].map(function(el) {
                         return 'Custom-DiscordIntegrator-config-' + el;
                     }).join('|'),
                     amlang: mconfig.wgUserLanguage
@@ -110,9 +109,8 @@
          * Inserting the widget to siderail
          */
         insertToSiderail: function() {
-            var filter = $('#top-right-boxad-wrapper, #NATIVE_TABOOLA_RAIL, .content-review-module').last(),
-            // TODO: Insert some user configuration here
-                el = $('<div>', { class: 'DiscordIntegratorModule rail-module' });
+            var filter = $('#top-right-boxad-wrapper, #NATIVE_TABOOLA_RAIL, .content-review-module').last();
+            var el = $('<div>', { class: 'DiscordIntegratorModule rail-module' });
             if (this.config.title) {
                 el.append(
                     $('<h2>', {
@@ -155,6 +153,7 @@
         insertToContent: function($content) {
             $content.find('.DiscordIntegrator:not(.loaded)').each($.proxy(function(cabbage, el) {
                 el = $(el);
+                el.data('closed', el.html());
                 el.html(this.generateContent(el.data()))
                   .addClass('loaded');
             }, this));
@@ -164,23 +163,27 @@
          */
         clickOpenCloseLink: function (event) {
             event.preventDefault();
-            this.config.open = !this.config.open;
-            this.persistClosedStatus(this.config.open);
-            $(event.target).parent().replaceWith(this.generateContent(this.config));
+            console.log('clickOpenCloseLink');
+            var content = $(event.target).parent();
+            var container = content.parent();
+            var config = container.data();
+            if (!config.id) config = this.config;
+            this.toggleOpenStatus(config.id);
+            content.replaceWith(this.generateContent(config));
         },
-        getClosedStatus: function () {
+        getOpenStatus: function(id) {
             try {
-                return Boolean(localStorage.getItem('DiscordIntegratorClosed'));
+                return Boolean(localStorage.getItem('DiscordOpen-' + id));
             } catch (error) {
                 return false;
             }
         },
-        persistClosedStatus: function (isOpen) {
+        toggleOpenStatus: function (id) {
             try {
-                if (isOpen)
-                    localStorage.removeItem('DiscordIntegratorClosed');
+                if (this.getOpenStatus(id))
+                    localStorage.removeItem('DiscordOpen-' + id);
                 else
-                    localStorage.setItem('DiscordIntegratorClosed', '1');
+                    localStorage.setItem('DiscordOpen-' + id, '1');
             } catch (error) { }
         },
         /**
@@ -191,13 +194,12 @@
         generateContent: function(config) {
             if (!config.id)
                 return 'Error: ID of the widget is not supplied';
-            if ((config.loggedIn === true || Boolean(config['logged-in']) === true) && !mconfig.wgUserName)
-                return 'Please log in to see this widget';
             if (config.exclude) {
                 return $('<div>').append(config.closed);
             }
+            var open = this.getOpenStatus(config.id);
             var openCloseLink = $('<a href="#" />').click($.proxy(this.clickOpenCloseLink, this));
-            if (!config.open) {
+            if (!open) {
                 return $('<div>').append(openCloseLink.text('open')).append(config.closed);
             }
             var discordFrame = mw.html.element('iframe', {
