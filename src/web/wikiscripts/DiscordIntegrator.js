@@ -5,10 +5,15 @@
  * TODO:        I18N
  *
  * Mofified for use on magicarena.wikia.com, original at https://dev.wikia.com/wiki/DiscordIntegrator
- * Mod Version 1.0.0
+ * Modified Version 1.0.0
  *      Aspallar: Added exclude and optout configuration messages.
- * Mod Version 2.0.0
- *      Aspallar: added open/close, excluded pages always show closed (instead of nothing), removed optout
+ * Modified Version 2.0.2
+ *      Aspallar: added open/close, excluded pages always show closed (instead of nothing),
+ *      removed optout.
+ *
+ * TODO: deal with multiple browser tabs/windows either by using storage events to synchronize
+ *       open/closed across them all, or, probably better, by storing open closed state along with 'widget'
+ *       Just a "nice to have", not seen as a major issue, so may may not be done.
  */
 (function() {
     /* global mw */
@@ -163,7 +168,6 @@
          */
         clickOpenCloseLink: function (event) {
             event.preventDefault();
-            console.log('clickOpenCloseLink');
             var content = $(event.target).parent();
             var container = content.parent();
             var config = container.data();
@@ -197,10 +201,14 @@
             if (config.exclude) {
                 return $('<div>').append(config.closed);
             }
-            var open = this.getOpenStatus(config.id);
-            var openCloseLink = $('<a href="#" />').click($.proxy(this.clickOpenCloseLink, this));
-            if (!open) {
-                return $('<div>').append(openCloseLink.text('open')).append(config.closed);
+            var openCloseLink = $('<a>')
+                .addClass('mdw-discord-link')
+                .attr('href', '#')
+                .click($.proxy(this.clickOpenCloseLink, this))
+                .after('<br>');
+            var container = $('<div>').addClass('mdw-discord-container');
+            if (!this.getOpenStatus(config.id)) {
+                return container.append(openCloseLink.text('open')).append(config.closed);
             }
             var discordFrame = mw.html.element('iframe', {
                 src: 'https://discordapp.com/widget?id=' +
@@ -212,7 +220,7 @@
                 allowtransparency: 'true',
                 frameborder: '0'
             });
-            return $('<div>').append(openCloseLink.text('close')).append(discordFrame);
+            return container.append(openCloseLink.text('close')).append(discordFrame);
         },
     };
     $($.proxy(DiscordIntegrator.preload, DiscordIntegrator));
