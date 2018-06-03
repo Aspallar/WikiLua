@@ -27,11 +27,18 @@ function wikiParse(contents) {
         return contents;
     }
 
+    function replaceImages(contents) {
+        return contents.replace(/\[\[File:(.*)\]\]/g, function(match, file) {
+            return '<img src="images/' + file + '" />';
+        });
+    }
+
     contents = removeNoInclude(contents);
     contents = replaceClearTemplates(contents);
     contents = resolveLinks(contents);
     contents = replaceTitles(contents);
     contents = removeVariables(contents);
+    contents = replaceImages(contents);
 
     return contents;
 }

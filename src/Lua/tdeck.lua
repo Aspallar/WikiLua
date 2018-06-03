@@ -25,7 +25,9 @@ local inputList = [=[
 20 Mountain
 1 Consign
 1 Farm
+4 zoog
 --sideboard
+3 Ramunap Ruins
 3 Plains]=]
 
 local result = decks.TestGenerateDeckFromList("Test Deck",inputList)

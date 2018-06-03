@@ -1,4 +1,5 @@
 local data = require("data\\datacards")
+local otherData = require("data\\othercards")
 
 if originalRequire then
 	print("ERROR: (wikienv.lua) originalRequire already defined")
@@ -23,7 +24,14 @@ mw = {}
 mw.text = {}
 
 function mw.loadData(tableName)
-	return data
+    if tableName == "Module:Data/Cards" then
+       return data
+    end
+    if tableName == "Module:Data/OtherCards" then
+       return otherData
+    end
+    print("**** ERROR *****")
+    print("**** loadData invalid table name " + tableName)
 end
 
 function mw.log(s)

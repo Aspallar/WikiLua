@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Banned In Stabdard</title>
+    <link rel="stylesheet" href="wikicss/Common.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+    <div id="template"></div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+    </script>
+    <script src="scripts\wikiParse.js"></script>
+    <script>
+        $.get('wikitemplates/BannedInStandard.html', function (data) {
+            $('#template').html(wikiParse(data));
+        });
+    </script>
+</body>
+</html>

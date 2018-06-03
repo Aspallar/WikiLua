@@ -79,5 +79,13 @@ function p.AddError(amount, name)
     table.insert(p.errors, {amount, {Name=name} })
 end
 
-return p
+function p.ContainsCardsBannedInStandard()
+    for entry in p.All() do
+        if not entry[2].Playable then return true end
+    end
+    for _, entry in pairs(p.Sideboard) do
+        if not entry[2].Playable then return true end
+    end
+end
 
+return p

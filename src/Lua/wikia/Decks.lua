@@ -39,6 +39,10 @@ local function SumAmounts(cards)
     return sum
 end
 
+local function CardNumberNumericPart(cardNumber)
+    return string.match(string.sub(cardNumber, 4), "%d+")
+end
+
 local function CardList(cards)
     local s = ""
     for i = 1, #cards do
@@ -140,7 +144,7 @@ local function GetSideboardData(altCardList)
             name = exportName;
             num = amount;
             set = ExportSetName(card.SetCode);
-            cardNumber = string.match(card.CardNumber, "%d+");
+            cardNumber = CardNumberNumericPart(card.CardNumber);
             rarity = card.Rarity;
         }
         table.insert(data, carddata)
@@ -164,7 +168,7 @@ local function GetAdditionalData()
             colors=card.Colors;
             cmc=card.cmc;
             types=card.Types;
-            cardNumber=string.match(card.CardNumber, "%d+");
+            cardNumber=CardNumberNumericPart(card.CardNumber);
             set=ExportSetName(card.SetCode);
             rarity=card.Rarity;
         }
@@ -207,11 +211,15 @@ local function ParseDeck(list)
     end
 end
 
+local function BannedSection()
+    return deck.ContainsCardsBannedInStandard() and "{{BannedInStandard}}[[Category:Non-Standard legal Deck]]\n" or ""
+end
+
 local function GenerateDeckFromList(name, list)
     ParseDeck(list)
     local cardList, altCardList = GetAdditionalData()
     local sideboard = GetSideboardData(altCardList)
-    return  DeckListSection(name) ..
+    return  BannedSection() .. DeckListSection(name) ..
         SideboardSection() ..
         DataSection(json.encode(cardList), "mdw-chartdata-pre") ..
         DataSection(json.encode(altCardList), "mdw-alt-carddata") ..

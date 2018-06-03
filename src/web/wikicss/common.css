@@ -300,4 +300,16 @@
     border-radius: 3px;
 }
 /* card list filters */
-
+.mdw-notice {
+    margin : 0 auto 10px auto;
+    border: 2px solid #1E5FC7;
+    border-radius: 6px;
+    width: 460px;
+    padding: 4px;
+}
+.mdw-notice p {
+    margin-left: 80px;
+}
+#BackToTopBtn div > svg {
+    stroke: white;
+}
