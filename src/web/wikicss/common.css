@@ -313,3 +313,22 @@
 #BackToTopBtn div > svg {
     stroke: white;
 }
+#wikia-recent-activity {
+    border:1px solid #9E9E9E;
+    border-radius:10px;
+    background-color:#FFFFFF;
+    overflow:hidden;   
+}
+#wikia-recent-activity h2 {
+    background: linear-gradient(to right, #174A9A, #1E5FC7, #cce6ff);
+    color:white;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+#wikia-recent-activity h2 > svg {
+    fill: cyan;
+}
+.activity-items {
+    margin-left: 14px;
+}
