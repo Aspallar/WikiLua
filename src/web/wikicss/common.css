@@ -332,3 +332,26 @@
 .activity-items {
     margin-left: 14px;
 }
+#WikiaRail .module {
+    border:1px solid #9E9E9E;
+    border-radius:10px;
+    background-color:#FFFFFF;
+    overflow:hidden;
+    padding: 0 0 5px 0;
+}
+#WikiaRail .module h2 {
+    padding: 5px 0 5px 10px;
+    background: linear-gradient(to right, #174A9A, #1E5FC7, #cce6ff);
+    color:white;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+#WikiaRail .module ul, #WikiaRail .module p {
+    margin-left: 14px;
+}
+#WikiaRail .more {
+    margin-right: 6px;
+}
+.CommunityCornerModule li {
+    margin-left: 20px;
+}
