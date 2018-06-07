@@ -45,6 +45,9 @@ local landOtherSetsTemplate = [=[{| class="mdw-reprint"
 local numCardsPerPage = 100
 
 local setNames = {}
+setNames["KLD"]="Kaladesh"
+setNames["AER"]="Aether Revolt"
+setNames["W17"]="Welcome Deck 2017"
 setNames["AKH"]="Amonkhet"
 setNames["HOU"]="Hour of Devastation"
 setNames["XLN"]="Ixalan"
@@ -140,19 +143,28 @@ local function GenerateCardPage(card)
     local contents = {}
     table.insert(contents,{"Name",card.Name})
 
-    if card.Manacost then table.insert(contents,{"Mana Cost",card.Manacost}) end
-    table.insert(contents,{"Converted Mana Cost",card.cmc or 0})
-    if card.Type then table.insert(contents,{"Types",card.Type}) end
-    if card.Text then table.insert(contents,{"Text",card.Text}) end
-    if card.Flavor then table.insert(contents,{"Flavor",card.Flavor}) end
-    if card.Loyalty then table.insert(contents,{"Loyalty",card.Loyalty}) end
-    if card.Power then table.insert(contents,{"P/T",PT(card)}) end
-    table.insert(contents,{"Expansion",ExpansionSymbol(card) .. " " .. SetLink(card.SetCode)})
-    table.insert(contents,{"Rarity",card.Rarity})
+    if card.Manacost then table.insert(contents, {"Mana Cost", card.Manacost}) end
+    table.insert(contents, {"Converted Mana Cost", card.cmc or 0})
+    if card.Type then table.insert(contents, {"Types", card.Type}) end
+    if card.Text then table.insert(contents, {"Text", card.Text}) end
+    if card.Flavor then table.insert(contents, {"Flavor", card.Flavor}) end
+    if card.Loyalty then table.insert(contents, {"Loyalty", card.Loyalty}) end
+    if card.Power then table.insert(contents, {"P/T", PT(card)}) end
+    table.insert(contents, {"Expansion", ExpansionSymbol(card) .. " " .. SetLink(card.SetCode)})
+    table.insert(contents, {"Rarity", card.Rarity})
+    if card.Banned then
+        -- table.concat didn't work here, don't know why, so manualy concat
+        local bantext = ""
+        for _, v in pairs(card.Banned) do
+            bantext = bantext .. v .. '; '
+        end
+        bantext = string.sub(bantext, 1, -3) .. "{{MoreBannedDetails}}"
+        table.insert(contents, {"Banned In", bantext})
+    end
 
     local cardContents = ""
     for i = 1, #contents do
-         cardContents = cardContents .. string.format(cardPageRowTemplate,contents[i][1],contents[i][2])
+         cardContents = cardContents .. string.format(cardPageRowTemplate, contents[i][1], contents[i][2])
     end
 
 	local reprints = GetReprints(card)

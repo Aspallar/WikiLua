@@ -13,6 +13,7 @@ If a card with cycling would be put into your graveyard from anywhere and it was
 Flavor=[=[Although long since dead, the banished dissenters finally took their vengeance.]=];
 CardNumber="HOU158";
 MultiverseID=430847;
+Banned={"Singleton"; "Standard";};
 Rulings={
     {Date="2017-07-14";Text=[=[A token permanent with cycling will go to your graveyard before ceasing to exist. It won’t be exiled. Similarly, a nontoken permanent that lost cycling while it was on the battlefield will also go to your graveyard.]=];};
     {Date="2017-07-14";Text=[=[If you cycle an instant card, you may cast it from your graveyard right away before any player may take any other action. If you do, that spell will resolve before the cycling ability. If you cycle a noninstant card without flash, you can’t cast it until after the cycling ability has resolved.]=];};
@@ -37,6 +38,7 @@ Text=[=[Choose one —<br/>
 Flavor=[=[The desert is a voracious beast, devouring both flesh and stone.]=];
 CardNumber="HOU83";
 MultiverseID=430772;
+Banned={"Standard";};
 };
 
 {Name="Academy Drake";
@@ -57,6 +59,7 @@ CardNumber="DOM40";
 Power="2";
 Toughness="2";
 MultiverseID=442928;
+Banned={"Singleton"; "Standard"; "Foobar";};
 };
 
 {Name="Academy Journeymage";
