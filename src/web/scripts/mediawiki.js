@@ -11,6 +11,8 @@ mw.config.get = function(param) {
             return 'Decks/Test Three';
 		case 'wgScriptPath':
 			return 'http://aspallar.wikia.com';
+        case 'stylepath':
+            return 'https://slot1-images.wikia.nocookie.net/__cb1528286929/common/skins';
 	}
 	throw 'Unknown config item [' + param + ']';
 };

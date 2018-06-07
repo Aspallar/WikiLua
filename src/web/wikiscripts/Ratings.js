@@ -2,7 +2,7 @@
 // Start: Deck Ratings
 //    1. Supports the rating 'stars' on deck pages
 //    2. Updates the rating column on the decklists page
-// Version 1.0.3
+// Version 1.1.0
 // Author: Aspallar
 //
 // ** Please do not edit this code directly in the wikia.
@@ -15,13 +15,14 @@
     'use strict';
 
     if ((document.getElementById('mdw-rating') === null && $('.mdw-decklist').length === 0) ||
-            $('#mdw-disabled-js').attr('data-ratings-1-0-3'))
+            $('#mdw-disabled-js').attr('data-ratings-1-1-0'))
         return;
 
     var ratingsDataPageName = 'Ratings:DeckRatings';
 
     function showError(error) {
         console.log(error);
+        $('#mdw-rating').html('Error');
     }
 
     function stripDeckPrefix(deckName) {
@@ -175,6 +176,8 @@
             function (response) {
                 if (response.edit.result !== 'Success')
                     showError('Update fail in updateRating: ' + response.edit.result);
+                else
+                    $('#mdw-rating').html('Voted.');
             });
         });
     }
@@ -198,7 +201,10 @@
     function onRatingClick() {
         /* jshint -W040 */ // allow old school jquery use of this
         var rating = parseInt($(this).attr('data-rating'), 10);
-        $('#mdw-rating').css('display', 'none');
+        var indicator = $('<img>', {
+            src: mw.config.get('stylepath') + '/common/images/ajax.gif'
+        });
+        $('#mdw-rating').html(indicator);
         updateRating(getDeckName(), rating);
     }
 
