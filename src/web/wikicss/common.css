@@ -355,3 +355,7 @@
 .CommunityCornerModule li {
     margin-left: 20px;
 }
+.card-warning a {
+    color: darkred;
+    font-style: italic;
+}

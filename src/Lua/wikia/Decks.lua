@@ -47,9 +47,10 @@ local function CardList(cards)
     local s = ""
     for i = 1, #cards do
         if (cards[i][2].Playable) then
-            s = s.. cards[i][1].." {{Card|"..cards[i][2].Name.."}}<br/>" .. "\n"
+            local template = cards[i][2].Banned and " {{CardWarning|" or " {{Card|"
+            s = s .. cards[i][1] .. template .. cards[i][2].Name .. "}}<br />" .. "\n"
         else
-            s = s .. cards[i][1].." {{CardTooltip|"..cards[i][2].Name.."}}<br/>" .. "\n"
+            s = s .. cards[i][1] .. " {{CardTooltip|" .. cards[i][2].Name .. "}}<br />" .. "\n"
         end
     end
     return s
@@ -62,7 +63,7 @@ local function CardTypeSection(cards, cardTypeName, sort)
     end
     local totalAmount = SumAmounts(cards)
     if #cards > 0 then
-        s = s .. "<big><big>"..totalAmount.." "..cardTypeName.."</big></big><br/>" .. "\n"
+        s = s .. "<big><big>"..totalAmount.." "..cardTypeName.."</big></big><br />" .. "\n"
         s = s .. CardList(cards)
     end
     return s
@@ -72,9 +73,9 @@ local function OtherCards(cards)
     local s = ""
     local totalAmount = SumAmounts(cards)
     if #cards > 0 then
-        s = s .. "<big><big>"..totalAmount.." Others</big></big><br/>" .. "\n"
+        s = s .. "<big><big>"..totalAmount.." Others</big></big><br />" .. "\n"
         for i = 1, #cards do
-            s = s .. cards[i][1].." {{CardTooltip|"..cards[i][2].Name.."}}<br/>" .. "\n"
+            s = s .. cards[i][1].." {{CardTooltip|"..cards[i][2].Name.."}}<br />" .. "\n"
         end
     end
     return s
@@ -184,7 +185,7 @@ end
 
 local function DeckListSection(name)
     local contents = GetCardLists();
-    local decklistTemplate = [=[<center><big><big><big>%s</big></big></big></center><br/>
+    local decklistTemplate = [=[<center><big><big><big>%s</big></big></big></center><br />
 {{Div col}}
 %s{{Div col end}}]=]
     return string.format(decklistTemplate, name, contents)
