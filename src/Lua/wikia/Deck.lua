@@ -1,5 +1,7 @@
 local p = {}
 
+local banned = {}
+
 p.Land = {}
 p. Creature = {}
 p.Artifact = {}
@@ -23,14 +25,20 @@ local function LogTypes()
 end
 --luacheck: pop
 
-local function TableContains(t,item)
-    if(not t) or (not item) then return false end
-    for _,v in pairs(t) do
-        if v == item then
-            return true
-        end
+local function TableContains(tbl, item)
+    if (not tbl) or (not item) then return false end
+    for _, v in pairs(tbl) do
+        if v == item then return true end
     end
     return false
+end
+
+local function UpdateBanned(card)
+    if card.Banned then
+        for _, bannedFormat in pairs(card.Banned) do
+            banned[bannedFormat] = true;
+        end
+    end
 end
 
 function p.All()
@@ -52,6 +60,7 @@ function p.All()
 end
 
 function p.AddCard(amount, card)
+    UpdateBanned(card)
     if TableContains(card.Types,"Land") then
         table.insert(p.Land, {amount, card})
     elseif TableContains(card.Types,"Creature") then
@@ -72,6 +81,7 @@ function p.AddCard(amount, card)
 end
 
 function p.AddSideboard(amount, card)
+    UpdateBanned(card)
     table.insert(p.Sideboard, {amount, card})
 end
 
@@ -79,13 +89,8 @@ function p.AddError(amount, name)
     table.insert(p.errors, {amount, {Name=name} })
 end
 
-function p.ContainsCardsBannedInStandard()
-    for entry in p.All() do
-        if not entry[2].Playable then return true end
-    end
-    for _, entry in pairs(p.Sideboard) do
-        if not entry[2].Playable then return true end
-    end
+function p.GetBanned()
+    return banned
 end
 
 return p

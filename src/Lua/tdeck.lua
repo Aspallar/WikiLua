@@ -21,13 +21,17 @@ local decks = require("wikia\\decks")
 -- 1 Arch of Orazca
 -- 2 Field of Ruin
 -- 1 Mutiny]=]
+
+-- 3 Abandoned Sarcophagus
+-- 1 Academy Drake
+
 local inputList = [=[
 20 Mountain
 1 Consign
 1 Farm
+1 Abrade
 4 zoog
 --sideboard
-3 Ramunap Ruins
 3 Plains]=]
 
 local result = decks.TestGenerateDeckFromList("Test Deck",inputList)

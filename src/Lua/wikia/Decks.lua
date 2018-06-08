@@ -212,7 +212,20 @@ local function ParseDeck(list)
 end
 
 local function BannedSection()
-    return deck.ContainsCardsBannedInStandard() and "{{BannedInStandard}}[[Category:Non-Standard legal Deck]]\n" or ""
+    local text = ""
+    local count = 0
+    local lastStart = 0
+    for bannedFormat, _ in pairs(deck.GetBanned()) do
+        lastStart = string.len(text)
+        text = text .. string.lower(bannedFormat) .. ", "
+        count = count + 1
+    end
+    if count == 0 then return "" end
+    text = string.sub(text, 1 , -3)
+    if count > 1 then
+        text = string.sub(text, 1, lastStart - 2) .. " and " .. string.sub(text, lastStart + 1)
+    end
+    return "{{Banned|" .. text .. "}}[[Category:Decks with banned cards]]\n"
 end
 
 local function GenerateDeckFromList(name, list)

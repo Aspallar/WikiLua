@@ -139,6 +139,15 @@ local function GetReprints(card)
     return reprints
 end
 
+local function BanText(banned)
+    -- table.concat didn't work here, don't know why, so manualy concat
+    local bantext = ""
+    for _, bannedFormat in pairs(banned) do
+        bantext = bantext .. bannedFormat .. '; '
+    end
+    return string.sub(bantext, 1, -3) .. "{{MoreBannedDetails}}"
+end
+
 local function GenerateCardPage(card)
     local contents = {}
     table.insert(contents,{"Name",card.Name})
@@ -152,15 +161,7 @@ local function GenerateCardPage(card)
     if card.Power then table.insert(contents, {"P/T", PT(card)}) end
     table.insert(contents, {"Expansion", ExpansionSymbol(card) .. " " .. SetLink(card.SetCode)})
     table.insert(contents, {"Rarity", card.Rarity})
-    if card.Banned then
-        -- table.concat didn't work here, don't know why, so manualy concat
-        local bantext = ""
-        for _, v in pairs(card.Banned) do
-            bantext = bantext .. v .. '; '
-        end
-        bantext = string.sub(bantext, 1, -3) .. "{{MoreBannedDetails}}"
-        table.insert(contents, {"Banned In", bantext})
-    end
+    if card.Banned then table.insert(contents, {"Banned In", BanText(card.Banned)}) end
 
     local cardContents = ""
     for i = 1, #contents do
@@ -314,6 +315,7 @@ function p.GetCardCategories(card)
     ConcatTables(categories,card.SubTypes)
     if card.Watermark then table.insert(categories,card.Watermark) end
 	if card.Sets then table.insert(categories,"Reprint") end
+    if card.Banned then table.insert(categories,"Banned Card") end
 
     local s = ""
     for _,v in pairs(categories) do
