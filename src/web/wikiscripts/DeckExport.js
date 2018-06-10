@@ -2,7 +2,7 @@
 // Deck Export
 // Adds the export text box to deck articles with copy to clipboard button
 // and a select to allow export cards to be replaced with reprint alternatives.
-// Version 3.2.0
+// Version 3.2.1
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wikia.
@@ -15,7 +15,7 @@
     if (document.getElementById('mdw-arena-export-div') === null ||
             document.getElementById('mdw-rarity-table-full') === null ||
             document.getElementById('mdw-rarity-table-small') === null ||
-            $('#mdw-disabled-js').attr('data-deckexport-3-2-0'))
+            $('#mdw-disabled-js').attr('data-deckexport-3-2-1'))
         return;
 
     function RarityTotals(cards) {
@@ -267,13 +267,18 @@
             this.selectedIndex = 0;
         }
 
-        function setupAlternativesUi(container) {
-            if (container === null || !importData.hasAlternatives())
+        function setupImportStatsUi(container) {
+            if (container === null)
                 return;
 
-            var sideboardCheckbox = importData.hasSideboard() ? $('<input type="checkbox" id="mdw-use-sideboard" checked><label for="mdw-use-sideboard">Include sideboard</label>') : null;
-            if (sideboardCheckbox !== null)
-                sideboardCheckbox.change(onChangeUseSideboard);
+            var sideboardCheckbox = importData.hasSideboard() ? 
+                $('<input type="checkbox" id="mdw-use-sideboard" checked><label for="mdw-use-sideboard">Include sideboard</label>').change(onChangeUseSideboard) : 
+                null;
+
+            if (!importData.hasAlternatives()) {
+                $(container).html(sideboardCheckbox).css('display', 'block');
+                return;
+            }
 
             labelOption =  $('<option disabled selected>Select alternative cards --</option>');
 
@@ -319,7 +324,7 @@
                 }
                 useSideboard = importData.hasSideboard();
                 setupImportUi(arenaImportContainer);
-                setupAlternativesUi(document.getElementById('mdw-arena-export-alt-div'));
+                setupImportStatsUi(document.getElementById('mdw-arena-export-alt-div'));
                 return this;
             }
         };
