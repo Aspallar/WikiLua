@@ -1,7 +1,7 @@
 // ==========================================================================
 // Start: Deck Charts
 // Renders charts on deck articles
-// Version 1.2.1
+// Version 1.3.0
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wikia.
@@ -20,7 +20,7 @@
     }
 
     // do nothing on pages with no {{Deck}}, or this js disabled on page
-    if (!hasCardData() || $('#mdw-disabled-js').attr('data-deckcharts-1-2-1'))
+    if (!hasCardData() || $('#mdw-disabled-js').attr('data-deckcharts-1-3-0'))
         return;
 
     function getChartColor(dataColor) {
@@ -65,16 +65,19 @@
     var dataCache = {
         colorPie: {
             data: null,
-            colors: null
+            colors: null,
+            chart: null
         },
         manaCurve: {
             data: null,
             colors: null,
-            ticks: null
+            ticks: null,
+            chart: null
         },
         typesPie: {
             data: null,
-            colors: null
+            colors: null,
+            chart: null
         }
     };
 
@@ -97,8 +100,7 @@
             },
             colors: dataCache.manaCurve.colors
         };
-        var chart = new google.visualization.ColumnChart(document.getElementById(manaCurveChartId));
-        chart.draw(dataCache.manaCurve.data, options);
+        dataCache.manaCurve.chart.draw(dataCache.manaCurve.data, options);
     }
 
     function drawColorPieChart() {
@@ -120,8 +122,7 @@
                 }
             }
         };
-        var chart = new google.visualization.PieChart(document.getElementById(colorPieChartId));
-        chart.draw(dataCache.colorPie.data, options);
+        dataCache.colorPie.chart.draw(dataCache.colorPie.data, options);
     }
 
     function drawTypesPieChart() {
@@ -144,8 +145,7 @@
                 position: 'labeled'
             }
         };
-        var chart = new google.visualization.PieChart(document.getElementById(typesPieChartId));
-        chart.draw(dataCache.typesPie.data, options);
+        dataCache.typesPie.chart.draw(dataCache.typesPie.data, options);
     }
 
     function hasColorPieChart() {
@@ -434,6 +434,9 @@
         dataCache.manaCurve.data = google.visualization.arrayToDataTable(formattedData);
         dataCache.manaCurve.colors = sectionColors;
         dataCache.manaCurve.ticks = ticks;
+
+        dataCache.manaCurve.chart = new google.visualization.ColumnChart(document.getElementById(manaCurveChartId));
+        google.visualization.events.addListener(dataCache.manaCurve.chart, 'select', chartSelect(dataCache.manaCurve.chart));
     }
 
     function cacheColorPieData(cardData) {
@@ -452,6 +455,7 @@
 
         dataCache.colorPie.data = dataTable;
         dataCache.colorPie.colors = sliceColors;
+        dataCache.colorPie.chart = new google.visualization.PieChart(document.getElementById(colorPieChartId));
     }
 
     function cacheTypesPieData(cardData) {
@@ -470,6 +474,7 @@
 
         dataCache.typesPie.data = dataTable;
         dataCache.typesPie.colors = sliceColors;
+        dataCache.typesPie.chart = new google.visualization.PieChart(document.getElementById(typesPieChartId));
     }
 
     function setMeanCmc(chartData) {
