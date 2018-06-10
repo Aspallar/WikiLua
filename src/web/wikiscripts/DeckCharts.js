@@ -14,6 +14,7 @@
     'use strict';
 
     var chartDataId = 'mdw-chartdata-pre';
+    var sideboardDataId = 'mdw-sideboard-data';
 
     function hasCardData() {
         return document.getElementById(chartDataId) !== null;
@@ -54,6 +55,7 @@
     var typesPieChartId = 'mdw-types-chart';
     var meanCmcId = 'mdw-mean-cmc';
     var landProbabilitiesId = 'mdw-land-probabilities';
+    var lastManaCurveCmc = 6; // max cmc to show on mana curve chart
 
     var dataIndex = {
         color: 0,
@@ -189,6 +191,17 @@
         }
     };
 
+    function cmcClass(cmc) {
+        return cmc >= lastManaCurveCmc ? 'mdw-cmc-max' : 'mdw-cmc-' + cmc;
+    }
+
+    function onManaCurveSelect() {
+        $('.mdw-card-highlight').removeClass('mdw-card-highlight');
+        var selected = dataCache.manaCurve.chart.getSelection();
+        if (selected.length > 0 && selected[0].row && selected[0].column)
+            $('.' + cmcClass(selected[0].row)).addClass('mdw-card-highlight');
+    }
+
     function isLand(card) {
         return $.inArray('Land', card.types) !== -1;
     }
@@ -214,6 +227,29 @@
         var dataString = document.getElementById(chartDataId).innerText;
         var cardData = JSON.parse(dataString);
         return addCalculatedFieldsToData(cardData);
+    }
+
+    function getSideboardData() {
+        var dataString = document.getElementById(sideboardDataId).innerText;
+        return JSON.parse(dataString);
+    }
+
+    function normalName(name) {
+        var pos = name.indexOf('///');
+        return pos === -1 ? name : name.substring(0, pos - 1);
+    }
+
+    function findCardInData(data, name) {
+        for (var k = 0, l = data.length; k < l; k++) {
+            if (normalName(data[k].name) === name)
+                return data[k];
+        }
+        return null;
+    }
+
+    function findCard(deckData, sideboardData, name) {
+        var card = findCardInData(deckData, name) || findCardInData(sideboardData, name);
+        return card ? card : null;
     }
 
     function zeroedArray(size) {
@@ -411,7 +447,7 @@
     }
 
     function formatDataForManaCurveChart(chartData, ticks) {
-        var lastCmc = 7; // one greater than the max cmc to show on chart
+        var lastCmc = lastManaCurveCmc + 1;
         var labels = makeLabelsForManaCurve(chartData);
         var data = [labels];
         addZeroedDataSeriesForManaCurve(data, lastCmc, labels.length);
@@ -436,7 +472,7 @@
         dataCache.manaCurve.ticks = ticks;
 
         dataCache.manaCurve.chart = new google.visualization.ColumnChart(document.getElementById(manaCurveChartId));
-        google.visualization.events.addListener(dataCache.manaCurve.chart, 'select', chartSelect(dataCache.manaCurve.chart));
+        google.visualization.events.addListener(dataCache.manaCurve.chart, 'select', onManaCurveSelect);
     }
 
     function cacheColorPieData(cardData) {
@@ -493,6 +529,16 @@
         landElement.html(html);
     }
 
+    function addSelectionClasses(deckData, sideboardData) {
+        $('div.div-col.columns.column-count.column-count-2 span.card-image-tooltip').each(function () {
+            var cardElement = $(this);
+            var name = cardElement.text();
+            var card = findCard(deckData, sideboardData, name);
+            if (card !== null && card.cmc)
+                cardElement.addClass(cmcClass(card.cmc));
+        });
+    }
+
     function drawAllCharts() {
         if (hasColorPieChart())
             drawColorPieChart();
@@ -525,6 +571,7 @@
 
     function chartLibraryLoaded() {
         var chartData = getChartData();
+        addSelectionClasses(chartData, getSideboardData());
         cacheColorPieData(chartData);
         cacheManaCurveData(chartData);
         cacheTypesPieData(chartData);

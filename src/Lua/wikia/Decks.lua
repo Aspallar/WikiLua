@@ -121,6 +121,19 @@ local function ExportSetName(setCode)
     return setCode
 end
 
+local function LocalCardEntry(amount, exportName, card)
+    return {
+        name = exportName;
+        num = amount;
+        colors = card.Colors;
+        cmc = card.cmc;
+        types = card.Types;
+        cardNumber = CardNumberNumericPart(card.CardNumber);
+        set = ExportSetName(card.SetCode);
+        rarity = card.Rarity;
+    }
+end
+
 local function AddAltCards(name, card, altCardList)
     if card.Sets ~= nil and card.Rarity ~= "Basic Land" then
         for _, set in pairs(card.Sets) do
@@ -141,15 +154,7 @@ local function GetSideboardData(altCardList)
         local amount = deck.Sideboard[i][1]
         local card = deck.Sideboard[i][2]
         local exportName = ExportCardName(card)
-
-        local carddata = {
-            name = exportName;
-            num = amount;
-            set = ExportSetName(card.SetCode);
-            cardNumber = CardNumberNumericPart(card.CardNumber);
-            rarity = card.Rarity;
-        }
-        table.insert(data, carddata)
+        table.insert(data, LocalCardEntry(amount, exportName, card))
         AddAltCards(exportName, card, altCardList)
     end
     return data
@@ -163,18 +168,7 @@ local function GetAdditionalData()
         local amount = cardEntry[1]
         local card = cardEntry[2]
         local exportName = ExportCardName(card)
-
-        local carddata = {
-            name=exportName;
-            num=amount;
-            colors=card.Colors;
-            cmc=card.cmc;
-            types=card.Types;
-            cardNumber=CardNumberNumericPart(card.CardNumber);
-            set=ExportSetName(card.SetCode);
-            rarity=card.Rarity;
-        }
-        table.insert(cardlist, carddata)
+        table.insert(cardlist, LocalCardEntry(amount, exportName, card))
         AddAltCards(exportName, card, altCardList)
     end
     return cardlist, altCardList

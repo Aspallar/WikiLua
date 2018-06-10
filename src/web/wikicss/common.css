@@ -362,3 +362,7 @@
 .card-error {
     color: red;
 }
+.mdw-card-highlight {
+    border: 1px dotted blue;
+    font-weight: bold;
+}
