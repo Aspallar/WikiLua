@@ -1,3 +1,4 @@
+-- <nowiki>
 local cardService = require("Module:CardService")
 local utils = require("Module:TemplateUtils")
 local deck = require("Module:Deck")
@@ -75,7 +76,7 @@ local function OtherCards(cards)
     if #cards > 0 then
         s = s .. "<big><big>"..totalAmount.." Others</big></big><br />" .. "\n"
         for i = 1, #cards do
-            s = s .. cards[i][1].." {{CardTooltip|"..cards[i][2].Name.."}}<br />" .. "\n"
+            s = s .. cards[i][1].." {{CardError|"..cards[i][2].Name.."}}<br />" .. "\n"
         end
     end
     return s
@@ -212,6 +213,10 @@ local function ParseDeck(list)
     end
 end
 
+local function InvalidCardsCategory()
+    return #deck.errors > 0 and "[[Category: Decks with invalid cards]]" or ""
+end
+
 local function BannedSection()
     local text = ""
     local count = 0
@@ -237,7 +242,8 @@ local function GenerateDeckFromList(name, list)
         SideboardSection() ..
         DataSection(json.encode(cardList), "mdw-chartdata-pre") ..
         DataSection(json.encode(altCardList), "mdw-alt-carddata") ..
-        DataSection(json.encode(sideboard), "mdw-sideboard-data")
+        DataSection(json.encode(sideboard), "mdw-sideboard-data") ..
+        InvalidCardsCategory()
 end
 
 function p.TestGenerateDeckFromList(name,inputList)
@@ -253,3 +259,4 @@ end
 
 return p
 
+-- </nowiki>

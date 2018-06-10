@@ -359,3 +359,6 @@
     color: darkred;
     font-style: italic;
 }
+.card-error {
+    color: red;
+}
