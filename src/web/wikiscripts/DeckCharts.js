@@ -198,7 +198,7 @@
     function onManaCurveSelect() {
         $('.mdw-card-highlight').removeClass('mdw-card-highlight');
         var selected = dataCache.manaCurve.chart.getSelection();
-        if (selected.length > 0 && selected[0].row && selected[0].column)
+        if (selected.length > 0 && selected[0].row !== null && selected[0].column !== null)
             $('.' + cmcClass(selected[0].row)).addClass('mdw-card-highlight');
     }
 
@@ -239,6 +239,7 @@
         return pos === -1 ? name : name.substring(0, pos - 1);
     }
 
+    // TODO: normalize name in advance
     function findCardInData(data, name) {
         for (var k = 0, l = data.length; k < l; k++) {
             if (normalName(data[k].name) === name)
@@ -534,8 +535,17 @@
             var cardElement = $(this);
             var name = cardElement.text();
             var card = findCard(deckData, sideboardData, name);
-            if (card !== null && card.cmc)
+
+            if (card === null) {
+                console.log('name: ' + name + 'not found');
+            } else {
+                console.log(card.name + ' ' + card.cmc);
+            }
+
+            if (card !== null && card.cmc !== undefined && card.cmc !== null) {
                 cardElement.addClass(cmcClass(card.cmc));
+                console.log(cmcClass(card.cmc) + ' ' + name);
+            }
         });
     }
 
