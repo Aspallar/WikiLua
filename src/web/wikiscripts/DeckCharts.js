@@ -191,15 +191,75 @@
         }
     };
 
+    function findCardInData(data, name) {
+        for (var k = 0, l = data.length; k < l; k++) {
+            if (data[k].name === name)
+                return data[k];
+        }
+        return null;
+    }
+
+    function findCard(deckData, sideboardData, name) {
+        var card = findCardInData(deckData, name) || findCardInData(sideboardData, name);
+        return card ? card : null;
+    }
+
     function cmcClass(cmc) {
         return cmc >= lastManaCurveCmc ? 'mdw-cmc-max' : 'mdw-cmc-' + cmc;
     }
 
-    function onManaCurveSelect() {
+    function colorClass(color) {
+        return 'mdw-card-' + color;
+    }
+
+    function clearHighlight() {
         $('.mdw-card-highlight').removeClass('mdw-card-highlight');
+    }
+
+    var selectedManaCurveRow = null;
+    function onManaCurveSelect() {
+        clearHighlight();
+        dataCache.colorPie.chart.setSelection([]);
         var selected = dataCache.manaCurve.chart.getSelection();
-        if (selected.length > 0 && selected[0].row !== null && selected[0].column !== null)
-            $('.' + cmcClass(selected[0].row)).addClass('mdw-card-highlight');
+        console.dir(selected);
+        if (selected.length > 0 && selected[0].column !== null) {
+            var row = selected[0].row;
+            if (row !== selectedManaCurveRow) {
+                $('.' + cmcClass(row)).addClass('mdw-card-highlight');
+                dataCache.manaCurve.chart.setSelection([{row:row, column:null}]);
+                selectedManaCurveRow = row;
+            } else {
+                selectedManaCurveRow = null;
+                dataCache.manaCurve.chart.setSelection([]);
+            }
+        }
+    }
+
+    function onColorPieSelect() {
+        clearHighlight();
+        var selected = dataCache.colorPie.chart.getSelection();
+        if (selected.length > 0) {
+            var color = dataCache.colorPie.data.getValue(selected[0].row, 0);
+            $('.' + colorClass(color)).addClass('mdw-card-highlight');
+            if (selectedManaCurveRow !== null) {
+                selectedManaCurveRow = null;
+                dataCache.manaCurve.chart.setSelection([]);
+            }
+        }
+    }
+
+    function addHighlightClasses(deckData, sideboardData) {
+        $('div.div-col.columns.column-count.column-count-2 span.card-image-tooltip').each(function () {
+            var cardElement = $(this);
+            var name = cardElement.text();
+            var card = findCard(deckData, sideboardData, name);
+            if (card !== null) {
+                if (card.cmc !== undefined && card.cmc !== null)  
+                    cardElement.addClass(cmcClass(card.cmc));
+                if (typeof card.adjustedColor === 'string' && card.adjustedColor.length > 0)
+                    cardElement.addClass(colorClass(card.adjustedColor));
+            }
+        });
     }
 
     function isLand(card) {
@@ -214,8 +274,14 @@
         return colors[0];
     }
 
+    function normalName(name) {
+        var pos = name.indexOf('///');
+        return pos === -1 ? name : name.substring(0, pos - 1);
+    }
+
     function addCalculatedFieldsToData(cardData) {
         cardData.forEach(function (card) {
+            card.name = normalName(card.name);
             card.isLand = isLand(card);
             if (!card.isLand)
                 card.adjustedColor = adjustedColor(card.colors);
@@ -223,34 +289,18 @@
         return cardData;
     }
 
-    function getChartData() {
-        var dataString = document.getElementById(chartDataId).innerText;
+    function getData(id) {
+        var dataString = document.getElementById(id).innerText;
         var cardData = JSON.parse(dataString);
         return addCalculatedFieldsToData(cardData);
     }
 
+    function getChartData() {
+        return getData(chartDataId);
+    }
+
     function getSideboardData() {
-        var dataString = document.getElementById(sideboardDataId).innerText;
-        return JSON.parse(dataString);
-    }
-
-    function normalName(name) {
-        var pos = name.indexOf('///');
-        return pos === -1 ? name : name.substring(0, pos - 1);
-    }
-
-    // TODO: normalize name in advance
-    function findCardInData(data, name) {
-        for (var k = 0, l = data.length; k < l; k++) {
-            if (normalName(data[k].name) === name)
-                return data[k];
-        }
-        return null;
-    }
-
-    function findCard(deckData, sideboardData, name) {
-        var card = findCardInData(deckData, name) || findCardInData(sideboardData, name);
-        return card ? card : null;
+        return getData(sideboardDataId);
     }
 
     function zeroedArray(size) {
@@ -493,6 +543,7 @@
         dataCache.colorPie.data = dataTable;
         dataCache.colorPie.colors = sliceColors;
         dataCache.colorPie.chart = new google.visualization.PieChart(document.getElementById(colorPieChartId));
+        google.visualization.events.addListener(dataCache.colorPie.chart, 'select', onColorPieSelect);
     }
 
     function cacheTypesPieData(cardData) {
@@ -530,25 +581,6 @@
         landElement.html(html);
     }
 
-    function addSelectionClasses(deckData, sideboardData) {
-        $('div.div-col.columns.column-count.column-count-2 span.card-image-tooltip').each(function () {
-            var cardElement = $(this);
-            var name = cardElement.text();
-            var card = findCard(deckData, sideboardData, name);
-
-            if (card === null) {
-                console.log('name: ' + name + 'not found');
-            } else {
-                console.log(card.name + ' ' + card.cmc);
-            }
-
-            if (card !== null && card.cmc !== undefined && card.cmc !== null) {
-                cardElement.addClass(cmcClass(card.cmc));
-                console.log(cmcClass(card.cmc) + ' ' + name);
-            }
-        });
-    }
-
     function drawAllCharts() {
         if (hasColorPieChart())
             drawColorPieChart();
@@ -581,7 +613,7 @@
 
     function chartLibraryLoaded() {
         var chartData = getChartData();
-        addSelectionClasses(chartData, getSideboardData());
+        addHighlightClasses(chartData, getSideboardData());
         cacheColorPieData(chartData);
         cacheManaCurveData(chartData);
         cacheTypesPieData(chartData);

@@ -366,3 +366,11 @@
     border: 1px dotted blue;
     font-weight: bold;
 }
+#mdw-manacurve-chart svg>g>g>g>g>rect[stroke="#ffffff"][stroke-width="1"] {
+  stroke: black !important;
+  stroke-width: 2px !important;
+}
+#mdw-cardsbycolor-chart svg>g>path[fill="none"] {
+  stroke: black !important;
+  stroke-width: 2px !important;
+}
