@@ -217,11 +217,16 @@
     }
 
     var selectedManaCurveRow = null;
+
+    function clearManaCurveSelection() {
+        selectedManaCurveRow = null;
+        dataCache.manaCurve.chart.setSelection([]);
+    }
+
     function onManaCurveSelect() {
         clearHighlight();
         dataCache.colorPie.chart.setSelection([]);
         var selected = dataCache.manaCurve.chart.getSelection();
-        console.dir(selected);
         if (selected.length > 0 && selected[0].column !== null) {
             var row = selected[0].row;
             if (row !== selectedManaCurveRow) {
@@ -229,8 +234,7 @@
                 dataCache.manaCurve.chart.setSelection([{row:row, column:null}]);
                 selectedManaCurveRow = row;
             } else {
-                selectedManaCurveRow = null;
-                dataCache.manaCurve.chart.setSelection([]);
+                clearManaCurveSelection();
             }
         }
     }
@@ -241,10 +245,7 @@
         if (selected.length > 0) {
             var color = dataCache.colorPie.data.getValue(selected[0].row, 0);
             $('.' + colorClass(color)).addClass('mdw-card-highlight');
-            if (selectedManaCurveRow !== null) {
-                selectedManaCurveRow = null;
-                dataCache.manaCurve.chart.setSelection([]);
-            }
+            clearManaCurveSelection();
         }
     }
 
@@ -254,7 +255,7 @@
             var name = cardElement.text();
             var card = findCard(deckData, sideboardData, name);
             if (card !== null) {
-                if (card.cmc !== undefined && card.cmc !== null)  
+                if (typeof card.cmc === 'number')  
                     cardElement.addClass(cmcClass(card.cmc));
                 if (typeof card.adjustedColor === 'string' && card.adjustedColor.length > 0)
                     cardElement.addClass(colorClass(card.adjustedColor));
