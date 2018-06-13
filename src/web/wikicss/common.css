@@ -374,3 +374,7 @@
   stroke: black !important;
   stroke-width: 2px !important;
 }
+.mdw-createbox-error {
+    font-size: small;
+    color: red;
+}
