@@ -1,115 +1,130 @@
+// ==========================================================================
+// Createbox
+//    Replacement for <createbox>, with a better interface and the ability
+//    to specify 'use the source editor' (necessary for deck articles).
+//
+// Version 1.0.0
+// Author: Aspallar
+//
+// ** Please do not edit this code directly in the wikia.
+// ** Instead use the git repository https://github.com/Aspallar/WikiLua
+//
 (function ($) {
     /*global mw */
     'use strict';
 
-    console.log('Build 103');
-
-    if ($('.mdw-createbox').length === 0)
+    if ($('.mdw-createbox').length === 0 || $('#mdw-disabled-js').attr('createbox-1-0-0'))
         return;
-
-    function getBaseUrl() {
-        // return 'http://magicarena.wikia.com/wiki/';
-        return '/wiki/';
-    }
-
-    function removeIncludes(contents) {
-        return contents
-            .replace(/<[\/]?noinclude>|<[\/]?includeonly>/g, '');
-    }
-
-    function getControls(createbox) {
-        var children = createbox.children();
-        return {
-            text: $(children[0]),
-            error: $(children[3])
-        };
-    }
-
-    function editPage(page, config) {
-        console.log('editPage');
-        var url = getBaseUrl() + page + '?action=edit';
-        if (config.useeditor) url += '&useeditor=' + config.useeditor;
-        if (config.editintro) url += '&editintro=' + config.editintro;
-        window.location = url;
-    }
-
-    function createAndEdit(page, content, config) {
-        console.log('createAndEdit');
-        mw.loader.using('mediawiki.api').then(function () {
-            console.log('creating page...');
-            var api = new mw.Api();
-            api.post({
-                action: 'edit',
-                title: page,
-                summary: 'Created with createbox',
-                text: content,
-                createonly: 'yes',
-                token: mw.user.tokens.get('editToken')
-            } ).done( function() {
-                console.log( 'Saved successfully' );
-                editPage(page, config);
-            } ).fail( function( code, result ) {
-                if ( code === 'http' ) {
-                    console.log( 'HTTP error: ' + result.textStatus ); // result.xhr contains the jqXHR object
-                } else if ( code === 'ok-but-empty' ) {
-                    console.log( 'Got an empty response from the server' );
-                } else {
-                    console.log( 'API error: ' + code );
-                }
-            } );
-        });
-    }
 
     function getConfig(createbox) {
         var config = createbox.data();
         config.prefix = config.prefix || '';
         config.buttontext = config.buttontext || 'Create';
         config.placeholder = config.placeholder || '';
+        config.mustenter = config.mustenter || 'You must enter a page name';
+        config.existserror = config.existserror || 'Page already exists';
+        config.invalidtitle = config.invalidtitle || 'Invalid page name';
+        config.error = config.error || 'Error';
+        config.error += ' ';
+        config.preloadfail = config.preloadfail || 'Failed to load preload template';
+        config.editsummary = config.editsummary || 'Created via createbox';
         return config;
+    }
+
+    function invalidTitle(title) {
+        return /#|\?/g.test(title);
+    }
+
+    function getBaseUrl() {
+        return mw.config.get('wgArticlePath').replace('$1', '');
+    }
+
+    function buildUrl(page, query) {
+        return getBaseUrl() + page + (query ? '?' + $.param(query) : '');
+    }
+
+    function removeIncludes(contents) {
+        return contents.replace(/<[\/]?noinclude>|<[\/]?includeonly>/g, '');
+    }
+
+    function getControls(createbox) {
+        var children = createbox.children();
+        return {
+            text: $(children[0]),
+            button: $(children[1]),
+            status: $(children[3])
+        };
+    }
+
+    function editPage(page, config) {
+        var query = { action: 'edit' };
+        if (config.useeditor) query.useeditor =  config.useeditor;
+        if (config.editintro) query.editintro = config.editintro;
+        var url = buildUrl(page, query);
+        window.location = url;
+    }
+
+    function createAndEdit(page, content, config, controls) {
+        mw.loader.using('mediawiki.api').then(function () {
+            var api = new mw.Api();
+            api.post({
+                action: 'edit',
+                title: page,
+                summary: config.editsummary,
+                text: content,
+                createonly: 'yes',
+                token: mw.user.tokens.get('editToken')
+            }).done(function(result) {
+                if (result.error) {
+                    if (result.error.code === 'articleexists')
+                        controls.status.html(config.existserror);
+                    else if (result.error.code === 'invalidtitle')
+                        controls.status.html(config.invalidtitle);
+                    else
+                        controls.status.html(result.error.info);
+                    controls.button.prop('disabled', false);
+                } else {
+                    editPage(page, config);
+                }
+            }).fail(function(code, result) {
+                controls.status.html(config.error + ' ' + code + (code === 'http' ? ' ' + result.textStatus : ''));
+                controls.button.prop('disabled', false);
+            });
+        });
     }
 
     function buttonClick() {
         /*jshint -W040 */  // allow old school jquery use of this
-        // debugger;
-        var button = $(this);
-        button.prop('disabled', true);
         var createbox = $(this).parent();
         var controls = getControls(createbox);
+        var config = getConfig(createbox);
+
         var pagename = controls.text.val();
         if (pagename.length === 0) {
-            controls.error.html('You must enter a deck name');
-            button.prop('disabled', false);
+            controls.status.html(config.mustenter);
+            return;
+        }
+        if (invalidTitle(config.prefix + pagename)) {
+            controls.status.html(config.invalidtitle);
             return;
         }
 
-        var indicator = $('<img>', {
+        controls.button.prop('disabled', true);
+        controls.status.html($('<img>', {
             src: mw.config.get('stylepath') + '/common/images/ajax.gif'
-        });
-        controls.error.html(indicator);
+        }));
 
-        var config = getConfig(createbox);
-
-        $.get(getBaseUrl() + config.prefix + pagename + '?action=raw').done(function () {
-            controls.error.html(config.existserror || 'Page already exists');
-            button.prop('disabled', false);
-        }).fail(function (xhr, status, error) {
-            if (xhr.status !== 404) {
-                controls.error.html('Error: ' + error);
-                button.prop('disabled', false);
-                return;
-            }
-            if (config.preload) {
-                $.get(getBaseUrl() + config.preload + '?action=raw').done(function (preload) {
-                    preload = removeIncludes(preload);
-                    createAndEdit(config.prefix + pagename, preload, config);
-                }).fail(function () {
-                    controls.error.html('Preload failed.');
-                    button.prop('disabled', false);
-                });
-            } else {
-                editPage(config.prefix + pagename, config);
-            }
-        });
+        if (config.preload) {
+            $.get(buildUrl(config.preload, {action: 'raw'})).done(function (preload) {
+                preload = removeIncludes(preload);
+                createAndEdit(config.prefix + pagename, preload, config, controls);
+            }).fail(function () {
+                controls.status.html(config.preloadfail);
+                controls.button.prop('disabled', false);
+            });
+        } else {
+            editPage(config.prefix + pagename, config);
+        }
     }
 
     function initialize() {
@@ -117,6 +132,7 @@
             var createbox = $(this);
             var config = getConfig(createbox);
             var input = $('<input type="text">').attr('placeholder', config.placeholder);
+            if (config.width) input.css('width', config.width);
             var button = $('<input>', {
                 type: 'button',
                 value: config.buttontext
