@@ -11,12 +11,18 @@
     /*global mw */
     'use strict';
 
-    if ($('#mdw-disabled-js').attr('decklistedit-1-0-0'))
+    console.log('DecklistEdit Build 1');
+
+    if (document.getElementById('mdw-editor') === null || $('#mdw-disabled-js').attr('decklistedit-1-0-0'))
         return;
 
-    var working = $('<img>', {
-        src: mw.config.get('stylepath') + '/common/images/ajax.gif'
-    });
+    function showWorking() {
+        $('#mdw-working').show();
+    }
+
+    function hideWorking() {
+        $('#mdw-working').hide();
+    }
 
     function extractJson(id, contents) {
         var start = '<pre id="$1"'.replace('$1', id);
@@ -115,48 +121,54 @@
         });
     }
 
-    function getDeckData(title) {
-        $.get(title).then(function (data) {
+    function getDeckColors(title) {
+        var deferred = $.Deferred();
+
+        $.get('/wiki/Decks/' + title).done(function (data) {
             var deckJson = JSON.parse(extractJson('mdw-chartdata-pre', data));
             var sideboardJson = JSON.parse(extractJson('mdw-sideboard-data', data));
             var colors = [];
             extractDeckColors(colors, deckJson);
             extractDeckColors(colors, sideboardJson);
-            // getAllDecks().done(function (data) {
-            //     data = data;
-            //     console.log('all done');
-            //     getDecklistsDecks();
-            // });
-        }).fail(function () {
-            alert('fail');
+            deferred.resolve(colors);
         });
+
+        return deferred.promise();
     }
 
-    function test() {
-        // getDeckData('/wiki/Decks/Dimir Gift');
-        getDecklistsDecks().done(function (decklistDecks) {
-            getUnlistedDecks(decklistDecks).done(function (unlistedDecks) {
-                var select = $('<select>');
-                unlistedDecks.forEach(function (deck) {
-                    select.append($('<option>').text(deck));
-                });
-                working.remove();
-                $('#mdw-editor').prepend(select);
+    function selectDeck() {
+        /* jshint -W040 */ // allow old school jquery use of this
+        $('#mdw-mainform').hide();
+        var deck = this.options[this.selectedIndex].text;
+        console.log(deck);
+        showWorking();
+        getDeckColors(deck).done(function (colors) {
+            var text = '';
+            hideWorking();
+            colors.forEach(function (color) {
+                text += color + ' ';
             });
+            $('#mdw-colors').text(text);
+            $('#mdw-mainform').show(500);
         });
     }
 
     function initialize() {
-        // $('#testbutton').click(test);
-        $('#mdw-editor').append(working);
+        $('#mdw-working').html($('<img>', {
+            src: mw.config.get('stylepath') + '/common/images/ajax.gif'
+        }));
+        showWorking();
         getDecklistsDecks().done(function (decklistDecks) {
             getUnlistedDecks(decklistDecks).done(function (unlistedDecks) {
-                var select = $('<select>');
+                var select = $('<select>')
+                    .append($('<option disabled selected>Select deck to add --</option>'))
+                    .change(selectDeck);
                 unlistedDecks.forEach(function (deck) {
                     select.append($('<option>').text(deck));
                 });
-                $('#mdw-editor').append(select);
-                working.remove();
+                $('#mdw-deck-select').html(select);
+                $('#mdw-deck-select-div').show(500);
+                hideWorking();
             });
         });
     }

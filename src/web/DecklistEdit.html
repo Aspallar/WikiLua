@@ -12,17 +12,29 @@
 </head>
 <body>
 <h1>DecklistEdit Test Page</h1>
-<p>
-Proin ornare, odio et lobortis.
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non.
-</p>
 
-<input type="button" id="testbutton" value="test" />
+<!-- <input type="button" id="testbutton" value="test" />
 <br /><br />
+ -->
 
-<div id="mdw-editor" />
+<div id="mdw-editor">
+    <div id="mdw-deck-select-div" style="display:none;">
+        <p>
+            The following dropdown lists decks that have no entry in the decklists page. Select
+            the deck that you want to add from the list.
+        </p>
+        <span id="mdw-deck-select"></span>
+    </div>
+    <div id="mdw-mainform" style="display:none;">
+        <p>
+            The selected deck contains the following colors
+        </p>
+        <p id="mdw-colors">
+        </p>
+    </div>
+    <div id="mdw-working" style="display:none">
+    </div>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
 		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
