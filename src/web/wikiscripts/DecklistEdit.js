@@ -11,7 +11,11 @@
     /*global mw */
     'use strict';
 
-    console.log('DecklistEdit Build 1');
+    // TODO: deal with redirected decks
+
+    // return;
+
+    console.log('DecklistEdit Build 3');
 
     if (document.getElementById('mdw-editor') === null || $('#mdw-disabled-js').attr('decklistedit-1-0-0'))
         return;
@@ -136,6 +140,23 @@
         return deferred.promise();
     }
 
+    function setAuthor() {
+        var loggedUser = mw.config.get('wgUserName');
+        if (loggedUser) {
+            $('#mdw-dle-author').val('[[User:' + loggedUser + '|' + loggedUser + ']]');
+        } else {
+            $('#mdw-dle-author').val('Annon');
+        }
+    }
+
+    function tickColors(colors) {
+        $('#mdw-dle-colors>input').prop('checked', false);
+        colors.forEach(function (color) {
+            var id = '#mdw-dle-' + color.toLowerCase();
+            $(id).prop('checked', true);
+        });
+    }
+
     function selectDeck() {
         /* jshint -W040 */ // allow old school jquery use of this
         $('#mdw-mainform').hide();
@@ -143,20 +164,44 @@
         console.log(deck);
         showWorking();
         getDeckColors(deck).done(function (colors) {
-            var text = '';
             hideWorking();
-            colors.forEach(function (color) {
-                text += color + ' ';
-            });
-            $('#mdw-colors').text(text);
+            $('#mdw-dle-name').val(deck);
+            setAuthor();
+            tickColors(colors);
             $('#mdw-mainform').show(500);
         });
+    }
+
+    function createMainForm() {
+        /*jshint -W043 */ // allow multiline string escaping
+        $('#mdw-dle-name-span')
+            .html('<input type="input" id="mdw-dle-name" size="40" placeholder="Deck name"/>');
+        $('#mdw-dle-type-span')
+            .html('<input type="input" id="mdw-dle-type" size="10" placeholder="Type"/>');
+        $('#mdw-dle-author-span')
+            .html('<input type="input" id="mdw-dle-author" size="20" placeholder="Author"/>');
+        $('#mdw-dle-desc-span')
+            .html('<input type="input" id="mdw-dle-desc" size="50" placeholder="Description"/>');
+        $('#mdw-dle-colors')
+            .html('<input type="checkbox" id="mdw-dle-white" value="{{W}}">\
+                    <label for="mdw-dle-white">White</label>&nbsp;&nbsp;\
+                    <input type="checkbox" id="mdw-dle-blue" value="{{U}}">\
+                    <label for="mdw-dle-blue">Blue</label>&nbsp;&nbsp;\
+                    <input type="checkbox" id="mdw-dle-black" value="{{B}}">\
+                    <label for="mdw-dle-black">Black</label>&nbsp;&nbsp;\
+                    <input type="checkbox" id="mdw-dle-red" value="{{R}}">\
+                    <label for="mdw-dle-red">Red</label>&nbsp;&nbsp;\
+                    <input type="checkbox" id="mdw-dle-green" value="{{G}}">\
+                    <label for="mdw-dle-green">Green</label>&nbsp;&nbsp;\
+                    <input type="checkbox" id="mdw-dle-colorless" value="{{C}}">\
+                    <label for="mdw-dle-colorless">Colorless</label>&nbsp;&nbsp;');
     }
 
     function initialize() {
         $('#mdw-working').html($('<img>', {
             src: mw.config.get('stylepath') + '/common/images/ajax.gif'
         }));
+        createMainForm();
         showWorking();
         getDecklistsDecks().done(function (decklistDecks) {
             getUnlistedDecks(decklistDecks).done(function (unlistedDecks) {
