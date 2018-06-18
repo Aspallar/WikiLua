@@ -5,15 +5,13 @@ var proxyMiddleware = require('http-proxy-middleware');
 const logLevel = 'silent';
 
 const apiProxy = proxyMiddleware('/api.php', {
-  target: 'http://magicarena.wikia.com/api.php',
-  // target: 'http://aspallar.wikia.com/api.php',
+  target: 'http://aspallar.wikia.com/api.php',
   changeOrigin: true,
   logLevel: logLevel
 });
 
 const wikiProxy = proxyMiddleware('/wiki/', {
-  target: 'http://magicarena.wikia.com',
-  // target: 'http://aspallar.wikia.com/wiki/',
+  target: 'http://aspallar.wikia.com/wiki/',
   changeOrigin: true,
   logLevel: logLevel
 });

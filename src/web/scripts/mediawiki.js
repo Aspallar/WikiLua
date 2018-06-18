@@ -10,9 +10,13 @@ mw.config.get = function(param) {
         case 'wgTitle':
             return 'Decks/Test Three';
 		case 'wgScriptPath':
-			return '';
+            return 'http://aspallar.wikia.com';
+            // return 'http://magicarena.wikia.com';
         case 'wgUserName':
             return 'Aspallar';
+        case 'wgArticlePath':
+            return 'http://aspallar.wikia.com/wiki/$1';
+            // return 'http://magicarena.wikia.com/wiki/$1';
         case 'stylepath':
             return 'https://slot1-images.wikia.nocookie.net/__cb1528286929/common/skins';
 	}

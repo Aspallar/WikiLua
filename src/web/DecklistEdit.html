@@ -13,10 +13,6 @@
 <body>
 <h1>DecklistEdit Test Page</h1>
 
-<!-- <input type="button" id="testbutton" value="test" />
-<br /><br />
- -->
-
 <div id="mdw-editor">
     <div id="mdw-deck-select-div" style="display:none;">
         <p>
@@ -25,26 +21,47 @@
         </p>
         <span id="mdw-deck-select"></span>
     </div>
+    <div id="mdw-dle-baddeck" class="mdw-dle-errordiv" style="display:none;">
+        <hr />
+        <p>
+            <b>The selected deck contains invalid data.</b>
+        </p>
+        <p>
+            Please report this by leaving a note on the  message wall of 
+            an [[Special:Listusers/sysop|admin]]. Include the name of the deck
+            you were trying to add in the note.
+        </p>
+    </div>
+    <div id="mdw-dle-redirected" class="mdw-dle-errordiv" style="display:none;">
+        <hr />
+        <p>
+            The selected deck is a redirect to another deck.
+        </p>
+        <p>
+            Redirected decks should not be added to the deck lists.
+        </p>
+    </div>
     <div id="mdw-mainform" style="display:none;">
+        <hr />
         <p>
             Enter the name for your deck as it is to appear in the deck lists page. This can be different
             to the page name for the deck, but should be similar to it. We recommend that you don't change
             this unless you have good reason to.
         </p>
-        <span id="mdw-dle-name-span"></span><br />
+        <span id="mdw-dle-name-span"></span><span id="mdw-dle-error-name" class="mdw-error"></span>
         <p>
-            Enter the type or strategy of deck e.g Agro, Mid-range, Control etc.
+            Enter the type or strategy of deck e.g Aggro, Midrange, Control etc.
         </p>
-        <span id="mdw-dle-type-span"></span><br />
+        <span id="mdw-dle-type-span"></span><span id="mdw-dle-error-type" class="mdw-error"></span>
         <p>
             Enter the author of the deck. <i>insert explanation of link format here</i>
         </p>
-        <span id="mdw-dle-author-span"></span><br />
+        <span id="mdw-dle-author-span"></span><span id="mdw-dle-error-author" class="mdw-error"></span>
         <p>
             Enter a brief description of your deck. You should keep it fairly short as long descriptions
             do not look good on the deck lists. <i>insert example here</i>
         </p>
-        <span id="mdw-dle-desc-span"></span><br />
+        <span id="mdw-dle-desc-span"></span><span id="mdw-dle-error-desc" class="mdw-error"></span>
         <p>
             Tick the colors used in the deck. This will have been initialized from the deck definition, but if your deck
             contains genuinely colorless cards you will have to tick it manually as the data we have does not differentiate
@@ -52,8 +69,32 @@
         </p>
         <div id="mdw-dle-colors">
         </div>
+        <hr />
+        <p>
+            When you are sure the above details are correct, click on this button to add the deck to the
+            deck lists.
+        </p>
+        <span id="mdw-dle-update-span"></span><span id="mdw-dle-error" class="mdw-error"></span>
     </div>
     <div id="mdw-working" style="display:none">
+    </div>
+    <div id="mdw-dle-generalerror" class="mdw-dle-errordiv" style="display:none;">
+        <hr />
+        <h2>Oops</h2>
+        <p>
+            There has been an unexpected error while processing your request.
+        </p>
+        <p>
+            Additional Info: <span id="mdw-dle-additionalinfo">none.</span>
+        </p>
+        <p>
+            Wait a few minutes, then refresh this page and try again.
+        </p>
+        <p>
+            If this problem persists please report it by leaving a note on the message wall
+            if an [[Special:Listusers/sysop|admin]]. Include the name of the deck
+            you were trying to add in the note.
+        </p>
     </div>
 </div>
 
