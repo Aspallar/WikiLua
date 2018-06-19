@@ -23,7 +23,7 @@ gulp.task('serve', function() {
         port: 10200,
         server: {
             baseDir: "./src/web",
-            middleware: [apiProxy, wikiProxy]
+            // middleware: [apiProxy, wikiProxy]
         }
     });
 

@@ -15,9 +15,10 @@
 
     // return;
 
-    console.log('DecklistEdit Build 11');
+    console.log('DecklistEdit Build 12');
 
     var decklistTitle;
+    var userLinksUrl;
     
     if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('decklistedit-1-0-0'))
         return;
@@ -48,6 +49,37 @@
             url: mw.config.get('wgScriptPath') + '/api.php',
             type: method,
             timeout: 10000 
+        });
+    }
+
+    function hideUserPopup(event) {
+        if (event && !event.relatedTarget)
+            return;
+        $('#mdw-dle-userpopup').css('visibility', 'hidden');
+    }
+
+    function showUserPopup() {
+        $('#mdw-dle-userpopup').css('visibility', 'visible');
+    }
+
+    function getUserLinks(event) {
+        var userPrefix = event.target.value;
+        if (!userPrefix) {
+            hideUserPopup();
+            return;
+        }
+        $.get(userLinksUrl + userPrefix).done(function (data) {
+            if (data) {
+                var userList = $(document.createDocumentFragment());
+                data.split('\n').forEach(function (user) {
+                    if (user.indexOf('/') === -1)
+                        userList.append($('<li>').text(user.substring(5)));
+                });
+                $('#mdw-dle-usermenu').html(userList);
+                showUserPopup();
+            } else {
+                hideUserPopup();
+            }
         });
     }
 
@@ -113,7 +145,6 @@
     }
 
     function getDecklistsDecks() {
-        // nada
         var deferred = $.Deferred();
 
         wikiApiCall({
@@ -246,9 +277,10 @@
     function setAuthor() {
         var loggedUser = mw.config.get('wgUserName');
         if (loggedUser) {
-            $('#mdw-dle-author').val('[[User:' + loggedUser + '|' + loggedUser + ']]');
+            // $('#mdw-dle-author').val('[[User:' + loggedUser + '|' + loggedUser + ']]');
+            $('#mdw-dle-author').val(loggedUser);
         } else {
-            $('#mdw-dle-author').val('Annonymous');
+            $('#mdw-dle-author').val('Anonymous');
         }
     }
 
@@ -286,6 +318,13 @@
     function selectType() {
         /* jshint -W040 */ // allow old school jquery use of this
         $('#mdw-dle-type').val(this.options[this.selectedIndex].text);
+    }
+
+    function clickUser(event) {
+        console.log('clickUser');
+        var text = $(event.target).text();
+        $('#mdw-dle-author').val(text);
+        $('#mdw-dle-userpopup').css('visibility', 'hidden');
     }
 
     function validateTextField(name, value) {
@@ -387,8 +426,11 @@
         /*jshint -W043 */ // allow multiline string escaping
         $('#mdw-dle-name-span')
             .html('<input type="input" id="mdw-dle-name" size="40" placeholder="Deck name"/>');
-        $('#mdw-dle-author-span')
-            .html('<input type="input" id="mdw-dle-author" size="20" placeholder="Author"/>');
+        var author = $('<input type="input" id="mdw-dle-author" size="20" placeholder="Author"/>')
+            .on('input', getUserLinks)
+            .focusout(hideUserPopup);
+        $('#mdw-dle-author-span').html(author);
+        $('#mdw-dle-usermenu').click(clickUser);
         $('#mdw-dle-desc-span')
             .html('<input type="input" id="mdw-dle-desc" size="50" placeholder="Description"/>');
         $('#mdw-dle-colors')
@@ -418,6 +460,7 @@
         $('#mdw-working').html($('<img>', {
             src: mw.config.get('stylepath') + '/common/images/ajax.gif'
         }));
+        userLinksUrl = mw.config.get('wgScriptPath') + '/index.php?action=ajax&rs=getLinkSuggest&query=User%3A';
         createMainForm();
         showWorking();
         getDecklistsDecks().done(function (decklistDecks) {
