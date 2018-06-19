@@ -13,7 +13,7 @@
 <body>
 <h1>DecklistEdit Test Page</h1>
 
-<div id="mdw-editor">
+<div id="mdw-dle-editor" data-decklist="Decklists">
     <div id="mdw-deck-select-div" style="display:none;">
         <p>
             The following dropdown lists decks that have no entry in the deck lists page. Select
@@ -50,9 +50,10 @@
         </p>
         <span id="mdw-dle-name-span"></span><span id="mdw-dle-error-name" class="mdw-error"></span>
         <p>
-            Enter the type or strategy of deck e.g Aggro, Midrange, Control etc.
+            Enter the type or strategy of deck e.g Aggro, Midrange, Control etc. The most common types
+            can be selected from the dropdown.
         </p>
-        <span id="mdw-dle-type-span"></span><span id="mdw-dle-error-type" class="mdw-error"></span>
+        <span id="mdw-dle-type-span" data-types="Aggro;Combo;Control;Midrange;Tempo"></span><span id="mdw-dle-error-type" class="mdw-error"></span>
         <p>
             Enter the author of the deck. <i>insert explanation of link format here</i>
         </p>
@@ -99,7 +100,7 @@
         </p>
         <p>
             If this problem persists please report it by leaving a note on the message wall
-            if an [[Special:Listusers/sysop|admin]]. Include the name of the deck
+            of an [[Special:Listusers/sysop|admin]]. Include the name of the deck
             you were trying to add in the note.
         </p>
     </div>

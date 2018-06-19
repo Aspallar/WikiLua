@@ -4,6 +4,8 @@
 // Version 1.0.0
 // Author: Aspallar
 //
+// Provides a user friendly way to add a deck to a deck list.
+//
 // ** Please do not edit this code directly in the wikia.
 // ** Instead use the git repository https://github.com/Aspallar/WikiLua
 //
@@ -13,12 +15,11 @@
 
     // return;
 
-    console.log('DecklistEdit Build 10');
+    console.log('DecklistEdit Build 11');
 
-    // var decklistTitle = 'User:Aspallar/Sandbox/Decklists';
-    var decklistTitle = 'Decklists';
+    var decklistTitle;
     
-    if (document.getElementById('mdw-editor') === null || $('#mdw-disabled-js').attr('decklistedit-1-0-0'))
+    if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('decklistedit-1-0-0'))
         return;
 
     function showWorking() {
@@ -37,18 +38,6 @@
         $('#mdw-dle-addtolist').prop('disabled', true) ;
         hideWorking();
         $('#mdw-dle-fatalerror').show(400);
-    }
-
-    function extractJson(id, contents) {
-        var invalidDeckException = 'Invalid deck';
-        var start = '<pre id="$1"'.replace('$1', id);
-        var startPos = contents.indexOf(start);
-        if (startPos === -1) throw invalidDeckException;
-        startPos = contents.indexOf('>', startPos + 1) + 1;
-        if (startPos === -1) throw invalidDeckException;
-        var endPos = contents.indexOf('</pre>', startPos);
-        if (endPos === -1) throw invalidDeckException;
-        return contents.substring(startPos, endPos);
     }
 
     function wikiApiCall(data, method) {
@@ -216,6 +205,19 @@
         });
     }
 
+    function extractJson(id, contents) {
+        var invalidDeckException = 'Invalid deck';
+        var start = '<pre id="$1"'.replace('$1', id);
+        var startPos = contents.indexOf(start);
+        if (startPos === -1) throw invalidDeckException;
+        startPos = contents.indexOf('>', startPos + 1) + 1;
+        if (startPos === -1) throw invalidDeckException;
+        var endPos = contents.indexOf('</pre>', startPos);
+        if (endPos === -1) throw invalidDeckException;
+        return contents.substring(startPos, endPos);
+    }
+
+
     function getDeckColors(title) {
         var deferred = $.Deferred();
 
@@ -246,7 +248,7 @@
         if (loggedUser) {
             $('#mdw-dle-author').val('[[User:' + loggedUser + '|' + loggedUser + ']]');
         } else {
-            $('#mdw-dle-author').val('Annon');
+            $('#mdw-dle-author').val('Annonymous');
         }
     }
 
@@ -271,6 +273,7 @@
             setAuthor();
             tickColors(colors);
             $('#mdw-mainform').show(500);
+            $('#mdw-dle-name').focus();
         }).fail(function (reason) {
             hideWorking();
             if (reason === 'baddeck' || reason === 'redirected')
@@ -278,6 +281,11 @@
             else
                 fatalError(reason);
         });
+    }
+
+    function selectType() {
+        /* jshint -W040 */ // allow old school jquery use of this
+        $('#mdw-dle-type').val(this.options[this.selectedIndex].text);
     }
 
     function validateTextField(name, value) {
@@ -357,34 +365,56 @@
             });
     }
 
+    function createType() {
+        var type = $('#mdw-dle-type-span');
+        type.html('<input type="input" id="mdw-dle-type" size="10" placeholder="Type"/>');
+        var commonTypes = type.attr('data-types');
+        if (commonTypes) {
+            var entries = commonTypes.split(';');
+            if (entries.length > 0) {
+                var select = $('<select id="mdw-dle-typeselect">')
+                    .append($('<option disabled selected>Select type --</option>'))
+                    .change(selectType);
+                entries.forEach(function (entry) {
+                    select.append($('<option>').text(entry));
+                });
+                type.append('&nbsp;').append(select);
+            }
+        }
+    }
+
     function createMainForm() {
         /*jshint -W043 */ // allow multiline string escaping
         $('#mdw-dle-name-span')
             .html('<input type="input" id="mdw-dle-name" size="40" placeholder="Deck name"/>');
-        $('#mdw-dle-type-span')
-            .html('<input type="input" id="mdw-dle-type" size="10" placeholder="Type"/>');
         $('#mdw-dle-author-span')
             .html('<input type="input" id="mdw-dle-author" size="20" placeholder="Author"/>');
         $('#mdw-dle-desc-span')
             .html('<input type="input" id="mdw-dle-desc" size="50" placeholder="Description"/>');
         $('#mdw-dle-colors')
             .html('<input type="checkbox" id="mdw-dle-white" value="{{W}}">\
-                    <label for="mdw-dle-white">White</label>&nbsp;&nbsp;\
-                    <input type="checkbox" id="mdw-dle-blue" value="{{U}}">\
-                    <label for="mdw-dle-blue">Blue</label>&nbsp;&nbsp;\
-                    <input type="checkbox" id="mdw-dle-black" value="{{B}}">\
-                    <label for="mdw-dle-black">Black</label>&nbsp;&nbsp;\
-                    <input type="checkbox" id="mdw-dle-red" value="{{R}}">\
-                    <label for="mdw-dle-red">Red</label>&nbsp;&nbsp;\
-                    <input type="checkbox" id="mdw-dle-green" value="{{G}}">\
-                    <label for="mdw-dle-green">Green</label>&nbsp;&nbsp;\
-                    <input type="checkbox" id="mdw-dle-colorless" value="{{C}}">\
-                    <label for="mdw-dle-colorless">Colorless</label>&nbsp;&nbsp;');
+                   <label for="mdw-dle-white">White</label>&nbsp;&nbsp;\
+                   <input type="checkbox" id="mdw-dle-blue" value="{{U}}">\
+                   <label for="mdw-dle-blue">Blue</label>&nbsp;&nbsp;\
+                   <input type="checkbox" id="mdw-dle-black" value="{{B}}">\
+                   <label for="mdw-dle-black">Black</label>&nbsp;&nbsp;\
+                   <input type="checkbox" id="mdw-dle-red" value="{{R}}">\
+                   <label for="mdw-dle-red">Red</label>&nbsp;&nbsp;\
+                   <input type="checkbox" id="mdw-dle-green" value="{{G}}">\
+                   <label for="mdw-dle-green">Green</label>&nbsp;&nbsp;\
+                   <input type="checkbox" id="mdw-dle-colorless" value="{{C}}">\
+                   <label for="mdw-dle-colorless">Colorless</label>&nbsp;&nbsp;');
+        createType();
         var button = $('<input type="button" id="mdw-dle-addtolist" value="Add to deck lists" />').click(clickAddToDecklists);
         $('#mdw-dle-update-span').html(button);
     }
 
     function initialize() {
+        decklistTitle = $('#mdw-dle-editor').attr('data-decklist');
+        if (!decklistTitle) {
+            $('#mdw-dle-editor').html('<span class="mdw-error">Configuration error, the deck list to edit has not been specified.</span>');
+            return;
+        }
         $('#mdw-working').html($('<img>', {
             src: mw.config.get('stylepath') + '/common/images/ajax.gif'
         }));
