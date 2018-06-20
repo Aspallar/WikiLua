@@ -15,13 +15,13 @@
 
     // return;
 
-    console.log('DecklistEdit Build 12');
+    console.log('DecklistEdit Build 14');
 
-    var decklistTitle;
-    var userLinksUrl;
-    
     if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('decklistedit-1-0-0'))
         return;
+
+    var decklistTitle;
+    var userLinksUrl = mw.config.get('wgScriptPath') + '/index.php?action=ajax&rs=getLinkSuggest&query=User%3A';
 
     function showWorking() {
         $('#mdw-working').show();
@@ -229,7 +229,7 @@
         data.forEach(function (card) {
             if (card.colors) {
                 card.colors.forEach(function (color) {
-                    if (!colors.some(function (c) { return c === color; }))
+                    if (!colors.includes(color))
                         colors.push(color);
                 });
             }
@@ -330,6 +330,10 @@
     function validateTextField(name, value) {
         if (value === '') {
             $('#mdw-dle-error-' + name).html('* A value is required.');
+            return false;
+        }
+        if (/\{|\}|\|/.test(value)) {
+            $('#mdw-dle-error-' + name).html('* Must not contain the characters {, } or |');
             return false;
         }
         return true;
@@ -447,7 +451,8 @@
                    <input type="checkbox" id="mdw-dle-colorless" value="{{C}}">\
                    <label for="mdw-dle-colorless">Colorless</label>&nbsp;&nbsp;');
         createType();
-        var button = $('<input type="button" id="mdw-dle-addtolist" value="Add to deck lists" />').click(clickAddToDecklists);
+        var button = $('<input type="button" id="mdw-dle-addtolist" value="Add to deck list" />')
+            .click(clickAddToDecklists);
         $('#mdw-dle-update-span').html(button);
     }
 
@@ -460,7 +465,6 @@
         $('#mdw-working').html($('<img>', {
             src: mw.config.get('stylepath') + '/common/images/ajax.gif'
         }));
-        userLinksUrl = mw.config.get('wgScriptPath') + '/index.php?action=ajax&rs=getLinkSuggest&query=User%3A';
         createMainForm();
         showWorking();
         getDecklistsDecks().done(function (decklistDecks) {

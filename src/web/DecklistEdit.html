@@ -70,25 +70,44 @@
         </p>
         <span id="mdw-deck-select"></span>
     </div>
-    <div id="mdw-dle-baddeck" class="mdw-dle-errordiv" style="display:none;">
+    <div id="mdw-dle-baddeck" class="mdw-dle-errordiv" style="display:block;">
         <hr />
-        <p>
-            <b>The selected deck contains invalid data.</b>
-        </p>
-        <p>
-            Please report this by leaving a note on the  message wall of 
-            an [[Special:Listusers/sysop|admin]]. Include the name of the deck
-            you were trying to add in the note.
-        </p>
+        <div style="float:left; margin-right: 50px;">
+            <p>
+                [[File:Oops.png|link=]]
+            </p>
+        </div>
+        <div style="float:left; width: 70%;">
+            <p>
+                <b>The selected deck contains invalid data.</b>
+            </p>
+            <p>
+                It looks like this deck page does not contain a valid deck definition and should not be
+                added to a deck list.
+            </p>
+            <p>
+                If you can be bothered please report this by leaving a note on the  message wall of 
+                an [[Special:Listusers/sysop|admin]]. Include the name of the deck
+                you were trying to add in the note.
+            </p>
+        </div>
     </div>
-    <div id="mdw-dle-redirected" class="mdw-dle-errordiv" style="display:none;">
+    <div style="clear:both;"></div>
+    <div id="mdw-dle-redirected" class="mdw-dle-errordiv" style="display:block;">
         <hr />
-        <p>
-            The selected deck is a redirect to another deck.
-        </p>
-        <p>
-            Redirected decks should not be added to the deck lists.
-        </p>
+        <div style="float:left; margin-right: 20px;">
+            <p>
+                [[File:Redirected.png|link=]]
+            </p>
+        </div>
+        <div style="float:left; margin-top: 30px;">
+            <p>
+                The page for the selected deck is a [[Help:Redirect|redirect]] to another page.
+            </p>
+            <p>
+                Redirected deck pages should not be added to a deck list.
+            </p>
+        </div>
     </div>
     <div id="mdw-mainform" style="display:none;">
         <hr />
@@ -99,12 +118,12 @@
         </p>
         <span id="mdw-dle-name-span"></span><span id="mdw-dle-error-name" class="mdw-error"></span>
         <p>
-            Enter the type or strategy of deck e.g Aggro, Midrange, Control etc. The most common types
-            can be selected from the dropdown.
+            Enter the type or strategy of deck. Select it from the dropdown or type it if your deck
+            type does not appear in the dropdown.
         </p>
         <span id="mdw-dle-type-span" data-types="Aggro;Combo;Control;Midrange;Tempo"></span><span id="mdw-dle-error-type" class="mdw-error"></span>
         <p>
-            Enter the author of the deck. <i>Dev note: this will autolink to profile if appropriate, not implemented yet.</i>
+            Enter the author of the deck. <i class="mdw-error">Dev note: this will autolink to profile if appropriate, not implemented yet.</i>
         </p>
         <div class="mdw-popup">
             <span id="mdw-dle-author-span" class="popup"></span><span id="mdw-dle-error-author" class="mdw-error"></span>
@@ -118,20 +137,20 @@
         </div>
         <p>
             Enter a brief description of your deck. You should keep it fairly short as long descriptions
-            do not look good on the deck lists. <i>insert example here</i>
+            do not look good on a deck list. For example
         </p>
         <span id="mdw-dle-desc-span"></span><span id="mdw-dle-error-desc" class="mdw-error"></span>
         <p>
-            Tick the colors used in the deck. This will have been initialized from the deck definition, but if your deck
-            contains genuinely colorless cards you will have to tick it manually as the data we have does not differentiate
-            between artifacts and truely colorless cards. Don't tick colorless just for artifacts.
+            Tick the colors used in the deck. This will have been initialized from the deck definition, however if your deck
+            contains cards that require colorless mana to cast you will have to tick &quot;colorless&quot; manually.
+            Don't tick colorless just for artifacts.
         </p>
         <div id="mdw-dle-colors">
         </div>
         <hr />
         <p>
-            When you are sure the above details are correct, click on this button to add the deck to the
-            deck lists.
+            When you are sure the above details are correct, click this button to add the deck to the
+            deck list.
         </p>
         <span id="mdw-dle-update-span"></span><span id="mdw-dle-error" class="mdw-error"></span>
     </div>
@@ -158,8 +177,8 @@
         </p>
         <p>
             If this problem persists please report it by leaving a note on the message wall
-            of an [[Special:Listusers/sysop|admin]]. Include the name of the deck
-            you were trying to add in the note.
+            of an [[Special:Listusers/sysop|admin]]. Include the infoemation above and the 
+            name of the deck you were trying to add in the note.
         </p>
     </div>
 </div>
