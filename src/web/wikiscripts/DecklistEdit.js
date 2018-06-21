@@ -15,13 +15,30 @@
 
     // return;
 
-    console.log('DecklistEdit Build 18');
+    console.log('DecklistEdit Build 20');
 
     if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('decklistedit-1-0-0'))
         return;
 
-    var decklistTitle;
+    var config;
     var userLinksUrl = mw.config.get('wgScriptPath') + '/index.php?action=ajax&rs=getLinkSuggest&query=User%3A';
+
+    function getConfig() {
+        config = $('#mdw-dle-editor').data();
+        if (!config.decklist)
+            return 'The deck list to edit has not been specified (data-decklist).';
+        if (!config.allowInvalidChars) {
+            config.allowInvalidChars = 'never';
+        } else {
+            if (!['always', 'never', 'trusted'].includes(config.allowInvalidChars))
+                return '(data-allow-invalid-chars) must be one of always, never or trusted';
+        }
+        if (config.filter) {
+            config.filter = new RegExp(decodeURIComponent(config.filter));
+        }
+        config.trustedEditors = [];
+        return null;
+    }
 
     function showWorking() {
         $('#mdw-working').show();
@@ -60,6 +77,23 @@
 
     function showUserPopup() {
         $('#mdw-dle-userpopup').css('visibility', 'visible');
+    }
+
+    function getTrustedEditors() {
+        wikiApiCall({
+            action: 'query',
+            meta: 'allmessages',
+            ammessages: 'Custom-TrustedEditors'
+        },'GET').done(function (data) {
+            var message = data.query.allmessages[0];
+            if (message.missing === undefined) {
+                var text = message['*'].trim();
+                if (text.length > 0)
+                    config.trustedEditors = text.split('|');
+            }
+        }).fail(function (xhr) {
+            console.error('Failed to obtain Custom-TrustedEditors', xhr);
+        });
     }
 
     function getUserLinks(event) {
@@ -102,7 +136,7 @@
                 }
                 data.query.allpages.forEach(function (deck) {
                     var title = deck.title.substring(6);
-                    if (!decklistDecks.includes(title))
+                    if (!(config.filter && config.filter.test(title)) && !decklistDecks.includes(title))
                         decks.push(title);
                 });
                 if (data['query-continue']) {
@@ -151,7 +185,7 @@
             action: 'query',
             prop: 'info|revisions',
             intoken: 'edit',
-            titles: decklistTitle,
+            titles: config.decklist,
             rvprop: 'content|timestamp',
             rvlimit: '1'
         }, 'GET').done(function (data) {
@@ -161,7 +195,7 @@
             }
             var page = getPage(data);
             if (page.missing !== undefined) {
-                deferred.reject('Page [' + decklistTitle + '] not found.');
+                deferred.reject('Page [' + config.decklist + '] not found.');
                 return;
             }
             var content = getContent(page);
@@ -204,12 +238,12 @@
 
         var deferred = $.Deferred();
 
-        linkAuthor(entry).always(function (data) {
+        linkAuthor(entry).always(function () {
             wikiApiCall({
                 action: 'query',
                 prop: 'info|revisions',
                 intoken: 'edit',
-                titles: decklistTitle,
+                titles: config.decklist,
                 rvprop: 'content|timestamp',
                 rvlimit: '1'
             }, 'GET').done(function (data) {
@@ -225,7 +259,7 @@
                     minor: 'yes',
                     summary: 'adding ' + entry.name + ' via deck list editor',
                     action: 'edit',
-                    title: decklistTitle,
+                    title: config.decklist,
                     basetimestamp: page.revisions[0].timestamp,
                     startimestamp: page.starttimestamp,
                     token: page.edittoken,
@@ -357,7 +391,11 @@
     }
 
     function allowInvalidChars() {
-        return $('#mdw-dle-editor').attr('data-allow-invalid-chars') === 'true';
+        if (config.allowInvalidChars === 'never')
+            return false;
+        if (config.allowInvalidChars === 'always')
+            return true;
+        return config.trustedEditors.includes(mw.config.get('wgUserName'));
     }
 
     function validateTextField(name, value) {
@@ -401,7 +439,7 @@
     }
 
     function redirectToDeckLists() {
-        var url = mw.config.get('wgArticlePath').replace('$1', decklistTitle);
+        var url = mw.config.get('wgArticlePath').replace('$1', config.decklist);
         window.location = url;
     }
 
@@ -470,7 +508,7 @@
                    <input type="checkbox" id="mdw-dle-green" value="{{G}}">\
                    <label for="mdw-dle-green">Green</label>&nbsp;&nbsp;\
                    <input type="checkbox" id="mdw-dle-colorless" value="{{C}}">\
-                   <label for="mdw-dle-colorless">Colorless</label>&nbsp;&nbsp;');
+                   <label for="mdw-dle-colorless">Colorless</label>');
         createType();
         var button = $('<input type="button" id="mdw-dle-addtolist" value="Add to deck list" />')
             .click(clickAddToDecklists);
@@ -478,14 +516,17 @@
     }
 
     function initialize() {
-        decklistTitle = $('#mdw-dle-editor').attr('data-decklist');
-        if (!decklistTitle) {
-            $('#mdw-dle-editor').html('<span class="mdw-error">Configuration error, the deck list to edit has not been specified.</span>');
+        var configError = getConfig();
+        if (configError) {
+            $('#mdw-dle-editor').html('<span class="mdw-error">Configuration error:' + configError + '</span>');
             return;
         }
         $('#mdw-working').html($('<img>', {
             src: mw.config.get('stylepath') + '/common/images/ajax.gif'
         }));
+        if (config.allowInvalidChars === 'trusted') {
+            getTrustedEditors(); //deliberate fire and forget, no big deal if it fails
+        }
         createMainForm();
         showWorking();
         getDecklistsDecks().done(function (decklistDecks) {
@@ -497,7 +538,7 @@
                     select.append($('<option>').text(deck));
                 });
                 $('#mdw-deck-select').html(select);
-                $('#mdw-deck-select-div').show(500);
+                $('#mdw-deck-select-div').fadeIn(500);
                 hideWorking();
             }).fail(fatalError);
         }).fail(fatalError);
