@@ -176,24 +176,17 @@
     }
 
     function linkAuthor(entry) {
-        var deferred = $.Deferred();
-
         var link = '[[User:' + entry.author + '|' + entry.author + ']]';
-        wikiApiCall({
+        return wikiApiCall({
             action: 'parse',
             disablepp: 'true',
             prop: 'text',
             text: link
-        }, 'GET').done(function (data) {
+        }, 'GET').then(function (data) {
             if (data && data.parse && data.parse.text['*'].indexOf('class="new"') === -1) {
                 entry.author = link;
             }
-            deferred.resolve();
-        }).fail(function (xhr, status, statusText) {
-            deferred.reject(xhr, status, statusText);
         });
-
-        return deferred.promise();
     }
 
     function deckRow(entry) {
@@ -211,7 +204,7 @@
 
         var deferred = $.Deferred();
 
-        linkAuthor(entry).always(function () {
+        linkAuthor(entry).always(function (data) {
             wikiApiCall({
                 action: 'query',
                 prop: 'info|revisions',
