@@ -15,7 +15,7 @@
 
     // return;
 
-    console.log('DecklistEdit Build 20');
+    console.log('DecklistEdit Build 21');
 
     if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('decklistedit-1-0-0'))
         return;
@@ -27,6 +27,8 @@
         config = $('#mdw-dle-editor').data();
         if (!config.decklist)
             return 'The deck list to edit has not been specified (data-decklist).';
+        if (!config.insertionMarker)
+            return 'No insertion point marker specified (data-insertion-marker).';
         if (!config.allowInvalidChars) {
             config.allowInvalidChars = 'never';
         } else {
@@ -249,7 +251,7 @@
             }, 'GET').done(function (data) {
                 var page = getPage(data);
                 var content = getContent(page);
-                var insertPos = content.indexOf('<!-- Add your deck info above here! -->');
+                var insertPos = content.indexOf(config.insertionMarker);
                 if (insertPos === -1) {
                     deferred.reject('Unable to locate deck insertion marker.');
                     return;
