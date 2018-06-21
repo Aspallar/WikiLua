@@ -15,7 +15,7 @@
 
     // return;
 
-    console.log('DecklistEdit Build 14');
+    console.log('DecklistEdit Build 18');
 
     if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('decklistedit-1-0-0'))
         return;
@@ -135,7 +135,7 @@
 
     function getDeckTitlesFromDecklists(content) {
         var decks = [];
-        var matches = content.match(/\|link=.*/g);
+        var matches = content.match(/^\|link=.*$/gm);
         if (matches) {
             matches.forEach(function(match) {
                 decks.push(match.substring(6).replace(/_/g, ' '));
@@ -161,7 +161,7 @@
             }
             var page = getPage(data);
             if (page.missing !== undefined) {
-                deferred.reject('Deck lists page [' + decklistTitle + '] not found.');
+                deferred.reject('Page [' + decklistTitle + '] not found.');
                 return;
             }
             var content = getContent(page);
@@ -175,51 +175,85 @@
         return deferred.promise();
     }
 
-    function addToDecklists(entry, name) {
+    function linkAuthor(entry) {
+        var deferred = $.Deferred();
+
+        var link = '[[User:' + entry.author + '|' + entry.author + ']]';
+        wikiApiCall({
+            action: 'parse',
+            disablepp: 'true',
+            prop: 'text',
+            text: link
+        }, 'GET').done(function (data) {
+            if (data && data.parse && data.parse.text['*'].indexOf('class="new"') === -1) {
+                entry.author = link;
+            }
+            deferred.resolve();
+        }).fail(function (xhr, status, statusText) {
+            deferred.reject(xhr, status, statusText);
+        });
+
+        return deferred.promise();
+    }
+
+    function deckRow(entry) {
+        var text = '{{DeckRow\n';
+        text += '|link=' + entry.link + '\n';
+        text += '|strategy=' + entry.type + '\n';
+        text += '|colors=' + entry.colors + '\n';
+        text += '|author=' + entry.author + '\n';
+        text += '|desc=' + entry.desc + '\n';
+        text += '|name=' + entry.name + '}}\n\n';
+        return text;
+    }
+
+    function addToDecklists(entry) {
 
         var deferred = $.Deferred();
 
-        wikiApiCall({
-            action: 'query',
-            prop: 'info|revisions',
-            intoken: 'edit',
-            titles: decklistTitle,
-            rvprop: 'content|timestamp',
-            rvlimit: '1'
-        }, 'GET').done(function (data) {
-            var page = getPage(data);
-            var content = getContent(page);
-            var insertPos = content.indexOf('<!-- Add your deck info above here! -->');
-            if (insertPos === -1) {
-                deferred.reject('Unable to locate deck insertion marker.');
-                return;
-            }
-            content = content.substr(0, insertPos) + entry + content.substr(insertPos);
+        linkAuthor(entry).always(function () {
             wikiApiCall({
-                minor: 'yes',
-                summary: 'adding ' + name + ' via deck list editor',
-                action: 'edit',
-                title: decklistTitle,
-                basetimestamp: page.revisions[0].timestamp,
-                startimestamp: page.starttimestamp,
-                token: page.edittoken,
-                watchlist: 'unwatch',
-                text: content,
-            }, 'POST').then(function (data) {
-                if (data.error) {
-                    deferred.reject(data.error.code === 'editconflict' ? 'editconflict' : data.error.info);
-                } else if (data.edit.result !== 'Success') {
-                    deferred.reject(data.edit.result);
-                } else {
-                    deferred.resolve();
+                action: 'query',
+                prop: 'info|revisions',
+                intoken: 'edit',
+                titles: decklistTitle,
+                rvprop: 'content|timestamp',
+                rvlimit: '1'
+            }, 'GET').done(function (data) {
+                var page = getPage(data);
+                var content = getContent(page);
+                var insertPos = content.indexOf('<!-- Add your deck info above here! -->');
+                if (insertPos === -1) {
+                    deferred.reject('Unable to locate deck insertion marker.');
+                    return;
                 }
+                content = content.substr(0, insertPos) + deckRow(entry) + content.substr(insertPos);
+                wikiApiCall({
+                    minor: 'yes',
+                    summary: 'adding ' + entry.name + ' via deck list editor',
+                    action: 'edit',
+                    title: decklistTitle,
+                    basetimestamp: page.revisions[0].timestamp,
+                    startimestamp: page.starttimestamp,
+                    token: page.edittoken,
+                    watchlist: 'unwatch',
+                    text: content,
+                }, 'POST').then(function (data) {
+                    if (data.error) {
+                        deferred.reject(data.error.code === 'editconflict' ? 'editconflict' : data.error.info);
+                    } else if (data.edit.result !== 'Success') {
+                        deferred.reject(data.edit.result);
+                    } else {
+                        deferred.resolve();
+                    }
+                }).fail(function (xhr, status, statusText) {
+                    console.log(xhr);
+                    deferred.reject('addToDecklists ' + statusText);
+                });
             }).fail(function (xhr, status, statusText) {
                 console.log(xhr);
                 deferred.reject('addToDecklists ' + statusText);
             });
-        }).fail(function (xhr, status, statusText) {
-            console.log(xhr);
-            deferred.reject('addToDecklists ' + statusText);
         });
 
         return deferred.promise();
@@ -248,11 +282,13 @@
         return contents.substring(startPos, endPos);
     }
 
-
     function getDeckColors(title) {
         var deferred = $.Deferred();
 
         $.get(mw.config.get('wgArticlePath').replace('$1', 'Decks/' + title)).done(function (data) {
+            if (data.indexOf('<div class="page-header__subtitle">Redirected from <a') !== -1) {
+                deferred.reject('redirected');
+            }
             try {
                 var deckJson = JSON.parse(extractJson('mdw-chartdata-pre', data));
                 var sideboardJson = JSON.parse(extractJson('mdw-sideboard-data', data));
@@ -327,12 +363,16 @@
         $('#mdw-dle-userpopup').css('visibility', 'hidden');
     }
 
+    function allowInvalidChars() {
+        return $('#mdw-dle-editor').attr('data-allow-invalid-chars') === 'true';
+    }
+
     function validateTextField(name, value) {
         if (value === '') {
             $('#mdw-dle-error-' + name).html('* A value is required.');
             return false;
         }
-        if (/\{|\}|\|/.test(value)) {
+        if (!allowInvalidChars() && /\{|\}|\|/.test(value)) {
             $('#mdw-dle-error-' + name).html('* Must not contain the characters {, } or |');
             return false;
         }
@@ -367,17 +407,6 @@
         return values;
     }
 
-    function makeDecklistEntry(values) {
-        var entry = '{{DeckRow\n';
-        entry += '|link=' + values.link + '\n';
-        entry += '|strategy=' + values.type + '\n';
-        entry += '|colors=' + values.colors + '\n';
-        entry += '|author=' + values.author + '\n';
-        entry += '|desc=' + values.desc + '\n';
-        entry += '|name=' + values.name + '}}\n\n';
-        return entry;
-    }
-
     function redirectToDeckLists() {
         var url = mw.config.get('wgArticlePath').replace('$1', decklistTitle);
         window.location = url;
@@ -391,11 +420,10 @@
             $('#mdw-dle-error').html('Please correct the errors above and try again');
             return;
         }
-        var entry = makeDecklistEntry(values);
         var button = $(this);
         button.prop('disabled', true);
         showWorking();
-        addToDecklists(entry, values.link)
+        addToDecklists(values)
             .done(redirectToDeckLists)
             .fail(function (reason) {
                 hideWorking();
@@ -410,7 +438,7 @@
 
     function createType() {
         var type = $('#mdw-dle-type-span');
-        type.html('<input type="input" id="mdw-dle-type" size="10" placeholder="Type"/>');
+        type.html('<input type="input" id="mdw-dle-type" size="10" placeholder="Type/Strategy" maxlength="20"/>');
         var commonTypes = type.attr('data-types');
         if (commonTypes) {
             var entries = commonTypes.split(';');
@@ -429,14 +457,14 @@
     function createMainForm() {
         /*jshint -W043 */ // allow multiline string escaping
         $('#mdw-dle-name-span')
-            .html('<input type="input" id="mdw-dle-name" size="40" placeholder="Deck name"/>');
-        var author = $('<input type="input" id="mdw-dle-author" size="20" placeholder="Author"/>')
+            .html('<input type="input" id="mdw-dle-name" size="40" placeholder="Deck name" maxlength="255"/>');
+        var author = $('<input type="input" id="mdw-dle-author" size="20" placeholder="Author" maxlength="255"/>')
             .on('input', getUserLinks)
             .focusout(hideUserPopup);
         $('#mdw-dle-author-span').html(author);
         $('#mdw-dle-usermenu').click(clickUser);
         $('#mdw-dle-desc-span')
-            .html('<input type="input" id="mdw-dle-desc" size="50" placeholder="Description"/>');
+            .html('<input type="input" id="mdw-dle-desc" size="50" placeholder="Description" maxlength="255"/>');
         $('#mdw-dle-colors')
             .html('<input type="checkbox" id="mdw-dle-white" value="{{W}}">\
                    <label for="mdw-dle-white">White</label>&nbsp;&nbsp;\

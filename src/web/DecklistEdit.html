@@ -62,15 +62,15 @@
 <body>
 <h1>DecklistEdit Test Page</h1>
 
-<div id="mdw-dle-editor" data-decklist="Decklists">
+<div id="mdw-dle-editor" data-decklist="User:Aspallar/Sandbox/Decklists" data-allow-invalid-chars="false">
     <div id="mdw-deck-select-div" style="display:none;">
         <p>
-            The following dropdown lists decks that have no entry in the deck lists page. Select
-            the deck that you want to add from the list.
+            The following dropdown lists decks that have no entry in the deck list. 
+            To get started select the deck that you want to add from the dropdown.
         </p>
         <span id="mdw-deck-select"></span>
     </div>
-    <div id="mdw-dle-baddeck" class="mdw-dle-errordiv" style="display:block;">
+    <div id="mdw-dle-baddeck" class="mdw-dle-errordiv" style="display:none;">
         <hr />
         <div style="float:left; margin-right: 50px;">
             <p>
@@ -93,7 +93,7 @@
         </div>
     </div>
     <div style="clear:both;"></div>
-    <div id="mdw-dle-redirected" class="mdw-dle-errordiv" style="display:block;">
+    <div id="mdw-dle-redirected" class="mdw-dle-errordiv" style="display:none;">
         <hr />
         <div style="float:left; margin-right: 20px;">
             <p>
@@ -109,10 +109,11 @@
             </p>
         </div>
     </div>
+    <div style="clear:both;"></div>
     <div id="mdw-mainform" style="display:none;">
         <hr />
         <p>
-            Enter the name for your deck as it is to appear in the deck lists page. This can be different
+            Enter the name for your deck as it is to appear in the deck list. This can be different
             to the page name for the deck, but should be similar to it. We recommend that you don't change
             this unless you have good reason to.
         </p>
@@ -123,7 +124,7 @@
         </p>
         <span id="mdw-dle-type-span" data-types="Aggro;Combo;Control;Midrange;Tempo"></span><span id="mdw-dle-error-type" class="mdw-error"></span>
         <p>
-            Enter the author of the deck. <i class="mdw-error">Dev note: this will autolink to profile if appropriate, not implemented yet.</i>
+            Enter the author of the deck. If the author has an account on the wiki use their user name.
         </p>
         <div class="mdw-popup">
             <span id="mdw-dle-author-span" class="popup"></span><span id="mdw-dle-error-author" class="mdw-error"></span>
@@ -137,7 +138,7 @@
         </div>
         <p>
             Enter a brief description of your deck. You should keep it fairly short as long descriptions
-            do not look good on a deck list. For example
+            do not look good on a deck list. For example <i>Easy to pull off combo with control elements</i>.
         </p>
         <span id="mdw-dle-desc-span"></span><span id="mdw-dle-error-desc" class="mdw-error"></span>
         <p>
@@ -165,22 +166,30 @@
     </div>
     <div id="mdw-dle-fatalerror" class="mdw-dle-errordiv" style="display:none;">
         <hr />
-        <h2>Oops</h2>
-        <p>
-            There has been an unexpected error while processing your request.
-        </p>
-        <p>
-            Additional Info: <span id="mdw-dle-additionalinfo">none.</span>
-        </p>
-        <p>
-            Wait a few minutes, then refresh this page and try again.
-        </p>
-        <p>
-            If this problem persists please report it by leaving a note on the message wall
-            of an [[Special:Listusers/sysop|admin]]. Include the infoemation above and the 
-            name of the deck you were trying to add in the note.
-        </p>
+        <div style="float:left; margin-right: 50px;">
+            <p>
+                [[File:Oops.png|link=]]
+            </p>
+        </div>
+        <div style="float:left; width: 70%;">
+            <h2>Oops</h2>
+            <p>
+                <b>Something went wrong.</b>
+            </p>
+            <p>
+                Additional Info: <span id="mdw-dle-additionalinfo">none.</span>
+            </p>
+            <p>
+                You can wait a few minutes, then refresh this page and try again.
+            </p>
+            <p>
+                If the problem persists please report it by leaving a note on the message wall
+                of an [[Special:Listusers/sysop|admin]]. Include the additional information above,
+                if any, and the name of the deck you were trying to add in the note. Thank you.
+            </p>
+        </div>
     </div>
+    <div style="clear:both;"></div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
