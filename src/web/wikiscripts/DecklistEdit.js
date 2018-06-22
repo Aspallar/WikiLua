@@ -23,7 +23,7 @@
     var config;
     var userLinksUrl = mw.config.get('wgScriptPath') + '/index.php?action=ajax&rs=getLinkSuggest&query=User%3A';
 
-    function getConfig() {
+    function initConfig() {
         config = $('#mdw-dle-editor').data();
         if (!config.decklist)
             return 'The deck list to edit has not been specified (data-decklist).';
@@ -314,22 +314,23 @@
     function getDeckColors(title) {
         var deferred = $.Deferred();
 
-        $.get(mw.config.get('wgArticlePath').replace('$1', 'Decks/' + title)).done(function (data) {
+        $.get(mw.config.get('wgArticlePath').replace('$1', 'Decks/' + title.replace(' ', '_'))).done(function (data) {
             if (data.indexOf('<div class="page-header__subtitle">Redirected from <a') !== -1) {
                 deferred.reject('redirected');
-            }
-            try {
-                var deckJson = JSON.parse(extractJson('mdw-chartdata-pre', data));
-                var sideboardJson = JSON.parse(extractJson('mdw-sideboard-data', data));
-                var colors = [];
-                extractDeckColors(colors, deckJson);
-                extractDeckColors(colors, sideboardJson);
-                deferred.resolve(colors);
-            } catch (error) {
-                if (data.indexOf('class="redirectMsg"') !== -1)
-                    deferred.reject('redirected');
-                else
-                    deferred.reject('baddeck');
+            } else {
+                try {
+                    var deckJson = JSON.parse(extractJson('mdw-chartdata-pre', data));
+                    var sideboardJson = JSON.parse(extractJson('mdw-sideboard-data', data));
+                    var colors = [];
+                    extractDeckColors(colors, deckJson);
+                    extractDeckColors(colors, sideboardJson);
+                    deferred.resolve(colors);
+                } catch (error) {
+                    if (data.indexOf('class="redirectMsg"') !== -1)
+                        deferred.reject('redirected');
+                    else
+                        deferred.reject('baddeck');
+                }
             }
         }).fail(function (xhr, status, statusText) {
             console.log(xhr);
@@ -357,10 +358,19 @@
         });
     }
 
+    function resetForm() {
+        var form = $('#mdw-mainform');
+        form.find('.mdw-error').html('');
+        form.find('input[type="text"]').val('');
+        form.find('input[type="checkbox"]').prop('checked', 'false');
+        document.getElementById('mdw-dle-typeselect').selectedIndex = 0;
+    }
+
     function selectDeck() {
         /* jshint -W040 */ // allow old school jquery use of this
         $('#mdw-mainform').hide();
         $('.mdw-dle-errordiv').hide();
+        resetForm();
         var deck = this.options[this.selectedIndex].text;
         console.log(deck);
         showWorking();
@@ -386,7 +396,6 @@
     }
 
     function clickUser(event) {
-        console.log('clickUser');
         var text = $(event.target).text();
         $('#mdw-dle-author').val(text);
         $('#mdw-dle-userpopup').css('visibility', 'hidden');
@@ -471,7 +480,7 @@
 
     function createType() {
         var type = $('#mdw-dle-type-span');
-        type.html('<input type="input" id="mdw-dle-type" size="10" placeholder="Type/Strategy" maxlength="20"/>');
+        type.html('<input type="text" id="mdw-dle-type" size="10" placeholder="Type/Strategy" maxlength="20"/>');
         var commonTypes = type.attr('data-types');
         if (commonTypes) {
             var entries = commonTypes.split(';');
@@ -490,14 +499,14 @@
     function createMainForm() {
         /*jshint -W043 */ // allow multiline string escaping
         $('#mdw-dle-name-span')
-            .html('<input type="input" id="mdw-dle-name" size="40" placeholder="Deck name" maxlength="255"/>');
-        var author = $('<input type="input" id="mdw-dle-author" size="20" placeholder="Author" maxlength="255"/>')
+            .html('<input type="text" id="mdw-dle-name" size="40" placeholder="Deck name" maxlength="255"/>');
+        var author = $('<input type="text" id="mdw-dle-author" size="20" placeholder="Author" maxlength="255"/>')
             .on('input', getUserLinks)
             .focusout(hideUserPopup);
         $('#mdw-dle-author-span').html(author);
         $('#mdw-dle-usermenu').click(clickUser);
         $('#mdw-dle-desc-span')
-            .html('<input type="input" id="mdw-dle-desc" size="50" placeholder="Description" maxlength="255"/>');
+            .html('<input type="text" id="mdw-dle-desc" size="50" placeholder="Description" maxlength="255"/>');
         $('#mdw-dle-colors')
             .html('<input type="checkbox" id="mdw-dle-white" value="{{W}}">\
                    <label for="mdw-dle-white">White</label>&nbsp;&nbsp;\
@@ -518,7 +527,7 @@
     }
 
     function initialize() {
-        var configError = getConfig();
+        var configError = initConfig();
         if (configError) {
             $('#mdw-dle-editor').html('<span class="mdw-error">Configuration error:' + configError + '</span>');
             return;
