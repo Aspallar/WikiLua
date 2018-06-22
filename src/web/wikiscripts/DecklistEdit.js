@@ -13,10 +13,6 @@
     /*global mw */
     'use strict';
 
-    // return;
-
-    console.log('DecklistEdit Build 21');
-
     if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('decklistedit-1-0-0'))
         return;
 
@@ -57,7 +53,7 @@
         $('#mdw-dle-deckselect').prop('disabled', true) ;
         $('#mdw-dle-addtolist').prop('disabled', true) ;
         hideWorking();
-        $('#mdw-dle-fatalerror').show(400);
+        $('#mdw-dle-fatalerror').fadeIn(400);
     }
 
     function wikiApiCall(data, method) {
@@ -71,9 +67,7 @@
         });
     }
 
-    function hideUserPopup(event) {
-        if (event && !event.relatedTarget)
-            return;
+    function hideUserPopup() {
         $('#mdw-dle-userpopup').css('visibility', 'hidden');
     }
 
@@ -147,7 +141,7 @@
                     deferred.resolve(decks);
                 }
             }).fail(function (xhr, status, statusText) {
-                console.log(xhr);
+                console.error(xhr);
                 deferred.reject('getUnlistedDecks ' + statusText);
             });
         }
@@ -204,7 +198,7 @@
             var decks = getDeckTitlesFromDecklists(content);
             deferred.resolve(decks);
         }).fail(function (xhr, status, statusText) {
-            console.log(xhr);
+            console.error(xhr);
             deferred.reject('getDecklistsDecks ' + statusText);
         });
 
@@ -276,11 +270,11 @@
                         deferred.resolve();
                     }
                 }).fail(function (xhr, status, statusText) {
-                    console.log(xhr);
+                    console.error(xhr);
                     deferred.reject('addToDecklists ' + statusText);
                 });
             }).fail(function (xhr, status, statusText) {
-                console.log(xhr);
+                console.error(xhr);
                 deferred.reject('addToDecklists ' + statusText);
             });
         });
@@ -333,7 +327,7 @@
                 }
             }
         }).fail(function (xhr, status, statusText) {
-            console.log(xhr);
+            console.error(xhr);
             deferred.reject('Failed to obtain deck colors from ' + title + '. Reason: ' + statusText);
         }) ;
 
@@ -343,7 +337,6 @@
     function setAuthor() {
         var loggedUser = mw.config.get('wgUserName');
         if (loggedUser) {
-            // $('#mdw-dle-author').val('[[User:' + loggedUser + '|' + loggedUser + ']]');
             $('#mdw-dle-author').val(loggedUser);
         } else {
             $('#mdw-dle-author').val('Anonymous');
@@ -362,8 +355,8 @@
         var form = $('#mdw-mainform');
         form.find('.mdw-error').html('');
         form.find('input[type="text"]').val('');
-        form.find('input[type="checkbox"]').prop('checked', 'false');
         document.getElementById('mdw-dle-typeselect').selectedIndex = 0;
+        hideUserPopup();
     }
 
     function selectDeck() {
@@ -372,19 +365,18 @@
         $('.mdw-dle-errordiv').hide();
         resetForm();
         var deck = this.options[this.selectedIndex].text;
-        console.log(deck);
         showWorking();
         getDeckColors(deck).done(function (colors) {
             hideWorking();
             $('#mdw-dle-name').val(deck);
             setAuthor();
             tickColors(colors);
-            $('#mdw-mainform').show(500);
+            $('#mdw-mainform').fadeIn(400);
             $('#mdw-dle-name').focus();
         }).fail(function (reason) {
             hideWorking();
             if (reason === 'baddeck' || reason === 'redirected')
-                $('#mdw-dle-' + reason).show(200);
+                $('#mdw-dle-' + reason).fadeIn(400);
             else
                 fatalError(reason);
         });
@@ -406,7 +398,10 @@
             return false;
         if (config.allowInvalidChars === 'always')
             return true;
-        return config.trustedEditors.includes(mw.config.get('wgUserName'));
+        var user = mw.config.get('wgUserName');
+        if (!user)
+            return false;
+        return config.trustedEditors.includes(user);
     }
 
     function validateTextField(name, value) {
@@ -471,7 +466,7 @@
                 hideWorking();
                 if (reason === 'editconflict') {
                     button.prop('disabled', false);
-                    $('#mdw-dle-editconflict').show(300);
+                    $('#mdw-dle-editconflict').fadeIn(400);
                 } else {
                     fatalError(reason);
                 }
@@ -487,7 +482,8 @@
             if (entries.length > 0) {
                 var select = $('<select id="mdw-dle-typeselect">')
                     .append($('<option disabled selected>Select type --</option>'))
-                    .change(selectType);
+                    .change(selectType)
+                    .focus(hideUserPopup);
                 entries.forEach(function (entry) {
                     select.append($('<option>').text(entry));
                 });
@@ -501,8 +497,8 @@
         $('#mdw-dle-name-span')
             .html('<input type="text" id="mdw-dle-name" size="40" placeholder="Deck name" maxlength="255"/>');
         var author = $('<input type="text" id="mdw-dle-author" size="20" placeholder="Author" maxlength="255"/>')
-            .on('input', getUserLinks)
-            .focusout(hideUserPopup);
+            .on('input', getUserLinks);
+            // .focusout(hideUserPopup);
         $('#mdw-dle-author-span').html(author);
         $('#mdw-dle-usermenu').click(clickUser);
         $('#mdw-dle-desc-span')
@@ -524,6 +520,7 @@
         var button = $('<input type="button" id="mdw-dle-addtolist" value="Add to deck list" />')
             .click(clickAddToDecklists);
         $('#mdw-dle-update-span').html(button);
+        $('#mdw-mainform input:not(#mdw-dle-author)').focus(hideUserPopup);
     }
 
     function initialize() {
