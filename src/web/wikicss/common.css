@@ -378,3 +378,57 @@
     font-size: small;
     color: red;
 }
+#seemoreactivity-button {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.mdw-error {
+    font-size: smaller;
+    color: red;
+}
+.mdw-popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.mdw-popup .mdw-popuptext {
+    visibility: hidden;
+    background-color: white;
+    border: 2px solid #1E5FC7;
+    color: #fff;
+    border-radius: 6px;
+    padding: 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: 0px;
+}
+/* bottom arrow */
+.mdw-popup .mdw-popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 25%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #1E5FC7 transparent transparent transparent;
+}
+#mdw-dle-usermenu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 240px;
+}
+#mdw-dle-usermenu li {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+#mdw-dle-usermenu li:hover {
+    background-color: #1E5FC7;
+    color: white;
+}
