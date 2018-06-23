@@ -1,0 +1,51 @@
+<html>
+<head>
+    <title>Test DecklistEdit</title>
+    <link rel="stylesheet" type="text/css" href="wikicss/common.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <style type="text/css">
+        body {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<h1>Import Deck Test Page</h1>
+
+<div id="mdw-import-deck" style="display:none;">
+    <div>
+        Enter a name for you deck<br />
+        <span id="mdw-import-deckname-span"></span>&nbsp;<span id="mdw-import-deckname-error" class="mdw-error"></span>
+    </div>
+    <div>
+        Paste the deck export from arena into the box below.<br />
+        <span id="mdw-import-deckdef-span"></span><br />
+        <span id="mdw-import-deckdef-error" class="mdw-error"></span>
+    </div>
+    <div>
+        <span id="mdw-import-button-span"></span>
+    </div>
+    <div id="mdw-import-badentries" style="display:none;">
+        The following entries in the import are not valid.
+        <div id="mdw-import-badentries-content">
+        </div>
+    </div>
+</div>
+<div id="mdw-working" style="display:none;"></div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+</script>
+<!-- <script src="scripts\wikiParse.js"></script> -->
+<script src="scripts\mediawiki.js"></script>
+<script src="wikiscripts\ImportDeck.js"></script>
+<script>
+    //$.get('wikitemplates/ArenaImport.html', function (data) {
+    //    $('#arenaimport-template').html(wikiParse(data));
+    //    $.getScript('wikiscripts/DeckExport.js');
+    //});
+</script>
+</body>
+</html>
