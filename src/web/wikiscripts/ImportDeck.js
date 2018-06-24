@@ -1,8 +1,18 @@
+// ==========================================================================
+// ImportDeck
+//
+// Version 1.0.0
+// Author: Aspallar
+//
+// Provides a user friendly way to import a deck from Magic Arena
+// without the user having to edit any wikitext.
+//
+// ** Please do not edit this code directly in the wikia.
+// ** Instead use the git repository https://github.com/Aspallar/WikiLua
+//
 (function ($) {
     /* global mw*/
     'use strict';
-
-    console.log('Import deck build 1');
 
     if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('importdeck-1-0-0'))
         return;
@@ -55,36 +65,38 @@
         $('#mdw-import-button').prop('disabled', false);
     }
 
-    function fatalError(error) {
-        console.log('fatalError');
-        console.log(error);
-    }
-
     function getNewDeckTemplate() {
         // var deferred = $.Deferred();
-        // deferred.resolve('$1<includeonly>');
+        // deferred.resolve('start/n$1/nend<includeonly>');
         // return deferred.promise();
         return $.get(buildUrl('Template:NewDeck', {action: 'raw'}));
     }
 
-    function validate() {
-        var errors = false;
-        $('.mdw-error').html('');
+    function displayError(name, message) {
+        $('#mdw-import-' + name + '-error').html('* ' + message);
+        return false;
+    }
+
+    function unexpectedError(message) {
+        displayError('unexpected', 'An unexpected error occurred: ' + message);
+    }
+
+    function validateDeckName() {
         var name = $('#mdw-import-deckname').val().trim();
-        if (name.length === 0) {
-            $('#mdw-import-deckname-error').html('* A deck name is required');
-            errors = true;
-        }
-        else if (invalidTitle(name)) {
-            $('#mdw-import-deckname-error').html('* Invalid deck name');
-            errors = true;
-        }
+        if (name.length === 0)
+            return displayError('deckname', 'A deck name is required.');
+        else if (invalidTitle(name))
+            return displayError('deckname', 'Invalid deck name.');
+        else
+            return true;
+    }
+
+    function validateDeckDef() {
         var deckdef = $('#mdw-import-deckdef').val().trim();
-        if (deckdef.length === 0) {
-            $('#mdw-import-deckdef-error').html('You must enter a deck definition');
-            errors = true;
-        }
-        return !errors;
+        if (deckdef.length === 0)
+            return displayError('deckdef', 'You must enter a deck definition');
+        else
+            return true;
     }
 
     function redirectToTitle(title) {
@@ -92,70 +104,75 @@
         window.location = url;
     }
 
-    function createDeckPage(deckEntries) {
+    function handleCreateError(error) {
+        enableButton();
+        if (error.code === 'articleexists') {
+            displayError('deckname', 'Deck name already in use.');
+            $('#mdw-import-deckname').focus();
+        } else if (error.code === 'invalidtitle') {
+            displayError('deckname', 'Invalid deck name.');
+            $('#mdw-import-deckname').focus();
+        } else {
+            unexpectedError(error.info);
+        }
+    }
+
+    function createDeckPage(name, deckEntries) {
         disableButton();
         showWorking();
-        var content = newDeckTemplate.replace('$1', deckEntries.join('\n'));
-        var title = 'Decks/' + $('#mdw-import-deckname').val();
-
         mw.loader.using('mediawiki.api').then(function () {
-            var api = new mw.Api();
-            api.post({
+            var content = newDeckTemplate.replace('$1', deckEntries.join('\n'));
+            var title = 'Decks/' + name;
+            new mw.Api().post({
                 action: 'edit',
                 title: title,
                 summary: 'Imported deck',
-                text: content,
                 createonly: 'yes',
+                text: content,
                 token: mw.user.tokens.get('editToken')
             }).done(function(result) {
                 hideWorking();
-                if (result.error) {
-                    if (result.error.code === 'articleexists') {
-                        $('#mdw-import-deckname-error').html('* Deck name already used.');
-                        $('#mdw-import-deckname').focus();
-                        enableButton();
-                    } else if (result.error.code === 'invalidtitle') {
-                        $('#mdw-import-deckname-error').html('* Invalid deck name');
-                        $('#mdw-import-deckname').focus();
-                        enableButton();
-                    } else {
-                        fatalError(result.error.info);
-                    }
-                } else {
+                if (result.error === undefined) {
                     redirectToTitle(title);
+                } else {
+                    handleCreateError(result.error);
                 }
             }).fail(function(code, result) {
-                fatalError('Error ' + code + (code === 'http' ? ' ' + result.textStatus : ''));
+                unexpectedError(code + (code === 'http' ? ' ' + result.textStatus : ''));
             });
         });
 
     }
 
-    function clickImport() {
-        hideBadEntries();
-        if (!validate())
-            return;
-        var decktext = $('#mdw-import-deckdef').val().trim();
-        var blankLineCount = 0;
-        var deckEntries = [];
-        var badEntries = [];
-        decktext.split('\n').forEach(function (entry) {
+    function parseDeckDef(deckdef) {
+        var result = { validEntries: [], badEntries: [], sideboardCount: 0 };
+        deckdef.split('\n').forEach(function (entry) {
             entry = entry.trim();
             if (entry.length === 0) {
-                ++blankLineCount;
-                deckEntries.push('--- sideboard ---');
+                ++result.sideboardCount;
+                result.validEntries.push('--- sideboard ---');
             } else if (/^\d+\s+.*\S.*$/.test(entry)) {
-                deckEntries.push(entry);
+                result.validEntries.push(entry);
             } else {
-                badEntries.push(entry);
+                result.badEntries.push(entry);
             }
         });
-        if (badEntries.length > 0) {
-            showBadEntries(badEntries);
-        } else if (blankLineCount > 1) {
-            $('#mdw-import-deckdef-error').html('Import contains more than one sideboard.');
-        } else {
-            createDeckPage(deckEntries);
+        return result;
+    }
+
+    function clickImport() {
+        hideBadEntries();
+        $('.mdw-error').html('');
+        var nameValid = validateDeckName() ;
+        var deckdefValid = validateDeckDef();
+        if (deckdefValid) {
+            var result = parseDeckDef($('#mdw-import-deckdef').val().trim());
+            if (result.badEntries.length > 0)
+                showBadEntries(result.badEntries);
+            if (result.sideboardCount > 1) 
+                displayError('deckdef', 'Import contains more than one sideboard.');
+            if (nameValid && result.badEntries.length === 0 && result.sideboardCount <= 1)
+                createDeckPage($('#mdw-import-deckname').val(), result.validEntries);
         }
     }
 
