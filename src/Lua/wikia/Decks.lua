@@ -189,19 +189,22 @@ end
 local function ParseDeck(list)
     local isSideboard = false;
     for _, cardEntry in pairs(list) do
-        if string.sub(cardEntry, 1, 2) == "--" then
-            isSideboard = true
-        else
-            local amount, name = ParseCardEntry(cardEntry)
-            local card = cardService.GetByNameIgnoreCase(name)
-            if card then
-                if isSideboard then
-                    deck.AddSideboard(amount, card)
-                else
-                    deck.AddCard(amount, card)
-                end
+        cardEntry = mw.text.trim(cardEntry)
+        if (cardEntry ~= "") then
+            if string.sub(cardEntry, 1, 2) == "--" then
+                isSideboard = true
             else
-                deck.AddError(amount, name)
+                local amount, name = ParseCardEntry(cardEntry)
+                local card = cardService.GetByNameIgnoreCase(name)
+                if card then
+                    if isSideboard then
+                        deck.AddSideboard(amount, card)
+                    else
+                        deck.AddCard(amount, card)
+                    end
+                else
+                    deck.AddError(amount, name)
+                end
             end
         end
     end

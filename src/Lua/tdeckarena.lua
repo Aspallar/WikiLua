@@ -10,6 +10,9 @@ local inputList = [=[
 3 Goblin Trailblazer (RIX) 105
 1 Tilonalli's Summoner (RIX) 121
 1 Captain Lannery Storm (XLN) 136
+
+   
+
 2 Sure Strike (XLN) 166
 2 Fiery Cannonade (XLN) 143
 2 Hijack (XLN) 148
