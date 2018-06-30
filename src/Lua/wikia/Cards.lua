@@ -91,13 +91,15 @@ local function ExpansionSymbol(card)
 end
 
 local function GetRulings(card)
-    if not card.Rulings then return "" end
+    local rulings = mw.loadData("Module:Data/Rulings")
+    local rules = rulings[card.MultiverseID]
+    if rules == nil then return "" end
     local s = [=[{{clear}}
 {| class="article-table mdw-cardrulings-table"
 |+ Card rulings ([[Card rulings|?]])
 ]=]
-    for _, ruling in pairs(card.Rulings) do
-        s = s .. string.format(rulingTemplate,ruling.Date,ruling.Text)
+    for _, rule in pairs(rules) do
+        s = s .. string.format(rulingTemplate, rule.Date, rule.Text)
     end
     s = s .. "|}"
     return s
