@@ -91,8 +91,9 @@ local function ExpansionSymbol(card)
 end
 
 local function GetRulings(card)
+    if card.Rulings == nil then return "" end
     local rulings = mw.loadData("Module:Data/Rulings")
-    local rules = rulings[card.MultiverseID]
+    local rules = rulings[card.CardNumber]
     if rules == nil then return "" end
     local s = [=[{{clear}}
 {| class="article-table mdw-cardrulings-table"
