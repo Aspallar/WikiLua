@@ -124,7 +124,7 @@ end
 
 local function GetReprintsTable(card)
     local row = "{{ReprintRow|%s|%s|%s|<br />%s}}\n"
-    local s = "{|class=\"mdw-reprint-table\"\n|+ '''Other Sets'''\n"
+    local s = "\n\n----\n{|class=\"mdw-reprint-table\"\n|+ '''Other Sets'''\n"
     for _, set in pairs(card.Sets) do
         local setTemplate = "{{" .. set.Set .. string.sub(set.Rarity,1,1) .. "}}"
         local imageName = card.Name .. " " .. set.Set .. " " .. set.CardNumber
