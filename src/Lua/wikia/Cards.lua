@@ -30,12 +30,6 @@ local cardPageTemplate = [=[{| class="article-table mdw-cardinfo-table"
 <br/>
 [[File:%s.png|link=]]]=]
 
-local otherSetsTemplate = [=[{| class="mdw-reprint"
-|-
-| align="center" |[[File:Reprint icon.png|link=]] || This card is a '''Reprint''' from<br />%s, %s {{%s}}, Flavor Text: ''%s''
-|}
-]=]
-
 local landOtherSetsTemplate = [=[{| class="mdw-reprint"
 |-
 | align="center" |[[File:Reprint icon.png|link=]] || This card is a '''Reprint''' from %s
@@ -54,12 +48,20 @@ setNames["XLN"]="Ixalan"
 setNames["RIX"]="Rivals of Ixalan"
 setNames["DOM"]="Dominaria"
 
+local function SetLinkName(setCode)
+    if setCode == "HOU" then
+        return "Hour of Devastation (set)"
+    end
+    return setNames[setCode]
+end
+
 local function SetLink(setCode)
     if setCode == "HOU" then
         return "[[Hour of Devastation (set)|Hour of Devastation]]"
     end
     return "[[" .. setNames[setCode] .. "]]"
 end
+
 
 local function ConcatTables(target,source)
     if not source then return end
@@ -120,6 +122,21 @@ local function GenerateAnyCardRow(card)
 end
 
 
+local function GetReprintsTable(card)
+    local row = "{{ReprintRow|%s|%s|%s|<br />%s}}\n"
+    local s = "{|class=\"mdw-reprint-table\"\n|+ '''Other Sets'''\n"
+    for _, set in pairs(card.Sets) do
+        local setTemplate = "{{" .. set.Set .. string.sub(set.Rarity,1,1) .. "}}"
+        local imageName = card.Name .. " " .. set.Set .. " " .. set.CardNumber
+        local setlink = SetLinkName(set.Set)
+        local setname = setNames[set.Set]
+        local flavor = set.Flavor or ""
+        local text = setTemplate ..  " " .. set.Rarity .. "<br />" .. flavor
+        s = s .. string.format(row, imageName, setlink, setname, text)
+    end
+    return s .. "|}"
+end
+
 local function GetReprints(card)
     local reprints = ""
     if card.Sets then
@@ -131,12 +148,7 @@ local function GetReprints(card)
             end
             reprints = reprints .. "\n\n" .. string.format(landOtherSetsTemplate, setsList)
         else
-            for _, set in pairs(card.Sets) do
-                local setTemplate = set.Set .. string.sub(set.Rarity,1,1)
-                local flavor = set.Flavor or "None."
-                local setEntry = string.format(otherSetsTemplate, SetLink(set.Set), set.Rarity, setTemplate, flavor);
-                reprints = reprints .. setEntry
-            end
+            reprints = reprints .. GetReprintsTable(card)
         end
     end
     return reprints
