@@ -30,12 +30,6 @@ local cardPageTemplate = [=[{| class="article-table mdw-cardinfo-table"
 <br/>
 [[File:%s.png|link=]]]=]
 
-local landOtherSetsTemplate = [=[{| class="mdw-reprint"
-|-
-| align="center" |[[File:Reprint icon.png|link=]] || This card is a '''Reprint''' from %s
-|}
-]=]
-
 local numCardsPerPage = 100
 
 local setNames = {}
@@ -142,11 +136,7 @@ local function GetReprints(card)
     if card.Sets then
         reprints = "{{Clear}}\n"
         if card.Rarity == "Basic Land" then
-            local setsList = ""
-            for _, set in pairs(card.Sets) do
-                setsList = setsList .. SetLink(set.Set)
-            end
-            reprints = reprints .. "\n\n" .. string.format(landOtherSetsTemplate, setsList)
+            reprints = reprints .. "{{LandReprint}}"
         else
             reprints = reprints .. GetReprintsTable(card)
         end
@@ -341,4 +331,3 @@ function p.GetCardCategories(card)
 end
 
 return p
-
