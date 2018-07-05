@@ -86,6 +86,10 @@ local function ExpansionSymbol(card)
     return "{{"..card.SetCode..card.Rarity:sub(1,1).."}}"
 end
 
+local function ExpandSymbols(text)
+    return string.gsub(text, "{(.)}", "{{%1}}")
+end
+
 local function GetRulings(card)
     if card.Rulings == nil then return "" end
     local rulings = mw.loadData("Module:Data/Rulings")
@@ -96,7 +100,7 @@ local function GetRulings(card)
 |+ Card rulings ([[Card rulings|?]])
 ]=]
     for _, rule in pairs(rules) do
-        s = s .. string.format(rulingTemplate, rule.Date, rule.Text)
+        s = s .. string.format(rulingTemplate, rule.Date, ExpandSymbols(rule.Text))
     end
     s = s .. "|}"
     return s
