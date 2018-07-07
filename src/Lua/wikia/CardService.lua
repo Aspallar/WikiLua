@@ -37,6 +37,10 @@ local criteriaList = {
     NotText = function(card,condition) return card.Text == nil or not string.find(string.lower(card.Text),string.lower(condition)) end;
     -- condition ∈ {Any number}
     CMC = function(card,condition) return (card.cmc or 0) - condition == 0 end;
+    -- condition ∈ {Any number}
+    MinCMC =  function(card,condition) return (card.cmc or 0) - condition >= 0 end;
+    -- condition ∈ {Type}
+    NotType = function(card,condition) return not TableContains(card.Types,condition) end;
 }
 
 local function MeetsCriteria(card, criteria)
