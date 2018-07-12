@@ -432,3 +432,27 @@
     background-color: #1E5FC7;
     color: white;
 }
+.mdw-collapsable {
+    display: none;
+}
+.mdw-arrow-collapse {
+    cursor: pointer;
+}
+.mdw-reprint-table {
+    width: 100%;
+}
+.mdw-reprint-table td:first-child {
+    text-align: left;
+    width: 95px;
+}
+#mdw-az {
+    background-color: white;
+    border: 2px solid #1E5FC7;
+    border-radius: 10px;
+    bottom: 30px;
+    line-height: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: fixed;
+    right: 100px;
+}
