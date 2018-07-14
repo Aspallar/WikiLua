@@ -23,6 +23,11 @@ mw.config.get = function(param) {
 	throw 'Unknown config item [' + param + ']';
 };
 
+mw.loader = {};
+mw.loader.using = function(what, cb) {
+    cb();
+};
+
 mw.hook = function (func) {
 	jQuery(func);
 };
