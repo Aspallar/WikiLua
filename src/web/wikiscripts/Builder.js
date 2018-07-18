@@ -9,6 +9,11 @@
         return;
 
     var builtDeck = {};
+    var cardNames;
+
+    function validCard(card) {
+        return cardNames.includes(card);
+    }
 
     function addToDeck(amount, name) {
         if (builtDeck[name])
@@ -29,6 +34,14 @@
         renderDeck();
     }
 
+    function showError(message) {
+        $('#mdw-db-error').text('* ' + message);
+    }
+
+    function hideError() {
+        $('#mdw-db-error').text('');
+    }
+
     function renderDeckEntry(amount, card) {
         // <li>12 Plains<span class="mdw-db-close" data-card="Plains">x</span></li>
         var close = $('<span class="mdw-db-close">x</span>')
@@ -39,12 +52,20 @@
     }
 
     function renderDeck() {
+        var count = 0;
         var deckContents = $(document.createDocumentFragment());
         for (var card in builtDeck) {
             if (builtDeck.hasOwnProperty(card)) {
+                count += builtDeck[card];
                 deckContents.append(renderDeckEntry(builtDeck[card], card));
             }
         }
+        var countElement = $('#mdw-db-cardcount');
+        countElement.text(count);
+        if (count < 60)
+            countElement.addClass('mdw-db-baddeck');
+        else
+            countElement.removeClass('mdw-db-baddeck');
         $('.mdw-db-deck').html(deckContents);
     }
 
@@ -62,30 +83,37 @@
 
     function fetchCardNames() {
         var deferred = $.Deferred();
-        // deferred.resolve(globalCardnames);
-        $.get(mw.config.get('wgArticlePath').replace('$1', 'MediaWiki:Custom-Cards?action=raw'), function (data) {
-            var cardnames = [];
-            data.split('\n').forEach(function (cardname) {
-                if (cardname.length > 0) cardnames.push(cardname);
-            });
-            cardnames.sort();
-            deferred.resolve(cardnames);
-        });
+        deferred.resolve(globalCardnames);
+        // $.get(mw.config.get('wgArticlePath').replace('$1', 'MediaWiki:Custom-Cards?action=raw'), function (data) {
+        //     var cardnames = [];
+        //     data.split('\n').forEach(function (cardname) {
+        //         if (cardname.length > 0) cardnames.push(cardname);
+        //     });
+        //     cardnames.sort();
+        //     deferred.resolve(cardnames);
+        // });
         return deferred;
     }
 
     function onClickAdd() {
+        hideError();
         var card = $('#mdw-db-cardname').val();
         var amount = $('#mdw-db-amount').val();
+        var cards = $('')
         if (card.length !== 0) {
-            amount = amount === '' ? 1 : parseInt(amount, 10);
-            addToDeck(amount, card);
-            renderDeck();
+            if (validCard(card)) {
+                amount = amount === '' ? 1 : parseInt(amount, 10);
+                addToDeck(amount, card);
+                renderDeck();
+            } else {
+                showError('Not a valid card name.')
+            }
         }
     }
 
     function onAmountInput() {
         /*jshint -W040 */ // allow old school jquery this
+        hideError();
         var amount = $(this);
         var val = amount.val();
         if (val !== '') {
@@ -112,6 +140,7 @@
 
     function initialize() {
         fetchCardNames().done(function (cardnames) {
+            cardNames = cardnames;
             mw.loader.using('jquery.ui.autocomplete', function () {
                 createForm();
                 $('#mdw-db-cardname').autocomplete({
