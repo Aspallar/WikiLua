@@ -3,7 +3,7 @@
     /*global mw, globalCardnames */
     /*jshint -W003*/
 
-    console.log('Build C');
+    console.log('Builder Build A');
 
     if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('builder-1-0-0'))
         return;
@@ -241,6 +241,12 @@
                 $('#mdw-db-cardname').autocomplete({
                     source: cardnames
                 });
+                var deckName = mw.util.getParamValue('deck');
+                console.log('deckname');
+                console.log(deckName);
+                if (deckName) {
+                    $('#mdw-db-deckname').val(deckName).prop('disabled', true);
+                }
             });
         });
     }
