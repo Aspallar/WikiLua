@@ -3,7 +3,7 @@
     /*global mw, globalCardnames */
     /*jshint -W003*/
 
-    console.log('Build A');
+    console.log('Build C');
 
     if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('builder-1-0-0'))
         return;
@@ -61,12 +61,12 @@
         updateUi();
     }
 
-    function showError(message) {
-        $('#mdw-db-error').text('* ' + message);
+    function showError(message, targetId) {
+        $('#' + targetId).text('* ' + message);
     }
 
-    function hideError() {
-        $('#mdw-db-error').text('');
+    function resetErrors() {
+        $('.mdw-error').text('');
     }
 
     function renderDeckEntry(amount, card) {
@@ -122,7 +122,7 @@
     }
 
     function onClickAdd() {
-        hideError();
+        resetErrors();
         var card = $('#mdw-db-cardname').val();
         var amount = $('#mdw-db-amount').val();
         if (card.length !== 0) {
@@ -131,7 +131,7 @@
                 addToDeck(amount, card);
                 renderDeck();
             } else {
-                showError('Not a valid card name.');
+                showError('Not a valid card name.', 'mdw-db-error');
             }
         }
         updateUi();
@@ -139,7 +139,7 @@
 
     function onAmountInput() {
         /*jshint -W040 */ // allow old school jquery this
-        hideError();
+        resetErrors();
         var amount = $(this);
         var val = amount.val();
         if (val !== '') {
@@ -162,14 +162,22 @@
     }
 
     function handleCreateError(error) {
-        console.log(error);
+        // enableButton();
+        if (error.code === 'articleexists') {
+            showError('Deck name already in use.', 'mdw-deckname-error');
+            $('#mdw-import-deckname').focus();
+        } else if (error.code === 'invalidtitle') {
+            showError('Invalid deck name.', 'mdw-deckname-error');
+            $('#mdw-import-deckname').focus();
+        } else {
+            unexpectedError(error.info);
+        }
     }
 
     function redirectToTitle(title) {
         var url = mw.config.get('wgArticlePath').replace('$1', title);
         window.location = url;
     }
-
 
     function createDeckPage(name, deckText) {
         mw.loader.using('mediawiki.api').then(function () {
@@ -197,9 +205,14 @@
     }
 
     function onClickSave() {
+        resetErrors();
         var name = $('#mdw-db-deckname').val();
-        var text = deckText();
-        createDeckPage(name, text);
+        if (name.length > 0) {
+            var text = deckText();
+            createDeckPage(name, text);
+        } else {
+            showError('You must enter a deck name.', 'mdw-deckname-error');
+        }
     }
 
     function createForm() {
@@ -212,12 +225,12 @@
             .append($('<input type="number" id="mdw-db-amount" min="1" max="99" value="1">').on('input', onAmountInput));
         var cardname = $(document.createDocumentFragment())
             .append('<label for="mdw-db-cardname">Card Name</label><br />')
-            .append($('<input type="text" id="mdw-db-cardname">').focus(onFocusSelectAll).on('input', hideError));
+            .append($('<input type="text" id="mdw-db-cardname">').focus(onFocusSelectAll).on('input', resetErrors));
         $('#mdw-db-cardname-span').replaceWith(cardname);
         $('#mdw-db-amount-span').replaceWith(amount);
         $('#mdw-db-add-span').replaceWith(add);
         $('#mdw-db-savedeck-span').replaceWith(save);
-        $('#mdw-db-deckname-span').replaceWith('<label for="mdw-db-deckname">Deck Name</span><br /><input type="text" id="mdw-db-deckname" size="40">');
+        $('#mdw-db-deckname-span').replaceWith('<label for="mdw-db-deckname">Deck Name</span> <input type="text" id="mdw-db-deckname" placeholder="Enter a name for your deck here." size="40">');
     }
 
     function initialize() {
