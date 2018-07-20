@@ -3,12 +3,13 @@
     /*global mw, globalCardnames */
     /*jshint -W003*/
 
-    console.log('Builder Build A');
+    console.log('Builder Build F');
 
     if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('builder-1-0-0'))
         return;
 
     var builtDeck = {};
+    var deckPage;
     var cardNames;
 
     function getBaseUrl() {
@@ -51,6 +52,14 @@
             }
         }
         return text;
+    }
+
+    function extractDeckText(content) {
+        // TODO: handle deck format error, assuming page is correct for now
+        var startPos = content.indexOf('|Deck=');
+        var endPos = content.indexOf('}}', startPos);
+        var deckText = content.substring(startPos, endPos);
+        return deckText;
     }
 
     function onClickRemoveDeckEntry(){
@@ -96,16 +105,16 @@
         $('.mdw-db-deck').html(deckContents);
     }
 
-    // function wikiApiCall(data, method) {
-    //     data.format = 'json';
-    //     return $.ajax({
-    //         data: data,
-    //         dataType: 'json',
-    //         url: mw.config.get('wgScriptPath') + '/api.php',
-    //         type: method,
-    //         timeout: 10000 
-    //     });
-    // }
+    function wikiApiCall(data, method) {
+        data.format = 'json';
+        return $.ajax({
+            data: data,
+            dataType: 'json',
+            url: mw.config.get('wgScriptPath') + '/api.php',
+            type: method,
+            timeout: 10000 
+        });
+    }
 
     function fetchCardNames() {
         var deferred = $.Deferred();
@@ -204,6 +213,41 @@
         });
     }
 
+    function getDeckContentsFromPage(page) {
+        var content = page.revisions[0]['*'];
+        return content;
+    }
+
+
+    function getPageFromResponse(response) {
+        var pages = response.query.pages;
+        for (var property in pages) {
+            if (pages.hasOwnProperty(property))
+                return pages[property];
+        }
+        return null;
+    }
+
+    function fetchDeckPage(title) {
+        var deferred = $.Deferred();
+        wikiApiCall({
+            action: 'query',
+            prop: 'info|revisions',
+            intoken: 'edit',
+            titles: 'Decks/' + title,
+            rvprop: 'content|timestamp',
+            rvlimit: '1'
+        }, 'GET').done(function (response) {
+            var page = getPageFromResponse(response);
+            deferred.resolve(page);
+        });
+        return deferred;
+    }
+
+    function initDeckFromDeckText(text) {
+        console.log(text);
+    }
+
     function onClickSave() {
         resetErrors();
         var name = $('#mdw-db-deckname').val();
@@ -242,10 +286,13 @@
                     source: cardnames
                 });
                 var deckName = mw.util.getParamValue('deck');
-                console.log('deckname');
-                console.log(deckName);
                 if (deckName) {
                     $('#mdw-db-deckname').val(deckName).prop('disabled', true);
+                    fetchDeckPage(deckName).done(function (page) {
+                        deckPage = page;
+                        var deckText = extractDeckText(getDeckContentsFromPage(page));
+                        initDeckFromDeckText(deckText);
+                    });
                 }
             });
         });
