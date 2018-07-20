@@ -3,7 +3,7 @@
     /*global mw, globalCardnames */
     /*jshint -W003*/
 
-    console.log('Builder Build F');
+    console.log('Builder Build A');
 
     if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('builder-1-0-0'))
         return;
@@ -42,6 +42,22 @@
     function removeFromDeck(name) {
         if (builtDeck[name])
             delete builtDeck[name];
+    }
+
+    function parseCardEntry(entry) {
+        entry = entry.trim();
+        if (entry.length === 0)
+            return null;
+        var pos = entry.indexOf('///');
+        if (pos === -1)
+            pos = entry.indexOf('(');
+        if (pos !== -1 && pos > 1)
+            entry = entry.substring(0, pos - 1);
+        var match = /([0-9]+)(.*)/.exec(entry);
+        if (!match) 
+            return null;
+        else
+            return { amount: parseInt(match[1]), name: match[2] };
     }
 
     function deckText() {
@@ -245,7 +261,12 @@
     }
 
     function initDeckFromDeckText(text) {
-        console.log(text);
+        text.split('\n').forEach(function (line) {
+            var card = parseCardEntry(line);
+            if (card !== null)
+                builtDeck[card.name] = card.amount;
+        });
+        renderDeck();
     }
 
     function onClickSave() {
