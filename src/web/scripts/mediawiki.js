@@ -25,7 +25,7 @@ mw.config.get = function(param) {
 
 mw.util = {};
 mw.util.getParamValue = function(paramName) {
-    return null;
+    return 'TestDeck';
 }
 
 mw.loader = {};

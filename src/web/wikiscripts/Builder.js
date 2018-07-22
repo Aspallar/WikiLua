@@ -3,7 +3,7 @@
     /*global mw, globalCardnames */
     /*jshint -W003*/
 
-    console.log('Builder Build Z');
+    console.log('Builder Build X');
 
     if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('builder-1-0-0'))
         return;
@@ -14,6 +14,7 @@
     var deckPage;
     var cardNames;
     var cardNamesCasing;
+    var isNewDeck = true;
 
     function getBaseUrl() {
         return mw.config.get('wgArticlePath').replace('$1', '');
@@ -77,12 +78,20 @@
                 text += builtDeck[card] + ' ' + card + '\n';
             }
         }
+        if (!$.isEmptyObject(builtSideboard)) {
+            text += '---- sideboard ----\n';
+            for (var card in builtSideboard) {
+                if (builtSideboard.hasOwnProperty(card)) {
+                    text += builtSideboard[card] + ' ' + card + '\n';
+                }
+            }
+        }
         return text;
     }
 
     function extractDeckText(content) {
         // TODO: handle deck format error, assuming page is correct for now
-        var startPos = content.indexOf('|Deck=');
+        var startPos = content.indexOf('|Deck=') + 6;
         var endPos = content.indexOf('}}', startPos);
         var deckText = content.substring(startPos, endPos);
         return deckText;
@@ -158,15 +167,15 @@
 
     function fetchCardNames() {
         var deferred = $.Deferred();
-        deferred.resolve(globalCardnames);
-        // $.get(buildUrl('MediaWiki:Custom-Cards', {action: 'raw'}), function (data) {
-        //     var cardnames = [];
-        //     data.split('\n').forEach(function (cardname) {
-        //         if (cardname.length > 0) cardnames.push(cardname);
-        //     });
-        //     cardnames.sort();
-        //     deferred.resolve(cardnames);
-        // });
+        // deferred.resolve(globalCardnames);
+        $.get(buildUrl('MediaWiki:Custom-Cards', {action: 'raw'}), function (data) {
+            var cardnames = [];
+            data.split('\n').forEach(function (cardname) {
+                if (cardname.length > 0) cardnames.push(cardname);
+            });
+            cardnames.sort();
+            deferred.resolve(cardnames);
+        });
         return deferred;
     }
 
@@ -254,7 +263,26 @@
         });
     }
 
-    function getDeckContentsFromPage(page) {
+    function updateDeckPage(name, deckText) {
+        var content = getContentsFromPage(deckPage);
+        var startPos = content.indexOf('|Deck=') + 6;
+        var endPos = content.indexOf('}}', startPos);
+        var newContent = content.substring(0, startPos) + deckText + content.substring(endPos);
+        var title = 'Decks/' + name;
+        wikiApiCall({
+            action: 'edit',
+            summary: 'Deck update via deck builder',
+            title: title,
+            basetimestamp: deckPage.revisions[0].timestamp,
+            startimestamp: deckPage.starttimestamp,
+            text: newContent,
+            token: deckPage.edittoken
+        },'POST').done(function (response) {
+            redirectToTitle(title);
+        });
+    }
+
+    function getContentsFromPage(page) {
         var content = page.revisions[0]['*'];
         return content;
     }
@@ -303,7 +331,10 @@
         var name = $('#mdw-db-deckname').val();
         if (name.length > 0) {
             var text = deckText();
-            createDeckPage(name, text);
+            if (isNewDeck)
+                createDeckPage(name, text);
+            else
+                updateDeckPage(name, text);
         } else {
             showError('You must enter a deck name.', 'mdw-deckname-error');
         }
@@ -356,10 +387,11 @@
                 });
                 var deckName = mw.util.getParamValue('deck');
                 if (deckName) {
+                    isNewDeck = false;
                     $('#mdw-db-deckname').val(deckName).prop('disabled', true);
                     fetchDeckPage(deckName).done(function (page) {
                         deckPage = page;
-                        var deckText = extractDeckText(getDeckContentsFromPage(page));
+                        var deckText = extractDeckText(getContentsFromPage(page));
                         initDeckFromDeckText(deckText);
                     });
                 }
