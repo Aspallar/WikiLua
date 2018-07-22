@@ -51,7 +51,30 @@
       padding: 6px 16px;
       transform: translate(0%, -50%);
     }
-    .mdw-db-close:hover {background: #bbb;}    </style>
+    .mdw-db-close:hover {background: #bbb;}
+
+
+    .mdw-db-tab {
+        overflow: hidden;
+        background-color: white;
+        display: inline-block;
+        cursor: pointer;
+        padding: 7px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+        margin: 0;
+        border: none;
+    }
+
+    .mdw-db-activetab {
+        background-color: #ccc;
+    }
+
+    .mdw-db-tabcontent {
+        display: none;
+    }
+
+</style>
 </head>
 <body>
 <h1>Builder</h1>
@@ -74,12 +97,18 @@
         <div id="mdw-db-error" class="mdw-error"></div>
     </div>
     <div style="float:left; width:50%">
-        Deck (<span id="mdw-db-cardcount" class="mdw-db-baddeck">0</span> cards)<br />
-        <ul class="mdw-db-deck">
-        </ul>
-        <div>
-            <span id="mdw-db-savedeck-span"></span>
+        <div id="mdw-decktab-button" class="mdw-db-tab mdw-db-activetab">Deck (<span id="mdw-db-deckcount" class="mdw-db-baddeck">0</span>)</div><div id="mdw-sidetab-button" class="mdw-db-tab">Sideboard (<span id="mdw-db-sidecount">0</span>)</div>
+        <div class="mdw-db-tabcontent" id="mdw-db-decktab" style="display: block;">
+            <ul id="mdw-db-decklist" class="mdw-db-deck">
+            </ul>  
         </div>
+        <div class="mdw-db-tabcontent" id="mdw-db-sidetab">
+            <ul id="mdw-db-sidelist" class="mdw-db-deck">
+                <li>1 Foobar<span class="mdw-db-close" title="Remove deck entry" data-card="Bomat Bazaar Barge">×</span></li>
+                <li>1 Barfoo<span class="mdw-db-close" title="Remove deck entry" data-card="Darigaaz Reincarnated">×</span></li>
+            </ul>  
+        </div>
+        <div><span id="mdw-db-savedeck-span"></span></div>
     </div>
 </div>
 <div style="clear:both;"></div>
@@ -96,6 +125,7 @@
 <script src="scripts/mediawiki.js"></script>
 <script src="scripts/cardnames.js"></script>
 <script src="wikiscripts/Builder.js"></script>
+<script src="scripts/tabs.js"></script>
 <script>
     //$.get('wikitemplates/ArenaImport.html', function (data) {
     //    $('#arenaimport-template').html(wikiParse(data));

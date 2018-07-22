@@ -3,14 +3,17 @@
     /*global mw, globalCardnames */
     /*jshint -W003*/
 
-    console.log('Builder Build A');
+    console.log('Builder Build Z');
 
     if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('builder-1-0-0'))
         return;
 
     var builtDeck = {};
+    var builtSideboard = {};
+    var activeBuilt = builtDeck;
     var deckPage;
     var cardNames;
+    var cardNamesCasing;
 
     function getBaseUrl() {
         return mw.config.get('wgArticlePath').replace('$1', '');
@@ -24,24 +27,20 @@
         return contents.replace(/<[\/]?noinclude>|<[\/]?includeonly>/g, '');
     }
 
-    function validCard(card) {
-        return cardNames.includes(card);
-    }
-
     function updateUi() {
         $('#mdw-db-savedeck').prop('disabled', $.isEmptyObject(builtDeck));
     }
 
-    function addToDeck(amount, name) {
-        if (builtDeck[name] !== undefined)
-            builtDeck[name] += amount;
+    function addToBuild(amount, name) {
+        if (activeBuilt[name] !== undefined)
+            activeBuilt[name] += amount;
         else
-            builtDeck[name] = amount;
+            activeBuilt[name] = amount;
     }
 
-    function removeFromDeck(name) {
-        if (builtDeck[name])
-            delete builtDeck[name];
+    function removeFromBuild(name) {
+        if (activeBuilt[name] !== undefined)
+            delete activeBuilt[name];
     }
 
     function parseCardEntry(entry) {
@@ -53,11 +52,22 @@
             pos = entry.indexOf('(');
         if (pos !== -1 && pos > 1)
             entry = entry.substring(0, pos - 1);
-        var match = /([0-9]+)(.*)/.exec(entry);
-        if (!match) 
+        var match = /([0-9]+)\s+(.*)/.exec(entry);
+        if (match) {
+            var amount = parseInt(match[1], 10);
+            var casedName = cardNamesCasing[match[2].toLowerCase()];
+            var name = casedName !== undefined ? casedName : match[2];
+            return { amount: amount, name: name };
+        } else {
             return null;
-        else
-            return { amount: parseInt(match[1]), name: match[2] };
+        }
+    }
+
+    function initCardNamesCasing() {
+        cardNamesCasing = {};
+        cardNames.forEach(function (card) {
+            cardNamesCasing[card.toLowerCase()] = card;
+        });
     }
 
     function deckText() {
@@ -78,13 +88,6 @@
         return deckText;
     }
 
-    function onClickRemoveDeckEntry(){
-        /*jshint -W040 */ // allow old school jquery this
-        var card = $(this).attr('data-card');
-        removeFromDeck(card);
-        renderDeck();
-        updateUi();
-    }
 
     function showError(message, targetId) {
         $('#' + targetId).text('* ' + message);
@@ -94,31 +97,52 @@
         $('.mdw-error').text('');
     }
 
-    function renderDeckEntry(amount, card) {
+    function renderCardEntry(amount, card) {
         // <li>12 Plains<span class="mdw-db-close" data-card="Plains">x</span></li>
-        var close = $('<span class="mdw-db-close" title="Remove deck entry">x</span>')
+        var close = $('<span class="mdw-db-close" title="Remove deck entry">&times;</span>')
             .attr('data-card', card)
             .click(onClickRemoveDeckEntry);
         var entry = $('<li>').html(amount + ' ' + card).append(close);
         return entry;
     }
 
-    function renderDeck() {
+    function renderCardList(cardList) {
         var count = 0;
-        var deckContents = $(document.createDocumentFragment());
-        for (var card in builtDeck) {
-            if (builtDeck.hasOwnProperty(card)) {
-                count += builtDeck[card];
-                deckContents.append(renderDeckEntry(builtDeck[card], card));
+        var renderedList = $(document.createDocumentFragment());
+        for (var card in cardList) {
+            if (cardList.hasOwnProperty(card)) {
+                count += cardList[card];
+                renderedList.append(renderCardEntry(cardList[card], card));
             }
         }
-        var countElement = $('#mdw-db-cardcount');
-        countElement.text(count);
-        if (count < 60)
+        return { content: renderedList, count: count };
+    }
+
+    function renderOneList(cardList, listElement, countElement, badCheck) {
+        var renderedList = renderCardList(cardList);
+        listElement.html(renderedList.content);
+        countElement.text(renderedList.count);
+        if (badCheck(renderedList.count))
             countElement.addClass('mdw-db-baddeck');
         else
             countElement.removeClass('mdw-db-baddeck');
-        $('.mdw-db-deck').html(deckContents);
+    }
+
+    function renderDeck() {
+        renderOneList(builtDeck, $('#mdw-db-decklist'), $('#mdw-db-deckcount'), function (count) {
+            return count < 60;
+        });
+        renderOneList(builtSideboard, $('#mdw-db-sidelist'), $('#mdw-db-sidecount'), function (count) {
+            return count > 15;
+        });
+    }
+
+    function onClickRemoveDeckEntry(){
+        /*jshint -W040 */ // allow old school jquery this
+        var card = $(this).attr('data-card');
+        removeFromBuild(card);
+        renderDeck();
+        updateUi();
     }
 
     function wikiApiCall(data, method) {
@@ -134,15 +158,15 @@
 
     function fetchCardNames() {
         var deferred = $.Deferred();
-        // deferred.resolve(globalCardnames);
-        $.get(buildUrl('MediaWiki:Custom-Cards', {action: 'raw'}), function (data) {
-            var cardnames = [];
-            data.split('\n').forEach(function (cardname) {
-                if (cardname.length > 0) cardnames.push(cardname);
-            });
-            cardnames.sort();
-            deferred.resolve(cardnames);
-        });
+        deferred.resolve(globalCardnames);
+        // $.get(buildUrl('MediaWiki:Custom-Cards', {action: 'raw'}), function (data) {
+        //     var cardnames = [];
+        //     data.split('\n').forEach(function (cardname) {
+        //         if (cardname.length > 0) cardnames.push(cardname);
+        //     });
+        //     cardnames.sort();
+        //     deferred.resolve(cardnames);
+        // });
         return deferred;
     }
 
@@ -151,9 +175,10 @@
         var card = $('#mdw-db-cardname').val();
         var amount = $('#mdw-db-amount').val();
         if (card.length !== 0) {
-            if (validCard(card)) {
+            var name = cardNamesCasing[card.toLowerCase()];
+            if (name !== undefined) {
                 amount = amount === '' ? 1 : parseInt(amount, 10);
-                addToDeck(amount, card);
+                addToBuild(amount, name);
                 renderDeck();
             } else {
                 showError('Not a valid card name.', 'mdw-db-error');
@@ -234,7 +259,6 @@
         return content;
     }
 
-
     function getPageFromResponse(response) {
         var pages = response.query.pages;
         for (var property in pages) {
@@ -261,10 +285,15 @@
     }
 
     function initDeckFromDeckText(text) {
+        var currentList = builtDeck;
         text.split('\n').forEach(function (line) {
-            var card = parseCardEntry(line);
-            if (card !== null)
-                builtDeck[card.name] = card.amount;
+            if (line.substring(0, 2) !== '--') {
+                var card = parseCardEntry(line);
+                if (card !== null)
+                    currentList[card.name] = card.amount;
+            } else {
+                currentList = builtSideboard;
+            }
         });
         renderDeck();
     }
@@ -278,6 +307,22 @@
         } else {
             showError('You must enter a deck name.', 'mdw-deckname-error');
         }
+    }
+
+    function activateDeck() {
+        activeBuilt = builtDeck;
+        $('#mdw-sidetab-button').removeClass('mdw-db-activetab');
+        $('#mdw-decktab-button').addClass('mdw-db-activetab');
+        $('#mdw-db-sidetab').hide();
+        $('#mdw-db-decktab').fadeIn(100);
+    }
+
+    function activateSideboard() {
+        activeBuilt = builtSideboard;
+        $('#mdw-decktab-button').removeClass('mdw-db-activetab');
+        $('#mdw-sidetab-button').addClass('mdw-db-activetab');
+        $('#mdw-db-decktab').hide();
+        $('#mdw-db-sidetab').fadeIn(100);
     }
 
     function createForm() {
@@ -296,6 +341,8 @@
         $('#mdw-db-add-span').replaceWith(add);
         $('#mdw-db-savedeck-span').replaceWith(save);
         $('#mdw-db-deckname-span').replaceWith('<label for="mdw-db-deckname">Deck Name</span> <input type="text" id="mdw-db-deckname" placeholder="Enter a name for your deck here." size="40">');
+        $('#mdw-decktab-button').click(activateDeck);
+        $('#mdw-sidetab-button').click(activateSideboard);
     }
 
     function initialize() {
@@ -303,6 +350,7 @@
             cardNames = cardnames;
             mw.loader.using('jquery.ui.autocomplete', function () {
                 createForm();
+                initCardNamesCasing();
                 $('#mdw-db-cardname').autocomplete({
                     source: cardnames
                 });
