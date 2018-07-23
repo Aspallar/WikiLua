@@ -13,7 +13,6 @@
     var activeBuilt = builtDeck;
     var deckPage;
     var cardNames;
-    var cardNamesCasing;
     var isNewDeck = true;
 
     function getBaseUrl() {
@@ -56,7 +55,7 @@
         var match = /([0-9]+)\s+(.*)/.exec(entry);
         if (match) {
             var amount = parseInt(match[1], 10);
-            var casedName = cardNamesCasing[match[2].toLowerCase()];
+            var casedName = cardNames[match[2].toLowerCase()];
             var name = casedName !== undefined ? casedName : match[2];
             return { amount: amount, name: name };
         } else {
@@ -64,10 +63,10 @@
         }
     }
 
-    function initCardNamesCasing() {
-        cardNamesCasing = {};
-        cardNames.forEach(function (card) {
-            cardNamesCasing[card.toLowerCase()] = card;
+    function initCardNames(cards) {
+        cardNames = {};
+        cards.forEach(function (card) {
+            cardNames[card.toLowerCase()] = card;
         });
     }
 
@@ -127,21 +126,21 @@
         return { content: renderedList, count: count };
     }
 
-    function renderOneList(cardList, listElement, countElement, badCheck) {
+    function drawList(cardList, listElement, countElement, badCheck) {
         var renderedList = renderCardList(cardList);
         listElement.html(renderedList.content);
         countElement.text(renderedList.count);
         if (badCheck(renderedList.count))
-            countElement.addClass('mdw-db-baddeck');
+            countElement.addClass('mdw-db-bad');
         else
-            countElement.removeClass('mdw-db-baddeck');
+            countElement.removeClass('mdw-db-bad');
     }
 
-    function renderDeck() {
-        renderOneList(builtDeck, $('#mdw-db-decklist'), $('#mdw-db-deckcount'), function (count) {
+    function drawDeck() {
+        drawList(builtDeck, $('#mdw-db-decklist'), $('#mdw-db-deckcount'), function (count) {
             return count < 60;
         });
-        renderOneList(builtSideboard, $('#mdw-db-sidelist'), $('#mdw-db-sidecount'), function (count) {
+        drawList(builtSideboard, $('#mdw-db-sidelist'), $('#mdw-db-sidecount'), function (count) {
             return count > 15;
         });
     }
@@ -150,7 +149,7 @@
         /*jshint -W040 */ // allow old school jquery this
         var card = $(this).attr('data-card');
         removeFromBuild(card);
-        renderDeck();
+        drawDeck();
         updateUi();
     }
 
@@ -184,16 +183,16 @@
         var card = $('#mdw-db-cardname').val();
         var amount = $('#mdw-db-amount').val();
         if (card.length !== 0) {
-            var name = cardNamesCasing[card.toLowerCase()];
+            var name = cardNames[card.toLowerCase()];
             if (name !== undefined) {
                 amount = amount === '' ? 1 : parseInt(amount, 10);
                 addToBuild(amount, name);
-                renderDeck();
+                drawDeck();
+                updateUi();
             } else {
                 showError('Not a valid card name.', 'mdw-db-error');
             }
         }
-        updateUi();
     }
 
     function onAmountInput() {
@@ -323,7 +322,7 @@
                 currentList = builtSideboard;
             }
         });
-        renderDeck();
+        drawDeck();
     }
 
     function onClickSave() {
@@ -378,10 +377,9 @@
 
     function initialize() {
         fetchCardNames().done(function (cardnames) {
-            cardNames = cardnames;
             mw.loader.using('jquery.ui.autocomplete', function () {
                 createForm();
-                initCardNamesCasing();
+                initCardNames(cardnames);
                 $('#mdw-db-cardname').autocomplete({
                     source: cardnames
                 });
