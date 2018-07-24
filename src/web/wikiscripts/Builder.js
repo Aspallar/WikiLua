@@ -1,9 +1,25 @@
+// ==========================================================================
+// Implements a deck builder/editor to allow users to edit deck definitions
+// without having to edit wikitext
+//
+// Version 1.0.0
+// Author: Aspallar
+//
+// This is a beta release of a 'minimum viable product' version of the builder
+// there are still features to add to make it complete and the code could do
+// with having some structure added to it. Released early because there have
+// been a significant number of deck submission fails recently because users
+// are either scared of editing wikitext, or cannot be bothered with having to
+// manually look up and type the card names, they expect a builder like they
+// get on other sites.
+//
+// ** Please do not edit this code directly in the wikia.
+// ** Instead use the git repository https://github.com/Aspallar/WikiLua
+//
 (function ($) {
     'use strict';
-    /*global mw, globalCardnames */
-    /*jshint -W003*/
-
-    console.log('Builder Build C');
+    /*global mw, globalCardnames */ // globalCardnames is only for local testing
+    /*jshint -W003*/ // used before defined (for onClickRemoveDeckEntry)
 
     if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('builder-1-0-0'))
         return;
@@ -11,9 +27,9 @@
     var builtDeck = {};
     var builtSideboard = {};
     var activeBuilt = builtDeck;
+    var isNewDeck = true;
     var deckPage;
     var cardNames;
-    var isNewDeck = true;
     var throbber;
 
     function fatalError(message) {
@@ -79,7 +95,7 @@
         if (match) {
             var amount = parseInt(match[1], 10);
             var casedName = cardNames[match[2].toLowerCase()];
-            var name = casedName !== undefined ? casedName : match[2];
+            var name = casedName !== undefined ? casedName : mw.html.escape(match[2]);
             return { amount: amount, name: name };
         } else {
             return null;
@@ -135,7 +151,6 @@
     }
 
     function renderCardEntry(amount, card) {
-        // <li>12 Plains<span class="mdw-db-close" data-card="Plains">x</span></li>
         var close = $('<span class="mdw-db-close" title="Remove deck entry">&times;</span>')
             .attr('data-card', card)
             .click(onClickRemoveDeckEntry);
@@ -188,21 +203,22 @@
             data: data,
             dataType: 'json',
             url: mw.config.get('wgScriptPath') + '/api.php',
-            type: method,
-            timeout: 10000 
+            type: method
         });
     }
 
     function fetchCardNames() {
         var deferred = $.Deferred();
-        // deferred.resolve(globalCardnames);
-        $.get(buildUrl('MediaWiki:Custom-Cards', {action: 'raw'}), function (data) {
+        // deferred.resolve(globalCardnames); // used for local testing
+        $.get(buildUrl('MediaWiki:Custom-Cards', {action: 'raw'})).done(function (data) {
             var cardnames = [];
             data.split('\n').forEach(function (cardname) {
                 if (cardname.length > 0) cardnames.push(cardname);
             });
             cardnames.sort();
             deferred.resolve(cardnames);
+        }).fail(function () {
+            fatalError('Unable to obtain card data.');
         });
         return deferred;
     }
@@ -253,6 +269,21 @@
         window.scrollTo(0, 0);
     }
 
+    function getContentsFromPage(page) {
+        var content = page.revisions[0]['*'];
+        return content;
+    }
+
+    function getPageFromResponse(response) {
+        var pages = response.query.pages;
+        for (var property in pages) {
+            if (pages.hasOwnProperty(property))
+                return pages[property];
+        }
+        return null;
+    }
+
+
     function handleCreateError(error) {
         throbber.remove();
         if (error.code === 'articleexists') {
@@ -264,6 +295,11 @@
         } else {
             unexpectedError(error.info);
         }
+    }
+
+    function handleUpdateError(error) {
+        throbber.remove();
+        unexpectedError(error.info);
     }
 
     function redirectToTitle(title) {
@@ -292,15 +328,17 @@
                 }).fail(function(code, result) {
                     unexpectedError(code + (code === 'http' ? ' ' + result.textStatus : ''));
                 });
+            }).fail(function () {
+                fatalError('The new deck template could not be loaded.');
             });
         });
     }
 
     function updateDeckPage(name, deckText) {
         var content = getContentsFromPage(deckPage);
-        var startPos = content.indexOf('|Deck=') + 6;
+        var startPos = content.indexOf('|Deck=');
         var endPos = content.indexOf('}}', startPos);
-        var newContent = content.substring(0, startPos) + deckText + content.substring(endPos);
+        var newContent = content.substring(0, startPos + 6) + deckText + content.substring(endPos);
         var title = 'Decks/' + name;
         wikiApiCall({
             action: 'edit',
@@ -310,23 +348,15 @@
             startimestamp: deckPage.starttimestamp,
             text: newContent,
             token: deckPage.edittoken
-        },'POST').done(function (response) {
-            redirectToTitle(title);
+        },'POST').done(function (result) {
+            if (result.error === undefined) {
+                redirectToTitle(title);
+            } else {
+                handleUpdateError(result.error);
+            }
+        }).fail(function () {
+            unexpectedError('Network error while updating deck.');
         });
-    }
-
-    function getContentsFromPage(page) {
-        var content = page.revisions[0]['*'];
-        return content;
-    }
-
-    function getPageFromResponse(response) {
-        var pages = response.query.pages;
-        for (var property in pages) {
-            if (pages.hasOwnProperty(property))
-                return pages[property];
-        }
-        return null;
     }
 
     function fetchDeckPage(title) {
@@ -340,7 +370,13 @@
             rvlimit: '1'
         }, 'GET').done(function (response) {
             var page = getPageFromResponse(response);
+            if (page.missing !== undefined) {
+                fatalError('Unable to load requested deck, deck page not found.');
+                return;
+            }
             deferred.resolve(page);
+        }).fail(function () {
+            fatalError('Network error while loading deck.');
         });
         return deferred;
     }

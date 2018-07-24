@@ -30,6 +30,15 @@ mw.util.getParamValue = function(paramName) {
     // return null;
 }
 
+mw.html = {};
+mw.html.escape = function(s) {
+    return s.replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
 mw.loader = {};
 mw.loader.using = function(what, cb) {
     cb();
