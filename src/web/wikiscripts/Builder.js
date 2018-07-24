@@ -3,7 +3,7 @@
     /*global mw, globalCardnames */
     /*jshint -W003*/
 
-    console.log('Builder Build X');
+    console.log('Builder Build C');
 
     if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('builder-1-0-0'))
         return;
@@ -14,6 +14,29 @@
     var deckPage;
     var cardNames;
     var isNewDeck = true;
+    var throbber;
+
+    function fatalError(message) {
+        $('#mdw-deck-builder').hide();
+        $('#mdw-db-errormessage').text(message);
+        $('#mdw-db-fatal-error').show();
+    }
+
+    function makeThrobber() {
+        var ajaxLoaderImgSrc = mw.config.get('stylepath') + '/common/images/ajax-loader.gif';
+        return $('<div>', {
+            css: {
+                background: 'rgba(255, 255, 255, 0.5)',
+                position: 'fixed',
+                height: '100%',
+                width: '100%',
+                left: '0',
+                top: '0',
+                'z-index': '1000000000'
+            },
+            html: $('<img>', {src: ajaxLoaderImgSrc, class: 'mdw-centered'})
+        });
+    }
 
     function getBaseUrl() {
         return mw.config.get('wgArticlePath').replace('$1', '');
@@ -79,7 +102,7 @@
         }
         if (!$.isEmptyObject(builtSideboard)) {
             text += '---- sideboard ----\n';
-            for (var card in builtSideboard) {
+            for (card in builtSideboard) {
                 if (builtSideboard.hasOwnProperty(card)) {
                     text += builtSideboard[card] + ' ' + card + '\n';
                 }
@@ -89,9 +112,15 @@
     }
 
     function extractDeckText(content) {
-        // TODO: handle deck format error, assuming page is correct for now
-        var startPos = content.indexOf('|Deck=') + 6;
+        var startPos = content.indexOf('|Deck=');
+        if (startPos === -1)
+            return null;
         var endPos = content.indexOf('}}', startPos);
+        if (endPos === -1)
+            return null;
+        startPos += 6;
+        if (startPos >= endPos)
+            return null;
         var deckText = content.substring(startPos, endPos);
         return deckText;
     }
@@ -102,7 +131,7 @@
     }
 
     function resetErrors() {
-        $('.mdw-error').text('');
+        $('.mdw-error').html('');
     }
 
     function renderCardEntry(amount, card) {
@@ -216,11 +245,16 @@
     }
 
     function unexpectedError(message) {
-        console.log(message);
+        throbber.remove();
+        var html = '<p>There has been an unexpected error while processing the request</p><p>' +
+            message +
+            '</p>';
+        $('#mdw-db-error').html(html);
+        window.scrollTo(0, 0);
     }
 
     function handleCreateError(error) {
-        // enableButton();
+        throbber.remove();
         if (error.code === 'articleexists') {
             showError('Deck name already in use.', 'mdw-deckname-error');
             $('#mdw-import-deckname').focus();
@@ -329,6 +363,7 @@
         resetErrors();
         var name = $('#mdw-db-deckname').val();
         if (name.length > 0) {
+            throbber.appendTo(document.body);
             var text = deckText();
             if (isNewDeck)
                 createDeckPage(name, text);
@@ -376,6 +411,7 @@
     }
 
     function initialize() {
+        throbber = makeThrobber();
         fetchCardNames().done(function (cardnames) {
             mw.loader.using('jquery.ui.autocomplete', function () {
                 createForm();
@@ -390,8 +426,15 @@
                     fetchDeckPage(deckName).done(function (page) {
                         deckPage = page;
                         var deckText = extractDeckText(getContentsFromPage(page));
-                        initDeckFromDeckText(deckText);
+                        if (deckText !== null) {
+                            initDeckFromDeckText(deckText);
+                            $('#mdw-deck-builder').fadeIn(300);
+                        } else {
+                            fatalError('The deck definition cannot be read. Does the deck page contain a valid deck definition?');
+                        }
                     });
+                } else {
+                    $('#mdw-deck-builder').fadeIn(300);
                 }
             });
         });

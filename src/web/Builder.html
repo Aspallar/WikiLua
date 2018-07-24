@@ -52,8 +52,6 @@
       transform: translate(0%, -50%);
     }
     .mdw-db-close:hover {background: #bbb;}
-
-
     .mdw-db-tab {
         overflow: hidden;
         background-color: white;
@@ -74,12 +72,19 @@
         display: none;
     }
 
+    .mdw-centered {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
 </style>
 </head>
 <body>
 <h1>Builder</h1>
 
-<div id="mdw-deck-builder">
+<div id="mdw-deck-builder" style="display:none;">
     <div class="mdw-group">
         <span id="mdw-db-deckname-span"></span><span id="mdw-deckname-error" class="mdw-error"></span>
     </div>
@@ -112,6 +117,11 @@
     </div>
 </div>
 <div style="clear:both;"></div>
+<div id="mdw-db-fatal-error" style="display:none;">
+    <h3>Sorry</h3>
+    <p>There has been an error that prevents the deck builder from functioning.</p>
+    <p><span id="mdw-db-errormessage"></span></p>
+</div>
 
 <script
   src="https://code.jquery.com/jquery-1.8.2.min.js"
