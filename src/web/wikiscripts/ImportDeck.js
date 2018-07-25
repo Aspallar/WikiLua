@@ -1,7 +1,7 @@
 // ==========================================================================
 // ImportDeck
 //
-// Version 1.0.0
+// Version 1.1.0
 // Author: Aspallar
 //
 // Provides a user friendly way to import a deck from Magic Arena
@@ -14,7 +14,7 @@
     /* global mw*/
     'use strict';
 
-    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('importdeck-1-0-0'))
+    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-1-0'))
         return;
 
     var newDeckTemplate = '';
@@ -48,7 +48,11 @@
     }
 
     function showBadEntries(badEntries) {
-        var content = badEntries.join('<br />');
+        var safeBadEntries = [];
+        badEntries.forEach(function (entry) {
+            safeBadEntries.push(mw.html.escape(entry));
+        });
+        var content = safeBadEntries.join('<br />');
         $('#mdw-import-badentries-content').html(content);
         $('#mdw-import-badentries').fadeIn(400);
     }
@@ -117,11 +121,23 @@
         }
     }
 
+    function replaceCurlyQuotesWithApostrophe(s) {
+        return s.replace(/[\u2018\u2019]/g, '\'');
+    }
+
+    function getDeckText(deckEntries) {
+        var fixedEntries = [];
+        deckEntries.forEach(function (entry) {
+            fixedEntries.push(replaceCurlyQuotesWithApostrophe(entry));
+        });
+        return fixedEntries.join('\n');
+    }
+
     function createDeckPage(name, deckEntries) {
         disableButton();
         showWorking();
         mw.loader.using('mediawiki.api').then(function () {
-            var content = newDeckTemplate.replace('$1', deckEntries.join('\n'));
+            var content = newDeckTemplate.replace('$1', getDeckText(deckEntries));
             var title = 'Decks/' + name;
             new mw.Api().post({
                 action: 'edit',
