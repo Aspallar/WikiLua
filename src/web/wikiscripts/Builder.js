@@ -21,7 +21,7 @@
     /*global mw, globalCardnames */ // globalCardnames is only for local testing
     /*jshint -W003*/ // used before defined (for onClickRemoveDeckEntry)
 
-    if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('builder-1-0-0'))
+    if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-0-0'))
         return;
 
     var builtDeck = {};
@@ -80,6 +80,16 @@
     function removeFromBuild(name) {
         if (activeBuilt[name] !== undefined)
             delete activeBuilt[name];
+    }
+
+    function addOneToBuild(name) {
+        ++activeBuilt[name];
+    }
+
+    function removeOneFromBuild(name) {
+        --activeBuilt[name];
+        if (activeBuilt[name] <= 0)
+            removeFromBuild(name);
     }
 
     function parseCardEntry(entry) {
@@ -151,10 +161,20 @@
     }
 
     function renderCardEntry(amount, card) {
-        var close = $('<span class="mdw-db-close" title="Remove deck entry">&times;</span>')
-            .attr('data-card', card)
+        var close = $('<span class="mdw-db-removeall" title="Remove all">&times;</span>')
             .click(onClickRemoveDeckEntry);
-        var entry = $('<li>').html(amount + ' ' + card).append(close);
+        var minus = $('<span class="mdw-db-minus" title="Remove one">&minus;</span>')
+            .attr('data-card', card)
+            .click(onClickRemoveOne);
+        var plus = $('<span class="mdw-db-plus" title="Add one">&#43;</span>')
+            .attr('data-card', card)
+            .click(onClickAddOne);
+        var entry = $('<li>')
+            .html(amount + ' ' + card)
+            .attr('data-card', card)
+            .append(plus)
+            .append(minus)
+            .append(close);
         return entry;
     }
 
@@ -189,10 +209,27 @@
         });
     }
 
-    function onClickRemoveDeckEntry(){
+    function getCard(element) {
+        return $(element).parent().attr('data-card');
+    }
+
+    function onClickRemoveDeckEntry() {
         /*jshint -W040 */ // allow old school jquery this
-        var card = $(this).attr('data-card');
-        removeFromBuild(card);
+        removeFromBuild(getCard(this));
+        drawDeck();
+        updateUi();
+    }
+
+    function onClickAddOne() {
+        /*jshint -W040 */ // allow old school jquery this
+        addOneToBuild(getCard(this));
+        drawDeck();
+        updateUi();
+    }
+
+    function onClickRemoveOne() {
+        /*jshint -W040 */ // allow old school jquery this
+        removeOneFromBuild(getCard(this));
         drawDeck();
         updateUi();
     }
@@ -209,17 +246,17 @@
 
     function fetchCardNames() {
         var deferred = $.Deferred();
-        // deferred.resolve(globalCardnames); // used for local testing
-        $.get(buildUrl('MediaWiki:Custom-Cards', {action: 'raw'})).done(function (data) {
-            var cardnames = [];
-            data.split('\n').forEach(function (cardname) {
-                if (cardname.length > 0) cardnames.push(cardname);
-            });
-            cardnames.sort();
-            deferred.resolve(cardnames);
-        }).fail(function () {
-            fatalError('Unable to obtain card data.');
-        });
+        deferred.resolve(globalCardnames); // used for local testing
+        // $.get(buildUrl('MediaWiki:Custom-Cards', {action: 'raw'})).done(function (data) {
+        //     var cardnames = [];
+        //     data.split('\n').forEach(function (cardname) {
+        //         if (cardname.length > 0) cardnames.push(cardname);
+        //     });
+        //     cardnames.sort();
+        //     deferred.resolve(cardnames);
+        // }).fail(function () {
+        //     fatalError('Unable to obtain card data.');
+        // });
         return deferred;
     }
 

@@ -43,15 +43,33 @@
     .mdw-db-deck li:hover {
       background-color: #eee;
     }
-    .mdw-db-close {
+    .mdw-db-removeall {
       cursor: pointer;
       position: absolute;
       top: 50%;
       right: 0;
-      padding: 6px 16px;
+      padding: 6px 6px;
       transform: translate(0%, -50%);
     }
-    .mdw-db-close:hover {background: #bbb;}
+    .mdw-db-minus {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      right: 18px;
+      padding: 6px 6px;
+      transform: translate(0%, -50%);
+    }
+    .mdw-db-plus {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      right: 36px;
+      padding: 6px 6px;
+      transform: translate(0%, -50%);
+    }
+    .mdw-db-removeall:hover {background: #bbb;}
+    .mdw-db-minus:hover {background: #bbb;}
+    .mdw-db-plus:hover {background: #bbb;}
     .mdw-db-tab {
         overflow: hidden;
         background-color: white;
@@ -105,6 +123,7 @@
         <div id="mdw-decktab-button" class="mdw-db-tab mdw-db-activetab">Deck (<span id="mdw-db-deckcount" class="mdw-db-bad">0</span>)</div><div id="mdw-sidetab-button" class="mdw-db-tab">Sideboard (<span id="mdw-db-sidecount">0</span>)</div>
         <div class="mdw-db-tabcontent" id="mdw-db-decktab" style="display: block;">
             <ul id="mdw-db-decklist" class="mdw-db-deck">
+                <li>1 Darigaaz Reincarnated<span class="mdw-db-plus" title="Add one" data-card="Darigaaz Reincarnated">&plus;</span><span class="mdw-db-minus" title="Remove one" data-card="Darigaaz Reincarnated">&minus;</span><span class="mdw-db-removeall" title="Remove all" data-card="Darigaaz Reincarnated">&times;</span></li>
             </ul>  
         </div>
         <div class="mdw-db-tabcontent" id="mdw-db-sidetab">
