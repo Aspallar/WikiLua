@@ -32,6 +32,79 @@
     var cardNames;
     var throbber;
 
+    var deckCards;
+    // var sideboardCards;
+
+    function CardList(container, countElement, badCheck) {
+        var cards = {};
+        var listElement = container.find('ul');
+
+        function onClickRemoveDeckEntry() {
+            console.log('onClickRemoveDeckEntry');
+        }
+
+        function onClickAddOne() {
+            console.log('onClickAddOne');
+        }
+
+        function onClickRemoveOne() {
+            console.log('onClickRemoveOne');
+        }
+
+        function renderCardEntry(amount, card) {
+            var close = $('<span class="mdw-db-removeall" title="Remove all">&times;</span>')
+                .click(onClickRemoveDeckEntry);
+            var minus = $('<span class="mdw-db-minus" title="Remove one">&minus;</span>')
+                .attr('data-card', card)
+                .click(onClickRemoveOne);
+            var plus = $('<span class="mdw-db-plus" title="Add one">&#43;</span>')
+                .attr('data-card', card)
+                .click(onClickAddOne);
+            var entry = $('<li>')
+                .html(amount + ' ' + card)
+                .attr('data-card', card)
+                .append(plus)
+                .append(minus)
+                .append(close);
+            return entry;
+        }
+
+        function renderCardList() {
+            var count = 0;
+            var renderedList = $(document.createDocumentFragment());
+            for (var card in cards) {
+                if (cards.hasOwnProperty(card)) {
+                    count += cards[card];
+                    renderedList.append(renderCardEntry(cards[card], card));
+                }
+            }
+            return { content: renderedList, count: count };
+        }
+
+        function drawAll() {
+            var renderedList = renderCardList();
+            listElement.html(renderedList.content);
+            countElement.text(renderedList.count);
+            if (badCheck(renderedList.count))
+                countElement.addClass('mdw-db-bad');
+            else
+                countElement.removeClass('mdw-db-bad');
+        }
+       
+        function addCards(name, amount) {
+            if (cards[name] !== undefined)
+                cards[name] += amount;
+            else
+                cards[name] = amount;
+            drawAll();
+        }
+
+        return {
+            addCards: addCards
+        };
+
+    } // end CardList
+
     function fatalError(message) {
         $('#mdw-deck-builder').hide();
         $('#mdw-db-errormessage').text(message);
@@ -268,9 +341,10 @@
             var name = cardNames[card.toLowerCase()];
             if (name !== undefined) {
                 amount = amount === '' ? 1 : parseInt(amount, 10);
-                addToBuild(amount, name);
-                drawDeck();
-                updateUi();
+                deckCards.addCards(name, amount);
+                //addToBuild(amount, name);
+                //drawDeck();
+                //updateUi();
             } else {
                 showError('Not a valid card name.', 'mdw-db-error');
             }
@@ -485,6 +559,9 @@
 
     function initialize() {
         throbber = makeThrobber();
+        deckCards = new CardList($('#mdw-db-decktab'), $('#mdw-db-deckcount'), function(count) {
+            return count < 60;
+        });
         fetchCardNames().done(function (cardnames) {
             mw.loader.using('jquery.ui.autocomplete', function () {
                 createForm();
