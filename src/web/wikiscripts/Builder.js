@@ -21,12 +21,11 @@
     /*global mw, globalCardnames */ // globalCardnames is only for local testing
     /*jshint -W003*/ // used before defined (for onClickRemoveDeckEntry)
 
-    if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-0-0'))
+    console.log('Builder build A');
+
+    if (document.getElementById('mdw-deck-builder2') === null || $('#mdw-disabled-js').attr('data-builder-1-0-0'))
         return;
 
-    var builtDeck = {};
-    var builtSideboard = {};
-    var activeBuilt = builtDeck;
     var isNewDeck = true;
     var deckPage;
     var cardNames;
@@ -116,8 +115,31 @@
             drawAll();
         }
 
+        function isEmpty() {
+            $.isEmptyObject(cards);
+        }
+
+        function setCards(newCards){
+            cards = newCards;
+        }
+
+        function text() {
+            var listText = '';
+            for (var card in cards) {
+                if (cards.hasOwnProperty(card)) {
+                    listText += cards[card] + ' ' + card + '\n';
+                }
+            }
+            return listText;
+        }
+
         return {
-            addCards: addCards
+            addCards: addCards,
+            cards: cards,
+            isEmpty: isEmpty,
+            draw: drawAll,
+            setCards: setCards,
+            text: text
         };
 
     } // end CardList
@@ -141,19 +163,37 @@
             },
             addCards: function (name, amount) {
                 active.addCards(name, amount);
+            },
+            setDeck: function (cards) {
+                deckCards.setCards(cards);
+            },
+            setSideboard: function (cards) {
+                sideboardCards.setCards(cards);
+            },
+            isEmpty: function () {
+                return deckCards.isEmpty() && sideboardCards.isEmpty();
+            },
+            drawAll: function () {
+                deckCards.draw();
+                sideboardCards.draw();
+            },
+            getText: function () {
+                var text = '\n' + deckCards.text();
+                if (!sideboardCards.isEmpty())
+                    text += '---- sideboard ----\n' + sideboardCards.text();
             }
         };
     }
 
     function fatalError(message) {
-        $('#mdw-deck-builder').hide();
+        $('#mdw-deck-builder2').hide();
         $('#mdw-db-errormessage').text(message);
         $('#mdw-db-fatal-error').show();
     }
 
-    function makeThrobber() {
+    function Throbber() {
         var ajaxLoaderImgSrc = mw.config.get('stylepath') + '/common/images/ajax-loader.gif';
-        return $('<div>', {
+        this.throbber = $('<div>', {
             css: {
                 background: 'rgba(255, 255, 255, 0.5)',
                 position: 'fixed',
@@ -166,6 +206,16 @@
             html: $('<img>', {src: ajaxLoaderImgSrc, class: 'mdw-centered'})
         });
     }
+
+    Throbber.prototype = {
+        constuctor: Throbber,
+        show: function () {
+            this.throbber.appendTo(document.body);
+        },
+        hide: function () {
+            this.throbber.remove();
+        }
+    };
 
     function getBaseUrl() {
         return mw.config.get('wgArticlePath').replace('$1', '');
@@ -180,29 +230,7 @@
     }
 
     function updateUi() {
-        $('#mdw-db-savedeck').prop('disabled', $.isEmptyObject(builtDeck));
-    }
-
-    function addToBuild(amount, name) {
-        if (activeBuilt[name] !== undefined)
-            activeBuilt[name] += amount;
-        else
-            activeBuilt[name] = amount;
-    }
-
-    function removeFromBuild(name) {
-        if (activeBuilt[name] !== undefined)
-            delete activeBuilt[name];
-    }
-
-    function addOneToBuild(name) {
-        ++activeBuilt[name];
-    }
-
-    function removeOneFromBuild(name) {
-        --activeBuilt[name];
-        if (activeBuilt[name] <= 0)
-            removeFromBuild(name);
+        $('#mdw-db-savedeck').prop('disabled', deck.isEmpty());
     }
 
     function parseCardEntry(entry) {
@@ -232,23 +260,7 @@
         });
     }
 
-    function deckText() {
-        var text = '\n';
-        for (var card in builtDeck) {
-            if (builtDeck.hasOwnProperty(card)) {
-                text += builtDeck[card] + ' ' + card + '\n';
-            }
-        }
-        if (!$.isEmptyObject(builtSideboard)) {
-            text += '---- sideboard ----\n';
-            for (card in builtSideboard) {
-                if (builtSideboard.hasOwnProperty(card)) {
-                    text += builtSideboard[card] + ' ' + card + '\n';
-                }
-            }
-        }
-        return text;
-    }
+ 
 
     function extractDeckText(content) {
         var startPos = content.indexOf('|Deck=');
@@ -273,80 +285,6 @@
         $('.mdw-error').html('');
     }
 
-    function renderCardEntry(amount, card) {
-        var close = $('<span class="mdw-db-removeall" title="Remove all">&times;</span>')
-            .click(onClickRemoveDeckEntry);
-        var minus = $('<span class="mdw-db-minus" title="Remove one">&minus;</span>')
-            .attr('data-card', card)
-            .click(onClickRemoveOne);
-        var plus = $('<span class="mdw-db-plus" title="Add one">&#43;</span>')
-            .attr('data-card', card)
-            .click(onClickAddOne);
-        var entry = $('<li>')
-            .html(amount + ' ' + card)
-            .attr('data-card', card)
-            .append(plus)
-            .append(minus)
-            .append(close);
-        return entry;
-    }
-
-    function renderCardList(cardList) {
-        var count = 0;
-        var renderedList = $(document.createDocumentFragment());
-        for (var card in cardList) {
-            if (cardList.hasOwnProperty(card)) {
-                count += cardList[card];
-                renderedList.append(renderCardEntry(cardList[card], card));
-            }
-        }
-        return { content: renderedList, count: count };
-    }
-
-    function drawList(cardList, listElement, countElement, badCheck) {
-        var renderedList = renderCardList(cardList);
-        listElement.html(renderedList.content);
-        countElement.text(renderedList.count);
-        if (badCheck(renderedList.count))
-            countElement.addClass('mdw-db-bad');
-        else
-            countElement.removeClass('mdw-db-bad');
-    }
-
-    function drawDeck() {
-        drawList(builtDeck, $('#mdw-db-decklist'), $('#mdw-db-deckcount'), function (count) {
-            return count < 60;
-        });
-        drawList(builtSideboard, $('#mdw-db-sidelist'), $('#mdw-db-sidecount'), function (count) {
-            return count > 15;
-        });
-    }
-
-    function getCard(element) {
-        return $(element).parent().attr('data-card');
-    }
-
-    function onClickRemoveDeckEntry() {
-        /*jshint -W040 */ // allow old school jquery this
-        removeFromBuild(getCard(this));
-        drawDeck();
-        updateUi();
-    }
-
-    function onClickAddOne() {
-        /*jshint -W040 */ // allow old school jquery this
-        addOneToBuild(getCard(this));
-        drawDeck();
-        updateUi();
-    }
-
-    function onClickRemoveOne() {
-        /*jshint -W040 */ // allow old school jquery this
-        removeOneFromBuild(getCard(this));
-        drawDeck();
-        updateUi();
-    }
-
     function wikiApiCall(data, method) {
         data.format = 'json';
         return $.ajax({
@@ -359,17 +297,17 @@
 
     function fetchCardNames() {
         var deferred = $.Deferred();
-        deferred.resolve(globalCardnames); // used for local testing
-        // $.get(buildUrl('MediaWiki:Custom-Cards', {action: 'raw'})).done(function (data) {
-        //     var cardnames = [];
-        //     data.split('\n').forEach(function (cardname) {
-        //         if (cardname.length > 0) cardnames.push(cardname);
-        //     });
-        //     cardnames.sort();
-        //     deferred.resolve(cardnames);
-        // }).fail(function () {
-        //     fatalError('Unable to obtain card data.');
-        // });
+        // deferred.resolve(globalCardnames); // used for local testing
+        $.get(buildUrl('MediaWiki:Custom-Cards', {action: 'raw'})).done(function (data) {
+            var cardnames = [];
+            data.split('\n').forEach(function (cardname) {
+                if (cardname.length > 0) cardnames.push(cardname);
+            });
+            cardnames.sort();
+            deferred.resolve(cardnames);
+        }).fail(function () {
+            fatalError('Unable to obtain card data.');
+        });
         return deferred;
     }
 
@@ -410,7 +348,7 @@
     }
 
     function unexpectedError(message) {
-        throbber.remove();
+        throbber.hide();
         var html = '<p>There has been an unexpected error while processing the request</p><p>' +
             message +
             '</p>';
@@ -434,7 +372,7 @@
 
 
     function handleCreateError(error) {
-        throbber.remove();
+        throbber.hide();
         if (error.code === 'articleexists') {
             showError('Deck name already in use.', 'mdw-deckname-error');
             $('#mdw-import-deckname').focus();
@@ -447,7 +385,7 @@
     }
 
     function handleUpdateError(error) {
-        throbber.remove();
+        throbber.hide();
         unexpectedError(error.info);
     }
 
@@ -531,6 +469,8 @@
     }
 
     function initDeckFromDeckText(text) {
+        var deckCards = {};
+        var sideboardCards = {};
         var current = deckCards;
         text.split('\n').forEach(function (line) {
             if (line.substring(0, 2) !== '--') {
@@ -541,16 +481,17 @@
                 current = sideboardCards;
             }
         });
-        deckCards.drawAll();
-        
+        deck.setDeck(deckCards);
+        deck.setSideboard(sideboardCards);
+        deck.drawAll();
     }
 
     function onClickSave() {
         resetErrors();
         var name = $('#mdw-db-deckname').val();
         if (name.length > 0) {
-            throbber.appendTo(document.body);
-            var text = deckText();
+            throbber.show();
+            var text = deck.getText();
             if (isNewDeck)
                 createDeckPage(name, text);
             else
@@ -597,7 +538,7 @@
     }
 
     function initialize() {
-        throbber = makeThrobber();
+        throbber = new Throbber();
         deck = new Deck();
         fetchCardNames().done(function (cardnames) {
             mw.loader.using('jquery.ui.autocomplete', function () {
@@ -615,13 +556,13 @@
                         var deckText = extractDeckText(getContentsFromPage(page));
                         if (deckText !== null) {
                             initDeckFromDeckText(deckText);
-                            $('#mdw-deck-builder').fadeIn(300);
+                            $('#mdw-deck-builder2').fadeIn(300);
                         } else {
                             fatalError('The deck definition cannot be read. Does the deck page contain a valid deck definition?');
                         }
                     });
                 } else {
-                    $('#mdw-deck-builder').fadeIn(300);
+                    $('#mdw-deck-builder2').fadeIn(300);
                 }
             });
         });
