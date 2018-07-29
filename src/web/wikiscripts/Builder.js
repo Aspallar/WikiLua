@@ -5,13 +5,7 @@
 // Version 1.1.0
 // Author: Aspallar
 //
-// This is a beta release of a 'minimum viable product' version of the builder
-// there are still features to add to make it complete and the code could do
-// with having some structure added to it. Released early because there have
-// been a significant number of deck submission fails recently because users
-// are either scared of editing wikitext, or cannot be bothered with having to
-// manually look up and type the card names, they expect a builder like they
-// get on other sites.
+// Beta early prototype release.
 //
 // ** Please do not edit this code directly in the wikia.
 // ** Instead use the git repository https://github.com/Aspallar/WikiLua
@@ -19,9 +13,8 @@
 (function ($) {
     'use strict';
     /*global mw, globalCardnames */ // globalCardnames is only for local testing
-    /*jshint -W003*/ // used before defined (for onClickRemoveDeckEntry)
 
-    console.log('Builder build Z');
+    console.log('Builder build Y');
 
     if (document.getElementById('mdw-deck-builder2') === null || $('#mdw-disabled-js').attr('data-builder-1-1-0'))
         return;
@@ -57,6 +50,7 @@
 
 
     function CardPanel(container, countElement, badCheck) {
+        /*jshint -W003*/ // used before defined
         var cards = {};
         var listElement = container.find('ul');
 
@@ -69,28 +63,38 @@
             return $(element).parent().attr('data-card');
         }
 
+        function updateCount() {
+            var count = Object.values(cards).reduce(function (a, v) { return a + v; }, 0);
+            countElement.html(count);
+            if (badCheck(count))
+                countElement.addClass('mdw-db-bad');
+            else
+                countElement.removeClass('mdw-db-bad');
+            countElement.change();
+        }
+
         function onClickRemoveDeckEntry() {
             /*jshint -W040 */ // allow old school jquery this
             removeCard(getCardName(this));
             drawAll();
-            countElement.change();
         }
 
         function onClickAddOne() {
             /*jshint -W040 */ // allow old school jquery this
             var name = getCardName(this);
             ++cards[name];
-            drawAll();
-            countElement.change();
+            drawOne(this, name);
         }
 
         function onClickRemoveOne() {
             /*jshint -W040 */ // allow old school jquery this
             var name = getCardName(this);
-            if (--cards[name] <= 0)
+            if (--cards[name] <= 0) {
                 removeCard(name);
-            drawAll();
-            countElement.change();
+                drawAll();
+            } else {
+                drawOne(this, name);
+            }
         }
 
         function renderCardEntry(amount, card) {
@@ -112,25 +116,22 @@
         }
 
         function renderCardList() {
-            var count = 0;
-            var renderedList = $(document.createDocumentFragment());
-            for (var card in cards) {
-                if (cards.hasOwnProperty(card)) {
-                    count += cards[card];
-                    renderedList.append(renderCardEntry(cards[card], card));
-                }
-            }
-            return { content: renderedList, count: count };
+            var rendered = $(document.createDocumentFragment());
+            Object.keys(cards).forEach(function (card) {
+                rendered.append(renderCardEntry(cards[card], card));
+            });
+            return rendered;
+        }
+
+        function drawOne(element, card) {
+            $(element).parent().replaceWith(renderCardEntry(cards[card], card));
+            updateCount();
         }
 
         function drawAll() {
             var renderedList = renderCardList();
-            listElement.html(renderedList.content);
-            countElement.text(renderedList.count);
-            if (badCheck(renderedList.count))
-                countElement.addClass('mdw-db-bad');
-            else
-                countElement.removeClass('mdw-db-bad');
+            listElement.html(renderedList);
+            updateCount();
         }
        
         function addCards(name, amount) {
@@ -152,11 +153,9 @@
 
         function text() {
             var listText = '';
-            for (var card in cards) {
-                if (cards.hasOwnProperty(card)) {
-                    listText += cards[card] + ' ' + card + '\n';
-                }
-            }
+            Object.keys(cards).forEach(function (card) {
+                listText += cards[card] + ' ' + card + '\n';
+            });
             return listText;
         }
 
@@ -172,7 +171,7 @@
     } // end CardList
 
     function Deck() {
-
+        /*jshint -W003*/ // used before defined
         var deckCards = new CardPanel($('#mdw-db-decktab'), $('#mdw-db-deckcount').change(updateUi), function(count) {
             return count < 60;
         });
@@ -360,11 +359,7 @@
 
     function getPageFromResponse(response) {
         var pages = response.query.pages;
-        for (var property in pages) {
-            if (pages.hasOwnProperty(property))
-                return pages[property];
-        }
-        return null;
+        return Object.values(pages)[0];        
     }
 
 
