@@ -2,7 +2,7 @@
 // Implements a deck builder/editor to allow users to edit deck definitions
 // without having to edit wikitext
 //
-// Version 1.0.0
+// Version 1.1.0
 // Author: Aspallar
 //
 // This is a beta release of a 'minimum viable product' version of the builder
@@ -21,9 +21,9 @@
     /*global mw, globalCardnames */ // globalCardnames is only for local testing
     /*jshint -W003*/ // used before defined (for onClickRemoveDeckEntry)
 
-    console.log('Builder build A');
+    console.log('Builder build Z');
 
-    if (document.getElementById('mdw-deck-builder2') === null || $('#mdw-disabled-js').attr('data-builder-1-0-0'))
+    if (document.getElementById('mdw-deck-builder2') === null || $('#mdw-disabled-js').attr('data-builder-1-1-0'))
         return;
 
     var isNewDeck = true;
@@ -32,6 +32,29 @@
     var throbber;
 
     var deck;
+
+    function Throbber() {
+        var ajaxLoaderImgSrc = mw.config.get('stylepath') + '/common/images/ajax-loader.gif';
+        this.throbber = $('<div>', {
+            css: {
+                background: 'rgba(255, 255, 255, 0.5)',
+                position: 'fixed',
+                height: '100%',
+                width: '100%',
+                left: '0',
+                top: '0',
+                'z-index': '1000000000'
+            },
+            html: $('<img>', {src: ajaxLoaderImgSrc, class: 'mdw-centered'})
+        });
+    }
+
+    Throbber.prototype = {
+        constuctor: Throbber,
+        show: function () { this.throbber.appendTo(document.body); },
+        hide: function () { this.throbber.remove(); }
+    };
+
 
     function CardPanel(container, countElement, badCheck) {
         var cards = {};
@@ -50,6 +73,7 @@
             /*jshint -W040 */ // allow old school jquery this
             removeCard(getCardName(this));
             drawAll();
+            countElement.change();
         }
 
         function onClickAddOne() {
@@ -57,6 +81,7 @@
             var name = getCardName(this);
             ++cards[name];
             drawAll();
+            countElement.change();
         }
 
         function onClickRemoveOne() {
@@ -65,6 +90,7 @@
             if (--cards[name] <= 0)
                 removeCard(name);
             drawAll();
+            countElement.change();
         }
 
         function renderCardEntry(amount, card) {
@@ -113,10 +139,11 @@
             else
                 cards[name] = amount;
             drawAll();
+            countElement.change();
         }
 
         function isEmpty() {
-            $.isEmptyObject(cards);
+            return $.isEmptyObject(cards);
         }
 
         function setCards(newCards){
@@ -145,13 +172,18 @@
     } // end CardList
 
     function Deck() {
-        var deckCards = new CardPanel($('#mdw-db-decktab'), $('#mdw-db-deckcount'), function(count) {
+
+        var deckCards = new CardPanel($('#mdw-db-decktab'), $('#mdw-db-deckcount').change(updateUi), function(count) {
             return count < 60;
         });
-        var sideboardCards = new CardPanel($('#mdw-db-sidetab'), $('#mdw-db-sidecount'), function(count) {
+        var sideboardCards = new CardPanel($('#mdw-db-sidetab'), $('#mdw-db-sidecount').change(updateUi), function(count) {
             return count > 15;
         });
         var active = deckCards;
+
+        function updateUi() {
+            $('#mdw-db-savedeck').prop('disabled', deckCards.isEmpty() && sideboardCards.isEmpty());
+        }
 
         return {
             activate: function(what) {
@@ -170,9 +202,6 @@
             setSideboard: function (cards) {
                 sideboardCards.setCards(cards);
             },
-            isEmpty: function () {
-                return deckCards.isEmpty() && sideboardCards.isEmpty();
-            },
             drawAll: function () {
                 deckCards.draw();
                 sideboardCards.draw();
@@ -181,41 +210,16 @@
                 var text = '\n' + deckCards.text();
                 if (!sideboardCards.isEmpty())
                     text += '---- sideboard ----\n' + sideboardCards.text();
+                return text;
             }
         };
-    }
+    } // end deck
 
     function fatalError(message) {
         $('#mdw-deck-builder2').hide();
         $('#mdw-db-errormessage').text(message);
         $('#mdw-db-fatal-error').show();
     }
-
-    function Throbber() {
-        var ajaxLoaderImgSrc = mw.config.get('stylepath') + '/common/images/ajax-loader.gif';
-        this.throbber = $('<div>', {
-            css: {
-                background: 'rgba(255, 255, 255, 0.5)',
-                position: 'fixed',
-                height: '100%',
-                width: '100%',
-                left: '0',
-                top: '0',
-                'z-index': '1000000000'
-            },
-            html: $('<img>', {src: ajaxLoaderImgSrc, class: 'mdw-centered'})
-        });
-    }
-
-    Throbber.prototype = {
-        constuctor: Throbber,
-        show: function () {
-            this.throbber.appendTo(document.body);
-        },
-        hide: function () {
-            this.throbber.remove();
-        }
-    };
 
     function getBaseUrl() {
         return mw.config.get('wgArticlePath').replace('$1', '');
@@ -227,10 +231,6 @@
 
     function removeIncludes(contents) {
         return contents.replace(/<[\/]?noinclude>|<[\/]?includeonly>/g, '');
-    }
-
-    function updateUi() {
-        $('#mdw-db-savedeck').prop('disabled', deck.isEmpty());
     }
 
     function parseCardEntry(entry) {
@@ -260,9 +260,7 @@
         });
     }
 
- 
-
-    function extractDeckText(content) {
+     function extractDeckText(content) {
         var startPos = content.indexOf('|Deck=');
         if (startPos === -1)
             return null;
@@ -275,7 +273,6 @@
         var deckText = content.substring(startPos, endPos);
         return deckText;
     }
-
 
     function showError(message, targetId) {
         $('#' + targetId).text('* ' + message);
