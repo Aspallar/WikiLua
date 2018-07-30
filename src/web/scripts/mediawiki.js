@@ -25,9 +25,9 @@ mw.config.get = function(param) {
 
 mw.util = {};
 mw.util.getParamValue = function(paramName) {
-    return 'TestDeck';
+    // return 'TestDeck';
     // return 'Test Deck - Bad Deck';
-    // return null;
+    return null;
 }
 
 mw.html = {};

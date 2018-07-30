@@ -14,7 +14,7 @@
     'use strict';
     /*global mw, globalCardnames */ // globalCardnames is only for local testing
 
-    console.log('Builder build Y');
+    console.log('Builder build X');
 
     if (document.getElementById('mdw-deck-builder2') === null || $('#mdw-disabled-js').attr('data-builder-1-1-0'))
         return;
@@ -233,15 +233,7 @@
     }
 
     function parseCardEntry(entry) {
-        entry = entry.trim();
-        if (entry.length === 0)
-            return null;
-        var pos = entry.indexOf('///');
-        if (pos === -1)
-            pos = entry.indexOf('(');
-        if (pos !== -1 && pos > 1)
-            entry = entry.substring(0, pos - 1);
-        var match = /([0-9]+)\s+(.*)/.exec(entry);
+        var match = /^\s*(\d+)\s+(.+?)(?= \/\/\/| \(|\s*$)/.exec(entry);
         if (match) {
             var amount = parseInt(match[1], 10);
             var casedName = cardNames[match[2].toLowerCase()];
@@ -316,7 +308,6 @@
             if (name !== undefined) {
                 amount = amount === '' ? 1 : parseInt(amount, 10);
                 deck.addCards(name, amount);
-                //updateUi();
             } else {
                 showError('Not a valid card name.', 'mdw-db-error');
             }
