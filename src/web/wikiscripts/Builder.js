@@ -14,16 +14,13 @@
     'use strict';
     /*global mw, globalCardnames */ // globalCardnames is only for local testing
 
-    console.log('Builder build X');
-
-    if (document.getElementById('mdw-deck-builder2') === null || $('#mdw-disabled-js').attr('data-builder-1-1-0'))
+    if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-1-0'))
         return;
 
     var isNewDeck = true;
     var deckPage;
     var cardNames;
     var throbber;
-
     var deck;
 
     function Throbber() {
@@ -46,8 +43,7 @@
         constuctor: Throbber,
         show: function () { this.throbber.appendTo(document.body); },
         hide: function () { this.throbber.remove(); }
-    };
-
+    }; // end Throbber
 
     function CardPanel(container, countElement, badCheck) {
         /*jshint -W003*/ // used before defined
@@ -215,7 +211,7 @@
     } // end deck
 
     function fatalError(message) {
-        $('#mdw-deck-builder2').hide();
+        $('#mdw-deck-builder').hide();
         $('#mdw-db-errormessage').text(message);
         $('#mdw-db-fatal-error').show();
     }
@@ -539,13 +535,13 @@
                         var deckText = extractDeckText(getContentsFromPage(page));
                         if (deckText !== null) {
                             initDeckFromDeckText(deckText);
-                            $('#mdw-deck-builder2').fadeIn(300);
+                            $('#mdw-deck-builder').fadeIn(300);
                         } else {
                             fatalError('The deck definition cannot be read. Does the deck page contain a valid deck definition?');
                         }
                     });
                 } else {
-                    $('#mdw-deck-builder2').fadeIn(300);
+                    $('#mdw-deck-builder').fadeIn(300);
                 }
             });
         });

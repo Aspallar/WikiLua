@@ -8,7 +8,9 @@ mw.config.get = function(param) {
         case 'wgPageName':
             return 'Decks/Test_Three';
         case 'wgTitle':
-            return 'Decks/Test Three';
+            // return 'Decks/Test Three';
+            return "Lightning Strike";
+            // return "foobar";
 		case 'wgScriptPath':
             // return 'http://aspallar.wikia.com';
             return 'http://magicarena.wikia.com';
@@ -28,6 +30,9 @@ mw.util.getParamValue = function(paramName) {
     // return 'TestDeck';
     // return 'Test Deck - Bad Deck';
     return null;
+}
+mw.util.getUrl = function(title) {
+    return title.replace(/ /g, '_');
 }
 
 mw.html = {};
