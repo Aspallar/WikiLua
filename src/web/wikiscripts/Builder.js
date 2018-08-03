@@ -2,7 +2,7 @@
 // Implements a deck builder/editor to allow users to edit deck definitions
 // without having to edit wikitext
 //
-// Version 1.1.0
+// Version 1.2.0
 // Author: Aspallar
 //
 // Beta early prototype release.
@@ -14,10 +14,11 @@
     'use strict';
     /*global mw, globalCardnames */ // globalCardnames is only for local testing
 
-    if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-1-0'))
+    console.log('Builder Z');
+
+    if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-2-0'))
         return;
 
-    var isNewDeck = true;
     var deckPage;
     var cardNames;
     var throbber;
@@ -175,6 +176,7 @@
             return count > 15;
         });
         var active = deckCards;
+        var isNewDeck = true;
 
         function updateUi() {
             $('#mdw-db-savedeck').prop('disabled', deckCards.isEmpty() && sideboardCards.isEmpty());
@@ -206,6 +208,12 @@
                 if (!sideboardCards.isEmpty())
                     text += '---- sideboard ----\n' + sideboardCards.text();
                 return text;
+            },
+            isNew: function () {
+                return isNewDeck;
+            },
+            setNew: function (isNew) {
+                isNewDeck = isNew;
             }
         };
     } // end deck
@@ -349,7 +357,6 @@
         return Object.values(pages)[0];        
     }
 
-
     function handleCreateError(error) {
         throbber.hide();
         if (error.code === 'articleexists') {
@@ -471,7 +478,7 @@
         if (name.length > 0) {
             throbber.show();
             var text = deck.getText();
-            if (isNewDeck)
+            if (deck.isNew())
                 createDeckPage(name, text);
             else
                 updateDeckPage(name, text);
@@ -528,7 +535,7 @@
                 });
                 var deckName = mw.util.getParamValue('deck');
                 if (deckName) {
-                    isNewDeck = false;
+                    deck.setNew(false);
                     $('#mdw-db-deckname').val(deckName).prop('disabled', true);
                     fetchDeckPage(deckName).done(function (page) {
                         deckPage = page;
