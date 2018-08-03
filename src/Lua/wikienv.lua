@@ -2,6 +2,7 @@ local data = require("data\\datacards")
 local otherData = require("data\\othercards")
 local rulings = require("data\\rulings")
 
+
 if originalRequire then
 	print("ERROR: (wikienv.lua) originalRequire already defined")
 	os.exit()
@@ -69,3 +70,6 @@ function mw.text.encode(s)
 	return s
 end
 
+originalRequire('mwhtml').setupInterface({
+    uniqPrefix = "\x7f'\"`UNIQ", uniqSuffix = ";"
+})
