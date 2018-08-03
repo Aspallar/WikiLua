@@ -3,7 +3,7 @@
 //    Replacement for <createbox>, with a better interface and the ability
 //    to specify 'use the source editor' (necessary for deck articles).
 //
-// Version 1.0.0
+// Version 1.0.1
 // Author: Aspallar
 //
 // ** Please do not edit this code directly in the wikia.
@@ -13,7 +13,7 @@
     /*global mw */
     'use strict';
 
-    if ($('.mdw-createbox').length === 0 || $('#mdw-disabled-js').attr('createbox-1-0-0'))
+    if ($('.mdw-createbox').length === 0 || $('#mdw-disabled-js').attr('data-createbox-1-0-1'))
         return;
 
     function getConfig(createbox) {
