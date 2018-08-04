@@ -9,8 +9,9 @@
 --      (most of the articles do not and probably will never exist on arena wiki)
 --    Rules text moved to separate module
 --    Removed adding glossary category
+--    added class to glossary output, and different title class to rules section
 
-local rulesText = require("Module:CompRulesText").text
+local rulesText = mw.loadData("Module:CompRulesText").text
 local CR = {}
 
 -- locals for performance
@@ -40,7 +41,7 @@ local INDEX_SUBRULE_CHARACTER_SET = "ABCDEFGHIJKMNPQRSTUVWXYZabcdefghijkmnpqrstu
 local COMP_RULES_DATE_PATTERN = "These rules are effective as of ([^%.]+)."
 
 local LAST_UPDATED_FORMAT = "<p class=\"mdw-cr-title\">From the ''Comprehensive Rules'' (%s)</p>"
-local LAST_UPDATED_GLOSSARY_FORMAT = "<p class=\"mdw-cr-title\">From the glossary of the ''Comprehensive Rules'' (%s)</p>"
+local LAST_UPDATED_GLOSSARY_FORMAT = "<p class=\"mdw-cr-title-glossary\">From the glossary of the ''Comprehensive Rules'' (%s)</p>"
 
 -- Escape magic characters in a string.
 local sanitize
@@ -272,12 +273,7 @@ local function CreateRulesDiv(output)
 end
 
 local function CreateGlossaryDiv(output)
-    local div = mw.html.create("div")
-    div:css("background-color", "#DDFFDD")
-    div:css("border", "1px solid #111111")
-    div:css("padding", "0px 10px 10px 10px")
-    div:css("margin", "10px")
-    div:css("align", "left")
+    local div = mw.html.create("div"):addClass("mdw-comprules-glossary")
 
     local lastDate = GetLastUpdate()
     div:wikitext(format(LAST_UPDATED_GLOSSARY_FORMAT, lastDate))

@@ -94,10 +94,12 @@ local function htmlEncode( s )
 end
 
  local function cssEncode( s )
+    return s -- bad hack for local operation
+
     -- XXX: I'm not sure this character set is complete.
-    return mw.ustring.gsub( s, '[;:%z\1-\31\127-\244\143\191\191]', function ( m )
-        return string.format( '\\%X ', mw.ustring.codepoint( m ) )
-    end )
+    -- return mw.ustring.gsub( s, '[;:%z\1-\31\127-\244\143\191\191]', function ( m )
+    --     return string.format( '\\%X ', mw.ustring.codepoint( m ) )
+    -- end )
 end
 
 methodtable._build = function( t, ret )
