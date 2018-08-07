@@ -220,8 +220,11 @@
     }
 
     function deckRow(entry) {
+        // preferably just use the article (sans Decks/) as link value but if it starts with one or more spaces we 
+        // will have to replace them with underscores because the spaces will be stripped when passed to the template
+        var link = entry.link[0] === ' ' ? entry.link.replace(/ /g, '_') : entry.link; 
         var text = '{{DeckRow\n';
-        text += '|link=' + entry.link + '\n';
+        text += '|link=' + link + '\n';
         text += '|strategy=' + entry.type + '\n';
         text += '|colors=' + entry.colors + '\n';
         text += '|author=' + entry.author + '\n';
@@ -308,7 +311,8 @@
     function getDeckColors(title) {
         var deferred = $.Deferred();
 
-        $.get(mw.config.get('wgArticlePath').replace('$1', 'Decks/' + title.replace(' ', '_'))).done(function (data) {
+        // $.get(mw.config.get('wgArticlePath').replace('$1', 'Decks/' + title.replace(' ', '_'))).done(function (data) {
+        $.get(mw.util.getUrl('Decks/' + title)).done(function (data) {
             if (data.indexOf('<div class="page-header__subtitle">Redirected from <a') !== -1) {
                 deferred.reject('redirected');
             } else {
@@ -364,7 +368,7 @@
         $('#mdw-mainform').hide();
         $('.mdw-dle-errordiv').hide();
         resetForm();
-        var deck = this.options[this.selectedIndex].text;
+        var deck = this.options[this.selectedIndex].innerText;
         showWorking();
         getDeckColors(deck).done(function (colors) {
             hideWorking();
