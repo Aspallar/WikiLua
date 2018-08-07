@@ -1,7 +1,7 @@
 // ==========================================================================
 // DecklistEdit
 //
-// Version 1.0.1
+// Version 1.0.2
 // Author: Aspallar
 //
 // Provides a user friendly way to add a deck to a deck list.
@@ -13,7 +13,7 @@
     /*global mw */
     'use strict';
 
-    if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('data-decklistedit-1-0-1'))
+    if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('data-decklistedit-1-0-2'))
         return;
 
     var config;
@@ -220,7 +220,7 @@
     }
 
     function deckRow(entry) {
-        // preferably just use the article (sans Decks/) as link value but if it starts with one or more spaces we 
+        // preferably just use the article title (sans Decks/) as link value but if it starts with one or more spaces we 
         // will have to replace them with underscores because the spaces will be stripped when passed to the template
         var link = entry.link[0] === ' ' ? entry.link.replace(/ /g, '_') : entry.link; 
         var text = '{{DeckRow\n';
@@ -311,7 +311,6 @@
     function getDeckColors(title) {
         var deferred = $.Deferred();
 
-        // $.get(mw.config.get('wgArticlePath').replace('$1', 'Decks/' + title.replace(' ', '_'))).done(function (data) {
         $.get(mw.util.getUrl('Decks/' + title)).done(function (data) {
             if (data.indexOf('<div class="page-header__subtitle">Redirected from <a') !== -1) {
                 deferred.reject('redirected');
