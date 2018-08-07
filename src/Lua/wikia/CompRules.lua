@@ -10,6 +10,7 @@
 --    Rules text moved to separate module
 --    Removed adding glossary category
 --    added class to glossary output, and different title class to rules section
+--    added category to output for rules obtained by index number (CR.full)
 
 local rulesText = mw.loadData("Module:CompRulesText").text
 local CR = {}
@@ -449,7 +450,7 @@ function CR.full(frame)
     end
 
     assert(#output > 0, "Index not found! " .. index)
-    return tostring(CreateRulesDiv(output))
+    return tostring(CreateRulesDiv(output)) .. "[[Category:Pages with indexed rule]]"
 end
 
 function CR.glossary(frame)
