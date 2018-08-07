@@ -41,6 +41,7 @@ local criteriaList = {
     MinCMC =  function(card,condition) return (card.cmc or 0) - condition >= 0 end;
     -- condition ∈ {Type}
     NotType = function(card,condition) return not TableContains(card.Types,condition) end;
+    Energy = function(card) return card.Text ~= nil and string.find(card.Text, "{{E}}") end;
 }
 
 local function MeetsCriteria(card, criteria)
