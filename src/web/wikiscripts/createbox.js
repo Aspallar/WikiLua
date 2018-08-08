@@ -3,7 +3,7 @@
 //    Replacement for <createbox>, with a better interface and the ability
 //    to specify 'use the source editor' (necessary for deck articles).
 //
-// Version 1.0.1
+// Version 1.1.0
 // Author: Aspallar
 //
 // ** Please do not edit this code directly in the wikia.
@@ -13,7 +13,7 @@
     /*global mw */
     'use strict';
 
-    if ($('.mdw-createbox').length === 0 || $('#mdw-disabled-js').attr('data-createbox-1-0-1'))
+    if ($('.mdw-createbox').length === 0 || $('#mdw-disabled-js').attr('data-createbox-1-1-0'))
         return;
 
     function getConfig(createbox) {
@@ -28,11 +28,17 @@
         config.error += ' ';
         config.preloadfail = config.preloadfail || 'Failed to load preload template';
         config.editsummary = config.editsummary || 'Created via createbox';
+        config.nospace = config.nospace === undefined ? false : config.nospace === true;
+        config.spaceerror = config.spaceerror || 'Cannot start with a space';
         return config;
     }
 
     function invalidTitle(title) {
         return /#|\?/g.test(title);
+    }
+
+    function startsWithSpace(title) {
+        return title[0] === ' ';
     }
 
     function getBaseUrl() {
@@ -106,6 +112,10 @@
         }
         if (invalidTitle(config.prefix + pagename)) {
             controls.status.html(config.invalidtitle);
+            return;
+        }
+        if (config.nospace && startsWithSpace(pagename)) {
+            controls.status.html(config.spaceerror);
             return;
         }
 
