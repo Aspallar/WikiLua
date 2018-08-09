@@ -14,7 +14,7 @@
     'use strict';
     /*global mw, globalCardnames, _ */ // globalCardnames is only for local testing
 
-    console.log('Builder D');
+    console.log('Builder E');
 
     if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-2-0'))
         return;
@@ -135,7 +135,6 @@
         var onHoverCardEntry = _.debounce(function() {
             var that = $(this);
             var cardName = that.attr('data-card');
-            console.log(cardName);
             var offset = that.offset();
             cardHover.css({top: offset.top, left: offset.left - 223, display: 'block'});
             imageSource.setCardImageSource(cardHover, cardName);
@@ -537,6 +536,7 @@
     }
 
     function activateDeck() {
+        hideCardHover();
         deck.activate('deck');
         $('#mdw-sidetab-button').removeClass('mdw-db-activetab');
         $('#mdw-decktab-button').addClass('mdw-db-activetab');
@@ -545,6 +545,7 @@
     }
 
     function activateSideboard() {
+        hideCardHover();
         deck.activate('sideboard');
         $('#mdw-decktab-button').removeClass('mdw-db-activetab');
         $('#mdw-sidetab-button').addClass('mdw-db-activetab');
