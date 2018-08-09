@@ -5,13 +5,15 @@ var proxyMiddleware = require('http-proxy-middleware');
 const logLevel = 'silent';
 
 const apiProxy = proxyMiddleware('/api.php', {
-  target: 'http://aspallar.wikia.com/api.php',
+  // target: 'http://aspallar.wikia.com/api.php',
+  target: 'http://magicarena.wikia.com/api.php',
   changeOrigin: true,
   logLevel: logLevel
 });
 
 const wikiProxy = proxyMiddleware('/wiki/', {
-  target: 'http://aspallar.wikia.com/wiki/',
+  // target: 'http://aspallar.wikia.com/wiki/',
+  target: 'http://magicarena.wikia.com/wiki/',
   changeOrigin: true,
   logLevel: logLevel
 });
@@ -23,7 +25,7 @@ gulp.task('serve', function() {
         port: 10200,
         server: {
             baseDir: "./src/web",
-            // middleware: [apiProxy, wikiProxy]
+            middleware: [apiProxy, wikiProxy]
         }
     });
 
