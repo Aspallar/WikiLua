@@ -12,9 +12,9 @@
 //
 (function ($) {
     'use strict';
-    /*global mw, globalCardnames */ // globalCardnames is only for local testing
+    /*global mw, globalCardnames, _ */ // globalCardnames is only for local testing
 
-    console.log('Builder A');
+    console.log('Builder D');
 
     if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-2-0'))
         return;
@@ -25,6 +25,10 @@
     var deck;
     var cardHover;
     var imageSource;
+
+    function hideCardHover() {
+        cardHover.hide();
+    }
 
     function Throbber() {
         var ajaxLoaderImgSrc = mw.config.get('stylepath') + '/common/images/ajax-loader.gif';
@@ -47,6 +51,36 @@
         show: function () { this.throbber.appendTo(document.body); },
         hide: function () { this.throbber.remove(); }
     }; // end Throbber
+
+    function ImageSource() {
+        var sourceCache = {};
+        var latestCardName;
+
+        function parseUrl(cardName) {
+            return '/api.php?format=json&action=parse&disablepp=true&prop=text&text=%5B%5BFile%3A[[cardname]].png%7Csize%3D160px%7Clink%3D%5D%5D'
+                .replace('[[cardname]]', encodeURIComponent(cardName));
+        }
+
+        return {
+            setCardImageSource: function (img, cardName) {
+                var imageSource = sourceCache[cardName];
+                if (imageSource !== undefined) {
+                    img.attr('src', imageSource);
+                    return;
+                }
+                latestCardName = cardName;
+                img.attr('src', 'https://vignette.wikia.nocookie.net/magicarena/images/1/19/Cardback.png/revision/latest?cb=20171013170540');
+                $.getJSON(parseUrl(cardName), function (data) {
+                    var text = data.parse.text['*'];
+                    var sourceMatch = /src\s*=\s*"([^"]+)"/.exec(text);
+                    sourceCache[cardName] = sourceMatch[1];
+                    if (cardName === latestCardName)
+                        img.attr('src', sourceMatch[1]);
+                });
+            }
+        };
+    } // End ImageSource
+
 
     function CardPanel(container, countElement, badCheck) {
         /*jshint -W003*/ // used before defined
@@ -74,6 +108,7 @@
 
         function onClickRemoveDeckEntry() {
             /*jshint -W040 */ // allow old school jquery this
+            hideCardHover();
             removeCard(getCardName(this));
             drawAll();
         }
@@ -91,10 +126,20 @@
             if (--cards[name] <= 0) {
                 removeCard(name);
                 drawAll();
+                hideCardHover();
             } else {
                 drawOne(this, name);
             }
         }
+
+        var onHoverCardEntry = _.debounce(function() {
+            var that = $(this);
+            var cardName = that.attr('data-card');
+            console.log(cardName);
+            var offset = that.offset();
+            cardHover.css({top: offset.top, left: offset.left - 223, display: 'block'});
+            imageSource.setCardImageSource(cardHover, cardName);
+        }, 200);
 
         function renderCardEntry(amount, card) {
             var close = $('<span class="mdw-db-removeall" title="Remove all">&times;</span>')
@@ -110,7 +155,8 @@
                 .attr('data-card', card)
                 .append(plus)
                 .append(minus)
-                .append(close);
+                .append(close)
+                .hover(onHoverCardEntry, hideCardHover);
             return entry;
         }
 
@@ -219,34 +265,6 @@
             }
         };
     } // end deck
-
-    function ImageSource() {
-        var sourceCache = {};
-
-        function apiParseCommandUrl(cardName) {
-            var url = '/api.php?format=json&action=parse&disablepp=true&prop=text&text=%5B%5BFile%3A[[cardname]].png%7Csize%3D160px%7Clink%3D%5D%5D';
-            url = url.replace('[[cardname]]', encodeURIComponent(cardName));
-            return url;
-        }
-
-        return {
-            setCardImageSource: function (img, cardName) {
-                var imageSource = sourceCache[cardName];
-                if (imageSource !== undefined) {
-                    img.attr('src', imageSource);
-                    return;
-                }
-                img.attr('src', 'https://vignette.wikia.nocookie.net/magicarena/images/1/19/Cardback.png/revision/latest?cb=20171013170540');
-                var parseUrl = apiParseCommandUrl(cardName);
-                $.getJSON(parseUrl, function (data) {
-                    var text = data.parse.text['*'];
-                    var sourceMatch = /src\s*=\s*"([^"]+)"/.exec(text);
-                    sourceCache[cardName] = sourceMatch[1];
-                    img.attr('src', sourceMatch[1]);
-                });
-            }
-        };
-    } // End ImageSource
 
 
     function fatalError(message) {
@@ -554,10 +572,6 @@
         $('#mdw-sidetab-button').click(activateSideboard);
     }
 
-    function hideCardHover() {
-        cardHover.hide();
-    }
-
     function onCardnameAutoCompleteFocus(event, ui) {
         var focused = $(event.originalEvent.target).find('#ui-active-menuitem');
         var offset = focused.offset();
@@ -576,7 +590,7 @@
                 initCardNames(cardnames);
                 $('#mdw-db-cardname').autocomplete({
                     source: cardnames,
-                    focus: onCardnameAutoCompleteFocus,
+                    focus: _.debounce(onCardnameAutoCompleteFocus, 200),
                     open: hideCardHover,
                     close: hideCardHover
                 });
