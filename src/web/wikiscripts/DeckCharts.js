@@ -1,7 +1,7 @@
 // ==========================================================================
 // Start: Deck Charts
 // Renders charts on deck articles
-// Version 1.3.0
+// Version 1.3.1
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wikia.
@@ -21,7 +21,7 @@
     }
 
     // do nothing on pages with no {{Deck}}, or this js disabled on page
-    if (!hasCardData() || $('#mdw-disabled-js').attr('data-deckcharts-1-3-0'))
+    if (!hasCardData() || $('#mdw-disabled-js').attr('data-deckcharts-1-3-1'))
         return;
 
     function getChartColor(dataColor) {
@@ -602,7 +602,7 @@
         $('.mdw-charts-more-button').click(function () {
             $('#mdw-misc-stats-contents').toggle(500);
         });
-        $(window).resize(drawAllCharts);
+        $(window).resize(_.debounce(drawAllCharts, 150));
     }
 
     function changeMoreSpansToButtons() {
