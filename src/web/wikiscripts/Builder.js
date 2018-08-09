@@ -14,8 +14,6 @@
     'use strict';
     /*global mw, globalCardnames, _ */ // globalCardnames is only for local testing
 
-    console.log('Builder E');
-
     if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-2-0'))
         return;
 
@@ -133,6 +131,7 @@
         }
 
         var onHoverCardEntry = _.debounce(function() {
+            $('#mdw-db-cardname').autocomplete('close');
             var that = $(this);
             var cardName = that.attr('data-card');
             var offset = that.offset();
@@ -149,9 +148,14 @@
             var plus = $('<span class="mdw-db-plus" title="Add one">&#43;</span>')
                 .attr('data-card', card)
                 .click(onClickAddOne);
+            var cardLink = $('<a>')
+                .attr('href', mw.util.getUrl(card))
+                .attr('target', '_blank')
+                .text(card);
             var entry = $('<li>')
-                .html(amount + ' ' + card)
+                .html(amount + ' ')
                 .attr('data-card', card)
+                .append(cardLink)
                 .append(plus)
                 .append(minus)
                 .append(close)
