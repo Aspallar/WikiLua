@@ -2,7 +2,7 @@
 // Implements a deck builder/editor to allow users to edit deck definitions
 // without having to edit wikitext
 //
-// Version 1.2.0
+// Version 1.2.1
 // Author: Aspallar
 //
 // Beta early prototype release.
@@ -14,7 +14,7 @@
     'use strict';
     /*global mw, globalCardnames, _ */ // globalCardnames is only for local testing
 
-    if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-2-0'))
+    if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-2-1'))
         return;
 
     var deckPage;
@@ -26,6 +26,10 @@
 
     function hideCardHover() {
         cardHover.hide();
+    }
+
+    function closeCardNameAutocomplete() {
+        $('#mdw-db-cardname').autocomplete('close');
     }
 
     function Throbber() {
@@ -84,6 +88,7 @@
         /*jshint -W003*/ // used before defined
         var cards = {};
         var listElement = container.find('ul');
+        var hovering = false;
 
         function removeCard(name) {
             if (cards[name] !== undefined)
@@ -130,14 +135,26 @@
             }
         }
 
-        var onHoverCardEntry = _.debounce(function() {
-            $('#mdw-db-cardname').autocomplete('close');
-            var that = $(this);
-            var cardName = that.attr('data-card');
-            var offset = that.offset();
-            cardHover.css({top: offset.top, left: offset.left - 223, display: 'block'});
-            imageSource.setCardImageSource(cardHover, cardName);
+        var showCardImage = _.debounce(function(cardElement) {
+            if (hovering) {
+                var cardName = cardElement.attr('data-card');
+                var offset = cardElement.offset();
+                cardHover.css({top: offset.top, left: offset.left - 223, display: 'block'});
+                imageSource.setCardImageSource(cardHover, cardName);
+            }
         }, 200);
+
+        function onHoverCardEntry() {
+            /*jshint -W040 */ // allow old school jquery this
+            closeCardNameAutocomplete();
+            hovering = true;
+            showCardImage($(this));
+        }
+
+        function onEndHoverCardEntry() {
+            hovering = false;
+            hideCardHover();
+        }
 
         function renderCardEntry(amount, card) {
             var close = $('<span class="mdw-db-removeall" title="Remove all">&times;</span>')
@@ -159,7 +176,7 @@
                 .append(plus)
                 .append(minus)
                 .append(close)
-                .hover(onHoverCardEntry, hideCardHover);
+                .hover(onHoverCardEntry, onEndHoverCardEntry);
             return entry;
         }
 
@@ -557,6 +574,11 @@
         $('#mdw-db-sidetab').fadeIn(100);
     }
 
+    function onWindowResize() {
+        hideCardHover();
+        closeCardNameAutocomplete();
+    }
+
     function createForm() {
         var add = $('<input type="button" id="mdw-db-add" value="Add" />')
             .click(onClickAdd);
@@ -599,6 +621,7 @@
                     open: hideCardHover,
                     close: hideCardHover
                 });
+                $(window).resize(onWindowResize);
                 var deckName = mw.util.getParamValue('deck');
                 if (deckName) {
                     deck.setNew(false);
