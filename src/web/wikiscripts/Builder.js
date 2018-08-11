@@ -205,7 +205,7 @@
             else
                 cards[name] = amount;
             drawAll();
-            countElement.change();
+            updateCount();
         }
 
         function isEmpty() {
