@@ -1,7 +1,7 @@
 // ==========================================================================
 // DecklistEdit
 //
-// Version 1.0.2
+// Version 1.1.0
 // Author: Aspallar
 //
 // Provides a user friendly way to add a deck to a deck list.
@@ -13,7 +13,7 @@
     /*global mw */
     'use strict';
 
-    if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('data-decklistedit-1-0-2'))
+    if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('data-decklistedit-1-1-0'))
         return;
 
     var config;
@@ -75,6 +75,17 @@
         $('#mdw-dle-userpopup').css('visibility', 'visible');
     }
 
+    function getIgnoredDecks() {
+        var ignored = {};
+        var ingnoredText = $('.mdw-ignore-decks').text();
+        if (ingnoredText && ingnoredText.length > 0) {
+            ingnoredText.split('\n').forEach(function(line) {
+                ignored[line] = true;
+            });
+        }
+        return ignored;
+    }
+
     function getTrustedEditors() {
         wikiApiCall({
             action: 'query',
@@ -113,10 +124,16 @@
         });
     }
 
-    function getUnlistedDecks(decklistDecks) {
+    function getUnlistedDecks(decklistDecks, filter, ignoredDecks) {
 
         var deferred = $.Deferred();
         var decks = [];
+
+        function wantedDeck(title) {
+            return !(filter && filter.test(title)) && 
+                !decklistDecks.includes(title) &&
+                ignoredDecks[title] === undefined;
+        }
 
         function getDecks(apfrom) {
             wikiApiCall({
@@ -132,7 +149,7 @@
                 }
                 data.query.allpages.forEach(function (deck) {
                     var title = deck.title.substring(6);
-                    if (!(config.filter && config.filter.test(title)) && !decklistDecks.includes(title))
+                    if (wantedDeck(title))
                         decks.push(title);
                 });
                 if (data['query-continue']) {
@@ -541,7 +558,7 @@
         createMainForm();
         showWorking();
         getDecklistsDecks().done(function (decklistDecks) {
-            getUnlistedDecks(decklistDecks).done(function (unlistedDecks) {
+            getUnlistedDecks(decklistDecks, config.filter, getIgnoredDecks()).done(function (unlistedDecks) {
                 var select = $('<select id="mdw-dle-deckselect">')
                     .append($('<option disabled selected>Select deck to add --</option>'))
                     .change(selectDeck);
