@@ -2,7 +2,7 @@
 // Implements a deck builder/editor to allow users to edit deck definitions
 // without having to edit wikitext
 //
-// Version 1.2.1
+// Version 1.3.0
 // Author: Aspallar
 //
 // Beta early prototype release.
@@ -14,11 +14,14 @@
     'use strict';
     /*global mw, globalCardnames, _ */ // globalCardnames is only for local testing
 
-    if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-2-1'))
+    console.log('Builder F');
+
+    if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-3-0'))
         return;
 
     var deckPage;
     var cardNames;
+    var cardData;
     var throbber;
     var deck;
     var cardHover;
@@ -30,6 +33,12 @@
 
     function closeCardNameAutocomplete() {
         $('#mdw-db-cardname').autocomplete('close');
+    }
+
+    function Card(decscriptor) {
+        var pos = decscriptor.indexOf('|');
+        this.name = decscriptor.substring(0, pos);
+        this.colorAndLand = decscriptor.substring(pos + 1);
     }
 
     function Throbber() {
@@ -320,7 +329,7 @@
     function initCardNames(cards) {
         cardNames = {};
         cards.forEach(function (card) {
-            cardNames[card.toLowerCase()] = card;
+            cardNames[card.name.toLowerCase()] = card.name;
         });
     }
 
@@ -356,16 +365,20 @@
         });
     }
 
-    function fetchCardNames() {
+    function makeCardData(dataString) {
+        var data = [];
+        dataString.split('\n').forEach(function (cardDescriptor) {
+            if (cardDescriptor.length > 0)
+                data.push(new Card(cardDescriptor));
+        });
+        return data;
+    }
+
+    function fetchCardData() {
         var deferred = $.Deferred();
-        // deferred.resolve(globalCardnames); // used for local testing
-        $.get(buildUrl('MediaWiki:Custom-Cards', {action: 'raw'})).done(function (data) {
-            var cardnames = [];
-            data.split('\n').forEach(function (cardname) {
-                if (cardname.length > 0) cardnames.push(cardname);
-            });
-            cardnames.sort();
-            deferred.resolve(cardnames);
+        // deferred.resolve(makeCardData(globalCardnames)); // used for local testing
+        $.get(buildUrl('MediaWiki:Custom-CardData', {action: 'raw'})).done(function (data) {
+            deferred.resolve(makeCardData(data));
         }).fail(function () {
             fatalError('Unable to obtain card data.');
         });
@@ -402,9 +415,9 @@
         }
     }
 
-    function onFocusSelectAll() {
+    function onFocusCardName() {
         /*jshint -W040 */ // allow old school jquery this
-        $(this).select();
+        $(this).select().autocomplete('search');
     }
 
     function unexpectedError(message) {
@@ -445,8 +458,9 @@
     }
 
     function redirectToTitle(title) {
-        var url = mw.config.get('wgArticlePath').replace('$1', title);
-        window.location = url;
+        // var url = mw.config.get('wgArticlePath').replace('$1', title);
+        // window.location = url;
+        window.location = mw.util.getUrl(title);
     }
 
     function createDeckPage(name, deckText) {
@@ -579,7 +593,33 @@
         closeCardNameAutocomplete();
     }
 
+    function getCardSource(filter) {
+        var source = [];
+        if (filter === null || filter.length === 0) {
+            cardData.forEach(function (card) {
+                source.push(card.name);
+            });
+        } else {
+            var filterMatcher = new RegExp('[' + filter + ']');
+            cardData.forEach(function (card) {
+                if (filterMatcher.test(card.colorAndLand))
+                    source.push(card.name);
+            });
+        }
+        console.log('Length=' + source.length);
+        return source;
+    }
+
+    function onChangeFilter() {
+        var filter = '';
+        $('#mdw-db-filters').find('input:checked').each(function () {
+            filter += $(this).val();
+        });
+        $('#mdw-db-cardname').autocomplete('option', 'source', getCardSource(filter));
+    }
+
     function createForm() {
+        /*jshint -W043*/ // allow multiline strimgs
         var add = $('<input type="button" id="mdw-db-add" value="Add" />')
             .click(onClickAdd);
         var save = $('<input type="button" id="mdw-db-savedeck" disabled value="Save Deck">')
@@ -589,7 +629,7 @@
             .append($('<input type="number" id="mdw-db-amount" min="1" max="99" value="1">').on('input', onAmountInput));
         var cardname = $(document.createDocumentFragment())
             .append('<label for="mdw-db-cardname">Card Name</label><br />')
-            .append($('<input type="text" id="mdw-db-cardname">').focus(onFocusSelectAll).on('input', resetErrors));
+            .append($('<input type="text" id="mdw-db-cardname">').focus(onFocusCardName).on('input', resetErrors));
         $('#mdw-db-cardname-span').replaceWith(cardname);
         $('#mdw-db-amount-span').replaceWith(amount);
         $('#mdw-db-add-span').replaceWith(add);
@@ -597,13 +637,31 @@
         $('#mdw-db-deckname-span').replaceWith('<label for="mdw-db-deckname">Deck Name</span> <input type="text" id="mdw-db-deckname" placeholder="Enter a name for your deck here." size="40">');
         $('#mdw-decktab-button').click(activateDeck);
         $('#mdw-sidetab-button').click(activateSideboard);
+        $('#mdw-db-filters')
+            .change(onChangeFilter)
+            .html('<input type="checkbox" id="mdw-db-land" checked value="L">\
+                   <label for="mdw-db-land">Land</label><br >\
+                   <input type="checkbox" id="mdw-db-white" checked value="W">\
+                   <label for="mdw-db-white">White</label><br >\
+                   <input type="checkbox" id="mdw-db-blue" checked value="U">\
+                   <label for="mdw-db-blue">Blue</label><br >\
+                   <input type="checkbox" id="mdw-db-black" checked value="B">\
+                   <label for="mdw-db-black">Black</label><br >\
+                   <input type="checkbox" id="mdw-db-red" checked value="R">\
+                   <label for="mdw-db-red">Red</label><br >\
+                   <input type="checkbox" id="mdw-db-green" checked value="G">\
+                   <label for="mdw-db-green">Green</label><br >\
+                   <input type="checkbox" id="mdw-db-colorless" checked value="C">\
+                   <label for="mdw-db-colorless">Colorless</label>');
     }
 
     function onCardnameAutoCompleteFocus(event, ui) {
         var focused = $(event.originalEvent.target).find('#ui-active-menuitem');
         var offset = focused.offset();
-        cardHover.css({top: offset.top, left: offset.left + focused.outerWidth(), display: 'block'});
-        imageSource.setCardImageSource(cardHover, ui.item.value);
+        if (offset) {
+            cardHover.css({top: offset.top, left: offset.left + focused.outerWidth(), display: 'block'});
+            imageSource.setCardImageSource(cardHover, ui.item.value);
+        }
     }
 
     function initialize() {
@@ -611,15 +669,17 @@
         throbber = new Throbber();
         deck = new Deck();
         imageSource = new ImageSource();
-        fetchCardNames().done(function (cardnames) {
+        fetchCardData().done(function (carddata) {
             mw.loader.using('jquery.ui.autocomplete', function () {
                 createForm();
-                initCardNames(cardnames);
+                initCardNames(carddata);
+                cardData = carddata;
                 $('#mdw-db-cardname').autocomplete({
-                    source: cardnames,
+                    source: getCardSource(null),
                     focus: _.debounce(onCardnameAutoCompleteFocus, 200),
                     open: hideCardHover,
-                    close: hideCardHover
+                    close: hideCardHover,
+                    minLength: 0
                 });
                 $(window).resize(onWindowResize);
                 var deckName = mw.util.getParamValue('deck');

@@ -1,1933 +1,1649 @@
+/*jshint -W043 */ // allow multiline strings
+/*jshint -W109 */ // strungs must use single quote
 console.log("cardnames.js");
-var globalCardnames = [
-"Abandoned Sarcophagus",
-"Abnormal Endurance",
-"Abrade",
-"Academy Drake",
-"Academy Journeymage",
-"Accomplished Automaton",
-"Accursed Horde",
-"Acrobatic Maneuver",
-"Act of Heroism",
-"Act of Treason",
-"Adamant Will",
-"Adanto Vanguard",
-"Adanto, the First Fort",
-"Adeliz, the Cinder Wind",
-"Admiral Beckett Brass",
-"Admiral's Order",
-"Adorned Pouncer",
-"Adventurous Impulse",
-"Aegis Automaton",
-"Aegis of the Heavens",
-"Aerial Engineer",
-"Aerial Guide",
-"Aerial Modification",
-"Aerial Responder",
-"Aeronaut Admiral",
-"Aesthir Glider",
-"Aether Chaser",
-"Aether Herder",
-"Aether Hub",
-"Aether Inspector",
-"Aether Meltdown",
-"Aether Poisoner",
-"Aether Swooper",
-"Aether Theorist",
-"Aether Tradewinds",
-"Aether Tunnel",
-"Aetherborn Marauder",
-"Aetherflux Reservoir",
-"Aethergeode Miner",
-"Aethershield Artificer",
-"Aethersphere Harvester",
-"Aethersquall Ancient",
-"Aetherstorm Roc",
-"Aetherstream Leopard",
-"Aethertide Whale",
-"Aethertorch Renegade",
-"Aetherwind Basker",
-"Aetherworks Marvel",
-"Aggressive Mammoth",
-"Aggressive Urge",
-"Ahn-Crop Champion",
-"Ahn-Crop Crasher",
-"Aid from the Cowl",
-"Air Elemental",
-"Airdrop Aeronauts",
-"Ajani Unyielding",
-"Ajani, Adversary of Tyrants",
-"Ajani, Valiant Protector",
-"Ajani, Wise Counselor",
-"Ajani's Aid",
-"Ajani's Comrade",
-"Ajani's Influence",
-"Ajani's Last Stand",
-"Ajani's Pridemate",
-"Ajani's Welcome",
-"Alley Evasion",
-"Alley Strangler",
-"Alpine Moon",
-"Amaranthine Wall",
-"Ambitious Aetherborn",
-"Ambuscade",
-"Ammit Eternal",
-"Amulet of Safekeeping",
-"Ancient Animus",
-"Ancient Brontodon",
-"Ancient Crab",
-"Angel of Condemnation",
-"Angel of Invention",
-"Angel of Sanctions",
-"Angel of the Dawn",
-"Angel of the God-Pharaoh",
-"Angler Drake",
-"Angrath, Minotaur Pirate",
-"Angrath, the Flame-Chained",
-"Angrath's Ambusher",
-"Angrath's Fury",
-"Angrath's Marauders",
-"Animation Module",
-"Anointed Deacon",
-"Anointed Procession",
-"Anointer Priest",
-"Anticipate",
-"Apex of Power",
-"Apocalypse Demon",
-"Appeal",
-"Appetite for the Unnatural",
-"Approach of the Second Sun",
-"Aquatic Incursion",
-"Aradara Express",
-"Arbor Armament",
-"Arborback Stomper",
-"Arcades, the Strategist",
-"Arcane Adaptation",
-"Arcane Encyclopedia",
-"Arcane Flight",
-"Arch of Orazca",
-"Archfiend of Ifnir",
-"Architect of the Untamed",
-"Arguel's Blood Fast",
-"Arisen Gorgon",
-"Armorcraft Judge",
-"Arterial Flow",
-"Artificer's Assistant",
-"Arvad the Cursed",
-"Aryel, Knight of Windgrace",
-"As Foretold",
-"Ashes of the Abhorrent",
-"Attune with Aether",
-"Atzal, Cave of Eternity",
-"Atzocan Archer",
-"Atzocan Seer",
-"Audacious Infiltrator",
-"Augmenting Automaton",
-"Authority",
-"Authority of the Consuls",
-"Aven Initiate",
-"Aven Mindcensor",
-"Aven of Enduring Hope",
-"Aven Reedstalker",
-"Aven Sentry",
-"Aven Wind Guide",
-"Aven Wind Mage",
-"Aviary Mechanic",
-"Aviation Pioneer",
-"Avid Reclaimer",
-"Awakened Amalgam",
-"Axis of Mortality",
-"Azcanta, the Sunken Ruin",
-"Azor, the Lawbringer",
-"Azor's Gateway",
-"Baffling End",
-"Baird, Steward of Argive",
-"Baleful Ammit",
-"Ballista Charger",
-"Baloth Gorger",
-"Banefire",
-"Banewhip Punisher",
-"Baral, Chief of Compliance",
-"Baral's Expertise",
-"Barricade Breaker",
-"Bastion Enforcer",
-"Bastion Inventor",
-"Bastion Mastodon",
-"Battle at the Bridge",
-"Battlefield Scavenger",
-"Befuddle",
-"Believe",
-"Belligerent Brontodon",
-"Bellowing Aegisaur",
-"Benalish Honor Guard",
-"Benalish Marshal",
-"Beneath the Sands",
-"Benefaction of Rhonas",
-"Binding Mummy",
-"Bishop of Binding",
-"Bishop of Rebirth",
-"Bishop of the Bloodstained",
-"Bishop's Soldier",
-"Bitterblade Warrior",
-"Bitterbow Sharpshooters",
-"Blackblade Reforged",
-"Blanchwood Armor",
-"Blazing Hope",
-"Blazing Volley",
-"Blessed Light",
-"Blessing of Belzenlok",
-"Blight Keeper",
-"Blighted Bat",
-"Blinding Fog",
-"Blink of an Eye",
-"Blood Divination",
-"Blood Sun",
-"Bloodcrazed Paladin",
-"Bloodhunter Bat",
-"Bloodlust Inciter",
-"Bloodrage Brawler",
-"Bloodstone Goblin",
-"Bloodtallow Candle",
-"Bloodwater Entity",
-"Blooming Marsh",
-"Blossom Dryad",
-"Blossoming Defense",
-"Blur of Blades",
-"Board the Weatherlight",
-"Boggart Brute",
-"Bogstomper",
-"Bomat Bazaar Barge",
-"Bomat Courier",
-"Bombard",
-"Bonded Horncrest",
-"Bone Dragon",
-"Bone Picker",
-"Bone to Ash",
-"Boneyard Parley",
-"Bontu the Glorified",
-"Bontu's Last Reckoning",
-"Bontu's Monument",
-"Botanical Sanctum",
-"Bounty of the Luxa",
-"Brambleweft Behemoth",
-"Brass's Bounty",
-"Brawl-Bash Ogre",
-"Brazen Buccaneers",
-"Brazen Freebooter",
-"Brazen Scourge",
-"Bright Reprisal",
-"Bristling Boar",
-"Bristling Hydra",
-"Broken Bond",
-"Brute Strength",
-"Buccaneer's Bravado",
-"Built to Last",
-"Built to Smash",
-"Burning Sun's Avatar",
-"Burning-Fist Minotaur",
-"By Force",
-"Cabal Evangel",
-"Cabal Paladin",
-"Cabal Stronghold",
-"Cacophodon",
-"Caligo Skin-Witch",
-"Call for Unity",
-"Call the Cavalry",
-"Call to the Feast",
-"Canal Monitor",
-"Cancel",
-"Canyon Slough",
-"Captain Lannery Storm",
-"Captain's Hook",
-"Captivating Crew",
-"Captured by the Consulate",
-"Carnage Tyrant",
-"Carrion Screecher",
-"Cartouche of Ambition",
-"Cartouche of Knowledge",
-"Cartouche of Solidarity",
-"Cartouche of Strength",
-"Cartouche of Zeal",
-"Cascading Cataracts",
-"Cast Down",
-"Cast Out",
-"Castaway's Despair",
-"Cataclysmic Gearhulk",
-"Catalyst Elemental",
-"Cathartic Reunion",
-"Caught in the Brights",
-"Cavalry Drillmaster",
-"Censor",
-"Centaur Courser",
-"Ceremonious Rejection",
-"Certain Death",
-"Chainer's Torment",
-"Champion of Dusk",
-"Champion of Rhonas",
-"Champion of the Flame",
-"Champion of Wits",
-"Chance",
-"Chandra, Bold Pyromancer",
-"Chandra, Pyrogenius",
-"Chandra, Torch of Defiance",
-"Chandra's Defeat",
-"Chandra's Outburst",
-"Chandra's Pyrohelix",
-"Chandra's Revolution",
-"Channeler Initiate",
-"Chaos Maw",
-"Chaos Wand",
-"Charge",
-"Charging Monstrosaur",
-"Charging Tuskodon",
-"Chart a Course",
-"Cherished Hatchling",
-"Chief of the Foundry",
-"Child of Night",
-"Chromium, the Mutable",
-"Cinder Barrens",
-"Claim",
-"Cleansing Nova",
-"Cleansing Ray",
-"Clifftop Retreat",
-"Cloudblazer",
-"Cloudreader Sphinx",
-"Cobbled Wings",
-"Cogwork Assembler",
-"Cogworker's Puzzleknot",
-"Cold-Water Snapper",
-"Colossal Dreadmaw",
-"Colossal Majesty",
-"Colossapede",
-"Combat Celebrant",
-"Combustible Gearhulk",
-"Commencement of Festivities",
-"Commit",
-"Commune with Dinosaurs",
-"Companion of the Trials",
-"Compelling Argument",
-"Comply",
-"Compulsory Rest",
-"Concealed Courtyard",
-"Confiscation Coup",
-"Conqueror's Foothold",
-"Conqueror's Galleon",
-"Consign",
-"Consulate Crackdown",
-"Consulate Dreadnought",
-"Consulate Skygate",
-"Consulate Surveillance",
-"Consulate Turret",
-"Consul's Shieldguard",
-"Consuming Fervor",
-"Contraband Kingpin",
-"Contract Killing",
-"Conviction",
-"Cooperate",
-"Coral Merfolk",
-"Corrosive Ooze",
-"Costly Plunder",
-"Countervailing Winds",
-"Countless Gears Renegade",
-"Court Cleric",
-"Cowl Prowler",
-"Crackdown Construct",
-"Cradle of the Accursed",
-"Crafty Cutpurse",
-"Crash the Ramparts",
-"Crash Through",
-"Crashing Tide",
-"Creeping Mold",
-"Crested Herdcaller",
-"Crested Sunmare",
-"Crocodile of the Crossing",
-"Crook of Condemnation",
-"Crucible of Worlds",
-"Cruel Finality",
-"Cruel Reality",
-"Crushing Canopy",
-"Crypt of the Eternals",
-"Cryptic Serpent",
-"Cultivator of Blades",
-"Cultivator's Caravan",
-"Cunning Survivor",
-"Curator of Mysteries",
-"Curator's Ward",
-"Curio Vendor",
-"Curious Obsession",
-"Cursed Minotaur",
-"Cut",
-"Dagger of the Worthy",
-"Daggerback Basilisk",
-"Damping Sphere",
-"Danitha Capashen, Paragon",
-"Daredevil Dragster",
-"Darigaaz Reincarnated",
-"Daring Archaeologist",
-"Daring Buccaneer",
-"Daring Demolition",
-"Daring Saboteur",
-"Dark Bargain",
-"Dark Inquiry",
-"Dark Intimations",
-"Dark Nourishment",
-"Dark-Dweller Oracle",
-"Dauntless Aven",
-"Dauntless Bodyguard",
-"D'Avenant Trapper",
-"Dawn",
-"Dawnfeather Eagle",
-"Daybreak Chaplain",
-"Dead Man's Chest",
-"Deadeye Brawler",
-"Deadeye Harpooner",
-"Deadeye Plunderers",
-"Deadeye Quartermaster",
-"Deadeye Rig-Hauler",
-"Deadeye Tormentor",
-"Deadeye Tracker",
-"Deadlock Trap",
-"Death Baron",
-"Deathbloom Thallid",
-"Deathgorge Scavenger",
-"Deathless Ancient",
-"Decimator Beetle",
-"Decision Paralysis",
-"Declare Dominance",
-"Decoction Module",
-"Decommission",
-"Deem Worthy",
-"Deep Freeze",
-"Deeproot Champion",
-"Deeproot Elite",
-"Deeproot Warrior",
-"Deeproot Waters",
-"Defiant Greatmaw",
-"Defiant Khenra",
-"Defiant Salvager",
-"Deft Dismissal",
-"Demanding Dragon",
-"Demolish",
-"Demolition Stomper",
-"Demon of Catastrophes",
-"Demon of Dark Schemes",
-"Demonic Vigor",
-"Demonlord Belzenlok",
-"Demystify",
-"Depala, Pilot Exemplar",
-"Departed Deckhand",
-"Depths of Desire",
-"Desecrated Tomb",
-"Desert Cerodon",
-"Desert of the Fervent",
-"Desert of the Glorified",
-"Desert of the Indomitable",
-"Desert of the Mindful",
-"Desert of the True",
-"Desert's Hold",
-"Desiccated Naga",
-"Despair",
-"Desperate Castaways",
-"Destined",
-"Destructive Tampering",
-"Detection Tower",
-"Devoted Crop-Mate",
-"Devotee of Strength",
-"Dhund Operative",
-"Diabolic Tutor",
-"Diamond Mare",
-"Die Young",
-"Diligent Excavator",
-"Dinosaur Hunter",
-"Dinosaur Stampede",
-"Dire Fleet Captain",
-"Dire Fleet Daredevil",
-"Dire Fleet Hoarder",
-"Dire Fleet Interloper",
-"Dire Fleet Neckbreaker",
-"Dire Fleet Poisoner",
-"Dire Fleet Ravager",
-"Diregraf Ghoul",
-"Disallow",
-"Disappearing Act",
-"Dismissive Pyromancer",
-"Dispersal Technician",
-"Disperse",
-"Disposal Mummy",
-"Dispossess",
-"Dissenter's Deliverance",
-"Dive Down",
-"Divest",
-"Divination",
-"Divine Verdict",
-"Djeru, With Eyes Open",
-"Djeru's Renunciation",
-"Djeru's Resolve",
-"Djinn of Wishes",
-"Doomed Dissenter",
-"Doomfall",
-"Doublecast",
-"Dovin Baan",
-"Dowsing Dagger",
-"Draconic Disciple",
-"Drag Under",
-"Dragon Egg",
-"Dragon's Hoard",
-"Dragonskull Summit",
-"Drake Haven",
-"Dramatic Reversal",
-"Dread Shade",
-"Dread Wanderer",
-"Dreamcaller Siren",
-"Dreamstealer",
-"Driven",
-"Drover of the Mighty",
-"Drowned Catacomb",
-"Drudge Sentinel",
-"Druid of Horns",
-"Druid of the Cowl",
-"Dryad Greenseeker",
-"Dual Shot",
-"Dub",
-"Dubious Challenge",
-"Dukhara Peafowl",
-"Dukhara Scavenger",
-"Dune Beetle",
-"Dune Diviner",
-"Dunes of the Dead",
-"Durable Handicraft",
-"Duress",
-"Dusk",
-"Dusk Charger",
-"Dusk Legion Dreadnought",
-"Dusk Legion Zealot",
-"Duskborne Skymarcher",
-"Dust",
-"Dutiful Servants",
-"Dwarven Priest",
-"Dwindle",
-"Dynavolt Tower",
-"Eager Construct",
-"Earth",
-"Earthshaker Khenra",
-"Eddytrail Hawk",
-"Edifice of Authority",
-"Efficient Construction",
-"Elaborate Firecannon",
-"Electrify",
-"Electrostatic Pummeler",
-"Elegant Edgecrafters",
-"Elenda, the Dusk Rose",
-"Elfhame Druid",
-"Eliminate the Competition",
-"Elvish Clancaller",
-"Elvish Rejuvenator",
-"Embalmer's Tools",
-"Emberhorn Minotaur",
-"Embraal Bruiser",
-"Embraal Gear-Smasher",
-"Emergent Growth",
-"Emissary of Sunrise",
-"Emperor's Vanguard",
-"Empyreal Voyager",
-"Encampment Keeper",
-"Endless Sands",
-"Engineered Might",
-"Enigma Drake",
-"Enraged Giant",
-"Enter the Unknown",
-"Entrancing Melody",
-"Epicure of Blood",
-"Era of Innovation",
-"Essence Extraction",
-"Essence Scatter",
-"Etali, Primal Storm",
-"Eternal of Harsh Truths",
-"Everdawn Champion",
-"Eviscerate",
-"Evolving Wilds",
-"Evra, Halcyon Witness",
-"Excavation Elephant",
-"Exclusion Mage",
-"Exemplar of Strength",
-"Expel from Orazca",
-"Experimental Aviator",
-"Explosive Apparatus",
-"Exquisite Archangel",
-"Exultant Skymarcher",
-"Fabrication Module",
-"Failed Inspection",
-"Failure",
-"Fairgrounds Trumpeter",
-"Fairgrounds Warden",
-"Faith of the Devoted",
-"Falkenrath Reaver",
-"Fall of the Thran",
-"Fame",
-"Famished Paladin",
-"Fan Bearer",
-"Fanatical Firebrand",
-"Farm",
-"Fatal Push",
-"Fateful Showdown",
-"Fathom Fleet Boarder",
-"Fathom Fleet Captain",
-"Fathom Fleet Cutthroat",
-"Fathom Fleet Firebrand",
-"Favorable Winds",
-"Feed",
-"Felidar Guardian",
-"Fell Flagship",
-"Fell Specter",
-"Fen Hauler",
-"Feral Abomination",
-"Feral Prowler",
-"Fervent Paincaster",
-"Fervent Strike",
-"Festering Mummy",
-"Fetid Pools",
-"Field Creeper",
-"Field of Ruin",
-"Fiery Cannonade",
-"Fiery Finish",
-"Fiery Intervention",
-"Fight",
-"Fight with Fire",
-"Filigree Crawler",
-"Filigree Familiar",
-"Final Parting",
-"Final Reward",
-"Finish",
-"Fire Elemental",
-"Fire Shrine Keeper",
-"Firebrand Archer",
-"Firecannon Blast",
-"Firefist Adept",
-"Fireforger's Puzzleknot",
-"Firesong and Sunspeaker",
-"Flame Lash",
-"Flameblade Adept",
-"Fleet Swallower",
-"Fleetwheel Cruiser",
-"Fling",
-"Flood of Recollection",
-"Floodwaters",
-"Forebear's Blade",
-"Forerunner of the Coalition",
-"Forerunner of the Empire",
-"Forerunner of the Heralds",
-"Forerunner of the Legion",
-"Form of the Dinosaur",
-"Forsake the Worldly",
-"Forsaken Sanctuary",
-"Fortuitous Find",
-"Foul Orchard",
-"Foundry Assembler",
-"Foundry Hornet",
-"Foundry Inspector",
-"Foundry Screecher",
-"Fountain of Renewal",
-"Fourth Bridge Prowler",
-"Fragmentize",
-"Fraying Omnipotence",
-"Fraying Sanity",
-"Freejam Regent",
-"Frenzied Rage",
-"Frenzied Raptor",
-"Fretwork Colony",
-"Frilled Deathspitter",
-"Frilled Sandwalla",
-"Frilled Sea Serpent",
-"Frontline Devastator",
-"Frontline Rebel",
-"Fumigate",
-"Fungal Infection",
-"Fungal Plots",
-"Furious Reprisal",
-"Gaea's Blessing",
-"Gaea's Protector",
-"Galestrike",
-"Gallant Cavalry",
-"Gargoyle Sentinel",
-"Garna, the Bloodflame",
-"Garruk's Horde",
-"Gate to the Afterlife",
-"Gearseeker Serpent",
-"Gearshift Ace",
-"Gearsmith Guardian",
-"Gearsmith Prodigy",
-"Ghalta, Primal Hunger",
-"Ghastbark Twins",
-"Ghirapur Guide",
-"Ghirapur Orrery",
-"Ghirapur Osprey",
-"Ghitu Chronicler",
-"Ghitu Journeymage",
-"Ghitu Lavarunner",
-"Ghostform",
-"Giant Spectacle",
-"Giant Spider",
-"Gideon of the Trials",
-"Gideon, Martial Paragon",
-"Gideon's Defeat",
-"Gideon's Intervention",
-"Gideon's Reproach",
-"Gideon's Resolve",
-"Gift of Growth",
-"Gift of Paradise",
-"Gift of Strength",
-"Gifted Aetherborn",
-"Gigantosaurus",
-"Gilded Cerodon",
-"Gilded Lotus",
-"Gilded Sentinel",
-"Giltgrove Stalker",
-"Gishath, Sun's Avatar",
-"Glacial Fortress",
-"Glassblower's Puzzleknot",
-"Gleaming Barrier",
-"Glimmer of Genius",
-"Glint-Nest Crane",
-"Glint-Sleeve Artisan",
-"Glint-Sleeve Siphoner",
-"Glorifier of Dusk",
-"Glorious End",
-"Glory Seeker",
-"Glory-Bound Initiate",
-"Glorybringer",
-"Glyph Keeper",
-"Goblin Barrage",
-"Goblin Chainwhirler",
-"Goblin Instigator",
-"Goblin Motivator",
-"Goblin Trailblazer",
-"Goblin Trashmaster",
-"Goblin Warchief",
-"God-Pharaoh's Faithful",
-"God-Pharaoh's Gift",
-"Golden Demise",
-"Golden Guardian",
-"Gold-Forge Garrison",
-"Gonti, Lord of Luxury",
-"Gonti's Aether Heart",
-"Gonti's Machinations",
-"Goreclaw, Terror of Qal Sisma",
-"Goring Ceratops",
-"Graceful Cat",
-"Grand Warlord Radha",
-"Granitic Titan",
-"Grasping Current",
-"Grasping Dunes",
-"Grasping Scoundrel",
-"Gravedigger",
-"Graven Abomination",
-"Gravewaker",
-"Graveyard Marshal",
-"Grazing Whiptail",
-"Greater Sandwurm",
-"Greenbelt Rampager",
-"Greenwheel Liberator",
-"Greenwood Sentinel",
-"Gremlin Infestation",
-"Grim Captain's Call",
-"Grim Strider",
-"Grind",
-"Grisly Survivor",
-"Grow from the Ashes",
-"Growing Rites of Itlimoc",
-"Gruesome Fate",
-"Grunn, the Lonely King",
-"Guardian of the Great Conduit",
-"Guardians of Koilos",
-"Gust Walker",
-"Guttersnipe",
-"Hadana's Climb",
-"Hallar, the Firefletcher",
-"Hapatra, Vizier of Poisons",
-"Hapatra's Mark",
-"Haphazard Bombardment",
-"Hardy Veteran",
-"Harnessed Lightning",
-"Harrier Naga",
-"Harsh Mentor",
-"Harsh Scrutiny",
-"Harvest Season",
-"Hashep Oasis",
-"Havoc Devils",
-"Hazardous Conditions",
-"Haze of Pollen",
-"Hazoret the Fervent",
-"Hazoret's Favor",
-"Hazoret's Monument",
-"Hazoret's Undying Fury",
-"Headstrong Brute",
-"Headwater Sentries",
-"Healing Grace",
-"Heart of Kiran",
-"Heartless Pillage",
-"Heart-Piercer Manticore",
-"Heaven",
-"Hekma Sentinels",
-"Helm of the Host",
-"Herald of Anguish",
-"Herald of Faith",
-"Herald of Secret Streams",
-"Herald of the Fair",
-"Heroic Intervention",
-"Heroic Reinforcements",
-"Hidden Herbalists",
-"Hidden Stockpile",
-"Hieroglyphic Illumination",
-"Hieromancer's Cage",
-"Hierophant's Chalice",
-"Highland Game",
-"Highland Lake",
-"Highspire Artisan",
-"Highspire Infusion",
-"Hightide Hermit",
-"Hijack",
-"Hinterland Drake",
-"Hinterland Harbor",
-"Hired Blade",
-"History of Benalia",
-"Hollow One",
-"Homarid Explorer",
-"Honed Khopesh",
-"Honored Crop-Captain",
-"Honored Hydra",
-"Hooded Brawler",
-"Hope of Ghirapur",
-"Hope Tender",
-"Horizon Scholar",
-"Hornswoggle",
-"Horror of the Broken Lands",
-"Hostage Taker",
-"Hostile Desert",
-"Hostile Minotaur",
-"Hour of Devastation",
-"Hour of Eternity",
-"Hour of Glory",
-"Hour of Promise",
-"Hour of Revelation",
-"Howling Golem",
-"Huatli, Dinosaur Knight",
-"Huatli, Radiant Champion",
-"Huatli, Warrior Poet",
-"Huatli's Snubhorn",
-"Huatli's Spurring",
-"Hungering Hydra",
-"Hungry Flames",
-"Hunt the Weak",
-"Hyena Pack",
-"Ice Over",
-"Icy Manipulator",
-"Ifnir Deadlands",
-"Illusionist's Stratagem",
-"Illusory Wrappings",
-"Imaginary Threats",
-"Imminent Doom",
-"Impale",
-"Impeccable Timing",
-"Imperial Aerosaur",
-"Imperial Ceratops",
-"Imperial Lancer",
-"Implement of Combustion",
-"Implement of Examination",
-"Implement of Ferocity",
-"Implement of Improvement",
-"Implement of Malice",
-"In Bolas's Clutches",
-"In Oketra's Name",
-"Incendiary Sabotage",
-"Indomitable Creativity",
-"Induced Amnesia",
-"Infectious Horror",
-"Infernal Reckoning",
-"Infernal Scarring",
-"Inferno Hellion",
-"Inferno Jet",
-"Initiate's Companion",
-"Injury",
-"Insidious Will",
-"Inspiration",
-"Inspired Charge",
-"Inspiring Cleric",
-"Inspiring Roar",
-"Inspiring Statuary",
-"Inspiring Vantage",
-"Insult",
-"Inventor's Apprentice",
-"Inventors' Fair",
-"Inventor's Goggles",
-"Invigorated Rampage",
-"Invoke the Divine",
-"Ipnu Rivulet",
-"Iron League Steed",
-"Ironclad Revolutionary",
-"Irontread Crusher",
-"Irrigated Farmland",
-"Isareth the Awakener",
-"Isolate",
-"Isolated Chapel",
-"Itlimoc, Cradle of the Sun",
-"Ixalan's Binding",
-"Ixalli's Diviner",
-"Ixalli's Keeper",
-"Jace, Cunning Castaway",
-"Jace, Ingenious Mind-Mage",
-"Jace's Defeat",
-"Jace's Sentinel",
-"Jade Bearer",
-"Jade Guardian",
-"Jadecraft Artisan",
-"Jadelight Ranger",
-"Janjeet Sentry",
-"Jaya Ballard",
-"Jaya's Immolating Inferno",
-"Jhoira, Weatherlight Captain",
-"Jhoira's Familiar",
-"Jodah, Archmage Eternal",
-"Josu Vess, Lich Knight",
-"Journey to Eternity",
-"Jousting Lance",
-"Juggernaut",
-"Jungle Creeper",
-"Jungle Delver",
-"Jungleborn Pioneer",
-"Kamahl's Druidic Vow",
-"Kambal, Consul of Allocation",
-"Kargan Dragonrider",
-"Kari Zev, Skyship Raider",
-"Kari Zev's Expertise",
-"Karn, Scion of Urza",
-"Karn's Temporal Sundering",
-"Karplusan Hound",
-"Kazarov, Sengir Pureblood",
-"Kefnet the Mindful",
-"Kefnet's Last Word",
-"Kefnet's Monument",
-"Keldon Overseer",
-"Keldon Raider",
-"Keldon Warcaller",
-"Key to the City",
-"Khenra Charioteer",
-"Khenra Eternal",
-"Khenra Scrapper",
-"Kindled Fury",
-"Kinjalli's Caller",
-"Kinjalli's Sunwing",
-"Kitesail Corsair",
-"Kitesail Freebooter",
-"Knight of Grace",
-"Knight of Malice",
-"Knight of New Benalia",
-"Knight of the Stampede",
-"Knight of the Tusk",
-"Knightly Valor",
-"Knight's Pledge",
-"Kopala, Warden of Waves",
-"Krosan Druid",
-"Kujar Seedsculptor",
-"Kumena, Tyrant of Orazca",
-"Kumena's Awakening",
-"Kumena's Speaker",
-"Kwende, Pride of Femeref",
-"Labyrinth Guardian",
-"Larger Than Life",
-"Lathliss, Dragon Queen",
-"Lathnu Hellion",
-"Lathnu Sailback",
-"Lava Axe",
-"Lawless Broker",
-"Lay Bare the Heart",
-"Lay Claim",
-"Lead",
-"Leave",
-"Leave in the Dust",
-"Legion Conquistador",
-"Legion Lieutenant",
-"Legion's Judgment",
-"Legion's Landing",
-"Lena, Selfless Champion",
-"Leonin Vanguard",
-"Leonin Warleader",
-"Lethal Sting",
-"Liberating Combustion",
-"Lich's Caress",
-"Lich's Mastery",
-"Life Goes On",
-"Lifecraft Awakening",
-"Lifecraft Cavalry",
-"Lifecrafter's Bestiary",
-"Lifecrafter's Gift",
-"Lightning Mare",
-"Lightning Runner",
-"Lightning Strike",
-"Lightning-Rig Crew",
-"Liliana, Death Wielder",
-"Liliana, Death's Majesty",
-"Liliana, the Necromancer",
-"Liliana, Untouched by Death",
-"Liliana's Contract",
-"Liliana's Defeat",
-"Liliana's Influence",
-"Liliana's Mastery",
-"Liliana's Spoils",
-"Limits of Solidarity",
-"Lingering Phantom",
-"Live Fast",
-"Llanowar Elves",
-"Llanowar Envoy",
-"Llanowar Scout",
-"Long-Finned Skywhale",
-"Longtusk Cub",
-"Lookout's Dispersal",
-"Looming Altisaur",
-"Lord of the Accursed",
-"Lost Legacy",
-"Lost Vale",
-"Loxodon Line Breaker",
-"Luminous Bonds",
-"Lurching Rotbeast",
-"Lurking Chupacabra",
-"Luxa River Shrine",
-"Lyra Dawnbringer",
-"Macabre Waltz",
-"Madcap Experiment",
-"Magistrate's Scepter",
-"Magma Spray",
-"Magmaroth",
-"Majestic Heliopterus",
-"Majestic Myriarch",
-"Make a Stand",
-"Make Obsolete",
-"Makeshift Munitions",
-"Malfunction",
-"Mammoth Spider",
-"Manalith",
-"Manglehorn",
-"Manticore Eternal",
-"Manticore of the Gauntlet",
-"Marauder's Axe",
-"Marauding Boneslasher",
-"Marauding Looter",
-"March of the Drowned",
-"Marionette Master",
-"Mark of the Vampire",
-"Market",
-"Martyr of Dusk",
-"Marwyn, the Nurturer",
-"Master Trinketeer",
-"Mastermind's Acquisition",
-"Maulfist Doorbuster",
-"Maulfist Revolutionary",
-"Maulfist Squad",
-"Mausoleum Harpy",
-"Maverick Thopterist",
-"Mavren Fein, Dusk Apostle",
-"Meandering River",
-"Mechanized Production",
-"Memorial to Folly",
-"Memorial to Genius",
-"Memorial to Glory",
-"Memorial to Unity",
-"Memorial to War",
-"Memory",
-"Mentor of the Meek",
-"Merchant's Dockhand",
-"Merciless Eternal",
-"Merciless Javelineer",
-"Merfolk Branchwalker",
-"Merfolk Mistbinder",
-"Merfolk Trickster",
-"Mesa Unicorn",
-"Metallic Mimic",
-"Metallic Rebuke",
-"Metallurgic Summonings",
-"Metalspinner's Puzzleknot",
-"Metalwork Colossus",
-"Metamorphic Alteration",
-"Meteor Golem",
-"Metzali, Tower of Triumph",
-"Miasmic Mummy",
-"Midnight Entourage",
-"Midnight Oil",
-"Mighty Leap",
-"Militia Bugler",
-"Millstone",
-"Mind",
-"Mind Rot",
-"Minister of Inquiries",
-"Minotaur Sureshot",
-"Mirage Mirror",
-"Mirror Image",
-"Mishra's Self-Replicator",
-"Mistcaller",
-"Mist-Cloaked Herald",
-"Moaning Wall",
-"Mobile Garrison",
-"Moment of Craving",
-"Moment of Triumph",
-"Monstrous Onslaught",
-"Morbid Curiosity",
-"Mouth",
-"Mox Amber",
-"Muldrotha, the Gravetide",
-"Multani, Yavimaya's Avatar",
-"Multiform Wonder",
-"Mummy Paramount",
-"Murder",
-"Mutiny",
-"Mystic Archaeologist",
-"Naban, Dean of Iteration",
-"Naga Oracle",
-"Naga Vitalist",
-"Narnam Cobra",
-"Narnam Renegade",
-"Naru Meha, Master Wizard",
-"Natural Obsolescence",
-"Naturalize",
-"Nature's Spiral",
-"Nature's Way",
-"Navigator's Compass",
-"Navigator's Ruin",
-"Needletooth Raptor",
-"Nef-Crop Entangler",
-"Negate",
-"Neheb, the Eternal",
-"Neheb, the Worthy",
-"Nest of Scarabs",
-"Nest Robber",
-"Never",
-"New Horizons",
-"New Perspectives",
-"Nexus of Fate",
-"Nezahal, Primal Tide",
-"Niambi, Faithful Healer",
-"Nicol Bolas, God-Pharaoh",
-"Nicol Bolas, the Arisen",
-"Nicol Bolas, the Deceiver",
-"Nicol Bolas, the Ravager",
-"Night Market Aeronaut",
-"Night Market Guard",
-"Night Market Lookout",
-"Nightmare",
-"Nightmare's Thirst",
-"Nimble Innovator",
-"Nimble Obstructionist",
-"Nimble-Blade Khenra",
-"Ninth Bridge Patrol",
-"Nissa, Genesis Mage",
-"Nissa, Nature's Artisan",
-"Nissa, Steward of Elements",
-"Nissa, Vital Force",
-"Nissa's Defeat",
-"Nissa's Encouragement",
-"Novice Knight",
-"Noxious Gearhulk",
-"Oakenform",
-"Oashra Cultivator",
-"Oasis Ritualist",
-"Oath of Ajani",
-"Oath of Teferi",
-"Oathsworn Vampire",
-"Obelisk Spider",
-"Oblivion",
-"Oketra the True",
-"Oketra's Attendant",
-"Oketra's Avenger",
-"Oketra's Last Mercy",
-"Oketra's Monument",
-"Old-Growth Dryads",
-"Omenspeaker",
-"Ominous Sphinx",
-"Omniscience",
-"On Serra's Wings",
-"Onakke Ogre",
-"One with the Machine",
-"One With the Wind",
-"Onward",
-"Open Fire",
-"Open into Wonder",
-"Open the Graves",
-"Opt",
-"Oracle's Vault",
-"Orazca Frillback",
-"Orazca Raptor",
-"Orazca Relic",
-"Orcish Vandal",
-"Oreskos Swiftclaw",
-"Ornamental Courage",
-"Ornery Kudu",
-"Ornithopter",
-"Otepec Huntmaster",
-"Outland Boar",
-"Ovalchase Daredevil",
-"Ovalchase Dragster",
-"Overcome",
-"Overflowing Insight",
-"Overgrown Armasaur",
-"Overwhelming Splendor",
-"Oviya Pashiri, Sage Lifecrafter",
-"Pacification Array",
-"Padeem, Consul of Innovation",
-"Painful Lesson",
-"Painted Bluffs",
-"Paladin of Atonement",
-"Paladin of the Bloodstained",
-"Palladia-Mors, the Ruiner",
-"Panharmonicon",
-"Paradox Engine",
-"Paradoxical Outcome",
-"Pardic Wanderer",
-"Path of Discovery",
-"Path of Mettle",
-"Pathmaker Initiate",
-"Patient Rebuilding",
-"Peacewalker Colossus",
-"Peema Aether-Seer",
-"Peema Outrider",
-"Pegasus Courser",
-"Pelakka Wurm",
-"Pendulum of Patterns",
-"Perilous Predicament",
-"Perilous Voyage",
-"Perpetual Timepiece",
-"Phylactery Lich",
-"Phyrexian Scriptures",
-"Pia Nalaar",
-"Pia's Revolution",
-"Pierce the Sky",
-"Pillar of Origins",
-"Pious Interdiction",
-"Pirate's Cutlass",
-"Pirate's Pillage",
-"Pirate's Prize",
-"Pitiless Plunderer",
-"Pitiless Vizier",
-"Plague Belcher",
-"Plague Mare",
-"Planar Bridge",
-"Plummet",
-"Poison-Tip Archer",
-"Polyraptor",
-"Pounce",
-"Pouncing Cheetah",
-"Powerstone Shard",
-"Prakhata Club Security",
-"Prakhata Pillar-Bug",
-"Precise Strike",
-"Precognition Field",
-"Prepare",
-"Pressure Point",
-"Prey Upon",
-"Pride of Conquerors",
-"Pride Sovereign",
-"Priest of the Wakening Sun",
-"Primal Amulet",
-"Primal Wellspring",
-"Primevals' Glorious Rebirth",
-"Primordial Wurm",
-"Prizefighter Construct",
-"Prodigious Growth",
-"Profane Procession",
-"Propeller Pioneer",
-"Prophetic Prism",
-"Prosperous Pirates",
-"Protean Raider",
-"Protection of the Hekma",
-"Proven Combatant",
-"Prowling Serpopard",
-"Prying Blade",
-"Psychic Corrosion",
-"Psychic Symbiont",
-"Pterodon Knight",
-"Pull from Tomorrow",
-"Puncturing Blow",
-"Pursue Glory",
-"Pyramid of the Pantheon",
-"Pyromantic Pilgrim",
-"Quarry Beetle",
-"Quarry Hauler",
-"Queen's Agent",
-"Queen's Bay Soldier",
-"Queen's Commission",
-"Quicksmith Genius",
-"Quicksmith Rebel",
-"Quicksmith Spy",
-"Rabid Bite",
-"Radiant Destiny",
-"Radiating Lightning",
-"Raff Capashen, Ship's Mage",
-"Raging Regisaur",
-"Raging Swordtooth",
-"Rags",
-"Raiders' Wake",
-"Raise Dead",
-"Rallying Roar",
-"Rampaging Cyclops",
-"Rampaging Ferocidon",
-"Rampaging Hippo",
-"Ramunap Excavator",
-"Ramunap Hydra",
-"Ramunap Ruins",
-"Ranging Raptors",
-"Raptor Companion",
-"Raptor Hatchling",
-"Rashmi, Eternities Crafter",
-"Rat Colony",
-"Ravenous Chupacabra",
-"Ravenous Daggertooth",
-"Ravenous Harpy",
-"Ravenous Intruder",
-"Razaketh, the Foulblooded",
-"Razaketh's Rite",
-"Reason",
-"Reassembling Skeleton",
-"Reaver Ambush",
-"Reckless Fireweaver",
-"Reckless Racer",
-"Reckless Rage",
-"Reclamation Sage",
-"Recollect",
-"Recover",
-"Reduce",
-"Refurbish",
-"Refuse",
-"Regal Bloodlord",
-"Regal Caracal",
-"Regisaur Alpha",
-"Rekindling Phoenix",
-"Release the Gremlins",
-"Release to the Wind",
-"Relentless Raptor",
-"Relic Runner",
-"Reliquary Tower",
-"Remorseful Cleric",
-"Renegade Firebrand",
-"Renegade Freighter",
-"Renegade Map",
-"Renegade Rallier",
-"Renegade Tactics",
-"Renegade Wheelsmith",
-"Renegade's Getaway",
-"Renewed Faith",
-"Repeating Barrage",
-"Rescue",
-"Reservoir Walker",
-"Resilient Khenra",
-"Resolute Survivors",
-"Resourceful Return",
-"Resplendent Angel",
-"Resplendent Griffin",
-"Restoration Gearsmith",
-"Restoration Specialist",
-"Return",
-"Revel in Riches",
-"Reverse Engineer",
-"Revitalize",
-"Revoke Privileges",
-"Revolutionary Rebuff",
-"Rhet-Crop Spearmaster",
-"Rhonas the Indomitable",
-"Rhonas's Last Stand",
-"Rhonas's Monument",
-"Rhonas's Stalwart",
-"Rhox Oracle",
-"Ribbons",
-"Riches",
-"Riddleform",
-"Riddlemaster Sphinx",
-"Ridgescale Tusker",
-"Rigging Runner",
-"Rile",
-"Riparian Tiger",
-"Ripjaw Raptor",
-"Rise from the Grave",
-"Rishkar, Peema Renegade",
-"Rishkar's Expertise",
-"Rite of Belzenlok",
-"Ritual of Rejuvenation",
-"River Darter",
-"River Heralds' Boon",
-"River Hoopoe",
-"River Serpent",
-"River Sneak",
-"River's Rebuke",
-"Riverwise Augur",
-"Rogue Refiner",
-"Rogue's Gloves",
-"Rona, Disciple of Gix",
-"Root Snare",
-"Rootbound Crag",
-"Rootwalla",
-"Rowdy Crew",
-"Rubble",
-"Ruin Raider",
-"Ruin Rat",
-"Ruinous Gremlin",
-"Rummaging Goblin",
-"Run Aground",
-"Run Amok",
-"Runic Armasaur",
-"Rupture Spire",
-"Rush of Vitality",
-"Rustwing Falcon",
-"Ruthless Knave",
-"Ruthless Sniper",
-"Sacred Cat",
-"Sacred Excavation",
-"Sadistic Skymarcher",
-"Sage of Lat-Nam",
-"Sage of Shaila's Claim",
-"Saheeli Rai",
-"Saheeli's Artistry",
-"Sai, Master Thopterist",
-"Sailor of Means",
-"Salivating Gremlins",
-"Salvage Scuttler",
-"Salvager of Secrets",
-"Samut, the Tested",
-"Samut, Voice of Dissent",
-"Sanctum of the Sun",
-"Sanctum Seeker",
-"Sanctum Spirit",
-"Sand Strangler",
-"Sandblast",
-"Sandwurm Convergence",
-"Sanguine Glorifier",
-"Sanguine Sacrament",
-"Saproling Migration",
-"Sarkhan, Dragonsoul",
-"Sarkhan, Fireblood",
-"Sarkhan's Dragonfire",
-"Sarkhan's Unsealing",
-"Sarkhan's Whelp",
-"Satyr Enchanter",
-"Savage Stomp",
-"Saving Grace",
-"Scaled Behemoth",
-"Scapeshift",
-"Scarab Feast",
-"Scattered Groves",
-"Scavenger Grounds",
-"Scholar of Stars",
-"Scrap Trawler",
-"Scrapheap Scrounger",
-"Scrapper Champion",
-"Scribe of the Mindful",
-"Scrounger of Souls",
-"Scrounging Bandar",
-"Sea Legs",
-"Seafloor Oracle",
-"Seal Away",
-"Search for Azcanta",
-"Secret Salvage",
-"Secrets of the Golden City",
-"See Red",
-"Seeker of Insight",
-"Seekers' Squire",
-"Seer of the Last Tomorrow",
-"Seismic Shift",
-"Select for Inspection",
-"Self-Assembler",
-"Sengir Vampire",
-"Sentinel of the Pearl Trident",
-"Sentinel Totem",
-"Sequestered Stash",
-"Seraph of the Suns",
-"Sergeant-at-Arms",
-"Serra Angel",
-"Serra Disciple",
-"Serra's Guardian",
-"Servant of the Conduit",
-"Servo Exhibition",
-"Servo Schematic",
-"Settle the Score",
-"Settle the Wreckage",
-"Shadow of the Grave",
-"Shadowed Caravel",
-"Shadowstorm Vizier",
-"Shake the Foundations",
-"Shalai, Voice of Plenty",
-"Shanna, Sisay's Legacy",
-"Shaper Apprentice",
-"Shapers of Nature",
-"Shapers' Sanctuary",
-"Shatter",
-"Shed Weakness",
-"Shefet Dunes",
-"Shefet Monitor",
-"Sheltered Thicket",
-"Sheltering Light",
-"Shield Mare",
-"Shield of the Realm",
-"Shielded Aether Thief",
-"Shimmerscale Drake",
-"Shining Aerosaur",
-"Shipwreck Looter",
-"Shipwreck Moray",
-"Shivan Dragon",
-"Shivan Fire",
-"Shock",
-"Shore Keeper",
-"Short Sword",
-"Shrewd Negotiation",
-"Sidewinder Naga",
-"Siege Modification",
-"Siegebreaker Giant",
-"Siege-Gang Commander",
-"Siegehorn Ceratops",
-"Sift",
-"Sifter Wurm",
-"Sigiled Sword of Valeron",
-"Silent Gravestone",
-"Silkweaver Elite",
-"Silverbeak Griffin",
-"Silverclad Ferocidons",
-"Silvergill Adept",
-"Sinuous Striker",
-"Siren Lookout",
-"Siren Reaver",
-"Siren Stormtamer",
-"Siren's Ruse",
-"Sixth Sense",
-"Skalla Wolf",
-"Skeleton Archer",
-"Skilled Animator",
-"Skirk Prospector",
-"Skittering Heartstopper",
-"Skittering Surveyor",
-"Skizzik",
-"Skulduggery",
-"Sky Skiff",
-"Sky Terror",
-"Skyblade of the Legion",
-"Skymarch Bloodletter",
-"Skymarcher Aspirant",
-"Skyrider Patrol",
-"Skyscanner",
-"Skyship Plunderer",
-"Skyship Stalker",
-"Skysovereign, Consul Flagship",
-"Skyswirl Harrier",
-"Skywhaler's Shot",
-"Slash of Talons",
-"Slaughter the Strong",
-"Sleek Schooner",
-"Sleep",
-"Sleep Paralysis",
-"Slice in Twain",
-"Slimefoot, the Stowaway",
-"Slinn Voda, the Rising Deep",
-"Slippery Scoundrel",
-"Slither Blade",
-"Sly Requisitioner",
-"Smelt",
-"Smuggler's Copter",
-"Snapping Drake",
-"Snapping Sailback",
-"Snare Thopter",
-"Snubhorn Sentry",
-"Solemn Recruit",
-"Solemnity",
-"Solitary Camel",
-"Song of Freyalise",
-"Sorcerer's Wand",
-"Sorcerous Spyglass",
-"Soul of the Rapids",
-"Soul Salvage",
-"Soul-Scar Mage",
-"Soulstinger",
-"Sovereign's Bite",
-"Spark of Creativity",
-"Sparktongue Dragon",
-"Sparring Construct",
-"Sparring Mummy",
-"Speedway Fanatic",
-"Spell Pierce",
-"Spell Swindle",
-"Spellweaver Eternal",
-"Sphinx of Magosi",
-"Sphinx's Decree",
-"Spidery Grasp",
-"Spike-Tailed Ceratops",
-"Spire of Industry",
-"Spire Patrol",
-"Spire Winder",
-"Spirebluff Canal",
-"Spires of Orazca",
-"Spireside Infiltrator",
-"Spit Flame",
-"Spitfire Bastion",
-"Splendid Agony",
-"Spontaneous Artist",
-"Spore Swarm",
-"Sporecrown Thallid",
-"Spreading Rot",
-"Spring",
-"Squee, the Immortal",
-"Squire's Devotion",
-"Sram, Senior Edificer",
-"Sram's Expertise",
-"Stalking Tiger",
-"Stampeding Horncrest",
-"Stampeding Rhino",
-"Standing Troops",
-"Star of Extinction",
-"Star-Crowned Stag",
-"Start",
-"Start Your Engines",
-"Steadfast Armasaur",
-"Steadfast Sentinel",
-"Stealer of Secrets",
-"Steel Leaf Champion",
-"Steward of Solidarity",
-"Stinging Shot",
-"Stir the Sands",
-"Stitcher's Supplier",
-"Stone Quarry",
-"Storm Fleet Aerialist",
-"Storm Fleet Arsonist",
-"Storm Fleet Pyromancer",
-"Storm Fleet Sprinter",
-"Storm Fleet Spy",
-"Storm Fleet Swashbuckler",
-"Storm Sculptor",
-"Storm the Vault",
-"Stormfront Pegasus",
-"Strangling Spores",
-"Strategic Planning",
-"Strength of the Pack",
-"Strider Harness",
-"Striped Riverwinder",
-"Stronghold Confessor",
-"Struggle",
-"Submerged Boneyard",
-"Subtle Strike",
-"Sulfur Falls",
-"Sun Sentinel",
-"Sunbird's Invocation",
-"Sun-Blessed Mount",
-"Suncleanser",
-"Sun-Collared Raptor",
-"Sun-Crested Pterodon",
-"Sun-Crowned Hunters",
-"Sunpetal Grove",
-"Sunrise Seeker",
-"Sunscorched Desert",
-"Sunscourge Champion",
-"Sunset Pyramid",
-"Supernatural Stamina",
-"Supply Caravan",
-"Supreme Phantom",
-"Supreme Will",
-"Sure Strike",
-"Surge Mare",
-"Survive",
-"Survivors' Encampment",
-"Suspicious Bookcase",
-"Swab Goblin",
-"Swaggering Corsair",
-"Swarm Intelligence",
-"Swashbuckling",
-"Sweatworks Brawler",
-"Sweltering Suns",
-"Swift Warden",
-"Switcheroo",
-"Sword-Point Diplomacy",
-"Sworn Guardian",
-"Sylvan Awakening",
-"Synchronized Strike",
-"Syncopate",
-"Syndicate Trafficker",
-"Tah-Crop Elite",
-"Tah-Crop Skirmisher",
-"Take Down",
-"Take into Custody",
-"Take Vengeance",
-"Talons of Wildwood",
-"Tasseled Dromedary",
-"Tattered Mummy",
-"Tatyova, Benthic Druid",
-"Tectonic Rift",
-"Teferi, Hero of Dominaria",
-"Teferi, Timebender",
-"Teferi's Sentinel",
-"Temmet, Vizier of Naktamun",
-"Tempest Caller",
-"Tempest Djinn",
-"Temple Altisaur",
-"Temple of Aclazotz",
-"Temporal Machinations",
-"Tenacious Hunter",
-"Tendershoot Dryad",
-"Terrain Elemental",
-"Territorial Allosaurus",
-"Territorial Gorger",
-"Territorial Hammerskull",
-"Terror of the Fairgrounds",
-"Teshar, Ancestor's Apostle",
-"Tetsuko Umezawa, Fugitive",
-"Tetzimoc, Primal Death",
-"Tezzeret the Schemer",
-"Tezzeret, Artifice Master",
-"Tezzeret, Cruel Machinist",
-"Tezzeret, Master of Metal",
-"Tezzeret's Ambition",
-"Tezzeret's Betrayal",
-"Tezzeret's Gatebreaker",
-"Tezzeret's Simulacrum",
-"Tezzeret's Strider",
-"Tezzeret's Touch",
-"Thallid Omnivore",
-"Thallid Soothsayer",
-"Thaumatic Compass",
-"The Antiquities War",
-"The Eldest Reborn",
-"The First Eruption",
-"The Flame of Keld",
-"The Immortal Sun",
-"The Locust God",
-"The Mending of Dominaria",
-"The Mirari Conjecture",
-"The Scarab God",
-"The Scorpion God",
-"Thopter Arrest",
-"Thorn Elemental",
-"Thorn Lieutenant",
-"Thorned Moloch",
-"Thornhide Wolves",
-"Those Who Serve",
-"Thran Temporal Gateway",
-"Thrash of Raptors",
-"Thrashing Brontodon",
-"Thresher Lizard",
-"Thriving Grubs",
-"Thriving Ibex",
-"Thriving Rats",
-"Thriving Rhino",
-"Thriving Turtle",
-"Throne of the God-Pharaoh",
-"Thud",
-"Thunderherd Migration",
-"Thundering Giant",
-"Thundering Spineback",
-"Tiana, Ship's Caretaker",
-"Tidy Conclusion",
-"Tilonalli's Crown",
-"Tilonalli's Knight",
-"Tilonalli's Skinshifter",
-"Tilonalli's Summoner",
-"Timber Gorge",
-"Time of Ice",
-"Time to Reflect",
-"Timestream Navigator",
-"Tishana, Voice of Thunder",
-"Tishana's Wayfinder",
-"Titanic Growth",
-"Tocatli Honor Guard",
-"Tolarian Scholar",
-"Tomb of the Dusk Rose",
-"Tomb Robber",
-"Toolcraft Exemplar",
-"Torch Gauntlet",
-"Torgaar, Famine Incarnate",
-"Torment of Hailfire",
-"Torment of Scarabs",
-"Torment of Venom",
-"Tormenting Voice",
-"Torrential Gearhulk",
-"Totally Lost",
-"Tragic Lesson",
-"Tragic Poet",
-"Tranquil Expanse",
-"Transmogrifying Wand",
-"Trapjaw Tyrant",
-"Traveler's Amulet",
-"Traxos, Scourge of Kroog",
-"Treasure Cove",
-"Treasure Keeper",
-"Treasure Map",
-"Trespasser's Curse",
-"Trial of Ambition",
-"Trial of Knowledge",
-"Trial of Solidarity",
-"Trial of Strength",
-"Trial of Zeal",
-"Tricks of the Trade",
-"Triumph of Gerrard",
-"Trophy Mage",
-"Trove of Temptation",
-"Trueheart Duelist",
-"Trueheart Twins",
-"Trumpet Blast",
-"Trusty Companion",
-"Trusty Packbeast",
-"Twilight Prophet",
-"Two-Headed Giant",
-"Two-Headed Zombie",
-"Unbridled Growth",
-"Unburden",
-"Uncage the Menagerie",
-"Unclaimed Territory",
-"Uncomfortable Chill",
-"Unconventional Tactics",
-"Underhanded Designs",
-"Unesh, Criosphinx Sovereign",
-"Unfriendly Fire",
-"Universal Solvent",
-"Unknown Shores",
-"Unlicensed Disintegration",
-"Unquenchable Thirst",
-"Unraveling Mummy",
-"Unsummon",
-"Untamed Hunger",
-"Untamed Kavu",
-"Untethered Express",
-"Unwavering Initiate",
-"Unwind",
-"Urgoros, the Empty One",
-"Ursine Champion",
-"Urza's Ruinous Blast",
-"Urza's Tome",
-"Vaevictis Asmadi, the Dire",
-"Valduk, Keeper of the Flame",
-"Valiant Knight",
-"Vampire Champion",
-"Vampire Neonate",
-"Vampire Revenant",
-"Vampire Sovereign",
-"Vampire's Zeal",
-"Vance's Blasting Cannons",
-"Vanquish the Weak",
-"Vanquisher's Banner",
-"Vault of Catlacan",
-"Vedalken Blademaster",
-"Vengeful Rebel",
-"Verdant Automaton",
-"Verdant Crescendo",
-"Verdant Force",
-"Verdant Rebirth",
-"Verdant Sun's Avatar",
-"Verdurous Gearhulk",
-"Verix Bladewing",
-"Veteran Motorist",
-"Viashino Pyromancer",
-"Vicious Conquistador",
-"Vicious Offering",
-"Victory",
-"Victory's Herald",
-"Vigilant Baloth",
-"Vile Manifestation",
-"Vine Mare",
-"Vineshaper Mystic",
-"Violent Impact",
-"Visage of Bolas",
-"Visionary Augmenter",
-"Vivien of the Arkbow",
-"Vivien Reid",
-"Vivien's Invocation",
-"Vivien's Jaguar",
-"Vizier of Deferment",
-"Vizier of Many Faces",
-"Vizier of Remedies",
-"Vizier of the Anointed",
-"Vizier of the Menagerie",
-"Vizier of the True",
-"Vizier of Tumbling Sands",
-"Vodalian Arcanist",
-"Volcanic Dragon",
-"Volley Veteran",
-"Voltaic Brawler",
-"Voltaic Servant",
-"Vona, Butcher of Magan",
-"Vona's Hunger",
-"Voracious Vampire",
-"Vraska, Relic Seeker",
-"Vraska, Scheming Gorgon",
-"Vraska's Conquistador",
-"Vraska's Contempt",
-"Vraska's Scorn",
-"Wakening Sun's Avatar",
-"Waker of the Wilds",
-"Walk the Plank",
-"Walking Ballista",
-"Walking Corpse",
-"Wall of Forgotten Pharaohs",
-"Wall of Mist",
-"Wall of Vines",
-"Wander in Death",
-"Wanted Scoundrels",
-"Warcry Phoenix",
-"Warfire Javelineer",
-"Warkite Marauder",
-"Warlord's Fury",
-"Wasp of the Bitter End",
-"Wasteland Scorpion",
-"Watchers of the Dead",
-"Watchful Automaton",
-"Watchful Naga",
-"Waterknot",
-"Watertrap Weaver",
-"Wayward Giant",
-"Wayward Servant",
-"Wayward Swordtooth",
-"Weaponcraft Enthusiast",
-"Weatherlight",
-"Weaver of Currents",
-"Weight of Memory",
-"Welder Automaton",
-"Weldfast Engineer",
-"Weldfast Monitor",
-"Weldfast Wingsmith",
-"Welding Sparks",
-"Whir of Invention",
-"Whirler Virtuoso",
-"Whirlermaker",
-"Whisper, Blood Liturgist",
-"Wild Onslaught",
-"Wild Wanderer",
-"Wildest Dreams",
-"Wildfire Eternal",
-"Wildgrowth Walker",
-"Wily Bandar",
-"Wily Goblin",
-"Wind Drake",
-"Wind Strider",
-"Windgrace Acolyte",
-"Winding Constrictor",
-"Wind-Kin Raiders",
-"Windreader Sphinx",
-"Winds of Rebuke",
-"Wing Snare",
-"Winged Shepherd",
-"Winged Temple of Orazca",
-"Wispweaver Angel",
-"Without Weakness",
-"Wizard's Lightning",
-"Wizard's Retort",
-"Woodland Cemetery",
-"Woodland Stream",
-"Woodweaver's Puzzleknot",
-"Workshop Assistant",
-"World Shaper",
-"Wrangle",
-"Wretched Camel",
-"Yahenni, Undying Partisan",
-"Yahenni's Expertise",
-"Yargle, Glutton of Urborg",
-"Yavimaya Sapherd",
-"Yawgmoth's Vile Offering",
-"Zacama, Primal Calamity",
-"Zahid, Djinn of the Lamp",
-"Zealot of the God-Pharaoh",
-"Zenith Seeker",
-"Zetalpa, Primal Dawn",
-"Zhalfirin Void",
-"Angelic Reward",
-"Confront the Assault",
-"Inspiring Commander",
-"Spiritual Guardian",
-"Tactical Advantage"];
-
+var globalCardnames = "Abandoned Sarcophagus|C\n\
+Abrade|R\n\
+Academy Drake|U\n\
+Academy Journeymage|U\n\
+Accomplished Automaton|C\n\
+Accursed Horde|B\n\
+Acrobatic Maneuver|W\n\
+Act of Heroism|W\n\
+Adamant Will|W\n\
+Adanto Vanguard|W\n\
+Adeliz, the Cinder Wind|UR\n\
+Admiral Beckett Brass|UBR\n\
+Admiral's Order|U\n\
+Adorned Pouncer|W\n\
+Adventurous Impulse|G\n\
+Aegis Automaton|C\n\
+Aerial Guide|U\n\
+Aerial Modification|W\n\
+Aerial Responder|W\n\
+Aeronaut Admiral|W\n\
+Aesthir Glider|C\n\
+Aether Chaser|R\n\
+Aether Herder|G\n\
+Aether Hub|L\n\
+Aether Inspector|W\n\
+Aether Meltdown|U\n\
+Aether Poisoner|B\n\
+Aether Swooper|U\n\
+Aether Theorist|U\n\
+Aether Tradewinds|U\n\
+Aetherborn Marauder|B\n\
+Aetherflux Reservoir|C\n\
+Aethergeode Miner|W\n\
+Aethersphere Harvester|C\n\
+Aethersquall Ancient|U\n\
+Aetherstorm Roc|W\n\
+Aetherstream Leopard|G\n\
+Aethertide Whale|U\n\
+Aethertorch Renegade|R\n\
+Aetherwind Basker|G\n\
+Aetherworks Marvel|C\n\
+Aggressive Urge|G\n\
+Ahn-Crop Champion|WG\n\
+Ahn-Crop Crasher|R\n\
+Aid from the Cowl|G\n\
+Air Elemental|U\n\
+Airdrop Aeronauts|W\n\
+Ajani Unyielding|WG\n\
+Ajani, Valiant Protector|WG\n\
+Ajani's Aid|WG\n\
+Ajani's Comrade|G\n\
+Alley Evasion|W\n\
+Alley Strangler|B\n\
+Amaranthine Wall|C\n\
+Ambitious Aetherborn|B\n\
+Ambuscade|G\n\
+Ammit Eternal|B\n\
+Ancient Animus|G\n\
+Ancient Brontodon|G\n\
+Ancient Crab|U\n\
+Angel of Condemnation|W\n\
+Angel of Invention|W\n\
+Angel of Sanctions|W\n\
+Angel of the God-Pharaoh|W\n\
+Angler Drake|U\n\
+Angrath, Minotaur Pirate|BR\n\
+Angrath, the Flame-Chained|BR\n\
+Angrath's Ambusher|B\n\
+Angrath's Fury|BR\n\
+Angrath's Marauders|R\n\
+Animation Module|C\n\
+Anointed Deacon|B\n\
+Anointed Procession|W\n\
+Anointer Priest|W\n\
+Apocalypse Demon|B\n\
+Appeal|G\n\
+Appetite for the Unnatural|G\n\
+Approach of the Second Sun|W\n\
+Aquatic Incursion|U\n\
+Aradara Express|C\n\
+Arbor Armament|G\n\
+Arborback Stomper|G\n\
+Arcane Adaptation|U\n\
+Arcane Flight|U\n\
+Arch of Orazca|L\n\
+Archfiend of Ifnir|B\n\
+Architect of the Untamed|G\n\
+Arguel's Blood Fast|B\n\
+Armorcraft Judge|G\n\
+Arterial Flow|B\n\
+Artificer's Assistant|U\n\
+Arvad the Cursed|WB\n\
+Aryel, Knight of Windgrace|WB\n\
+As Foretold|U\n\
+Ashes of the Abhorrent|W\n\
+Attune with Aether|G\n\
+Atzocan Archer|G\n\
+Atzocan Seer|WG\n\
+Audacious Infiltrator|W\n\
+Augmenting Automaton|C\n\
+Authority of the Consuls|W\n\
+Aven Initiate|U\n\
+Aven Mindcensor|W\n\
+Aven of Enduring Hope|W\n\
+Aven Reedstalker|U\n\
+Aven Sentry|W\n\
+Aven Wind Guide|WU\n\
+Aviary Mechanic|W\n\
+Avid Reclaimer|G\n\
+Awakened Amalgam|C\n\
+Axis of Mortality|W\n\
+Azor, the Lawbringer|WU\n\
+Azor's Gateway|C\n\
+Baffling End|W\n\
+Baird, Steward of Argive|W\n\
+Baleful Ammit|B\n\
+Ballista Charger|C\n\
+Baloth Gorger|G\n\
+Banewhip Punisher|B\n\
+Baral, Chief of Compliance|U\n\
+Baral's Expertise|U\n\
+Barricade Breaker|C\n\
+Bastion Enforcer|W\n\
+Bastion Inventor|U\n\
+Bastion Mastodon|C\n\
+Battle at the Bridge|B\n\
+Battlefield Scavenger|R\n\
+Befuddle|U\n\
+Belligerent Brontodon|WG\n\
+Bellowing Aegisaur|W\n\
+Benalish Honor Guard|W\n\
+Benalish Marshal|W\n\
+Beneath the Sands|G\n\
+Benefaction of Rhonas|G\n\
+Binding Mummy|W\n\
+Bishop of Binding|W\n\
+Bishop of Rebirth|W\n\
+Bishop of the Bloodstained|B\n\
+Bishop's Soldier|W\n\
+Bitterblade Warrior|G\n\
+Bitterbow Sharpshooters|G\n\
+Blackblade Reforged|C\n\
+Blazing Hope|W\n\
+Blazing Volley|R\n\
+Blessed Light|W\n\
+Blessing of Belzenlok|B\n\
+Blight Keeper|B\n\
+Blighted Bat|B\n\
+Blinding Fog|G\n\
+Blink of an Eye|U\n\
+Blood Sun|R\n\
+Bloodcrazed Paladin|B\n\
+Bloodhunter Bat|B\n\
+Bloodlust Inciter|R\n\
+Bloodrage Brawler|R\n\
+Bloodstone Goblin|R\n\
+Bloodtallow Candle|C\n\
+Bloodwater Entity|UR\n\
+Blooming Marsh|L\n\
+Blossom Dryad|G\n\
+Blossoming Defense|G\n\
+Blur of Blades|R\n\
+Board the Weatherlight|W\n\
+Bomat Bazaar Barge|C\n\
+Bomat Courier|C\n\
+Bombard|R\n\
+Bonded Horncrest|R\n\
+Bone Picker|B\n\
+Boneyard Parley|B\n\
+Bontu the Glorified|B\n\
+Bontu's Last Reckoning|B\n\
+Bontu's Monument|C\n\
+Botanical Sanctum|L\n\
+Bounty of the Luxa|UG\n\
+Brambleweft Behemoth|G\n\
+Brass's Bounty|R\n\
+Brazen Buccaneers|R\n\
+Brazen Freebooter|R\n\
+Brazen Scourge|R\n\
+Bright Reprisal|W\n\
+Bristling Hydra|G\n\
+Broken Bond|G\n\
+Brute Strength|R\n\
+Buccaneer's Bravado|R\n\
+Built to Last|W\n\
+Built to Smash|R\n\
+Burning Sun's Avatar|R\n\
+Burning-Fist Minotaur|R\n\
+By Force|R\n\
+Cabal Evangel|B\n\
+Cabal Paladin|B\n\
+Cabal Stronghold|L\n\
+Cacophodon|G\n\
+Caligo Skin-Witch|B\n\
+Call for Unity|W\n\
+Call the Cavalry|W\n\
+Call to the Feast|WB\n\
+Canal Monitor|B\n\
+Cancel|U\n\
+Canyon Slough|L\n\
+Captain Lannery Storm|R\n\
+Captain's Hook|C\n\
+Captivating Crew|R\n\
+Captured by the Consulate|W\n\
+Carnage Tyrant|G\n\
+Carrion Screecher|B\n\
+Cartouche of Ambition|B\n\
+Cartouche of Knowledge|U\n\
+Cartouche of Solidarity|W\n\
+Cartouche of Strength|G\n\
+Cartouche of Zeal|R\n\
+Cascading Cataracts|L\n\
+Cast Down|B\n\
+Cast Out|W\n\
+Castaway's Despair|U\n\
+Cataclysmic Gearhulk|W\n\
+Cathartic Reunion|R\n\
+Caught in the Brights|W\n\
+Censor|U\n\
+Ceremonious Rejection|U\n\
+Certain Death|B\n\
+Chainer's Torment|B\n\
+Champion of Dusk|B\n\
+Champion of Rhonas|G\n\
+Champion of the Flame|R\n\
+Champion of Wits|U\n\
+Chandra, Bold Pyromancer|R\n\
+Chandra, Pyrogenius|R\n\
+Chandra, Torch of Defiance|R\n\
+Chandra's Defeat|R\n\
+Chandra's Outburst|R\n\
+Chandra's Pyrohelix|R\n\
+Chandra's Revolution|R\n\
+Channeler Initiate|G\n\
+Chaos Maw|R\n\
+Charge|W\n\
+Charging Monstrosaur|R\n\
+Charging Tuskodon|R\n\
+Chart a Course|U\n\
+Cherished Hatchling|G\n\
+Chief of the Foundry|C\n\
+Cinder Barrens|L\n\
+Claim|B\n\
+Cleansing Ray|W\n\
+Clifftop Retreat|L\n\
+Cloudblazer|WU\n\
+Cloudreader Sphinx|U\n\
+Cobbled Wings|C\n\
+Cogwork Assembler|C\n\
+Cogworker's Puzzleknot|C\n\
+Cold-Water Snapper|U\n\
+Colossal Dreadmaw|G\n\
+Colossapede|G\n\
+Combat Celebrant|R\n\
+Combustible Gearhulk|R\n\
+Commencement of Festivities|G\n\
+Commit|U\n\
+Commune with Dinosaurs|G\n\
+Companion of the Trials|W\n\
+Compelling Argument|U\n\
+Compulsory Rest|W\n\
+Concealed Courtyard|L\n\
+Confiscation Coup|U\n\
+Conqueror's Galleon|C\n\
+Consign|U\n\
+Consulate Crackdown|W\n\
+Consulate Dreadnought|C\n\
+Consulate Skygate|C\n\
+Consulate Surveillance|W\n\
+Consulate Turret|C\n\
+Consul's Shieldguard|W\n\
+Consuming Fervor|R\n\
+Contraband Kingpin|UB\n\
+Contract Killing|B\n\
+Conviction|W\n\
+Coral Merfolk|U\n\
+Corrosive Ooze|G\n\
+Costly Plunder|B\n\
+Countervailing Winds|U\n\
+Countless Gears Renegade|W\n\
+Cowl Prowler|G\n\
+Crackdown Construct|C\n\
+Cradle of the Accursed|L\n\
+Crafty Cutpurse|U\n\
+Crash the Ramparts|G\n\
+Crash Through|R\n\
+Crashing Tide|U\n\
+Creeping Mold|G\n\
+Crested Herdcaller|G\n\
+Crested Sunmare|W\n\
+Crocodile of the Crossing|G\n\
+Crook of Condemnation|C\n\
+Cruel Finality|B\n\
+Cruel Reality|B\n\
+Crushing Canopy|G\n\
+Crypt of the Eternals|L\n\
+Cryptic Serpent|U\n\
+Cultivator of Blades|G\n\
+Cultivator's Caravan|C\n\
+Cunning Survivor|U\n\
+Curator of Mysteries|U\n\
+Curator's Ward|U\n\
+Curio Vendor|U\n\
+Curious Obsession|U\n\
+Cursed Minotaur|B\n\
+Cut|R\n\
+Dagger of the Worthy|C\n\
+Damping Sphere|C\n\
+Danitha Capashen, Paragon|W\n\
+Daredevil Dragster|C\n\
+Darigaaz Reincarnated|BRG\n\
+Daring Archaeologist|W\n\
+Daring Buccaneer|R\n\
+Daring Demolition|B\n\
+Daring Saboteur|U\n\
+Dark Bargain|B\n\
+Dark Inquiry|B\n\
+Dark Intimations|UBR\n\
+Dark Nourishment|B\n\
+Dauntless Aven|W\n\
+Dauntless Bodyguard|W\n\
+D'Avenant Trapper|W\n\
+Dawnfeather Eagle|W\n\
+Dead Man's Chest|B\n\
+Deadeye Brawler|UB\n\
+Deadeye Harpooner|W\n\
+Deadeye Plunderers|UB\n\
+Deadeye Quartermaster|U\n\
+Deadeye Rig-Hauler|U\n\
+Deadeye Tormentor|B\n\
+Deadeye Tracker|B\n\
+Deadlock Trap|C\n\
+Deathbloom Thallid|B\n\
+Deathgorge Scavenger|G\n\
+Deathless Ancient|B\n\
+Decimator Beetle|BG\n\
+Decision Paralysis|U\n\
+Decoction Module|C\n\
+Decommission|W\n\
+Deem Worthy|R\n\
+Deep Freeze|U\n\
+Deeproot Champion|G\n\
+Deeproot Elite|G\n\
+Deeproot Warrior|G\n\
+Deeproot Waters|U\n\
+Defiant Greatmaw|G\n\
+Defiant Khenra|R\n\
+Defiant Salvager|B\n\
+Deft Dismissal|W\n\
+Demolish|R\n\
+Demolition Stomper|C\n\
+Demon of Dark Schemes|B\n\
+Demonic Vigor|B\n\
+Demonlord Belzenlok|B\n\
+Demystify|W\n\
+Depala, Pilot Exemplar|WR\n\
+Depths of Desire|U\n\
+Desert Cerodon|R\n\
+Desert of the Fervent|L\n\
+Desert of the Glorified|L\n\
+Desert of the Indomitable|L\n\
+Desert of the Mindful|L\n\
+Desert of the True|L\n\
+Desert's Hold|W\n\
+Desiccated Naga|B\n\
+Desperate Castaways|B\n\
+Destined|B\n\
+Destructive Tampering|R\n\
+Devoted Crop-Mate|W\n\
+Devotee of Strength|G\n\
+Dhund Operative|B\n\
+Diabolic Tutor|B\n\
+Die Young|B\n\
+Diligent Excavator|U\n\
+Dinosaur Hunter|B\n\
+Dinosaur Stampede|R\n\
+Dire Fleet Captain|BR\n\
+Dire Fleet Daredevil|R\n\
+Dire Fleet Hoarder|B\n\
+Dire Fleet Interloper|B\n\
+Dire Fleet Neckbreaker|BR\n\
+Dire Fleet Poisoner|B\n\
+Dire Fleet Ravager|B\n\
+Disallow|U\n\
+Disappearing Act|U\n\
+Dispersal Technician|U\n\
+Disposal Mummy|W\n\
+Dispossess|B\n\
+Dissenter's Deliverance|G\n\
+Dive Down|U\n\
+Divest|B\n\
+Divination|U\n\
+Divine Verdict|W\n\
+Djeru, With Eyes Open|W\n\
+Djeru's Renunciation|W\n\
+Djeru's Resolve|W\n\
+Doomed Dissenter|B\n\
+Doomfall|B\n\
+Dovin Baan|WU\n\
+Dowsing Dagger|C\n\
+Drag Under|U\n\
+Dragonskull Summit|L\n\
+Drake Haven|U\n\
+Dramatic Reversal|U\n\
+Dread Shade|B\n\
+Dread Wanderer|B\n\
+Dreamcaller Siren|U\n\
+Dreamstealer|B\n\
+Driven|G\n\
+Drover of the Mighty|G\n\
+Drowned Catacomb|L\n\
+Drudge Sentinel|B\n\
+Druid of the Cowl|G\n\
+Dual Shot|R\n\
+Dub|W\n\
+Dubious Challenge|G\n\
+Dukhara Peafowl|C\n\
+Dukhara Scavenger|B\n\
+Dune Beetle|B\n\
+Dune Diviner|G\n\
+Dunes of the Dead|L\n\
+Durable Handicraft|G\n\
+Duress|B\n\
+Dusk|W\n\
+Dusk Charger|B\n\
+Dusk Legion Dreadnought|C\n\
+Dusk Legion Zealot|B\n\
+Duskborne Skymarcher|W\n\
+Dutiful Servants|W\n\
+Dynavolt Tower|C\n\
+Eager Construct|C\n\
+Earthshaker Khenra|R\n\
+Eddytrail Hawk|W\n\
+Edifice of Authority|C\n\
+Efficient Construction|U\n\
+Elaborate Firecannon|C\n\
+Electrify|R\n\
+Electrostatic Pummeler|C\n\
+Elegant Edgecrafters|G\n\
+Elenda, the Dusk Rose|WB\n\
+Elfhame Druid|G\n\
+Eliminate the Competition|B\n\
+Embalmer's Tools|C\n\
+Emberhorn Minotaur|R\n\
+Embraal Bruiser|B\n\
+Embraal Gear-Smasher|R\n\
+Emergent Growth|G\n\
+Emissary of Sunrise|W\n\
+Emperor's Vanguard|G\n\
+Empyreal Voyager|UG\n\
+Encampment Keeper|W\n\
+Endless Sands|L\n\
+Engineered Might|WG\n\
+Enigma Drake|UR\n\
+Enraged Giant|R\n\
+Enter the Unknown|G\n\
+Entrancing Melody|U\n\
+Era of Innovation|U\n\
+Essence Extraction|B\n\
+Essence Scatter|U\n\
+Etali, Primal Storm|R\n\
+Eternal of Harsh Truths|U\n\
+Everdawn Champion|W\n\
+Eviscerate|B\n\
+Evolving Wilds|L\n\
+Evra, Halcyon Witness|W\n\
+Excavation Elephant|W\n\
+Exemplar of Strength|G\n\
+Expel from Orazca|U\n\
+Experimental Aviator|U\n\
+Exquisite Archangel|W\n\
+Exultant Skymarcher|W\n\
+Fabrication Module|C\n\
+Failed Inspection|U\n\
+Failure|U\n\
+Fairgrounds Trumpeter|G\n\
+Fairgrounds Warden|W\n\
+Faith of the Devoted|B\n\
+Falkenrath Reaver|R\n\
+Fall of the Thran|W\n\
+Famished Paladin|W\n\
+Fan Bearer|W\n\
+Fanatical Firebrand|R\n\
+Farm|W\n\
+Fatal Push|B\n\
+Fateful Showdown|R\n\
+Fathom Fleet Boarder|B\n\
+Fathom Fleet Captain|B\n\
+Fathom Fleet Cutthroat|B\n\
+Fathom Fleet Firebrand|R\n\
+Favorable Winds|U\n\
+Felidar Guardian|W\n\
+Fell Flagship|C\n\
+Fen Hauler|B\n\
+Feral Abomination|B\n\
+Feral Prowler|G\n\
+Fervent Paincaster|R\n\
+Fervent Strike|R\n\
+Festering Mummy|B\n\
+Fetid Pools|L\n\
+Field of Ruin|L\n\
+Fiery Cannonade|R\n\
+Fiery Intervention|R\n\
+Fight with Fire|R\n\
+Filigree Crawler|C\n\
+Filigree Familiar|C\n\
+Final Parting|B\n\
+Final Reward|B\n\
+Fire Elemental|R\n\
+Fire Shrine Keeper|R\n\
+Firebrand Archer|R\n\
+Firecannon Blast|R\n\
+Firefist Adept|R\n\
+Fireforger's Puzzleknot|C\n\
+Firesong and Sunspeaker|WR\n\
+Flame Lash|R\n\
+Flameblade Adept|R\n\
+Fleet Swallower|U\n\
+Fleetwheel Cruiser|C\n\
+Fling|R\n\
+Flood of Recollection|U\n\
+Floodwaters|U\n\
+Forebear's Blade|C\n\
+Forerunner of the Coalition|B\n\
+Forerunner of the Empire|R\n\
+Forerunner of the Heralds|G\n\
+Forerunner of the Legion|W\n\
+Forest|L\n\
+Form of the Dinosaur|R\n\
+Forsake the Worldly|W\n\
+Forsaken Sanctuary|L\n\
+Fortuitous Find|B\n\
+Foul Orchard|L\n\
+Foundry Assembler|C\n\
+Foundry Hornet|B\n\
+Foundry Inspector|C\n\
+Foundry Screecher|B\n\
+Fourth Bridge Prowler|B\n\
+Fragmentize|W\n\
+Fraying Sanity|U\n\
+Freejam Regent|R\n\
+Frenzied Rage|R\n\
+Frenzied Raptor|R\n\
+Fretwork Colony|B\n\
+Frilled Deathspitter|R\n\
+Frilled Sandwalla|G\n\
+Frontline Devastator|R\n\
+Frontline Rebel|R\n\
+Fumigate|W\n\
+Fungal Infection|B\n\
+Fungal Plots|G\n\
+Furious Reprisal|R\n\
+Gaea's Blessing|G\n\
+Gaea's Protector|G\n\
+Galestrike|U\n\
+Garna, the Bloodflame|BR\n\
+Garruk's Horde|G\n\
+Gate to the Afterlife|C\n\
+Gearseeker Serpent|U\n\
+Gearshift Ace|W\n\
+Ghalta, Primal Hunger|G\n\
+Ghirapur Guide|G\n\
+Ghirapur Orrery|C\n\
+Ghirapur Osprey|W\n\
+Ghitu Chronicler|R\n\
+Ghitu Journeymage|R\n\
+Ghitu Lavarunner|R\n\
+Giant Spectacle|R\n\
+Giant Spider|G\n\
+Gideon of the Trials|W\n\
+Gideon, Martial Paragon|W\n\
+Gideon's Defeat|W\n\
+Gideon's Intervention|W\n\
+Gideon's Reproach|W\n\
+Gideon's Resolve|W\n\
+Gift of Growth|G\n\
+Gift of Paradise|G\n\
+Gift of Strength|G\n\
+Gifted Aetherborn|B\n\
+Gilded Cerodon|R\n\
+Gilded Lotus|C\n\
+Gilded Sentinel|C\n\
+Giltgrove Stalker|G\n\
+Gishath, Sun's Avatar|WRG\n\
+Glacial Fortress|L\n\
+Glassblower's Puzzleknot|C\n\
+Gleaming Barrier|C\n\
+Glimmer of Genius|U\n\
+Glint-Nest Crane|U\n\
+Glint-Sleeve Artisan|W\n\
+Glint-Sleeve Siphoner|B\n\
+Glorifier of Dusk|W\n\
+Glorious End|R\n\
+Glory Seeker|W\n\
+Glory-Bound Initiate|W\n\
+Glorybringer|R\n\
+Glyph Keeper|U\n\
+Goblin Barrage|R\n\
+Goblin Chainwhirler|R\n\
+Goblin Trailblazer|R\n\
+Goblin Warchief|R\n\
+God-Pharaoh's Faithful|W\n\
+God-Pharaoh's Gift|C\n\
+Golden Demise|B\n\
+Golden Guardian|C\n\
+Gonti, Lord of Luxury|B\n\
+Gonti's Aether Heart|C\n\
+Gonti's Machinations|B\n\
+Goring Ceratops|W\n\
+Graceful Cat|W\n\
+Grand Warlord Radha|RG\n\
+Granitic Titan|R\n\
+Grasping Current|U\n\
+Grasping Dunes|L\n\
+Grasping Scoundrel|B\n\
+Gravedigger|B\n\
+Graven Abomination|C\n\
+Grazing Whiptail|G\n\
+Greater Sandwurm|G\n\
+Greenbelt Rampager|G\n\
+Greenwheel Liberator|G\n\
+Gremlin Infestation|R\n\
+Grim Captain's Call|B\n\
+Grim Strider|B\n\
+Grind|B\n\
+Grisly Survivor|B\n\
+Grow from the Ashes|G\n\
+Growing Rites of Itlimoc|G\n\
+Gruesome Fate|B\n\
+Grunn, the Lonely King|G\n\
+Guardian of the Great Conduit|G\n\
+Guardians of Koilos|C\n\
+Gust Walker|W\n\
+Hadana's Climb|UG\n\
+Hallar, the Firefletcher|RG\n\
+Hapatra, Vizier of Poisons|BG\n\
+Hapatra's Mark|G\n\
+Haphazard Bombardment|R\n\
+Hardy Veteran|G\n\
+Harnessed Lightning|R\n\
+Harrier Naga|G\n\
+Harsh Mentor|R\n\
+Harsh Scrutiny|B\n\
+Harvest Season|G\n\
+Hashep Oasis|L\n\
+Hazardous Conditions|BG\n\
+Haze of Pollen|G\n\
+Hazoret the Fervent|R\n\
+Hazoret's Favor|R\n\
+Hazoret's Monument|C\n\
+Hazoret's Undying Fury|R\n\
+Headstrong Brute|R\n\
+Headwater Sentries|U\n\
+Healing Grace|W\n\
+Heart of Kiran|C\n\
+Heartless Pillage|B\n\
+Heart-Piercer Manticore|R\n\
+Heaven|G\n\
+Hekma Sentinels|U\n\
+Helm of the Host|C\n\
+Herald of Anguish|B\n\
+Herald of Secret Streams|U\n\
+Herald of the Fair|W\n\
+Heroic Intervention|G\n\
+Hidden Herbalists|G\n\
+Hidden Stockpile|WB\n\
+Hieroglyphic Illumination|U\n\
+Hierophant's Chalice|C\n\
+Highland Lake|L\n\
+Highspire Artisan|G\n\
+Highspire Infusion|G\n\
+Hightide Hermit|U\n\
+Hijack|R\n\
+Hinterland Drake|U\n\
+Hinterland Harbor|L\n\
+History of Benalia|W\n\
+Hollow One|C\n\
+Homarid Explorer|U\n\
+Honed Khopesh|C\n\
+Honored Crop-Captain|WR\n\
+Honored Hydra|G\n\
+Hooded Brawler|G\n\
+Hope of Ghirapur|C\n\
+Hope Tender|G\n\
+Hornswoggle|U\n\
+Horror of the Broken Lands|B\n\
+Hostage Taker|UB\n\
+Hostile Desert|L\n\
+Hour of Devastation|R\n\
+Hour of Eternity|U\n\
+Hour of Glory|B\n\
+Hour of Promise|G\n\
+Hour of Revelation|W\n\
+Howling Golem|C\n\
+Huatli, Dinosaur Knight|WR\n\
+Huatli, Radiant Champion|WG\n\
+Huatli, Warrior Poet|WR\n\
+Huatli's Snubhorn|W\n\
+Huatli's Spurring|R\n\
+Hungry Flames|R\n\
+Hunt the Weak|G\n\
+Hyena Pack|R\n\
+Ice Over|U\n\
+Icy Manipulator|C\n\
+Ifnir Deadlands|L\n\
+Illusionist's Stratagem|U\n\
+Illusory Wrappings|U\n\
+Imaginary Threats|U\n\
+Imminent Doom|R\n\
+Impale|B\n\
+Impeccable Timing|W\n\
+Imperial Aerosaur|W\n\
+Imperial Ceratops|W\n\
+Imperial Lancer|W\n\
+Implement of Combustion|C\n\
+Implement of Examination|C\n\
+Implement of Ferocity|C\n\
+Implement of Improvement|C\n\
+Implement of Malice|C\n\
+In Bolas's Clutches|U\n\
+In Oketra's Name|W\n\
+Incendiary Sabotage|R\n\
+Indomitable Creativity|R\n\
+Induced Amnesia|U\n\
+Inferno Jet|R\n\
+Initiate's Companion|G\n\
+Insidious Will|U\n\
+Inspiration|U\n\
+Inspired Charge|W\n\
+Inspiring Cleric|W\n\
+Inspiring Roar|W\n\
+Inspiring Statuary|C\n\
+Inspiring Vantage|L\n\
+Insult|R\n\
+Inventor's Apprentice|R\n\
+Inventors' Fair|L\n\
+Inventor's Goggles|C\n\
+Invigorated Rampage|R\n\
+Invoke the Divine|W\n\
+Ipnu Rivulet|L\n\
+Iron League Steed|C\n\
+Ironclad Revolutionary|B\n\
+Irontread Crusher|C\n\
+Irrigated Farmland|L\n\
+Island|L\n\
+Isolated Chapel|L\n\
+Ixalan's Binding|W\n\
+Ixalli's Diviner|G\n\
+Ixalli's Keeper|G\n\
+Jace, Cunning Castaway|U\n\
+Jace, Ingenious Mind-Mage|U\n\
+Jace's Defeat|U\n\
+Jace's Sentinel|U\n\
+Jade Bearer|G\n\
+Jade Guardian|G\n\
+Jadecraft Artisan|G\n\
+Jadelight Ranger|G\n\
+Janjeet Sentry|U\n\
+Jaya Ballard|R\n\
+Jaya's Immolating Inferno|R\n\
+Jhoira, Weatherlight Captain|UR\n\
+Jhoira's Familiar|C\n\
+Jodah, Archmage Eternal|WUR\n\
+Josu Vess, Lich Knight|B\n\
+Journey to Eternity|BG\n\
+Jousting Lance|C\n\
+Juggernaut|C\n\
+Jungle Creeper|BG\n\
+Jungle Delver|G\n\
+Jungleborn Pioneer|G\n\
+Kamahl's Druidic Vow|G\n\
+Kambal, Consul of Allocation|WB\n\
+Kari Zev, Skyship Raider|R\n\
+Kari Zev's Expertise|R\n\
+Karn, Scion of Urza|C\n\
+Karn's Temporal Sundering|U\n\
+Karplusan Hound|R\n\
+Kazarov, Sengir Pureblood|B\n\
+Kefnet the Mindful|U\n\
+Kefnet's Last Word|U\n\
+Kefnet's Monument|C\n\
+Keldon Overseer|R\n\
+Keldon Raider|R\n\
+Keldon Warcaller|R\n\
+Key to the City|C\n\
+Khenra Charioteer|RG\n\
+Khenra Eternal|B\n\
+Khenra Scrapper|R\n\
+Kindled Fury|R\n\
+Kinjalli's Caller|W\n\
+Kinjalli's Sunwing|W\n\
+Kitesail Corsair|U\n\
+Kitesail Freebooter|B\n\
+Knight of Grace|W\n\
+Knight of Malice|B\n\
+Knight of New Benalia|W\n\
+Knight of the Stampede|G\n\
+Kopala, Warden of Waves|U\n\
+Krosan Druid|G\n\
+Kujar Seedsculptor|G\n\
+Kumena, Tyrant of Orazca|UG\n\
+Kumena's Awakening|U\n\
+Kumena's Speaker|G\n\
+Kwende, Pride of Femeref|W\n\
+Labyrinth Guardian|U\n\
+Larger Than Life|G\n\
+Lathnu Hellion|R\n\
+Lathnu Sailback|R\n\
+Lawless Broker|B\n\
+Lay Bare the Heart|B\n\
+Lay Claim|U\n\
+Leave|W\n\
+Leave in the Dust|U\n\
+Legion Conquistador|W\n\
+Legion Lieutenant|WB\n\
+Legion's Judgment|W\n\
+Legion's Landing|W\n\
+Lethal Sting|B\n\
+Liberating Combustion|R\n\
+Lich's Mastery|B\n\
+Life Goes On|G\n\
+Lifecraft Awakening|G\n\
+Lifecraft Cavalry|G\n\
+Lifecrafter's Bestiary|C\n\
+Lifecrafter's Gift|G\n\
+Lightning Runner|R\n\
+Lightning Strike|R\n\
+Lightning-Rig Crew|R\n\
+Liliana, Death Wielder|B\n\
+Liliana, Death's Majesty|B\n\
+Liliana's Defeat|B\n\
+Liliana's Influence|B\n\
+Liliana's Mastery|B\n\
+Limits of Solidarity|R\n\
+Lingering Phantom|B\n\
+Live Fast|B\n\
+Llanowar Elves|G\n\
+Llanowar Envoy|G\n\
+Llanowar Scout|G\n\
+Long-Finned Skywhale|U\n\
+Longtusk Cub|G\n\
+Lookout's Dispersal|U\n\
+Looming Altisaur|W\n\
+Lord of the Accursed|B\n\
+Lost Legacy|B\n\
+Luminous Bonds|W\n\
+Lurching Rotbeast|B\n\
+Lurking Chupacabra|B\n\
+Luxa River Shrine|C\n\
+Lyra Dawnbringer|W\n\
+Madcap Experiment|R\n\
+Magma Spray|R\n\
+Magmaroth|R\n\
+Majestic Heliopterus|W\n\
+Majestic Myriarch|G\n\
+Make Obsolete|B\n\
+Makeshift Munitions|R\n\
+Malfunction|U\n\
+Mammoth Spider|G\n\
+Manalith|C\n\
+Manglehorn|G\n\
+Manticore Eternal|R\n\
+Manticore of the Gauntlet|R\n\
+Marauding Boneslasher|B\n\
+Marauding Looter|UR\n\
+March of the Drowned|B\n\
+Marionette Master|B\n\
+Mark of the Vampire|B\n\
+Martyr of Dusk|W\n\
+Marwyn, the Nurturer|G\n\
+Master Trinketeer|W\n\
+Mastermind's Acquisition|B\n\
+Maulfist Doorbuster|R\n\
+Maulfist Revolutionary|G\n\
+Maulfist Squad|B\n\
+Mausoleum Harpy|B\n\
+Maverick Thopterist|UR\n\
+Mavren Fein, Dusk Apostle|W\n\
+Meandering River|L\n\
+Mechanized Production|U\n\
+Memorial to Folly|L\n\
+Memorial to Genius|L\n\
+Memorial to Glory|L\n\
+Memorial to Unity|L\n\
+Memorial to War|L\n\
+Merchant's Dockhand|C\n\
+Merciless Eternal|B\n\
+Merciless Javelineer|BR\n\
+Merfolk Branchwalker|G\n\
+Merfolk Mistbinder|UG\n\
+Merfolk Trickster|U\n\
+Mesa Unicorn|W\n\
+Metallic Mimic|C\n\
+Metallic Rebuke|U\n\
+Metallurgic Summonings|U\n\
+Metalspinner's Puzzleknot|C\n\
+Metalwork Colossus|C\n\
+Miasmic Mummy|B\n\
+Midnight Entourage|B\n\
+Midnight Oil|B\n\
+Mighty Leap|W\n\
+Mind Rot|B\n\
+Minister of Inquiries|U\n\
+Minotaur Sureshot|R\n\
+Mirage Mirror|C\n\
+Mishra's Self-Replicator|C\n\
+Mist-Cloaked Herald|U\n\
+Moaning Wall|B\n\
+Mobile Garrison|C\n\
+Moment of Craving|B\n\
+Moment of Triumph|W\n\
+Monstrous Onslaught|G\n\
+Morbid Curiosity|B\n\
+Mountain|L\n\
+Mouth|G\n\
+Mox Amber|C\n\
+Muldrotha, the Gravetide|UBG\n\
+Multani, Yavimaya's Avatar|G\n\
+Multiform Wonder|C\n\
+Mummy Paramount|W\n\
+Mutiny|R\n\
+Naban, Dean of Iteration|U\n\
+Naga Oracle|U\n\
+Naga Vitalist|G\n\
+Narnam Cobra|C\n\
+Narnam Renegade|G\n\
+Naru Meha, Master Wizard|U\n\
+Natural Obsolescence|G\n\
+Naturalize|G\n\
+Nature's Spiral|G\n\
+Nature's Way|G\n\
+Navigator's Compass|C\n\
+Navigator's Ruin|U\n\
+Needletooth Raptor|R\n\
+Nef-Crop Entangler|R\n\
+Negate|U\n\
+Neheb, the Eternal|R\n\
+Neheb, the Worthy|BR\n\
+Nest of Scarabs|B\n\
+Nest Robber|R\n\
+Never|B\n\
+New Horizons|G\n\
+New Perspectives|U\n\
+Nezahal, Primal Tide|U\n\
+Niambi, Faithful Healer|WU\n\
+Nicol Bolas, God-Pharaoh|UBR\n\
+Nicol Bolas, the Deceiver|UBR\n\
+Night Market Aeronaut|B\n\
+Night Market Guard|C\n\
+Night Market Lookout|B\n\
+Nightmare|B\n\
+Nimble Innovator|U\n\
+Nimble Obstructionist|U\n\
+Nimble-Blade Khenra|R\n\
+Ninth Bridge Patrol|W\n\
+Nissa, Genesis Mage|G\n\
+Nissa, Nature's Artisan|G\n\
+Nissa, Steward of Elements|UG\n\
+Nissa, Vital Force|G\n\
+Nissa's Defeat|G\n\
+Nissa's Encouragement|G\n\
+Noxious Gearhulk|B\n\
+Oakenform|G\n\
+Oashra Cultivator|G\n\
+Oasis Ritualist|G\n\
+Oath of Ajani|WG\n\
+Oath of Teferi|WU\n\
+Oathsworn Vampire|B\n\
+Obelisk Spider|BG\n\
+Oketra the True|W\n\
+Oketra's Attendant|W\n\
+Oketra's Avenger|W\n\
+Oketra's Last Mercy|W\n\
+Oketra's Monument|C\n\
+Old-Growth Dryads|G\n\
+Ominous Sphinx|U\n\
+On Serra's Wings|W\n\
+One With the Wind|U\n\
+Onward|R\n\
+Open Fire|R\n\
+Open into Wonder|U\n\
+Opt|U\n\
+Oracle's Vault|C\n\
+Orazca Frillback|G\n\
+Orazca Raptor|R\n\
+Orazca Relic|C\n\
+Orcish Vandal|R\n\
+Ornamental Courage|G\n\
+Ornery Kudu|G\n\
+Ornithopter|C\n\
+Otepec Huntmaster|R\n\
+Outland Boar|RG\n\
+Ovalchase Daredevil|B\n\
+Ovalchase Dragster|C\n\
+Overcome|G\n\
+Overflowing Insight|U\n\
+Overgrown Armasaur|G\n\
+Overwhelming Splendor|W\n\
+Oviya Pashiri, Sage Lifecrafter|G\n\
+Pacification Array|C\n\
+Padeem, Consul of Innovation|U\n\
+Painful Lesson|B\n\
+Painted Bluffs|L\n\
+Paladin of Atonement|W\n\
+Paladin of the Bloodstained|W\n\
+Panharmonicon|C\n\
+Paradox Engine|C\n\
+Paradoxical Outcome|U\n\
+Pardic Wanderer|C\n\
+Path of Discovery|G\n\
+Path of Mettle|WR\n\
+Pathmaker Initiate|R\n\
+Peacewalker Colossus|C\n\
+Peema Aether-Seer|G\n\
+Peema Outrider|G\n\
+Pegasus Courser|W\n\
+Pendulum of Patterns|C\n\
+Perilous Predicament|B\n\
+Perilous Voyage|U\n\
+Perpetual Timepiece|C\n\
+Phyrexian Scriptures|B\n\
+Pia Nalaar|R\n\
+Pia's Revolution|R\n\
+Pierce the Sky|G\n\
+Pillar of Origins|C\n\
+Pious Interdiction|W\n\
+Pirate's Cutlass|C\n\
+Pirate's Pillage|R\n\
+Pirate's Prize|U\n\
+Pitiless Plunderer|B\n\
+Pitiless Vizier|B\n\
+Plague Belcher|B\n\
+Plains|L\n\
+Planar Bridge|C\n\
+Plummet|G\n\
+Polyraptor|G\n\
+Pounce|G\n\
+Pouncing Cheetah|G\n\
+Powerstone Shard|C\n\
+Prakhata Club Security|B\n\
+Prakhata Pillar-Bug|C\n\
+Precise Strike|R\n\
+Precognition Field|U\n\
+Prepare|W\n\
+Pressure Point|W\n\
+Prey Upon|G\n\
+Pride of Conquerors|W\n\
+Pride Sovereign|G\n\
+Priest of the Wakening Sun|W\n\
+Primal Amulet|C\n\
+Primevals' Glorious Rebirth|WB\n\
+Primordial Wurm|G\n\
+Prizefighter Construct|C\n\
+Profane Procession|WB\n\
+Propeller Pioneer|W\n\
+Prophetic Prism|C\n\
+Prosperous Pirates|U\n\
+Protean Raider|UR\n\
+Protection of the Hekma|W\n\
+Proven Combatant|U\n\
+Prowling Serpopard|G\n\
+Prying Blade|C\n\
+Pterodon Knight|W\n\
+Pull from Tomorrow|U\n\
+Puncturing Blow|R\n\
+Pursue Glory|R\n\
+Pyramid of the Pantheon|C\n\
+Pyromantic Pilgrim|R\n\
+Quarry Beetle|G\n\
+Quarry Hauler|G\n\
+Queen's Agent|B\n\
+Queen's Bay Soldier|B\n\
+Queen's Commission|W\n\
+Quicksmith Genius|R\n\
+Quicksmith Rebel|R\n\
+Quicksmith Spy|U\n\
+Rabid Bite|G\n\
+Radiant Destiny|W\n\
+Radiating Lightning|R\n\
+Raff Capashen, Ship's Mage|WU\n\
+Raging Regisaur|RG\n\
+Raging Swordtooth|RG\n\
+Rags|B\n\
+Raiders' Wake|B\n\
+Raise Dead|B\n\
+Rallying Roar|W\n\
+Rampaging Cyclops|R\n\
+Rampaging Ferocidon|R\n\
+Rampaging Hippo|G\n\
+Ramunap Excavator|G\n\
+Ramunap Hydra|G\n\
+Ramunap Ruins|L\n\
+Ranging Raptors|G\n\
+Raptor Companion|W\n\
+Raptor Hatchling|R\n\
+Rashmi, Eternities Crafter|UG\n\
+Rat Colony|B\n\
+Ravenous Chupacabra|B\n\
+Ravenous Daggertooth|G\n\
+Ravenous Intruder|R\n\
+Razaketh, the Foulblooded|B\n\
+Razaketh's Rite|B\n\
+Reason|U\n\
+Reaver Ambush|B\n\
+Reckless Fireweaver|R\n\
+Reckless Racer|R\n\
+Reckless Rage|R\n\
+Recover|B\n\
+Reduce|U\n\
+Refurbish|W\n\
+Refuse|R\n\
+Regal Caracal|W\n\
+Regisaur Alpha|RG\n\
+Rekindling Phoenix|R\n\
+Release the Gremlins|R\n\
+Release to the Wind|U\n\
+Relentless Raptor|WR\n\
+Relic Runner|U\n\
+Renegade Firebrand|R\n\
+Renegade Freighter|C\n\
+Renegade Map|C\n\
+Renegade Rallier|WG\n\
+Renegade Tactics|R\n\
+Renegade Wheelsmith|WR\n\
+Renegade's Getaway|B\n\
+Renewed Faith|W\n\
+Repeating Barrage|R\n\
+Rescue|U\n\
+Reservoir Walker|C\n\
+Resilient Khenra|G\n\
+Resolute Survivors|WR\n\
+Resourceful Return|B\n\
+Resplendent Griffin|WU\n\
+Restoration Gearsmith|WB\n\
+Restoration Specialist|W\n\
+Revel in Riches|B\n\
+Reverse Engineer|U\n\
+Revoke Privileges|W\n\
+Revolutionary Rebuff|U\n\
+Rhet-Crop Spearmaster|W\n\
+Rhonas the Indomitable|G\n\
+Rhonas's Last Stand|G\n\
+Rhonas's Monument|C\n\
+Rhonas's Stalwart|G\n\
+Riddleform|U\n\
+Ridgescale Tusker|G\n\
+Rigging Runner|R\n\
+Rile|R\n\
+Riparian Tiger|G\n\
+Ripjaw Raptor|G\n\
+Rishkar, Peema Renegade|G\n\
+Rishkar's Expertise|G\n\
+Rite of Belzenlok|B\n\
+Ritual of Rejuvenation|W\n\
+River Darter|U\n\
+River Heralds' Boon|G\n\
+River Hoopoe|UG\n\
+River Serpent|U\n\
+River Sneak|U\n\
+River's Rebuke|U\n\
+Riverwise Augur|U\n\
+Rogue Refiner|UG\n\
+Rona, Disciple of Gix|UB\n\
+Rootbound Crag|L\n\
+Rootwalla|G\n\
+Rowdy Crew|R\n\
+Ruin Raider|B\n\
+Ruin Rat|B\n\
+Ruinous Gremlin|R\n\
+Rummaging Goblin|R\n\
+Run Aground|U\n\
+Run Amok|R\n\
+Rush of Vitality|B\n\
+Ruthless Knave|B\n\
+Ruthless Sniper|B\n\
+Sacred Cat|W\n\
+Sacred Excavation|U\n\
+Sadistic Skymarcher|B\n\
+Sage of Lat-Nam|U\n\
+Sage of Shaila's Claim|G\n\
+Saheeli Rai|UR\n\
+Saheeli's Artistry|U\n\
+Sailor of Means|U\n\
+Salivating Gremlins|R\n\
+Salvage Scuttler|U\n\
+Samut, the Tested|RG\n\
+Samut, Voice of Dissent|RG\n\
+Sanctum Seeker|B\n\
+Sanctum Spirit|W\n\
+Sand Strangler|R\n\
+Sandblast|W\n\
+Sandwurm Convergence|G\n\
+Sanguine Glorifier|W\n\
+Sanguine Sacrament|W\n\
+Saproling Migration|G\n\
+Savage Stomp|G\n\
+Saving Grace|W\n\
+Scaled Behemoth|G\n\
+Scarab Feast|B\n\
+Scattered Groves|L\n\
+Scavenger Grounds|L\n\
+Scrap Trawler|C\n\
+Scrapheap Scrounger|C\n\
+Scrapper Champion|R\n\
+Scribe of the Mindful|U\n\
+Scrounger of Souls|B\n\
+Scrounging Bandar|G\n\
+Sea Legs|U\n\
+Seafloor Oracle|U\n\
+Seal Away|W\n\
+Search for Azcanta|U\n\
+Secret Salvage|B\n\
+Secrets of the Golden City|U\n\
+See Red|R\n\
+Seeker of Insight|U\n\
+Seekers' Squire|B\n\
+Seer of the Last Tomorrow|U\n\
+Seismic Shift|R\n\
+Select for Inspection|U\n\
+Self-Assembler|C\n\
+Sengir Vampire|B\n\
+Sentinel of the Pearl Trident|U\n\
+Sentinel Totem|C\n\
+Sequestered Stash|L\n\
+Seraph of the Suns|W\n\
+Sergeant-at-Arms|W\n\
+Serra Angel|W\n\
+Serra Disciple|W\n\
+Servant of the Conduit|G\n\
+Servo Exhibition|W\n\
+Servo Schematic|C\n\
+Settle the Score|B\n\
+Settle the Wreckage|W\n\
+Shadow of the Grave|B\n\
+Shadowed Caravel|C\n\
+Shadowstorm Vizier|UB\n\
+Shake the Foundations|R\n\
+Shalai, Voice of Plenty|W\n\
+Shanna, Sisay's Legacy|WG\n\
+Shaper Apprentice|U\n\
+Shapers of Nature|UG\n\
+Shapers' Sanctuary|G\n\
+Shatter|R\n\
+Shed Weakness|G\n\
+Shefet Dunes|L\n\
+Shefet Monitor|G\n\
+Sheltered Thicket|L\n\
+Sheltering Light|W\n\
+Shield of the Realm|C\n\
+Shielded Aether Thief|U\n\
+Shimmerscale Drake|U\n\
+Shining Aerosaur|W\n\
+Shipwreck Looter|U\n\
+Shipwreck Moray|U\n\
+Shivan Dragon|R\n\
+Shivan Fire|R\n\
+Shock|R\n\
+Shore Keeper|U\n\
+Short Sword|C\n\
+Shrewd Negotiation|U\n\
+Sidewinder Naga|G\n\
+Siege Modification|R\n\
+Siege-Gang Commander|R\n\
+Siegehorn Ceratops|WG\n\
+Sifter Wurm|G\n\
+Silent Gravestone|C\n\
+Silkweaver Elite|G\n\
+Silverclad Ferocidons|R\n\
+Silvergill Adept|U\n\
+Sinuous Striker|U\n\
+Siren Lookout|U\n\
+Siren Reaver|U\n\
+Siren Stormtamer|U\n\
+Siren's Ruse|U\n\
+Sixth Sense|G\n\
+Skirk Prospector|R\n\
+Skittering Heartstopper|B\n\
+Skittering Surveyor|C\n\
+Skizzik|R\n\
+Skulduggery|B\n\
+Sky Skiff|C\n\
+Sky Terror|WR\n\
+Skyblade of the Legion|W\n\
+Skymarch Bloodletter|B\n\
+Skymarcher Aspirant|W\n\
+Skyship Plunderer|U\n\
+Skyship Stalker|R\n\
+Skysovereign, Consul Flagship|C\n\
+Skyswirl Harrier|W\n\
+Skywhaler's Shot|W\n\
+Slash of Talons|W\n\
+Slaughter the Strong|W\n\
+Sleek Schooner|C\n\
+Sleep Paralysis|U\n\
+Slice in Twain|G\n\
+Slimefoot, the Stowaway|BG\n\
+Slinn Voda, the Rising Deep|U\n\
+Slippery Scoundrel|U\n\
+Slither Blade|U\n\
+Sly Requisitioner|B\n\
+Smuggler's Copter|C\n\
+Snapping Sailback|G\n\
+Snare Thopter|C\n\
+Snubhorn Sentry|W\n\
+Solemn Recruit|W\n\
+Solemnity|W\n\
+Solitary Camel|W\n\
+Song of Freyalise|G\n\
+Sorcerer's Wand|C\n\
+Sorcerous Spyglass|C\n\
+Soul of the Rapids|U\n\
+Soul Salvage|B\n\
+Soul-Scar Mage|R\n\
+Soulstinger|B\n\
+Spark of Creativity|R\n\
+Sparring Construct|C\n\
+Sparring Mummy|W\n\
+Speedway Fanatic|R\n\
+Spell Pierce|U\n\
+Spell Swindle|U\n\
+Spellweaver Eternal|U\n\
+Sphinx of Magosi|U\n\
+Sphinx's Decree|W\n\
+Spidery Grasp|G\n\
+Spike-Tailed Ceratops|G\n\
+Spire of Industry|L\n\
+Spire Patrol|WU\n\
+Spire Winder|U\n\
+Spirebluff Canal|L\n\
+Spireside Infiltrator|R\n\
+Splendid Agony|B\n\
+Spontaneous Artist|R\n\
+Spore Swarm|G\n\
+Sporecrown Thallid|G\n\
+Spreading Rot|B\n\
+Spring|G\n\
+Squee, the Immortal|R\n\
+Squire's Devotion|W\n\
+Sram, Senior Edificer|W\n\
+Sram's Expertise|W\n\
+Stalking Tiger|G\n\
+Stampeding Horncrest|R\n\
+Stampeding Rhino|G\n\
+Standing Troops|W\n\
+Star of Extinction|R\n\
+Start|W\n\
+Start Your Engines|R\n\
+Steadfast Armasaur|W\n\
+Steadfast Sentinel|W\n\
+Stealer of Secrets|U\n\
+Steel Leaf Champion|G\n\
+Steward of Solidarity|W\n\
+Stinging Shot|G\n\
+Stir the Sands|B\n\
+Stone Quarry|L\n\
+Storm Fleet Aerialist|U\n\
+Storm Fleet Arsonist|R\n\
+Storm Fleet Pyromancer|R\n\
+Storm Fleet Sprinter|UR\n\
+Storm Fleet Spy|U\n\
+Storm Fleet Swashbuckler|R\n\
+Storm Sculptor|U\n\
+Storm the Vault|UR\n\
+Stormfront Pegasus|W\n\
+Strategic Planning|U\n\
+Strength of the Pack|G\n\
+Strider Harness|C\n\
+Striped Riverwinder|U\n\
+Stronghold Confessor|B\n\
+Struggle|R\n\
+Submerged Boneyard|L\n\
+Subtle Strike|B\n\
+Sulfur Falls|L\n\
+Sun Sentinel|W\n\
+Sunbird's Invocation|R\n\
+Sun-Blessed Mount|WR\n\
+Sun-Collared Raptor|R\n\
+Sun-Crested Pterodon|W\n\
+Sun-Crowned Hunters|R\n\
+Sunpetal Grove|L\n\
+Sunrise Seeker|W\n\
+Sunscorched Desert|L\n\
+Sunscourge Champion|W\n\
+Sunset Pyramid|C\n\
+Supernatural Stamina|B\n\
+Supply Caravan|W\n\
+Supreme Will|U\n\
+Sure Strike|R\n\
+Survivors' Encampment|L\n\
+Swab Goblin|R\n\
+Swaggering Corsair|R\n\
+Swamp|L\n\
+Swarm Intelligence|U\n\
+Swashbuckling|R\n\
+Sweatworks Brawler|R\n\
+Sweltering Suns|R\n\
+Swift Warden|G\n\
+Sword-Point Diplomacy|B\n\
+Sworn Guardian|U\n\
+Sylvan Awakening|G\n\
+Synchronized Strike|G\n\
+Syncopate|U\n\
+Syndicate Trafficker|B\n\
+Tah-Crop Elite|W\n\
+Tah-Crop Skirmisher|U\n\
+Take Down|G\n\
+Take into Custody|U\n\
+Tasseled Dromedary|W\n\
+Tattered Mummy|B\n\
+Tatyova, Benthic Druid|UG\n\
+Teferi, Hero of Dominaria|WU\n\
+Teferi, Timebender|WU\n\
+Teferi's Sentinel|C\n\
+Temmet, Vizier of Naktamun|WU\n\
+Tempest Caller|U\n\
+Tempest Djinn|U\n\
+Temple Altisaur|W\n\
+Temporal Machinations|U\n\
+Tenacious Hunter|G\n\
+Tendershoot Dryad|G\n\
+Terrain Elemental|G\n\
+Territorial Allosaurus|G\n\
+Territorial Gorger|R\n\
+Territorial Hammerskull|W\n\
+Terror of the Fairgrounds|R\n\
+Teshar, Ancestor's Apostle|W\n\
+Tetsuko Umezawa, Fugitive|U\n\
+Tetzimoc, Primal Death|B\n\
+Tezzeret the Schemer|UB\n\
+Tezzeret, Master of Metal|UB\n\
+Tezzeret's Ambition|U\n\
+Tezzeret's Betrayal|UB\n\
+Tezzeret's Simulacrum|C\n\
+Tezzeret's Touch|UB\n\
+Thallid Omnivore|B\n\
+Thallid Soothsayer|B\n\
+Thaumatic Compass|C\n\
+The Antiquities War|U\n\
+The Eldest Reborn|B\n\
+The First Eruption|R\n\
+The Flame of Keld|R\n\
+The Immortal Sun|C\n\
+The Locust God|UR\n\
+The Mending of Dominaria|G\n\
+The Mirari Conjecture|U\n\
+The Scarab God|UB\n\
+The Scorpion God|BR\n\
+Thopter Arrest|W\n\
+Thorn Elemental|G\n\
+Thorned Moloch|R\n\
+Those Who Serve|W\n\
+Thran Temporal Gateway|C\n\
+Thrash of Raptors|R\n\
+Thrashing Brontodon|G\n\
+Thresher Lizard|R\n\
+Thriving Grubs|R\n\
+Thriving Ibex|W\n\
+Thriving Rats|B\n\
+Thriving Rhino|G\n\
+Thriving Turtle|U\n\
+Throne of the God-Pharaoh|C\n\
+Thunderherd Migration|G\n\
+Thundering Giant|R\n\
+Thundering Spineback|G\n\
+Tiana, Ship's Caretaker|WR\n\
+Tidy Conclusion|B\n\
+Tilonalli's Crown|R\n\
+Tilonalli's Knight|R\n\
+Tilonalli's Skinshifter|R\n\
+Tilonalli's Summoner|R\n\
+Timber Gorge|L\n\
+Time of Ice|U\n\
+Time to Reflect|W\n\
+Timestream Navigator|U\n\
+Tishana, Voice of Thunder|UG\n\
+Tishana's Wayfinder|G\n\
+Tocatli Honor Guard|W\n\
+Tolarian Scholar|U\n\
+Tomb Robber|B\n\
+Toolcraft Exemplar|W\n\
+Torch Gauntlet|C\n\
+Torgaar, Famine Incarnate|B\n\
+Torment of Hailfire|B\n\
+Torment of Scarabs|B\n\
+Torment of Venom|B\n\
+Tormenting Voice|R\n\
+Torrential Gearhulk|U\n\
+Tragic Lesson|U\n\
+Tragic Poet|W\n\
+Tranquil Expanse|L\n\
+Trapjaw Tyrant|W\n\
+Traveler's Amulet|C\n\
+Traxos, Scourge of Kroog|C\n\
+Treasure Keeper|C\n\
+Treasure Map|C\n\
+Trespasser's Curse|B\n\
+Trial of Ambition|B\n\
+Trial of Knowledge|U\n\
+Trial of Solidarity|W\n\
+Trial of Strength|G\n\
+Trial of Zeal|R\n\
+Tricks of the Trade|U\n\
+Triumph of Gerrard|W\n\
+Trophy Mage|U\n\
+Trove of Temptation|R\n\
+Trueheart Duelist|W\n\
+Trueheart Twins|R\n\
+Trusty Companion|W\n\
+Twilight Prophet|B\n\
+Two-Headed Giant|R\n\
+Unbridled Growth|G\n\
+Unburden|B\n\
+Uncage the Menagerie|G\n\
+Unclaimed Territory|L\n\
+Unconventional Tactics|W\n\
+Underhanded Designs|B\n\
+Unesh, Criosphinx Sovereign|U\n\
+Unfriendly Fire|R\n\
+Universal Solvent|C\n\
+Unknown Shores|L\n\
+Unlicensed Disintegration|BR\n\
+Unquenchable Thirst|U\n\
+Unraveling Mummy|WB\n\
+Unsummon|U\n\
+Untamed Hunger|B\n\
+Untamed Kavu|G\n\
+Untethered Express|C\n\
+Unwavering Initiate|W\n\
+Unwind|U\n\
+Urgoros, the Empty One|B\n\
+Urza's Ruinous Blast|W\n\
+Urza's Tome|C\n\
+Valduk, Keeper of the Flame|R\n\
+Vampire Champion|B\n\
+Vampire Revenant|B\n\
+Vampire's Zeal|W\n\
+Vance's Blasting Cannons|R\n\
+Vanquish the Weak|B\n\
+Vanquisher's Banner|C\n\
+Vedalken Blademaster|U\n\
+Vengeful Rebel|B\n\
+Verdant Automaton|C\n\
+Verdant Crescendo|G\n\
+Verdant Force|G\n\
+Verdant Rebirth|G\n\
+Verdant Sun's Avatar|G\n\
+Verdurous Gearhulk|G\n\
+Verix Bladewing|R\n\
+Veteran Motorist|WR\n\
+Vicious Conquistador|B\n\
+Vicious Offering|B\n\
+Victory's Herald|W\n\
+Vile Manifestation|B\n\
+Vineshaper Mystic|G\n\
+Violent Impact|R\n\
+Visage of Bolas|C\n\
+Visionary Augmenter|W\n\
+Vizier of Deferment|W\n\
+Vizier of Many Faces|U\n\
+Vizier of Remedies|W\n\
+Vizier of the Anointed|U\n\
+Vizier of the Menagerie|G\n\
+Vizier of the True|W\n\
+Vizier of Tumbling Sands|U\n\
+Vodalian Arcanist|U\n\
+Voltaic Brawler|RG\n\
+Voltaic Servant|C\n\
+Vona, Butcher of Magan|WB\n\
+Vona's Hunger|B\n\
+Voracious Vampire|B\n\
+Vraska, Relic Seeker|BG\n\
+Vraska, Scheming Gorgon|B\n\
+Vraska's Conquistador|B\n\
+Vraska's Contempt|B\n\
+Vraska's Scorn|B\n\
+Wakening Sun's Avatar|W\n\
+Waker of the Wilds|G\n\
+Walk the Plank|B\n\
+Walking Ballista|C\n\
+Wall of Forgotten Pharaohs|C\n\
+Wander in Death|B\n\
+Wanted Scoundrels|B\n\
+Warcry Phoenix|R\n\
+Warfire Javelineer|R\n\
+Warkite Marauder|U\n\
+Warlord's Fury|R\n\
+Wasp of the Bitter End|B\n\
+Wasteland Scorpion|B\n\
+Watchers of the Dead|C\n\
+Watchful Automaton|C\n\
+Watchful Naga|G\n\
+Waterknot|U\n\
+Watertrap Weaver|U\n\
+Wayward Giant|R\n\
+Wayward Servant|WB\n\
+Wayward Swordtooth|G\n\
+Weaponcraft Enthusiast|B\n\
+Weatherlight|C\n\
+Weaver of Currents|UG\n\
+Weight of Memory|U\n\
+Welder Automaton|C\n\
+Weldfast Engineer|BR\n\
+Weldfast Monitor|C\n\
+Weldfast Wingsmith|U\n\
+Welding Sparks|R\n\
+Whir of Invention|U\n\
+Whirler Virtuoso|UR\n\
+Whirlermaker|C\n\
+Whisper, Blood Liturgist|B\n\
+Wild Onslaught|G\n\
+Wild Wanderer|G\n\
+Wildest Dreams|G\n\
+Wildfire Eternal|R\n\
+Wildgrowth Walker|G\n\
+Wily Bandar|G\n\
+Wily Goblin|R\n\
+Wind Drake|U\n\
+Wind Strider|U\n\
+Windgrace Acolyte|B\n\
+Winding Constrictor|BG\n\
+Wind-Kin Raiders|U\n\
+Winds of Rebuke|U\n\
+Wing Snare|G\n\
+Winged Shepherd|W\n\
+Wispweaver Angel|W\n\
+Without Weakness|B\n\
+Wizard's Lightning|R\n\
+Wizard's Retort|U\n\
+Woodland Cemetery|L\n\
+Woodland Stream|L\n\
+Woodweaver's Puzzleknot|C\n\
+Workshop Assistant|C\n\
+World Shaper|G\n\
+Wrangle|R\n\
+Wretched Camel|B\n\
+Yahenni, Undying Partisan|B\n\
+Yahenni's Expertise|B\n\
+Yargle, Glutton of Urborg|B\n\
+Yavimaya Sapherd|G\n\
+Yawgmoth's Vile Offering|B\n\
+Zacama, Primal Calamity|WRG\n\
+Zahid, Djinn of the Lamp|U\n\
+Zealot of the God-Pharaoh|R\n\
+Zenith Seeker|U\n\
+Zetalpa, Primal Dawn|W\n\
+Zhalfirin Void|L";
