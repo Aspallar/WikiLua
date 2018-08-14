@@ -14,14 +14,13 @@
     'use strict';
     /*global mw, globalCardnames, _ */ // globalCardnames is only for local testing
 
-    console.log('Builder F');
+    console.log('Builder T');
 
     if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-3-0'))
         return;
 
     var deckPage;
-    var cardNames;
-    var cardData;
+    var allCards;
     var throbber;
     var deck;
     var cardHover;
@@ -35,10 +34,10 @@
         $('#mdw-db-cardname').autocomplete('close');
     }
 
-    function Card(decscriptor) {
-        var pos = decscriptor.indexOf('|');
-        this.name = decscriptor.substring(0, pos);
-        this.colorAndLand = decscriptor.substring(pos + 1);
+    function Card(descriptor) {
+        var pos = descriptor.indexOf('|');
+        this.name = descriptor.substring(0, pos);
+        this.colorAndLand = descriptor.substring(pos + 1);
     }
 
     function Throbber() {
@@ -58,10 +57,57 @@
     }
 
     Throbber.prototype = {
-        constuctor: Throbber,
+        constructor: Throbber,
         show: function () { this.throbber.appendTo(document.body); },
         hide: function () { this.throbber.remove(); }
     }; // end Throbber
+
+    function CardData(data) {
+
+        function makeCardData(dataString) {
+            var data = [];
+            dataString.split('\n').forEach(function (cardDescriptor) {
+                if (cardDescriptor.length > 0)
+                    data.push(new Card(cardDescriptor));
+            });
+            return data;
+        }
+
+        function makeCardNames(cards) {
+            var cardNames = {};
+            cards.forEach(function (card) {
+                cardNames[card.name.toLowerCase()] = card.name;
+            });
+            return cardNames;
+        }
+
+        this.cards = makeCardData(data);
+        this.names = makeCardNames(this.cards);
+    }
+
+    CardData.prototype = {
+        constructor: CardData,
+        getCasedName: function(name) {
+            return this.names[name.toLowerCase()];
+        },
+        getNames: function(filter) {
+            var names = [];
+            if (filter === null) {
+                this.cards.forEach(function (card) {
+                    names.push(card.name);
+                });
+            } else if (filter.length !== 0) {
+                var filterMatcher = new RegExp('[' + filter + ']');
+                this.cards.forEach(function (card) {
+                    if (filterMatcher.test(card.colorAndLand))
+                        names.push(card.name);
+                });
+            }
+            console.log('Length=' + names.length);
+            return names;
+        }
+    }; // end CardData
+
 
     function ImageSource() {
         var sourceCache = {};
@@ -318,7 +364,7 @@
         var match = /^\s*(\d+)\s+(.+?)(?= \/\/\/| \(|\s*$)/.exec(entry);
         if (match) {
             var amount = parseInt(match[1], 10);
-            var casedName = cardNames[match[2].toLowerCase()];
+            var casedName = allCards.getCasedName(match[2]);
             var name = casedName !== undefined ? casedName : mw.html.escape(match[2]);
             return { amount: amount, name: name };
         } else {
@@ -326,14 +372,7 @@
         }
     }
 
-    function initCardNames(cards) {
-        cardNames = {};
-        cards.forEach(function (card) {
-            cardNames[card.name.toLowerCase()] = card.name;
-        });
-    }
-
-     function extractDeckText(content) {
+    function extractDeckText(content) {
         var startPos = content.indexOf('|Deck=');
         if (startPos === -1)
             return null;
@@ -365,20 +404,11 @@
         });
     }
 
-    function makeCardData(dataString) {
-        var data = [];
-        dataString.split('\n').forEach(function (cardDescriptor) {
-            if (cardDescriptor.length > 0)
-                data.push(new Card(cardDescriptor));
-        });
-        return data;
-    }
-
     function fetchCardData() {
         var deferred = $.Deferred();
-        // deferred.resolve(makeCardData(globalCardnames)); // used for local testing
+        // deferred.resolve(globalCardnames); // used for local testing
         $.get(buildUrl('MediaWiki:Custom-CardData', {action: 'raw'})).done(function (data) {
-            deferred.resolve(makeCardData(data));
+            deferred.resolve(data);
         }).fail(function () {
             fatalError('Unable to obtain card data.');
         });
@@ -390,7 +420,7 @@
         var card = $('#mdw-db-cardname').val();
         var amount = $('#mdw-db-amount').val();
         if (card.length !== 0) {
-            var name = cardNames[card.toLowerCase()];
+            var name = allCards.getCasedName(card);
             if (name !== undefined) {
                 amount = amount === '' ? 1 : parseInt(amount, 10);
                 deck.addCards(name, amount);
@@ -593,29 +623,33 @@
         closeCardNameAutocomplete();
     }
 
-    function getCardSource(filter) {
-        var source = [];
-        if (filter === null || filter.length === 0) {
-            cardData.forEach(function (card) {
-                source.push(card.name);
-            });
-        } else {
-            var filterMatcher = new RegExp('[' + filter + ']');
-            cardData.forEach(function (card) {
-                if (filterMatcher.test(card.colorAndLand))
-                    source.push(card.name);
-            });
-        }
-        console.log('Length=' + source.length);
-        return source;
-    }
-
     function onChangeFilter() {
         var filter = '';
-        $('#mdw-db-filters').find('input:checked').each(function () {
-            filter += $(this).val();
-        });
-        $('#mdw-db-cardname').autocomplete('option', 'source', getCardSource(filter));
+        var checked = $('#mdw-db-filters').find('input:checked');
+        var names;
+        if (checked.length === 7) {
+            names = allCards.getNames(null);
+        } else {
+            checked.each(function () {
+                filter += $(this).val();
+            });
+            names = allCards.getNames(filter);
+        }
+        $('#mdw-db-cardname').autocomplete('option', 'source', names);
+    }
+
+    function onClickSelectAll(event) {
+        event.preventDefault();
+        var filters = $('#mdw-db-filters');
+        filters.find('input:checkbox').prop('checked', true);
+        filters.change();
+    }
+
+    function onClickSelectNone(event) {
+        event.preventDefault();
+        var filters = $('#mdw-db-filters');
+        filters.find('input:checkbox').prop('checked', false);
+        filters.change();
     }
 
     function createForm() {
@@ -637,22 +671,25 @@
         $('#mdw-db-deckname-span').replaceWith('<label for="mdw-db-deckname">Deck Name</span> <input type="text" id="mdw-db-deckname" placeholder="Enter a name for your deck here." size="40">');
         $('#mdw-decktab-button').click(activateDeck);
         $('#mdw-sidetab-button').click(activateSideboard);
-        $('#mdw-db-filters')
-            .change(onChangeFilter)
+        $('#mdw-db-selectall').html('<a href="#" class="mdw-select-link">Select all</a>').click(onClickSelectAll);
+        $('#mdw-db-selectnone').html('<a href="#" class="mdw-select-link">Select none</a>').click(onClickSelectNone);
+        $('#mdw-db-filters').change(onChangeFilter);
+        $('#mdw-db-filters-1')
             .html('<input type="checkbox" id="mdw-db-land" checked value="L">\
-                   <label for="mdw-db-land">Land</label><br >\
+                   <label for="mdw-db-land">Land</label><br>\
                    <input type="checkbox" id="mdw-db-white" checked value="W">\
-                   <label for="mdw-db-white">White</label><br >\
+                   <label for="mdw-db-white">White</label><br>\
                    <input type="checkbox" id="mdw-db-blue" checked value="U">\
-                   <label for="mdw-db-blue">Blue</label><br >\
+                   <label for="mdw-db-blue">Blue</label><br>\
                    <input type="checkbox" id="mdw-db-black" checked value="B">\
-                   <label for="mdw-db-black">Black</label><br >\
+                   <label for="mdw-db-black">Black</label><br>\
                    <input type="checkbox" id="mdw-db-red" checked value="R">\
-                   <label for="mdw-db-red">Red</label><br >\
-                   <input type="checkbox" id="mdw-db-green" checked value="G">\
-                   <label for="mdw-db-green">Green</label><br >\
-                   <input type="checkbox" id="mdw-db-colorless" checked value="C">\
-                   <label for="mdw-db-colorless">Colorless</label>');
+                   <label for="mdw-db-red">Red</label><br>');
+        $('#mdw-db-filters-2')
+            .prepend('<input type="checkbox" id="mdw-db-green" checked value="G">\
+                      <label for="mdw-db-green">Green</label><br>\
+                      <input type="checkbox" id="mdw-db-colorless" checked value="C">\
+                      <label for="mdw-db-colorless">Colorless</label><br>');
     }
 
     function onCardnameAutoCompleteFocus(event, ui) {
@@ -665,6 +702,7 @@
     }
 
     function initialize() {
+        $('#mdw-db-usefullinks').find('a').attr('target', '_blank');
         cardHover = $('<img id="mdw-card-hover" class="mdw-card-hover" />').prependTo('body');
         throbber = new Throbber();
         deck = new Deck();
@@ -672,10 +710,9 @@
         fetchCardData().done(function (carddata) {
             mw.loader.using('jquery.ui.autocomplete', function () {
                 createForm();
-                initCardNames(carddata);
-                cardData = carddata;
+                allCards = new CardData(carddata);
                 $('#mdw-db-cardname').autocomplete({
-                    source: getCardSource(null),
+                    source: allCards.getNames(null),
                     focus: _.debounce(onCardnameAutoCompleteFocus, 200),
                     open: hideCardHover,
                     close: hideCardHover,
