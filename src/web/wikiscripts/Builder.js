@@ -14,8 +14,6 @@
     'use strict';
     /*global mw, globalCardnames, _ */ // globalCardnames is only for local testing
 
-    console.log('Builder Z');
-
     if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-3-0'))
         return;
 
