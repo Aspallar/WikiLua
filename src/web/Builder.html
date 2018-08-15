@@ -108,12 +108,15 @@
     </div>
     <hr style="margin-top: 20px; margin-bottom: 10px"/>
     <div id="mdw-db-leftcol" style="float:left; width:50%">
-        <div id="mdw-db-filters">
-            <div id="mdw-db-filters-1" style="float:left; width:140px; margin-bottom:10px;">
-            </div>
-            <div style="float:left" id="mdw-db-filters-2">
-                <span id="mdw-db-selectall"></span><br />
-                <span id="mdw-db-selectnone">Select none</span><br />
+        <div class="mdw-collapse-row">
+            <span class="mdw-arrow-collapse"></span> <small>Card filters</small>
+            <div id="mdw-db-filters" class="mdw-collapsable">
+                <div id="mdw-db-filters-1" style="float:left; width:140px; margin-bottom:10px;">
+                </div>
+                <div style="float:left" id="mdw-db-filters-2">
+                    <small><span id="mdw-db-selectall"></span></small><br />
+                    <small><span id="mdw-db-selectnone">Select none</span></small><br />
+                </div>
             </div>
         </div>
         <div style="clear:both;"></div>
@@ -160,6 +163,7 @@
 <!-- <script src="scripts\wikiParse.js"></script> -->
 <script src="scripts/mediawiki.js"></script>
 <script src="scripts/cardnames.js"></script>
+<script src="wikiscripts\Collapse.js"></script>
 <script src="wikiscripts/Builder.js"></script>
 <script>
     //$.get('wikitemplates/ArenaImport.html', function (data) {
