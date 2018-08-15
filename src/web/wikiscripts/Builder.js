@@ -70,6 +70,9 @@
                 if (cardDescriptor.length > 0)
                     data.push(new Card(cardDescriptor));
             });
+            data.sort(function(a, b) {
+                return a.name.localeCompare(b.name);
+            });
             return data;
         }
 
@@ -406,12 +409,12 @@
 
     function fetchCardData() {
         var deferred = $.Deferred();
-        // deferred.resolve(globalCardnames); // used for local testing
-        $.get(buildUrl('MediaWiki:Custom-CardData', {action: 'raw'})).done(function (data) {
-            deferred.resolve(data);
-        }).fail(function () {
-            fatalError('Unable to obtain card data.');
-        });
+        deferred.resolve(globalCardnames); // used for local testing
+        // $.get(buildUrl('MediaWiki:Custom-CardData', {action: 'raw'})).done(function (data) {
+        //     deferred.resolve(data);
+        // }).fail(function () {
+        //     fatalError('Unable to obtain card data.');
+        // });
         return deferred;
     }
 
