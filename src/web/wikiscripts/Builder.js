@@ -14,11 +14,12 @@
     'use strict';
     /*global mw, globalCardnames, _ */ // globalCardnames is only for local testing
 
-    console.log('Builder T');
+    console.log('Builder Z');
 
     if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-3-0'))
         return;
 
+    var globalNavHeight;
     var deckPage;
     var allCards;
     var throbber;
@@ -106,7 +107,6 @@
                         names.push(card.name);
                 });
             }
-            console.log('Length=' + names.length);
             return names;
         }
     }; // end CardData
@@ -409,12 +409,12 @@
 
     function fetchCardData() {
         var deferred = $.Deferred();
-        deferred.resolve(globalCardnames); // used for local testing
-        // $.get(buildUrl('MediaWiki:Custom-CardData', {action: 'raw'})).done(function (data) {
-        //     deferred.resolve(data);
-        // }).fail(function () {
-        //     fatalError('Unable to obtain card data.');
-        // });
+        // deferred.resolve(globalCardnames); // used for local testing
+        $.get(buildUrl('MediaWiki:Custom-CardData', {action: 'raw'})).done(function (data) {
+            deferred.resolve(data);
+        }).fail(function () {
+            fatalError('Unable to obtain card data.');
+        });
         return deferred;
     }
 
@@ -491,8 +491,6 @@
     }
 
     function redirectToTitle(title) {
-        // var url = mw.config.get('wgArticlePath').replace('$1', title);
-        // window.location = url;
         window.location = mw.util.getUrl(title);
     }
 
@@ -628,9 +626,11 @@
 
     function onChangeFilter() {
         var filter = '';
-        var checked = $('#mdw-db-filters').find('input:checked');
+        var filters = $('#mdw-db-filters');
+        var filterCount = filters.find(':checkbox').length;
+        var checked = filters.find('input:checked');
         var names;
-        if (checked.length === 7) {
+        if (checked.length === filterCount) {
             names = allCards.getNames(null);
         } else {
             checked.each(function () {
@@ -641,17 +641,10 @@
         $('#mdw-db-cardname').autocomplete('option', 'source', names);
     }
 
-    function onClickSelectAll(event) {
+    function onClickSelectFilters(event) {
         event.preventDefault();
         var filters = $('#mdw-db-filters');
-        filters.find('input:checkbox').prop('checked', true);
-        filters.change();
-    }
-
-    function onClickSelectNone(event) {
-        event.preventDefault();
-        var filters = $('#mdw-db-filters');
-        filters.find('input:checkbox').prop('checked', false);
+        filters.find('input:checkbox').prop('checked', $(event.target).hasClass('mdw-on'));
         filters.change();
     }
 
@@ -674,8 +667,8 @@
         $('#mdw-db-deckname-span').replaceWith('<label for="mdw-db-deckname">Deck Name</span> <input type="text" id="mdw-db-deckname" placeholder="Enter a name for your deck here." size="40">');
         $('#mdw-decktab-button').click(activateDeck);
         $('#mdw-sidetab-button').click(activateSideboard);
-        $('#mdw-db-selectall').html('<a href="#" class="mdw-select-link">Select all</a>').click(onClickSelectAll);
-        $('#mdw-db-selectnone').html('<a href="#" class="mdw-select-link">Select none</a>').click(onClickSelectNone);
+        $('#mdw-db-selectall').html('<a href="#" class="mdw-select-link mdw-on">Select all</a>').click(onClickSelectFilters);
+        $('#mdw-db-selectnone').html('<a href="#" class="mdw-select-link">Select none</a>').click(onClickSelectFilters);
         $('#mdw-db-filters').change(onChangeFilter);
         $('#mdw-db-filters-1')
             .html('<input type="checkbox" id="mdw-db-land" checked value="L">\
@@ -704,7 +697,19 @@
         }
     }
 
+    function onCardnameAutoCompleteSelect() {
+        var nameOffset = $('#mdw-db-cardname').offset();
+        if ($(window).scrollTop() + globalNavHeight > nameOffset.top)
+            window.scrollTo(0, nameOffset.top - (20 + globalNavHeight));
+    }
+
+    function getGlobaNavHeight() {
+        var nav = $('#globalNavigation');
+        return nav.length === 0 ? 0 : nav.outerHeight();
+    }
+
     function initialize() {
+        globalNavHeight = getGlobaNavHeight();
         $('#mdw-db-usefullinks').find('a').attr('target', '_blank');
         cardHover = $('<img id="mdw-card-hover" class="mdw-card-hover" />').prependTo('body');
         throbber = new Throbber();
@@ -717,6 +722,7 @@
                 $('#mdw-db-cardname').autocomplete({
                     source: allCards.getNames(null),
                     focus: _.debounce(onCardnameAutoCompleteFocus, 200),
+                    select: onCardnameAutoCompleteSelect,
                     open: hideCardHover,
                     close: hideCardHover,
                     minLength: 0
