@@ -50,5 +50,12 @@ function p.Error(text)
 	return string.format("<div class='error'>Error: %s</div>",text)
 end
 
+function p.ExpandSymbols(text)
+    if string.find("{") == nil then return text end
+    local s = string.gsub(text, "{Tap}", "{{Tap}}")
+    s = string.gsub(s, "{T}", "{{Tap}}")
+    return string.gsub(s, "{(.)}", "{{%1}}")
+end
+
 return p
 

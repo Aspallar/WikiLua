@@ -11,7 +11,9 @@
 --    Removed adding glossary category
 --    added class to glossary output, and different title class to rules section
 --    added category to output for rules obtained by index number (CR.full)
+--    added expanding symbols to template in rules output
 
+local utils = require("Module:TemplateUtils")
 local rulesText = mw.loadData("Module:CompRulesText").text
 local CR = {}
 
@@ -240,6 +242,7 @@ local function CreateRulesDiv(output)
         local prevMax = 0
         local outputLine, isExample, maxIndent, index, _
         for _, line in ipairs(output) do
+            line = utils.ExpandSymbols(line)
             outputLine, isExample = StylizeRule(line)
             _, _, index = SplitLine(line)
             if index then
@@ -526,11 +529,11 @@ function CR.CRTemplateCall(frame)
         return CR.glossary({args={lookup}})
     else
         if ParseIndex(lookup) then
-            return CR.full({args={lookup}})
+            return frame:preprocess(CR.full({args={lookup}}))
         else
             local output = CR.title({args={lookup}})
             if output then
-                return output
+                return frame:preprocess(output)
             else
                 return CR.glossary({args={lookup}})
             end

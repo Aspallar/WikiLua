@@ -1,3 +1,4 @@
+--<nowiki>
 local cardService = require("Module:CardService")
 local utils = require("Module:TemplateUtils")
 
@@ -41,6 +42,8 @@ setNames["HOU"]="Hour of Devastation"
 setNames["XLN"]="Ixalan"
 setNames["RIX"]="Rivals of Ixalan"
 setNames["DOM"]="Dominaria"
+setNames["M19"]="Core Set 2019"
+setNames["ANA"]="Arena Only"
 
 local function SetLinkName(setCode)
     if setCode == "HOU" then
@@ -86,10 +89,6 @@ local function ExpansionSymbol(card)
     return "{{"..card.SetCode..card.Rarity:sub(1,1).."}}"
 end
 
-local function ExpandSymbols(text)
-    return string.gsub(text, "{(.)}", "{{%1}}")
-end
-
 local function GetRulings(card)
     if card.Rulings == nil then return "" end
     local rulings = mw.loadData("Module:Data/Rulings")
@@ -100,7 +99,7 @@ local function GetRulings(card)
 |+ Card rulings ([[Card rulings|?]])
 ]=]
     for _, rule in pairs(rules) do
-        s = s .. string.format(rulingTemplate, rule.Date, ExpandSymbols(rule.Text))
+        s = s .. string.format(rulingTemplate, rule.Date, utils.ExpandSymbols(rule.Text))
     end
     s = s .. "|}"
     return s
@@ -177,7 +176,7 @@ local function GenerateCardPage(card)
          cardContents = cardContents .. string.format(cardPageRowTemplate, contents[i][1], contents[i][2])
     end
 
-	local reprints = GetReprints(card)
+    local reprints = GetReprints(card)
 
     return string.format(cardPageTemplate,
         cardContents,
@@ -207,20 +206,20 @@ local function GenerateOtherCardPage(card)
 end
 
 local function GetCardsTable(criteria)
-	local s = ""
-	local numresults = 0
+    local s = ""
+    local numresults = 0
     for card in cardService.GetByCriteria(criteria) do
         s = s .. GenerateCardRow(card)
         numresults = numresults + 1
     end
     s = [=[! colspan="3" align="right"|]=]..numresults.." result"..(numresults~=1 and "s\n" or "\n")..s
-	return s
+    return s
 end
 
 function p.GetCardsTable(frame)
     local criteria = utils.RecreateTable(frame:getParent().args)
-	local result = GetCardsTable(criteria)
-	return frame:preprocess(result)
+    local result = GetCardsTable(criteria)
+    return frame:preprocess(result)
 end
 
 function p.TestGetCardsTable(criteria)
@@ -228,7 +227,7 @@ function p.TestGetCardsTable(criteria)
 end
 
 local function cardResultPageNavigation(startCard,endCard,numresults,page,linkBase)
-	return [[! colspan="3" align="right"|Showing results ]]..startCard.." to "..endCard.." out of "..numresults.." "..((page == 1 ) and "" or([=[[[]=]..linkBase.. page - 1 ..[=[|Previous page]]]=])).." "..((startCard+numCardsPerPage>numresults) and "" or ([=[[[]=]..linkBase.. page + 1 ..[=[|Next page]]]=])).."\n"
+    return [[! colspan="3" align="right"|Showing results ]]..startCard.." to "..endCard.." out of "..numresults.." "..((page == 1 ) and "" or([=[[[]=]..linkBase.. page - 1 ..[=[|Previous page]]]=])).." "..((startCard+numCardsPerPage>numresults) and "" or ([=[[[]=]..linkBase.. page + 1 ..[=[|Next page]]]=])).."\n"
 end
 
 local function GetPagedCardsTable(criteria, title)
@@ -272,18 +271,18 @@ function p.GetPagedCardsTable(frame)
     local criteria = utils.RecreateTable(frame.args)
     local title = frame:getParent():getTitle()
     local s = GetPagedCardsTable(criteria, title)
-	return frame:preprocess(s)
+    return frame:preprocess(s)
 end
 
 -- TODO: (Aspallar) removal candidate, does not appear to be used in wiki
 function p.GetAnyCardRow(frame)
-	local name = frame.args[1]
-	local card = cardService.GetByNameIgnoreCase(name)
-	return frame:preprocess(GenerateAnyCardRow(card))
+    local name = frame.args[1]
+    local card = cardService.GetByNameIgnoreCase(name)
+    return frame:preprocess(GenerateAnyCardRow(card))
 end
 
 local function GetCardPage(name)
-	local card = cardService.GetByName(name)
+    local card = cardService.GetByName(name)
     if not card then
         card = cardService.GetOtherByName(name)
         if not card then
@@ -294,16 +293,16 @@ local function GetCardPage(name)
     end
     if card.CardNumber and (string.find(card.CardNumber,"a")) then
         local card2 = cardService.GetByNumber(string.gsub(card.CardNumber,"a","b"))
-	    return GenerateCardPage(card) ..
+        return GenerateCardPage(card) ..
             "\n{{clear}}\n<big><big><big>" .. card2.Name .. "</big></big></big>\n" ..
             GenerateCardPage(card2)
-	else
-	    return GenerateCardPage(card)
+    else
+        return GenerateCardPage(card)
     end
 end
 
 function p.GetCardPage(frame)
-	local name = string.gsub( mw.uri.decode(frame:preprocess("{{PAGENAMEE}}")), "_", " ")
+    local name = string.gsub( mw.uri.decode(frame:preprocess("{{PAGENAMEE}}")), "_", " ")
     return frame:preprocess(GetCardPage(name))
 end
 
@@ -314,16 +313,16 @@ end
 function p.GetCardCategories(card)
     local categories = {}
     table.insert(categories,"Cards")
-	for _,setcode in pairs(card.Allsets) do
-		table.insert(categories,setNames[setcode])
-	end
+    for _,setcode in pairs(card.Allsets) do
+        table.insert(categories,setNames[setcode])
+    end
     ConcatTables(categories,card.Colors)
     table.insert(categories,card.Rarity)
     ConcatTables(categories,card.SuperTypes)
     ConcatTables(categories,card.Types)
     ConcatTables(categories,card.SubTypes)
     if card.Watermark then table.insert(categories,card.Watermark) end
-	if card.Sets then table.insert(categories,"Reprint") end
+    if card.Sets then table.insert(categories,"Reprint") end
     if card.Banned then table.insert(categories,"Banned Card") end
 
     local s = ""
@@ -335,3 +334,4 @@ function p.GetCardCategories(card)
 end
 
 return p
+--</nowiki>
