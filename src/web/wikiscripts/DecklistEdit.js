@@ -1,7 +1,7 @@
 // ==========================================================================
 // DecklistEdit
 //
-// Version 1.1.0
+// Version 1.2.0
 // Author: Aspallar
 //
 // Provides a user friendly way to add a deck to a deck list.
@@ -13,7 +13,7 @@
     /*global mw */
     'use strict';
 
-    if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('data-decklistedit-1-1-0'))
+    if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('data-decklistedit-1-2-0'))
         return;
 
     var config;
@@ -109,13 +109,17 @@
             hideUserPopup();
             return;
         }
+        var includeAnonymous = 'anonymous'.substring(0, userPrefix.length) === userPrefix.toLowerCase();
         $.get(userLinksUrl + userPrefix).done(function (data) {
-            if (data) {
+            if (data || includeAnonymous) {
                 var userList = $(document.createDocumentFragment());
-                data.split('\n').forEach(function (user) {
-                    if (user.indexOf('/') === -1)
-                        userList.append($('<li>').text(user.substring(5)));
-                });
+                if (includeAnonymous) userList.append($('<li>').text('Anonymous'));
+                if (data) {
+                    data.split('\n').forEach(function (user) {
+                        if (user.indexOf('/') === -1)
+                            userList.append($('<li>').text(user.substring(5)));
+                    });
+                }
                 $('#mdw-dle-usermenu').html(userList);
                 showUserPopup();
             } else {
