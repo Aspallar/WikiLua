@@ -5,17 +5,19 @@
 --    Inline styling removed
 --    Last set in title removed
 --    Output class names changed to use mdw- convention
---    Some wikitext links in titles changes to plain text
---      (most of the articles do not and probably will never exist on arena wiki)
---    Rules text moved to separate module
+--    Some wikitext links in titles changed to plain text
+--       (as most of the articles do not and probably will never exist on arena wiki)
+--    Rules text moved to separate module loaded by mw.loadData
 --    Removed adding glossary category
 --    added class to glossary output, and different title class to rules section
---    added category to output for rules obtained by index number (CR.full)
---    added expanding symbols to template in rules output
+--    added category to output for rules obtained by index number
+--    added expanding symbols to appropriate template in output
+--    removed TOC handling, no requirement for it on Arena Wiki
+--    don't bold 1st line of glossary if there is only one line
 
 local utils = require("Module:TemplateUtils")
 local rulesText = mw.loadData("Module:CompRulesText").text
-local CR = {}
+local p = {}
 
 -- locals for performance
 local format, find, match, sub, gsub, gmatch, rep, lower, upper = string.format, string.find, string.match, string.sub, string.gsub, string.gmatch, string.rep, string.lower, string.upper
@@ -29,6 +31,7 @@ local LINE_PATTERN = "(.-)\n"
 local RULE_LINE_PATTERN = "^%d"
 local TOC_END_LINE_PATTERN = "^Glossary"
 local BODY_END_LINE_PATTERN  = "^Glossary"
+local GLOSSARY_MARKER = "\nGlossary"
 local GLOSSARY_END_LINE_PATTERN = "^Credits"
 local GENERAL_RULE_PATTERN = "General"
 
@@ -43,14 +46,14 @@ local INDEX_SUBRULE_CHARACTER_SET = "ABCDEFGHIJKMNPQRSTUVWXYZabcdefghijkmnpqrstu
 -- The date itself is wrapped in parentheses to extract that text alone.
 local COMP_RULES_DATE_PATTERN = "These rules are effective as of ([^%.]+)."
 
-local LAST_UPDATED_FORMAT = "<p class=\"mdw-cr-title\">From the ''Comprehensive Rules'' (%s)</p>"
-local LAST_UPDATED_GLOSSARY_FORMAT = "<p class=\"mdw-cr-title-glossary\">From the glossary of the ''Comprehensive Rules'' (%s)</p>"
+local LAST_UPDATED_FORMAT = "<p class=\"mdw-cr-title\">''Comprehensive Rules'' (%s)</p>"
+local LAST_UPDATED_GLOSSARY_FORMAT = "<p class=\"mdw-cr-title-glossary\">''Comprehensive Rules Glossary'' (%s)</p>"
 
 -- Escape magic characters in a string.
-local sanitize
+local Sanitize
 do
-  local matches =
-  {
+    local matches =
+    {
     ["^"] = "%^";
     ["$"] = "%$";
     ["("] = "%(";
@@ -63,11 +66,10 @@ do
     ["+"] = "%+";
     ["-"] = "%-";
     ["?"] = "%?";
-  }
-
-  sanitize = function(s)
-    return (gsub(s, ".", matches))
-  end
+    }
+    Sanitize = function(s)
+        return (gsub(s, ".", matches))
+    end
 end
 
 local function GetLastUpdate()
@@ -75,8 +77,14 @@ local function GetLastUpdate()
     return lastEffectiveDate
 end
 
+local function Preprocess(frame, output)
+    local hasSymbols
+    output, hasSymbols = utils.ExpandSymbols(output)
+    return hasSymbols and frame:preprocess(output) or output
+end
+
 local function SplitLine(ruleLine)
-        -- Finds the index and the rest. If the index has an extra period, it is considered a formatting issue in the CR and is therefore ignored.
+     -- Finds the index and the rest. If the index has an extra period, it is considered a formatting issue in the CR and is therefore ignored.
     local i, j, index, rest = find(ruleLine, "^(%d+%.%d*[%.a-kmnp-z]?)%.?%s(.+)")
     return i, j, index, rest
 end
@@ -97,7 +105,7 @@ local function ParseIndex(index)
         return false
     end
 
-    local i, j, suffix = find(index, "%.(.+)")
+    local i, _, suffix = find(index, "%.(.+)")
     if suffix then
         -- If the last character in the suffix is alphanumeric (and not L or O), set the subrule
         subrule = match(sub(suffix, -1), "(["..INDEX_SUBRULE_CHARACTER_SET.."])")
@@ -139,7 +147,7 @@ local function IsSubsequentRule(line, heading, major, minor, subrule)
         return false
     end
 
-    local h, a, i, s = ParseIndex(index)
+    local h, a, i, _ = ParseIndex(index)
 
     if subrule then
         -- We can cheat like hell if we're dealing with subrules because there's no further nesting
@@ -188,16 +196,16 @@ local function Titleize(title)
 end
 
 local function StylizeRule(ruleLine)
-    local i, j, index, rest = SplitLine(ruleLine)
+    local i, _, index, rest = SplitLine(ruleLine)
     if not index then
         if find(ruleLine, "Example:") then
-            ruleLine = "<p class=\"crExample\">''" .. gsub(ruleLine, "(Example:)", "'''%1'''") .. "''</p>"
+            ruleLine = "<p class=\"mdw-comprules-example\">''" .. gsub(ruleLine, "(Example:)", "'''%1'''") .. "''</p>"
         end
         return ruleLine, true
     end
 
-    local h, a, i, s = ParseIndex(index)
-    -- Major indices and any rule shorter than five words should be a title, so try linking it!
+    local h, a, _, _ = ParseIndex(index)
+    -- Major indices and any rule shorter than five words should be a title
     -- (this is probably a stupid assumption let's see how long before we get burned)
     if (h and a and not i) then
         -- Because each heading in the CR has a "General" section, expand that to "General_(name of header)"
@@ -209,16 +217,16 @@ local function StylizeRule(ruleLine)
                     break
                 end
             end
-            assert(headingName)
+            assert(headingName, "Heading name not found")
             headingName = lower(headingName)
             headingName = gsub(headingName, "^(%S)", upper)
-            local expandedLink = format(GENERAL_RULE_EXPANDED_TEXT_FORMAT, headingName)
-            rest = format(WIKILINK_ALT_FORMAT, expandedLink, rest)
+            local expanded = format(GENERAL_RULE_EXPANDED_TEXT_FORMAT, headingName)
+            rest = format(WIKILINK_ALT_FORMAT, expanded, rest)
         else
             rest = Titleize(rest)
         end
     else
-        local _, numWords = gsub(rest, "%S+", "") 
+        local _, numWords = gsub(rest, "%S+", "")
         if numWords < 5 then
             rest = Titleize(rest)
         end
@@ -227,7 +235,6 @@ local function StylizeRule(ruleLine)
     return format("'''%s''' %s", index, rest)
 end
 
--- Creates a mw.html object matching the styling of the old CR template
 local function CreateRulesDiv(output)
     local div = mw.html.create("div"):addClass("mdw-comprules")
 
@@ -240,10 +247,9 @@ local function CreateRulesDiv(output)
     else
         local indentLevel
         local prevMax = 0
-        local outputLine, isExample, maxIndent, index, _
+        local outputLine, maxIndent, index
         for _, line in ipairs(output) do
-            line = utils.ExpandSymbols(line)
-            outputLine, isExample = StylizeRule(line)
+            outputLine, _ = StylizeRule(line)
             _, _, index = SplitLine(line)
             if index then
                 div:newline()
@@ -254,12 +260,6 @@ local function CreateRulesDiv(output)
                     indentLevel = indentLevel + (maxIndent - prevMax)
                 end
                 prevMax = maxIndent
-
-                -- if indentLevel > 1 then
-                    -- outputLine = "*" .. outputLine
-                -- end
-                -- outputLine = rep(":",  indentLevel-1) .. outputLine
-
                 outputLine = rep("*",  indentLevel) .. outputLine
             else
                 if not find(outputLine, "Example:") then
@@ -278,77 +278,47 @@ end
 
 local function CreateGlossaryDiv(output)
     local div = mw.html.create("div"):addClass("mdw-comprules-glossary")
-
     local lastDate = GetLastUpdate()
+    local numlines = #output
     div:wikitext(format(LAST_UPDATED_GLOSSARY_FORMAT, lastDate))
     div:newline()
-
     for i, line in ipairs(output) do
         -- Bold the name of the entry for clarity
-        if i == 1 then
+        if i == 1 and numlines > 1 then
             div:wikitext(";" .. line .. "\n")
-            -- div:newline()
         else
             div:wikitext(":" .. line .. "\n")
         end
-
     end
-
     return div
 end
 
-function CR.TOC(frame)
-    local index = frame.args[1]
-    local heading, major, minor, subrule
-    -- If there's no index, we want the full TOC. Otherwise, pass it in for validation.
-    local fullTOC
-    if (not index) or type(index)=="string" and index=="" then
-        heading = 1
-        fullTOC = true
-    else
-        heading, major, minor, subrule = ParseIndex(index)
-        assert(heading and heading>=1 and heading<=10 and not major and not minor and not subrule, "Invalid table of contents index!")
-    end
-
-    local output = {}
-
-    local collecting = false
-    for line in gmatch(rulesText, LINE_PATTERN) do
-        if match(line, RULE_LINE_PATTERN) then
-            if match(line, "^"..heading.."%.") then
-                collecting = true
-            elseif (not fullTOC) and IsSubsequentRule(line, heading, major, minor, subrule) then
-                break
-            end
-
-            -- NOT elseif. We want to start collecting lines on the same line we match the target heading
-            if collecting then
-                tinsert(output, line)
-            end
-        elseif match(line, TOC_END_LINE_PATTERN) then
+local function GetRulesLines()
+    local lines = gmatch(rulesText, LINE_PATTERN)
+    for line in lines do
+        if match(line, TOC_END_LINE_PATTERN) then
             break
         end
     end
-
-    assert(#output > 0, "Index not found! ", index)
-    return tostring(CreateRulesDiv(output))
+    return lines
 end
 
--- Basically CR.full but with the full text of an index
-function CR.title(frame)
-    local title = frame.args[1]
-    title = sanitize(title)
+local function GetGlossaryLines()
+    local _, endpos = find(rulesText, GLOSSARY_MARKER, nil, true)
+    _, endpos = find(rulesText, GLOSSARY_MARKER, endpos, true)
+    assert(endpos, "Glossary not found")
+    return gmatch(sub(rulesText, endpos + 1), LINE_PATTERN)
+end
 
+local function RulesByTitle(title)
     local output = {}
-    local passedTOC = false
     local collecting = false
     local heading, major, minor, subrule -- this is a stupid hack to continue using the original index-based stuff
-    for line in gmatch(rulesText, LINE_PATTERN) do
-        if (not passedTOC) and match(line, TOC_END_LINE_PATTERN) then
-            passedTOC = true
-        elseif match(line, BODY_END_LINE_PATTERN) then
+    title = Sanitize(title)
+    for line in GetRulesLines() do
+        if match(line, BODY_END_LINE_PATTERN) then
             break
-        elseif passedTOC then   
+        else
             if match(line, title.."$") then
                 collecting = true
                 -- Stupid hack see above
@@ -357,37 +327,30 @@ function CR.title(frame)
             elseif collecting and IsSubsequentRule(line, heading, major, minor, subrule) then
                 break
             end
-
-            -- NOT elseif. We want to start collecting lines on the same line we match the target heading
-            -- ignore whitespace
             if collecting and match(line, "%S") then
                 tinsert(output, line)
             end
         end
     end
-
-    assert(#output > 0, "Index not found! " .. title)
+    assert(#output > 0, "Rules title not found! " .. title)
     if output then
         return tostring(CreateRulesDiv(output))
     else
         return nil
     end
+
 end
 
-function CR.only(frame)
-    local index, additionalLevels = frame.args[1], tonumber(frame.args[2])
+local function ExactRule(index, additionalLevels)
+    additionalLevels = tonumber(additionalLevels)
     local heading, major, minor, subrule = ParseIndex(index)
-
     local output = {}
-    local passedTOC = false
     local collecting = false
     local ruleDepth, lineDepth = GetNestingDepth(index)
-    for line in gmatch(rulesText, LINE_PATTERN) do
-        if (not passedTOC) and match(line, TOC_END_LINE_PATTERN) then
-            passedTOC = true
-        elseif match(line, BODY_END_LINE_PATTERN) then
+    for line in GetRulesLines() do
+        if match(line, BODY_END_LINE_PATTERN) then
             break
-        elseif passedTOC then
+        else
             if match(line, RULE_LINE_PATTERN) then
                 if match(line, "^"..index) then
                     collecting = true
@@ -395,18 +358,15 @@ function CR.only(frame)
                     break
                 end
             end
-
-            -- NOT elseif. We want to start collecting lines on the same line we match the target heading
-            -- ignore whitespace
             if collecting and match(line, "%S") then
                 if additionalLevels then
-                    local _, _, index = SplitLine(line)
+                    local _, _, additionalIndex = SplitLine(line)
                     -- This looks a little weird.
                     -- We only update lineDepth in the case that we're looking at a rules index
                     -- But we capture any line for which it or the preceding index is within our targeting scope
                     -- (examples, mostly)
-                    if index then
-                        lineDepth = GetNestingDepth(index)
+                    if additionalIndex then
+                        lineDepth = GetNestingDepth(additionalIndex)
                     end
                     if lineDepth <= ruleDepth + additionalLevels then
                         tinsert(output, line)
@@ -418,24 +378,19 @@ function CR.only(frame)
             end
         end
     end
-
-    assert(#output > 0, "Index not found! " .. index)
+    assert(#output > 0, "Rules index not found! " .. index)
     return tostring(CreateRulesDiv(output))
 end
 
-function CR.full(frame)
-    local index = frame.args[1]
+local function RulesByIndex(index)
     local heading, major, minor, subrule = ParseIndex(index)
 
     local output = {}
-    local passedTOC = false
     local collecting = false
-    for line in gmatch(rulesText, LINE_PATTERN) do
-        if (not passedTOC) and match(line, TOC_END_LINE_PATTERN) then
-            passedTOC = true
-        elseif match(line, BODY_END_LINE_PATTERN) then
+    for line in GetRulesLines() do
+        if match(line, BODY_END_LINE_PATTERN) then
             break
-        elseif passedTOC then
+        else
             if match(line, RULE_LINE_PATTERN) then
                 if match(line, "^"..index) then
                     collecting = true
@@ -443,103 +398,80 @@ function CR.full(frame)
                     break
                 end
             end
-
-            -- NOT elseif. We want to start collecting lines on the same line we match the target heading
-            -- ignore whitespace
             if collecting and match(line, "%S") then
                 tinsert(output, line)
             end
         end
     end
 
-    assert(#output > 0, "Index not found! " .. index)
+    assert(#output > 0, "Rules index not found! " .. index)
     return tostring(CreateRulesDiv(output)) .. "[[Category:Pages with indexed rule]]"
 end
 
-function CR.glossary(frame)
-    local lookup = frame.args[1]
-    lookup = sanitize(lookup)
-
+local function GlossaryTerm(term)
+    term = Sanitize(term)
     local output = {}
-    local passedTOC, passedBody = false, false
     local collecting = false
-    for line in gmatch(rulesText, LINE_PATTERN) do
-        if (not passedTOC) and match(line, TOC_END_LINE_PATTERN) then
-            passedTOC = true
-        elseif (not passedBody) and match(line, BODY_END_LINE_PATTERN) then
-            passedBody = true
-        elseif passedTOC and passedBody and match(line, GLOSSARY_END_LINE_PATTERN) then
+    for line in GetGlossaryLines() do
+        if match(line, GLOSSARY_END_LINE_PATTERN) then
             break
-        elseif passedBody then
-            -- if match(line, "Bury") then
-                -- local a,b = {}, {}
-                -- line = sanitize(line)
-                -- for i=1, #line do tinsert(a, string.byte(line, i)) end
-                -- for i=1, #lookup do tinsert(b, string.byte(lookup, i)) end
-                -- a = table.concat(a, ",")
-                -- b = table.concat(b, ",")
-                -- assert(false, a .. ";" .. b)
-            -- end
-            if match(line, "^"..lookup) then
+        else
+            if match(line, "^"..term) then
                 collecting = true
             elseif collecting and not match(line, "%w") then
                 break
             end
-
-            -- NOT elseif. We want to start collecting lines on the same line we match the target heading
-            -- ignore whitespace
             if collecting then
                 tinsert(output, line)
             end
         end
     end
 
-    assert(#output > 0, "Glossary entry not found! " .. lookup)
+    assert(#output > 0, "Glossary term not found! " .. term)
     return tostring(CreateGlossaryDiv(output))
 end
 
-function CR.CRTemplateCall(frame)
-    local toc, exact, lookup, glossary
+-- Exports
+
+function p.ExtractExactRule(frame)
+    return Preprocess(frame, ExactRule(frame.args[1], frame.args[2]))
+end
+
+function p.ExtractRulesByIndex(frame)
+    return Preprocess(frame, RulesByIndex(frame.args[1]))
+end
+
+function p.ExtractRulesByTitle(frame)
+    return Preprocess(frame, RulesByTitle(frame.args[1]));
+end
+
+function p.ExractGlossaryTerm(frame)
+    return Preprocess(frame, GlossaryTerm(frame.args[1]))
+end
+
+function p.RulesExtract(frame)
+    local exact, lookup, glossary, result
 
     for key, value in pairs(frame.args) do
-        if ((key == "toc") and value ~= "") or (value == "toc") then
-            toc = true
-        elseif ((key == "exact") and value ~= "") or (value == "exact") then
+        if ((key == "exact") and value ~= "") or (value == "exact") then
             exact = true
         elseif ((key == "glossary") and value ~= "") or (value == "glossary") then
             glossary = true
         elseif value and value ~= "" then
-            assert(not lookup, "Unknown error, multiple lookups ")
+            assert(not lookup, "Multiple lookups specified")
             lookup = value
         end
     end
-    assert(lookup or toc, "No lookup provided")
-
-    if toc then
-        if not lookup then
-            return CR.TOC({args={}})
-        elseif tonumber(lookup) < 10 then
-            return CR.TOC({args={lookup}})
-        else
-            return CR.only({args={lookup, 1}})
-        end
-    elseif exact then
-        return CR.only({args={lookup}})
+    assert(lookup, "No lookup value provided")
+    if exact then
+        result = ExactRule(lookup)
     elseif glossary then
-        return CR.glossary({args={lookup}})
+        result = GlossaryTerm(lookup)
     else
-        if ParseIndex(lookup) then
-            return frame:preprocess(CR.full({args={lookup}}))
-        else
-            local output = CR.title({args={lookup}})
-            if output then
-                return frame:preprocess(output)
-            else
-                return CR.glossary({args={lookup}})
-            end
-        end
+        result = ParseIndex(lookup) and RulesByIndex(lookup) or RulesByTitle(lookup)
     end
+    return Preprocess(frame, result)
 end
 
-return CR
+return p
 -- </nowiki>

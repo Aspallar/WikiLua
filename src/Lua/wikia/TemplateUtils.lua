@@ -1,3 +1,4 @@
+-- <nowiki>
 local p = {}
 
 -------------------------------
@@ -51,11 +52,12 @@ function p.Error(text)
 end
 
 function p.ExpandSymbols(text)
-    if string.find("{") == nil then return text end
-    local s = string.gsub(text, "{Tap}", "{{Tap}}")
-    s = string.gsub(s, "{T}", "{{Tap}}")
-    return string.gsub(s, "{(.)}", "{{%1}}")
+    if string.find(text, "{") == nil then
+        return text, false
+    else
+        return text:gsub("{Tap}", "{{Tap}}"):gsub("{T}", "{{Tap}}"):gsub("{(.)}", "{{%1}}"), true
+    end
 end
 
 return p
-
+-- </nowiki>
