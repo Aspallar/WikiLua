@@ -1,26 +1,20 @@
--- <nowiki>
+--<nowiki>
 -- Obtained and Distributed under CC BY-NC-SA 2.5 license (https://creativecommons.org/licenses/by-nc-sa/2.5/)
 -- Attribution: original source - https://mtg.gamepedia.com/Module:CR
--- Modified by Aspallar for use on the Magic Arena Wiki (Work in progress)
---    Inline styling removed
---    Last set in title removed
---    Output class names changed to use mdw- convention
---    Some wikitext links in titles changed to plain text
---       (as most of the articles do not and probably will never exist on arena wiki)
---    Rules text moved to separate module loaded by mw.loadData
---    Removed adding glossary category
---    added class to glossary output, and different title class to rules section
---    added category to output for rules obtained by index number
---    added expanding symbols to appropriate template in output
---    removed TOC handling, no requirement for it on Arena Wiki
---    don't bold 1st line of glossary if there is only one line
+-- Modified by Aspallar for use on the Magic Arena Wiki
 
 local utils = require("Module:TemplateUtils")
-local rulesText = mw.loadData("Module:CompRulesText").text
 local p = {}
 
+local rulesText, rulesDate
+do
+    local rulesData = mw.loadData("Module:CompRulesText")
+    rulesText = rulesData.Text
+    rulesDate = rulesData.LastUpdate
+end
+
 -- locals for performance
-local format, find, match, sub, gsub, gmatch, rep, lower, upper = string.format, string.find, string.match, string.sub, string.gsub, string.gmatch, string.rep, string.lower, string.upper
+local format, find, match, sub, gsub, gmatch, rep = string.format, string.find, string.match, string.sub, string.gsub, string.gmatch, string.rep
 local tonumber, tostring, type, assert, ipairs = tonumber, tostring, type, assert, ipairs
 local tinsert = table.insert
 
@@ -34,17 +28,6 @@ local BODY_END_LINE_PATTERN  = "^Glossary"
 local GLOSSARY_MARKER = "\nGlossary"
 local GLOSSARY_END_LINE_PATTERN = "^Credits"
 local GENERAL_RULE_PATTERN = "General"
-
--- local WIKILINK_ALT_FORMAT = "[[%s|%s]]" -- This changed to line below as we don't want links on arena wiki
-local WIKILINK_ALT_FORMAT = "%s"
-local GENERAL_RULE_EXPANDED_TEXT_FORMAT = "General_(%s)"
-
--- Note that, per the Introduction to the Comprehensive Rules, the subrules skip the letters L and O to avoid confusion with numerals.
-local INDEX_SUBRULE_CHARACTER_SET = "ABCDEFGHIJKMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz"
-
--- This is the format of the line in the Comp Rules where the date is found. As of last edit, it's the second line of text.
--- The date itself is wrapped in parentheses to extract that text alone.
-local COMP_RULES_DATE_PATTERN = "These rules are effective as of ([^%.]+)."
 
 local LAST_UPDATED_FORMAT = "<p class=\"mdw-cr-title\">''Comprehensive Rules'' (%s)</p>"
 local LAST_UPDATED_GLOSSARY_FORMAT = "<p class=\"mdw-cr-title-glossary\">''Comprehensive Rules Glossary'' (%s)</p>"
@@ -72,106 +55,41 @@ do
     end
 end
 
-local function GetLastUpdate()
-    local lastEffectiveDate = match(rulesText, COMP_RULES_DATE_PATTERN)
-    return lastEffectiveDate
-end
-
 local function Preprocess(frame, output)
-    local hasSymbols
-    output, hasSymbols = utils.ExpandSymbols(output)
-    return hasSymbols and frame:preprocess(output) or output
+    local expanded, hasSymbols = utils.ExpandSymbols(output)
+    return hasSymbols and frame:preprocess(expanded) or expanded
 end
 
 local function SplitLine(ruleLine)
      -- Finds the index and the rest. If the index has an extra period, it is considered a formatting issue in the CR and is therefore ignored.
-    local i, j, index, rest = find(ruleLine, "^(%d+%.%d*[%.a-kmnp-z]?)%.?%s(.+)")
-    return i, j, index, rest
+    local first, last, index, rest = find(ruleLine, "^(%d+%.%d*[%.a-kmnp-z]?)%.?%s(.+)")
+    return first, last, index, rest
 end
 
---[[
-    Chops up and validates an index.
-    Individually breaking down index parts here for ease of comprehension and future maintenance.
-    Yes, a clever soul could streamline this with more complex pattern matching.
-    Clever and absolute performance are not the goals. Editability by anonymous maintainers is.
-
-    heading, major, and minor should all be number or nil
-    returns false instead if the string provided is not an index
---]]
 local function ParseIndex(index)
-    local heading, major, minor, subrule
-
-    if match(index, "%s") then
-        return false
-    end
-
-    local i, _, suffix = find(index, "%.(.+)")
-    if suffix then
-        -- If the last character in the suffix is alphanumeric (and not L or O), set the subrule
-        subrule = match(sub(suffix, -1), "(["..INDEX_SUBRULE_CHARACTER_SET.."])")
-        -- If that was successful, cut that character off the suffix.
-        if subrule then
-            suffix = sub(suffix, 1, -2)
-        end
-
-        -- Now we can easily check whether the part between the period and the letter is a number.
-        -- If so, that's our minor index
-        minor = tonumber(suffix)
-        assert(type(minor) == "number", "Invalid index!")
-
-        -- Now cut off the entire suffix and let's parse the rest
-        index = sub(index, 1, i-1)
-    end
-
-    -- Getting the heading and major index is just some number manipulation
-    index = tonumber(index)
-    -- assert(type(index) == "number", "Invalid index!")
-    if not index then
-        return false
-    end
-
-    if index >= 100 then
-        major = index%100
-        heading = math.floor(index/100)
+    local heading, major
+    local main, minor, subrule = match(index, "^(%d+)%.?(%d*)([a-kmnp-z]?)%.?$")
+    main = tonumber(main)
+    minor = tonumber(minor)
+    if subrule == "" then subrule = nil end
+    if not main or (subrule and not minor) then
+        return false;
     else
         -- The body of the rules starts at 100, lower values are headings
-        heading = index
-    end
-
-    return heading, major, minor, subrule
-end
-
-local function IsSubsequentRule(line, heading, major, minor, subrule)
-    local _, _, index = SplitLine(line)
-    if not index then
-        return false
-    end
-
-    local h, a, i, _ = ParseIndex(index)
-
-    if subrule then
-        -- We can cheat like hell if we're dealing with subrules because there's no further nesting
-        -- Therefore, the next line is the next rule by definition
-        -- That said, if this ever changes, this snippet might be useful
-        --[[
-            -- Yes, this makes assumptions about character encoding and subrules never numbering more than 24 for a given rule
-            local i = find(INDEX_SUBRULE_CHARACTER_SET, subrule) + 1
-            nextIndex = sub(INDEX_SUBRULE_CHARACTER_SET, i, i)
-        --]]
-        return true
-    elseif i and minor and i > minor then
-        return true
-    elseif a and major and a > major then
-        return true
-    elseif h and heading and h > heading then
-        return true
+        if main >= 100 then
+            heading = math.floor(main / 100)
+            major = main % 100
+        else
+            heading = main
+        end
+        return heading, major, minor, subrule
     end
 end
 
 local function GetNestingDepth(index)
     local depth
     -- Subrules, e.g. 103.7a
-    if match(index, "["..INDEX_SUBRULE_CHARACTER_SET.."]") then
+    if match(index, "[a-kmnp-z]") then
         depth = 4
     -- Rules, e.g. 112.1
     elseif match(index, "%d%.%d") then
@@ -183,63 +101,61 @@ local function GetNestingDepth(index)
     else
         depth = 1
     end
-
     return depth
 end
 
+local function IsSubsequentRule(line, heading, major, minor, subrule)
+    local _, _, index = SplitLine(line)
+    if not index then return false end
+    -- if we're dealing with subrules the next line with an index is the
+    -- next rule by definition because there's no further nesting
+    if subrule then return true end
+    local nextHeading, nextMajor, nextMinor, _ = ParseIndex(index)
+    return (nextMinor and minor and nextMinor > minor) or
+        (nextMajor and major and nextMajor > major) or
+        (nextHeading and heading and nextHeading > heading)
+end
+
 local function Titleize(title)
-    local link = lower(title)
-    -- convert the first letter back to uppercase
-    link = gsub(link, "^(%S)", upper)
-    local t = format(WIKILINK_ALT_FORMAT, link, title)
-    return t
+    -- this used to turn title into a [[page|title]] link
+    -- we don't want this behaviour on arena wiki because most of them would be red links
+    -- Left here in case we ever want to enclose titles in a <span> for styling
+    return title
+end
+
+local function GetGeneralTitle(heading)
+    local headingName = match(rulesText, "\n" .. heading .. "%. (.-)\n")
+    assert(headingName, "Heading name for general section not found")
+    local expanded = format("General (%s)", headingName)
+    return Titleize(expanded)
 end
 
 local function StylizeRule(ruleLine)
-    local i, _, index, rest = SplitLine(ruleLine)
+    local _, _, index, rest = SplitLine(ruleLine)
     if not index then
         if find(ruleLine, "Example:") then
             ruleLine = "<p class=\"mdw-comprules-example\">''" .. gsub(ruleLine, "(Example:)", "'''%1'''") .. "''</p>"
         end
-        return ruleLine, true
-    end
-
-    local h, a, _, _ = ParseIndex(index)
-    -- Major indices and any rule shorter than five words should be a title
-    -- (this is probably a stupid assumption let's see how long before we get burned)
-    if (h and a and not i) then
-        -- Because each heading in the CR has a "General" section, expand that to "General_(name of header)"
-        if find(rest, GENERAL_RULE_PATTERN) then
-            local headingName
-            for line in gmatch(rulesText, LINE_PATTERN) do
-                headingName = match(line, "^"..h.."%. (.+)")
-                if headingName then
-                    break
-                end
-            end
-            assert(headingName, "Heading name not found")
-            headingName = lower(headingName)
-            headingName = gsub(headingName, "^(%S)", upper)
-            local expanded = format(GENERAL_RULE_EXPANDED_TEXT_FORMAT, headingName)
-            rest = format(WIKILINK_ALT_FORMAT, expanded, rest)
-        else
-            rest = Titleize(rest)
-        end
     else
-        local _, numWords = gsub(rest, "%S+", "")
-        if numWords < 5 then
-            rest = Titleize(rest)
+        local heading, major, minor, _ = ParseIndex(index)
+        -- Major indices and any rule shorter than five words should be a title
+        -- (this is probably a stupid assumption let's see how long before we get burned)
+        if (heading and major and not minor) then
+            -- Because a heading name may just be "General", expand that to "General (name of section)"
+            rest = find(rest, GENERAL_RULE_PATTERN) and GetGeneralTitle(heading) or Titleize(rest)
+        else
+            local _, numWords = gsub(rest, "%S+", "")
+            if numWords < 5 then rest = Titleize(rest) end
         end
+        ruleLine = format("'''%s''' %s", index, rest)
     end
-
-    return format("'''%s''' %s", index, rest)
+    return ruleLine
 end
 
 local function CreateRulesDiv(output)
     local div = mw.html.create("div"):addClass("mdw-comprules")
 
-    local lastDate = GetLastUpdate()
-    div:wikitext(format(LAST_UPDATED_FORMAT, lastDate))
+    div:wikitext(format(LAST_UPDATED_FORMAT, rulesDate))
     div:newline()
     if type(output) == "string" then
         local line = StylizeRule(output)
@@ -249,7 +165,7 @@ local function CreateRulesDiv(output)
         local prevMax = 0
         local outputLine, maxIndent, index
         for _, line in ipairs(output) do
-            outputLine, _ = StylizeRule(line)
+            outputLine = StylizeRule(line)
             _, _, index = SplitLine(line)
             if index then
                 div:newline()
@@ -278,9 +194,8 @@ end
 
 local function CreateGlossaryDiv(output)
     local div = mw.html.create("div"):addClass("mdw-comprules-glossary")
-    local lastDate = GetLastUpdate()
     local numlines = #output
-    div:wikitext(format(LAST_UPDATED_GLOSSARY_FORMAT, lastDate))
+    div:wikitext(format(LAST_UPDATED_GLOSSARY_FORMAT, rulesDate))
     div:newline()
     for i, line in ipairs(output) do
         -- Bold the name of the entry for clarity
@@ -346,7 +261,8 @@ local function ExactRule(index, additionalLevels)
     local heading, major, minor, subrule = ParseIndex(index)
     local output = {}
     local collecting = false
-    local ruleDepth, lineDepth = GetNestingDepth(index)
+    local ruleDepth = GetNestingDepth(index)
+    local lineDepth
     for line in GetRulesLines() do
         if match(line, BODY_END_LINE_PATTERN) then
             break
@@ -450,7 +366,8 @@ function p.ExractGlossaryTerm(frame)
 end
 
 function p.RulesExtract(frame)
-    local exact, lookup, glossary, result
+    local exact, lookup, glossary = false, false, false
+    local result
 
     for key, value in pairs(frame.args) do
         if ((key == "exact") and value ~= "") or (value == "exact") then
@@ -474,4 +391,4 @@ function p.RulesExtract(frame)
 end
 
 return p
--- </nowiki>
+--</nowiki>
