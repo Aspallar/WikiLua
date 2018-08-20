@@ -1,6 +1,6 @@
 --<nowiki>
 -- Obtained and Distributed under CC BY-NC-SA 2.5 license (https://creativecommons.org/licenses/by-nc-sa/2.5/)
--- Attribution: original source - https://mtg.gamepedia.com/Module:CR
+-- Attribution: original source - https://mtg.gamepedia.com/index.php?title=Module:CR&oldid=297404
 -- Modified by Aspallar for use on the Magic Arena Wiki
 
 local utils = require("Module:TemplateUtils")
@@ -14,7 +14,7 @@ do
 end
 
 -- locals for performance
-local format, find, match, sub, gsub, gmatch, rep = string.format, string.find, string.match, string.sub, string.gsub, string.gmatch, string.rep
+local format, find, match, gsub, gmatch, rep = string.format, string.find, string.match, string.gsub, string.gmatch, string.rep
 local tonumber, tostring, type, assert, ipairs = tonumber, tostring, type, assert, ipairs
 local tinsert = table.insert
 
@@ -188,7 +188,6 @@ local function CreateRulesDiv(output)
             div:wikitext(outputLine)
         end
     end
-
     return div
 end
 
@@ -208,21 +207,30 @@ local function CreateGlossaryDiv(output)
     return div
 end
 
-local function GetRulesLines()
+local function RulesLines()
     local lines = gmatch(rulesText, LINE_PATTERN)
     for line in lines do
-        if match(line, TOC_END_LINE_PATTERN) then
-            break
+        if match(line, TOC_END_LINE_PATTERN) then break end
+    end
+    return function ()
+        local line = lines()
+        if line and not match(line, BODY_END_LINE_PATTERN) then
+            return line
         end
     end
-    return lines
 end
 
-local function GetGlossaryLines()
+local function GlossaryLines()
     local _, endpos = find(rulesText, GLOSSARY_MARKER, nil, true)
-    _, endpos = find(rulesText, GLOSSARY_MARKER, endpos, true)
+    _, endpos = find(rulesText, GLOSSARY_MARKER, endpos + 1, true)
     assert(endpos, "Glossary not found")
-    return gmatch(sub(rulesText, endpos + 1), LINE_PATTERN)
+    return function ()
+        local line
+        _, endpos, line = find(rulesText, LINE_PATTERN, endpos + 1)
+        if line and not match(line, GLOSSARY_END_LINE_PATTERN) then
+            return line
+        end
+    end
 end
 
 local function RulesByTitle(title)
@@ -230,30 +238,21 @@ local function RulesByTitle(title)
     local collecting = false
     local heading, major, minor, subrule -- this is a stupid hack to continue using the original index-based stuff
     title = Sanitize(title)
-    for line in GetRulesLines() do
-        if match(line, BODY_END_LINE_PATTERN) then
+    for line in RulesLines() do
+        if match(line, title .. "$") then
+            collecting = true
+            -- Stupid hack see above
+            local _, _, index = SplitLine(line)
+            heading, major, minor, subrule = ParseIndex(index)
+        elseif collecting and IsSubsequentRule(line, heading, major, minor, subrule) then
             break
-        else
-            if match(line, title.."$") then
-                collecting = true
-                -- Stupid hack see above
-                local _, _, i = SplitLine(line)
-                heading, major, minor, subrule = ParseIndex(i)
-            elseif collecting and IsSubsequentRule(line, heading, major, minor, subrule) then
-                break
-            end
-            if collecting and match(line, "%S") then
-                tinsert(output, line)
-            end
+        end
+        if collecting and match(line, "%S") then
+            tinsert(output, line)
         end
     end
     assert(#output > 0, "Rules title not found! " .. title)
-    if output then
-        return tostring(CreateRulesDiv(output))
-    else
-        return nil
-    end
-
+    return tostring(CreateRulesDiv(output))
 end
 
 local function ExactRule(index, additionalLevels)
@@ -263,34 +262,30 @@ local function ExactRule(index, additionalLevels)
     local collecting = false
     local ruleDepth = GetNestingDepth(index)
     local lineDepth
-    for line in GetRulesLines() do
-        if match(line, BODY_END_LINE_PATTERN) then
-            break
-        else
-            if match(line, RULE_LINE_PATTERN) then
-                if match(line, "^"..index) then
-                    collecting = true
-                elseif collecting and IsSubsequentRule(line, heading, major, minor, subrule) then
-                    break
-                end
+    for line in RulesLines() do
+        if match(line, RULE_LINE_PATTERN) then
+            if match(line, "^"..index) then
+                collecting = true
+            elseif collecting and IsSubsequentRule(line, heading, major, minor, subrule) then
+                break
             end
-            if collecting and match(line, "%S") then
-                if additionalLevels then
-                    local _, _, additionalIndex = SplitLine(line)
-                    -- This looks a little weird.
-                    -- We only update lineDepth in the case that we're looking at a rules index
-                    -- But we capture any line for which it or the preceding index is within our targeting scope
-                    -- (examples, mostly)
-                    if additionalIndex then
-                        lineDepth = GetNestingDepth(additionalIndex)
-                    end
-                    if lineDepth <= ruleDepth + additionalLevels then
-                        tinsert(output, line)
-                    end
-                else
-                    tinsert(output, line)
-                    break
+        end
+        if collecting and match(line, "%S") then
+            if additionalLevels then
+                local _, _, additionalIndex = SplitLine(line)
+                -- This looks a little weird.
+                -- We only update lineDepth in the case that we're looking at a rules index
+                -- But we capture any line for which it or the preceding index is within our targeting scope
+                -- (examples, mostly)
+                if additionalIndex then
+                    lineDepth = GetNestingDepth(additionalIndex)
                 end
+                if lineDepth <= ruleDepth + additionalLevels then
+                    tinsert(output, line)
+                end
+            else
+                tinsert(output, line)
+                break
             end
         end
     end
@@ -300,26 +295,20 @@ end
 
 local function RulesByIndex(index)
     local heading, major, minor, subrule = ParseIndex(index)
-
     local output = {}
     local collecting = false
-    for line in GetRulesLines() do
-        if match(line, BODY_END_LINE_PATTERN) then
-            break
-        else
-            if match(line, RULE_LINE_PATTERN) then
-                if match(line, "^"..index) then
-                    collecting = true
-                elseif collecting and IsSubsequentRule(line, heading, major, minor, subrule) then
-                    break
-                end
-            end
-            if collecting and match(line, "%S") then
-                tinsert(output, line)
+    for line in RulesLines() do
+        if match(line, RULE_LINE_PATTERN) then
+            if match(line, "^" .. index) then
+                collecting = true
+            elseif collecting and IsSubsequentRule(line, heading, major, minor, subrule) then
+                break
             end
         end
+        if collecting and match(line, "%S") then
+            tinsert(output, line)
+        end
     end
-
     assert(#output > 0, "Rules index not found! " .. index)
     return tostring(CreateRulesDiv(output)) .. "[[Category:Pages with indexed rule]]"
 end
@@ -328,21 +317,16 @@ local function GlossaryTerm(term)
     term = Sanitize(term)
     local output = {}
     local collecting = false
-    for line in GetGlossaryLines() do
-        if match(line, GLOSSARY_END_LINE_PATTERN) then
+    for line in GlossaryLines() do
+        if match(line, "^" .. term) then
+            collecting = true
+        elseif collecting and not match(line, "%w") then
             break
-        else
-            if match(line, "^"..term) then
-                collecting = true
-            elseif collecting and not match(line, "%w") then
-                break
-            end
-            if collecting then
-                tinsert(output, line)
-            end
+        end
+        if collecting then
+            tinsert(output, line)
         end
     end
-
     assert(#output > 0, "Glossary term not found! " .. term)
     return tostring(CreateGlossaryDiv(output))
 end
