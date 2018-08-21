@@ -62,8 +62,8 @@ end
 
 local function SplitLine(ruleLine)
      -- Finds the index and the rest. If the index has an extra period, it is considered a formatting issue in the CR and is therefore ignored.
-    local first, last, index, rest = find(ruleLine, "^(%d+%.%d*[%.a-kmnp-z]?)%.?%s(.+)")
-    return first, last, index, rest
+    local index, rest = match(ruleLine, "^(%d+%.%d*[%.a-kmnp-z]?)%.?%s(.+)")
+    return index, rest
 end
 
 local function ParseIndex(index)
@@ -105,7 +105,7 @@ local function GetNestingDepth(index)
 end
 
 local function IsSubsequentRule(line, heading, major, minor, subrule)
-    local _, _, index = SplitLine(line)
+    local index = SplitLine(line)
     if not index then return false end
     -- if we're dealing with subrules the next line with an index is the
     -- next rule by definition because there's no further nesting
@@ -131,7 +131,7 @@ local function GetGeneralTitle(heading)
 end
 
 local function StylizeRule(ruleLine)
-    local _, _, index, rest = SplitLine(ruleLine)
+    local index, rest = SplitLine(ruleLine)
     if not index then
         if find(ruleLine, "Example:") then
             ruleLine = "<p class=\"mdw-comprules-example\">''" .. gsub(ruleLine, "(Example:)", "'''%1'''") .. "''</p>"
@@ -154,7 +154,6 @@ end
 
 local function CreateRulesDiv(output)
     local div = mw.html.create("div"):addClass("mdw-comprules")
-
     div:wikitext(format(LAST_UPDATED_FORMAT, rulesDate))
     div:newline()
     if type(output) == "string" then
@@ -166,7 +165,7 @@ local function CreateRulesDiv(output)
         local outputLine, maxIndent, index
         for _, line in ipairs(output) do
             outputLine = StylizeRule(line)
-            _, _, index = SplitLine(line)
+            index = SplitLine(line)
             if index then
                 div:newline()
                 maxIndent = GetNestingDepth(index)
@@ -184,7 +183,6 @@ local function CreateRulesDiv(output)
                     outputLine = outputLine
                 end
             end
-
             div:wikitext(outputLine)
         end
     end
@@ -237,12 +235,12 @@ local function RulesByTitle(title)
     local output = {}
     local collecting = false
     local heading, major, minor, subrule -- this is a stupid hack to continue using the original index-based stuff
-    title = Sanitize(title)
+    local titlePattern = Sanitize(title) .. "$"
     for line in RulesLines() do
-        if match(line, title .. "$") then
+        if match(line, titlePattern) then
             collecting = true
             -- Stupid hack see above
-            local _, _, index = SplitLine(line)
+            local index = SplitLine(line)
             heading, major, minor, subrule = ParseIndex(index)
         elseif collecting and IsSubsequentRule(line, heading, major, minor, subrule) then
             break
@@ -260,11 +258,12 @@ local function ExactRule(index, additionalLevels)
     local heading, major, minor, subrule = ParseIndex(index)
     local output = {}
     local collecting = false
+    local indexPattern = "^" .. index
     local ruleDepth = GetNestingDepth(index)
     local lineDepth
     for line in RulesLines() do
         if match(line, RULE_LINE_PATTERN) then
-            if match(line, "^"..index) then
+            if match(line, indexPattern) then
                 collecting = true
             elseif collecting and IsSubsequentRule(line, heading, major, minor, subrule) then
                 break
@@ -272,7 +271,7 @@ local function ExactRule(index, additionalLevels)
         end
         if collecting and match(line, "%S") then
             if additionalLevels then
-                local _, _, additionalIndex = SplitLine(line)
+                local additionalIndex = SplitLine(line)
                 -- This looks a little weird.
                 -- We only update lineDepth in the case that we're looking at a rules index
                 -- But we capture any line for which it or the preceding index is within our targeting scope
@@ -296,10 +295,11 @@ end
 local function RulesByIndex(index)
     local heading, major, minor, subrule = ParseIndex(index)
     local output = {}
+    local indexPattern = "^" .. index
     local collecting = false
     for line in RulesLines() do
         if match(line, RULE_LINE_PATTERN) then
-            if match(line, "^" .. index) then
+            if match(line, indexPattern) then
                 collecting = true
             elseif collecting and IsSubsequentRule(line, heading, major, minor, subrule) then
                 break
@@ -316,9 +316,10 @@ end
 local function GlossaryTerm(term)
     term = Sanitize(term)
     local output = {}
+    local termPattern = "^" .. term
     local collecting = false
     for line in GlossaryLines() do
-        if match(line, "^" .. term) then
+        if match(line, termPattern) then
             collecting = true
         elseif collecting and not match(line, "%w") then
             break
