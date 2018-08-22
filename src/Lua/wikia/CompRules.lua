@@ -179,12 +179,11 @@ end
 
 local function CreateGlossaryDiv(output)
     local div = mw.html.create("div"):addClass("mdw-comprules-glossary")
-    local numlines = #output
     div:wikitext(format(LAST_UPDATED_GLOSSARY_FORMAT, rulesDate))
     div:newline()
     for i, line in ipairs(output) do
         -- Bold the name of the entry for clarity
-        if i == 1 and numlines > 1 then
+        if i == 1 then
             div:wikitext(";" .. line .. "\n")
         else
             div:wikitext(":" .. line .. "\n")
@@ -214,15 +213,18 @@ local function RulesLinesByIndex(index)
     return RulesLines("\n(" .. Sanitize(index) .. ".-)\n")
 end
 
-local function GlossaryLines()
-    local _, endpos = find(rulesText, "\nGlossary", rulesStart, true)
-    assert(endpos, "Glossary not found")
+local function GlossaryLines(term)
+    local line, endpos, _
+    _, endpos = find(rulesText, "\nGlossary", rulesStart, true)
+    assert(endpos, "Glossary start not found")
+    _, endpos, line = find(rulesText, "\n(" .. term .. ")\n")
     return function ()
-        local line
+        local currentLine, _ = line
         _, endpos, line = find(rulesText, "(.-)\n", endpos + 1)
-        if line and not match(line, "^Credits") then
-            return line
+        if line and (not match(line, "%S") or match(line, "^Credits")) then
+            line = nil
         end
+        return currentLine
     end
 end
 
@@ -295,17 +297,8 @@ end
 local function GlossaryTerm(term)
     term = Sanitize(term)
     local output = {}
-    local termPattern = "^" .. term
-    local collecting = false
-    for line in GlossaryLines() do
-        if match(line, termPattern) then
-            collecting = true
-        elseif collecting and not match(line, "%w") then
-            break
-        end
-        if collecting then
-            tinsert(output, line)
-        end
+    for line in GlossaryLines(term) do
+        tinsert(output, line)
     end
     assert(#output > 0, "Glossary term not found! " .. term)
     return tostring(CreateGlossaryDiv(output))
