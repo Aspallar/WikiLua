@@ -6,28 +6,18 @@
 local utils = require("Module:TemplateUtils")
 local p = {}
 
-local rulesText, rulesDate
+local rulesText, rulesDate, rulesStart
 do
     local rulesData = mw.loadData("Module:CompRulesText")
     rulesText = rulesData.Text
     rulesDate = rulesData.LastUpdate
+    rulesStart = rulesData.RulesStart
 end
 
 -- locals for performance
-local format, find, match, gsub, gmatch, rep = string.format, string.find, string.match, string.gsub, string.gmatch, string.rep
+local format, find, match, gsub, rep = string.format, string.find, string.match, string.gsub, string.rep
 local tonumber, tostring, type, assert, ipairs = tonumber, tostring, type, assert, ipairs
 local tinsert = table.insert
-
--- We need to split the text via LINE_PATTERN before we can use the beginning-of-string caret
--- Otherwise, we would need a more complicated pattern to match all possible indices
--- (Off the top of my head, I'm not sure Lua's pattern matching *could* do it in one pattern. It's not a full regex suite.)
-local LINE_PATTERN = "(.-)\n"
-local RULE_LINE_PATTERN = "^%d"
-local TOC_END_LINE_PATTERN = "^Glossary"
-local BODY_END_LINE_PATTERN  = "^Glossary"
-local GLOSSARY_MARKER = "\nGlossary"
-local GLOSSARY_END_LINE_PATTERN = "^Credits"
-local GENERAL_RULE_PATTERN = "General"
 
 local LAST_UPDATED_FORMAT = "<p class=\"mdw-cr-title\">''Comprehensive Rules'' (%s)</p>"
 local LAST_UPDATED_GLOSSARY_FORMAT = "<p class=\"mdw-cr-title-glossary\">''Comprehensive Rules Glossary'' (%s)</p>"
@@ -107,11 +97,9 @@ end
 local function IsSubsequentRule(line, heading, major, minor, subrule)
     local index = SplitLine(line)
     if not index then return false end
-    -- if we're dealing with subrules the next line with an index is the
-    -- next rule by definition because there's no further nesting
-    if subrule then return true end
-    local nextHeading, nextMajor, nextMinor, _ = ParseIndex(index)
-    return (nextMinor and minor and nextMinor > minor) or
+    local nextHeading, nextMajor, nextMinor, nextSubrule = ParseIndex(index)
+    return (subrule and nextSubrule ~= subrule) or
+        (nextMinor and minor and nextMinor > minor) or
         (nextMajor and major and nextMajor > major) or
         (nextHeading and heading and nextHeading > heading)
 end
@@ -142,7 +130,7 @@ local function StylizeRule(ruleLine)
         -- (this is probably a stupid assumption let's see how long before we get burned)
         if (heading and major and not minor) then
             -- Because a heading name may just be "General", expand that to "General (name of section)"
-            rest = find(rest, GENERAL_RULE_PATTERN) and GetGeneralTitle(heading) or Titleize(rest)
+            rest = find(rest, "^General") and GetGeneralTitle(heading) or Titleize(rest)
         else
             local _, numWords = gsub(rest, "%S+", "")
             if numWords < 5 then rest = Titleize(rest) end
@@ -205,27 +193,34 @@ local function CreateGlossaryDiv(output)
     return div
 end
 
-local function RulesLines()
-    local lines = gmatch(rulesText, LINE_PATTERN)
-    for line in lines do
-        if match(line, TOC_END_LINE_PATTERN) then break end
-    end
+local function RulesLines(startPattern)
+    local line, endpos, _
+    _, endpos, line = find(rulesText, startPattern, rulesStart)
     return function ()
-        local line = lines()
-        if line and not match(line, BODY_END_LINE_PATTERN) then
-            return line
+        local currentLine, _ = line
+        _, endpos, line = find(rulesText, "(.-)\n", endpos + 1)
+        if line and match(line, "^Glossary") then
+            line = nil
         end
+        return currentLine
     end
 end
 
+local function RulesLinesByTitle(title)
+    return RulesLines("\n([^\n]-" .. Sanitize(title) .. ")\n")
+end
+
+local function RulesLinesByIndex(index)
+    return RulesLines("\n(" .. Sanitize(index) .. ".-)\n")
+end
+
 local function GlossaryLines()
-    local _, endpos = find(rulesText, GLOSSARY_MARKER, nil, true)
-    _, endpos = find(rulesText, GLOSSARY_MARKER, endpos + 1, true)
+    local _, endpos = find(rulesText, "\nGlossary", rulesStart, true)
     assert(endpos, "Glossary not found")
     return function ()
         local line
-        _, endpos, line = find(rulesText, LINE_PATTERN, endpos + 1)
-        if line and not match(line, GLOSSARY_END_LINE_PATTERN) then
+        _, endpos, line = find(rulesText, "(.-)\n", endpos + 1)
+        if line and not match(line, "^Credits") then
             return line
         end
     end
@@ -233,19 +228,15 @@ end
 
 local function RulesByTitle(title)
     local output = {}
-    local collecting = false
-    local heading, major, minor, subrule -- this is a stupid hack to continue using the original index-based stuff
-    local titlePattern = Sanitize(title) .. "$"
-    for line in RulesLines() do
-        if match(line, titlePattern) then
-            collecting = true
-            -- Stupid hack see above
+    local heading, major, minor, subrule
+    for line in RulesLinesByTitle(title) do
+        if not heading then
             local index = SplitLine(line)
             heading, major, minor, subrule = ParseIndex(index)
-        elseif collecting and IsSubsequentRule(line, heading, major, minor, subrule) then
+        elseif IsSubsequentRule(line, heading, major, minor, subrule) then
             break
         end
-        if collecting and match(line, "%S") then
+        if match(line, "%S") then
             tinsert(output, line)
         end
     end
@@ -257,19 +248,13 @@ local function ExactRule(index, additionalLevels)
     additionalLevels = tonumber(additionalLevels)
     local heading, major, minor, subrule = ParseIndex(index)
     local output = {}
-    local collecting = false
-    local indexPattern = "^" .. index
     local ruleDepth = GetNestingDepth(index)
     local lineDepth
-    for line in RulesLines() do
-        if match(line, RULE_LINE_PATTERN) then
-            if match(line, indexPattern) then
-                collecting = true
-            elseif collecting and IsSubsequentRule(line, heading, major, minor, subrule) then
-                break
-            end
+    for line in RulesLinesByIndex(index) do
+        if IsSubsequentRule(line, heading, major, minor, subrule) then
+            break
         end
-        if collecting and match(line, "%S") then
+        if match(line, "%S") then
             if additionalLevels then
                 local additionalIndex = SplitLine(line)
                 -- This looks a little weird.
@@ -295,17 +280,11 @@ end
 local function RulesByIndex(index)
     local heading, major, minor, subrule = ParseIndex(index)
     local output = {}
-    local indexPattern = "^" .. index
-    local collecting = false
-    for line in RulesLines() do
-        if match(line, RULE_LINE_PATTERN) then
-            if match(line, indexPattern) then
-                collecting = true
-            elseif collecting and IsSubsequentRule(line, heading, major, minor, subrule) then
-                break
-            end
+    for line in RulesLinesByIndex(index) do
+        if IsSubsequentRule(line, heading, major, minor, subrule) then
+            break
         end
-        if collecting and match(line, "%S") then
+        if match(line, "%S") then
             tinsert(output, line)
         end
     end

@@ -6997,7 +6997,14 @@ These rules are effective as of August 10, 2018.
 Published by Wizards of the Coast LLC, PO Box 707, Renton, WA 98057-0707, USA. Wizards of the Coast, Magic: The Gathering, Magic, Oracle, Arabian Nights, Antiquities, Homelands, Exodus, Odyssey, Mirrodin, Kamigawa, Ravnica: City of Guilds, Time Spiral, Future Sight, Lorwyn, Shadowmoor, Zendikar, Scars of Mirrodin, Innistrad, Return to Ravnica, Khans of Tarkir, Magic Origins, Shadows over Innistrad, Eldritch Moon, Magic: The Gathering—Conspiracy, Ixalan, Unglued, Unstable, Dominaria, and Planeswalker Decks are trademarks of Wizards of the Coast LLC in the USA and other countries. Unhinged is a trademark of Horn Abbot Ltd. and is used with permission. ©2018 Wizards. U.S. Pat. No. RE 37,957.
 ]===]
 
+local function RulesStart()
+    local _, start = p.Text:find("\nGlossary", nil, true)
+    return start + 1
+end
+
 p.LastUpdate = p.Text:match("These rules are effective as of ([^%.]+).")
+
+p.RulesStart = RulesStart()
 
 return p
 --</nowiki>
