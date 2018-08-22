@@ -217,7 +217,7 @@ local function GlossaryLines(term)
     local line, endpos, _
     _, endpos = find(rulesText, "\nGlossary", rulesStart, true)
     assert(endpos, "Glossary start not found")
-    _, endpos, line = find(rulesText, "\n(" .. term .. ")\n")
+    _, endpos, line = find(rulesText, "\n(" .. Sanitize(term) .. ")\n")
     return function ()
         local currentLine, _ = line
         _, endpos, line = find(rulesText, "(.-)\n", endpos + 1)
@@ -295,7 +295,6 @@ local function RulesByIndex(index)
 end
 
 local function GlossaryTerm(term)
-    term = Sanitize(term)
     local output = {}
     for line in GlossaryLines(term) do
         tinsert(output, line)
