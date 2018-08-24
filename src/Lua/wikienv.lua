@@ -38,6 +38,9 @@ function mw.loadData(tableName)
     if tableName == "Module:Data/Rulings" then
        return rulings
     end
+    if tableName == "Module:CompRulesText" then
+       return require(tableName)
+    end
     print("**** ERROR *****")
     print("**** loadData invalid table name " + tableName)
 end
