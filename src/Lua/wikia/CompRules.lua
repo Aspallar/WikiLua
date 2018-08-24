@@ -14,13 +14,12 @@ do
     rulesStart = rulesData.RulesStart
 end
 
--- locals for performance
 local format, find, match, gsub, rep = string.format, string.find, string.match, string.gsub, string.rep
-local tonumber, tostring, type, assert, ipairs = tonumber, tostring, type, assert, ipairs
-local tinsert = table.insert
+local tonumber, tostring, assert, ipairs = tonumber, tostring, assert, ipairs
+local tinsert, tconcat = table.insert, table.concat
 
-local LAST_UPDATED_FORMAT = "<p class=\"mdw-cr-title\">''Comprehensive Rules'' (%s)</p>"
 local LAST_UPDATED_GLOSSARY_FORMAT = "<p class=\"mdw-cr-title-glossary\">''Comprehensive Rules Glossary'' (%s)</p>"
+local indexedRuleCategory = "[[Category:Pages with indexed rule]]"
 
 local EscapePattern
 do
@@ -91,44 +90,37 @@ local function FormatRule(ruleLine)
             ruleLine = "<p class=\"mdw-comprules-example\">''" .. gsub(ruleLine, "(Example:)", "'''%1'''") .. "''</p>"
         end
     end
-    return ruleLine
+    return ruleLine, index
 end
 
-local function CreateRulesDiv(output)
-    local div = mw.html.create("div"):addClass("mdw-comprules")
-    div:wikitext(format(LAST_UPDATED_FORMAT, rulesDate))
-    div:newline()
-    if type(output) == "string" then
-        local line = FormatRule(output)
-        div:wikitext("* ", line)
-    else
-        local indentLevel
-        local prevMax = 0
-        local outputLine, maxIndent, index
-        for _, line in ipairs(output) do
-            outputLine = FormatRule(line)
-            index = ParseLine(line)
-            if index then
-                div:newline()
-                maxIndent = RuleDepth(index)
-                if not indentLevel then
-                    indentLevel = 1
-                else
-                    indentLevel = indentLevel + (maxIndent - prevMax)
-                end
-                prevMax = maxIndent
-                outputLine = rep("*",  indentLevel) .. outputLine
+local function RulesDiv(lines, postDiv)
+    local div = {}
+    local prevMax = 0
+    local outputLine, maxIndent, indentLevel, index
+    tinsert(div, "<div class=\"mdw-comprules\">")
+    tinsert(div, format("<p class=\"mdw-cr-title\">''Comprehensive Rules'' (%s)</p>\n", rulesDate))
+    for _, line in ipairs(lines) do
+        outputLine, index = FormatRule(line)
+        if index then
+            tinsert(div, "\n")
+            maxIndent = RuleDepth(index)
+            if not indentLevel then
+                indentLevel = 1
             else
-                if not find(outputLine, "Example:") then
-                    outputLine = rep(":",  indentLevel) .. outputLine
-                else
-                    outputLine = outputLine
-                end
+                indentLevel = indentLevel + (maxIndent - prevMax)
             end
-            div:wikitext(outputLine)
+            prevMax = maxIndent
+            tinsert(div, rep("*",  indentLevel))
+        elseif not find(outputLine, "Example:") then
+            tinsert(div, rep(":",  indentLevel))
         end
+        tinsert(div, outputLine)
     end
-    return div
+    tinsert(div, "</div>")
+    if (postDiv) then
+        tinsert(div, postDiv)
+    end
+    return tconcat(div)
 end
 
 local function CreateGlossaryDiv(output)
@@ -195,7 +187,7 @@ local function RulesByTitle(title)
         tinsert(output, line)
     end
     assert(#output > 0, "Rules title not found! " .. title)
-    return tostring(CreateRulesDiv(output))
+    return RulesDiv(output)
 end
 
 local function ExactRule(index, additionalLevels)
@@ -218,7 +210,7 @@ local function ExactRule(index, additionalLevels)
         end
     end
     assert(#output > 0, "Exact rules index not found " .. index)
-    return tostring(CreateRulesDiv(output))
+    return RulesDiv(output, indexedRuleCategory)
 end
 
 local function RulesByIndex(index)
@@ -227,7 +219,7 @@ local function RulesByIndex(index)
         tinsert(output, line)
     end
     assert(#output > 0, "Rules index not found " .. index)
-    return tostring(CreateRulesDiv(output)) .. "[[Category:Pages with indexed rule]]"
+    return RulesDiv(output, indexedRuleCategory)
 end
 
 local function GlossaryTerm(term)

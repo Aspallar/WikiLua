@@ -5,5 +5,5 @@ local function Preprocess(self, s)
     return s
 end
 -- luacheck: pop
-local result = compRules.ExtractRulesByIndex({ preprocess=Preprocess, args={"100"} })
+local result = compRules.ExtractRulesByIndex({ preprocess=Preprocess, args={"801.2"} })
 print(result)
