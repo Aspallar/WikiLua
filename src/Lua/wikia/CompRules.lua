@@ -94,16 +94,6 @@ local function GetNestingDepth(index)
     return depth
 end
 
-local function IsSubsequentRule(line, heading, major, minor, subrule)
-    local index = SplitLine(line)
-    if not index then return false end
-    local nextHeading, nextMajor, nextMinor, nextSubrule = ParseIndex(index)
-    return (subrule and nextSubrule ~= subrule) or
-        (nextMinor and minor and nextMinor > minor) or
-        (nextMajor and major and nextMajor > major) or
-        (nextHeading and heading and nextHeading > heading)
-end
-
 local function Titleize(title)
     -- this used to turn title into a [[page|title]] link
     -- we don't want this behaviour on arena wiki because most of them would be red links
@@ -192,14 +182,21 @@ local function CreateGlossaryDiv(output)
     return div
 end
 
-local function RulesLines(startPattern)
+local function RulesLines(startPattern, indexPattern)
     local line, endpos, _
     _, endpos, line = find(rulesText, startPattern, rulesStart)
+    if not indexPattern then
+        indexPattern = SplitLine(line)
+        indexPattern = "^" .. indexPattern
+    end
     return function ()
+        if not endpos then return nil end
         local currentLine, _ = line
-        _, endpos, line = find(rulesText, "(.-)\n", endpos + 1)
-        if line and match(line, "^Glossary") then
-            line = nil
+        repeat
+            _, endpos, line = find(rulesText, "(.-)\n", endpos + 1)
+        until not line or match(line, "%S")
+        if line and ((not match(line,"^[^%d]") and not match(line, indexPattern)) or match(line, "^Glossary")) then
+            endpos = nil
         end
         return currentLine
     end
@@ -210,7 +207,8 @@ local function RulesLinesByTitle(title)
 end
 
 local function RulesLinesByIndex(index)
-    return RulesLines("\n(" .. Sanitize(index) .. ".-)\n")
+    index = Sanitize(index)
+    return RulesLines("\n(" .. index .. ".-)\n", "^" .. index)
 end
 
 local function GlossaryLines(term)
@@ -230,17 +228,8 @@ end
 
 local function RulesByTitle(title)
     local output = {}
-    local heading, major, minor, subrule
     for line in RulesLinesByTitle(title) do
-        if not heading then
-            local index = SplitLine(line)
-            heading, major, minor, subrule = ParseIndex(index)
-        elseif IsSubsequentRule(line, heading, major, minor, subrule) then
-            break
-        end
-        if match(line, "%S") then
-            tinsert(output, line)
-        end
+        tinsert(output, line)
     end
     assert(#output > 0, "Rules title not found! " .. title)
     return tostring(CreateRulesDiv(output))
@@ -248,49 +237,33 @@ end
 
 local function ExactRule(index, additionalLevels)
     additionalLevels = tonumber(additionalLevels)
-    local heading, major, minor, subrule = ParseIndex(index)
     local output = {}
     local ruleDepth = GetNestingDepth(index)
     local lineDepth
     for line in RulesLinesByIndex(index) do
-        if IsSubsequentRule(line, heading, major, minor, subrule) then
+        if additionalLevels then
+            local additionalIndex = SplitLine(line)
+            if additionalIndex then
+                lineDepth = GetNestingDepth(additionalIndex)
+            end
+            if lineDepth <= ruleDepth + additionalLevels then
+                tinsert(output, line)
+            end
+        else
+            tinsert(output, line)
             break
         end
-        if match(line, "%S") then
-            if additionalLevels then
-                local additionalIndex = SplitLine(line)
-                -- This looks a little weird.
-                -- We only update lineDepth in the case that we're looking at a rules index
-                -- But we capture any line for which it or the preceding index is within our targeting scope
-                -- (examples, mostly)
-                if additionalIndex then
-                    lineDepth = GetNestingDepth(additionalIndex)
-                end
-                if lineDepth <= ruleDepth + additionalLevels then
-                    tinsert(output, line)
-                end
-            else
-                tinsert(output, line)
-                break
-            end
-        end
     end
-    assert(#output > 0, "Rules index not found! " .. index)
+    assert(#output > 0, "Exact rules index not found " .. index)
     return tostring(CreateRulesDiv(output))
 end
 
 local function RulesByIndex(index)
-    local heading, major, minor, subrule = ParseIndex(index)
     local output = {}
     for line in RulesLinesByIndex(index) do
-        if IsSubsequentRule(line, heading, major, minor, subrule) then
-            break
-        end
-        if match(line, "%S") then
-            tinsert(output, line)
-        end
+        tinsert(output, line)
     end
-    assert(#output > 0, "Rules index not found! " .. index)
+    assert(#output > 0, "Rules index not found " .. index)
     return tostring(CreateRulesDiv(output)) .. "[[Category:Pages with indexed rule]]"
 end
 
@@ -299,7 +272,7 @@ local function GlossaryTerm(term)
     for line in GlossaryLines(term) do
         tinsert(output, line)
     end
-    assert(#output > 0, "Glossary term not found! " .. term)
+    assert(#output > 0, "Glossary term not found " .. term)
     return tostring(CreateGlossaryDiv(output))
 end
 
