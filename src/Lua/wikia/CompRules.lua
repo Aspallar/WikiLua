@@ -185,9 +185,8 @@ end
 local function RulesLines(startPattern, indexPattern)
     local line, endpos, _
     _, endpos, line = find(rulesText, startPattern, rulesStart)
-    if not indexPattern then
-        indexPattern = SplitLine(line)
-        indexPattern = "^" .. indexPattern
+    if line and not indexPattern then
+        indexPattern = "^" .. Sanitize(SplitLine(line))
     end
     return function ()
         if not endpos then return nil end
