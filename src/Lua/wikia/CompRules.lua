@@ -1,8 +1,4 @@
 --<nowiki>
--- Obtained and Distributed under CC BY-NC-SA 2.5 license (https://creativecommons.org/licenses/by-nc-sa/2.5/)
--- Attribution: original source - https://mtg.gamepedia.com/index.php?title=Module:CR&oldid=297404
--- Modified by Aspallar for use on the Magic Arena Wiki
-
 local utils = require("Module:TemplateUtils")
 local p = {}
 
@@ -15,13 +11,12 @@ do
 end
 
 local format, find, match, gsub, rep = string.format, string.find, string.match, string.gsub, string.rep
-local tonumber, tostring, assert, ipairs = tonumber, tostring, assert, ipairs
+local tonumber, assert, ipairs = tonumber, assert, ipairs
 local tinsert, tconcat = table.insert, table.concat
 
-local LAST_UPDATED_GLOSSARY_FORMAT = "<p class=\"mdw-cr-title-glossary\">''Comprehensive Rules Glossary'' (%s)</p>"
-local indexedRuleCategory = "[[Category:Pages with indexed rule]]"
+local indexedRuleCategory = "[[Category:Indexed Rule]]"
 
-local EscapePattern
+local PatternEscape
 do
     local magicChars =
     {
@@ -38,7 +33,7 @@ do
         ["-"] = "%-";
         ["?"] = "%?";
     }
-    EscapePattern = function(s)
+    PatternEscape = function(s)
         return (gsub(s, ".", magicChars))
     end
 end
@@ -98,17 +93,13 @@ local function RulesDiv(lines, postDiv)
     local prevMax = 0
     local outputLine, maxIndent, indentLevel, index
     tinsert(div, "<div class=\"mdw-comprules\">")
-    tinsert(div, format("<p class=\"mdw-cr-title\">''Comprehensive Rules'' (%s)</p>\n", rulesDate))
+    tinsert(div, format("<p class=\"mdw-cr-title\">''Comprehensive Rules'' (%s)</p>", rulesDate))
     for _, line in ipairs(lines) do
         outputLine, index = FormatRule(line)
         if index then
             tinsert(div, "\n")
             maxIndent = RuleDepth(index)
-            if not indentLevel then
-                indentLevel = 1
-            else
-                indentLevel = indentLevel + (maxIndent - prevMax)
-            end
+            indentLevel = indentLevel and (indentLevel + (maxIndent - prevMax)) or 1
             prevMax = maxIndent
             tinsert(div, rep("*",  indentLevel))
         elseif not find(outputLine, "Example:") then
@@ -116,33 +107,36 @@ local function RulesDiv(lines, postDiv)
         end
         tinsert(div, outputLine)
     end
-    tinsert(div, "</div>")
-    if (postDiv) then
+    tinsert(div, "</div>[[Category:Rule]]")
+    if postDiv then
         tinsert(div, postDiv)
     end
     return tconcat(div)
 end
 
-local function CreateGlossaryDiv(output)
-    local div = mw.html.create("div"):addClass("mdw-comprules-glossary")
-    div:wikitext(format(LAST_UPDATED_GLOSSARY_FORMAT, rulesDate))
-    div:newline()
-    for i, line in ipairs(output) do
-        -- Bold the name of the entry for clarity
-        if i == 1 then
-            div:wikitext(";" .. line .. "\n")
-        else
-            div:wikitext(":" .. line .. "\n")
-        end
+local function InsertGlossaryLine(div, prefix, line)
+    tinsert(div, prefix)
+    tinsert(div, line)
+    tinsert(div, "\n")
+end
+
+local function GlossaryDiv(lines)
+    local div = {}
+    tinsert(div, "<div class=\"mdw-comprules-glossary\">")
+    tinsert(div, format("<p class=\"mdw-cr-title-glossary\">''Comprehensive Rules Glossary'' (%s)</p>\n", rulesDate))
+    InsertGlossaryLine(div, ";", lines[1])
+    for i = 2, #lines do
+        InsertGlossaryLine(div, ":", lines[i])
     end
-    return div
+    tinsert(div, "</div>[[Category:Glossary]]")
+    return tconcat(div)
 end
 
 local function RulesLines(startPattern, indexPattern)
     local line, endpos, _
     _, endpos, line = find(rulesText, startPattern, rulesStart)
     if line and not indexPattern then
-        indexPattern = "^" .. EscapePattern(ParseLine(line))
+        indexPattern = "^" .. PatternEscape(gsub(ParseLine(line), "%.$", ""))
     end
     return function ()
         if not endpos then return nil end
@@ -158,11 +152,11 @@ local function RulesLines(startPattern, indexPattern)
 end
 
 local function RulesLinesByTitle(title)
-    return RulesLines("\n([^\n]-" .. EscapePattern(title) .. ")\n")
+    return RulesLines("\n([^\n]-" .. PatternEscape(title) .. ")\n")
 end
 
 local function RulesLinesByIndex(index)
-    index = EscapePattern(index)
+    index = PatternEscape(index)
     return RulesLines("\n(" .. index .. ".-)\n", "^" .. index)
 end
 
@@ -170,7 +164,7 @@ local function GlossaryLines(term)
     local line, endpos, _
     _, endpos = find(rulesText, "\nGlossary", rulesStart, true)
     assert(endpos, "Glossary start not found")
-    _, endpos, line = find(rulesText, "\n(" .. EscapePattern(term) .. ")\n")
+    _, endpos, line = find(rulesText, "\n(" .. PatternEscape(term) .. ")\n")
     return function ()
         local currentLine, _ = line
         _, endpos, line = find(rulesText, "(.-)\n", endpos + 1)
@@ -228,7 +222,7 @@ local function GlossaryTerm(term)
         tinsert(output, line)
     end
     assert(#output > 0, "Glossary term not found " .. term)
-    return tostring(CreateGlossaryDiv(output))
+    return GlossaryDiv(output)
 end
 
 -- Exports

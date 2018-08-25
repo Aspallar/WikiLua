@@ -5,5 +5,6 @@ local function Preprocess(self, s)
     return s
 end
 -- luacheck: pop
-local result = compRules.ExtractRulesByTitle({ preprocess=Preprocess, args={"Lands"} })
+local lookup = arg[1] and arg[1] or "Lands"
+local result = compRules.ExtractRulesByTitle({ preprocess=Preprocess, args={lookup} })
 print(result)

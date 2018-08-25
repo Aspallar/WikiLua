@@ -5,5 +5,6 @@ local function Preprocess(self, s)
     return s
 end
 -- luacheck: pop
-local result = compRules.ExtractExactRule({ preprocess=Preprocess, args={"702", 1} })
+local lookup = arg[1] and arg[1] or "702"
+local result = compRules.ExtractExactRule({ preprocess=Preprocess, args={lookup, arg[2]} })
 print(result)
