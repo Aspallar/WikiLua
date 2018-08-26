@@ -113,24 +113,15 @@
     } // End ImageSource
 
     function CardPanel(container, tooltip, imageSource) {
-       var cardSize = {
-            small: true,
-            fullWidth: 223,
-            fullHeight: 311,
-            width: Math.floor(223 * 0.5),
-            height: Math.floor(311 * 0.5),
-            scale: function (percent) {
-                var factor = percent / 100;
-                this.width = Math.floor(this.fullWidth * factor);
-                this.height = Math.floor(this.fullHeight * factor);
-            }
-        };
+        var smallImages = true;
 
-        function setTooltip(img) {
-            if (cardSize.small) {
+        function setTooltip() {
+            /*jshint -W040 */ // allow old school jquery use of this
+            var img = $(this);
+            if (smallImages) {
                 img.mousemove(function (event) {
                     var spaceOnRight = window.innerWidth - event.pageX;
-                    var xdelta = spaceOnRight > cardSize.fullWidth + 5 ? 20 : -cardSize.fullWidth - 20;
+                    var xdelta = spaceOnRight > 223 + 5 ? 20 : -223 - 20;
                     var left = event.pageX + xdelta;
                     var top = event.pageY - 240;
                     tooltip.css({ top: top, left: left }).show();
@@ -145,20 +136,11 @@
         }
 
         function createCard(cardName) {
-            var img = $('<img>').attr('width', cardSize.width).attr('height', cardSize.height);
+            var img = $('<img>').addClass('mdw-cardimg');
+            if (smallImages) img.addClass('mdw-cardimg-small').each(setTooltip);
             var link = $('<a>', {href: mw.util.getUrl(cardName), target: '_blank'}).html(img);
-            setTooltip(img);
             imageSource.setCardImageSource(img, cardName);
             return link;
-        }
-
-        function update() {
-            var images = container.find('img');
-            images.each(function () {
-                var $this = $(this);
-                $this.attr('width', cardSize.width).attr('height', cardSize.height);
-                setTooltip($this);
-            });
         }
 
         return {
@@ -174,16 +156,12 @@
                 container.html(cardElements);
             },
             clear: function () {
-                container.html('');
+                container.empty();
                 container.addClass('mdw-hidden');
             },
-            small: function () {
-                return cardSize.small;
-            },
             toggleSize: function () {
-                cardSize.small = !cardSize.small;
-                cardSize.scale(cardSize.small ? 50 : 100);
-                update();
+                smallImages = !smallImages;
+                container.find('img').toggleClass('mdw-cardimg-small').each(setTooltip);
             },
             show : function () {
                 container.removeClass('mdw-hidden');
@@ -209,9 +187,8 @@
             randomHandButton.attr('value', text);
         }
 
-        function setImageSizeButtonText() {
-            var text = cardPanel.small() ? 'Large Images' : 'Small Images';
-            imageSizeButton.attr('value', text);
+        function toggleImageSizeButtonText() {
+            imageSizeButton.val(imageSizeButton.val() === 'Large Images' ? 'Small Images' : 'Large Images');
         }
 
         function updateUi() {
@@ -241,14 +218,13 @@
             cardPanel.addAll(hand);
             cardPanel.show();
             setRandomHandButtonText(true);
-            setImageSizeButtonText();
             showHandOnlyButtons(true);
             updateUi();
         }
 
         function imageSizeButtonClick() {
             cardPanel.toggleSize();
-            setImageSizeButtonText();
+            toggleImageSizeButtonText();
         }
 
         function drawCardClick() {

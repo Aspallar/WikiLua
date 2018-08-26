@@ -6,6 +6,16 @@
     <title>Test RandomHand</title>
     <link rel="stylesheet" href="wikicss/Common.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <style type="text/css">
+        .mdw-cardimg {
+            height: 311px;
+            width: 223px;
+        }
+        .mdw-cardimg-small {
+            height: calc(311px / 2);
+            width: calc(223px / 2);
+        }
+    </style>
 </head>
 <body>
     <!-- <div id="mdw-disabled-js" data-samplehand-1-2-0="true"></div> -->
@@ -19,10 +29,17 @@
     <pre id="mdw-chartdata-pre" style="display:none">[{"num":3,"name":"Cabal Stronghold","cardNumber":"238","rarity":"Rare","set":"DAR","types":["Land"]},{"num":21,"name":"Swamp","cardNumber":"259","rarity":"Basic Land","set":"DAR","types":["Land"]},{"rarity":"Rare","num":4,"name":"Dread Shade","cardNumber":"88","set":"DAR","types":["Creature"],"colors":["Black"],"cmc":3},{"rarity":"Rare","num":2,"name":"Josu Vess, Lich Knight","cardNumber":"95","set":"DAR","types":["Creature"],"colors":["Black"],"cmc":4},{"rarity":"Uncommon","num":4,"name":"Ravenous Chupacabra","cardNumber":"82","set":"RIX","types":["Creature"],"colors":["Black"],"cmc":4},{"rarity":"Mythic Rare","num":2,"name":"Twilight Prophet","cardNumber":"88","set":"RIX","types":["Creature"],"colors":["Black"],"cmc":4},{"rarity":"Mythic Rare","num":1,"name":"Demonlord Belzenlok","cardNumber":"86","set":"DAR","types":["Creature"],"colors":["Black"],"cmc":6},{"rarity":"Rare","num":1,"name":"Tetzimoc, Primal Death","cardNumber":"86","set":"RIX","types":["Creature"],"colors":["Black"],"cmc":6},{"rarity":"Rare","num":1,"name":"Arguel's Blood Fast","cardNumber":"90","set":"XLN","types":["Enchantment"],"colors":["Black"],"cmc":2},{"rarity":"Uncommon","num":3,"name":"Cast Down","cardNumber":"81","set":"DAR","types":["Instant"],"colors":["Black"],"cmc":2},{"rarity":"Common","num":4,"name":"Moment of Craving","cardNumber":"79","set":"RIX","types":["Instant"],"colors":["Black"],"cmc":2},{"rarity":"Rare","num":1,"name":"Torment of Hailfire","cardNumber":"77","set":"HOU","types":["Sorcery"],"colors":["Black"],"cmc":2},{"rarity":"Uncommon","num":3,"name":"Doomfall","cardNumber":"62","set":"HOU","types":["Sorcery"],"colors":["Black"],"cmc":3},{"rarity":"Uncommon","num":2,"name":"Golden Demise","cardNumber":"73","set":"RIX","types":["Sorcery"],"colors":["Black"],"cmc":3},{"rarity":"Rare","num":3,"name":"Never \/\/\/ Return","cardNumber":"212","set":"AKH","types":["Sorcery"],"colors":["Black"],"cmc":3},{"rarity":"Rare","num":1,"name":"Yawgmoth's Vile Offering","cardNumber":"114","set":"DAR","types":["Sorcery"],"colors":["Black"],"cmc":5},{"num":2,"name":"Karn, Scion of Urza","cardNumber":"1","rarity":"Mythic Rare","set":"DAR","types":["Planeswalker"],"cmc":4},{"rarity":"Mythic Rare","num":2,"name":"Liliana, Death's Majesty","cardNumber":"97","set":"AKH","types":["Planeswalker"],"colors":["Black"],"cmc":5}]</pre>
     <br />
     <div id="samplehand-template"></div>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+
+<!--     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous">
     </script>
+ -->
+<script
+  src="https://code.jquery.com/jquery-1.8.2.min.js"
+  integrity="sha256-9VTS8JJyxvcUR+v+RTLTsd0ZWbzmafmlzMmeZO9RFyk="
+  crossorigin="anonymous"></script>
+
     <script src="scripts\wikiParse.js"></script>
     <script src="scripts\mediawiki.js"></script>
     <script>
