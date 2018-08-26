@@ -1,7 +1,8 @@
+// <nowiki>
 // ==========================================================================
 // Start: Sample Hand
 // Implements sample hand generation for deck articles
-// Version 1.2.0
+// Version 1.3.0
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wikia.
@@ -9,22 +10,18 @@
 // ** this file is the sampleHand.js file in the src\Web\wikiscripts folder.
 //
 (function ($) {
+    /*global mw */
     'use strict';
 
     // do nothing on articles with no random hand or this version is disabled on page
     if (document.getElementById('mdw-random-hand') === null ||
-            $('#mdw-disabled-js').attr('data-samplehand-1-2-0')) {
+            $('#mdw-disabled-js').attr('data-samplehand-1-3-0')) {
         return;
-    }
-
-    function cardArticle(cardName) {
-        var article = encodeURIComponent(cardName.replace(' ', '_'));
-        return '/wiki/' + article;
     }
 
     function adjustName(name) {
         var pos = name.indexOf('///');
-        return pos === -1 ? name : name.substring(0, pos-1);
+        return pos === -1 ? name : name.substring(0, pos - 1);
     }
 
     function DeckEntry(name) {
@@ -65,6 +62,9 @@
             var cards = [];
             for (var k = 0; k < numCards; k++)
                 cards.push(this.drawCard());
+            cards.sort(function (a, b) {
+                return a.name.localeCompare(b.name);
+            });
             return cards;
         },
         initialize: function (dataString) {
@@ -113,7 +113,7 @@
     } // End ImageSource
 
     function CardPanel(container, tooltip, imageSource) {
-        var cardSize = {
+       var cardSize = {
             small: true,
             fullWidth: 223,
             fullHeight: 311,
@@ -145,8 +145,8 @@
         }
 
         function createCard(cardName) {
-            var link = $('<a href="' + cardArticle(cardName) + '" target="_blank"><img /></a>');
-            var img = link.find('img').attr('width', cardSize.width).attr('height', cardSize.height);
+            var img = $('<img>').attr('width', cardSize.width).attr('height', cardSize.height);
+            var link = $('<a>', {href: mw.util.getUrl(cardName), target: '_blank'}).html(img);
             setTooltip(img);
             imageSource.setCardImageSource(img, cardName);
             return link;
@@ -196,7 +196,9 @@
         var imageSizeButton = $('#mdw-random-hand-image-size');
         var drawCardButton = $('#mdw-random-hand-draw-card');
         var clearButton = $('#mdw-random-hand-clear');
-        var handOnlyButtons = $(imageSizeButton).add(drawCardButton).add(clearButton);
+        var mulliganButton = $('#mdw-random-hand-mulligan');
+        var handOnlyButtons = $(imageSizeButton).add(drawCardButton).add(clearButton).add(mulliganButton);
+        var handSize;
 
         function showMessage(msg) {
             $('#mdw-random-hand-message').text(msg);
@@ -234,6 +236,16 @@
                 handOnlyButtons.addClass('mdw-hidden');
         }
 
+        function newHand() {
+            var hand = deck.shuffle().drawCards(handSize);
+            cardPanel.addAll(hand);
+            cardPanel.show();
+            setRandomHandButtonText(true);
+            setImageSizeButtonText();
+            showHandOnlyButtons(true);
+            updateUi();
+        }
+
         function imageSizeButtonClick() {
             cardPanel.toggleSize();
             setImageSizeButtonText();
@@ -241,6 +253,7 @@
 
         function drawCardClick() {
             cardPanel.add(deck.drawCard());
+            mulliganButton.prop('disabled', true);
             updateUi();
         }
 
@@ -253,13 +266,15 @@
         }
 
         function randomHandClick() {
-            var hand = deck.shuffle().drawCards(7);
-            cardPanel.addAll(hand);
-            cardPanel.show();
-            setRandomHandButtonText(true);
-            setImageSizeButtonText();
-            showHandOnlyButtons(true);
-            updateUi();
+            handSize = 7;
+            mulliganButton.prop('disabled', false);
+            newHand();
+        }
+
+        function mulliganClick() {
+            if (--handSize < 2)
+                mulliganButton.prop('disabled', true);
+            newHand();
         }
 
         function wireButtonEvents() {
@@ -267,6 +282,7 @@
             imageSizeButton.click(imageSizeButtonClick);
             drawCardButton.click(drawCardClick);
             clearButton.click(clearClick);
+            mulliganButton.click(mulliganClick);
         }
 
         return {
@@ -287,6 +303,7 @@
         var sampleHandDiv = $('<div id="mdw-random-hand" class="mdw-hidden"></div>');
         var sampleHandContents = $(document.createDocumentFragment())
             .append('<input type="button" id="mdw-random-hand-button" value="Sample Hand" />&nbsp;')
+            .append('<input type="button" id="mdw-random-hand-mulligan" class="mdw-hidden" value="Mulligan" />&nbsp;')
             .append('<input type="button" id="mdw-random-hand-image-size" class="mdw-hidden" value="Large Images" />&nbsp;')
             .append('<input type="button" id="mdw-random-hand-draw-card" class="mdw-hidden" value="Draw Card" />&nbsp;')
             .append('<input type="button" id="mdw-random-hand-clear" class="mdw-hidden" value="Clear" />&nbsp;')
@@ -305,3 +322,4 @@
 })(jQuery);
 // End: Sample Hand
 // ==========================================================================
+// </nowiki>
