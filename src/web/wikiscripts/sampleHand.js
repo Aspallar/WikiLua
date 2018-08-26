@@ -101,6 +101,7 @@
                     img.attr('src', imageSource);
                     return;
                 }
+                img.attr('src', 'https://vignette.wikia.nocookie.net/magicarena/images/1/19/Cardback.png/revision/latest?cb=20171013170540');
                 var parseUrl = apiParseCommandUrl(cardName);
                 $.getJSON(parseUrl, function (data) {
                     var text = data.parse.text['*'];
@@ -114,6 +115,7 @@
 
     function CardPanel(container, tooltip, imageSource) {
         var smallImages = true;
+        var cardWidth = tooltip.width();
 
         function setTooltip() {
             /*jshint -W040 */ // allow old school jquery use of this
@@ -121,7 +123,7 @@
             if (smallImages) {
                 img.mousemove(function (event) {
                     var spaceOnRight = window.innerWidth - event.pageX;
-                    var xdelta = spaceOnRight > 223 + 5 ? 20 : -223 - 20;
+                    var xdelta = spaceOnRight > cardWidth + 5 ? 20 : -cardWidth - 20;
                     var left = event.pageX + xdelta;
                     var top = event.pageY - 240;
                     tooltip.css({ top: top, left: left }).show();
@@ -272,7 +274,7 @@
     } // End: Controller
     
     function tooltipElement() {
-        return $('<img id="mdw-card-hover" class="mdw-card-hover" />').prependTo('body');
+        return $('<img id="mdw-card-hover" class="mdw-cardimg mdw-card-hover" />').prependTo('body');
     }
 
     function cardSection() {
