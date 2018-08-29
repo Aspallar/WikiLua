@@ -2,7 +2,7 @@
 // ==========================================================================
 // Start: Sample Hand
 // Implements sample hand generation for deck articles
-// Version 1.3.0
+// Version 1.3.1
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wikia.
@@ -87,6 +87,7 @@
 
     function ImageSource() {
         var sourceCache = {};
+        var pending = {};
 
         function apiParseCommandUrl(cardName) {
             var url = '/api.php?format=json&action=parse&disablepp=true&prop=text&text=%5B%5BFile%3A[[cardname]].png%7Csize%3D160px%7Clink%3D%5D%5D';
@@ -102,13 +103,21 @@
                     return;
                 }
                 img.attr('src', 'https://vignette.wikia.nocookie.net/magicarena/images/1/19/Cardback.png/revision/latest?cb=20171013170540');
-                var parseUrl = apiParseCommandUrl(cardName);
-                $.getJSON(parseUrl, function (data) {
-                    var text = data.parse.text['*'];
-                    var sourceMatch = /src\s*=\s*"([^"]+)"/.exec(text);
-                    sourceCache[cardName] = sourceMatch[1];
-                    img.attr('src', sourceMatch[1]);
-                });
+                if (pending[cardName] === undefined) {
+                    pending[cardName] = [img];
+                    var parseUrl = apiParseCommandUrl(cardName);
+                    $.getJSON(parseUrl, function (data) {
+                        var text = data.parse.text['*'];
+                        var imageUrl = /src\s*=\s*"([^"]+)"/.exec(text)[1];
+                        sourceCache[cardName] = imageUrl;
+                        pending[cardName].forEach(function (cardImage) {
+                            cardImage.attr('src', imageUrl);
+                        });
+                        delete pending[cardName];
+                    });
+                } else {
+                    pending[cardName].push(img);
+                }
             }
         };
     } // End ImageSource
