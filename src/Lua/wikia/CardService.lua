@@ -8,42 +8,46 @@ local otherCards = utils.RecreateTable(mw.loadData("Module:Data/OtherCards"))
 local totalNumberOfCards = #cards
 local totalNumberOfOtherCards = #otherCards
 
-local function TableContains(t,item)
-    if(not t) or (not item) then return false end
-    for _,v in pairs(t) do
-        if v == item then
-            return true
-        end
+local gsub, match, find, lower = string.gsub, string.match, string.find, string.lower
+
+local function CaseInsensitivePattern(s)
+    s = gsub(s, "%-", "%%-")
+    s = gsub(s, "%a", function (c) return string.format("[%s%s]", string.lower(c), string.upper(c)) end)
+    return s
+end
+
+local function Contains(t, item)
+    if not t or not item then return false end
+    for _, v in pairs(t) do
+        if v == item then return true end
     end
     return false
 end
 
 local criteriaList = {
     -- condition ∈ {White,Blue,Black,Red,Green}
-    Color = function(card,condition) return TableContains(card.Colors,condition) end;
+    Color = function(card,condition) return Contains(card.Colors,condition) end;
     -- condition ∈ {true,false}
     Colorless = function(card, condition) return (card.Colors == nil) == (condition=="true") end;
     Multicolor = function(card, condition) return ((card.Colors ~= nil) and (#utils.RecreateTable(card.Colors) >= 2)) == (condition== "true") end;
     -- condition ∈ {Any Type, Subtype or Supertype} See their respective wiki pages for an exhaustive list
-    Type = function(card, condition) return (TableContains(card.Types,condition) or TableContains(card.SubTypes,condition) or TableContains(card.SuperTypes,condition)) end;
-    -- condition ∈ {D,ORI}
-    -- Set = function(card,condition) return (card.SetCode == condition) or (setNames[card.SetCode] == condition) end;
-    Set = function(card, condition) return (card.SetCode == condition) or (TableContains(card.Allsets, condition)) end;
+    Type = function(card, condition) return (Contains(card.Types,condition) or Contains(card.SubTypes,condition) or Contains(card.SuperTypes,condition)) end;
+    -- condition ∈ {Any set code}
+    Set = function(card, condition) return (card.SetCode == condition) or (Contains(card.Allsets, condition)) end;
     -- condition ∈ {Common,Uncommon,Rare,Mythic Rare}
-    -- Rarity = function(card,condition) return card.Rarity == condition end;
-    Rarity = function(card, condition) return (card.Rarity == condition) or (TableContains(card.Rarities, condition)) end;
+    Rarity = function(card, condition) return (card.Rarity == condition) or (Contains(card.Rarities, condition)) end;
     -- condition ∈ {Any text}
-    Text = function(card, condition) return card.Text ~= nil and string.find(string.lower(card.Text),string.lower(condition)) end;
-    NotText = function(card, condition) return card.Text == nil or not string.find(string.lower(card.Text),string.lower(condition)) end;
+    Text = function(card, condition) return card.Text ~= nil and find(lower(card.Text), lower(condition)) end;
+    NotText = function(card, condition) return card.Text == nil or not find(lower(card.Text), lower(condition)) end;
     -- condition ∈ {Any number}
     CMC = function(card, condition) return (card.cmc or 0) - condition == 0 end;
     -- condition ∈ {Any number}
     MinCMC =  function(card, condition) return (card.cmc or 0) - condition >= 0 end;
     -- condition ∈ {Type}
-    NotType = function(card, condition) return not TableContains(card.Types,condition) end;
-    Energy = function(card) return card.Text ~= nil and string.find(card.Text, "{{E}}") end;
+    NotType = function(card, condition) return not Contains(card.Types, condition) end;
+    Energy = function(card) return card.Text ~= nil and find(card.Text, "{{E}}") end;
     -- condition ∈ {Lua Pattern}
-    NameMatches = function(card, condition) return string.match(card.Name, condition) end;
+    NameMatches = function(card, condition) return match(card.Name, condition) end;
 }
 
 local function PrepareCriteria(criteria)
@@ -71,16 +75,16 @@ end
 -- Note unfortunately the pre-sorted order is not the same as the lua sort order
 
 function p.GetByNameIgnoreCase(name)
-    name = string.lower(name)
+    name = "^" .. CaseInsensitivePattern(name) .. "$"
     for i = 1, totalNumberOfCards do
-       if string.lower(cards[i].Name) == name then
+       if match(cards[i].Name, name) then
            local foundCard = utils.MakeTableWriteable(cards[i])
            foundCard.Playable = true
            return foundCard
        end
     end
     for i = 1, totalNumberOfOtherCards do
-       if string.lower(otherCards[i].Name) == name then
+       if match(otherCards[i].Name, name) then
            local foundOtherCard = utils.MakeTableWriteable(otherCards[i]);
            foundOtherCard.Playable = false
            return foundOtherCard
@@ -113,7 +117,7 @@ function p.GetByCriteria(criteria)
         while current <= totalNumberOfCards do
             local card = cards[current]
             current = current + 1
-            if (MeetsCriteria(card, criteria)) then return card end
+            if MeetsCriteria(card, criteria) then return card end
         end
     end
 end
