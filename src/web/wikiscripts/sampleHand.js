@@ -15,7 +15,7 @@
 
     // do nothing on articles with no random hand or this version is disabled on page
     if (document.getElementById('mdw-random-hand') === null ||
-            $('#mdw-disabled-js').attr('data-samplehand-1-3-0')) {
+            $('#mdw-disabled-js').attr('data-samplehand-1-3-1')) {
         return;
     }
 
@@ -90,7 +90,7 @@
         var pending = {};
 
         function apiParseCommandUrl(cardName) {
-            var url = '/api.php?format=json&action=parse&disablepp=true&prop=text&text=%5B%5BFile%3A[[cardname]].png%7Csize%3D160px%7Clink%3D%5D%5D';
+            var url = '/api.php?format=json&action=parse&disablepp=true&prop=text&text=%5B%5BFile%3A[[cardname]].png%7C223px%7Clink%3D%5D%5D';
             url = url.replace('[[cardname]]', encodeURIComponent(cardName));
             return url;
         }
@@ -159,10 +159,9 @@
                 container.prepend(createCard(card.name));
             },
             addAll: function (cards) {
-                var cardElements = document.createDocumentFragment();
+                var cardElements = $(document.createDocumentFragment());
                 cards.forEach(function (card) {
-                    var img = createCard(card.name);
-                    cardElements.appendChild(img.get(0));
+                    cardElements.append(createCard(card.name));
                 });
                 container.html(cardElements);
             },
