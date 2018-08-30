@@ -22,39 +22,53 @@ local criteriaList = {
     -- condition ∈ {White,Blue,Black,Red,Green}
     Color = function(card,condition) return TableContains(card.Colors,condition) end;
     -- condition ∈ {true,false}
-    Colorless = function(card,condition) return (card.Colors == nil) == (condition=="true") end;
-    Multicolor = function(card,condition) return ((card.Colors ~= nil) and (#utils.RecreateTable(card.Colors) >= 2)) == (condition=="true") end;
+    Colorless = function(card, condition) return (card.Colors == nil) == (condition=="true") end;
+    Multicolor = function(card, condition) return ((card.Colors ~= nil) and (#utils.RecreateTable(card.Colors) >= 2)) == (condition== "true") end;
     -- condition ∈ {Any Type, Subtype or Supertype} See their respective wiki pages for an exhaustive list
-    Type = function(card,condition) return (TableContains(card.Types,condition) or TableContains(card.SubTypes,condition) or TableContains(card.SuperTypes,condition)) end;
+    Type = function(card, condition) return (TableContains(card.Types,condition) or TableContains(card.SubTypes,condition) or TableContains(card.SuperTypes,condition)) end;
     -- condition ∈ {D,ORI}
     -- Set = function(card,condition) return (card.SetCode == condition) or (setNames[card.SetCode] == condition) end;
-    Set = function(card,condition) return (card.SetCode == condition) or (TableContains(card.Allsets, condition)) end;
+    Set = function(card, condition) return (card.SetCode == condition) or (TableContains(card.Allsets, condition)) end;
     -- condition ∈ {Common,Uncommon,Rare,Mythic Rare}
     -- Rarity = function(card,condition) return card.Rarity == condition end;
-    Rarity = function(card,condition) return (card.Rarity == condition) or (TableContains(card.Rarities, condition)) end;
+    Rarity = function(card, condition) return (card.Rarity == condition) or (TableContains(card.Rarities, condition)) end;
     -- condition ∈ {Any text}
-    Text = function(card,condition) return card.Text ~= nil and string.find(string.lower(card.Text),string.lower(condition)) end;
-    NotText = function(card,condition) return card.Text == nil or not string.find(string.lower(card.Text),string.lower(condition)) end;
+    Text = function(card, condition) return card.Text ~= nil and string.find(string.lower(card.Text),string.lower(condition)) end;
+    NotText = function(card, condition) return card.Text == nil or not string.find(string.lower(card.Text),string.lower(condition)) end;
     -- condition ∈ {Any number}
-    CMC = function(card,condition) return (card.cmc or 0) - condition == 0 end;
+    CMC = function(card, condition) return (card.cmc or 0) - condition == 0 end;
     -- condition ∈ {Any number}
-    MinCMC =  function(card,condition) return (card.cmc or 0) - condition >= 0 end;
+    MinCMC =  function(card, condition) return (card.cmc or 0) - condition >= 0 end;
     -- condition ∈ {Type}
-    NotType = function(card,condition) return not TableContains(card.Types,condition) end;
+    NotType = function(card, condition) return not TableContains(card.Types,condition) end;
     Energy = function(card) return card.Text ~= nil and string.find(card.Text, "{{E}}") end;
+    -- condition ∈ {Lua Pattern}
+    NameMatches = function(card, condition) return string.match(card.Name, condition) end;
 }
 
+local function PrepareCriteria(criteria)
+    local prepared = {}
+    if criteria then
+        for i = 1, #criteria do
+            local func, cond = string.match(criteria[i], "(.-)$(.+)")
+            assert(func and criteriaList[func] and cond, "Invalid card criteria. " .. criteria[i])
+            table.insert(prepared, {test = criteriaList[func], condition = cond})
+        end
+    end
+    return #prepared > 0 and prepared or nil
+end
+
 local function MeetsCriteria(card, criteria)
-    if criteria and (#criteria > 0) then
-        for _, criterion in pairs(criteria) do
-            local func, cond = unpack(mw.text.split(criterion, "$", true))
-            if not criteriaList[func](card, cond) then return false end
+    if criteria then
+        for _, criterion in ipairs(criteria) do
+            if not criterion.test(card, criterion.condition) then return false end
         end
     end
     return true
 end
 
 -- TODO: the card data is pre-sorted, use a binary chop for searches
+-- Note unfortunately the pre-sorted order is not the same as the lua sort order
 
 function p.GetByNameIgnoreCase(name)
     name = string.lower(name)
@@ -94,6 +108,7 @@ end
 
 function p.GetByCriteria(criteria)
     local current = 1
+    criteria = PrepareCriteria(criteria)
     return function()
         while current <= totalNumberOfCards do
             local card = cards[current]
