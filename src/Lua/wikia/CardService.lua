@@ -26,28 +26,57 @@ end
 
 local criteriaList = {
     -- condition ∈ {White,Blue,Black,Red,Green}
-    Color = function(card,condition) return Contains(card.Colors,condition) end;
+    Color = function(card,condition)
+        return Contains(card.Colors, condition)
+    end;
     -- condition ∈ {true,false}
-    Colorless = function(card, condition) return (card.Colors == nil) == (condition=="true") end;
-    Multicolor = function(card, condition) return ((card.Colors ~= nil) and (#utils.RecreateTable(card.Colors) >= 2)) == (condition== "true") end;
+    Colorless = function(card, condition)
+        return (card.Colors == nil) == condition
+    end;
+    -- condition ∈ {true,false}
+    Multicolor = function(card, condition)
+        return (card.Colors ~= nil and #utils.RecreateTable(card.Colors) >= 2) == condition
+    end;
     -- condition ∈ {Any Type, Subtype or Supertype} See their respective wiki pages for an exhaustive list
-    Type = function(card, condition) return (Contains(card.Types,condition) or Contains(card.SubTypes,condition) or Contains(card.SuperTypes,condition)) end;
+    Type = function(card, condition)
+        return Contains(card.Types, condition) or
+            Contains(card.SubTypes, condition) or
+            Contains(card.SuperTypes, condition)
+    end;
     -- condition ∈ {Any set code}
-    Set = function(card, condition) return (card.SetCode == condition) or (Contains(card.Allsets, condition)) end;
+    Set = function(card, condition)
+        return (card.SetCode == condition) or (Contains(card.Allsets, condition))
+    end;
     -- condition ∈ {Common,Uncommon,Rare,Mythic Rare}
-    Rarity = function(card, condition) return (card.Rarity == condition) or (Contains(card.Rarities, condition)) end;
+    Rarity = function(card, condition)
+        return (card.Rarity == condition) or (Contains(card.Rarities, condition))
+    end;
     -- condition ∈ {Any text}
-    Text = function(card, condition) return card.Text ~= nil and find(lower(card.Text), lower(condition)) end;
-    NotText = function(card, condition) return card.Text == nil or not find(lower(card.Text), lower(condition)) end;
+    Text = function(card, condition)
+        return card.Text ~= nil and find(lower(card.Text), condition)
+    end;
+    NotText = function(card, condition)
+        return card.Text == nil or not find(lower(card.Text), condition)
+    end;
     -- condition ∈ {Any number}
-    CMC = function(card, condition) return (card.cmc or 0) - condition == 0 end;
+    CMC = function(card, condition) return
+        (card.cmc or 0) - condition == 0
+    end;
     -- condition ∈ {Any number}
-    MinCMC =  function(card, condition) return (card.cmc or 0) - condition >= 0 end;
+    MinCMC =  function(card, condition)
+        return (card.cmc or 0) - condition >= 0
+    end;
     -- condition ∈ {Type}
-    NotType = function(card, condition) return not Contains(card.Types, condition) end;
-    Energy = function(card) return card.Text ~= nil and find(card.Text, "{{E}}") end;
+    NotType = function(card, condition)
+        return not Contains(card.Types, condition)
+    end;
+    Energy = function(card)
+        return card.Text ~= nil and find(card.Text, "{{E}}")
+    end;
     -- condition ∈ {Lua Pattern}
-    NameMatches = function(card, condition) return match(card.Name, condition) end;
+    NameMatches = function(card, condition)
+        return match(card.Name, condition)
+    end;
 }
 
 local function PrepareCriteria(criteria)
@@ -56,6 +85,11 @@ local function PrepareCriteria(criteria)
         for i = 1, #criteria do
             local func, cond = string.match(criteria[i], "(.-)$(.+)")
             assert(func and criteriaList[func] and cond, "Invalid card criteria. " .. criteria[i])
+            if func == "Text" or func == "NotText" then
+                cond = lower(cond)
+            elseif func == "Colorless" or func == "Multicolor" then
+                cond = cond == "true"
+            end
             table.insert(prepared, {test = criteriaList[func], condition = cond})
         end
     end
