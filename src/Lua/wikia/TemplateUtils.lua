@@ -55,7 +55,10 @@ function p.ExpandSymbols(text)
     if string.find(text, "{") == nil then
         return text, false
     else
-        return text:gsub("{Tap}", "{{Tap}}"):gsub("{T}", "{{Tap}}"):gsub("{(.)}", "{{%1}}"), true
+        return text
+            :gsub("{Tap}", "{{Tap}}")
+            :gsub("{T}", "{{Tap}}")
+            :gsub("{(.)/?(.?)}", "{{%1%2}}"), true
     end
 end
 
