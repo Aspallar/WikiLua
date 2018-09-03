@@ -4,10 +4,10 @@ local inputList = [=[
 1 Consign /// Oblivion (HOU) 149
 4 Rekindling Phoenix (RIX) 111
 20 Mountain (RIX) 195
-4 Fanatical Firebrand (RIX) 101
+4     Fanatical Firebrand (RIX) 101
 3 Rigging Runner (XLN) 157
 3 Lightning Strike (XLN) 149
-3 Goblin Trailblazer (RIX) 105
+3 Goblin Trailblazer (RIX) 105   
 1 Tilonalli's Summoner (RIX) 121
 1 Captain Lannery Storm (XLN) 136
 

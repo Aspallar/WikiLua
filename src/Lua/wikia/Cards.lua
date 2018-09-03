@@ -206,14 +206,14 @@ local function GenerateOtherCardPage(card)
 end
 
 local function GetCardsTable(criteria)
-    local s = ""
+    local output = {""}
     local numresults = 0
     for card in cardService.GetByCriteria(criteria) do
-        s = s .. GenerateCardRow(card)
+        table.insert(output, GenerateCardRow(card))
         numresults = numresults + 1
     end
-    s = [=[! colspan="3" align="right"|]=]..numresults.." result"..(numresults~=1 and "s\n" or "\n")..s
-    return s
+    output[1] = [=[! colspan="3" align="right"|]=] .. numresults .. " result" .. (numresults ~= 1 and "s\n" or "\n")
+    return table.concat(output)
 end
 
 function p.GetCardsTable(frame)
@@ -274,7 +274,6 @@ function p.GetPagedCardsTable(frame)
     return frame:preprocess(s)
 end
 
--- TODO: (Aspallar) removal candidate, does not appear to be used in wiki
 function p.GetAnyCardRow(frame)
     local name = frame.args[1]
     local card = cardService.GetByNameIgnoreCase(name)

@@ -26,8 +26,8 @@ local decks = require("wikia\\decks")
 -- 1 Academy Drake
 
 local inputList = [=[
-20 Mountain
-1 Glint-Sleeve Siphoner
+20     Mountain
+1 Glint-Sleeve Siphoner 
 ]=]
 
 local result = decks.TestGenerateDeckFromList("Test Deck",inputList)
