@@ -6,30 +6,19 @@ local json = require("Dev:Json")
 
 local p = {}
 
-local function ParseCardEntry(entry)
-    local pos, _ = string.find(entry, "///")
+local function ParseCardEntry(entryLine)
+    local pos = string.find(entryLine, "///")
     if pos == nil then
-        pos, _ = string.find(entry, "%(")
+        pos = string.find(entryLine, "%(")
     end
-    if pos ~= nil and pos > 2 then
-        entry = string.sub(entry, 1, pos - 2)
+    local entry = (pos ~= nil and pos > 2) and string.sub(entryLine, 1, pos - 2) or entryLine
+    local amount, name = string.match(entry, "^(%d+)%s+(.+)%s*$")
+    amount = tonumber(amount)
+    if amount == nil then
+        name = entryLine
+        amount = 0
     end
-    local intAmount, cardName
-    pos, _ = string.find(entry, " ")
-    if pos ~= nil and pos > 1 then
-        local strAmount = string.sub(entry, 1, pos - 1)
-        intAmount = tonumber(strAmount)
-        if intAmount ~= nil then
-            cardName = string.sub(entry, pos + 1)
-        else
-            intAmount = 0
-            cardName = entry
-        end
-    else
-        intAmount = 0
-        cardName = entry
-    end
-    return intAmount, mw.text.trim(cardName)
+    return amount, name
 end
 
 local function SumAmounts(cards)
@@ -57,14 +46,14 @@ local function CardList(cards)
     return s
 end
 
-local function CardTypeSection(cards, cardTypeName, sort)
+local function CardTypeSection(cards, icon, typeName, sort)
     local s = ""
     if sort and cards[1] and cards[1][2].cmc then
         table.sort(cards,function(a,b) return (a[2].cmc < b[2].cmc) or ((a[2].cmc == b[2].cmc) and (a[2].Name < b[2].Name)) end)
     end
     local totalAmount = SumAmounts(cards)
     if #cards > 0 then
-        s = s .. "<big><big>"..totalAmount.." "..cardTypeName.."</big></big><br />" .. "\n"
+        s = s .. "<big><big>" .. icon .. " " .. totalAmount .. " " .. typeName .. "</big></big><br />" .. "\n"
         s = s .. CardList(cards)
     end
     return s
@@ -93,13 +82,13 @@ end
 
 local function GetCardLists()
     local s = ""
-    s = s .. CardTypeSection(deck.Land, "Lands [[File:Icon land.png|23px|link=]]", false)
-    s = s .. CardTypeSection(deck.Creature, "Creatures [[File:Icon creature.png|23px|link=]]", true)
-    s = s .. CardTypeSection(deck.Artifact, "Artifacts [[File:Icon artifact.png|23px|link=]]", true)
-    s = s .. CardTypeSection(deck.Enchantment, "Enchantments [[File:Icon enchantment.png|23px|link=]]", true)
-    s = s .. CardTypeSection(deck.Instant, "Instants [[File:Icon instant.png|23px|link=]]", true)
-    s = s .. CardTypeSection(deck.Sorcery, "Sorceries [[File:Icon sorcery.png|23px|link=]]", true)
-    s = s .. CardTypeSection(deck.Planeswalker, "Planeswalkers [[File:Icon planeswalker.png|23px|link=]]", true)
+    s = s .. CardTypeSection(deck.Land, "[[File:Icon land.png|23px|link=]]", "Lands", false)
+    s = s .. CardTypeSection(deck.Creature, "[[File:Icon creature.png|23px|link=]]", "Creatures", true)
+    s = s .. CardTypeSection(deck.Artifact, "[[File:Icon artifact.png|23px|link=]]", "Artifacts", true)
+    s = s .. CardTypeSection(deck.Enchantment, "[[File:Icon enchantment.png|23px|link=]]", "Enchantments", true)
+    s = s .. CardTypeSection(deck.Instant, "[[File:Icon instant.png|23px|link=]]", "Instants", true)
+    s = s .. CardTypeSection(deck.Sorcery, "[[File:Icon sorcery.png|23px|link=]]", "Sorceries", true)
+    s = s .. CardTypeSection(deck.Planeswalker, "[[File:Icon planeswalker.png|23px|link=]]", "Planeswalkers", true)
     s = s .. OtherCards(deck.errors)
     return s
 end
