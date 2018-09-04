@@ -46,7 +46,13 @@ mw.html.escape = function(s) {
 
 mw.loader = {};
 mw.loader.using = function(what, cb) {
-    cb();
+    if (cb) {
+       cb();
+    } else {
+        var deferred = $.Deferred();
+        deferred.resolve();
+        return deferred.promise();
+    }
 };
 
 mw.hook = function (func) {

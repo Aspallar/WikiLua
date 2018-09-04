@@ -2,7 +2,7 @@
 // Implements a deck builder/editor to allow users to edit deck definitions
 // without having to edit wikitext
 //
-// Version 1.3.0
+// Version 1.3.1
 // Author: Aspallar
 //
 // Beta early prototype release.
@@ -14,7 +14,7 @@
     'use strict';
     /*global mw, globalCardnames, _ */ // globalCardnames is only for local testing
 
-    if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-3-0'))
+    if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-3-1'))
         return;
 
     var globalNavHeight;
@@ -413,7 +413,7 @@
         }).fail(function () {
             fatalError('Unable to obtain card data.');
         });
-        return deferred;
+        return deferred.promise();
     }
 
     function onClickAdd() {
@@ -495,6 +495,7 @@
     function createDeckPage(name, deckText) {
         mw.loader.using('mediawiki.api').then(function () {
             $.get(buildUrl('Template:NewDeck', {action: 'raw'})).then(function (newDeckTemplate) {
+                deckText = deckText.substring(1, deckText.length - 1) // strip leading and trailing newlines
                 var content = removeIncludes(newDeckTemplate).replace('$1', deckText);
                 var title = 'Decks/' + name;
                 new mw.Api().post({
@@ -563,7 +564,7 @@
         }).fail(function () {
             fatalError('Network error while loading deck.');
         });
-        return deferred;
+        return deferred.promise();
     }
 
     function initDeckFromDeckText(text) {
