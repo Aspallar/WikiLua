@@ -27,9 +27,9 @@ mw.config.get = function(param) {
 
 mw.util = {};
 mw.util.getParamValue = function(paramName) {
-    // return 'TestDeck';
+    return 'TestDeck';
     // return 'Test Deck - Bad Deck';
-    return null;
+    // return null;
 }
 mw.util.getUrl = function(title) {
     return title.replace(/ /g, '_');
@@ -55,16 +55,20 @@ mw.loader.using = function(what, cb) {
     }
 };
 
-mw.hook = function (func) {
-    if (typeof func === "function")
-	   jQuery(func);
-    return {
-        fire: function (o) {
-            // do nothing
-        }
-        add: function (fn) {
-            if (typeof fn === "function")
-                fn();
-        }
-    }
-};
+tooltips = {};
+tooltips.applyTooltips = function (el) {
+    // do nothing
+}
+
+// mw.hook = function (eventname) {
+//     var hooks = {};
+//     return {
+//         fire: function (o) {
+//             var fns = hooks
+//         }
+//         add: function (fn) {
+//             if (typeof fn === "function")
+//                 fn();
+//         }
+//     }
+// };

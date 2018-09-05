@@ -124,13 +124,16 @@
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous">
     </script>
+    <script src="scripts/mediawikilib.js"></script>
     <script>
         (function () {
             var dataString = $("#mdw-chartdata-pre").text();
-            console.log(dataString);
             var json = JSON.parse(dataString);
             var jsonString = JSON.stringify(json, null, 4);
             $("#jsondata").html(jsonString);
+            mw.hook('magicarena.chartsready').add(function () {
+                console.log('magicarena.chartsready fired');
+            });
         })();
     </script>
     <script src="scripts/wikiParse.js"></script>

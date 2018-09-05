@@ -2,7 +2,7 @@
 // Implements a deck builder/editor to allow users to edit deck definitions
 // without having to edit wikitext
 //
-// Version 1.3.1
+// Version 1.4.0
 // Author: Aspallar
 //
 // Beta early prototype release.
@@ -12,9 +12,11 @@
 //
 (function ($) {
     'use strict';
-    /*global mw, globalCardnames, _ */ // globalCardnames is only for local testing
+    /*global mw, magicArena, tooltips, globalCardnames, _ */ // globalCardnames is only for local testing
 
-    if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-3-1'))
+    console.log('Builder Y');
+
+    if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-4-0'))
         return;
 
     var globalNavHeight;
@@ -495,7 +497,7 @@
     function createDeckPage(name, deckText) {
         mw.loader.using('mediawiki.api').then(function () {
             $.get(buildUrl('Template:NewDeck', {action: 'raw'})).then(function (newDeckTemplate) {
-                deckText = deckText.substring(1, deckText.length - 1) // strip leading and trailing newlines
+                deckText = deckText.substring(1, deckText.length - 1); // strip leading and trailing newlines
                 var content = removeIncludes(newDeckTemplate).replace('$1', deckText);
                 var title = 'Decks/' + name;
                 new mw.Api().post({
@@ -563,6 +565,23 @@
             deferred.resolve(page);
         }).fail(function () {
             fatalError('Network error while loading deck.');
+        });
+        return deferred.promise();
+    }
+
+    function wikiParse(text) {
+        var deferred = $.Deferred();
+        wikiApiCall({
+            action: 'parse',
+            disablepp: 1,
+            prop: 'text',
+            text: text
+        }, 'POST').done(function (response) {
+            var text = response.parse.text['*'];
+            deferred.resolve(text);
+        }).fail(function () {
+            // TODO: deal with fail
+            console.log('Parse error.');
         });
         return deferred.promise();
     }
@@ -647,6 +666,19 @@
         filters.change();
     }
 
+    function onClickPreview() {
+        /*jshint -W040 */ // allow old school jquery this
+        $(this).val('Update Preview');
+        $('#mdw-db-preview').show('fast');
+        var deckTemplate = '{{Deck|Name=Deck Preview\n|Deck=' + deck.getText() + '}}';
+        wikiParse(deckTemplate).done(function (deckHtml) {
+            var deckPreview = $('#mdw-db-deck-preview');
+            deckPreview.html(deckHtml).find('a').attr('target', '_blank');
+            tooltips.applyTooltips(deckPreview.get(0));
+            magicArena.charts.refresh();
+        });
+    }
+
     function createForm() {
         /*jshint -W043*/ // allow multiline strimgs
         var add = $('<input type="button" id="mdw-db-add" value="Add" />')
@@ -685,6 +717,13 @@
                       <label for="mdw-db-green">Green</label><br>\
                       <input type="checkbox" id="mdw-db-colorless" checked value="C">\
                       <label for="mdw-db-colorless">Colorless</label><br>');
+        $('#mdw-db-preview-button').replaceWith(
+                $('<input type="button" id="mdw-db-preview-button" value="Preview Deck" disabled>')
+                    .click(onClickPreview)
+            );
+        mw.hook('magicarena.chartsready').add(function () {
+            $('#mdw-db-preview-button').prop('disabled', false);
+        });
     }
 
     function onCardnameAutoCompleteFocus(event, ui) {
