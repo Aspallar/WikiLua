@@ -56,5 +56,15 @@ mw.loader.using = function(what, cb) {
 };
 
 mw.hook = function (func) {
-	jQuery(func);
+    if (typeof func === "function")
+	   jQuery(func);
+    return {
+        fire: function (o) {
+            // do nothing
+        }
+        add: function (fn) {
+            if (typeof fn === "function")
+                fn();
+        }
+    }
 };

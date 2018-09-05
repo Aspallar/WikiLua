@@ -1,7 +1,7 @@
 // ==========================================================================
 // Start: Deck Charts
 // Renders charts on deck articles
-// Version 1.3.1
+// Version 1.4.0
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wikia.
@@ -9,20 +9,42 @@
 // ** and modify that, then copy your changes to the wikia.
 // ** this file is the DeckCharts.js in the src\Web\wikiscripts folder.
 
-(function ($) {
-    /*globals google */
+window.magicArena = window.magicArena || {};
+window.magicArena.charts = window.magicArena.charts || (function ($) {
+    /*globals google, mw, _ */
     'use strict';
+
+    if (document.getElementById('mdw-deckcharts') === null || $('#mdw-disabled-js').attr('data-deckcharts-1-4-0'))
+        return null;
 
     var chartDataId = 'mdw-chartdata-pre';
     var sideboardDataId = 'mdw-sideboard-data';
+    var colorPieChartId = 'mdw-cardsbycolor-chart';
+    var manaCurveChartId = 'mdw-manacurve-chart';
+    var typesPieChartId = 'mdw-types-chart';
+    var meanCmcId = 'mdw-mean-cmc';
+    var landProbabilitiesId = 'mdw-land-probabilities';
+    var lastManaCurveCmc = 6; // max cmc to show on mana curve chart
 
-    function hasCardData() {
-        return document.getElementById(chartDataId) !== null;
+    function hasColorPieChart() {
+        return document.getElementById(colorPieChartId) !== null;
     }
 
-    // do nothing on pages with no {{Deck}}, or this js disabled on page
-    if (!hasCardData() || $('#mdw-disabled-js').attr('data-deckcharts-1-3-1'))
-        return;
+    function hasManaCurveChart() {
+        return document.getElementById(manaCurveChartId) !== null;
+    }
+
+    function hasTypesPieChart() {
+        return document.getElementById(typesPieChartId) !== null;
+    }
+
+    function hasMeanConvertedManaCost() {
+        return document.getElementById(meanCmcId) !== null;
+    }
+
+    function hasLandProbabilities() {
+        return document.getElementById(landProbabilitiesId) !== null;
+    }
 
     function getChartColor(dataColor) {
         var colors = {
@@ -49,13 +71,6 @@
         };
         return colors[type];
     }
-
-    var colorPieChartId = 'mdw-cardsbycolor-chart';
-    var manaCurveChartId = 'mdw-manacurve-chart';
-    var typesPieChartId = 'mdw-types-chart';
-    var meanCmcId = 'mdw-mean-cmc';
-    var landProbabilitiesId = 'mdw-land-probabilities';
-    var lastManaCurveCmc = 6; // max cmc to show on mana curve chart
 
     var dataIndex = {
         color: 0,
@@ -102,7 +117,8 @@
             },
             colors: dataCache.manaCurve.colors
         };
-        dataCache.manaCurve.chart.draw(dataCache.manaCurve.data, options);
+        if (dataCache.manaCurve.chart && dataCache.manaCurve.data)
+            dataCache.manaCurve.chart.draw(dataCache.manaCurve.data, options);
     }
 
     function drawColorPieChart() {
@@ -124,7 +140,8 @@
                 }
             }
         };
-        dataCache.colorPie.chart.draw(dataCache.colorPie.data, options);
+        if (dataCache.colorPie.chart && dataCache.colorPie.data)
+            dataCache.colorPie.chart.draw(dataCache.colorPie.data, options);
     }
 
     function drawTypesPieChart() {
@@ -147,33 +164,8 @@
                 position: 'labeled'
             }
         };
-        dataCache.typesPie.chart.draw(dataCache.typesPie.data, options);
-    }
-
-    function hasColorPieChart() {
-        return document.getElementById(colorPieChartId) !== null;
-    }
-
-    function hasManaCurveChart() {
-        return document.getElementById(manaCurveChartId) !== null;
-    }
-
-    function hasTypesPieChart() {
-        return document.getElementById(typesPieChartId) !== null;
-    }
-
-    function hasMeanConvertedManaCost() {
-        return document.getElementById(meanCmcId) !== null;
-    }
-
-    function hasLandProbabilities() {
-        return document.getElementById(landProbabilitiesId) !== null;
-    }
-
-    function hasCharts() {
-        return hasColorPieChart() ||
-            hasManaCurveChart() ||
-            hasTypesPieChart();
+        if (dataCache.typesPie.chart && dataCache.typesPie.data)
+            dataCache.typesPie.chart.draw(dataCache.typesPie.data, options);
     }
 
     var statistics = {
@@ -291,9 +283,14 @@
     }
 
     function getData(id) {
-        var dataString = document.getElementById(id).innerText;
-        var cardData = JSON.parse(dataString);
-        return addCalculatedFieldsToData(cardData);
+        var dataElement = document.getElementById(id);
+        if (dataElement !== null) {
+            var dataString = document.getElementById(id).innerText;
+            var cardData = JSON.parse(dataString);
+            return addCalculatedFieldsToData(cardData);
+        } else {
+            return null;
+        }
     }
 
     function getChartData() {
@@ -522,9 +519,6 @@
         dataCache.manaCurve.data = google.visualization.arrayToDataTable(formattedData);
         dataCache.manaCurve.colors = sectionColors;
         dataCache.manaCurve.ticks = ticks;
-
-        dataCache.manaCurve.chart = new google.visualization.ColumnChart(document.getElementById(manaCurveChartId));
-        google.visualization.events.addListener(dataCache.manaCurve.chart, 'select', onManaCurveSelect);
     }
 
     function cacheColorPieData(cardData) {
@@ -543,8 +537,6 @@
 
         dataCache.colorPie.data = dataTable;
         dataCache.colorPie.colors = sliceColors;
-        dataCache.colorPie.chart = new google.visualization.PieChart(document.getElementById(colorPieChartId));
-        google.visualization.events.addListener(dataCache.colorPie.chart, 'select', onColorPieSelect);
     }
 
     function cacheTypesPieData(cardData) {
@@ -563,7 +555,24 @@
 
         dataCache.typesPie.data = dataTable;
         dataCache.typesPie.colors = sliceColors;
-        dataCache.typesPie.chart = new google.visualization.PieChart(document.getElementById(typesPieChartId));
+    }
+
+    function createCharts() {
+        var id = document.getElementById(typesPieChartId);
+        if (id  !== null) {
+            dataCache.typesPie.chart = new google.visualization.PieChart(id);
+        }
+        id = document.getElementById(colorPieChartId);
+        if (id !== null) {
+            dataCache.colorPie.chart = new google.visualization.PieChart(id);
+            google.visualization.events.addListener(dataCache.colorPie.chart, 'select', onColorPieSelect);
+        }
+
+        id = document.getElementById(manaCurveChartId);
+        if (id !== null) {
+            dataCache.manaCurve.chart = new google.visualization.ColumnChart(id);
+            google.visualization.events.addListener(dataCache.manaCurve.chart, 'select', onManaCurveSelect);
+        }
     }
 
     function setMeanCmc(chartData) {
@@ -571,15 +580,19 @@
         $('#' + meanCmcId).text(mean);
     }
 
+    var landProbabilityTemplate;
+    function getLandProbabilityTemplate() {
+        landProbabilityTemplate = $('#' + landProbabilitiesId).html();
+    }
+
     function setLandDrawProbabilities(chartData) {
         var probabilities = landProbabilities(getCardTotals(chartData));
-        var landElement = $('#' + landProbabilitiesId);
-        var html = landElement.html();
+        var html = landProbabilityTemplate;
         for (var k = 0; k <= 7; k++) {
             var percent = (probabilities[k] * 100).toFixed(1);
             html = html.replace('[' + k + ']', percent);
         }
-        landElement.html(html);
+        $('#' + landProbabilitiesId).html(html);
     }
 
     function drawAllCharts() {
@@ -612,27 +625,35 @@
         });
     }
 
-    function chartLibraryLoaded() {
+    function refresh() {
         var chartData = getChartData();
-        addHighlightClasses(chartData, getSideboardData());
-        cacheColorPieData(chartData);
-        cacheManaCurveData(chartData);
-        cacheTypesPieData(chartData);
-        drawAllCharts();
-        setAllNonChartSections(chartData);
-        changeMoreSpansToButtons();
-        wireEvents();
+        if (chartData) {
+            addHighlightClasses(chartData, getSideboardData());
+            cacheColorPieData(chartData);
+            cacheManaCurveData(chartData);
+            cacheTypesPieData(chartData);
+            drawAllCharts();
+            setAllNonChartSections(chartData);
+        }
     }
 
-    if (!hasCharts()) {
-        setAllNonChartSections(getChartData());
-        return;
+    function chartLibraryLoaded() {
+        getLandProbabilityTemplate();
+        createCharts();
+        refresh();
+        changeMoreSpansToButtons();
+        wireEvents();
+        mw.hook('magicarena.chartsready').fire();
     }
 
     $.getScript('https://www.gstatic.com/charts/loader.js', function () {
         google.charts.load('current', { 'packages': ['corechart'] });
         google.charts.setOnLoadCallback(chartLibraryLoaded);
     });
+
+    return {
+        refresh: refresh
+    };
 
 })(jQuery);
 // End: Deck Charts
