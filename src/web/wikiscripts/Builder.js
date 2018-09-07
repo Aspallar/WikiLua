@@ -14,8 +14,6 @@
     'use strict';
     /*global mw, magicArena, tooltips, globalCardnames, _ */ // globalCardnames is only for local testing
 
-    console.log('Builder Y');
-
     if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-4-0'))
         return;
 
@@ -94,6 +92,10 @@
         getCasedName: function(name) {
             return this.names[name.toLowerCase()];
         },
+        isLand: function(name) {
+            var card = this.cards.find(function (card) {return card.name === name; });
+            return card.colorAndLand === 'L';
+        },
         getNames: function(filter) {
             var names = [];
             if (filter === null) {
@@ -117,7 +119,7 @@
         var latestCardName;
 
         function parseUrl(cardName) {
-            return '/api.php?format=json&action=parse&disablepp=true&prop=text&text=%5B%5BFile%3A[[cardname]].png%7Csize%3D160px%7Clink%3D%5D%5D'
+            return '/api.php?format=json&action=parse&disablepp=true&prop=text&text=%5B%5BFile%3A[[cardname]].png%7C223px%7Clink%3D%5D%5D'
                 .replace('[[cardname]]', encodeURIComponent(cardName));
         }
 
@@ -282,13 +284,19 @@
             return listText;
         }
 
+        function hasNonLands() {
+            return Object.keys(cards).some(function (name) {
+                return !allCards.isLand(name);
+            });
+        }
+
         return {
             addCards: addCards,
-            cards: cards,
             isEmpty: isEmpty,
             draw: drawAll,
             setCards: setCards,
-            text: text
+            text: text,
+            hasNonLands: hasNonLands
         };
 
     } // end CardList
@@ -340,6 +348,10 @@
             },
             setNew: function (isNew) {
                 isNewDeck = isNew;
+            },
+            deckHasNonLands: function() {
+                // TODO: replace this hack once data restructure done.
+                return deckCards.hasNonLands();
             }
         };
     } // end deck
@@ -577,11 +589,14 @@
             prop: 'text',
             text: text
         }, 'POST').done(function (response) {
-            var text = response.parse.text['*'];
-            deferred.resolve(text);
+            if (response && response.parse && response.parse.text) {
+                var text = response.parse.text['*'];
+                deferred.resolve(text);
+            } else {
+                deferred.reject('Unknown response from parse template');
+            }
         }).fail(function () {
-            // TODO: deal with fail
-            console.log('Parse error.');
+            deferred.reject('Network error while parsing template');
         });
         return deferred.promise();
     }
@@ -666,17 +681,37 @@
         filters.change();
     }
 
+    function showPreviewMessage(message, isError) {
+        var span = $('<span>').text(message);
+        if (isError) span.addClass('mdw-error');
+        $('#mdw-db-preview-message').html(span);
+        setTimeout(function () {
+            $('#mdw-db-preview-message').empty();
+        }, 3000);
+    }
+
     function onClickPreview() {
         /*jshint -W040 */ // allow old school jquery this
-        $(this).val('Update Preview');
-        $('#mdw-db-preview').show('fast');
-        var deckTemplate = '{{Deck|Name=Deck Preview\n|Deck=' + deck.getText() + '}}';
-        wikiParse(deckTemplate).done(function (deckHtml) {
-            var deckPreview = $('#mdw-db-deck-preview');
-            deckPreview.html(deckHtml).find('a').attr('target', '_blank');
-            tooltips.applyTooltips(deckPreview.get(0));
-            magicArena.charts.refresh();
-        });
+        if (deck.deckHasNonLands()) {
+            $(this).val('Update Preview');
+            var deckTemplate = '{{Deck|Name=Deck Preview\n|Deck=' + deck.getText() + '}}';
+            wikiParse(deckTemplate).done(function (deckHtml) {
+                var deckPreview = $('#mdw-db-deck-preview');
+                deckPreview.html(deckHtml).find('a').attr('target', '_blank');
+                tooltips.applyTooltips(deckPreview.get(0));
+                $('#mdw-db-preview').show('fast', function() {
+                    magicArena.charts.refresh();
+                });
+            }).fail(function (error) {
+                $('#mdw-db-preview-button').val('Preview Deck');
+                showPreviewMessage(error, true);
+                $('#mdw-db-preview').hide();
+            });
+        } else {
+            $(this).val('Preview Deck');
+            showPreviewMessage('The deck must contain at least one non-land card for deck preview.');
+            $('#mdw-db-preview').hide();
+        }
     }
 
     function createForm() {
@@ -718,9 +753,9 @@
                       <input type="checkbox" id="mdw-db-colorless" checked value="C">\
                       <label for="mdw-db-colorless">Colorless</label><br>');
         $('#mdw-db-preview-button').replaceWith(
-                $('<input type="button" id="mdw-db-preview-button" value="Preview Deck" disabled>')
-                    .click(onClickPreview)
-            );
+            $('<input type="button" id="mdw-db-preview-button" value="Preview Deck" disabled>')
+                .click(onClickPreview)
+        );
         mw.hook('magicarena.chartsready').add(function () {
             $('#mdw-db-preview-button').prop('disabled', false);
         });
@@ -749,7 +784,7 @@
     function initialize() {
         globalNavHeight = getGlobaNavHeight();
         $('#mdw-db-usefullinks').find('a').attr('target', '_blank');
-        cardHover = $('<img id="mdw-card-hover" class="mdw-card-hover" />').prependTo('body');
+        cardHover = $('<img id="mdw-card-hover" class="mdw-cardimg mdw-card-hover" />').prependTo('body');
         throbber = new Throbber();
         deck = new Deck();
         imageSource = new ImageSource();
