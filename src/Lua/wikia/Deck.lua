@@ -93,4 +93,14 @@ function p.GetBanned()
     return banned
 end
 
+function p.Playable()
+    for entry in p.All() do
+        if not entry[2].Playable then return false end
+    end
+    for _, entry in pairs(p.Sideboard) do
+        if not entry[2].Playable then return false end
+    end
+    return true
+end
+
 return p

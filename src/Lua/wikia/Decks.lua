@@ -33,15 +33,22 @@ local function CardNumberNumericPart(cardNumber)
     return string.match(string.sub(cardNumber, 4), "%d+")
 end
 
+local function CardTemplate(card)
+    local template
+    if not card.Playable then
+        template = "{{CardUnplayable|"
+    elseif card.Banned then
+        template = "{{CardWarning|"
+    else
+        template = "{{Card|"
+    end
+    return template .. card.Name .. "}}"
+end
+
 local function CardList(cards)
     local s = ""
     for i = 1, #cards do
-        if (cards[i][2].Playable) then
-            local template = cards[i][2].Banned and " {{CardWarning|" or " {{Card|"
-            s = s .. cards[i][1] .. template .. cards[i][2].Name .. "}}<br />" .. "\n"
-        else
-            s = s .. cards[i][1] .. " {{CardTooltip|" .. cards[i][2].Name .. "}}<br />" .. "\n"
-        end
+        s = s .. string.format("%s %s<br />\n", cards[i][1], CardTemplate(cards[i][2]))
     end
     return s
 end
@@ -220,11 +227,15 @@ local function BannedSection()
     return "{{Banned|" .. text .. "}}[[Category:Decks with banned cards]]\n"
 end
 
+local function PlayableSection()
+    return deck.Playable() and "" or "{{UnplayableDeck}}"
+end
+
 local function GenerateDeckFromList(name, list)
     ParseDeck(list)
     local cardList, altCardList = GetAdditionalData()
     local sideboard = GetSideboardData(altCardList)
-    return  BannedSection() .. DeckListSection(name) ..
+    return PlayableSection() .. BannedSection() .. DeckListSection(name) ..
         SideboardSection() ..
         DataSection(json.encode(cardList), "mdw-chartdata-pre") ..
         DataSection(json.encode(altCardList), "mdw-alt-carddata") ..
