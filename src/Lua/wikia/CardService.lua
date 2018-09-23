@@ -144,6 +144,12 @@ function p.GetByNumber(cardnumber)
     end
 end
 
+function p.GetOtherByNumber(cardnumber)
+    for i = 1, totalNumberOfOtherCards do
+        if otherCards[i].CardNumber == cardnumber then return otherCards[i] end
+    end
+end
+
 function p.GetByCriteria(criteria)
     local current = 1
     criteria = PrepareCriteria(criteria)
