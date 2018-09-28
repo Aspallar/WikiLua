@@ -1,7 +1,7 @@
 local data = require("data\\datacards")
 local otherData = require("data\\othercards")
 local rulings = require("data\\rulings")
-
+local otherRulings = require("data\\otherrulings")
 
 if originalRequire then
 	print("ERROR: (wikienv.lua) originalRequire already defined")
@@ -38,6 +38,9 @@ function mw.loadData(tableName)
     if tableName == "Module:Data/Rulings" then
        return rulings
     end
+    if tableName == "Module:Data/OtherRulings" then
+       return otherRulings
+    end
     if tableName == "Module:CompRulesText" then
        return require(tableName)
     end
@@ -71,6 +74,11 @@ end
 
 function mw.text.encode(s)
 	return s
+end
+
+mw.uri = {}
+function mw.uri.decode(s)
+    return s
 end
 
 originalRequire('mwhtml').setupInterface({

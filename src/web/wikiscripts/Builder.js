@@ -2,7 +2,7 @@
 // Implements a deck builder/editor to allow users to edit deck definitions
 // without having to edit wikitext
 //
-// Version 1.4.0
+// Version 1.4.1
 // Author: Aspallar
 //
 // Beta early prototype release.
@@ -14,7 +14,7 @@
     'use strict';
     /*global mw, magicArena, tooltips, globalCardnames, _ */ // globalCardnames is only for local testing
 
-    if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-4-0'))
+    if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-4-1'))
         return;
 
     var globalNavHeight;
@@ -94,7 +94,7 @@
         },
         isLand: function(name) {
             var card = this.cards.find(function (card) {return card.name === name; });
-            return card.colorAndLand === 'L';
+            return card ? card.colorAndLand === 'L' : true;
         },
         getNames: function(filter) {
             var names = [];
@@ -709,7 +709,7 @@
             });
         } else {
             $(this).val('Preview Deck');
-            showPreviewMessage('The deck must contain at least one non-land card for deck preview.');
+            showPreviewMessage('The deck must contain at least one current non-land card for deck preview.');
             $('#mdw-db-preview').hide();
         }
     }

@@ -3,17 +3,25 @@ local utils = require("Module:TemplateUtils")
 local p = {}
 
 local cards = utils.RecreateTable(mw.loadData("Module:Data/Cards"))
-local otherCards = utils.RecreateTable(mw.loadData("Module:Data/OtherCards"))
+local totalCards = #cards
 
-local totalNumberOfCards = #cards
-local totalNumberOfOtherCards = #otherCards
-
-local gsub, match, find, lower = string.gsub, string.match, string.find, string.lower
+local gsub, match, find, lower, upper = string.gsub, string.match, string.find, string.lower, string.upper
 
 local function CaseInsensitivePattern(s)
     s = gsub(s, "%-", "%%-")
-    s = gsub(s, "%a", function (c) return string.format("[%s%s]", string.lower(c), string.upper(c)) end)
+    s = gsub(s, "%a", function (c) return string.format("[%s%s]", lower(c), upper(c)) end)
     return s
+end
+
+local GetOtherCards
+do
+    local otherCards = nil
+    GetOtherCards = function()
+        if otherCards == nil then
+            otherCards = utils.RecreateTable(mw.loadData("Module:Data/OtherCards"))
+        end
+        return otherCards
+    end
 end
 
 local function Contains(t, item)
@@ -110,14 +118,15 @@ end
 
 function p.GetByNameIgnoreCase(name)
     name = "^" .. CaseInsensitivePattern(name) .. "$"
-    for i = 1, totalNumberOfCards do
+    for i = 1, totalCards do
        if match(cards[i].Name, name) then
            local foundCard = utils.MakeTableWriteable(cards[i])
            foundCard.Playable = true
            return foundCard
        end
     end
-    for i = 1, totalNumberOfOtherCards do
+    local otherCards = GetOtherCards()
+    for i = 1, #otherCards do
        if match(otherCards[i].Name, name) then
            local foundOtherCard = utils.MakeTableWriteable(otherCards[i]);
            foundOtherCard.Playable = false
@@ -127,25 +136,27 @@ function p.GetByNameIgnoreCase(name)
 end
 
 function p.GetByName(name)
-    for i = 1, totalNumberOfCards do
+    for i = 1, totalCards do
         if cards[i].Name == name then return cards[i] end
     end
 end
 
 function p.GetOtherByName(name)
-    for i = 1, totalNumberOfOtherCards do
+    local otherCards = GetOtherCards()
+    for i = 1, #otherCards do
         if otherCards[i].Name == name then return otherCards[i] end
     end
 end
 
 function p.GetByNumber(cardnumber)
-    for i = 1, totalNumberOfCards do
+    for i = 1, totalCards do
         if cards[i].CardNumber == cardnumber then return cards[i] end
     end
 end
 
 function p.GetOtherByNumber(cardnumber)
-    for i = 1, totalNumberOfOtherCards do
+    local otherCards = GetOtherCards()
+    for i = 1, #otherCards do
         if otherCards[i].CardNumber == cardnumber then return otherCards[i] end
     end
 end
@@ -154,12 +165,27 @@ function p.GetByCriteria(criteria)
     local current = 1
     criteria = PrepareCriteria(criteria)
     return function()
-        while current <= totalNumberOfCards do
+        while current <= totalCards do
             local card = cards[current]
             current = current + 1
             if MeetsCriteria(card, criteria) then return card end
         end
     end
 end
+
+function p.GetOtherByCriteria(criteria)
+    local current = 1
+    local otherCards = GetOtherCards()
+    local total = #otherCards
+    criteria = PrepareCriteria(criteria)
+    return function()
+        while current <= total do
+            local card = otherCards[current]
+            current = current + 1
+            if MeetsCriteria(card, criteria) then return card end
+        end
+    end
+end
+
 
 return p
