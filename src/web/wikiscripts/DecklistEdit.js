@@ -1,7 +1,7 @@
 // ==========================================================================
 // DecklistEdit
 //
-// Version 1.2.0
+// Version 1.3.0
 // Author: Aspallar
 //
 // Provides a user friendly way to add a deck to a deck list.
@@ -13,7 +13,7 @@
     /*global mw */
     'use strict';
 
-    if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('data-decklistedit-1-2-0'))
+    if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('data-decklistedit-1-3-0'))
         return;
 
     var config;
@@ -254,6 +254,12 @@
         return text;
     }
 
+    function editSummary(entry) {
+        return 'Adding [[Decks/' + entry.link + ']] as ' +
+            entry.name + ' to ' + '[[' + config.decklist + ']] ' +
+            ' via [[' + mw.config.get('wgPageName') + '|' + mw.config.get('wgTitle') + ']]';
+    }
+
     function addToDecklists(entry) {
 
         var deferred = $.Deferred();
@@ -277,7 +283,7 @@
                 content = content.substr(0, insertPos) + deckRow(entry) + content.substr(insertPos);
                 wikiApiCall({
                     minor: 'yes',
-                    summary: 'adding ' + entry.name + ' via deck list editor',
+                    summary: editSummary(entry),
                     action: 'edit',
                     title: config.decklist,
                     basetimestamp: page.revisions[0].timestamp,
