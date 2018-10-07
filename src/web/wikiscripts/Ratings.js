@@ -1,8 +1,8 @@
 // ==========================================================================
 // Start: Deck Ratings
 //    1. Supports the rating 'stars' on deck pages
-//    2. Updates the rating column on the decklists page
-// Version 1.1.0
+//    2. Updates the rating column on deck tables
+// Version 1.2.1
 // Author: Aspallar
 //
 // ** Please do not edit this code directly in the wikia.
@@ -14,8 +14,8 @@
     /* global mw */
     'use strict';
 
-    if ((document.getElementById('mdw-rating') === null && $('.mdw-decklist').length === 0) ||
-            $('#mdw-disabled-js').attr('data-ratings-1-1-0'))
+    if ((document.getElementById('mdw-rating') === null && $('.mdw-ratingtable').length === 0) ||
+         $('#mdw-disabled-js').attr('data-ratings-1-2-1'))
         return;
 
     var ratingsDataPageName = 'Ratings:DeckRatings';
@@ -163,7 +163,7 @@
             updateRatingUiValue(calcScore(rating));
             wikiApiCall({
                 minor: 'yes',
-                summary: 'Rating for ' + deckName + ' (' + score + ')',
+                summary: 'Rating for [[Decks/' + deckName + '|' + deckName + ']] (' + score + ')',
                 action: 'edit',
                 title: ratingsDataPageName,
                 basetimestamp: page.revisions[0].timestamp,
@@ -234,25 +234,46 @@
         addDataRatingAttributes('.mdw-rating');
     }
 
-    function getDeckNames(decklists) {
+    function getDeckNames(table) {
         var names = [];
-        decklists.find('td:nth-child(1) a').each(function () {
+        table.find('td:nth-child(' + table.attr('data-deckcol') + ') a').each(function () {
             names.push(stripDeckPrefix($(this).attr('title')));
         });
         return names;
     }
 
+    function validateRatingsTable(table) {
+        var digits = /^\d+$/;
+        var messages = ['The following mdw-ratingrable table contains errors.'];
+        var attr = table.attr('data-deckcol');
+        if (attr === undefined)
+            messages.push('Missing data-deckcol attribute.');
+        else if (!digits.test(attr))
+            messages.push('Invalid data-deckcol attribute, value must be an integer.');
+        attr = table.attr('data-ratingcol');
+        if (attr === undefined)
+            messages.push('Missing data-ratingcol attribute.');
+        else if (!digits.test(attr))
+            messages.push('Invalid data-ratingcol attribute, value must be an integer.');
+        return messages.length === 1 ? null : messages.join(' ');
+    }
+
     function updateRatingColumn() {
         fetchRatingData(function (data) {
-            var deckRow = 0;
-            var decklists = $('.mdw-decklist');
-            var names = getDeckNames(decklists);
-            decklists.find('td:nth-child(6)').each(function () {
-                var rating = findRating(names[deckRow], data);
-                if (rating !== null) {
-                    $(this).html(calcScore(rating));
+            $('.mdw-ratingtable').each(function () {
+                var table = $(this);
+                var deckRow = 0;
+                var errors = validateRatingsTable(table);
+                if (errors === null) {
+                    var deckNames = getDeckNames(table);
+                    table.find('td:nth-child(' + table.attr('data-ratingcol') + ')').each(function () {
+                        var rating = findRating(deckNames[deckRow++], data);
+                        if (rating !== null)
+                            $(this).text(calcScore(rating));
+                    });
+                } else {
+                    table.before($('<p class="mdw-error">').text(errors));
                 }
-                ++deckRow;
             });
         });
     }
@@ -269,7 +290,7 @@
             initializeStars();
         }
         else {
-            // we are on the decklists page
+            // we are on a page with a ratings table
             updateRatingColumn();
         }
     });
@@ -277,3 +298,4 @@
 }(jQuery));
 // End: Deck Ratings
 // ==========================================================================
+
