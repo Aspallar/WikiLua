@@ -7,7 +7,7 @@ local json = require("Dev:Json")
 local p = {}
 
 local function ParseCardEntry(entryLine)
-    local pos = string.find(entryLine, "///")
+    local pos = string.find(entryLine, "//")
     if pos == nil then
         pos = string.find(entryLine, "%(")
     end
@@ -102,9 +102,15 @@ end
 
 local function ExportCardName(card)
     if card.CardNumber and string.find(card.CardNumber, "a") ~= nil then
-        local card2 = cardService.GetByNumber(string.gsub(card.CardNumber, "a", "b"))
-        if card2 ~= nil and card2.Text ~= nil and string.find(card2.Text, "Aftermath") ~= nil then
-            return card.Name .. " /// " .. card2.Name
+        local card2
+        local otherCardNumber = string.gsub(card.CardNumber, "a", "b")
+        if card.Playable then
+            card2 = cardService.GetByNumber(otherCardNumber)
+        else
+            card2 = cardService.GetOtherByNumber(otherCardNumber)
+        end
+        if card2 ~= nil and (card.SetCode == "GRN" or (card2.Text ~= nil and string.find(card2.Text, "Aftermath") ~= nil)) then
+            return card.Name .. " // " .. card2.Name
         end
     end
     return card.Name
