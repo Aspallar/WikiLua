@@ -2,7 +2,7 @@
 // ==========================================================================
 // Start: Sample Hand
 // Implements sample hand generation for deck articles
-// Version 1.3.1
+// Version 1.3.2
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wikia.
@@ -15,12 +15,12 @@
 
     // do nothing on articles with no random hand or this version is disabled on page
     if (document.getElementById('mdw-random-hand') === null ||
-            $('#mdw-disabled-js').attr('data-samplehand-1-3-1')) {
+            $('#mdw-disabled-js').attr('data-samplehand-1-3-2')) {
         return;
     }
 
     function adjustName(name) {
-        var pos = name.indexOf('///');
+        var pos = name.indexOf('//');
         return pos === -1 ? name : name.substring(0, pos - 1);
     }
 
