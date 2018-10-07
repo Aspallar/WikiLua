@@ -8,7 +8,8 @@
 // ** Please dont edit this code directly in the wikia.
 // ** Instead use the git repository https://github.com/Aspallar/WikiLua
 //
-(function ($) {
+window.magicArena = window.magicArena || {};
+window.magicArena.deckExport = window.magicArena.deckExport || (function ($) {
     'use strict';
 
     // don't run if wrong page or this version is disabled on page
@@ -335,5 +336,8 @@
     $(document).ready(function() {
         ui = new Ui().start();
     });
+
+    return {
+        refresh: function
 
 }(jQuery));
