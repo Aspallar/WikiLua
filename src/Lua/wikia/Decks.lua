@@ -212,8 +212,12 @@ local function ParseDeck(list)
     end
 end
 
-local function InvalidCardsCategory()
-    return #deck.errors > 0 and "[[Category: Decks with invalid cards]]" or ""
+local function OtherCategories()
+    local cats = #deck.errors > 0 and "[[Category: Decks with invalid cards]]" or ""
+    if deck.HasMultiples() then
+        cats = cats .. "[[Category: Multiple Card Entry]]"
+    end
+    return cats
 end
 
 local function BannedSection()
@@ -246,7 +250,7 @@ local function GenerateDeckFromList(name, list)
         DataSection(json.encode(cardList), "mdw-chartdata-pre") ..
         DataSection(json.encode(altCardList), "mdw-alt-carddata") ..
         DataSection(json.encode(sideboard), "mdw-sideboard-data") ..
-        InvalidCardsCategory()
+        OtherCategories()
 end
 
 function p.TestGenerateDeckFromList(name,inputList)

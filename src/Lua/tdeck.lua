@@ -28,6 +28,7 @@ local decks = require("wikia\\decks")
 local inputList = [=[
 20     Mountain
 1 Ramunap Ruins
+1 Ramunap Ruins
 --
 1 Glint-Sleeve Siphoner 
 ]=]

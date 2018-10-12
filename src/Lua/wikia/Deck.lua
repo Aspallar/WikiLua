@@ -1,6 +1,7 @@
 local p = {}
 
 local banned = {}
+local hasMultiples = false
 
 p.Land = {}
 p. Creature = {}
@@ -33,6 +34,18 @@ local function TableContains(tbl, item)
     return false
 end
 
+local function Add(cardTable, amount, card)
+    local name = card.Name
+    for i = 1, #cardTable do
+        if cardTable[i][2].Name == name then
+            cardTable[i][1] = cardTable[i][1] + amount
+            hasMultiples = true
+            return
+        end
+    end
+    table.insert(cardTable, {amount, card})
+end
+
 local function UpdateBanned(card)
     if card.Banned then
         for _, bannedFormat in pairs(card.Banned) do
@@ -62,19 +75,19 @@ end
 function p.AddCard(amount, card)
     UpdateBanned(card)
     if TableContains(card.Types,"Land") then
-        table.insert(p.Land, {amount, card})
+        Add(p.Land, amount, card)
     elseif TableContains(card.Types,"Creature") then
-        table.insert(p.Creature, {amount, card})
+        Add(p.Creature, amount, card)
     elseif TableContains(card.Types,"Artifact") then
-        table.insert(p.Artifact, {amount, card})
+        Add(p.Artifact, amount, card)
     elseif TableContains(card.Types,"Enchantment") then
-         table.insert(p.Enchantment, {amount, card})
+        Add(p.Enchantment, amount, card)
     elseif TableContains(card.Types,"Instant") then
-         table.insert(p.Instant, {amount, card})
+        Add(p.Instant, amount, card)
     elseif TableContains(card.Types,"Sorcery") then
-         table.insert(p.Sorcery, {amount, card})
+        Add(p.Sorcery, amount, card)
     elseif TableContains(card.Types,"Planeswalker") then
-        table.insert(p.Planeswalker, {amount, card})
+        Add(p.Planeswalker, amount, card)
     else
         table.insert(p.errors, {amount, {Name=card.Name} })
     end
@@ -82,7 +95,7 @@ end
 
 function p.AddSideboard(amount, card)
     UpdateBanned(card)
-    table.insert(p.Sideboard, {amount, card})
+    Add(p.Sideboard, amount, card)
 end
 
 function p.AddError(amount, name)
@@ -92,6 +105,11 @@ end
 function p.GetBanned()
     return banned
 end
+
+function p.HasMultiples()
+    return hasMultiples
+end
+
 
 function p.Playable()
     for entry in p.All() do
