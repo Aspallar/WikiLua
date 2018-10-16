@@ -2,7 +2,7 @@
 // Implements a deck builder/editor to allow users to edit deck definitions
 // without having to edit wikitext
 //
-// Version 1.4.1
+// Version 1.4.2
 // Author: Aspallar
 //
 // Beta early prototype release.
@@ -14,7 +14,7 @@
     'use strict';
     /*global mw, magicArena, tooltips, globalCardnames, _ */ // globalCardnames is only for local testing
 
-    if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-4-1'))
+    if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-4-2'))
         return;
 
     var globalNavHeight;
@@ -608,8 +608,11 @@
         text.split('\n').forEach(function (line) {
             if (line.substring(0, 2) !== '--') {
                 var card = parseCardEntry(line);
-                if (card !== null)
-                    current[card.name] = card.amount;
+                if (card !== null) {
+                    if (!(card.name in current))
+                        current[card.name] = 0;
+                    current[card.name] += card.amount;
+                }
             } else {
                 current = sideboardCards;
             }
