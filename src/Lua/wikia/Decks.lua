@@ -245,12 +245,14 @@ local function GenerateDeckFromList(name, list)
     ParseDeck(list)
     local cardList, altCardList = GetAdditionalData()
     local sideboard = GetSideboardData(altCardList)
-    return PlayableSection() .. BannedSection() .. DeckListSection(name) ..
+    return string.format("<div class=\"mdw-deckbox\"><span class=\"mdw-deckbox-count\">%d Cards</span><div style=\"display:inline-block; float:right;\">back to [[Decklists]]</div><hr />%s{{Clear}}</div>",
+        deck.CardTotal(),
+        PlayableSection() .. BannedSection() .. DeckListSection(name) ..
         SideboardSection() ..
         DataSection(json.encode(cardList), "mdw-chartdata-pre") ..
         DataSection(json.encode(altCardList), "mdw-alt-carddata") ..
         DataSection(json.encode(sideboard), "mdw-sideboard-data") ..
-        OtherCategories()
+        OtherCategories())
 end
 
 function p.TestGenerateDeckFromList(name,inputList)

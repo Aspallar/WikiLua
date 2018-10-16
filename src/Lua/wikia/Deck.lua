@@ -2,6 +2,7 @@ local p = {}
 
 local banned = {}
 local hasMultiples = false
+local numCardsInDeck = 0
 
 p.Land = {}
 p. Creature = {}
@@ -74,6 +75,7 @@ end
 
 function p.AddCard(amount, card)
     UpdateBanned(card)
+    numCardsInDeck = numCardsInDeck + amount
     if TableContains(card.Types,"Land") then
         Add(p.Land, amount, card)
     elseif TableContains(card.Types,"Creature") then
@@ -110,6 +112,9 @@ function p.HasMultiples()
     return hasMultiples
 end
 
+function p.CardTotal()
+    return numCardsInDeck
+end
 
 function p.Playable()
     for entry in p.All() do
