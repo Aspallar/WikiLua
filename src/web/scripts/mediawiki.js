@@ -31,8 +31,12 @@ mw.util.getParamValue = function(paramName) {
     // return 'Test Deck - Bad Deck';
     // return null;
 }
-mw.util.getUrl = function(title) {
-    return title.replace(/ /g, '_');
+// mw.util.getUrl = function(title) {
+//     return title.replace(/ /g, '_');
+// }
+
+mw.util.getUrl = function (page, query) {
+    return mw.config.get('wgArticlePath').replace('$1', '') + page + (query ? '?' + $.param(query) : '');
 }
 
 mw.html = {};
@@ -59,6 +63,9 @@ tooltips = {};
 tooltips.applyTooltips = function (el) {
     // do nothing
 }
+
+
+
 
 // mw.hook = function (eventname) {
 //     var hooks = {};

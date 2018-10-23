@@ -1,5 +1,6 @@
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Test DecklistEdit</title>
     <link rel="stylesheet" type="text/css" href="wikicss/common.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
@@ -8,6 +9,36 @@
         body {
             color: green;
         }
+
+        .mdw-radiobuttons label {
+            float:left;
+            width:70px;
+            margin:4px;
+            background-color:#EFEFEF;
+            border-radius:4px;
+            border:1px solid #D0D0D0;
+            overflow:auto;
+        }
+
+        .mdw-radiobuttons label span {
+            text-align:center;
+            font-size: small;
+            padding:2px 0px;
+            display:block;
+        }
+
+        .mdw-radiobuttons label input {
+            position:absolute;
+            display: none;
+            /*top:-20px;*/
+        }
+
+        .mdw-radiobuttons input:checked + span {
+            background-color:#1a52ac;
+            color:#F7F7F7;
+        }
+
+
     </style>
 </head>
 <body>
@@ -19,7 +50,14 @@
         <span id="mdw-import-deckname-span"></span>&nbsp;<span id="mdw-import-deckname-error" class="mdw-error"></span>
     </div>
     <div>
-        Paste the deck export from arena into the box below.<br />
+        Select the language your deck export is in. Only english and french are currently suported,
+        other languages will be added in the future.
+        <div class="mdw-radiobuttons">
+            <span id="mdw-lang-span" data-disabled="de;it;pt-br;es;"></span>
+        </div>
+        <div style="clear:both;"></div>
+        Paste the deck export from arena into the box below.
+        <br />
         <span id="mdw-import-deckdef-span"></span><br />
         <span id="mdw-import-deckdef-error" class="mdw-error"></span>
     </div>

@@ -1,7 +1,7 @@
 // ==========================================================================
 // ImportDeck
 //
-// Version 1.2.0
+// Version 1.3.0
 // Author: Aspallar
 //
 // Provides a user friendly way to import a deck from Magic Arena
@@ -14,18 +14,11 @@
     /* global mw*/
     'use strict';
 
-    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-2-0'))
+    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-3-0'))
         return;
 
     var newDeckTemplate = '';
-
-    function getBaseUrl() {
-        return mw.config.get('wgArticlePath').replace('$1', '');
-    }
-
-    function buildUrl(page, query) {
-        return getBaseUrl() + page + (query ? '?' + $.param(query) : '');
-    }
+    var translation = null;
 
     function removeIncludes(contents) {
         return contents.replace(/<[\/]?noinclude>|<[\/]?includeonly>/g, '');
@@ -61,19 +54,28 @@
         $('#mdw-import-badentries').hide();
     }
 
-    function disableButton() {
-        $('#mdw-import-button').prop('disabled', true);
+    function controlsDisabled(disabled) {
+        $('#mdw-import-button').prop('disabled', disabled);
+        $('input[name="mdw-import-lang"').prop('disabled', disabled);
     }
 
-    function enableButton() {
-        $('#mdw-import-button').prop('disabled', false);
+    function disableControls() {
+        controlsDisabled(true);
     }
 
-    function getNewDeckTemplate() {
+    function enableControls() {
+        controlsDisabled(false);
+    }
+
+    function fetchNewDeckTemplate() {
         // var deferred = $.Deferred();
         // deferred.resolve('start/n$1/nend<includeonly>');
         // return deferred.promise();
-        return $.get(buildUrl('Template:NewDeck', {action: 'raw'}));
+        return $.get(mw.util.getUrl('Template:NewDeck', {action: 'raw'}));
+    }
+
+    function fetchTranslation(langCode) {
+        return $.get(mw.util.getUrl('MediaWiki:Custom-Cards-' + langCode, {action: 'raw'}));
     }
 
     function displayError(name, message) {
@@ -109,7 +111,7 @@
     }
 
     function handleCreateError(error) {
-        enableButton();
+        enableControls();
         if (error.code === 'articleexists') {
             displayError('deckname', 'Deck name already in use.');
             $('#mdw-import-deckname').focus();
@@ -125,16 +127,29 @@
         return s.replace(/[\u2018\u2019]/g, '\'');
     }
 
+    function translateCard(entry) {
+        if (translation === null)
+            return entry;
+        var match = /(\d+)\s+(.*?)(?=\s+\/\/|\s+\(|$)/.exec(entry);
+        if (!match)
+            return entry;
+        var translatedName = translation[match[2].toLowerCase().trim()];
+        if (translatedName === undefined)
+            return entry;
+        return match[1] + ' ' + translatedName;
+    }
+
     function getDeckText(deckEntries) {
         var fixedEntries = [];
         deckEntries.forEach(function (entry) {
-            fixedEntries.push(replaceCurlyQuotesWithApostrophe(entry));
+            var translatedEntry = translateCard(replaceCurlyQuotesWithApostrophe(entry));
+            fixedEntries.push(translatedEntry);
         });
         return fixedEntries.join('\n');
     }
 
     function createDeckPage(name, deckEntries) {
-        disableButton();
+        disableControls();
         showWorking();
         mw.loader.using('mediawiki.api').then(function () {
             var content = newDeckTemplate.replace('$1', getDeckText(deckEntries));
@@ -157,11 +172,10 @@
                 unexpectedError(code + (code === 'http' ? ' ' + result.textStatus : ''));
             });
         });
-
     }
 
     function parseDeckDef(deckdef) {
-        var maxLength = $("#mdw-import-deck").attr('data-maxcardlength') || 40;
+        var maxLength = $('#mdw-import-deck').attr('data-maxcardlength') || 40;
         var result = { validEntries: [], badEntries: [], sideboardCount: 0 };
         deckdef.split('\n').forEach(function (entry) {
             entry = entry.trim();
@@ -169,7 +183,7 @@
                 ++result.sideboardCount;
                 result.validEntries.push('--- sideboard ---');
             } else if (entry.length > maxLength) {
-                result.badEntries.push(entry.substring(0, maxLength) + '... (too long)')
+                result.badEntries.push(entry.substring(0, maxLength) + '... (too long)');
             } else if (/^\d+\s+.*\S.*$/.test(entry)) {
                 result.validEntries.push(entry);
             } else {
@@ -195,14 +209,69 @@
         }
     }
 
+    function showTranslationLoadFail(langCode) {
+        $.showCustomModal(
+            'Load Error',
+            '<p>Failed to load translation data (' + langCode + '). Defaulting back to English.</p>', {
+            id: 'mdw-loadfail-dialog',
+            width: 350,
+            buttons: [{
+                id: 'mdw-loadfail-dialog-ok',
+                message: 'OK',
+                defaultButton: true,
+                handler: function () {
+                    $('#mdw-loadfail-dialog').closeModal();
+                }
+            }]
+        });
+    }
+
+    function parseTranslation(data) {
+        var trans = {};
+        data.split('\n').forEach(function (entry) {
+            var match = /^(.*)?\|(.*)$/.exec(entry);
+            if (match)
+                trans[match[1].toLowerCase()] = match[2];
+        });
+        return trans;
+    }
+
+    function changeLanguage() {
+        /*jshint -W040 */ // allow old school jquery use of this 
+        var langCode = $(this).val();
+        if (langCode === 'en') {
+            translation = null;
+        } else {
+            disableControls();
+            fetchTranslation(langCode).done(function (data) {
+                translation = parseTranslation(data);
+                enableControls();
+            }).fail(function () {
+                showTranslationLoadFail(langCode);
+                $('#mdw-import-english').prop('checked', true);
+                translation = null;
+                enableControls();
+            });
+        }
+    }
+
     function createForm() {
+        /*jshint multistr:true*/
         $('#mdw-import-deckname-span')
             .append('<input type="text" id="mdw-import-deckname" size="40" maxlength="100" placeholder="Deck name" />');
         $('#mdw-import-deckdef-span')
-            .append('<textarea id="mdw-import-deckdef" cols="40" rows="25"></textarea>');
+            .append('<textarea id="mdw-import-deckdef" cols="60" rows="25"></textarea>');
         $('#mdw-import-button-span')
             .append('<input type="button" id="mdw-import-button" value="Import Deck" />')
             .click(clickImport);
+        var languages = $('<label><input type="radio" name="mdw-import-lang" id="mdw-import-english" checked value="en"><span>English</span></label>\
+            <label><input type="radio" name="mdw-import-lang" value="de"><span>Deutsche</span></label>\
+            <label><input type="radio" name="mdw-import-lang" value="es"><span>Español</span></label>\
+            <label><input type="radio" name="mdw-import-lang" value="fr"><span>Français</span></label>\
+            <label><input type="radio" name="mdw-import-lang" value="it"><span>Italiano</span></label>\
+            <label><input type="radio" name="mdw-import-lang" value="pt-br"><span>Português</span></label>');
+        languages.find('input[name="mdw-import-lang"]').change(changeLanguage);
+        $('#mdw-lang-span').replaceWith(languages);
     }
 
     function initialize() {
@@ -210,7 +279,7 @@
             src: mw.config.get('stylepath') + '/common/images/ajax.gif'
         }));
         showWorking();
-        getNewDeckTemplate().done(function (template) {
+        fetchNewDeckTemplate().done(function (template) {
             newDeckTemplate = removeIncludes(template);
             createForm();
             hideWorking();
