@@ -14,6 +14,8 @@
     /* global mw*/
     'use strict';
 
+    console.log('Deck Import Z');
+
     if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-3-0'))
         return;
 
@@ -148,11 +150,14 @@
         return fixedEntries.join('\n');
     }
 
-    function createDeckPage(name, deckEntries) {
+    function createDeckPage(name, deckEntries, originalText) {
         disableControls();
         showWorking();
         mw.loader.using('mediawiki.api').then(function () {
             var content = newDeckTemplate.replace('$1', getDeckText(deckEntries));
+            if (originalText) {
+                content += '\n<!-- Original Deck Text\n' + originalText + '-->\n';
+            }
             var title = 'Decks/' + name;
             new mw.Api().post({
                 action: 'edit',
@@ -199,13 +204,14 @@
         var nameValid = validateDeckName() ;
         var deckdefValid = validateDeckDef();
         if (deckdefValid) {
-            var result = parseDeckDef($('#mdw-import-deckdef').val().trim());
+            var text = $('#mdw-import-deckdef').val().trim();
+            var result = parseDeckDef(text);
             if (result.badEntries.length > 0)
                 showBadEntries(result.badEntries);
             if (result.sideboardCount > 1) 
                 displayError('deckdef', 'Import contains more than one sideboard.');
             if (nameValid && result.badEntries.length === 0 && result.sideboardCount <= 1)
-                createDeckPage($('#mdw-import-deckname').val(), result.validEntries);
+                createDeckPage($('#mdw-import-deckname').val(), result.validEntries, translation ? text : null);
         }
     }
 
@@ -265,7 +271,7 @@
             .append('<input type="button" id="mdw-import-button" value="Import Deck" />')
             .click(clickImport);
         var languages = $('<label><input type="radio" name="mdw-import-lang" id="mdw-import-english" checked value="en"><span>English</span></label>\
-            <label><input type="radio" name="mdw-import-lang" value="de"><span>Deutsche</span></label>\
+            <label><input type="radio" name="mdw-import-lang" value="de"><span>Deutsch</span></label>\
             <label><input type="radio" name="mdw-import-lang" value="es"><span>Español</span></label>\
             <label><input type="radio" name="mdw-import-lang" value="fr"><span>Français</span></label>\
             <label><input type="radio" name="mdw-import-lang" value="it"><span>Italiano</span></label>\
