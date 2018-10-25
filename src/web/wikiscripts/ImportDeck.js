@@ -1,7 +1,7 @@
 // ==========================================================================
 // ImportDeck
 //
-// Version 1.3.0
+// Version 1.3.1
 // Author: Aspallar
 //
 // Provides a user friendly way to import a deck from Magic Arena
@@ -14,9 +14,7 @@
     /* global mw*/
     'use strict';
 
-    console.log('Deck Import Z');
-
-    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-3-0'))
+    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-3-1'))
         return;
 
     var newDeckTemplate = '';
@@ -108,8 +106,7 @@
     }
 
     function redirectToTitle(title) {
-        var url = mw.config.get('wgArticlePath').replace('$1', title);
-        window.location = url;
+        window.location = mw.util.getUrl(title);
     }
 
     function handleCreateError(error) {
@@ -129,6 +126,12 @@
         return s.replace(/[\u2018\u2019]/g, '\'');
     }
 
+    function correctCardName(name) {
+        return replaceCurlyQuotesWithApostrophe(name)
+            .replace(/\/+/g, ' // ')
+            .replace(/\s\s+/g, ' ');
+    }
+
     function translateCard(entry) {
         if (translation === null)
             return entry;
@@ -142,22 +145,19 @@
     }
 
     function getDeckText(deckEntries) {
-        var fixedEntries = [];
+        var translated = [];
         deckEntries.forEach(function (entry) {
-            var translatedEntry = translateCard(replaceCurlyQuotesWithApostrophe(entry));
-            fixedEntries.push(translatedEntry);
+            translated.push(translateCard(entry));
         });
-        return fixedEntries.join('\n');
+        return translated.join('\n');
     }
 
     function createDeckPage(name, deckEntries, originalText) {
         disableControls();
         showWorking();
         mw.loader.using('mediawiki.api').then(function () {
-            var content = newDeckTemplate.replace('$1', getDeckText(deckEntries));
-            if (originalText) {
-                content += '\n<!-- Original Deck Text\n' + originalText + '-->\n';
-            }
+            var content = newDeckTemplate.replace('$1', getDeckText(deckEntries)) +
+                '\n<!-- Original Deck Text\n' + mw.html.escape(originalText) + '-->\n';
             var title = 'Decks/' + name;
             new mw.Api().post({
                 action: 'edit',
@@ -190,7 +190,7 @@
             } else if (entry.length > maxLength) {
                 result.badEntries.push(entry.substring(0, maxLength) + '... (too long)');
             } else if (/^\d+\s+.*\S.*$/.test(entry)) {
-                result.validEntries.push(entry);
+                result.validEntries.push(correctCardName(entry));
             } else {
                 result.badEntries.push(entry);
             }
@@ -211,7 +211,7 @@
             if (result.sideboardCount > 1) 
                 displayError('deckdef', 'Import contains more than one sideboard.');
             if (nameValid && result.badEntries.length === 0 && result.sideboardCount <= 1)
-                createDeckPage($('#mdw-import-deckname').val(), result.validEntries, translation ? text : null);
+                createDeckPage($('#mdw-import-deckname').val(), result.validEntries, text);
         }
     }
 
