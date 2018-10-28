@@ -13,6 +13,8 @@
     /*global mw */
     'use strict';
 
+    console.log('Deck List Editor B');
+
     if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('data-decklistedit-1-4-0'))
         return;
 
@@ -244,12 +246,14 @@
         // preferably just use the article title (sans Decks/) as link value but if it starts with one or more spaces we 
         // will have to replace them with underscores because the spaces will be stripped when passed to the template
         var link = entry.link[0] === ' ' ? entry.link.replace(/ /g, '_') : entry.link; 
-        var text = '{{DeckRow\n';
+        var text = '{{TestDeckRow\n';
         text += '|link=' + link + '\n';
         text += '|strategy=' + entry.type + '\n';
         text += '|colors=' + entry.colors + '\n';
         text += '|author=' + entry.author + '\n';
         text += '|desc=' + entry.desc + '\n';
+        if (entry.sideboard)
+            text += '|sb=1\n';
         text += '|name=' + entry.name + '}}\n\n';
         return text;
     }
@@ -335,7 +339,7 @@
         return contents.substring(startPos, endPos);
     }
 
-    function getDeckColors(title) {
+    function getDeckData(title) {
         var deferred = $.Deferred();
 
         $.get(mw.util.getUrl('Decks/' + title)).done(function (data) {
@@ -348,7 +352,10 @@
                     var colors = [];
                     extractDeckColors(colors, deckJson);
                     extractDeckColors(colors, sideboardJson);
-                    deferred.resolve(colors);
+                    deferred.resolve({
+                        colors: colors,
+                        hasSideboard: sideboardJson.length > 0
+                    });
                 } catch (error) {
                     if (data.indexOf('class="redirectMsg"') !== -1)
                         deferred.reject('redirected');
@@ -396,14 +403,15 @@
         resetForm();
         var deck = this.options[this.selectedIndex].innerText;
         showWorking();
-        getDeckColors(deck).done(function (colors) {
+        getDeckData(deck).done(function (deckData) {
             hideWorking();
             $('#mdw-dle-name').val(deck);
             setAuthor();
-            tickColors(colors);
+            tickColors(deckData.colors);
             $('#mdw-view-deck').html(
                 $('<a target="_blank">View Deck</a>').attr('href', mw.util.getUrl('Decks/' + deck))
             );
+            $('#mdw-dle-sideboard').prop('checked', deckData.hasSideboard);
             $('#mdw-mainform').fadeIn(400);
             $('#mdw-dle-name').focus();
         }).fail(function (reason) {
@@ -474,6 +482,7 @@
         values.author = $('#mdw-dle-author').val();
         values.desc = $('#mdw-dle-desc').val();
         values.colors = getColors();
+        values.sideboard = $('#mdw-dle-sideboard').prop('checked');
         return values;
     }
 
@@ -537,19 +546,15 @@
         $('#mdw-dle-desc-span')
             .html('<input type="text" id="mdw-dle-desc" size="50" placeholder="Description" maxlength="255"/>');
         $('#mdw-dle-colors')
-            .html('<input type="checkbox" id="mdw-dle-white" value="{{W}}">\
-                   <label for="mdw-dle-white">White</label>&nbsp;&nbsp;\
-                   <input type="checkbox" id="mdw-dle-blue" value="{{U}}">\
-                   <label for="mdw-dle-blue">Blue</label>&nbsp;&nbsp;\
-                   <input type="checkbox" id="mdw-dle-black" value="{{B}}">\
-                   <label for="mdw-dle-black">Black</label>&nbsp;&nbsp;\
-                   <input type="checkbox" id="mdw-dle-red" value="{{R}}">\
-                   <label for="mdw-dle-red">Red</label>&nbsp;&nbsp;\
-                   <input type="checkbox" id="mdw-dle-green" value="{{G}}">\
-                   <label for="mdw-dle-green">Green</label>&nbsp;&nbsp;\
-                   <input type="checkbox" id="mdw-dle-colorless" value="{{C}}">\
-                   <label for="mdw-dle-colorless">Colorless</label>');
+            .html('<label><input type="checkbox" id="mdw-dle-white" value="{{W}}" />White</label>&nbsp;&nbsp;\
+                   <label><input type="checkbox" id="mdw-dle-blue" value="{{U}}" />Blue</label>&nbsp;&nbsp;\
+                   <label><input type="checkbox" id="mdw-dle-black" value="{{B}}" />Black</label>&nbsp;&nbsp;\
+                   <label><input type="checkbox" id="mdw-dle-red" value="{{R}}" />Red</label>&nbsp;&nbsp;\
+                   <label><input type="checkbox" id="mdw-dle-green" value="{{G}}" />Green</label>&nbsp;&nbsp;\
+                   <label><input type="checkbox" id="mdw-dle-colorless" value="{{C}}" />Colorless</label>');
         createType();
+        $('#mdw-dle-sideboard-span')
+            .html('<label><input type="checkbox" id="mdw-dle-sideboard" />Deck has sideboard</label>');
         var button = $('<input type="button" id="mdw-dle-addtolist" value="Add to deck list" />')
             .click(clickAddToDecklists);
         $('#mdw-dle-update-span').html(button);
