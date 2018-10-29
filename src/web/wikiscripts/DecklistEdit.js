@@ -13,8 +13,6 @@
     /*global mw */
     'use strict';
 
-    console.log('Deck List Editor B');
-
     if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('data-decklistedit-1-4-0'))
         return;
 
@@ -77,15 +75,41 @@
         $('#mdw-dle-userpopup').css('visibility', 'visible');
     }
 
-    function getIgnoredDecks() {
-        var ignored = {};
+    function getDeletionCandidateDecks() {
+        var deferred = $.Deferred();
+
+        wikiApiCall({
+            action: 'query',
+            list: 'categorymembers',
+            cmlimit: 500,
+            cmtitle: 'Category:Candidates for deletion'
+        }, 'GET').done(function (data) {
+            var deletedDecks = {};
+            if (data.error === undefined) {
+                data.query.categorymembers.forEach(function (member) {
+                    if (/^Decks\//.test(member.title))
+                        deletedDecks[member.title.substring(6)] = true;
+                });
+            } else {
+                console.log('getDeletionCandidateDecks error');
+                console.log(data.error);
+            }
+            deferred.resolve(deletedDecks);
+        }).fail(function () {
+            console.log('getDeletionCandidateDecks failed');
+            deferred.resolve({});
+        });
+
+        return deferred.promise();
+    }
+
+    function addIgnoredDecks(ignored) {
         var ingnoredText = $('.mdw-ignore-decks').text();
         if (ingnoredText && ingnoredText.length > 0) {
             ingnoredText.split('\n').forEach(function(line) {
                 ignored[line] = true;
             });
         }
-        return ignored;
     }
 
     function getTrustedEditors() {
@@ -246,7 +270,7 @@
         // preferably just use the article title (sans Decks/) as link value but if it starts with one or more spaces we 
         // will have to replace them with underscores because the spaces will be stripped when passed to the template
         var link = entry.link[0] === ' ' ? entry.link.replace(/ /g, '_') : entry.link; 
-        var text = '{{TestDeckRow\n';
+        var text = '{{DeckRow\n';
         text += '|link=' + link + '\n';
         text += '|strategy=' + entry.type + '\n';
         text += '|colors=' + entry.colors + '\n';
@@ -561,6 +585,7 @@
         $('#mdw-mainform input:not(#mdw-dle-author)').focus(hideUserPopup);
     }
 
+
     function initialize() {
         var configError = initConfig();
         if (configError) {
@@ -576,17 +601,21 @@
         createMainForm();
         showWorking();
         getDecklistsDecks().done(function (decklistDecks) {
-            getUnlistedDecks(decklistDecks, config.filter, getIgnoredDecks()).done(function (unlistedDecks) {
-                var select = $('<select id="mdw-dle-deckselect">')
-                    .append($('<option disabled selected>Select deck to add --</option>'))
-                    .change(selectDeck);
-                unlistedDecks.forEach(function (deck) {
-                    select.append($('<option>').text(deck));
-                });
-                $('#mdw-deck-select').html(select);
-                $('#mdw-deck-select-div').fadeIn(500);
-                hideWorking();
-            }).fail(fatalError);
+            getDeletionCandidateDecks().done(function (ignoredDecks) {
+                addIgnoredDecks(ignoredDecks);
+                getUnlistedDecks(decklistDecks, config.filter, ignoredDecks).done(function (unlistedDecks) {
+                    unlistedDecks.sort(new Intl.Collator('en', { sensitivity: 'base' }).compare);
+                    var select = $('<select id="mdw-dle-deckselect">')
+                        .append($('<option disabled selected>Select deck to add --</option>'))
+                        .change(selectDeck);
+                    unlistedDecks.forEach(function (deck) {
+                        select.append($('<option>').text(deck));
+                    });
+                    $('#mdw-deck-select').html(select);
+                    $('#mdw-deck-select-div').fadeIn(500);
+                    hideWorking();
+                }).fail(fatalError);
+            });
         }).fail(fatalError);
     }
 
