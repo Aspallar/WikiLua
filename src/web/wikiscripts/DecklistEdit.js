@@ -1,7 +1,7 @@
 // ==========================================================================
 // DecklistEdit
 //
-// Version 1.4.0
+// Version 1.4.1
 // Author: Aspallar
 //
 // Provides a user friendly way to add a deck to a deck list.
@@ -13,7 +13,7 @@
     /*global mw */
     'use strict';
 
-    if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('data-decklistedit-1-4-0'))
+    if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('data-decklistedit-1-4-1'))
         return;
 
     var config;
@@ -492,7 +492,7 @@
 
     function getColors() {
         var colors = '';
-        $('#mdw-dle-colors>input:checked').each(function () {
+        $('#mdw-dle-colors input:checked').each(function () {
             colors += $(this).val();
         });
         return colors;
