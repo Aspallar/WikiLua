@@ -241,12 +241,24 @@ local function PlayableSection()
     return deck.Playable() and "" or "{{UnplayableDeck}}"
 end
 
-local function GenerateDeckFromList(name, list)
+local function BackTo(backto)
+    if backto == nil then
+        return "back to [[Decklists]]"
+    end
+    if backto == "none" then
+        return ""
+    end
+    local page, text = string.match(backto, "(.-)$(.*)")
+    return string.format("back to [[%s|%s]]", page, text)
+end
+
+local function GenerateDeckFromList(name, list, backto)
     ParseDeck(list)
     local cardList, altCardList = GetAdditionalData()
     local sideboard = GetSideboardData(altCardList)
-    return string.format("<div class=\"mdw-deckbox\"><span class=\"mdw-deckbox-count\">%d Cards</span><div style=\"display:inline-block; float:right;\">back to [[Decklists]]</div><hr />%s{{Clear}}</div>",
+    return string.format("<div class=\"mdw-deckbox\"><span class=\"mdw-deckbox-count\">%d Cards</span><div style=\"display:inline-block; float:right;\">%s</div><hr />%s{{Clear}}</div>",
         deck.CardTotal(),
+        BackTo(backto),
         PlayableSection() .. BannedSection() .. DeckListSection(name) ..
         SideboardSection() ..
         DataSection(json.encode(cardList), "mdw-chartdata-pre") ..
@@ -255,15 +267,15 @@ local function GenerateDeckFromList(name, list)
         OtherCategories())
 end
 
-function p.TestGenerateDeckFromList(name,inputList)
+function p.TestGenerateDeckFromList(name, inputList, backto)
     local list = mw.text.split(inputList, "\n" )
-    return GenerateDeckFromList(name, list)
+    return GenerateDeckFromList(name, list, backto)
 end
 
 function p.GenerateDeckFromList(frame)
     local args = utils.RecreateTable(frame:getParent().args)
     local list = mw.text.split(args.Deck, "\n")
-    return frame:preprocess(GenerateDeckFromList(args.Name,list))
+    return frame:preprocess(GenerateDeckFromList(args.Name, list, args.BackTo))
 end
 
 return p

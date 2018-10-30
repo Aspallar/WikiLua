@@ -33,6 +33,6 @@ local inputList = [=[
 1 Glint-Sleeve Siphoner 
 ]=]
 
-local result = decks.TestGenerateDeckFromList("Test Deck",inputList)
+local result = decks.TestGenerateDeckFromList("Test Deck", inputList, "none")
 print(result)
 
