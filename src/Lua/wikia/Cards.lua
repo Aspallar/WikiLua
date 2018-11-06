@@ -204,7 +204,7 @@ local function GenerateOtherCardPage(card)
          cardContents = cardContents .. string.format(cardPageRowTemplate, contents[i][1], contents[i][2])
     end
 
-    return "{{CardUnavailable}}\n{{clear}}\n" .. string.format(cardPageTemplate,
+    return string.format(cardPageTemplate,
         cardContents,
         card.Name) ..  GetRulings(card, true) .. p.GetCardCategories(card)
 end
@@ -298,14 +298,12 @@ local function GetCardPage(name)
         if not card then
             return "There was an error generating this page. We're aware of it and will fix it soon.{{PagesWithScriptErrors}}"
         else
+            local s = "{{CardUnavailable}}\n{{clear}}\n" .. GenerateOtherCardPage(card)
             if card.CardNumber and (string.find(card.CardNumber, "a")) then
                 local card2 = cardService.GetOtherByNumber(string.gsub(card.CardNumber, "a", "b"))
-                return GenerateOtherCardPage(card) ..
-                    "\n{{clear}}\n<big><big><big>" .. card2.Name .. "</big></big></big>\n" ..
-                    GenerateCardPage(card2)
-            else
-                return GenerateOtherCardPage(card)
+                s = s .. "\n{{clear}}\n<big><big><big>" .. card2.Name .. "</big></big></big>\n" .. GenerateOtherCardPage(card2)
             end
+            return s
         end
     end
     if card.CardNumber and (string.find(card.CardNumber, "a")) then
