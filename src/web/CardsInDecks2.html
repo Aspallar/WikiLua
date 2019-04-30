@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>Test CardsInDecks2</title>
+    <link rel="stylesheet" type="text/css" href="wikicss/common.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <style type="text/css">
+    </style>
+</head>
+<body>
+<h1>Cards In Decks Test Page</h1>
+
+<h2>Foo</h2>
+<pre id="mdw-deck-data">
+["foobar one","foobar two","foobar three","foobar 4","foobar 5","foobar 6"]
+</pre>
+
+<div id="mdw-cardsindecks-container" style="margin-left: 60px">
+    <div>
+        <p>
+        <b>
+            <span class="mdw-cardsindecks-arrow"></span>
+            <span class="card-image-tooltip" data-parameter="Abrade"><a href="/wiki/Abrade" title="Abrade">Abrade</a></span></b> (31)
+        </p>
+    </div>
+    <div data-decks="[1,2,3,4]" style="display:none;"></div>
+    <div>
+        <p>
+        <b><span class="mdw-cardsindecks-arrow"></span><span class="card-image-tooltip" data-parameter="Abrade"><a href="/wiki/Abrade" title="Abrade">Abrade</a></span></b> (31)
+        </p>
+    </div>
+    <div data-decks="[0,5]" style="display:none;"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+</script>
+<!-- <script src="scripts\wikiParse.js"></script> -->
+<script src="scripts\mediawiki.js"></script>
+<!-- <script src="wikiscripts\Collapse.js"></script> -->
+<script src="wikiscripts\CardsInDecks.js"></script>
+<script>
+    //$.get('wikitemplates/ArenaImport.html', function (data) {
+    //    $('#arenaimport-template').html(wikiParse(data));
+    //    $.getScript('wikiscripts/DeckExport.js');
+    //});
+</script>
+<script>
+    var boo = $('#mdw-deck-data');
+    var foo = JSON.parse(boo.html());
+    foo.forEach(function (deckname) {
+        console.log(deckname);
+    });
+</script>
+</body>
+</html>
