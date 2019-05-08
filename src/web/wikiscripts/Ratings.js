@@ -2,7 +2,7 @@
 // Start: Deck Ratings
 //    1. Supports the rating 'stars' on deck pages
 //    2. Updates the rating column on deck tables
-// Version 1.2.1
+// Version 1.2.2
 // Author: Aspallar
 //
 // ** Please do not edit this code directly in the wikia.
@@ -15,7 +15,7 @@
     'use strict';
 
     if ((document.getElementById('mdw-rating') === null && $('.mdw-ratingtable').length === 0) ||
-         $('#mdw-disabled-js').attr('data-ratings-1-2-1'))
+         $('#mdw-disabled-js').attr('data-ratings-1-2-2'))
         return;
 
     var ratingsDataPageName = 'Ratings:DeckRatings';
@@ -237,7 +237,9 @@
     function getDeckNames(table) {
         var names = [];
         table.find('td:nth-child(' + table.attr('data-deckcol') + ') a').each(function () {
-            names.push(stripDeckPrefix($(this).attr('title')));
+            // xA0 (160 decimal) is the non-breaking space char, the wikitext parser sometimes 
+            // uses &nbsp; instead of a normal space, we need to change them back to spaces
+            names.push(stripDeckPrefix($(this).attr('title')).replace(/\xA0/g, ' '));
         });
         return names;
     }
