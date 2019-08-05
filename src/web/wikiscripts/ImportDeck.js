@@ -1,7 +1,7 @@
 // ==========================================================================
 // ImportDeck
 //
-// Version 1.3.1
+// Version 1.4.0
 // Author: Aspallar
 //
 // Provides a user friendly way to import a deck from Magic Arena
@@ -14,7 +14,7 @@
     /* global mw*/
     'use strict';
 
-    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-3-1'))
+    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-4-0'))
         return;
 
     var newDeckTemplate = '';
@@ -25,7 +25,7 @@
     }
 
     function invalidTitle(title) {
-        return /#|\?/g.test(title);
+        return /\/|#|\?/.test(title);
     }
 
     function showWorking() {
@@ -92,7 +92,7 @@
         if (name.length === 0)
             return displayError('deckname', 'A deck name is required.');
         else if (invalidTitle(name))
-            return displayError('deckname', 'Invalid deck name.');
+            return displayError('deckname', 'Deck name must not contain /, #, or ? ');
         else
             return true;
     }
