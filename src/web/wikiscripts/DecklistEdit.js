@@ -1,7 +1,7 @@
 // ==========================================================================
 // DecklistEdit
 //
-// Version 1.4.3
+// Version 1.6.0
 // Author: Aspallar
 //
 // Provides a user friendly way to add a deck to a deck list.
@@ -13,7 +13,7 @@
     /*global mw */
     'use strict';
 
-    if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('data-decklistedit-1-4-3'))
+    if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('data-decklistedit-1-6-0'))
         return;
 
     var config;
@@ -396,12 +396,8 @@
     }
 
     function setAuthor() {
-        var loggedUser = mw.config.get('wgUserName');
-        if (loggedUser) {
-            $('#mdw-dle-author').val(loggedUser);
-        } else {
-            $('#mdw-dle-author').val('Anonymous');
-        }
+        var author = mw.util.getParamValue('author') || mw.config.get('wgUserName') || 'Anonymous';
+        $('#mdw-dle-author').val(author);
     }
 
     function tickColors(colors) {
@@ -611,9 +607,17 @@
                     unlistedDecks.forEach(function (deck) {
                         select.append($('<option>').text(deck));
                     });
+
                     $('#mdw-deck-select').html(select);
                     $('#mdw-deck-select-div').fadeIn(500);
                     hideWorking();
+
+                    var requestedDeck = mw.util.getParamValue('deck');
+                    if (requestedDeck !== null && unlistedDecks.indexOf(requestedDeck) !== -1) {
+                        select.val(requestedDeck);
+                        select.change();
+                    }
+
                 }).fail(fatalError);
             });
         }).fail(fatalError);
