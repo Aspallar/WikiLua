@@ -1,7 +1,7 @@
 // ==========================================================================
 // DecklistEdit
 //
-// Version 1.6.0
+// Version 1.7.0
 // Author: Aspallar
 //
 // Provides a user friendly way to add a deck to a deck list.
@@ -10,10 +10,10 @@
 // ** Instead use the git repository https://github.com/Aspallar/WikiLua
 //
 (function ($) {
-    /*global mw */
+    /*global mw, Set */
     'use strict';
 
-    if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('data-decklistedit-1-6-0'))
+    if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('data-decklistedit-1-7-0'))
         return;
 
     var config;
@@ -21,8 +21,8 @@
 
     function initConfig() {
         config = $('#mdw-dle-editor').data();
-        if (!config.decklist)
-            return 'The deck list to edit has not been specified (data-decklist).';
+        // if (!config.decklist)
+        //     return 'The deck list to edit has not been specified (data-decklist).';
         if (!config.insertionMarker)
             return 'No insertion point marker specified (data-insertion-marker).';
         if (!config.allowInvalidChars) {
@@ -75,7 +75,7 @@
         $('#mdw-dle-userpopup').css('visibility', 'visible');
     }
 
-    function getDeletionCandidateDecks() {
+    function addDeletionCandidateDecks(unwantedDecks) {
         var deferred = $.Deferred();
 
         wikiApiCall({
@@ -84,30 +84,29 @@
             cmlimit: 500,
             cmtitle: 'Category:Candidates for deletion'
         }, 'GET').done(function (data) {
-            var deletedDecks = {};
             if (data.error === undefined) {
                 data.query.categorymembers.forEach(function (member) {
                     if (/^Decks\//.test(member.title))
-                        deletedDecks[member.title.substring(6)] = true;
+                        unwantedDecks.add(member.title.substring(6));
                 });
             } else {
                 console.log('getDeletionCandidateDecks error');
                 console.log(data.error);
             }
-            deferred.resolve(deletedDecks);
+            deferred.resolve();
         }).fail(function () {
             console.log('getDeletionCandidateDecks failed');
-            deferred.resolve({});
+            deferred.resolve();
         });
 
         return deferred.promise();
     }
 
-    function addIgnoredDecks(ignored) {
+    function addIgnoredDecks(unwantedDecks) {
         var ingnoredText = $('.mdw-ignore-decks').text();
         if (ingnoredText && ingnoredText.length > 0) {
             ingnoredText.split('\n').forEach(function(line) {
-                ignored[line] = true;
+                unwantedDecks.add(line);
             });
         }
     }
@@ -154,15 +153,13 @@
         });
     }
 
-    function getUnlistedDecks(decklistDecks, filter, ignoredDecks) {
+    function getUnlistedDecks(unwantedDecks, filter) {
 
         var deferred = $.Deferred();
         var decks = [];
 
         function wantedDeck(title) {
-            return !(filter && filter.test(title)) && 
-                !decklistDecks.includes(title) &&
-                ignoredDecks[title] === undefined;
+            return !(filter && filter.test(title)) && !unwantedDecks.has(title);
         }
 
         function getDecks(apfrom) {
@@ -170,7 +167,7 @@
                 action: 'query',
                 list: 'allpages',
                 apprefix: 'Decks/',
-                aplimit: 100,
+                aplimit: 500,
                 apfrom: apfrom
             }, 'GET').done(function(data) {
                 if (data.error) {
@@ -210,39 +207,38 @@
         return null;
     }
 
-    function getDeckTitlesFromDecklists(content) {
-        var decks = [];
-        var matches = content.match(/^\|link=.*$/gm);
+    function addDecks(decks, pageContent) {
+        var matches = pageContent.match(/^\|link=.*$/gm);
         if (matches) {
             matches.forEach(function(match) {
-                decks.push(match.substring(6).replace(/_/g, ' '));
+                decks.add(match.substring(6).replace(/_/g, ' '));
             });
         }
-        return decks;
     }
 
-    function getDecklistsDecks() {
+    function getDecklistsDecks(targets) {
+        // var thingy = 'Decklists|User:Aspallar/Sandbox/Decklists|User:Aspallar/Sandbox/DecklistsTwo|Boo';
         var deferred = $.Deferred();
+        var titles = targets.map(function (x) { return x.title; }).join('|');
 
         wikiApiCall({
             action: 'query',
-            prop: 'info|revisions',
-            intoken: 'edit',
-            titles: config.decklist,
-            rvprop: 'content|timestamp',
-            rvlimit: '1'
+            prop: 'revisions',
+            titles: titles,
+            rvprop: 'content'
         }, 'GET').done(function (data) {
             if (data.error) {
                 deferred.reject('getDecklistsDecks ' + data.error.info);
                 return;
             }
-            var page = getPage(data);
-            if (page.missing !== undefined) {
-                deferred.reject('Page [' + config.decklist + '] not found.');
-                return;
-            }
-            var content = getContent(page);
-            var decks = getDeckTitlesFromDecklists(content);
+            var decks = new Set();
+            Object.values(data.query.pages).forEach(function (page) {
+                if (page.missing !== undefined || page.invalid !== undefined) {
+                    deferred.reject('Deck List Page [' + page.title + '] not found.');
+                    return;
+                }
+                addDecks(decks, page.revisions[0]['*']);
+            });
             deferred.resolve(decks);
         }).fail(function (xhr, status, statusText) {
             console.error(xhr);
@@ -282,13 +278,13 @@
         return text;
     }
 
-    function editSummary(entry) {
+    function editSummary(entry, target) {
         return 'Adding [[Decks/' + entry.link + ']] as ' +
-            entry.name + ' to ' + '[[' + config.decklist + ']] ' +
+            entry.name + ' to ' + '[[' + target + ']] ' +
             ' via [[' + mw.config.get('wgPageName') + '|' + mw.config.get('wgTitle') + ']]';
     }
 
-    function addToDecklists(entry) {
+    function addToDecklists(entry, target) {
 
         var deferred = $.Deferred();
 
@@ -297,7 +293,7 @@
                 action: 'query',
                 prop: 'info|revisions',
                 intoken: 'edit',
-                titles: config.decklist,
+                titles: target,
                 rvprop: 'content|timestamp',
                 rvlimit: '1'
             }, 'GET').done(function (data) {
@@ -311,14 +307,14 @@
                 content = content.substr(0, insertPos) + deckRow(entry) + content.substr(insertPos);
                 wikiApiCall({
                     minor: 'yes',
-                    summary: editSummary(entry),
+                    summary: editSummary(entry, target),
                     action: 'edit',
-                    title: config.decklist,
+                    title: target,
                     basetimestamp: page.revisions[0].timestamp,
                     startimestamp: page.starttimestamp,
                     token: page.edittoken,
                     watchlist: 'unwatch',
-                    text: content,
+                    text: content
                 }, 'POST').then(function (data) {
                     if (data.error) {
                         deferred.reject(data.error.code === 'editconflict' ? 'editconflict' : data.error.info);
@@ -344,8 +340,7 @@
         data.forEach(function (card) {
             if (card.colors) {
                 card.colors.forEach(function (color) {
-                    if (!colors.includes(color))
-                        colors.push(color);
+                    colors.add(color);
                 });
             }
         });
@@ -373,7 +368,7 @@
                 try {
                     var deckJson = JSON.parse(extractJson('mdw-chartdata-pre', data));
                     var sideboardJson = JSON.parse(extractJson('mdw-sideboard-data', data));
-                    var colors = [];
+                    var colors = new Set();
                     extractDeckColors(colors, deckJson);
                     extractDeckColors(colors, sideboardJson);
                     deferred.resolve({
@@ -506,10 +501,10 @@
         return values;
     }
 
-    function redirectToDeckLists() {
-        var url = mw.config.get('wgArticlePath').replace('$1', config.decklist);
-        window.location = url;
-    }
+    // function redirectToDeckLists() {
+    //     var url = mw.config.get('wgArticlePath').replace('$1', config.decklist);
+    //     window.location = url;
+    // }
 
     function clickAddToDecklists() {
         /* jshint -W040 */ // allow old school jquery use of this
@@ -521,18 +516,19 @@
         }
         var button = $(this);
         button.prop('disabled', true);
+        var target = config.decklist || $('#mdw-dle-targetselect').val();
         showWorking();
-        addToDecklists(values)
-            .done(redirectToDeckLists)
-            .fail(function (reason) {
-                hideWorking();
-                if (reason === 'editconflict') {
-                    button.prop('disabled', false);
-                    $('#mdw-dle-editconflict').fadeIn(400);
-                } else {
-                    fatalError(reason);
-                }
-            });
+        addToDecklists(values, target).done(function () {
+            window.location = mw.util.getUrl(target);
+        }).fail(function (reason) {
+            hideWorking();
+            if (reason === 'editconflict') {
+                button.prop('disabled', false);
+                $('#mdw-dle-editconflict').fadeIn(400);
+            } else {
+                fatalError(reason);
+            }
+        });
     }
 
     function createType() {
@@ -581,6 +577,21 @@
         $('#mdw-mainform input:not(#mdw-dle-author)').focus(hideUserPopup);
     }
 
+    function getTargets() {
+        var targets = [];
+        if (config.decklist) {
+            targets.push({ name: '', title: config.decklist});
+        } else {
+            $('#mdw-dle-targets').text().split('\n').forEach(function (line) {
+                line = line.trim();
+                if (line.length > 0) {
+                    var target = line.split('|');
+                    targets.push({ name: target[0], title: target[1]});
+                }
+            });
+        }
+        return targets;
+    }
 
     function initialize() {
         var configError = initConfig();
@@ -596,10 +607,11 @@
         }
         createMainForm();
         showWorking();
-        getDecklistsDecks().done(function (decklistDecks) {
-            getDeletionCandidateDecks().done(function (ignoredDecks) {
-                addIgnoredDecks(ignoredDecks);
-                getUnlistedDecks(decklistDecks, config.filter, ignoredDecks).done(function (unlistedDecks) {
+        var targets = getTargets();
+        getDecklistsDecks(targets).done(function (unwantedDecks) {
+            addDeletionCandidateDecks(unwantedDecks).done(function () {
+                addIgnoredDecks(unwantedDecks);
+                getUnlistedDecks(unwantedDecks, config.filter).done(function (unlistedDecks) {
                     unlistedDecks.sort(new Intl.Collator('en', { sensitivity: 'base' }).compare);
                     var select = $('<select id="mdw-dle-deckselect">')
                         .append($('<option disabled selected>Select deck to add --</option>'))
@@ -607,6 +619,15 @@
                     unlistedDecks.forEach(function (deck) {
                         select.append($('<option>').text(deck));
                     });
+
+                    if (!config.decklist) {
+                        var targetSelect = $('<select id="mdw-dle-targetselect">');
+                        targets.forEach(function (target) {
+                            targetSelect.append($('<option>', {value: target.title}).text(target.name));
+                        });
+                        $('#mdw-target-select').html(targetSelect);
+                        $('#mdw-target-select-div').show();
+                    }
 
                     $('#mdw-deck-select').html(select);
                     $('#mdw-deck-select-div').fadeIn(500);
