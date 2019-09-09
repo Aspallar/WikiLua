@@ -1,7 +1,7 @@
 // ==========================================================================
 // ImportDeck
 //
-// Version 1.6.0
+// Version 1.7.0
 // Author: Aspallar
 //
 // Provides a user friendly way to import a deck from Magic Arena
@@ -14,19 +14,18 @@
     /* global mw*/
     'use strict';
 
-    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-6-0'))
+    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-7-0'))
         return;
 
     var newDeckTemplate = '';
     var translation = null;
     var titleCaser;
 
-
     function TitleCaser(minorWords, acronyms) {
 
         function isColorString(str) {
             return str.length <= 5 && 
-                ['rug', 'rub', 'bug', 'grub'].indexOf(str) == -1 &&
+                ['rug', 'rub', 'bug', 'grub'].indexOf(str) === -1 &&
                 /^(?:([ubwrg])(?!.*\1))*$/.test(str);
         }
 
@@ -34,7 +33,9 @@
             caseText: function(text) {
                 text = text.trim().toLowerCase();
                 return text.replace(/\w+/g, function(word, offset) {
-                    if ((acronyms && acronyms.indexOf(word) !== -1) || isColorString(word))
+                    if (word === 's' && offset > 1 && /['\u2019]/.test(text[offset - 1]))
+                        return 's';
+                    else if ((acronyms && acronyms.indexOf(word) !== -1) || isColorString(word))
                         return word.toUpperCase();
                     else if (minorWords && offset !== 0 && minorWords.indexOf(word) !== -1)
                         return word.toLowerCase();
@@ -100,7 +101,14 @@
     }
 
     function displayError(name, message) {
-        $('#mdw-import-' + name + '-error').html('* ' + message);
+        if (Array.isArray(message)) {
+            message = message.reduce(function (a, v) { return a + '* ' + v + '<br />'; }, '');
+            message = message.substring(0, message.length - 6);
+        }
+        else {
+            message = '* ' + message;
+        }
+        $('#mdw-import-' + name + '-error').html(message);
         return false;
     }
 
@@ -120,16 +128,8 @@
             return displayError('deckname', 'Deck name must not contain /, #, or ? ');
         else if (/(.)\1{2,}/i.test(name))
             return displayError('deckname', 'Too many repeating characters.');
-        else if (/^[qwerty ]+$|^[asdf ]+$|^[zxcvb ]$/i.test(name))
+        else if (/^[qwerty ]+$|^[asdf ]+$|^[zxcvb ]+$|^[ghjkl; ]+$/i.test(name))
             return displayError('deckname', 'Looks like gibberish, try another name.');
-        else
-            return true;
-    }
-
-    function validateDeckDef() {
-        var deckdef = $('#mdw-import-deckdef').val().trim();
-        if (deckdef.length === 0)
-            return displayError('deckdef', 'You must enter a deck definition');
         else
             return true;
     }
@@ -215,9 +215,10 @@
     }
 
     function parseDeckDef(deckdef) {
+        var match;
         var disallowed = disallowedRegex();
         var maxLength = $('#mdw-import-deck').attr('data-maxcardlength') || 40;
-        var result = { validEntries: [], badEntries: [], sideboardCount: 0 };
+        var result = { validEntries: [], badEntries: [], sideboardCount: 0, cardCount: 0, sideCardCount: 0 };
         deckdef.split('\n').forEach(function (entry) {
             entry = entry.trim();
             if (entry.length === 0) {
@@ -227,8 +228,12 @@
                 result.badEntries.push(entry.substring(0, maxLength) + '... (too long)');
             } else if (disallowed && disallowed.test(stripSetCode(entry))) {
                 result.badEntries.push(entry);
-            } else if (/^\d+\s+.*\S.*$/.test(entry)) {
+            } else if ((match = /^(\d+)\s+.*\S.*$/.exec(entry))) {
                 result.validEntries.push(correctCardName(entry));
+                if (result.sideboardCount === 0)
+                    result.cardCount += parseInt(match[1], 10);
+                else
+                    result.sideCardCount += parseInt(match[1], 10);
             } else {
                 result.badEntries.push(entry);
             }
@@ -239,18 +244,29 @@
     function clickImport() {
         hideBadEntries();
         $('.mdw-error').html('');
-        var nameValid = validateDeckName() ;
-        var deckdefValid = validateDeckDef();
-        if (deckdefValid) {
-            var text = $('#mdw-import-deckdef').val().trim();
-            var result = parseDeckDef(text);
-            if (result.badEntries.length > 0)
+        var result;
+        var nameValid = validateDeckName();
+        var deckErrors = [];
+        var text = $('#mdw-import-deckdef').val().trim();
+        if (text.length === 0)
+            deckErrors.push('You must enter a deck definition');
+        else {
+            result = parseDeckDef(text);
+            if (result.badEntries.length > 0) {
                 showBadEntries(result.badEntries);
+                deckErrors.push('Import contains invalid entries (see below).');
+            }
             if (result.sideboardCount > 1) 
-                displayError('deckdef', 'Import contains more than one sideboard.');
-            if (nameValid && result.badEntries.length === 0 && result.sideboardCount <= 1)
-                createDeckPage($('#mdw-import-deckname').val(), result.validEntries, text);
+                deckErrors.push('Import contains more than one sideboard.');
+            if (result.cardCount < 60)
+                deckErrors.push('Only ' + result.cardCount + ' cards. Deck must contain minimum of 60.');
+            if (result.sideCardCount > 15)
+                deckErrors.push('Sideboard has ' + result.sideCardCount + ' cards. Maximum of 15 cards.');
         }
+        if (deckErrors.length > 0)
+            displayError('deckdef', deckErrors);
+        else if (nameValid)
+            createDeckPage($('#mdw-import-deckname').val(), result.validEntries, text);
     }
 
     function showTranslationLoadFail(langCode) {
