@@ -1,8 +1,8 @@
 ﻿<div id="mdw-dle-editor"
-    data-decklist="{{{target}}}"
-    data-allow-invalid-chars="{{{allowchars}}}"
-    data-filter="{{{filter}}}"
-    data-insertion-marker="{{{insertmarker}}}">
+    {{#if: {{{target|}}}|data-decklist="{{{target}}}"|}}
+    {{#if: {{{allowchars|}}}|data-allow-invalid-chars="{{{allowchars}}}"|}}
+    {{#if: {{{filter|}}}|data-filter="{{{filter}}}"|}}
+    {{#if: {{{insertmarker|}}}|data-insertion-marker="{{{insertmarker}}}"|}}>
     <div id="mdw-target-select-div" style="display:none;">
         <p>
             Select the deck list that you wish to add a deck to

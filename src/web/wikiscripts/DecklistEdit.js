@@ -16,13 +16,35 @@
     if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('data-decklistedit-1-7-0'))
         return;
 
-    var config;
+    var config, api;
     var userLinksUrl = mw.config.get('wgScriptPath') + '/index.php?action=ajax&rs=getLinkSuggest&query=User%3A';
+
+    function getTargets() {
+        var targets = [];
+        if (config.decklist) {
+            targets.push({ name: '', title: config.decklist});
+        } else {
+            var entries = $('#mdw-dle-targets').text().split('\n');
+            for (var k = 0; k < entries.length; k++) {
+                var entry = entries[k].trim();
+                if (entry.length > 0) {
+                    var target = entry.split('|');
+                    if (target.length !== 2)
+                        return null;
+                    targets.push({ name: target[0], title: target[1]});
+                }
+            }
+        }
+        return targets;
+    }
 
     function initConfig() {
         config = $('#mdw-dle-editor').data();
-        // if (!config.decklist)
-        //     return 'The deck list to edit has not been specified (data-decklist).';
+        var targets = getTargets();
+        if (targets === null)
+            return 'Invalid deck list target specified';
+        if (targets.length === 0)
+            return 'No deck list target has been specified.';
         if (!config.insertionMarker)
             return 'No insertion point marker specified (data-insertion-marker).';
         if (!config.allowInvalidChars) {
@@ -56,17 +78,6 @@
         $('#mdw-dle-fatalerror').fadeIn(400);
     }
 
-    function wikiApiCall(data, method) {
-        data.format = 'json';
-        return $.ajax({
-            data: data,
-            dataType: 'json',
-            url: mw.config.get('wgScriptPath') + '/api.php',
-            type: method,
-            timeout: 10000 
-        });
-    }
-
     function hideUserPopup() {
         $('#mdw-dle-userpopup').css('visibility', 'hidden');
     }
@@ -75,15 +86,16 @@
         $('#mdw-dle-userpopup').css('visibility', 'visible');
     }
 
+
     function addDeletionCandidateDecks(unwantedDecks) {
         var deferred = $.Deferred();
 
-        wikiApiCall({
+        api.get({
             action: 'query',
             list: 'categorymembers',
             cmlimit: 500,
             cmtitle: 'Category:Candidates for deletion'
-        }, 'GET').done(function (data) {
+        }).done(function (data) {
             if (data.error === undefined) {
                 data.query.categorymembers.forEach(function (member) {
                     if (/^Decks\//.test(member.title))
@@ -112,11 +124,11 @@
     }
 
     function getTrustedEditors() {
-        wikiApiCall({
+        api.get({
             action: 'query',
             meta: 'allmessages',
             ammessages: 'Custom-TrustedEditors'
-        },'GET').done(function (data) {
+        }).done(function (data) {
             var message = data.query.allmessages[0];
             if (message.missing === undefined) {
                 var text = message['*'].trim();
@@ -154,7 +166,6 @@
     }
 
     function getUnlistedDecks(unwantedDecks, filter) {
-
         var deferred = $.Deferred();
         var decks = [];
 
@@ -163,13 +174,13 @@
         }
 
         function getDecks(apfrom) {
-            wikiApiCall({
+            api.get({
                 action: 'query',
                 list: 'allpages',
                 apprefix: 'Decks/',
                 aplimit: 500,
                 apfrom: apfrom
-            }, 'GET').done(function(data) {
+            }).done(function(data) {
                 if (data.error) {
                     deferred.reject('getUnlistedDecks ' + data.error.info);
                     return;
@@ -194,19 +205,6 @@
         return deferred.promise();
     }   
 
-    function getContent(page) {
-        return page.revisions[0]['*'];
-    }
-
-    function getPage(data) {
-        var pages = data.query.pages;
-        for (var property in pages) {
-            if (pages.hasOwnProperty(property))
-                return pages[property];
-        }
-        return null;
-    }
-
     function addDecks(decks, pageContent) {
         var matches = pageContent.match(/^\|link=.*$/gm);
         if (matches) {
@@ -216,25 +214,24 @@
         }
     }
 
-    function getDecklistsDecks(targets) {
-        // var thingy = 'Decklists|User:Aspallar/Sandbox/Decklists|User:Aspallar/Sandbox/DecklistsTwo|Boo';
+    function getListedDecks(targets) {
         var deferred = $.Deferred();
         var titles = targets.map(function (x) { return x.title; }).join('|');
 
-        wikiApiCall({
+        api.get({
             action: 'query',
             prop: 'revisions',
             titles: titles,
             rvprop: 'content'
-        }, 'GET').done(function (data) {
+        }).done(function (data) {
             if (data.error) {
-                deferred.reject('getDecklistsDecks ' + data.error.info);
+                deferred.reject('getListedDecks ' + data.error.info);
                 return;
             }
             var decks = new Set();
             Object.values(data.query.pages).forEach(function (page) {
                 if (page.missing !== undefined || page.invalid !== undefined) {
-                    deferred.reject('Deck List Page [' + page.title + '] not found.');
+                    deferred.reject('Deck List Page [' + mw.html.escape(page.title) + '] not found.');
                     return;
                 }
                 addDecks(decks, page.revisions[0]['*']);
@@ -242,7 +239,7 @@
             deferred.resolve(decks);
         }).fail(function (xhr, status, statusText) {
             console.error(xhr);
-            deferred.reject('getDecklistsDecks ' + statusText);
+            deferred.reject('getListedDecks ' + statusText);
         });
 
         return deferred.promise();
@@ -250,12 +247,12 @@
 
     function linkAuthor(entry) {
         var link = '[[User:' + entry.author + '|' + entry.author + ']]';
-        return wikiApiCall({
+        return api.get({
             action: 'parse',
             disablepp: 'true',
             prop: 'text',
             text: link
-        }, 'GET').then(function (data) {
+        }).then(function (data) {
             if (data && data.parse && data.parse.text['*'].indexOf('class="new"') === -1) {
                 entry.author = link;
             }
@@ -284,38 +281,38 @@
             ' via [[' + mw.config.get('wgPageName') + '|' + mw.config.get('wgTitle') + ']]';
     }
 
-    function addToDecklists(entry, target) {
+    function addToDecklist(entry, target) {
 
         var deferred = $.Deferred();
 
         linkAuthor(entry).always(function () {
-            wikiApiCall({
+            api.get({
                 action: 'query',
                 prop: 'info|revisions',
                 intoken: 'edit',
                 titles: target,
                 rvprop: 'content|timestamp',
                 rvlimit: '1'
-            }, 'GET').done(function (data) {
-                var page = getPage(data);
-                var content = getContent(page);
+            }).done(function (data) {
+                var page = Object.values(data.query.pages)[0];
+                var content = page.revisions[0]['*'];
                 var insertPos = content.indexOf(config.insertionMarker);
                 if (insertPos === -1) {
                     deferred.reject('Unable to locate deck insertion marker.');
                     return;
                 }
                 content = content.substr(0, insertPos) + deckRow(entry) + content.substr(insertPos);
-                wikiApiCall({
-                    minor: 'yes',
+                api.post({
+                    minor: '1',
                     summary: editSummary(entry, target),
                     action: 'edit',
                     title: target,
                     basetimestamp: page.revisions[0].timestamp,
                     startimestamp: page.starttimestamp,
                     token: page.edittoken,
-                    watchlist: 'unwatch',
+                    watchlist: 'nochange',
                     text: content
-                }, 'POST').then(function (data) {
+                }).then(function (data) {
                     if (data.error) {
                         deferred.reject(data.error.code === 'editconflict' ? 'editconflict' : data.error.info);
                     } else if (data.edit.result !== 'Success') {
@@ -325,11 +322,11 @@
                     }
                 }).fail(function (xhr, status, statusText) {
                     console.error(xhr);
-                    deferred.reject('addToDecklists ' + statusText);
+                    deferred.reject('addToDecklist ' + statusText);
                 });
             }).fail(function (xhr, status, statusText) {
                 console.error(xhr);
-                deferred.reject('addToDecklists ' + statusText);
+                deferred.reject('addToDecklist ' + statusText);
             });
         });
 
@@ -473,7 +470,7 @@
     }
 
     function validate(values) {
-        $('.mdw-error').html('');
+        $('.mdw-error').empty();
         var name = validateTextField('name', values.name);
         var type = validateTextField('type', values.type);
         var author = validateTextField('author', values.author);
@@ -501,11 +498,6 @@
         return values;
     }
 
-    // function redirectToDeckLists() {
-    //     var url = mw.config.get('wgArticlePath').replace('$1', config.decklist);
-    //     window.location = url;
-    // }
-
     function clickAddToDecklists() {
         /* jshint -W040 */ // allow old school jquery use of this
         $('.mdw-dle-errordiv').hide();
@@ -518,7 +510,7 @@
         button.prop('disabled', true);
         var target = config.decklist || $('#mdw-dle-targetselect').val();
         showWorking();
-        addToDecklists(values, target).done(function () {
+        addToDecklist(values, target).done(function () {
             window.location = mw.util.getUrl(target);
         }).fail(function (reason) {
             hideWorking();
@@ -577,73 +569,71 @@
         $('#mdw-mainform input:not(#mdw-dle-author)').focus(hideUserPopup);
     }
 
-    function getTargets() {
-        var targets = [];
-        if (config.decklist) {
-            targets.push({ name: '', title: config.decklist});
-        } else {
-            $('#mdw-dle-targets').text().split('\n').forEach(function (line) {
-                line = line.trim();
-                if (line.length > 0) {
-                    var target = line.split('|');
-                    targets.push({ name: target[0], title: target[1]});
-                }
+    function changeTarget() {
+        var title = $('#mdw-dle-targetselect').val();
+        $('#mdw-view-target').html($('<a>', { href: mw.util.getUrl(title), target: '_blank'}).html('View List'));
+    }
+
+    function createTargetSelect(targets) {
+        if (!config.decklist) {
+            var targetSelect = $('<select id="mdw-dle-targetselect">').change(changeTarget);
+            targets.forEach(function (target) {
+                targetSelect.append($('<option>', {value: target.title}).text(target.name));
             });
+            $('#mdw-target-select').html(targetSelect);
+            changeTarget();
+            $('#mdw-target-select-div').show();
         }
-        return targets;
+    }
+
+    function createDeckSelect(decks) {
+        decks.sort(new Intl.Collator('en', { sensitivity: 'base' }).compare);
+        var select = $('<select id="mdw-dle-deckselect">')
+            .append($('<option disabled selected>Select deck to add --</option>'))
+            .change(selectDeck);
+        decks.forEach(function (deck) {
+            select.append($('<option>').text(deck));
+        });
+        var requestedDeck = mw.util.getParamValue('deck');
+        if (requestedDeck !== null && decks.indexOf(requestedDeck) !== -1) {
+            select.val(requestedDeck);
+            select.change();
+        }
+        $('#mdw-deck-select').html(select);
     }
 
     function initialize() {
         var configError = initConfig();
         if (configError) {
-            $('#mdw-dle-editor').html('<span class="mdw-error">Configuration error:' + configError + '</span>');
+            $('#mdw-dle-editor').html('<span class="mdw-error">Configuration error: ' + configError + '</span>');
             return;
         }
         $('#mdw-working').html($('<img>', {
             src: mw.config.get('stylepath') + '/common/images/ajax.gif'
         }));
-        if (config.allowInvalidChars === 'trusted') {
+        if (config.allowInvalidChars === 'trusted')
             getTrustedEditors(); //deliberate fire and forget, no big deal if it fails
-        }
         createMainForm();
         showWorking();
         var targets = getTargets();
-        getDecklistsDecks(targets).done(function (unwantedDecks) {
+        getListedDecks(targets).done(function (unwantedDecks) {
             addDeletionCandidateDecks(unwantedDecks).done(function () {
                 addIgnoredDecks(unwantedDecks);
                 getUnlistedDecks(unwantedDecks, config.filter).done(function (unlistedDecks) {
-                    unlistedDecks.sort(new Intl.Collator('en', { sensitivity: 'base' }).compare);
-                    var select = $('<select id="mdw-dle-deckselect">')
-                        .append($('<option disabled selected>Select deck to add --</option>'))
-                        .change(selectDeck);
-                    unlistedDecks.forEach(function (deck) {
-                        select.append($('<option>').text(deck));
-                    });
-
-                    if (!config.decklist) {
-                        var targetSelect = $('<select id="mdw-dle-targetselect">');
-                        targets.forEach(function (target) {
-                            targetSelect.append($('<option>', {value: target.title}).text(target.name));
-                        });
-                        $('#mdw-target-select').html(targetSelect);
-                        $('#mdw-target-select-div').show();
-                    }
-
-                    $('#mdw-deck-select').html(select);
+                    createDeckSelect(unlistedDecks);
+                    createTargetSelect(targets);
                     $('#mdw-deck-select-div').fadeIn(500);
                     hideWorking();
-
-                    var requestedDeck = mw.util.getParamValue('deck');
-                    if (requestedDeck !== null && unlistedDecks.indexOf(requestedDeck) !== -1) {
-                        select.val(requestedDeck);
-                        select.change();
-                    }
-
                 }).fail(fatalError);
             });
         }).fail(fatalError);
     }
 
-    $(document).ready(initialize);
+    $(document).ready(function() {
+        mw.loader.using('mediawiki.api').then(function () {
+            api = new mw.Api();
+            initialize();
+        });
+    });
 
 }(jQuery));
