@@ -109,7 +109,7 @@ local function ExportCardName(card)
         else
             card2 = cardService.GetOtherByNumber(otherCardNumber)
         end
-        if card2 ~= nil and (card.SetCode == "GRN" or (card2.Text ~= nil and string.find(card2.Text, "Aftermath") ~= nil)) then
+        if card2 ~= nil and (card.SetCode == "GRN" or card.SetCode == "RNA" or (card2.Text ~= nil and string.find(card2.Text, "Aftermath") ~= nil)) then
             return card.Name .. " // " .. card2.Name
         end
     end
