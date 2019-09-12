@@ -1,7 +1,7 @@
 // ==========================================================================
 // Start: Deck Charts
 // Renders charts on deck articles
-// Version 1.4.0
+// Version 1.4.1
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wikia.
@@ -14,7 +14,7 @@ window.magicArena.charts = window.magicArena.charts || (function ($) {
     /*globals google, mw, _ */
     'use strict';
 
-    if (document.getElementById('mdw-deckcharts') === null || $('#mdw-disabled-js').attr('data-deckcharts-1-4-0'))
+    if (document.getElementById('mdw-deckcharts') === null || $('#mdw-disabled-js').attr('data-deckcharts-1-4-1'))
         return null;
 
     var chartDataId = 'mdw-chartdata-pre';
@@ -268,7 +268,7 @@ window.magicArena.charts = window.magicArena.charts || (function ($) {
     }
 
     function normalName(name) {
-        var pos = name.indexOf('///');
+        var pos = name.indexOf('//');
         return pos === -1 ? name : name.substring(0, pos - 1);
     }
 
@@ -558,19 +558,18 @@ window.magicArena.charts = window.magicArena.charts || (function ($) {
     }
 
     function createCharts() {
-        var id = document.getElementById(typesPieChartId);
-        if (id  !== null) {
-            dataCache.typesPie.chart = new google.visualization.PieChart(id);
+        var chartContainer = document.getElementById(typesPieChartId);
+        if (chartContainer  !== null) {
+            dataCache.typesPie.chart = new google.visualization.PieChart(chartContainer);
         }
-        id = document.getElementById(colorPieChartId);
-        if (id !== null) {
-            dataCache.colorPie.chart = new google.visualization.PieChart(id);
+        chartContainer = document.getElementById(colorPieChartId);
+        if (chartContainer !== null) {
+            dataCache.colorPie.chart = new google.visualization.PieChart(chartContainer);
             google.visualization.events.addListener(dataCache.colorPie.chart, 'select', onColorPieSelect);
         }
-
-        id = document.getElementById(manaCurveChartId);
-        if (id !== null) {
-            dataCache.manaCurve.chart = new google.visualization.ColumnChart(id);
+        chartContainer = document.getElementById(manaCurveChartId);
+        if (chartContainer !== null) {
+            dataCache.manaCurve.chart = new google.visualization.ColumnChart(chartContainer);
             google.visualization.events.addListener(dataCache.manaCurve.chart, 'select', onManaCurveSelect);
         }
     }
