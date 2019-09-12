@@ -4,6 +4,8 @@ local utils = require("Module:TemplateUtils")
 
 local p = {}
 
+local tinsert, sub, gsub = table.insert, string.sub, string.gsub
+
 local cardRowTemplate= [[|-valign="top"
 |%s
 |%s
@@ -29,7 +31,7 @@ local cardPageTemplate = [=[{| class="article-table mdw-cardinfo-table"
 %s
 |}
 <br/>
-[[File:%s.png|link=]]]=]
+[[File:%s.png|265px|link=]]]=]
 
 local numCardsPerPage = 100
 
@@ -43,8 +45,12 @@ setNames["XLN"]="Ixalan"
 setNames["RIX"]="Rivals of Ixalan"
 setNames["DOM"]="Dominaria"
 setNames["M19"]="Core Set 2019"
+setNames["G18"]="Gift Pack"
 setNames["ANA"]="Arena Only"
 setNames["GRN"]="Guilds of Ravnica"
+setNames["RNA"]="Ravnica Allegiance"
+setNames["WAR"]="War of the Spark"
+setNames["M20"]="Core Set 2020"
 
 local function SetLinkName(setCode)
     if setCode == "HOU" then
@@ -64,7 +70,7 @@ end
 local function ConcatTables(target,source)
     if not source then return end
     for _,v in pairs(source) do
-        table.insert(target,v)
+        tinsert(target,v)
     end
 end
 
@@ -124,7 +130,7 @@ local function GetReprintsTable(card)
     local row = "{{ReprintRow|%s|%s|%s|<br />%s}}\n"
     local s = "\n\n----\n{|class=\"mdw-reprint-table\"\n|+ '''Other Sets'''\n"
     for _, set in pairs(card.Sets) do
-        local setTemplate = "{{" .. set.Set .. string.sub(set.Rarity,1,1) .. "}}"
+        local setTemplate = "{{" .. set.Set .. sub(set.Rarity,1,1) .. "}}"
         local imageName = card.Name .. " " .. set.Set .. " " .. set.CardNumber
         local setlink = SetLinkName(set.Set)
         local setname = setNames[set.Set]
@@ -154,58 +160,44 @@ local function BanText(banned)
     for _, bannedFormat in pairs(banned) do
         bantext = bantext .. bannedFormat .. '; '
     end
-    return string.sub(bantext, 1, -3) .. "{{MoreBannedDetails}}"
+    return sub(bantext, 1, -3) .. "{{MoreBannedDetails}}"
+end
+
+local function GenerateCardInfo(card)
+    local contents = {}
+    tinsert(contents,{"Name",card.Name})
+
+    if card.Manacost then tinsert(contents, {"Mana Cost", card.Manacost}) end
+    tinsert(contents, {"Converted Mana Cost", card.cmc or 0})
+    if card.Type then tinsert(contents, {"Types", card.Type}) end
+    if card.Text then tinsert(contents, {"Text", card.Text}) end
+    if card.Flavor then tinsert(contents, {"Flavor", gsub(card.Flavor, "&lt;/?i&gt;", "''")}) end
+    if card.Loyalty then tinsert(contents, {"Loyalty", card.Loyalty}) end
+    if card.Power then tinsert(contents, {"P/T", PT(card)}) end
+    tinsert(contents, {"Expansion", ExpansionSymbol(card) .. " " .. SetLink(card.SetCode)})
+    tinsert(contents, {"Rarity", card.Rarity})
+    if card.Banned then tinsert(contents, {"Banned In", BanText(card.Banned)}) end
+
+    local info = ""
+    for i = 1, #contents do
+         info = info .. string.format(cardPageRowTemplate, contents[i][1], contents[i][2])
+    end
+    return info
+
 end
 
 local function GenerateCardPage(card)
-    local contents = {}
-    table.insert(contents,{"Name",card.Name})
-
-    if card.Manacost then table.insert(contents, {"Mana Cost", card.Manacost}) end
-    table.insert(contents, {"Converted Mana Cost", card.cmc or 0})
-    if card.Type then table.insert(contents, {"Types", card.Type}) end
-    if card.Text then table.insert(contents, {"Text", card.Text}) end
-    if card.Flavor then table.insert(contents, {"Flavor", card.Flavor}) end
-    if card.Loyalty then table.insert(contents, {"Loyalty", card.Loyalty}) end
-    if card.Power then table.insert(contents, {"P/T", PT(card)}) end
-    table.insert(contents, {"Expansion", ExpansionSymbol(card) .. " " .. SetLink(card.SetCode)})
-    table.insert(contents, {"Rarity", card.Rarity})
-    if card.Banned then table.insert(contents, {"Banned In", BanText(card.Banned)}) end
-
-    local cardContents = ""
-    for i = 1, #contents do
-         cardContents = cardContents .. string.format(cardPageRowTemplate, contents[i][1], contents[i][2])
-    end
-
+    local cardInfo = GenerateCardInfo(card)
     local reprints = GetReprints(card)
-
     return string.format(cardPageTemplate,
-        cardContents,
+        cardInfo,
         card.Name) .. GetRulings(card) .. reprints .. p.GetCardCategories(card)
 end
 
 local function GenerateOtherCardPage(card)
-    local contents = {}
-    table.insert(contents,{"Name",card.Name})
-
-    if card.Manacost then table.insert(contents, {"Mana Cost", card.Manacost}) end
-    table.insert(contents, {"Converted Mana Cost", card.cmc or 0})
-    if card.Type then table.insert(contents, {"Types", card.Type}) end
-    if card.Text then table.insert(contents, {"Text", card.Text}) end
-    if card.Flavor then table.insert(contents, {"Flavor", card.Flavor}) end
-    if card.Loyalty then table.insert(contents, {"Loyalty", card.Loyalty}) end
-    if card.Power then table.insert(contents, {"P/T", PT(card)}) end
-    table.insert(contents, {"Expansion", ExpansionSymbol(card) .. " " .. SetLink(card.SetCode)})
-    table.insert(contents, {"Rarity", card.Rarity})
-    if card.Banned then table.insert(contents, {"Banned In", BanText(card.Banned)}) end
-
-    local cardContents = ""
-    for i = 1, #contents do
-         cardContents = cardContents .. string.format(cardPageRowTemplate, contents[i][1], contents[i][2])
-    end
-
+    local cardInfo = GenerateCardInfo(card)
     return string.format(cardPageTemplate,
-        cardContents,
+        cardInfo,
         card.Name) ..  GetRulings(card, true) .. p.GetCardCategories(card)
 end
 
@@ -213,7 +205,7 @@ local function GetCardsTable(cards)
     local output = {""}
     local numresults = 0
     for card in cards do
-        table.insert(output, GenerateCardRow(card))
+        tinsert(output, GenerateCardRow(card))
         numresults = numresults + 1
     end
     output[1] = [=[! colspan="3" align="right"|]=] .. numresults .. " result" .. (numresults ~= 1 and "s\n" or "\n")
@@ -256,7 +248,7 @@ local function GetPagedCardsTable(criteria, title)
     local validCards = {}
 
     for card in cardService.GetByCriteria(criteria) do
-        table.insert(validCards, card)
+        tinsert(validCards, card)
         numresults = numresults + 1
     end
 
@@ -290,51 +282,54 @@ function p.GetAnyCardRow(frame)
     return frame:preprocess(GenerateAnyCardRow(card))
 end
 
+local function GetOtherCard(name)
+    local s
+    local card = cardService.GetOtherByName(name)
+    if card then
+        s = "{{CardUnavailable}}\n{{clear}}\n" .. GenerateOtherCardPage(card)
+        if card.CardNumber and (string.find(card.CardNumber, "a")) then
+            local card2 = cardService.GetOtherByNumber(gsub(card.CardNumber, "a", "b"))
+            s = s .. "\n{{clear}}\n<big><big><big>" .. card2.Name .. "</big></big></big>\n" .. GenerateOtherCardPage(card2)
+        end
+    else
+        s = "There was an error generating this page. We're aware of it and will fix it soon.{{PagesWithScriptErrors}}"
+    end
+    return s
+end
+
+local function GetCard(card)
+    local s = GenerateCardPage(card)
+    if card.CardNumber and (string.find(card.CardNumber, "a")) then
+        local card2 = cardService.GetByNumber(gsub(card.CardNumber, "a", "b"))
+        s = s .. "\n{{clear}}\n<big><big><big>" .. card2.Name .. "</big></big></big>\n" .. GenerateCardPage(card2)
+    end
+    return s
+end
 
 local function GetCardPage(name)
     local card = cardService.GetByName(name)
-    if not card then
-        card = cardService.GetOtherByName(name)
-        if not card then
-            return "There was an error generating this page. We're aware of it and will fix it soon.{{PagesWithScriptErrors}}"
-        else
-            local s = "{{CardUnavailable}}\n{{clear}}\n" .. GenerateOtherCardPage(card)
-            if card.CardNumber and (string.find(card.CardNumber, "a")) then
-                local card2 = cardService.GetOtherByNumber(string.gsub(card.CardNumber, "a", "b"))
-                s = s .. "\n{{clear}}\n<big><big><big>" .. card2.Name .. "</big></big></big>\n" .. GenerateOtherCardPage(card2)
-            end
-            return s
-        end
-    end
-    if card.CardNumber and (string.find(card.CardNumber, "a")) then
-        local card2 = cardService.GetByNumber(string.gsub(card.CardNumber, "a", "b"))
-        return GenerateCardPage(card) ..
-            "\n{{clear}}\n<big><big><big>" .. card2.Name .. "</big></big></big>\n" ..
-            GenerateCardPage(card2)
-    else
-        return GenerateCardPage(card)
-    end
+    return card and GetCard(card) or GetOtherCard(name)
 end
 
 function p.GetCardPage(frame)
-    local name = string.gsub( mw.uri.decode(frame:preprocess("{{PAGENAMEE}}")), "_", " ")
+    local name = gsub( mw.uri.decode(frame:preprocess("{{PAGENAMEE}}")), "_", " ")
     return frame:preprocess(GetCardPage(name))
 end
 
 function p.GetCardCategories(card)
     local categories = {}
-    table.insert(categories,"Cards")
+    tinsert(categories,"Cards")
     for _,setcode in pairs(card.Allsets) do
-        table.insert(categories,setNames[setcode])
+        tinsert(categories,setNames[setcode])
     end
     ConcatTables(categories,card.Colors)
-    table.insert(categories,card.Rarity)
+    tinsert(categories,card.Rarity)
     ConcatTables(categories,card.SuperTypes)
     ConcatTables(categories,card.Types)
     ConcatTables(categories,card.SubTypes)
-    if card.Watermark then table.insert(categories,card.Watermark) end
-    if card.Sets then table.insert(categories,"Reprint") end
-    if card.Banned then table.insert(categories,"Banned Card") end
+    if card.Watermark then tinsert(categories,card.Watermark) end
+    if card.Sets then tinsert(categories,"Reprint") end
+    if card.Banned then tinsert(categories,"Banned Card") end
 
     local s = ""
     for _,v in pairs(categories) do
