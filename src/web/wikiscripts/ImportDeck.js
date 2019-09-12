@@ -1,7 +1,7 @@
 // ==========================================================================
 // ImportDeck
 //
-// Version 1.7.0
+// Version 1.8.1
 // Author: Aspallar
 //
 // Provides a user friendly way to import a deck from Magic Arena
@@ -10,11 +10,12 @@
 // ** Please do not edit this code directly in the wikia.
 // ** Instead use the git repository https://github.com/Aspallar/WikiLua
 //
+//<nowiki>
 (function ($) {
     /* global mw*/
     'use strict';
 
-    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-7-0'))
+    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-8-1'))
         return;
 
     var newDeckTemplate = '';
@@ -48,6 +49,21 @@
 
     function removeIncludes(contents) {
         return contents.replace(/<[\/]?noinclude>|<[\/]?includeonly>/g, '');
+    }
+
+    //<nowiki>
+    function signatureToAnonTemplate(contents) {
+        return contents.replace(
+            '~~~~',
+            '{{AnonDeckTagline|{{subst:CURRENTTIME}}, {{subst:CURRENTMONTHNAME}} {{subst:CURRENTDAY}}, {{subst:CURRENTYEAR}} (UTC)}}'
+        );            
+    }
+
+    function adjustTemplate(contents) {
+        contents = removeIncludes(contents);
+        if (!mw.config.get('wgUserId'))
+            contents = signatureToAnonTemplate(contents);
+        return contents;
     }
 
     function invalidTitle(title) {
@@ -342,15 +358,14 @@
         $('#mdw-lang-span').replaceWith(languages);
     }
 
-    function initialize() {
+    function initializeImportForm(deckImport) {
         $('#mdw-working').html($('<img>', {
             src: mw.config.get('stylepath') + '/common/images/ajax.gif'
         }));
         showWorking();
         fetchNewDeckTemplate().done(function (template) {
-            var importDef = $('#mdw-import-deck');
-            titleCaser = new TitleCaser((importDef.attr('data-minorwords') || '').split('|'), (importDef.attr('data-acronyms') || '').split('|'));
-            newDeckTemplate = removeIncludes(template);
+            titleCaser = new TitleCaser((deckImport.attr('data-minorwords') || '').split('|'), (deckImport.attr('data-acronyms') || '').split('|'));
+            newDeckTemplate = adjustTemplate(template);
             createForm();
             hideWorking();
             showForm();
@@ -360,6 +375,25 @@
             $('#mdw-import-deck').html('<p>Failed to load new deck template.</p>');
             showForm();
         });
+    }
+
+    function mustBeSignedIn() {
+        $('#mdw-import-content').remove();
+        var annon = $('#mdw-import-noannon');
+        var signInLink = $('a[data-tracking-label="account.sign-in"]').attr('href');
+        if (signInLink) {
+            var signIn = annon.find('#mdw-sign-in');
+            signIn.html($('<a>').attr('href', signInLink).html(signIn.html()));
+        }
+        annon.fadeIn(400);
+    }
+
+    function initialize() {
+        var deckImport = $('#mdw-import-deck');
+        if (deckImport.attr('data-allowanon') || mw.config.get('wgUserId'))
+            initializeImportForm(deckImport);
+        else
+            mustBeSignedIn();
     }
 
     $(document).ready(initialize);
