@@ -16,6 +16,23 @@ Rulings=1;
 MultiverseID=447221;
 };
 
+{Name="Absorb";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{W}}{{U}}{{U}}";
+cmc=3;
+Colors={"White";"Blue";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Counter target spell. You gain 3 life.]=];
+Flavor=[=["In your misguided attempt to subvert the law, you have eloquently explained why the law must exist."]=];
+CardNumber="RNA151";
+Rulings=1;
+MultiverseID=457295;
+};
+
 {Name="Academy Drake";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -58,8 +75,8 @@ MultiverseID=442929;
 };
 
 {Name="Act of Treason";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";"RNA";};
 Manacost="{{2}}{{R}}";
 cmc=3;
 Colors={"Red"};
@@ -69,9 +86,13 @@ Rarity="Common";
 Rarities={"Common"};
 Text=[=[Gain control of target creature until end of turn. Untap that creature. It gains haste until end of turn. (It can attack and {{Tap}} this turn.)]=];
 Flavor=[=[She learned a tragic lesson that day: even the purest can be corrupted when the heart's emotions are twisted.]=];
-CardNumber="M19127";
+CardNumber="M20124";
 Rulings=2;
-MultiverseID=447263;
+MultiverseID=466878;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="127";Flavor=[=[She learned a tragic lesson that day: even the purest can be corrupted when the heart's emotions are twisted.]=];};
+{Set="RNA";Rarity="Common";CardNumber="91";Flavor=[=[Seen through Rakdos eyes, a cruel betrayal is a hilarious stunt.]=];};
+};
 };
 
 {Name="Adamant Will";
@@ -106,6 +127,7 @@ Pay 4 life: Adanto Vanguard gains indestructible until end of turn. (Damage and 
 CardNumber="XLN1";
 Power="1";
 Toughness="1";
+Rulings=1;
 MultiverseID=435152;
 };
 
@@ -219,6 +241,24 @@ CardNumber="M191";
 MultiverseID=447137;
 };
 
+{Name="Aerial Assault";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Destroy target tapped creature. You gain 1 life for each creature you control with flying.]=];
+Flavor=[=["Oh, you must be mistaken. Hawks are solitary hunters, you see."<br/>
+—Bunder Diedreck, ornithologist]=];
+CardNumber="M201";
+Rulings=3;
+MultiverseID=466755;
+};
+
 {Name="Aerial Engineer";
 SetCode="M19";
 Allsets={"M19"};
@@ -238,6 +278,28 @@ Toughness="4";
 MultiverseID=447347;
 };
 
+{Name="Aeromunculus";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{G}}{{U}}";
+cmc=3;
+Colors={"Blue";"Green";};
+Type="Creature — Homunculus Mutant";
+Types={"Creature"};
+SubTypes={"Homunculus";"Mutant";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+{{2}}{{G}}{{U}}: Adapt 1. (If this creature has no +1/+1 counters on it, put a +1/+1 counter on it.)]=];
+Flavor=[=["The absence of binocular vision imposes certain challenges for a flying creature, which are overcome via echolocation."<br/>
+—Simic research notes]=];
+CardNumber="RNA152";
+Power="2";
+Toughness="3";
+Rulings=2;
+MultiverseID=457296;
+};
+
 {Name="Aesthir Glider";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -255,6 +317,23 @@ CardNumber="DOM209";
 Power="2";
 Toughness="1";
 MultiverseID=443097;
+};
+
+{Name="Aether Gust";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Choose target spell or permanent that's red or green. Its owner puts it on the top or bottom of their library.]=];
+Flavor=[=[The chill wind extinguishes flame, and frosts the leaf on the branch.]=];
+CardNumber="M2042";
+Rulings=2;
+MultiverseID=466796;
 };
 
 {Name="Aether Tunnel";
@@ -314,9 +393,30 @@ Rulings=2;
 MultiverseID=452871;
 };
 
+{Name="Agent of Treachery";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{5}}{{U}}{{U}}";
+cmc=7;
+Colors={"Blue"};
+Type="Creature — Human Rogue";
+Types={"Creature"};
+SubTypes={"Human";"Rogue";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[When Agent of Treachery enters the battlefield, gain control of target permanent.<br/>
+At the beginning of your end step, if you control three or more permanents you don't own, draw three cards.]=];
+Flavor=[=["The more secrets you have, the more easily you become my pawn."]=];
+CardNumber="M2043";
+Power="2";
+Toughness="3";
+Rulings=5;
+MultiverseID=466797;
+};
+
 {Name="Aggressive Mammoth";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{3}}{{G}}{{G}}{{G}}";
 cmc=6;
 Colors={"Green"};
@@ -329,10 +429,14 @@ Text=[=[Trample (This creature can deal excess combat damage to the player or pl
 Other creatures you control have trample.]=];
 Flavor=[=["Approach from behind. That way, if it does charge, at least you aren't in front of it."<br/>
 —Vivien Reid]=];
-CardNumber="M19302";
+CardNumber="M20337";
 Power="8";
 Toughness="8";
-MultiverseID=450249;
+MultiverseID=469890;
+Sets={
+{Set="M19";Rarity="Rare";CardNumber="302";Flavor=[=["Approach from behind. That way, if it does charge, at least you aren't in front of it."
+—Vivien Reid]=];};
+};
 };
 
 {Name="Aggressive Urge";
@@ -353,9 +457,66 @@ Rulings=1;
 MultiverseID=439779;
 };
 
+{Name="Agonizing Syphon";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Agonizing Syphon deals 3 damage to any target and you gain 3 life.]=];
+Flavor=[=["Your death will take a mere moment, but it will feel like an eternity."<br/>
+—Vilis, Broker of Blood]=];
+CardNumber="M2083";
+Rulings=1;
+MultiverseID=466837;
+};
+
+{Name="Ahn-Crop Invader";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Creature — Zombie Minotaur Warrior";
+Types={"Creature"};
+SubTypes={"Zombie";"Minotaur";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[As long as it's your turn, Ahn-Crop Invader has first strike.<br/>
+{{1}}, Sacrifice another creature: Ahn-Crop Invader gets +2/+0 until end of turn.]=];
+Flavor=[=["Give me a crew like this one and I'd rule any sea I sailed."<br/>
+—Angrath]=];
+CardNumber="WAR113";
+Power="2";
+Toughness="2";
+MultiverseID=461040;
+};
+
+{Name="Aid the Fallen";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Choose one or both —<br/>
+• Return target creature card from your graveyard to your hand.<br/>
+• Return target planeswalker card from your graveyard to your hand.]=];
+Flavor=[=["I never liked you. Now get up—we have a fight to finish."]=];
+CardNumber="WAR76";
+MultiverseID=461003;
+};
+
 {Name="Air Elemental";
-SetCode="M19";
-Allsets={"M19";"XLN";};
+SetCode="M20";
+Allsets={"M20";"XLN";"M19";};
 Manacost="{{3}}{{U}}{{U}}";
 cmc=5;
 Colors={"Blue"};
@@ -364,14 +525,15 @@ Types={"Creature"};
 SubTypes={"Elemental"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[Flying (This creature can't be blocked except by creatures with flying or reach.)]=];
+Text=[=[Flying]=];
 Flavor=[=[As the ship approached, the jade totem rose high overhead. Power rippled. Eyes of stone glowed and crackled. Out hissed a breath of the world, and a windstorm came alive.]=];
-CardNumber="M19308";
+CardNumber="M2044";
 Power="4";
 Toughness="4";
-MultiverseID=450255;
+MultiverseID=466798;
 Sets={
 {Set="XLN";Rarity="Uncommon";CardNumber="45";Flavor=[=[As the ship approached, the jade totem rose high overhead. Power rippled. Eyes of stone glowed and crackled. Out hissed a breath of the world, and a windstorm came alive.]=];};
+{Set="M19";Rarity="Uncommon";CardNumber="308";Flavor=[=[As the ship approached, the jade totem rose high overhead. Power rippled. Eyes of stone glowed and crackled. Out hissed a breath of the world, and a windstorm came alive.]=];};
 };
 };
 
@@ -394,6 +556,69 @@ CardNumber="M193";
 Loyalty="4";
 Rulings=1;
 MultiverseID=447139;
+};
+
+{Name="Ajani, Inspiring Leader";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{W}}{{W}}";
+cmc=6;
+Colors={"White"};
+Type="Legendary Planeswalker — Ajani";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Ajani"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[+2: You gain 2 life. Put two +1/+1 counters on up to one target creature.<br/>
+−3: Exile target creature. Its controller gains 2 life.<br/>
+−10: Creatures you control gain flying and double strike until end of turn.]=];
+CardNumber="M20282";
+Loyalty="5";
+Rulings=3;
+MultiverseID=469835;
+};
+
+{Name="Ajani, Strength of the Pride";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{W}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Legendary Planeswalker — Ajani";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Ajani"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[+1: You gain life equal to the number of creatures you control plus the number of planeswalkers you control.<br/>
+−2: Create a 2/2 white Cat Soldier creature token named Ajani's Pridemate with "Whenever you gain life, put a +1/+1 counter on Ajani's Pridemate."<br/>
+0: If you have at least 15 life more than your starting life total, exile Ajani, Strength of the Pride and each artifact and creature your opponents control.]=];
+CardNumber="M202";
+Loyalty="5";
+Rulings=8;
+MultiverseID=466756;
+};
+
+{Name="Ajani, the Greathearted";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{G}}{{W}}";
+cmc=4;
+Colors={"White";"Green";};
+Type="Legendary Planeswalker — Ajani";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Ajani"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Creatures you control have vigilance.<br/>
++1: You gain 3 life.<br/>
+−2: Put a +1/+1 counter on each creature you control and a loyalty counter on each other planeswalker you control.]=];
+CardNumber="WAR184";
+Loyalty="5";
+Rulings=2;
+MultiverseID=461111;
 };
 
 {Name="Ajani, Wise Counselor";
@@ -452,8 +677,8 @@ MultiverseID=447140;
 };
 
 {Name="Ajani's Pridemate";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="WAR";
+Allsets={"WAR";"M19";};
 Manacost="{{1}}{{W}}";
 cmc=2;
 Colors={"White"};
@@ -462,14 +687,17 @@ Types={"Creature"};
 SubTypes={"Cat";"Soldier";};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[Whenever you gain life, you may put a +1/+1 counter on Ajani's Pridemate.]=];
-Flavor=[=["When one of us prospers, the pride prospers."<br/>
-—Jazal Goldmane]=];
-CardNumber="M195";
+Text=[=[Whenever you gain life, put a +1/+1 counter on Ajani's Pridemate.]=];
+Flavor=[=[Planeswalkers conjured replicas of old allies, reminders of the homeworlds that would fall next if Bolas prevailed.]=];
+CardNumber="WAR4";
 Power="2";
 Toughness="2";
 Rulings=5;
-MultiverseID=447141;
+MultiverseID=460931;
+Sets={
+{Set="M19";Rarity="Uncommon";CardNumber="5";Flavor=[=["When one of us prospers, the pride prospers."
+—Jazal Goldmane]=];};
+};
 };
 
 {Name="Ajani's Welcome";
@@ -526,6 +754,25 @@ Toughness="6";
 MultiverseID=443098;
 };
 
+{Name="Amplifire";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{R}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Creature — Elemental";
+Types={"Creature"};
+SubTypes={"Elemental"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[At the beginning of your upkeep, reveal cards from the top of your library until you reveal a creature card. Until your next turn, Amplifire's base power becomes twice that card's power and its base toughness becomes twice that card's toughness. Put the revealed cards on the bottom of your library in a random order.]=];
+CardNumber="RNA92";
+Power="1";
+Toughness="1";
+Rulings=3;
+MultiverseID=457236;
+};
+
 {Name="Amulet of Safekeeping";
 SetCode="M19";
 Allsets={"M19"};
@@ -540,6 +787,25 @@ Creature tokens get -1/-0.]=];
 Flavor=[=[Whether it is magical, lucky, or merely old, it is cherished, and that gives it power.]=];
 CardNumber="M19226";
 MultiverseID=447363;
+};
+
+{Name="Ancestral Blade";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Artifact — Equipment";
+Types={"Artifact"};
+SubTypes={"Equipment"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Ancestral Blade enters the battlefield, create a 1/1 white Soldier creature token, then attach Ancestral Blade to it.<br/>
+Equipped creature gets +1/+1.<br/>
+Equip {{1}} ({{1}}: Attach to target creature you control. Equip only as a sorcery.)]=];
+CardNumber="M203";
+Rulings=2;
+MultiverseID=466757;
 };
 
 {Name="Ancient Animus";
@@ -577,6 +843,28 @@ Toughness="9";
 MultiverseID=435330;
 };
 
+{Name="Angel of Grace";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{W}}{{W}}";
+cmc=5;
+Colors={"White"};
+Type="Creature — Angel";
+Types={"Creature"};
+SubTypes={"Angel"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Flash<br/>
+Flying<br/>
+When Angel of Grace enters the battlefield, until end of turn, damage that would reduce your life total to less than 1 reduces it to 1 instead.<br/>
+{{4}}{{W}}{{W}}, Exile Angel of Grace from your graveyard: Your life total becomes 10.]=];
+CardNumber="RNA1";
+Power="5";
+Toughness="4";
+Rulings=7;
+MultiverseID=457145;
+};
+
 {Name="Angel of the Dawn";
 SetCode="M19";
 Allsets={"M19"};
@@ -598,6 +886,86 @@ Rulings=1;
 MultiverseID=447143;
 };
 
+{Name="Angel of Vitality";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Creature — Angel";
+Types={"Creature"};
+SubTypes={"Angel"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying<br/>
+If you would gain life, you gain that much life plus 1 instead.<br/>
+Angel of Vitality gets +2/+2 as long as you have 25 or more life.]=];
+CardNumber="M204";
+Power="2";
+Toughness="2";
+Rulings=8;
+MultiverseID=466758;
+};
+
+{Name="Angelic Exaltation";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever a creature you control attacks alone, it gets +X/+X until end of turn, where X is the number of creatures you control.]=];
+Flavor=[=["If we cannot have peace, we will have justice."<br/>
+—Aurelia]=];
+CardNumber="RNA2";
+Rulings=2;
+MultiverseID=457146;
+};
+
+{Name="Angelic Gift";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Enchantment — Aura";
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Enchant creature<br/>
+When Angelic Gift enters the battlefield, draw a card.<br/>
+Enchanted creature has flying.]=];
+CardNumber="M205";
+Rulings=1;
+MultiverseID=466759;
+};
+
+{Name="Angelic Guardian";
+SetCode="M20";
+Allsets={"M20";"G18";};
+Manacost="{{4}}{{W}}{{W}}";
+cmc=6;
+Colors={"White"};
+Type="Creature — Angel";
+Types={"Creature"};
+SubTypes={"Angel"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Flying (This creature can't be blocked except by creatures with flying or reach.)<br/>
+Whenever one or more creatures you control attack, they gain indestructible until end of turn. (Damage and effects that say "destroy" don't destroy them.)]=];
+CardNumber="M20302";
+Power="5";
+Toughness="5";
+MultiverseID=469855;
+Sets={
+{Set="G18";Rarity="Rare";CardNumber="1";Flavor=[=["No single arrow can pierce an entire flock."]=];};
+};
+};
+
 {Name="Angelic Reward";
 SetCode="ANA";
 Allsets={"ANA"};
@@ -613,6 +981,46 @@ Text=[=[Enchant creature<br/>
 Enchanted creature gets +3/+3 and has flying.]=];
 CardNumber="ANA1";
 MultiverseID=0;
+};
+
+{Name="Angler Turtle";
+SetCode="G18";
+Allsets={"G18"};
+Manacost="{{5}}{{U}}{{U}}";
+cmc=7;
+Colors={"Blue"};
+Type="Creature — Turtle";
+Types={"Creature"};
+SubTypes={"Turtle"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Hexproof<br/>
+Creatures your opponents control attack each combat if able.]=];
+Flavor=[=[It is ancient, immense, and irresistible.]=];
+CardNumber="G182";
+Power="5";
+Toughness="7";
+MultiverseID=456517;
+};
+
+{Name="Angrath, Captain of Chaos";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{BR}}{{BR}}";
+cmc=4;
+Colors={"Black";"Red";};
+Type="Legendary Planeswalker — Angrath";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Angrath"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Creatures you control have menace.<br/>
+−2: Amass 2. (Put two +1/+1 counters on an Army you control. If you don't control one, create a 0/0 black Zombie Army creature token first.)]=];
+CardNumber="WAR227";
+Loyalty="5";
+Rulings=2;
+MultiverseID=461154;
 };
 
 {Name="Angrath, Minotaur Pirate";
@@ -712,6 +1120,25 @@ Rulings=3;
 MultiverseID=435286;
 };
 
+{Name="Angrath's Rampage";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{B}}{{R}}";
+cmc=2;
+Colors={"Black";"Red";};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Choose one —<br/>
+• Target player sacrifices an artifact.<br/>
+• Target player sacrifices a creature.<br/>
+• Target player sacrifices a planeswalker.]=];
+Flavor=[=["Grand city? No. This is nothing but another squalid cage."]=];
+CardNumber="WAR185";
+MultiverseID=461112;
+};
+
 {Name="Anointed Deacon";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -732,8 +1159,8 @@ MultiverseID=435242;
 };
 
 {Name="Anticipate";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{1}}{{U}}";
 cmc=2;
 Colors={"Blue"};
@@ -743,8 +1170,31 @@ Rarity="Common";
 Rarities={"Common"};
 Text=[=[Look at the top three cards of your library. Put one of them into your hand and the rest on the bottom of your library in any order.]=];
 Flavor=[=[Divining the future is easy when you hold the power to sway it.]=];
-CardNumber="M1944";
-MultiverseID=447180;
+CardNumber="M2045";
+MultiverseID=466799;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="44";Flavor=[=[Divining the future is easy when you hold the power to sway it.]=];};
+};
+};
+
+{Name="Anvilwrought Raptor";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}";
+cmc=4;
+Type="Artifact Creature — Bird";
+Types={"Artifact";"Creature";};
+SubTypes={"Bird"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+First strike (This creature deals combat damage before creatures without first strike.)]=];
+Flavor=[=["I know its lightness, for I have seen it fly. I know its weight, for I have seen it strike."<br/>
+—Brigone, soldier of Meletis]=];
+CardNumber="M20221";
+Power="2";
+Toughness="1";
+MultiverseID=466975;
 };
 
 {Name="Apex of Power";
@@ -764,6 +1214,43 @@ Flavor=[=["As I desire, so it shall be."<br/>
 CardNumber="M19129";
 Rulings=4;
 MultiverseID=447265;
+};
+
+{Name="Apostle of Purifying Light";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Creature — Human Cleric";
+Types={"Creature"};
+SubTypes={"Human";"Cleric";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Protection from black (This creature can't be blocked, targeted, dealt damage, enchanted, or equipped by anything black.)<br/>
+{{2}}: Exile target card from a graveyard.]=];
+Flavor=[=[Waves of gloom crash in vain against his unyielding light.]=];
+CardNumber="M206";
+Power="2";
+Toughness="1";
+MultiverseID=466760;
+};
+
+{Name="Applied Biomancy";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{G}}{{U}}";
+cmc=2;
+Colors={"Blue";"Green";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Choose one or both —<br/>
+• Target creature gets +1/+1 until end of turn.<br/>
+• Return target creature to its owner's hand.]=];
+CardNumber="RNA153";
+MultiverseID=457297;
 };
 
 {Name="Aquatic Incursion";
@@ -799,6 +1286,28 @@ To unleash an autumn of steel leaves."<br/>
 —"Song of Freyalise"]=];
 CardNumber="DOM155";
 MultiverseID=443043;
+};
+
+{Name="Arboreal Grazer";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{G}}";
+cmc=1;
+Colors={"Green"};
+Type="Creature — Beast";
+Types={"Creature"};
+SubTypes={"Beast"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Reach<br/>
+When Arboreal Grazer enters the battlefield, you may put a land card from your hand onto the battlefield tapped.]=];
+Flavor=[=["We fight to stop a tyrant, but we also fight for the gentle creatures who have no concept of what befalls their world."<br/>
+—Vivien Reid]=];
+CardNumber="WAR149";
+Power="0";
+Toughness="3";
+Rulings=1;
+MultiverseID=461076;
 };
 
 {Name="Arboretum Elemental";
@@ -908,6 +1417,26 @@ Rulings=6;
 MultiverseID=439849;
 };
 
+{Name="Archway Angel";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{5}}{{W}}";
+cmc=6;
+Colors={"White"};
+Type="Creature — Angel";
+Types={"Creature"};
+SubTypes={"Angel"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying<br/>
+When Archway Angel enters the battlefield, you gain 2 life for each Gate you control.]=];
+Flavor=[=[A ray of hope breaks through the shroud of rain.]=];
+CardNumber="RNA3";
+Power="3";
+Toughness="4";
+MultiverseID=457147;
+};
+
 {Name="Arclight Phoenix";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -966,6 +1495,83 @@ CardNumber="M19292";
 Power="3";
 Toughness="3";
 MultiverseID=450239;
+};
+
+{Name="Arlinn, Voice of the Pack";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{G}}{{G}}";
+cmc=6;
+Colors={"Green"};
+Type="Legendary Planeswalker — Arlinn";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Arlinn"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Each creature you control that's a Wolf or a Werewolf enters the battlefield with an additional +1/+1 counter on it.<br/>
+−2: Create a 2/2 green Wolf creature token.]=];
+CardNumber="WAR150";
+Loyalty="7";
+Rulings=3;
+MultiverseID=461077;
+};
+
+{Name="Arlinn's Wolf";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Creature — Wolf";
+Types={"Creature"};
+SubTypes={"Wolf"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Arlinn's Wolf can't be blocked by creatures with power 2 or less.]=];
+Flavor=[=["If you don't speak Wolf, allow me to translate: ‘One step closer and I'll rip out your throat.'"<br/>
+—Arlinn Kord]=];
+CardNumber="WAR151";
+Power="3";
+Toughness="2";
+Rulings=1;
+MultiverseID=461078;
+};
+
+{Name="Arrester's Admonition";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Return target creature to its owner's hand.<br/>
+Addendum — If you cast this spell during your main phase, draw a card.]=];
+Flavor=[=[Law is the voice of reason.]=];
+CardNumber="RNA31";
+Rulings=3;
+MultiverseID=457175;
+};
+
+{Name="Arrester's Zeal";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{W}}";
+cmc=1;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target creature gets +2/+2 until end of turn.<br/>
+Addendum — If you cast this spell during your main phase, that creature gains flying until end of turn.]=];
+Flavor=[=[Law is the light of civilization.]=];
+CardNumber="RNA4";
+Rulings=2;
+MultiverseID=457148;
 };
 
 {Name="Arterial Flow";
@@ -1086,6 +1692,47 @@ Rulings=3;
 MultiverseID=435153;
 };
 
+{Name="Ashiok, Dream Render";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{UB}}{{UB}}";
+cmc=3;
+Colors={"Blue";"Black";};
+Type="Legendary Planeswalker — Ashiok";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Ashiok"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Spells and abilities your opponents control can't cause their controller to search their library.<br/>
+−1: Target player puts the top four cards of their library into their graveyard. Then exile each opponent's graveyard.]=];
+CardNumber="WAR228";
+Loyalty="5";
+Rulings=5;
+MultiverseID=461155;
+};
+
+{Name="Ashiok's Skulker";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{U}}";
+cmc=5;
+Colors={"Blue"};
+Type="Creature — Nightmare";
+Types={"Creature"};
+SubTypes={"Nightmare"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{3}}{{U}}: Ashiok's Skulker can't be blocked this turn.]=];
+Flavor=[=["Fear writhes and whispers in the shadows of your mind. It is the enemy you always knew would come."<br/>
+—Ashiok]=];
+CardNumber="WAR40";
+Power="3";
+Toughness="5";
+Rulings=1;
+MultiverseID=460967;
+};
+
 {Name="Assassin's Trophy";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -1132,6 +1779,28 @@ Text=[=[Put a +1/+1 counter on target creature. That creature gains indestructib
 ]=];
 CardNumber="GRN221a";
 MultiverseID=452971;
+};
+
+{Name="Atemsis, All-Seeing";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{U}}{{U}}{{U}}";
+cmc=6;
+Colors={"Blue"};
+Type="Legendary Creature — Sphinx";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Sphinx"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Flying<br/>
+{{2}}{{U}}, {{Tap}}: Draw two cards, then discard a card.<br/>
+Whenever Atemsis, All-Seeing deals damage to an opponent, you may reveal your hand. If cards with at least six different converted mana costs are revealed this way, that player loses the game.]=];
+CardNumber="M2046";
+Power="4";
+Toughness="5";
+Rulings=4;
+MultiverseID=466800;
 };
 
 {Name="Attendant of Vraska";
@@ -1213,6 +1882,45 @@ Rulings=2;
 MultiverseID=439810;
 };
 
+{Name="Audacious Thief";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Creature — Human Rogue";
+Types={"Creature"};
+SubTypes={"Human";"Rogue";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Whenever Audacious Thief attacks, you draw a card and you lose 1 life.]=];
+Flavor=[=["Skill, imagination, smarts: none of it matters unless you have the nerve to use it."]=];
+CardNumber="M2084";
+Power="2";
+Toughness="2";
+MultiverseID=466838;
+};
+
+{Name="Augur of Bolas";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Creature — Merfolk Wizard";
+Types={"Creature"};
+SubTypes={"Merfolk";"Wizard";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Augur of Bolas enters the battlefield, look at the top three cards of your library. You may reveal an instant or sorcery card from among them and put it into your hand. Put the rest on the bottom of your library in any order.]=];
+Flavor=[=["There is no future save the one my master wills."]=];
+CardNumber="WAR41";
+Power="1";
+Toughness="3";
+Rulings=2;
+MultiverseID=460968;
+};
+
 {Name="Aurelia, Exemplar of Justice";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -1233,6 +1941,28 @@ Power="2";
 Toughness="5";
 Rulings=6;
 MultiverseID=452903;
+};
+
+{Name="Aven Eternal";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Creature — Zombie Bird Warrior";
+Types={"Creature"};
+SubTypes={"Zombie";"Bird";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+When Aven Eternal enters the battlefield, amass 1. (Put a +1/+1 counter on an Army you control. If you don't control one, create a 0/0 black Zombie Army creature token first.)]=];
+Flavor=[=["I've never seen the firemane angels so anxious."<br/>
+—Tajic]=];
+CardNumber="WAR42";
+Power="2";
+Toughness="2";
+Rulings=2;
+MultiverseID=460969;
 };
 
 {Name="Aven Sentry";
@@ -1294,6 +2024,23 @@ Toughness="2";
 MultiverseID=447182;
 };
 
+{Name="Awaken the Erstwhile";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{B}}{{B}}";
+cmc=5;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Each player discards all the cards in their hand, then creates that many 2/2 black Zombie creature tokens.]=];
+Flavor=[=[In preparation for the conflict all foresaw, the Golgari called upon an army that had slept for millennia beneath the city.]=];
+CardNumber="RNA61";
+Rulings=1;
+MultiverseID=457205;
+};
+
 {Name="Awakened Amalgam";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -1312,6 +2059,42 @@ Power="*";
 Toughness="*";
 Rulings=2;
 MultiverseID=439837;
+};
+
+{Name="Awakening of Vitu-Ghazi";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{G}}{{G}}";
+cmc=5;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Put nine +1/+1 counters on target land you control. It becomes a legendary 0/0 Elemental creature with haste named Vitu-Ghazi. It's still a land.]=];
+Flavor=[=[The Eternal armies advanced on Vitu-Ghazi. At Nissa's command, Vitu-Ghazi advanced on them.]=];
+CardNumber="WAR152";
+Rulings=3;
+MultiverseID=461079;
+};
+
+{Name="Axebane Beast";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Creature — Beast";
+Types={"Creature"};
+SubTypes={"Beast"};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=["Imagine a gigantic pine cone that's extremely territorial and always in a foul mood."<br/>
+—Zhosmir, urban huntmaster]=];
+CardNumber="RNA121";
+Power="3";
+Toughness="4";
+MultiverseID=457265;
 };
 
 {Name="Axis of Mortality";
@@ -1369,6 +2152,80 @@ Rulings=1;
 MultiverseID=439811;
 };
 
+{Name="Azorius Guildgate";
+SetCode="RNA";
+Allsets={"RNA"};
+Type="Land — Gate";
+Types={"Land"};
+SubTypes={"Gate"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Azorius Guildgate enters the battlefield tapped.<br/>
+{{Tap}}: Add {{W}} or {{U}}.]=];
+Flavor=[=["If the populace fears our authority, then I'd say we have an appropriately sensible populace."<br/>
+—Dovin Baan]=];
+CardNumber="RNA243";
+Rulings=2;
+MultiverseID=457387;
+};
+
+{Name="Azorius Knight-Arbiter";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{W}}{{U}}";
+cmc=5;
+Colors={"White";"Blue";};
+Type="Creature — Human Knight";
+Types={"Creature"};
+SubTypes={"Human";"Knight";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Vigilance<br/>
+Azorius Knight-Arbiter can't be blocked.]=];
+Flavor=[=[Thanks to the magic in his Writ of Passage, alms beasts lumbered aside, anarchs bowed their heads, and even Rakdos acrobats rolled their spikewheels out of his way.]=];
+CardNumber="RNA154";
+Power="2";
+Toughness="5";
+MultiverseID=457298;
+};
+
+{Name="Azorius Locket";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}";
+cmc=3;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{Tap}}: Add {{W}} or {{U}}.<br/>
+{{WU}}{{WU}}{{WU}}{{WU}}, {{Tap}}, Sacrifice Azorius Locket: Draw two cards.]=];
+Flavor=[=["Mandatory lockets enable the tracking of all Senate personnel for improved security and efficiency."<br/>
+—Dovin Baan]=];
+CardNumber="RNA231";
+MultiverseID=457375;
+};
+
+{Name="Azorius Skyguard";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}{{W}}{{U}}";
+cmc=6;
+Colors={"White";"Blue";};
+Type="Creature — Human Knight";
+Types={"Creature"};
+SubTypes={"Human";"Knight";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying, first strike<br/>
+Creatures your opponents control get -1/-0.]=];
+Flavor=[=["These new thopters are all well and good, but four eyes are better than none."]=];
+CardNumber="RNA155";
+Power="3";
+Toughness="3";
+MultiverseID=457299;
+};
+
 {Name="Azor's Gateway";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -1400,6 +2257,24 @@ When Baffling End leaves the battlefield, target opponent creates a 3/3 green Di
 CardNumber="RIX1";
 Rulings=2;
 MultiverseID=439658;
+};
+
+{Name="Bag of Holding";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}";
+cmc=1;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Whenever you discard a card, exile that card from your graveyard.<br/>
+{{2}}, {{Tap}}: Draw a card, then discard a card.<br/>
+{{4}}, {{Tap}}, Sacrifice Bag of Holding: Return all cards exiled with Bag of Holding to their owner's hand.]=];
+Flavor=[=[There's no prepared like overprepared.]=];
+CardNumber="M20222";
+Rulings=5;
+MultiverseID=466976;
 };
 
 {Name="Baird, Steward of Argive";
@@ -1444,6 +2319,24 @@ Toughness="4";
 MultiverseID=443044;
 };
 
+{Name="Band Together";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Up to two target creatures you control each deal damage equal to their power to another target creature.<br/>
+]=];
+Flavor=[=[In times of peril, the vision the ancient paruns had for their city comes into focus.]=];
+CardNumber="WAR153";
+Rulings=2;
+MultiverseID=461080;
+};
+
 {Name="Banefire";
 SetCode="M19";
 Allsets={"M19"};
@@ -1460,6 +2353,44 @@ Flavor=[=[For Sarkhan Vol, the dragon is the purest expression of life's savage 
 CardNumber="M19130";
 Rulings=3;
 MultiverseID=447266;
+};
+
+{Name="Banehound";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{B}}";
+cmc=1;
+Colors={"Black"};
+Type="Creature — Nightmare Hound";
+Types={"Creature"};
+SubTypes={"Nightmare";"Hound";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Lifelink, haste]=];
+Flavor=[=["I wish I could train a pack of them for hunting in the undercity. But I'd never dare turn my back, and I hate to think what I'd have to feed them."<br/>
+—Zhosmir, urban huntmaster]=];
+CardNumber="WAR77";
+Power="1";
+Toughness="1";
+MultiverseID=461004;
+};
+
+{Name="Bankrupt in Blood";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[As an additional cost to cast this spell, sacrifice two creatures.<br/>
+Draw three cards.]=];
+Flavor=[=["Your spirits can rest in peace, for your debts are paid."]=];
+CardNumber="RNA62";
+Rulings=2;
+MultiverseID=457206;
 };
 
 {Name="Barging Sergeant";
@@ -1481,6 +2412,44 @@ Power="4";
 Toughness="2";
 Rulings=3;
 MultiverseID=452842;
+};
+
+{Name="Barkhide Troll";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{G}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Creature — Troll";
+Types={"Creature"};
+SubTypes={"Troll"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Barkhide Troll enters the battlefield with a +1/+1 counter on it.<br/>
+{{1}}, Remove a +1/+1 counter from Barkhide Troll: Barkhide Troll gains hexproof until end of turn. (It can't be the target of spells or abilities your opponents control.)]=];
+CardNumber="M20165";
+Power="2";
+Toughness="2";
+Rulings=1;
+MultiverseID=466919;
+};
+
+{Name="Barony Vampire";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Creature — Vampire";
+Types={"Creature"};
+SubTypes={"Vampire"};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=["Poor little sun-dweller out past curfew. And to think, you might have survived if it wasn't so close to suppertime."]=];
+CardNumber="M2085";
+Power="3";
+Toughness="2";
+MultiverseID=466839;
 };
 
 {Name="Barrier of Bones";
@@ -1505,8 +2474,8 @@ MultiverseID=452811;
 };
 
 {Name="Bartizan Bats";
-SetCode="GRN";
-Allsets={"GRN"};
+SetCode="M20";
+Allsets={"M20";"GRN";};
 Manacost="{{3}}{{B}}";
 cmc=4;
 Colors={"Black"};
@@ -1515,13 +2484,91 @@ Types={"Creature"};
 SubTypes={"Bat"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[Flying]=];
-Flavor=[=["Bats are welcome to eat thousands of my pets. I have multitudes more that will ultimately eat the bats."<br/>
-—Izoni]=];
-CardNumber="GRN62";
+Text=[=[Flying (This creature can't be blocked except by creatures with flying or reach.)]=];
+Flavor=[=[At night, bats will feast on whatever is drawn to lanterns and streetlights.]=];
+CardNumber="M20319";
 Power="3";
 Toughness="1";
-MultiverseID=452812;
+MultiverseID=469872;
+Sets={
+{Set="GRN";Rarity="Common";CardNumber="62";Flavor=[=["Bats are welcome to eat thousands of my pets. I have multitudes more that will ultimately eat the bats."
+—Izoni]=];};
+};
+};
+
+{Name="Basilica Bell-Haunt";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{W}}{{W}}{{B}}{{B}}";
+cmc=4;
+Colors={"White";"Black";};
+Type="Creature — Spirit";
+Types={"Creature"};
+SubTypes={"Spirit"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Basilica Bell-Haunt enters the battlefield, each opponent discards a card and you gain 3 life.]=];
+Flavor=[=[You can hear their tolling only when your debt is due.]=];
+CardNumber="RNA156";
+Power="3";
+Toughness="4";
+Rulings=1;
+MultiverseID=457300;
+};
+
+{Name="Bastion Enforcer";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Creature — Dwarf Soldier";
+Types={"Creature"};
+SubTypes={"Dwarf";"Soldier";};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=[Headquartered at the Bastion of the Honorable, the soldiers of Ghirapur are charged with the task of keeping peace in the city.]=];
+CardNumber="M20303";
+Power="3";
+Toughness="2";
+MultiverseID=469856;
+};
+
+{Name="Battalion Foot Soldier";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Creature — Human Soldier";
+Types={"Creature"};
+SubTypes={"Human";"Soldier";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Battalion Foot Soldier enters the battlefield, you may search your library for any number of cards named Battalion Foot Soldier, reveal them, put them into your hand, then shuffle your library.]=];
+Flavor=[=["With me! Break this line and the rest will fall!"]=];
+CardNumber="M207";
+Power="2";
+Toughness="2";
+MultiverseID=466761;
+};
+
+{Name="Battlefield Promotion";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Put a +1/+1 counter on target creature. That creature gains first strike until end of turn. You gain 2 life.<br/>
+]=];
+Flavor=[=["Welcome to the Legion. You saved a district—now let's go save the world."]=];
+CardNumber="WAR5";
+Rulings=1;
+MultiverseID=460932;
 };
 
 {Name="Beacon Bolt";
@@ -1581,9 +2628,58 @@ Rulings=1;
 MultiverseID=452873;
 };
 
+{Name="Bedazzle";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}{{B}}{{R}}";
+cmc=6;
+Colors={"Black";"Red";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Destroy target nonbasic land. Bedazzle deals 2 damage to target opponent or planeswalker.]=];
+CardNumber="RNA221b";
+Rulings=1;
+MultiverseID=457365;
+};
+
+{Name="Bedeck";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{BR}}{{BR}}";
+cmc=2;
+Colors={"Black";"Red";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Target creature gets +3/-3 until end of turn.<br/>
+]=];
+CardNumber="RNA221a";
+MultiverseID=457365;
+};
+
+{Name="Bedevil";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{B}}{{B}}{{R}}";
+cmc=3;
+Colors={"Black";"Red";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Destroy target artifact, creature, or planeswalker.]=];
+Flavor=[=["It's easy to get taken in by the spectacle, to enjoy a bit of naughty amusement. But make no mistake: the Cult of Rakdos is a danger."<br/>
+—Tajic]=];
+CardNumber="RNA157";
+MultiverseID=457301;
+};
+
 {Name="Befuddle";
-SetCode="M19";
-Allsets={"M19";"DOM";};
+SetCode="M20";
+Allsets={"M20";"DOM";"M19";};
 Manacost="{{2}}{{U}}";
 cmc=3;
 Colors={"Blue"};
@@ -1594,12 +2690,13 @@ Rarities={"Common"};
 Text=[=[Target creature gets -4/-0 until end of turn.<br/>
 Draw a card.]=];
 Flavor=[=[The trick to talking sense into Keldons is getting them to hold still.]=];
-CardNumber="M19309";
+CardNumber="M2047";
 Rulings=1;
-MultiverseID=450256;
+MultiverseID=466801;
 Sets={
 {Set="DOM";Rarity="Common";CardNumber="45";Flavor=[=["The trick to talking sense into Keldons is getting them to hold still. I learned that from Radha."
 —Jhoira]=];};
+{Set="M19";Rarity="Common";CardNumber="309";Flavor=[=[The trick to talking sense into Keldons is getting them to hold still.]=];};
 };
 };
 
@@ -1684,6 +2781,106 @@ Rulings=1;
 MultiverseID=442894;
 };
 
+{Name="Benthic Biomancer";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{U}}";
+cmc=1;
+Colors={"Blue"};
+Type="Creature — Merfolk Wizard Mutant";
+Types={"Creature"};
+SubTypes={"Merfolk";"Wizard";"Mutant";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[{{1}}{{U}}: Adapt 1. (If this creature has no +1/+1 counters on it, put a +1/+1 counter on it.)<br/>
+Whenever one or more +1/+1 counters are put on Benthic Biomancer, draw a card, then discard a card.]=];
+Flavor=[=["I am my life's work."]=];
+CardNumber="RNA32";
+Power="1";
+Toughness="1";
+Rulings=4;
+MultiverseID=457176;
+};
+
+{Name="Bioessence Hydra";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{G}}{{U}}";
+cmc=5;
+Colors={"Blue";"Green";};
+Type="Creature — Hydra Mutant";
+Types={"Creature"};
+SubTypes={"Hydra";"Mutant";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Trample<br/>
+Bioessence Hydra enters the battlefield with a +1/+1 counter on it for each loyalty counter on planeswalkers you control.<br/>
+Whenever one or more loyalty counters are put on planeswalkers you control, put that many +1/+1 counters on Bioessence Hydra.]=];
+CardNumber="WAR186";
+Power="4";
+Toughness="4";
+Rulings=2;
+MultiverseID=461113;
+};
+
+{Name="Biogenic Ooze";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{G}}{{G}}";
+cmc=5;
+Colors={"Green"};
+Type="Creature — Ooze";
+Types={"Creature"};
+SubTypes={"Ooze"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[When Biogenic Ooze enters the battlefield, create a 2/2 green Ooze creature token.<br/>
+At the beginning of your end step, put a +1/+1 counter on each Ooze you control.<br/>
+{{1}}{{G}}{{G}}{{G}}: Create a 2/2 green Ooze creature token.]=];
+CardNumber="RNA122";
+Power="2";
+Toughness="2";
+MultiverseID=457266;
+};
+
+{Name="Biogenic Upgrade";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}{{G}}{{G}}";
+cmc=6;
+Colors={"Green"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Distribute three +1/+1 counters among one, two, or three target creatures, then double the number of +1/+1 counters on each of those creatures.]=];
+Flavor=[=["To survive exceptional times we must adapt by exceptional means."<br/>
+—Vannifar]=];
+CardNumber="RNA123";
+Rulings=3;
+MultiverseID=457267;
+};
+
+{Name="Biomancer's Familiar";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{G}}{{U}}";
+cmc=2;
+Colors={"Blue";"Green";};
+Type="Creature — Mutant";
+Types={"Creature"};
+SubTypes={"Mutant"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Activated abilities of creatures you control cost {{2}} less to activate. This effect can't reduce the amount of mana an ability costs to activate to less than one mana.<br/>
+{{Tap}}: The next time target creature adapts this turn, it adapts as though it had no +1/+1 counters on it.]=];
+CardNumber="RNA158";
+Power="2";
+Toughness="2";
+Rulings=4;
+MultiverseID=457302;
+};
+
 {Name="Bishop of Binding";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -1745,6 +2942,27 @@ Rulings=1;
 MultiverseID=435245;
 };
 
+{Name="Bishop of Wings";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{W}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Creature — Human Cleric";
+Types={"Creature"};
+SubTypes={"Human";"Cleric";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Whenever an Angel enters the battlefield under your control, you gain 4 life.<br/>
+Whenever an Angel you control dies, create a 1/1 white Spirit creature token with flying.]=];
+Flavor=[=["Within every angel is a spirit of light that will fight as long as there is darkness."]=];
+CardNumber="M208";
+Power="1";
+Toughness="4";
+Rulings=2;
+MultiverseID=466762;
+};
+
 {Name="Bishop's Soldier";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -1804,6 +3022,48 @@ Rulings=3;
 MultiverseID=452751;
 };
 
+{Name="Blade Juggler";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}{{B}}";
+cmc=5;
+Colors={"Black"};
+Type="Creature — Human Rogue";
+Types={"Creature"};
+SubTypes={"Human";"Rogue";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Spectacle {{2}}{{B}} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)<br/>
+When Blade Juggler enters the battlefield, it deals 1 damage to you and you draw a card.]=];
+CardNumber="RNA63";
+Power="3";
+Toughness="2";
+Rulings=5;
+MultiverseID=457207;
+};
+
+{Name="Bladebrand";
+SetCode="M20";
+Allsets={"M20";"RNA";};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target creature gains deathtouch until end of turn. (Any amount of damage it deals to a creature is enough to destroy it.)<br/>
+Draw a card.]=];
+Flavor=[=["One knife, two knives, three knives, four—which will drop you to the floor?"]=];
+CardNumber="M2086";
+Rulings=1;
+MultiverseID=466840;
+Sets={
+{Set="RNA";Rarity="Common";CardNumber="64";Flavor=[=["The pain of searing iron and razor edges pales beside the pleasure of performance."
+—Judith]=];};
+};
+};
+
 {Name="Blanchwood Armor";
 SetCode="M19";
 Allsets={"M19"};
@@ -1821,6 +3081,22 @@ CardNumber="M19169";
 MultiverseID=447305;
 };
 
+{Name="Blast Zone";
+SetCode="WAR";
+Allsets={"WAR"};
+Type="Land";
+Types={"Land"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Blast Zone enters the battlefield with a charge counter on it.<br/>
+{{Tap}}: Add {{C}}.<br/>
+{{X}}{{X}}, {{Tap}}: Put X charge counters on Blast Zone.<br/>
+{{3}}, {{Tap}}, Sacrifice Blast Zone: Destroy each nonland permanent with converted mana cost equal to the number of charge counters on Blast Zone.]=];
+CardNumber="WAR244";
+Rulings=3;
+MultiverseID=461171;
+};
+
 {Name="Blazing Hope";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -1836,6 +3112,22 @@ Flavor=[=["No shadow remains for you to hide in."<br/>
 —Caparocti Sunborn]=];
 CardNumber="RIX3";
 MultiverseID=439660;
+};
+
+{Name="Bleeding Edge";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{B}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Up to one target creature gets -2/-2 until end of turn. Amass 2. (Put two +1/+1 counters on an Army you control. If you don't control one, create a 0/0 black Zombie Army creature token first.)]=];
+CardNumber="WAR78";
+Rulings=3;
+MultiverseID=461005;
 };
 
 {Name="Blessed Light";
@@ -1891,6 +3183,46 @@ Toughness="1";
 MultiverseID=435246;
 };
 
+{Name="Blightbeetle";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Creature — Insect";
+Types={"Creature"};
+SubTypes={"Insect"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Protection from green (This creature can't be blocked, targeted, dealt damage, enchanted, or equipped by anything green.)<br/>
+Creatures your opponents control can't have +1/+1 counters put on them.]=];
+Flavor=[=[Leaf and soul alike wither at its touch.]=];
+CardNumber="M2087";
+Power="1";
+Toughness="1";
+Rulings=4;
+MultiverseID=466841;
+};
+
+{Name="Blindblast";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Blindblast deals 1 damage to target creature. That creature can't block this turn.<br/>
+Draw a card.]=];
+Flavor=[=["Peril is in the eye of the beholder. At least, if your aim is good."<br/>
+—Jaya Ballard]=];
+CardNumber="WAR114";
+Rulings=2;
+MultiverseID=461041;
+};
+
 {Name="Blinding Fog";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -1925,6 +3257,42 @@ Rulings=1;
 MultiverseID=442934;
 };
 
+{Name="Blood Burglar";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Creature — Vampire Rogue";
+Types={"Creature"};
+SubTypes={"Vampire";"Rogue";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[As long as it's your turn, Blood Burglar has lifelink.(Damage dealt by this creature also causes you to gain that much life.)]=];
+Flavor=[=["You've heard that a vampire can't enter a home without an invitation? A lie meant to help you sleep at night."<br/>
+—Kerin, watch sergeant]=];
+CardNumber="M2088";
+Power="2";
+Toughness="2";
+MultiverseID=466842;
+};
+
+{Name="Blood Crypt";
+SetCode="RNA";
+Allsets={"RNA"};
+Type="Land — Swamp Mountain";
+Types={"Land"};
+SubTypes={"Swamp";"Mountain";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[({{Tap}}: Add {{B}} or {{R}}.)<br/>
+As Blood Crypt enters the battlefield, you may pay 2 life. If you don't, it enters the battlefield tapped.]=];
+Flavor=[=[Life is a show, and death its final performance.]=];
+CardNumber="RNA245";
+Rulings=2;
+MultiverseID=457389;
+};
+
 {Name="Blood Divination";
 SetCode="M19";
 Allsets={"M19"};
@@ -1941,6 +3309,23 @@ Flavor=[=[Predicting the future is a messy business.]=];
 CardNumber="M1986";
 Rulings=2;
 MultiverseID=447222;
+};
+
+{Name="Blood for Bones";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[As an additional cost to cast this spell, sacrifice a creature.<br/>
+Return a creature card from your graveyard to the battlefield, then return another creature card from your graveyard to your hand.]=];
+CardNumber="M2089";
+Rulings=5;
+MultiverseID=466843;
 };
 
 {Name="Blood Operative";
@@ -2003,6 +3388,55 @@ Rulings=2;
 MultiverseID=435247;
 };
 
+{Name="Bloodfell Caves";
+SetCode="M20";
+Allsets={"M20"};
+Type="Land";
+Types={"Land"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Bloodfell Caves enters the battlefield tapped.<br/>
+When Bloodfell Caves enters the battlefield, you gain 1 life.<br/>
+{{Tap}}: Add {{B}} or {{R}}.]=];
+CardNumber="M20242";
+MultiverseID=466996;
+};
+
+{Name="Bloodmist Infiltrator";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Creature — Vampire";
+Types={"Creature"};
+SubTypes={"Vampire"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever Bloodmist Infiltrator attacks, you may sacrifice another creature. If you do, Bloodmist Infiltrator can't be blocked this turn.]=];
+Flavor=[=[Blood seeks blood, and nothing shall hold back its hunger.]=];
+CardNumber="RNA65";
+Power="3";
+Toughness="1";
+MultiverseID=457209;
+};
+
+{Name="Bloodsoaked Altar";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{B}}{{B}}";
+cmc=6;
+Colors={"Black"};
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{Tap}}, Pay 2 life, Discard a card, Sacrifice a creature: Create a 5/5 black Demon creature token with flying. Activate this ability only any time you could cast a sorcery.]=];
+Flavor=[=[Blood seeps into the stone, and darkness emerges.]=];
+CardNumber="M2090";
+MultiverseID=466844;
+};
+
 {Name="Bloodstone Goblin";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -2039,6 +3473,48 @@ CardNumber="DOM212";
 MultiverseID=443100;
 };
 
+{Name="Bloodthirsty Aerialist";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{B}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Creature — Vampire Rogue";
+Types={"Creature"};
+SubTypes={"Vampire";"Rogue";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying<br/>
+Whenever you gain life, put a +1/+1 counter on Bloodthirsty Aerialist.]=];
+Flavor=[=[A circus acrobat in life, she kills with such fluid grace that even her victims are awed by her performance.]=];
+CardNumber="M2091";
+Power="2";
+Toughness="3";
+Rulings=4;
+MultiverseID=466845;
+};
+
+{Name="Bloom Hulk";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Creature — Plant Elemental";
+Types={"Creature"};
+SubTypes={"Plant";"Elemental";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Bloom Hulk enters the battlefield, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)]=];
+Flavor=[=["Tread upon these flower beds at your own peril."<br/>
+—Emmara]=];
+CardNumber="WAR154";
+Power="4";
+Toughness="4";
+Rulings=6;
+MultiverseID=461081;
+};
+
 {Name="Blossom Dryad";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -2056,6 +3532,20 @@ CardNumber="XLN178";
 Power="2";
 Toughness="2";
 MultiverseID=435333;
+};
+
+{Name="Blossoming Sands";
+SetCode="M20";
+Allsets={"M20"};
+Type="Land";
+Types={"Land"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Blossoming Sands enters the battlefield tapped.<br/>
+When Blossoming Sands enters the battlefield, you gain 1 life.<br/>
+{{Tap}}: Add {{G}} or {{W}}.]=];
+CardNumber="M20243";
+MultiverseID=466997;
 };
 
 {Name="Board the Weatherlight";
@@ -2096,8 +3586,8 @@ MultiverseID=447267;
 };
 
 {Name="Bogstomper";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{4}}{{B}}{{B}}";
 cmc=6;
 Colors={"Black"};
@@ -2108,10 +3598,72 @@ Rarity="Common";
 Rarities={"Common"};
 Flavor=[=["They are gentle herbivores, despite their size. Approach cautiously, and hum a tune to let them know you mean no harm."<br/>
 —Vivien Reid]=];
-CardNumber="M1987";
+CardNumber="M20320";
 Power="6";
 Toughness="5";
-MultiverseID=447223;
+MultiverseID=469873;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="87";Flavor=[=["They are gentle herbivores, despite their size. Approach cautiously, and hum a tune to let them know you mean no harm."
+—Vivien Reid]=];};
+};
+};
+
+{Name="Bolas's Citadel";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{B}}{{B}}{{B}}";
+cmc=6;
+Colors={"Black"};
+Type="Legendary Artifact";
+SuperTypes={"Legendary"};
+Types={"Artifact"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[You may look at the top card of your library any time.<br/>
+You may play the top card of your library. If you cast a spell this way, pay life equal to its converted mana cost rather than pay its mana cost.<br/>
+{{Tap}}, Sacrifice ten nonland permanents: Each opponent loses 10 life.]=];
+CardNumber="WAR79";
+Rulings=8;
+MultiverseID=461006;
+};
+
+{Name="Bolrac-Clan Crusher";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{R}}{{G}}";
+cmc=5;
+Colors={"Red";"Green";};
+Type="Creature — Ogre Warrior";
+Types={"Creature"};
+SubTypes={"Ogre";"Warrior";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{Tap}}, Remove a +1/+1 counter from a creature you control: Bolrac-Clan Crusher deals 2 damage to any target.]=];
+Flavor=[=[Jaharg discovered that the shapes and symmetries so pleasing to the sculptor's eye also yielded a well-balanced bludgeon.]=];
+CardNumber="RNA159";
+Power="4";
+Toughness="4";
+Rulings=1;
+MultiverseID=457303;
+};
+
+{Name="Bolt Bend";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[This spell costs {{3}} less to cast if you control a creature with power 4 or greater.<br/>
+Change the target of target spell or ability with a single target.]=];
+Flavor=[=["Give them everything you've got . . . and some things you don't."<br/>
+—Ral Zarek]=];
+CardNumber="WAR115";
+Rulings=6;
+MultiverseID=461042;
 };
 
 {Name="Bombard";
@@ -2129,6 +3681,90 @@ Flavor=[=["Want to sink a ship? Blow a hole in the hull. Want to kill a regisaur
 —Captain Brandis Thorn]=];
 CardNumber="RIX93";
 MultiverseID=439750;
+};
+
+{Name="Bond of Discipline";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{W}}";
+cmc=5;
+Colors={"White"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Tap all creatures your opponents control. Creatures you control gain lifelink until end of turn.]=];
+Flavor=[=["We agree that order benefits everyone, but not until you enforce it."]=];
+CardNumber="WAR6";
+Rulings=1;
+MultiverseID=460933;
+};
+
+{Name="Bond of Flourishing";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Look at the top three cards of your library. You may reveal a permanent card from among them and put it into your hand. Put the rest on the bottom of your library in any order. You gain 3 life.]=];
+Flavor=[=["We agree that life should flourish. We disagree on the optimal number of limbs."]=];
+CardNumber="WAR155";
+Rulings=2;
+MultiverseID=461082;
+};
+
+{Name="Bond of Insight";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Each player puts the top four cards of their library into their graveyard. Return up to two instant and/or sorcery cards from your graveyard to your hand. Exile Bond of Insight.]=];
+Flavor=[=["Together we can unlock secrets no one has even dreamed of. I might even let you remember some of them."]=];
+CardNumber="WAR43";
+Rulings=2;
+MultiverseID=460970;
+};
+
+{Name="Bond of Passion";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{R}}{{R}}";
+cmc=6;
+Colors={"Red"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Gain control of target creature until end of turn. Untap that creature. It gains haste until end of turn. Bond of Passion deals 2 damage to any other target.]=];
+Flavor=[=["Why don't we fight for what's right and let bureaucrats argue over details?"]=];
+CardNumber="WAR116";
+Rulings=2;
+MultiverseID=461043;
+};
+
+{Name="Bond of Revival";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{B}}";
+cmc=5;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Return target creature card from your graveyard to the battlefield. It gains haste until your next turn.]=];
+Flavor=[=["Today we throw off the yoke of death. Either this is an affirmation of the eternal cyclical nature of life, or it's just hilarious—depends on which of us you ask."]=];
+CardNumber="WAR80";
+MultiverseID=461007;
 };
 
 {Name="Bonded Horncrest";
@@ -2172,23 +3808,65 @@ Toughness="4";
 MultiverseID=447224;
 };
 
+{Name="Bone Splinters";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{B}}";
+cmc=1;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[As an additional cost to cast this spell, sacrifice a creature.<br/>
+Destroy target creature.]=];
+Flavor=[=["I will make your bones into a weapon that will lay even the mighty low."<br/>
+—Modriss of Zargoth Fen]=];
+CardNumber="M2092";
+Rulings=2;
+MultiverseID=466846;
+};
+
 {Name="Bone to Ash";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{2}}{{U}}{{U}}";
 cmc=4;
 Colors={"Blue"};
 Type="Instant";
 Types={"Instant"};
-Rarity="Uncommon";
-Rarities={"Uncommon"};
+Rarity="Common";
+Rarities={"Common";"Uncommon";};
 Text=[=[Counter target creature spell.<br/>
 Draw a card.]=];
 Flavor=[=["I can think of worse ways to go. On second thought, maybe not."<br/>
 —Ludevic, necro-alchemist]=];
-CardNumber="M1947";
+CardNumber="M2048";
 Rulings=1;
-MultiverseID=447183;
+MultiverseID=466802;
+Sets={
+{Set="M19";Rarity="Uncommon";CardNumber="47";Flavor=[=["I can think of worse ways to go. On second thought, maybe not."
+—Ludevic, necro-alchemist]=];};
+};
+};
+
+{Name="Boneclad Necromancer";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{B}}{{B}}";
+cmc=5;
+Colors={"Black"};
+Type="Creature — Human Wizard";
+Types={"Creature"};
+SubTypes={"Human";"Wizard";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Boneclad Necromancer enters the battlefield, you may exile target creature card from a graveyard. If you do, create a 2/2 black Zombie creature token.]=];
+Flavor=[=["Living or dead, everyone responds to the proper motivation."]=];
+CardNumber="M2093";
+Power="3";
+Toughness="3";
+MultiverseID=466847;
 };
 
 {Name="Boneyard Parley";
@@ -2227,6 +3905,27 @@ Toughness="5";
 MultiverseID=452843;
 };
 
+{Name="Boreal Elemental";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{U}}";
+cmc=5;
+Colors={"Blue"};
+Type="Creature — Elemental";
+Types={"Creature"};
+SubTypes={"Elemental"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+Spells your opponents cast that target Boreal Elemental cost {{2}} more to cast.]=];
+Flavor=[=[Winter's breath given form.]=];
+CardNumber="M2049";
+Power="3";
+Toughness="4";
+Rulings=2;
+MultiverseID=466803;
+};
+
 {Name="Boros Challenger";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -2261,6 +3960,7 @@ Text=[=[Boros Guildgate enters the battlefield tapped.<br/>
 Flavor=[=["The more trust breaks down, the more we must throw open the front gates."<br/>
 —Aurelia]=];
 CardNumber="GRN243";
+Rulings=2;
 MultiverseID=452993;
 };
 
@@ -2331,7 +4031,7 @@ Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[For each land you control, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
+Text=[=[For each land you control, create a Treasure token. (It's an artifact with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")]=];
 Flavor=[=["Why squabble for trinkets when we could be living large off all this gold?"<br/>
 —Admiral Beckett Brass]=];
 CardNumber="RIX94";
@@ -2389,12 +4089,29 @@ Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[When Brazen Freebooter enters the battlefield, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
+Text=[=[When Brazen Freebooter enters the battlefield, create a Treasure token. (It's an artifact with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")]=];
 Flavor=[=[Finders, keepers.]=];
 CardNumber="RIX95";
 Power="3";
 Toughness="3";
 MultiverseID=439752;
+};
+
+{Name="Breeding Pool";
+SetCode="RNA";
+Allsets={"RNA"};
+Type="Land — Forest Island";
+Types={"Land"};
+SubTypes={"Forest";"Island";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[({{Tap}}: Add {{G}} or {{U}}.)<br/>
+As Breeding Pool enters the battlefield, you may pay 2 life. If you don't, it enters the battlefield tapped.]=];
+Flavor=[=["One beginning, many paths."<br/>
+—Vannifar]=];
+CardNumber="RNA246";
+Rulings=2;
+MultiverseID=457390;
 };
 
 {Name="Bright Reprisal";
@@ -2415,9 +4132,65 @@ Rulings=1;
 MultiverseID=435158;
 };
 
+{Name="Brightwood Tracker";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Creature — Elf Scout";
+Types={"Creature"};
+SubTypes={"Elf";"Scout";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{5}}{{G}}, {{Tap}}: Look at the top four cards of your library. You may reveal a creature card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.]=];
+Flavor=[=["Many have walked here, but there is only one trail I seek."]=];
+CardNumber="M20166";
+Power="2";
+Toughness="4";
+MultiverseID=466920;
+};
+
+{Name="Brineborn Cutthroat";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Creature — Merfolk Pirate";
+Types={"Creature"};
+SubTypes={"Merfolk";"Pirate";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flash (You may cast this spell any time you could cast an instant.)<br/>
+Whenever you cast a spell during an opponent's turn, put a +1/+1 counter on Brineborn Cutthroat.]=];
+Flavor=[=["I always attack from where their spyglasses can't see."]=];
+CardNumber="M2050";
+Power="2";
+Toughness="1";
+Rulings=2;
+MultiverseID=466804;
+};
+
+{Name="Bring to Trial";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Exile target creature with power 4 or greater.]=];
+Flavor=[=["In you go, big guy. Watch your head."]=];
+CardNumber="RNA5";
+MultiverseID=457149;
+};
+
 {Name="Bristling Boar";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{3}}{{G}}";
 cmc=4;
 Colors={"Green"};
@@ -2427,13 +4200,16 @@ SubTypes={"Boar"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Bristling Boar can't be blocked by more than one creature.]=];
-Flavor=[=["Nicol Bolas destroyed my world. I owe it to Skalla to celebrate all life, no matter how dangerous."<br/>
-—Vivien Reid]=];
-CardNumber="M19170";
+Flavor=[=[The spikes of bone protruding from its hide serve primarily as protection, but as they accumulate bits of foliage from the surrounding forest, they also provide camouflage.]=];
+CardNumber="M20338";
 Power="4";
 Toughness="3";
 Rulings=1;
-MultiverseID=447306;
+MultiverseID=469891;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="170";Flavor=[=["Nicol Bolas destroyed my world. I owe it to Skalla to celebrate all life, no matter how dangerous."
+—Vivien Reid]=];};
+};
 };
 
 {Name="Broken Bond";
@@ -2453,6 +4229,24 @@ Rulings=3;
 MultiverseID=443045;
 };
 
+{Name="Brought Back";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{W}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Choose up to two target permanent cards in your graveyard that were put there from the battlefield this turn. Return them to the battlefield tapped.]=];
+Flavor=[=["As long as your courage remains, your life will not falter."<br/>
+—Sephara, Sky's Blade]=];
+CardNumber="M209";
+Rulings=3;
+MultiverseID=466763;
+};
+
 {Name="Buccaneer's Bravado";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -2469,6 +4263,26 @@ Text=[=[Choose one —<br/>
 Flavor=[=[Never underestimate the power of panache.]=];
 CardNumber="RIX96";
 MultiverseID=439753;
+};
+
+{Name="Bulwark Giant";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{5}}{{W}}";
+cmc=6;
+Colors={"White"};
+Type="Creature — Giant Soldier";
+Types={"Creature"};
+SubTypes={"Giant";"Soldier";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Bulwark Giant enters the battlefield, you gain 5 life.]=];
+Flavor=[=["Where did &lt;i&gt;she&lt;/i&gt; come from? More importantly, are there more like her?"<br/>
+—Gideon Jura]=];
+CardNumber="WAR7";
+Power="3";
+Toughness="6";
+MultiverseID=460934;
 };
 
 {Name="Burglar Rat";
@@ -2491,6 +4305,43 @@ Toughness="1";
 MultiverseID=452814;
 };
 
+{Name="Burn Bright";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Creatures you control get +2/+0 until end of turn.]=];
+Flavor=[=["From a great bonfire at the dawn of time, the first Gruul kindled their rage. The same flame burns in you."<br/>
+—Kroshkar, Gruul shaman]=];
+CardNumber="RNA93";
+MultiverseID=457237;
+};
+
+{Name="Burning Prophet";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Creature — Human Wizard";
+Types={"Creature"};
+SubTypes={"Human";"Wizard";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Whenever you cast a noncreature spell, Burning Prophet gets +1/+0 until end of turn, then scry 1.]=];
+Flavor=[=["This day will end in death, but not the one you hoped for. This day will end in victory, but not the one you expected."]=];
+CardNumber="WAR117";
+Power="1";
+Toughness="3";
+Rulings=1;
+MultiverseID=461044;
+};
+
 {Name="Burning Sun's Avatar";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -2510,6 +4361,27 @@ Power="6";
 Toughness="6";
 Rulings=2;
 MultiverseID=435289;
+};
+
+{Name="Burning-Tree Vandal";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Creature — Human Rogue";
+Types={"Creature"};
+SubTypes={"Human";"Rogue";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Riot (This creature enters the battlefield with your choice of a +1/+1 counter or haste.)<br/>
+Whenever Burning-Tree Vandal attacks, you may discard a card. If you do, draw a card.]=];
+Flavor=[=[The ostentatious splendor of the Orzhov church was just asking to be smashed.]=];
+CardNumber="RNA94";
+Power="2";
+Toughness="1";
+Rulings=3;
+MultiverseID=457238;
 };
 
 {Name="Cabal Evangel";
@@ -2637,6 +4509,25 @@ CardNumber="XLN219";
 MultiverseID=435375;
 };
 
+{Name="Callous Dismissal";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Return target nonland permanent to its owner's hand.<br/>
+Amass 1. (Put a +1/+1 counter on an Army you control. If you don't control one, create a 0/0 black Zombie Army creature token first.)]=];
+Flavor=[=["They make it clear we are nothing to them."<br/>
+—Lavinia]=];
+CardNumber="WAR44";
+Rulings=3;
+MultiverseID=460971;
+};
+
 {Name="Camaraderie";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -2711,6 +4602,26 @@ CardNumber="GRN3";
 MultiverseID=452753;
 };
 
+{Name="Canopy Spider";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Creature — Spider";
+Types={"Creature"};
+SubTypes={"Spider"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Reach (This creature can block creatures with flying.)]=];
+Flavor=[=[It keeps the upper reaches of the forest free of every menace . . . except for the spider itself.]=];
+CardNumber="M20339";
+Power="1";
+Toughness="3";
+Rulings=1;
+MultiverseID=469892;
+};
+
 {Name="Captain Lannery Storm";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -2724,7 +4635,7 @@ SubTypes={"Human";"Pirate";};
 Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[Haste<br/>
-Whenever Captain Lannery Storm attacks, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."<br/>
+Whenever Captain Lannery Storm attacks, create a Treasure token. (It's an artifact with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")<br/>
 Whenever you sacrifice a Treasure, Captain Lannery Storm gets +1/+0 until end of turn.]=];
 CardNumber="XLN136";
 Power="2";
@@ -2771,6 +4682,43 @@ Rulings=1;
 MultiverseID=435291;
 };
 
+{Name="Captivating Gyre";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{U}}{{U}}";
+cmc=6;
+Colors={"Blue"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Return up to three target creatures to their owners' hands.]=];
+Flavor=[=["That's enough of that."<br/>
+—Atemsis, All-Seeing]=];
+CardNumber="M2051";
+MultiverseID=466805;
+};
+
+{Name="Captive Audience";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{5}}{{B}}{{R}}";
+cmc=7;
+Colors={"Black";"Red";};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Captive Audience enters the battlefield under the control of an opponent of your choice.<br/>
+At the beginning of your upkeep, choose one that hasn't been chosen —<br/>
+• Your life total becomes 4.<br/>
+• Discard your hand.<br/>
+• Each opponent creates five 2/2 black Zombie creature tokens.]=];
+CardNumber="RNA160";
+Rulings=6;
+MultiverseID=457304;
+};
+
 {Name="Capture Sphere";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -2788,6 +4736,22 @@ When Capture Sphere enters the battlefield, tap enchanted creature.<br/>
 Enchanted creature doesn't untap during its controller's untap step.]=];
 CardNumber="GRN31";
 MultiverseID=452781;
+};
+
+{Name="Carnage";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{B}}{{R}}";
+cmc=4;
+Colors={"Black";"Red";};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Carnage deals 3 damage to target opponent. That player discards two cards.]=];
+CardNumber="RNA222b";
+Rulings=1;
+MultiverseID=457366;
 };
 
 {Name="Carnage Tyrant";
@@ -2808,6 +4772,43 @@ CardNumber="XLN179";
 Power="7";
 Toughness="6";
 MultiverseID=435334;
+};
+
+{Name="Carnival";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{BR}}";
+cmc=1;
+Colors={"Black";"Red";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Carnival deals 1 damage to target creature or planeswalker and 1 damage to that permanent's controller.<br/>
+]=];
+CardNumber="RNA222a";
+Rulings=1;
+MultiverseID=457366;
+};
+
+{Name="Carrion Imp";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Creature — Imp";
+Types={"Creature"};
+SubTypes={"Imp"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+When Carrion Imp enters the battlefield, you may exile target creature card from a graveyard. If you do, you gain 2 life.]=];
+Flavor=[=[No scrap of nutrition goes to waste in the undercity.]=];
+CardNumber="RNA66";
+Power="2";
+Toughness="3";
+MultiverseID=457210;
 };
 
 {Name="Cast Down";
@@ -2846,6 +4847,48 @@ Rulings=1;
 MultiverseID=435442;
 };
 
+{Name="Casualties of War";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{B}}{{B}}{{G}}{{G}}";
+cmc=6;
+Colors={"Black";"Green";};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Choose one or more —<br/>
+• Destroy target artifact.<br/>
+• Destroy target creature.<br/>
+• Destroy target enchantment.<br/>
+• Destroy target land.<br/>
+• Destroy target planeswalker.<br/>
+]=];
+CardNumber="WAR187";
+Rulings=2;
+MultiverseID=461114;
+};
+
+{Name="Catacomb Crocodile";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}{{B}}";
+cmc=5;
+Colors={"Black"};
+Type="Creature — Crocodile";
+Types={"Creature"};
+SubTypes={"Crocodile"};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=["I am sewer-king!" said Rat. "I am quick and cunning and I know every tunnel."<br/>
+"No, I am king!" said Zombie. "I am cold and deadly and no rot can harm me."<br/>
+Then Croc came and ate them both.]=];
+CardNumber="RNA67";
+Power="3";
+Toughness="7";
+MultiverseID=457211;
+};
+
 {Name="Catalyst Elemental";
 SetCode="M19";
 Allsets={"M19"};
@@ -2863,6 +4906,126 @@ CardNumber="M19132";
 Power="2";
 Toughness="2";
 MultiverseID=447268;
+};
+
+{Name="Cavalcade of Calamity";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever a creature you control with power 1 or less attacks, Cavalcade of Calamity deals 1 damage to the player or planeswalker that creature is attacking.]=];
+Flavor=[=[Let the Dimir worry about witnesses. For the Rakdos, screams count as applause.]=];
+CardNumber="RNA95";
+Rulings=3;
+MultiverseID=457239;
+};
+
+{Name="Cavalier of Dawn";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{W}}{{W}}{{W}}";
+cmc=5;
+Colors={"White"};
+Type="Creature — Elemental Knight";
+Types={"Creature"};
+SubTypes={"Elemental";"Knight";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Vigilance<br/>
+When Cavalier of Dawn enters the battlefield, destroy up to one target nonland permanent. Its controller creates a 3/3 colorless Golem artifact creature token.<br/>
+When Cavalier of Dawn dies, return target artifact or enchantment card from your graveyard to your hand.]=];
+CardNumber="M2010";
+Power="4";
+Toughness="6";
+Rulings=1;
+MultiverseID=466764;
+};
+
+{Name="Cavalier of Flame";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{R}}{{R}}{{R}}";
+cmc=5;
+Colors={"Red"};
+Type="Creature — Elemental Knight";
+Types={"Creature"};
+SubTypes={"Elemental";"Knight";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[{{1}}{{R}}: Creatures you control get +1/+0 and gain haste until end of turn.<br/>
+When Cavalier of Flame enters the battlefield, discard any number of cards, then draw that many cards.<br/>
+When Cavalier of Flame dies, it deals X damage to each opponent and each planeswalker they control, where X is the number of land cards in your graveyard.]=];
+CardNumber="M20125";
+Power="6";
+Toughness="5";
+Rulings=2;
+MultiverseID=466879;
+};
+
+{Name="Cavalier of Gales";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{U}}{{U}}{{U}}";
+cmc=5;
+Colors={"Blue"};
+Type="Creature — Elemental Knight";
+Types={"Creature"};
+SubTypes={"Elemental";"Knight";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Flying<br/>
+When Cavalier of Gales enters the battlefield, draw three cards, then put two cards from your hand on top of your library in any order.<br/>
+When Cavalier of Gales dies, shuffle it into its owner's library, then scry 2.]=];
+CardNumber="M2052";
+Power="5";
+Toughness="5";
+MultiverseID=466806;
+};
+
+{Name="Cavalier of Night";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{B}}{{B}}{{B}}";
+cmc=5;
+Colors={"Black"};
+Type="Creature — Elemental Knight";
+Types={"Creature"};
+SubTypes={"Elemental";"Knight";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Lifelink<br/>
+When Cavalier of Night enters the battlefield, you may sacrifice another creature. When you do, destroy target creature an opponent controls.<br/>
+When Cavalier of Night dies, return target creature card with converted mana cost 3 or less from your graveyard to the battlefield.]=];
+CardNumber="M2094";
+Power="4";
+Toughness="5";
+Rulings=4;
+MultiverseID=466848;
+};
+
+{Name="Cavalier of Thorns";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{G}}{{G}}{{G}}";
+cmc=5;
+Colors={"Green"};
+Type="Creature — Elemental Knight";
+Types={"Creature"};
+SubTypes={"Elemental";"Knight";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Reach<br/>
+When Cavalier of Thorns enters the battlefield, reveal the top five cards of your library. Put a land card from among them onto the battlefield and the rest into your graveyard.<br/>
+When Cavalier of Thorns dies, you may exile it. If you do, put another target card from your graveyard on top of your library.]=];
+CardNumber="M20167";
+Power="5";
+Toughness="6";
+MultiverseID=466921;
 };
 
 {Name="Cavalry Drillmaster";
@@ -2883,9 +5046,32 @@ Toughness="1";
 MultiverseID=447144;
 };
 
+{Name="Celestial Messenger";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{U}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Creature — Bird Spirit";
+Types={"Creature"};
+SubTypes={"Bird";"Spirit";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flash (You may cast this card any time you could cast an instant.)<br/>
+Flying<br/>
+Celestial Messenger gets +1/+1 as long as you control a Yanling planeswalker.]=];
+Flavor=[=["It soars on the winds of dreams."<br/>
+—Mu Yanling]=];
+CardNumber="M20287";
+Power="3";
+Toughness="2";
+Rulings=1;
+MultiverseID=469840;
+};
+
 {Name="Centaur Courser";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{2}}{{G}}";
 cmc=3;
 Colors={"Green"};
@@ -2896,10 +5082,34 @@ Rarity="Common";
 Rarities={"Common"};
 Flavor=[=["The centaurs are truly free. Never will they be tamed by temptation or controlled by fear. They live in total harmony, a feat not yet achieved by our kind."<br/>
 —Ramal, sage of Westgate]=];
-CardNumber="M19171";
+CardNumber="M20168";
 Power="3";
 Toughness="3";
-MultiverseID=447307;
+MultiverseID=466922;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="171";Flavor=[=["The centaurs are truly free. Never will they be tamed by temptation or controlled by fear. They live in total harmony, a feat not yet achieved by our kind."
+—Ramal, sage of Westgate]=];};
+};
+};
+
+{Name="Centaur Nurturer";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Creature — Centaur Druid";
+Types={"Creature"};
+SubTypes={"Centaur";"Druid";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Centaur Nurturer enters the battlefield, you gain 3 life.<br/>
+{{Tap}}: Add one mana of any color.]=];
+Flavor=[=["I call upon the vigor of the grasses, the hopes of the flowers, and the dreams of the trees."]=];
+CardNumber="WAR156";
+Power="2";
+Toughness="4";
+MultiverseID=461083;
 };
 
 {Name="Centaur Peacemaker";
@@ -2922,6 +5132,28 @@ Rulings=1;
 MultiverseID=452908;
 };
 
+{Name="Cerulean Drake";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Creature — Drake";
+Types={"Creature"};
+SubTypes={"Drake"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying<br/>
+Protection from red (This creature can't be blocked, targeted, dealt damage, enchanted, or equipped by anything red.)<br/>
+Sacrifice Cerulean Drake: Counter target spell that targets you.]=];
+Flavor=[=[Dragons avoid the bright colors of its wings.]=];
+CardNumber="M2053";
+Power="1";
+Toughness="1";
+Rulings=1;
+MultiverseID=466807;
+};
+
 {Name="Chainer's Torment";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -2939,6 +5171,47 @@ III — Create an X/X black Nightmare Horror creature token, where X is half you
 CardNumber="DOM82";
 Rulings=10;
 MultiverseID=442970;
+};
+
+{Name="Chainwhip Cyclops";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{R}}";
+cmc=5;
+Colors={"Red"};
+Type="Creature — Cyclops Warrior";
+Types={"Creature"};
+SubTypes={"Cyclops";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{3}}{{R}}: Target creature can't block this turn.]=];
+Flavor=[=["You say this Tenth District, not Rubblebelt. But where smash happen, that Rubblebelt. Rubblebelt state of mind."<br/>
+—Urgdar, cyclops philosopher]=];
+CardNumber="WAR118";
+Power="4";
+Toughness="4";
+Rulings=1;
+MultiverseID=461045;
+};
+
+{Name="Challenger Troll";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{G}}";
+cmc=5;
+Colors={"Green"};
+Type="Creature — Troll";
+Types={"Creature"};
+SubTypes={"Troll"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Each creature you control with power 4 or greater can't be blocked by more than one creature.]=];
+Flavor=[=[For most, war is a calamity. For some, an opportunity. And for the very few, a pleasure.]=];
+CardNumber="WAR157";
+Power="6";
+Toughness="5";
+Rulings=3;
+MultiverseID=461084;
 };
 
 {Name="Chamber Sentry";
@@ -3018,6 +5291,49 @@ Rulings=3;
 MultiverseID=452909;
 };
 
+{Name="Chandra, Acolyte of Flame";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{R}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Legendary Planeswalker — Chandra";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Chandra"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[0: Put a loyalty counter on each red planeswalker you control.<br/>
+0: Create two 1/1 red Elemental creature tokens. They gain haste. Sacrifice them at the beginning of the next end step.<br/>
+−2: You may cast target instant or sorcery card with converted mana cost 3 or less from your graveyard. If that card would be put into your graveyard this turn, exile it instead.]=];
+CardNumber="M20126";
+Loyalty="4";
+Rulings=4;
+MultiverseID=466880;
+};
+
+{Name="Chandra, Awakened Inferno";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{R}}{{R}}";
+cmc=6;
+Colors={"Red"};
+Type="Legendary Planeswalker — Chandra";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Chandra"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[This spell can't be countered.<br/>
++2: Each opponent gets an emblem with "At the beginning of your upkeep, this emblem deals 1 damage to you."<br/>
+−3: Chandra, Awakened Inferno deals 3 damage to each non-Elemental creature.<br/>
+−X: Chandra, Awakened Inferno deals X damage to target creature or planeswalker. If a permanent dealt damage this way would die this turn, exile it instead.]=];
+CardNumber="M20127";
+Loyalty="6";
+Rulings=8;
+MultiverseID=466881;
+};
+
 {Name="Chandra, Bold Pyromancer";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -3039,6 +5355,107 @@ Rulings=2;
 MultiverseID=445853;
 };
 
+{Name="Chandra, Fire Artisan";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{R}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Legendary Planeswalker — Chandra";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Chandra"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Whenever one or more loyalty counters are removed from Chandra, Fire Artisan, she deals that much damage to target opponent or planeswalker.<br/>
++1: Exile the top card of your library. You may play it this turn.<br/>
+−7: Exile the top seven cards of your library. You may play them this turn.]=];
+CardNumber="WAR119";
+Loyalty="4";
+Rulings=5;
+MultiverseID=461046;
+};
+
+{Name="Chandra, Flame's Fury";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{R}}{{R}}";
+cmc=6;
+Colors={"Red"};
+Type="Legendary Planeswalker — Chandra";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Chandra"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[+1: Chandra, Flame's Fury deals 2 damage to any target.<br/>
+−2: Chandra, Flame's Fury deals 4 damage to target creature and 2 damage to that creature's controller.<br/>
+−8: Chandra, Flame's Fury deals 10 damage to target player and each creature that player controls.]=];
+CardNumber="M20294";
+Loyalty="4";
+Rulings=2;
+MultiverseID=469847;
+};
+
+{Name="Chandra, Novice Pyromancer";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Legendary Planeswalker — Chandra";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Chandra"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[+1: Elementals you control get +2/+0 until end of turn.<br/>
+−1: Add {{R}}{{R}}.<br/>
+−2: Chandra, Novice Pyromancer deals 2 damage to any target.]=];
+CardNumber="M20128";
+Loyalty="5";
+Rulings=2;
+MultiverseID=466882;
+};
+
+{Name="Chandra's Embercat";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Creature — Elemental Cat";
+Types={"Creature"};
+SubTypes={"Elemental";"Cat";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{Tap}}: Add {{R}}. Spend this mana only to cast an Elemental spell or a Chandra planeswalker spell.]=];
+Flavor=[=["Furballs? Try dealing with fireballs."<br/>
+—Chandra Nalaar]=];
+CardNumber="M20129";
+Power="2";
+Toughness="2";
+Rulings=1;
+MultiverseID=466883;
+};
+
+{Name="Chandra's Flame Wave";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{R}}{{R}}";
+cmc=5;
+Colors={"Red"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Chandra's Flame Wave deals 2 damage to target player and each creature that player controls. Search your library and/or graveyard for a card named Chandra, Flame's Fury, reveal it, and put it into your hand. If you search your library this way, shuffle it.]=];
+Flavor=[=["It's high tide."]=];
+CardNumber="M20295";
+Rulings=2;
+MultiverseID=469848;
+};
+
 {Name="Chandra's Outburst";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -3053,6 +5470,98 @@ Text=[=[Chandra's Outburst deals 4 damage to target player or planeswalker.<br/>
 Search your library and/or graveyard for a card named Chandra, Bold Pyromancer, reveal it, and put it into your hand. If you search your library this way, shuffle it.]=];
 CardNumber="DOM276";
 MultiverseID=445854;
+};
+
+{Name="Chandra's Outrage";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{R}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Chandra's Outrage deals 4 damage to target creature and 2 damage to that creature's controller.]=];
+Flavor=[=["There's plenty of fire to go around."<br/>
+—Chandra Nalaar]=];
+CardNumber="M20130";
+Rulings=1;
+MultiverseID=466884;
+};
+
+{Name="Chandra's Pyrohelix";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Chandra's Pyrohelix deals 2 damage divided as you choose among one or two targets.]=];
+Flavor=[=["Now that I've dealt with your little toys, I can focus on the real problem: you."<br/>
+—Chandra Nalaar, to Dovin Baan]=];
+CardNumber="WAR120";
+Rulings=2;
+MultiverseID=461047;
+};
+
+{Name="Chandra's Regulator";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Legendary Artifact";
+SuperTypes={"Legendary"};
+Types={"Artifact"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Whenever you activate a loyalty ability of a Chandra planeswalker, you may pay {{1}}. If you do, copy that ability. You may choose new targets for the copy.<br/>
+{{1}}, {{Tap}}, Discard a Mountain card or a red card: Draw a card.]=];
+CardNumber="M20131";
+Rulings=5;
+MultiverseID=466885;
+};
+
+{Name="Chandra's Spitfire";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Creature — Elemental";
+Types={"Creature"};
+SubTypes={"Elemental"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying<br/>
+Whenever an opponent is dealt noncombat damage, Chandra's Spitfire gets +3/+0 until end of turn.]=];
+Flavor=[=["I've lit most everything on fire—trees, rocks, even the water. Now it's time to burn the clouds."]=];
+CardNumber="M20132";
+Power="1";
+Toughness="3";
+Rulings=3;
+MultiverseID=466886;
+};
+
+{Name="Chandra's Triumph";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Chandra's Triumph deals 3 damage to target creature or planeswalker an opponent controls. Chandra's Triumph deals 5 damage to that permanent instead if you control a Chandra planeswalker.]=];
+Flavor=[=[Her triumph came not from achieving her ideal self, but from rejecting the idea of perfection.]=];
+CardNumber="WAR121";
+Rulings=2;
+MultiverseID=461048;
 };
 
 {Name="Chaos Wand";
@@ -3126,6 +5635,66 @@ Power="4";
 Toughness="4";
 Rulings=2;
 MultiverseID=439754;
+};
+
+{Name="Charging War Boar";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{R}}{{G}}";
+cmc=3;
+Colors={"Red";"Green";};
+Type="Creature — Boar";
+Types={"Creature"};
+SubTypes={"Boar"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Haste (This creature can attack and {{Tap}} as soon as it comes under your control.)<br/>
+As long as you control a Domri planeswalker, Charging War Boar gets +1/+1 and has trample. (It can deal excess damage to the player or planeswalker it's attacking.)]=];
+CardNumber="RNA271";
+Power="3";
+Toughness="1";
+Rulings=1;
+MultiverseID=460005;
+};
+
+{Name="Charity Extractor";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Creature — Human Knight";
+Types={"Creature"};
+SubTypes={"Human";"Knight";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Lifelink]=];
+Flavor=[=["War or no war, your donations are due, as always."]=];
+CardNumber="WAR81";
+Power="1";
+Toughness="5";
+MultiverseID=461008;
+};
+
+{Name="Charmed Stray";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{W}}";
+cmc=1;
+Colors={"White"};
+Type="Creature — Cat";
+Types={"Creature"};
+SubTypes={"Cat"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Lifelink<br/>
+When Charmed Stray enters the battlefield, put a +1/+1 counter on each other creature you control named Charmed Stray.]=];
+Flavor=[=["There's something peculiar about the cats today."<br/>
+—Janoc, Tin Street tinker]=];
+CardNumber="WAR8";
+Power="1";
+Toughness="1";
+MultiverseID=460935;
 };
 
 {Name="Charnel Troll";
@@ -3225,6 +5794,27 @@ Sets={
 };
 };
 
+{Name="Chillbringer";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}{{U}}";
+cmc=5;
+Colors={"Blue"};
+Type="Creature — Elemental";
+Types={"Creature"};
+SubTypes={"Elemental"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+When Chillbringer enters the battlefield, tap target creature an opponent controls. It doesn't untap during its controller's next untap step.]=];
+Flavor=[=[If you can see your breath, it's too late to run.]=];
+CardNumber="RNA33";
+Power="3";
+Toughness="3";
+Rulings=1;
+MultiverseID=457177;
+};
+
 {Name="Chromatic Lantern";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -3284,6 +5874,23 @@ Sets={
 };
 };
 
+{Name="Cindervines";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{R}}{{G}}";
+cmc=2;
+Colors={"Red";"Green";};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Whenever an opponent casts a noncreature spell, Cindervines deals 1 damage to that player.<br/>
+{{1}}, Sacrifice Cindervines: Destroy target artifact or enchantment. Cindervines deals 2 damage to that permanent's controller.]=];
+CardNumber="RNA161";
+Rulings=3;
+MultiverseID=457305;
+};
+
 {Name="Circuitous Route";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -3339,6 +5946,68 @@ CardNumber="GRN4";
 MultiverseID=452754;
 };
 
+{Name="Civic Stalwart";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Creature — Elephant Soldier";
+Types={"Creature"};
+SubTypes={"Elephant";"Soldier";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Civic Stalwart enters the battlefield, creatures you control get +1/+1 until end of turn.]=];
+Flavor=[=["These are your streets. Defend them! This is your neighborhood. Honor it! This is your city. Save it!"]=];
+CardNumber="RNA6";
+Power="3";
+Toughness="3";
+Rulings=1;
+MultiverseID=457150;
+};
+
+{Name="Clamor Shaman";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Creature — Goblin Shaman";
+Types={"Creature"};
+SubTypes={"Goblin";"Shaman";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Riot (This creature enters the battlefield with your choice of a +1/+1 counter or haste.)<br/>
+Whenever Clamor Shaman attacks, target creature an opponent controls can't block this turn.]=];
+Flavor=[=["Little goblin. Big noise."<br/>
+—Ruric Thar]=];
+CardNumber="RNA96";
+Power="1";
+Toughness="1";
+Rulings=3;
+MultiverseID=457240;
+};
+
+{Name="Clan Guildmage";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{R}}{{G}}";
+cmc=2;
+Colors={"Red";"Green";};
+Type="Creature — Human Shaman";
+Types={"Creature"};
+SubTypes={"Human";"Shaman";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{1}}{{R}}, {{Tap}}: Target creature can't block this turn.<br/>
+{{2}}{{G}}, {{Tap}}: Target land you control becomes a 4/4 Elemental creature with haste until end of turn. It's still a land.]=];
+CardNumber="RNA162";
+Power="2";
+Toughness="2";
+Rulings=2;
+MultiverseID=457306;
+};
+
 {Name="Cleansing Nova";
 SetCode="M19";
 Allsets={"M19"};
@@ -3376,6 +6045,42 @@ CardNumber="RIX4";
 MultiverseID=439661;
 };
 
+{Name="Clear the Mind";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target player shuffles their graveyard into their library.<br/>
+Draw a card.]=];
+Flavor=[=["The best way to keep a secret is to forget it."<br/>
+—Lazav]=];
+CardNumber="RNA34";
+Rulings=2;
+MultiverseID=457178;
+};
+
+{Name="Clear the Stage";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}{{B}}";
+cmc=5;
+Colors={"Black"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Target creature gets -3/-3 until end of turn. If you control a creature with power 4 or greater, you may return up to one target creature card from your graveyard to your hand.]=];
+Flavor=[=["Make way! It's time for the final act!"]=];
+CardNumber="RNA68";
+Rulings=3;
+MultiverseID=457212;
+};
+
 {Name="Clifftop Retreat";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -3388,6 +6093,26 @@ Text=[=[Clifftop Retreat enters the battlefield tapped unless you control a Moun
 Flavor=[=[The sunlight falls pristine on the temple at Epityr, softened by the remembered shadows of angelic saviors' wings.]=];
 CardNumber="DOM239";
 MultiverseID=443127;
+};
+
+{Name="Cloudkin Seer";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Creature — Elemental Wizard";
+Types={"Creature"};
+SubTypes={"Elemental";"Wizard";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+When Cloudkin Seer enters the battlefield, draw a card.]=];
+Flavor=[=["I can see which way the wind is blowing."]=];
+CardNumber="M2054";
+Power="2";
+Toughness="1";
+MultiverseID=466808;
 };
 
 {Name="Cloudreader Sphinx";
@@ -3426,6 +6151,24 @@ CardNumber="XLN233";
 MultiverseID=435389;
 };
 
+{Name="Code of Constraint";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Target creature gets -4/-0 until end of turn.<br/>
+Draw a card.<br/>
+Addendum — If you cast this spell during your main phase, tap that creature and it doesn't untap during its controller's next untap step.]=];
+CardNumber="RNA35";
+Rulings=4;
+MultiverseID=457179;
+};
+
 {Name="Cold-Water Snapper";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -3460,6 +6203,22 @@ Flavor=[=["Reports of Gruul rioters in four districts. Start with the big ones a
 —Libuse, Boros sergeant]=];
 CardNumber="GRN5";
 MultiverseID=452755;
+};
+
+{Name="Collision";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{RG}}";
+cmc=2;
+Colors={"Red";"Green";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Collision deals 6 damage to target creature with flying.<br/>
+]=];
+CardNumber="RNA223a";
+MultiverseID=457367;
 };
 
 {Name="Colossal Dreadmaw";
@@ -3504,6 +6263,76 @@ Rulings=4;
 MultiverseID=447309;
 };
 
+{Name="Colossus";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{R}}{{G}}";
+cmc=2;
+Colors={"Red";"Green";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Target creature gets +4/+2 and gains trample until end of turn.]=];
+CardNumber="RNA223b";
+MultiverseID=457367;
+};
+
+{Name="Colossus Hammer";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}";
+cmc=1;
+Type="Artifact — Equipment";
+Types={"Artifact"};
+SubTypes={"Equipment"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Equipped creature gets +10/+10 and loses flying.<br/>
+Equip {{8}} ({{8}}: Attach to target creature you control. Equip only as a sorcery.)]=];
+Flavor=[=["There's only one way to be sure it's really dead."]=];
+CardNumber="M20223";
+Rulings=3;
+MultiverseID=466977;
+};
+
+{Name="Combine Guildmage";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{G}}{{U}}";
+cmc=2;
+Colors={"Blue";"Green";};
+Type="Creature — Merfolk Wizard";
+Types={"Creature"};
+SubTypes={"Merfolk";"Wizard";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{1}}{{G}}, {{Tap}}: This turn, each creature you control enters the battlefield with an additional +1/+1 counter on it.<br/>
+{{1}}{{U}}, {{Tap}}: Move a +1/+1 counter from target creature you control onto another target creature you control.]=];
+CardNumber="RNA163";
+Power="2";
+Toughness="2";
+Rulings=3;
+MultiverseID=457307;
+};
+
+{Name="Command the Dreadhorde";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{B}}{{B}}";
+cmc=6;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Choose any number of target creature and/or planeswalker cards in graveyards. Command the Dreadhorde deals damage to you equal to the total converted mana cost of those cards. Put them onto the battlefield under your control.]=];
+Flavor=[=[Liliana seized the reins of Bolas's vast army, gritting her teeth behind the Chain Veil.]=];
+CardNumber="WAR82";
+Rulings=3;
+MultiverseID=461009;
+};
+
 {Name="Command the Storm";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -3518,6 +6347,25 @@ Text=[=[Command the Storm deals 5 damage to target creature.]=];
 Flavor=[=[In the wake of Niv-Mizzet's disappearance, Ral found himself leading the guild. He had dreamed of this day, but couldn't help feeling like a pawn in someone else's game.]=];
 CardNumber="GRN94";
 MultiverseID=452844;
+};
+
+{Name="Commence the Endgame";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{U}}{{U}}";
+cmc=6;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[This spell can't be countered.<br/>
+Draw two cards, then amass X, where X is the number of cards in your hand. (Put X +1/+1 counters on an Army you control. If you don't control one, create a 0/0 black Zombie Army creature token first.)]=];
+Flavor=[=["Even gods shall kneel."<br/>
+—Nicol Bolas]=];
+CardNumber="WAR45";
+Rulings=4;
+MultiverseID=460972;
 };
 
 {Name="Commune with Dinosaurs";
@@ -3608,6 +6456,29 @@ Rulings=4;
 MultiverseID=452972;
 };
 
+{Name="Concordia Pegasus";
+SetCode="M20";
+Allsets={"M20";"RNA";};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Creature — Pegasus";
+Types={"Creature"};
+SubTypes={"Pegasus"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying (This creature can't be blocked except by creatures with flying or reach.)]=];
+Flavor=[=[In the cloudy skies and dim light of autumn, a flash of white wings is a reminder that better times lie ahead.]=];
+CardNumber="M20304";
+Power="1";
+Toughness="3";
+MultiverseID=469857;
+Sets={
+{Set="RNA";Rarity="Common";CardNumber="7";Flavor=[=["What makes a frog lizard any worse than a bird horse? Prejudice against the Simic, that's what. It's unfair!"
+—Thados Arquef, Guardian Project biomancer]=];};
+};
+};
+
 {Name="Confront the Assault";
 SetCode="ANA";
 Allsets={"ANA"};
@@ -3677,6 +6548,74 @@ Rulings=15;
 MultiverseID=435390;
 };
 
+{Name="Consecrate";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{WB}}";
+cmc=2;
+Colors={"White";"Black";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Exile target card from a graveyard.<br/>
+Draw a card.<br/>
+]=];
+CardNumber="RNA224a";
+MultiverseID=457368;
+};
+
+{Name="Consign to the Pit";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{5}}{{B}}";
+cmc=6;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Destroy target creature. Consign to the Pit deals 2 damage to that creature's controller.]=];
+Flavor=[=[First your whole life flashes before your eyes. Then you have considerable time to reflect on every regret as you plummet.]=];
+CardNumber="RNA69";
+Rulings=1;
+MultiverseID=457213;
+};
+
+{Name="Consume";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{W}}{{B}}";
+cmc=4;
+Colors={"White";"Black";};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Target player sacrifices a creature with the greatest power among creatures they control. You gain life equal to its power.]=];
+CardNumber="RNA224b";
+Rulings=3;
+MultiverseID=457368;
+};
+
+{Name="Contentious Plan";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)<br/>
+Draw a card.]=];
+Flavor=[=[Niv-Mizzet had perfected a plan, but he had no control over the mortal minds who had to agree to implement it.]=];
+CardNumber="WAR46";
+Rulings=6;
+MultiverseID=460973;
+};
+
 {Name="Contract Killing";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -3687,11 +6626,84 @@ Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[Destroy target creature. Create two colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
+Text=[=[Destroy target creature. Create two Treasure tokens. (They're artifacts with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")]=];
 Flavor=[=[For a price, the floating city of High and Dry offers all the amenities a pirate could want: rest, recreation, and revenge.]=];
 CardNumber="XLN95";
 Rulings=1;
 MultiverseID=435249;
+};
+
+{Name="Convolute";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Counter target spell unless its controller pays {{4}}.]=];
+Flavor=[=["Let's see how badly you want what you came for!"]=];
+CardNumber="M2055";
+MultiverseID=466809;
+};
+
+{Name="Coral Commando";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Creature — Merfolk Warrior";
+Types={"Creature"};
+SubTypes={"Merfolk";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=[Few Ravnicans are aware of the vast reefs in their world's hidden ocean. Far beneath the great sinkholes, where the light is blue and dim, merfolk tend the coral labyrinths that feed the benthic ecosystem.]=];
+CardNumber="RNA36";
+Power="3";
+Toughness="2";
+MultiverseID=457180;
+};
+
+{Name="Coral Merfolk";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Creature — Merfolk";
+Types={"Creature"};
+SubTypes={"Merfolk"};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=[The merfolk know every contour of their coral homes; each reef is a garden in times of peace, and a refuge and fortress in times of war.]=];
+CardNumber="M20315";
+Power="2";
+Toughness="1";
+MultiverseID=469868;
+};
+
+{Name="Corpse Knight";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{W}}{{B}}";
+cmc=2;
+Colors={"White";"Black";};
+Type="Creature — Zombie Knight";
+Types={"Creature"};
+SubTypes={"Zombie";"Knight";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever another creature enters the battlefield under your control, each opponent loses 1 life.]=];
+Flavor=[=["With each knight that rode out from the bone-white keep, the queen's soldiers felt their courage failing."<br/>
+—Krinnea, &lt;i&gt;Siege of the Bone Spire&lt;/i&gt;]=];
+CardNumber="M20206";
+Power="2";
+Toughness="2";
+Rulings=1;
+MultiverseID=466960;
 };
 
 {Name="Corrosive Ooze";
@@ -3747,6 +6759,23 @@ Flavor=[=[No lock of iron is a match for Vraska's will of stone.]=];
 CardNumber="XLN96";
 Rulings=1;
 MultiverseID=435250;
+};
+
+{Name="Courage in Crisis";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Put a +1/+1 counter on target creature, then proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)]=];
+Flavor=[=["Thanks to my father, I know how to fight. He also showed me why I must."]=];
+CardNumber="WAR158";
+Rulings=7;
+MultiverseID=461085;
 };
 
 {Name="Court Cleric";
@@ -3881,6 +6910,27 @@ Rulings=1;
 MultiverseID=452816;
 };
 
+{Name="Creeping Trailblazer";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{R}}{{G}}";
+cmc=2;
+Colors={"Red";"Green";};
+Type="Creature — Elemental";
+Types={"Creature"};
+SubTypes={"Elemental"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Other Elementals you control get +1/+0.<br/>
+{{2}}{{R}}{{G}}: Creeping Trailblazer gets +1/+1 until end of turn for each Elemental you control.]=];
+Flavor=[=[The destruction of a wildfire with the tenacity of a jungle vine.]=];
+CardNumber="M20207";
+Power="2";
+Toughness="2";
+Rulings=2;
+MultiverseID=466961;
+};
+
 {Name="Crested Herdcaller";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -3918,6 +6968,26 @@ Rulings=2;
 MultiverseID=447366;
 };
 
+{Name="Cruel Celebrant";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{W}}{{B}}";
+cmc=2;
+Colors={"White";"Black";};
+Type="Creature — Vampire";
+Types={"Creature"};
+SubTypes={"Vampire"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever Cruel Celebrant or another creature or planeswalker you control dies, each opponent loses 1 life and you gain 1 life.]=];
+Flavor=[=["Whichever side wins, I'm sure the banquet will be superb."]=];
+CardNumber="WAR188";
+Power="1";
+Toughness="2";
+Rulings=3;
+MultiverseID=461115;
+};
+
 {Name="Crush Contraband";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -3935,6 +7005,25 @@ Flavor=[=[The Izzet mage knew she would neither get her thermoinverter back nor 
 CardNumber="GRN7";
 Rulings=1;
 MultiverseID=452757;
+};
+
+{Name="Crush Dissent";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Counter target spell unless its controller pays {{2}}.<br/>
+Amass 2. (Put two +1/+1 counters on an Army you control. If you don't control one, create a 0/0 black Zombie Army creature token first.)]=];
+Flavor=[=["All I ask is complete obedience."<br/>
+—Nicol Bolas]=];
+CardNumber="WAR47";
+Rulings=4;
+MultiverseID=460974;
 };
 
 {Name="Crushing Canopy";
@@ -3958,6 +7047,57 @@ Sets={
 {Set="XLN";Rarity="Common";CardNumber="183";Flavor=[=["Do not mistake your lofty vantage point for safety."
 —Shaper Tuvasa]=];};
 };
+};
+
+{Name="Cry of the Carnarium";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{B}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[All creatures get -2/-2 until end of turn. Exile all creature cards in all graveyards that were put there from the battlefield this turn. If a creature would die this turn, exile it instead.]=];
+Flavor=[=[If your ears bleed, it's a party. If your eyes bleed, it's a Rakdos party.]=];
+CardNumber="RNA70";
+Rulings=3;
+MultiverseID=457214;
+};
+
+{Name="Cryptic Caves";
+SetCode="M20";
+Allsets={"M20"};
+Type="Land";
+Types={"Land"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{Tap}}: Add {{C}}.<br/>
+{{1}}, {{Tap}}, Sacrifice Cryptic Caves: Draw a card. Activate this ability only if you control five or more lands.]=];
+Flavor=[=[Only when you've given up the search will the caves yield their secrets.]=];
+CardNumber="M20244";
+Rulings=2;
+MultiverseID=466998;
+};
+
+{Name="Cult Guildmage";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{B}}{{R}}";
+cmc=2;
+Colors={"Black";"Red";};
+Type="Creature — Human Shaman";
+Types={"Creature"};
+SubTypes={"Human";"Shaman";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{3}}{{B}}, {{Tap}}: Target player discards a card. Activate this ability only any time you could cast a sorcery.<br/>
+{{R}}, {{Tap}}: Cult Guildmage deals 1 damage to target opponent or planeswalker.]=];
+CardNumber="RNA164";
+Power="2";
+Toughness="2";
+MultiverseID=457308;
 };
 
 {Name="Curator's Ward";
@@ -3998,6 +7138,46 @@ Rulings=1;
 MultiverseID=439692;
 };
 
+{Name="Cyclops Electromancer";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{R}}";
+cmc=5;
+Colors={"Red"};
+Type="Creature — Cyclops Wizard";
+Types={"Creature"};
+SubTypes={"Cyclops";"Wizard";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Cyclops Electromancer enters the battlefield, it deals X damage to target creature an opponent controls, where X is the number of instant and sorcery cards in your graveyard.]=];
+Flavor=[=[Every storm has an eye.]=];
+CardNumber="WAR122";
+Power="4";
+Toughness="2";
+Rulings=2;
+MultiverseID=461049;
+};
+
+{Name="Dagger Caster";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Creature — Viashino Rogue";
+Types={"Creature"};
+SubTypes={"Viashino";"Rogue";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Dagger Caster enters the battlefield, it deals 1 damage to each opponent and 1 damage to each creature your opponents control.]=];
+Flavor=[=["Keep coming. I have knives enough for everyone."]=];
+CardNumber="RNA97";
+Power="2";
+Toughness="3";
+Rulings=1;
+MultiverseID=457241;
+};
+
 {Name="Daggerback Basilisk";
 SetCode="M19";
 Allsets={"M19"};
@@ -4015,6 +7195,25 @@ CardNumber="M19174";
 Power="2";
 Toughness="2";
 MultiverseID=447310;
+};
+
+{Name="Daggersail Aeronaut";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Creature — Goblin";
+Types={"Creature"};
+SubTypes={"Goblin"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[As long as it's your turn, Daggersail Aeronaut has flying.]=];
+Flavor=[=["Coming down is the best part!"]=];
+CardNumber="M20133";
+Power="3";
+Toughness="2";
+MultiverseID=466887;
 };
 
 {Name="Damping Sphere";
@@ -4188,6 +7387,23 @@ Rulings=1;
 MultiverseID=435251;
 };
 
+{Name="Dark Remedy";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target creature gets +1/+3 until end of turn.]=];
+Flavor=[=["Writhing tendrils of darkness stitched him back together. Though his will and body both were broken, the necromancer's magic would not let him rest."<br/>
+—Krinnea, &lt;i&gt;Siege of the Bone Spire&lt;/i&gt;]=];
+CardNumber="M20321";
+MultiverseID=469874;
+};
+
 {Name="Darkblade Agent";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -4270,6 +7486,43 @@ Rulings=4;
 MultiverseID=442899;
 };
 
+{Name="Davriel, Rogue Shadowmage";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Legendary Planeswalker — Davriel";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Davriel"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[At the beginning of each opponent's upkeep, if that player has one or fewer cards in hand, Davriel, Rogue Shadowmage deals 2 damage to them.<br/>
+−1: Target player discards a card.]=];
+CardNumber="WAR83";
+Loyalty="3";
+Rulings=3;
+MultiverseID=461010;
+};
+
+{Name="Davriel's Shadowfugue";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target player discards two cards and loses 2 life.]=];
+Flavor=[=[Shadows coiled around the witness's mind. Then the moment vanished, leaving only the sting of its loss.]=];
+CardNumber="WAR84";
+Rulings=1;
+MultiverseID=461011;
+};
+
 {Name="Dawn of Hope";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -4289,9 +7542,30 @@ Rulings=5;
 MultiverseID=452758;
 };
 
+{Name="Dawning Angel";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{W}}";
+cmc=5;
+Colors={"White"};
+Type="Creature — Angel";
+Types={"Creature"};
+SubTypes={"Angel"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+When Dawning Angel enters the battlefield, you gain 4 life.]=];
+Flavor=[=["As the sun rose behind the Bone Spire, an angel appeared over the charnel fields, bringing a surge of new hope."<br/>
+—Krinnea, &lt;i&gt;Siege of the Bone Spire&lt;/i&gt;]=];
+CardNumber="M2011";
+Power="3";
+Toughness="2";
+MultiverseID=466765;
+};
+
 {Name="Daybreak Chaplain";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{1}}{{W}}";
 cmc=2;
 Colors={"White"};
@@ -4302,10 +7576,13 @@ Rarity="Common";
 Rarities={"Common"};
 Text=[=[Lifelink (Damage dealt by this creature also causes you to gain that much life.)]=];
 Flavor=[=["May the light shine through me to guide the lost."]=];
-CardNumber="M1910";
+CardNumber="M2012";
 Power="1";
 Toughness="3";
-MultiverseID=447146;
+MultiverseID=466766;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="10";Flavor=[=["May the light shine through me to guide the lost."]=];};
+};
 };
 
 {Name="Dazzling Lights";
@@ -4341,6 +7618,24 @@ When enchanted creature dies, exile cards equal to its power from the top of its
 CardNumber="RIX66";
 Rulings=7;
 MultiverseID=439723;
+};
+
+{Name="Dead Revels";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Spectacle {{1}}{{B}} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)<br/>
+Return up to two target creature cards from your graveyard to your hand.]=];
+Flavor=[=[You're only as dead as you feel.]=];
+CardNumber="RNA71";
+Rulings=5;
+MultiverseID=457215;
 };
 
 {Name="Dead Weight";
@@ -4394,7 +7689,7 @@ SubTypes={"Human";"Pirate";};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
 Text=[=[Deadeye Plunderers gets +1/+1 for each artifact you control.<br/>
-{{2}}{{U}}{{B}}: Create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
+{{2}}{{U}}{{B}}: Create a Treasure token. (It's an artifact with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")]=];
 Flavor=[=["Keep your friends close and your enemies within range."]=];
 CardNumber="XLN220";
 Power="3";
@@ -4598,6 +7893,44 @@ Rulings=3;
 MultiverseID=435254;
 };
 
+{Name="Deathsprout";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{B}}{{B}}{{G}}";
+cmc=4;
+Colors={"Black";"Green";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Destroy target creature. Search your library for a basic land card, put it onto the battlefield tapped, then shuffle your library.]=];
+Flavor=[=["They say nothing lasts forever. I say everything lasts forever, just not in the form you may be accustomed to."<br/>
+—Vraska]=];
+CardNumber="WAR189";
+Rulings=1;
+MultiverseID=461116;
+};
+
+{Name="Debtors' Transport";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{5}}{{B}}";
+cmc=6;
+Colors={"Black"};
+Type="Creature — Thrull";
+Types={"Creature"};
+SubTypes={"Thrull"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Afterlife 2 (When this creature dies, create two 1/1 white and black Spirit creature tokens with flying.)]=];
+Flavor=[=[By design, the sarcophagus muffles the debtors' moans but does not silence them.]=];
+CardNumber="RNA72";
+Power="5";
+Toughness="3";
+Rulings=1;
+MultiverseID=457216;
+};
+
 {Name="Declare Dominance";
 SetCode="M19";
 Allsets={"M19"};
@@ -4713,6 +8046,60 @@ Rulings=2;
 MultiverseID=435203;
 };
 
+{Name="Deface";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{R}}";
+cmc=1;
+Colors={"Red"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Choose one —<br/>
+• Destroy target artifact.<br/>
+• Destroy target creature with defender.]=];
+Flavor=[=["Leave no stone unturned."<br/>
+—Ruric Thar]=];
+CardNumber="RNA98";
+MultiverseID=457242;
+};
+
+{Name="Defiant Strike";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{W}}";
+cmc=1;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target creature gets +1/+0 until end of turn.<br/>
+Draw a card.]=];
+Flavor=[=["My family was saved thanks to a single Boros soldier. It's why I joined the Legion. I will be the protector now."]=];
+CardNumber="WAR9";
+Rulings=1;
+MultiverseID=460936;
+};
+
+{Name="Deliver Unto Evil";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Choose up to four target cards in your graveyard. If you control a Bolas planeswalker, return those cards to your hand. Otherwise, an opponent chooses two of them. Leave the chosen cards in your graveyard and put the rest into your hand.<br/>
+Exile Deliver Unto Evil.]=];
+CardNumber="WAR85";
+Rulings=5;
+MultiverseID=461012;
+};
+
 {Name="Demanding Dragon";
 SetCode="M19";
 Allsets={"M19"};
@@ -4734,8 +8121,8 @@ MultiverseID=447271;
 };
 
 {Name="Demolish";
-SetCode="XLN";
-Allsets={"XLN"};
+SetCode="WAR";
+Allsets={"WAR";"XLN";};
 Manacost="{{3}}{{R}}";
 cmc=4;
 Colors={"Red"};
@@ -4744,9 +8131,13 @@ Types={"Sorcery"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Destroy target artifact or land.]=];
-Flavor=[=[What took months for human hands to carve took just seconds for the dinosaur's tail to ruin.]=];
-CardNumber="XLN139";
-MultiverseID=435293;
+Flavor=[=["For every inch of land they take from us, we take it back or we burn it. Give them nothing."<br/>
+—Aurelia]=];
+CardNumber="WAR123";
+MultiverseID=461050;
+Sets={
+{Set="XLN";Rarity="Common";CardNumber="139";Flavor=[=[What took months for human hands to carve took just seconds for the dinosaur's tail to ruin.]=];};
+};
 };
 
 {Name="Demon of Catastrophes";
@@ -4868,6 +8259,40 @@ Rulings=3;
 MultiverseID=447185;
 };
 
+{Name="Deploy";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{W}}{{U}}";
+cmc=4;
+Colors={"White";"Blue";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Create two 1/1 colorless Thopter artifact creature tokens with flying, then you gain 1 life for each creature you control.]=];
+CardNumber="RNA225b";
+Rulings=1;
+MultiverseID=457369;
+};
+
+{Name="Depose";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{WU}}";
+cmc=2;
+Colors={"White";"Blue";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Tap target creature.<br/>
+Draw a card.<br/>
+]=];
+CardNumber="RNA225a";
+Rulings=1;
+MultiverseID=457369;
+};
+
 {Name="Depths of Desire";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -4878,10 +8303,29 @@ Type="Instant";
 Types={"Instant"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[Return target creature to its owner's hand. Create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
+Text=[=[Return target creature to its owner's hand. Create a Treasure token. (It's an artifact with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")]=];
 Flavor=[=[Pockets full of gold, lungs full of brine.]=];
 CardNumber="XLN52";
 MultiverseID=435204;
+};
+
+{Name="Deputy of Detention";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{W}}{{U}}";
+cmc=3;
+Colors={"White";"Blue";};
+Type="Creature — Vedalken Wizard";
+Types={"Creature"};
+SubTypes={"Vedalken";"Wizard";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[When Deputy of Detention enters the battlefield, exile target nonland permanent an opponent controls and all other nonland permanents that player controls with the same name as that permanent until Deputy of Detention leaves the battlefield.]=];
+CardNumber="RNA165";
+Power="1";
+Toughness="3";
+Rulings=7;
+MultiverseID=457309;
 };
 
 {Name="Desecrated Tomb";
@@ -4898,6 +8342,23 @@ Flavor=[=[The grave robbers were startled, for the door to the mausoleum was alr
 CardNumber="M19230";
 Rulings=1;
 MultiverseID=447367;
+};
+
+{Name="Despark";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{W}}{{B}}";
+cmc=2;
+Colors={"White";"Black";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Exile target permanent with converted mana cost 4 or greater.]=];
+Flavor=[=[Liliana whispered to whatever consciousness Oketra and Bontu had left. "You are the gods. He is the usurper. You know what to do."]=];
+CardNumber="WAR190";
+Rulings=1;
+MultiverseID=461117;
 };
 
 {Name="Desperate Castaways";
@@ -4918,6 +8379,42 @@ Power="2";
 Toughness="3";
 Rulings=1;
 MultiverseID=435255;
+};
+
+{Name="Desperate Lunge";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target creature gets +2/+2 and gains flying until end of turn. You gain 2 life.]=];
+Flavor=[=[Ravnica held its breath as the hero of the resistance—their last hope—flew through the sky, his dark sword ready to strike a god.]=];
+CardNumber="WAR266";
+Rulings=2;
+MultiverseID=463833;
+};
+
+{Name="Destructive Digger";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Creature — Goblin";
+Types={"Creature"};
+SubTypes={"Goblin"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{3}}, {{Tap}}, Sacrifice an artifact or land: Draw a card.]=];
+Flavor=[=["I love digging. It gives me lots of time to think about how much I love digging."]=];
+CardNumber="M20134";
+Power="3";
+Toughness="2";
+MultiverseID=466888;
 };
 
 {Name="Detection Tower";
@@ -4969,6 +8466,64 @@ CardNumber="GRN127";
 Power="2";
 Toughness="2";
 MultiverseID=452877;
+};
+
+{Name="Devouring Hellion";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Creature — Hellion";
+Types={"Creature"};
+SubTypes={"Hellion"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[As Devouring Hellion enters the battlefield, you may sacrifice any number of creatures and/or planeswalkers. If you do, it enters with twice that many +1/+1 counters on it.]=];
+Flavor=[=[There's no crisis a hellion can't make worse.]=];
+CardNumber="WAR124";
+Power="2";
+Toughness="2";
+Rulings=3;
+MultiverseID=461051;
+};
+
+{Name="Devout Decree";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Exile target creature or planeswalker that's black or red. Scry 1. (Look at the top card of your library. You may put that card on the bottom of your library.)]=];
+Flavor=[=["It is not punishment. I am simply making things as they should be."<br/>
+—Sephara, Sky's Blade]=];
+CardNumber="M2013";
+Rulings=1;
+MultiverseID=466767;
+};
+
+{Name="Diamond Knight";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}";
+cmc=3;
+Type="Artifact Creature — Knight";
+Types={"Artifact";"Creature";};
+SubTypes={"Knight"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Vigilance (Attacking doesn't cause this creature to tap.)<br/>
+As Diamond Knight enters the battlefield, choose a color.<br/>
+Whenever you cast a spell of the chosen color, put a +1/+1 counter on Diamond Knight.]=];
+CardNumber="M20224";
+Power="1";
+Toughness="1";
+Rulings=3;
+MultiverseID=466978;
 };
 
 {Name="Diamond Mare";
@@ -5023,6 +8578,7 @@ Text=[=[Dimir Guildgate enters the battlefield tapped.<br/>
 Flavor=[=["Every guild dreads infiltration. I should know—I've been a member of all of them."<br/>
 —Lazav]=];
 CardNumber="GRN245";
+Rulings=2;
 MultiverseID=452995;
 };
 
@@ -5173,7 +8729,7 @@ Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[When Dire Fleet Hoarder dies, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
+Text=[=[When Dire Fleet Hoarder dies, create a Treasure token. (It's an artifact with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")]=];
 Flavor=[=[Among the pirates of the Brazen Coalition, the only thing more dangerous than failure is success.]=];
 CardNumber="XLN102";
 Power="2";
@@ -5332,6 +8888,58 @@ Rulings=2;
 MultiverseID=452787;
 };
 
+{Name="Disenchant";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Destroy target artifact or enchantment.]=];
+Flavor=[=[Where the holy light of the angels has shone, only purity remains.]=];
+CardNumber="M2014";
+Rulings=1;
+MultiverseID=466768;
+};
+
+{Name="Disentomb";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{B}}";
+cmc=1;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Return target creature card from your graveyard to your hand.]=];
+Flavor=[=["If we've run out of warm bodies, then cold bodies will have to do."<br/>
+—Modriss of Zargoth Fen]=];
+CardNumber="M20322";
+Rulings=1;
+MultiverseID=469875;
+};
+
+{Name="Disfigure";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{B}}";
+cmc=1;
+Colors={"Black"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Target creature gets -2/-2 until end of turn.]=];
+Flavor=[=["Let this serve as a reminder of your failure."<br/>
+—Exdratha, bog witch]=];
+CardNumber="M2095";
+MultiverseID=466849;
+};
+
 {Name="Disinformation Campaign";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -5349,6 +8957,20 @@ Flavor=[=["People would sooner savor sweet lies than chew plain truths."<br/>
 CardNumber="GRN167";
 Rulings=2;
 MultiverseID=452917;
+};
+
+{Name="Dismal Backwater";
+SetCode="M20";
+Allsets={"M20"};
+Type="Land";
+Types={"Land"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Dismal Backwater enters the battlefield tapped.<br/>
+When Dismal Backwater enters the battlefield, you gain 1 life.<br/>
+{{Tap}}: Add {{U}} or {{B}}.]=];
+CardNumber="M20245";
+MultiverseID=466999;
 };
 
 {Name="Dismissive Pyromancer";
@@ -5474,6 +9096,22 @@ Sets={
 };
 };
 
+{Name="Divine Arrow";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Divine Arrow deals 4 damage to target attacking or blocking creature.]=];
+Flavor=[=[Ravnica's defenders watched in horror as Oketra's shot pierced the body of the pegasus. Gideon tumbled through the air, Blackblade in hand.]=];
+CardNumber="WAR10";
+MultiverseID=460937;
+};
+
 {Name="Divine Verdict";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -5508,6 +9146,23 @@ Rulings=3;
 MultiverseID=452760;
 };
 
+{Name="Diviner's Lockbox";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}";
+cmc=4;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{1}}, {{Tap}}: Choose a card name, then reveal the top card of your library. If that card has the chosen name, sacrifice Diviner's Lockbox and draw three cards. Activate this ability only any time you could cast a sorcery.]=];
+Flavor=[=["I see it taunting me whenever I close my eyes."<br/>
+—Nayrex Slipfinger, master thief]=];
+CardNumber="M20225";
+Rulings=2;
+MultiverseID=466979;
+};
+
 {Name="Djinn of Wishes";
 SetCode="M19";
 Allsets={"M19"};
@@ -5527,6 +9182,106 @@ Power="4";
 Toughness="4";
 Rulings=4;
 MultiverseID=447188;
+};
+
+{Name="Domri, Anarch of Bolas";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{R}}{{G}}";
+cmc=3;
+Colors={"Red";"Green";};
+Type="Legendary Planeswalker — Domri";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Domri"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Creatures you control get +1/+0.<br/>
++1: Add {{R}} or {{G}}. Creature spells you cast this turn can't be countered.<br/>
+−2: Target creature you control fights target creature you don't control.]=];
+CardNumber="WAR191";
+Loyalty="3";
+Rulings=5;
+MultiverseID=461118;
+};
+
+{Name="Domri, Chaos Bringer";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{R}}{{G}}";
+cmc=4;
+Colors={"Red";"Green";};
+Type="Legendary Planeswalker — Domri";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Domri"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[+1: Add {{R}} or {{G}}. If that mana is spent on a creature spell, it gains riot. (It enters the battlefield with your choice of a +1/+1 counter or haste.)<br/>
+−3: Look at the top four cards of your library. You may reveal up to two creature cards from among them and put them into your hand. Put the rest on the bottom of your library in a random order.<br/>
+−8: You get an emblem with "At the beginning of each end step, create a 4/4 red and green Beast creature token with trample."]=];
+CardNumber="RNA166";
+Loyalty="5";
+Rulings=5;
+MultiverseID=457310;
+};
+
+{Name="Domri, City Smasher";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}{{R}}{{G}}";
+cmc=6;
+Colors={"Red";"Green";};
+Type="Legendary Planeswalker — Domri";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Domri"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[+2: Creatures you control get +1/+1 and gain haste until end of turn.<br/>
+−3: Domri, City Smasher deals 3 damage to any target.<br/>
+−8: Put three +1/+1 counters on each creature you control. Those creatures gain trample until end of turn.]=];
+CardNumber="RNA269";
+Loyalty="4";
+Rulings=1;
+MultiverseID=460003;
+};
+
+{Name="Domri's Ambush";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{R}}{{G}}";
+cmc=2;
+Colors={"Red";"Green";};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Put a +1/+1 counter on target creature you control. Then that creature deals damage equal to its power to target creature or planeswalker you don't control.]=];
+Flavor=[=["When civilization teeters on the brink, I'll be there to kick it the rest of the way."]=];
+CardNumber="WAR192";
+Rulings=3;
+MultiverseID=461119;
+};
+
+{Name="Domri's Nodorog";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{R}}{{G}}";
+cmc=5;
+Colors={"Red";"Green";};
+Type="Creature — Beast";
+Types={"Creature"};
+SubTypes={"Beast"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Trample<br/>
+When Domri's Nodorog enters the battlefield, you may search your library and/or graveyard for a card named Domri, City Smasher, reveal it, and put it into your hand. If you search your library this way, shuffle it.]=];
+Flavor=[=["Good girl."]=];
+CardNumber="RNA272";
+Power="5";
+Toughness="2";
+MultiverseID=460006;
 };
 
 {Name="Doom Whisperer";
@@ -5604,6 +9359,139 @@ Toughness="5";
 MultiverseID=452820;
 };
 
+{Name="Dovin, Architect of Law";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}{{W}}{{U}}";
+cmc=6;
+Colors={"White";"Blue";};
+Type="Legendary Planeswalker — Dovin";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Dovin"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[+1: You gain 2 life and draw a card.<br/>
+−1: Tap target creature. It doesn't untap during its controller's next untap step.<br/>
+−9: Tap all permanents target opponent controls. That player skips their next untap step.]=];
+CardNumber="RNA265";
+Loyalty="5";
+Rulings=2;
+MultiverseID=459999;
+};
+
+{Name="Dovin, Grand Arbiter";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{W}}{{U}}";
+cmc=3;
+Colors={"White";"Blue";};
+Type="Legendary Planeswalker — Dovin";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Dovin"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[+1: Until end of turn, whenever a creature you control deals combat damage to a player, put a loyalty counter on Dovin, Grand Arbiter.<br/>
+−1: Create a 1/1 colorless Thopter artifact creature token with flying. You gain 1 life.<br/>
+−7: Look at the top ten cards of your library. Put three of them into your hand and the rest on the bottom of your library in a random order.]=];
+CardNumber="RNA167";
+Loyalty="3";
+Rulings=2;
+MultiverseID=457311;
+};
+
+{Name="Dovin, Hand of Control";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{WU}}";
+cmc=3;
+Colors={"White";"Blue";};
+Type="Legendary Planeswalker — Dovin";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Dovin"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Artifact, instant, and sorcery spells your opponents cast cost {{1}} more to cast.<br/>
+−1: Until your next turn, prevent all damage that would be dealt to and dealt by target permanent an opponent controls.]=];
+CardNumber="WAR229";
+Loyalty="5";
+Rulings=3;
+MultiverseID=461156;
+};
+
+{Name="Dovin's Acuity";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{W}}{{U}}";
+cmc=3;
+Colors={"White";"Blue";};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Dovin's Acuity enters the battlefield, you gain 2 life and draw a card.<br/>
+Whenever you cast an instant spell during your main phase, you may return Dovin's Acuity to its owner's hand.]=];
+Flavor=[=[Dovin ticked the Planeswalkers off on his fingers: himself, Domri, Kaya, Ral, Vraska . . . and Bolas made an even six.]=];
+CardNumber="RNA168";
+Rulings=2;
+MultiverseID=457312;
+};
+
+{Name="Dovin's Automaton";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}";
+cmc=4;
+Type="Artifact Creature — Homunculus";
+Types={"Artifact";"Creature";};
+SubTypes={"Homunculus"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[As long as you control a Dovin planeswalker, Dovin's Automaton gets +2/+2 and has vigilance. (Attacking doesn't cause it to tap.)]=];
+Flavor=[=[It was made for battle, but that doesn't mean it's unsophisticated.]=];
+CardNumber="RNA268";
+Power="3";
+Toughness="3";
+Rulings=1;
+MultiverseID=460002;
+};
+
+{Name="Dovin's Dismissal";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{W}}{{U}}";
+cmc=4;
+Colors={"White";"Blue";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Put up to one target tapped creature on top of its owner's library. You may search your library and/or graveyard for a card named Dovin, Architect of Law, reveal it, and put it into your hand. If you search your library this way, shuffle it.]=];
+Flavor=[=["We're finished here."]=];
+CardNumber="RNA267";
+Rulings=1;
+MultiverseID=460001;
+};
+
+{Name="Dovin's Veto";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{W}}{{U}}";
+cmc=2;
+Colors={"White";"Blue";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[This spell can't be countered.<br/>
+Counter target noncreature spell.]=];
+Flavor=[=["I see you've learned nothing, Chandra. You'd still put a match to something rather than understand it."]=];
+CardNumber="WAR193";
+MultiverseID=461120;
+};
+
 {Name="Dowsing Dagger";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -5663,6 +9551,28 @@ Toughness="2";
 MultiverseID=447274;
 };
 
+{Name="Dragon Mage";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{5}}{{R}}{{R}}";
+cmc=7;
+Colors={"Red"};
+Type="Creature — Dragon Wizard";
+Types={"Creature"};
+SubTypes={"Dragon";"Wizard";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying<br/>
+Whenever Dragon Mage deals combat damage to a player, each player discards their hand, then draws seven cards.]=];
+Flavor=[=["Yes, it's huge and strong and breathes fire. But we're smart!"<br/>
+—Tadith the Wise, last words]=];
+CardNumber="M20135";
+Power="5";
+Toughness="5";
+Rulings=1;
+MultiverseID=466889;
+};
+
 {Name="Dragon's Hoard";
 SetCode="M19";
 Allsets={"M19"};
@@ -5694,6 +9604,68 @@ Rulings=2;
 MultiverseID=435413;
 };
 
+{Name="Drakuseth, Maw of Flames";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{R}}{{R}}{{R}}";
+cmc=7;
+Colors={"Red"};
+Type="Legendary Creature — Dragon";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Dragon"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Flying<br/>
+Whenever Drakuseth, Maw of Flames attacks, it deals 4 damage to any target and 3 damage to each of up to two other targets.]=];
+Flavor=[=["Spread out, you idiots! Spread out!"<br/>
+—Marsden, party leader, last words]=];
+CardNumber="M20136";
+Power="7";
+Toughness="7";
+Rulings=2;
+MultiverseID=466890;
+};
+
+{Name="Drawn from Dreams";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{U}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Look at the top seven cards of your library. Put two of them into your hand and the rest on the bottom of your library in a random order.]=];
+Flavor=[=["From a sea of infinite possibilities, our choices create the future."<br/>
+—Mu Yanling]=];
+CardNumber="M2056";
+MultiverseID=466810;
+};
+
+{Name="Dread Presence";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Creature — Nightmare";
+Types={"Creature"};
+SubTypes={"Nightmare"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Whenever a Swamp enters the battlefield under your control, choose one —<br/>
+• You draw a card and you lose 1 life.<br/>
+• Dread Presence deals 2 damage to any target and you gain 2 life.]=];
+Flavor=[=[It beckons silently, waiting in the darkness.]=];
+CardNumber="M2096";
+Power="3";
+Toughness="3";
+Rulings=2;
+MultiverseID=466850;
+};
+
 {Name="Dread Shade";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -5712,6 +9684,104 @@ CardNumber="DOM88";
 Power="3";
 Toughness="3";
 MultiverseID=442976;
+};
+
+{Name="Dreadhorde Arcanist";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Creature — Zombie Wizard";
+Types={"Creature"};
+SubTypes={"Zombie";"Wizard";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Trample<br/>
+Whenever Dreadhorde Arcanist attacks, you may cast target instant or sorcery card with converted mana cost less than or equal to Dreadhorde Arcanist's power from your graveyard without paying its mana cost. If that card would be put into your graveyard this turn, exile it instead.]=];
+CardNumber="WAR125";
+Power="1";
+Toughness="3";
+Rulings=5;
+MultiverseID=461052;
+};
+
+{Name="Dreadhorde Butcher";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{B}}{{R}}";
+cmc=2;
+Colors={"Black";"Red";};
+Type="Creature — Zombie Warrior";
+Types={"Creature"};
+SubTypes={"Zombie";"Warrior";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Haste<br/>
+Whenever Dreadhorde Butcher deals combat damage to a player or planeswalker, put a +1/+1 counter on Dreadhorde Butcher.<br/>
+When Dreadhorde Butcher dies, it deals damage equal to its power to any target.]=];
+CardNumber="WAR194";
+Power="1";
+Toughness="1";
+Rulings=1;
+MultiverseID=461121;
+};
+
+{Name="Dreadhorde Invasion";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[At the beginning of your upkeep, you lose 1 life and amass 1. (Put a +1/+1 counter on an Army you control. If you don't control one, create a 0/0 black Zombie Army creature token first.)<br/>
+Whenever a Zombie token you control with power 6 or greater attacks, it gains lifelink until end of turn.]=];
+CardNumber="WAR86";
+Rulings=5;
+MultiverseID=461013;
+};
+
+{Name="Dreadhorde Twins";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Creature — Zombie Jackal Warrior";
+Types={"Creature"};
+SubTypes={"Zombie";"Jackal";"Warrior";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Dreadhorde Twins enters the battlefield, amass 2. (Put two +1/+1 counters on an Army you control. If you don't control one, create a 0/0 black Zombie Army creature token first.)<br/>
+Zombie tokens you control have trample.]=];
+CardNumber="WAR126";
+Power="2";
+Toughness="2";
+Rulings=3;
+MultiverseID=461053;
+};
+
+{Name="Dreadmalkin";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{B}}";
+cmc=1;
+Colors={"Black"};
+Type="Creature — Zombie Cat";
+Types={"Creature"};
+SubTypes={"Zombie";"Cat";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Menace (This creature can't be blocked except by two or more creatures.)<br/>
+{{2}}{{B}}, Sacrifice another creature or planeswalker: Put two +1/+1 counters on Dreadmalkin.]=];
+Flavor=[=[The feline Eternal felt Liliana's command, looked at her disdainfully, flicked its paw, and scampered away across the rooftops.]=];
+CardNumber="WAR87";
+Power="1";
+Toughness="1";
+MultiverseID=461014;
 };
 
 {Name="Dream Eater";
@@ -5755,6 +9825,24 @@ Power="3";
 Toughness="3";
 Rulings=1;
 MultiverseID=435206;
+};
+
+{Name="Drill Bit";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Spectacle {{B}} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)<br/>
+Target player reveals their hand. You choose a nonland card from it. That player discards that card.]=];
+Flavor=[=[Never boring.]=];
+CardNumber="RNA73";
+Rulings=5;
+MultiverseID=457217;
 };
 
 {Name="Drover of the Mighty";
@@ -5927,9 +10015,29 @@ Rulings=1;
 MultiverseID=442903;
 };
 
+{Name="Dungeon Geists";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{U}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Creature — Spirit";
+Types={"Creature"};
+SubTypes={"Spirit"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Flying<br/>
+When Dungeon Geists enters the battlefield, tap target creature an opponent controls. That creature doesn't untap during its controller's untap step for as long as you control Dungeon Geists.]=];
+CardNumber="M2057";
+Power="3";
+Toughness="3";
+Rulings=4;
+MultiverseID=466811;
+};
+
 {Name="Duress";
-SetCode="M19";
-Allsets={"M19";"XLN";};
+SetCode="M20";
+Allsets={"M20";"XLN";"M19";};
 Manacost="{{B}}";
 cmc=1;
 Colors={"Black"};
@@ -5938,12 +10046,13 @@ Types={"Sorcery"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Target opponent reveals their hand. You choose a noncreature, nonland card from it. That player discards that card.]=];
-Flavor=[=["It hurts more if you think about it."<br/>
-—Hooks, Cabal torturer]=];
-CardNumber="M1994";
-MultiverseID=447230;
+Flavor=[=[Resistance is unthinkable.]=];
+CardNumber="M2097";
+MultiverseID=466851;
 Sets={
 {Set="XLN";Rarity="Common";CardNumber="105";Flavor=[=[Solitude and starvation are brutal punishments, but even worse is all that time to think.]=];};
+{Set="M19";Rarity="Common";CardNumber="94";Flavor=[=["It hurts more if you think about it."
+—Hooks, Cabal torturer]=];};
 };
 };
 
@@ -6027,6 +10136,27 @@ Toughness="1";
 MultiverseID=435160;
 };
 
+{Name="Duskmantle Operative";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Creature — Human Rogue";
+Types={"Creature"};
+SubTypes={"Human";"Rogue";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Duskmantle Operative can't be blocked by creatures with power 4 or greater.]=];
+Flavor=[=[Gideon eyed the Dimir emissary warily. "Could your agents slip inside Bolas's citadel?"<br/>
+The figure met his gaze with icy resolve. "We already have."]=];
+CardNumber="WAR88";
+Power="2";
+Toughness="2";
+Rulings=1;
+MultiverseID=461015;
+};
+
 {Name="Dwarven Priest";
 SetCode="M19";
 Allsets={"M19"};
@@ -6099,6 +10229,23 @@ CardNumber="M19139";
 MultiverseID=447275;
 };
 
+{Name="Electrodominance";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{X}}{{R}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Electrodominance deals X damage to any target. You may cast a card with converted mana cost X or less from your hand without paying its mana cost.]=];
+Flavor=[=["Basically, we turn a bunch of little lightnings into one big lightning."]=];
+CardNumber="RNA99";
+Rulings=6;
+MultiverseID=457243;
+};
+
 {Name="Electrostatic Field";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -6164,6 +10311,46 @@ Toughness="2";
 MultiverseID=443047;
 };
 
+{Name="Elite Arrester";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{W}}";
+cmc=1;
+Colors={"White"};
+Type="Creature — Human Soldier";
+Types={"Creature"};
+SubTypes={"Human";"Soldier";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{1}}{{U}}, {{Tap}}: Tap target creature.]=];
+Flavor=[=["Hold it! I need to see your papers."]=];
+CardNumber="RNA266";
+Power="0";
+Toughness="3";
+MultiverseID=460000;
+};
+
+{Name="Elite Guardmage";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{W}}{{U}}";
+cmc=4;
+Colors={"White";"Blue";};
+Type="Creature — Human Wizard";
+Types={"Creature"};
+SubTypes={"Human";"Wizard";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying<br/>
+When Elite Guardmage enters the battlefield, you gain 3 life and draw a card.]=];
+Flavor=[=["Be careful. You'll have more than Dovin to contend with if you hope to breach New Prahv."<br/>
+—Lavinia, to Chandra Nalaar]=];
+CardNumber="WAR195";
+Power="2";
+Toughness="3";
+MultiverseID=461122;
+};
+
 {Name="Elvish Clancaller";
 SetCode="M19";
 Allsets={"M19"};
@@ -6184,6 +10371,25 @@ Toughness="1";
 MultiverseID=447315;
 };
 
+{Name="Elvish Reclaimer";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{G}}";
+cmc=1;
+Colors={"Green"};
+Type="Creature — Elf Warrior";
+Types={"Creature"};
+SubTypes={"Elf";"Warrior";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Elvish Reclaimer gets +2/+2 as long as there are three or more land cards in your graveyard.<br/>
+{{2}}, {{Tap}}, Sacrifice a land: Search your library for a land card, put it onto the battlefield tapped, then shuffle your library.]=];
+CardNumber="M20169";
+Power="1";
+Toughness="2";
+MultiverseID=466923;
+};
+
 {Name="Elvish Rejuvenator";
 SetCode="M19";
 Allsets={"M19"};
@@ -6200,6 +10406,77 @@ CardNumber="M19180";
 Power="1";
 Toughness="1";
 MultiverseID=447316;
+};
+
+{Name="Ember Hauler";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{R}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Creature — Goblin";
+Types={"Creature"};
+SubTypes={"Goblin"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{1}}, Sacrifice Ember Hauler: It deals 2 damage to any target.]=];
+Flavor=[=[Not every job in the goblin army is glamorous. Actually, &lt;i&gt;no&lt;/i&gt; job in the goblin army is glamorous.]=];
+CardNumber="M20137";
+Power="2";
+Toughness="2";
+MultiverseID=466891;
+};
+
+{Name="Embodiment of Agonies";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{B}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Creature — Demon";
+Types={"Creature"};
+SubTypes={"Demon"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Flying, deathtouch<br/>
+Embodiment of Agonies enters the battlefield with a +1/+1 counter on it for each different mana cost among nonland cards in your graveyard. (For example, {{2}}{{B}} and {{1}}{{B}}{{B}} are different mana costs.)]=];
+Flavor=[=["I feel your pain. It's exquisite."]=];
+CardNumber="M2098";
+Power="0";
+Toughness="0";
+Rulings=6;
+MultiverseID=466852;
+};
+
+{Name="Emergence Zone";
+SetCode="WAR";
+Allsets={"WAR"};
+Type="Land";
+Types={"Land"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{Tap}}: Add {{C}}.<br/>
+{{1}}, {{Tap}}, Sacrifice Emergence Zone: You may cast spells this turn as though they had flash.]=];
+Flavor=[=[The Planar Bridge opened over the Chamber of the Guildpact, reducing the symbol of Ravnica's endurance to rubble.]=];
+CardNumber="WAR245";
+MultiverseID=461172;
+};
+
+{Name="Emergency Powers";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{5}}{{W}}{{U}}";
+cmc=7;
+Colors={"White";"Blue";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Each player shuffles their hand and graveyard into their library, then draws seven cards. Exile Emergency Powers.<br/>
+Addendum — If you cast this spell during your main phase, you may put a permanent card with converted mana cost 7 or less from your hand onto the battlefield.]=];
+CardNumber="RNA169";
+Rulings=3;
+MultiverseID=457313;
 };
 
 {Name="Emergent Growth";
@@ -6279,6 +10556,27 @@ Rulings=3;
 MultiverseID=435344;
 };
 
+{Name="Empyrean Eagle";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{W}}{{U}}";
+cmc=3;
+Colors={"White";"Blue";};
+Type="Creature — Bird Spirit";
+Types={"Creature"};
+SubTypes={"Bird";"Spirit";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying<br/>
+Other creatures you control with flying get +1/+1.]=];
+Flavor=[=[All the birds of the skies are the spirit's brood, gathered for safety under its wings.]=];
+CardNumber="M20208";
+Power="2";
+Toughness="3";
+Rulings=1;
+MultiverseID=466962;
+};
+
 {Name="Encampment Keeper";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -6297,6 +10595,65 @@ CardNumber="XLN11";
 Power="1";
 Toughness="1";
 MultiverseID=435162;
+};
+
+{Name="End-Raze Forerunners";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{5}}{{G}}{{G}}{{G}}";
+cmc=8;
+Colors={"Green"};
+Type="Creature — Boar";
+Types={"Creature"};
+SubTypes={"Boar"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Vigilance, trample, haste<br/>
+When End-Raze Forerunners enters the battlefield, other creatures you control get +2/+2 and gain vigilance and trample until end of turn.]=];
+Flavor=[=["Smash this city to pieces."<br/>
+—Domri Rade]=];
+CardNumber="RNA124";
+Power="7";
+Toughness="7";
+Rulings=1;
+MultiverseID=457268;
+};
+
+{Name="Enforcer Griffin";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{W}}";
+cmc=5;
+Colors={"White"};
+Type="Creature — Griffin";
+Types={"Creature"};
+SubTypes={"Griffin"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying]=];
+Flavor=[=["A company of infantry is trapped behind the lines. We need to strike hard and fast to free them, or the casualties will be horrific. Send the griffins."<br/>
+—Tajic]=];
+CardNumber="WAR11";
+Power="3";
+Toughness="4";
+MultiverseID=460938;
+};
+
+{Name="Engulfing Eruption";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{R}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Engulfing Eruption deals 5 damage to target creature.]=];
+Flavor=[=["Compared to the hunger of the fires within the earth, the appetite of a mere wurm is nothing."<br/>
+—Phelgis Ojin, Keral Keep acolyte]=];
+CardNumber="M20328";
+MultiverseID=469881;
 };
 
 {Name="Enhanced Surveillance";
@@ -6339,6 +10696,42 @@ Rulings=2;
 MultiverseID=447352;
 };
 
+{Name="Enraged Ceratok";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{G}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Creature — Rhino";
+Types={"Creature"};
+SubTypes={"Rhino"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Enraged Ceratok can't be blocked by creatures with power 2 or less.]=];
+Flavor=[=["There's no time to calm it down! Run!"]=];
+CardNumber="RNA125";
+Power="4";
+Toughness="4";
+Rulings=1;
+MultiverseID=457269;
+};
+
+{Name="Enter the God-Eternals";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{U}}{{U}}{{B}}";
+cmc=5;
+Colors={"Blue";"Black";};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Enter the God-Eternals deals 4 damage to target creature and you gain life equal to the damage dealt this way. Target player puts the top four cards of their library into their graveyard. Amass 4. (Put four +1/+1 counters on an Army you control. If you don't control one, create a 0/0 black Zombie Army creature token first.)]=];
+CardNumber="WAR196";
+Rulings=9;
+MultiverseID=461123;
+};
+
 {Name="Enter the Unknown";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -6374,8 +10767,8 @@ MultiverseID=435207;
 };
 
 {Name="Epicure of Blood";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{4}}{{B}}";
 cmc=5;
 Colors={"Black"};
@@ -6386,11 +10779,14 @@ Rarity="Common";
 Rarities={"Common"};
 Text=[=[Whenever you gain life, each opponent loses 1 life.]=];
 Flavor=[=["Fleshy, with just a hint of leather. A fine vintage."]=];
-CardNumber="M1995";
+CardNumber="M2099";
 Power="4";
 Toughness="4";
 Rulings=4;
-MultiverseID=447231;
+MultiverseID=466853;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="95";Flavor=[=["Fleshy, with just a hint of leather. A fine vintage."]=];};
+};
 };
 
 {Name="Erratic Cyclops";
@@ -6415,6 +10811,26 @@ Rulings=2;
 MultiverseID=452848;
 };
 
+{Name="Erratic Visionary";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Creature — Human Wizard";
+Types={"Creature"};
+SubTypes={"Human";"Wizard";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{1}}{{U}}, {{Tap}}: Draw a card, then discard a card.]=];
+Flavor=[=[An Izzet experiment begins with a "what if," gets approved with a "why not," and concludes with a "eureka!"]=];
+CardNumber="WAR48";
+Power="1";
+Toughness="3";
+Rulings=1;
+MultiverseID=460975;
+};
+
 {Name="Erstwhile Trooper";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -6433,6 +10849,24 @@ CardNumber="GRN169";
 Power="2";
 Toughness="2";
 MultiverseID=452919;
+};
+
+{Name="Essence Capture";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{U}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Counter target creature spell. Put a +1/+1 counter on up to one target creature you control.]=];
+Flavor=[=["It's not enough to defeat our foes. We must learn from them, too."<br/>
+—Vannifar]=];
+CardNumber="RNA37";
+Rulings=2;
+MultiverseID=457181;
 };
 
 {Name="Essence Scatter";
@@ -6471,6 +10905,102 @@ Power="6";
 Toughness="6";
 Rulings=7;
 MultiverseID=439757;
+};
+
+{Name="Eternal Isolation";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Put target creature with power 4 or greater on the bottom of its owner's library.]=];
+Flavor=[=["Well, at least it's a lovely view."]=];
+CardNumber="M2015";
+MultiverseID=466769;
+};
+
+{Name="Eternal Skylord";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{U}}";
+cmc=5;
+Colors={"Blue"};
+Type="Creature — Zombie Wizard";
+Types={"Creature"};
+SubTypes={"Zombie";"Wizard";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Eternal Skylord enters the battlefield, amass 2. (Put two +1/+1 counters on an Army you control. If you don't control one, create a 0/0 black Zombie Army creature token first.)<br/>
+Zombie tokens you control have flying.]=];
+CardNumber="WAR49";
+Power="3";
+Toughness="3";
+Rulings=3;
+MultiverseID=460976;
+};
+
+{Name="Eternal Taskmaster";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Creature — Zombie";
+Types={"Creature"};
+SubTypes={"Zombie"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Eternal Taskmaster enters the battlefield tapped.<br/>
+Whenever Eternal Taskmaster attacks, you may pay {{2}}{{B}}. If you do, return target creature card from your graveyard to your hand.]=];
+Flavor=[=["They are called Eternals. They will never stop."<br/>
+—Jace Beleren]=];
+CardNumber="WAR90";
+Power="2";
+Toughness="3";
+Rulings=1;
+MultiverseID=461017;
+};
+
+{Name="Ethereal Absolution";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}{{W}}{{B}}";
+cmc=6;
+Colors={"White";"Black";};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Creatures you control get +1/+1.<br/>
+Creatures your opponents control get -1/-1.<br/>
+{{2}}{{W}}{{B}}: Exile target card from an opponent's graveyard. If it was a creature card, you create a 1/1 white and black Spirit creature token with flying.]=];
+Flavor=[=["Time to let the dead be dead."<br/>
+—Kaya, to Teysa]=];
+CardNumber="RNA170";
+MultiverseID=457314;
+};
+
+{Name="Ethereal Elk";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{G}}{{G}}";
+cmc=5;
+Colors={"Green"};
+Type="Creature — Elk Spirit";
+Types={"Creature"};
+SubTypes={"Elk";"Spirit";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Trample<br/>
+When Ethereal Elk enters the battlefield, you may search your library and/or graveyard for a card named Vivien, Nature's Avenger, reveal it, and put it into your hand. If you search your library this way, shuffle it.]=];
+CardNumber="M20299";
+Power="3";
+Toughness="3";
+MultiverseID=469852;
 };
 
 {Name="Etrata, the Silencer";
@@ -6532,17 +11062,40 @@ CardNumber="DOM91";
 MultiverseID=442979;
 };
 
+{Name="Evolution Sage";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Creature — Elf Druid";
+Types={"Creature"};
+SubTypes={"Elf";"Druid";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever a land enters the battlefield under your control, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)]=];
+Flavor=[=["To care for yourself, cultivate the world. To care for the world, cultivate yourself."]=];
+CardNumber="WAR159";
+Power="3";
+Toughness="2";
+Rulings=6;
+MultiverseID=461086;
+};
+
 {Name="Evolving Wilds";
-SetCode="RIX";
-Allsets={"RIX"};
+SetCode="M20";
+Allsets={"M20";"RIX";};
 Type="Land";
 Types={"Land"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[{{Tap}}, Sacrifice Evolving Wilds: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle your library.]=];
-Flavor=[=[The Sun Empire bends nature—rivers, mountainsides, dinosaurs—to its unyielding will.]=];
-CardNumber="RIX186";
-MultiverseID=439850;
+Flavor=[=[Without the interfering hands of civilization, nature will always shape itself to its own needs.]=];
+CardNumber="M20246";
+MultiverseID=467000;
+Sets={
+{Set="RIX";Rarity="Common";CardNumber="186";Flavor=[=[The Sun Empire bends nature—rivers, mountainsides, dinosaurs—to its unyielding will.]=];};
+};
 };
 
 {Name="Evra, Halcyon Witness";
@@ -6692,6 +11245,24 @@ CardNumber="M19233";
 MultiverseID=447370;
 };
 
+{Name="Expose to Daylight";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Destroy target artifact or enchantment. Scry 1.]=];
+Flavor=[=["Lies cannot long withstand the harsh light of day."<br/>
+—Lavinia]=];
+CardNumber="RNA8";
+Rulings=1;
+MultiverseID=457152;
+};
+
 {Name="Exultant Skymarcher";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -6709,6 +11280,66 @@ CardNumber="RIX7";
 Power="2";
 Toughness="3";
 MultiverseID=439664;
+};
+
+{Name="Eyes Everywhere";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[At the beginning of your upkeep, scry 1.<br/>
+{{5}}{{U}}: Exchange control of Eyes Everywhere and target nonland permanent. Activate this ability only any time you could cast a sorcery.]=];
+Flavor=[=["They've got eyes inside my head!"]=];
+CardNumber="RNA38";
+Rulings=3;
+MultiverseID=457182;
+};
+
+{Name="Faerie Duelist";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Creature — Faerie Rogue";
+Types={"Creature"};
+SubTypes={"Faerie";"Rogue";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flash<br/>
+Flying<br/>
+When Faerie Duelist enters the battlefield, target creature an opponent controls gets -2/-0 until end of turn.]=];
+Flavor=[=[Faeries are easily offended and quick to exact a quirky revenge.]=];
+CardNumber="RNA39";
+Power="1";
+Toughness="2";
+MultiverseID=457183;
+};
+
+{Name="Faerie Miscreant";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{U}}";
+cmc=1;
+Colors={"Blue"};
+Type="Creature — Faerie Rogue";
+Types={"Creature"};
+SubTypes={"Faerie";"Rogue";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+When Faerie Miscreant enters the battlefield, if you control another creature named Faerie Miscreant, draw a card.]=];
+Flavor=[=[One faerie distracts the judge while a second steals the law.]=];
+CardNumber="M2058";
+Power="1";
+Toughness="1";
+Rulings=1;
+MultiverseID=466812;
 };
 
 {Name="Fall of the Thran";
@@ -6813,8 +11444,8 @@ MultiverseID=435260;
 };
 
 {Name="Fathom Fleet Cutthroat";
-SetCode="XLN";
-Allsets={"XLN"};
+SetCode="M20";
+Allsets={"M20";"XLN";};
 Manacost="{{3}}{{B}}";
 cmc=4;
 Colors={"Black"};
@@ -6825,10 +11456,13 @@ Rarity="Common";
 Rarities={"Common"};
 Text=[=[When Fathom Fleet Cutthroat enters the battlefield, destroy target creature an opponent controls that was dealt damage this turn.]=];
 Flavor=[=["It was a bad evening for you, mate. Now it's chow time for the sharks."]=];
-CardNumber="XLN107";
+CardNumber="M20100";
 Power="3";
 Toughness="3";
-MultiverseID=435261;
+MultiverseID=466854;
+Sets={
+{Set="XLN";Rarity="Common";CardNumber="107";Flavor=[=["It was a bad evening for you, mate. Now it's chow time for the sharks."]=];};
+};
 };
 
 {Name="Fathom Fleet Firebrand";
@@ -6867,9 +11501,30 @@ CardNumber="XLN56";
 MultiverseID=435208;
 };
 
+{Name="Fblthp, the Lost";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Legendary Creature — Homunculus";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Homunculus"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[When Fblthp, the Lost enters the battlefield, draw a card. If it entered from your library or was cast from your library, draw two cards instead.<br/>
+When Fblthp becomes the target of a spell, shuffle Fblthp into its owner's library.]=];
+CardNumber="WAR50";
+Power="1";
+Toughness="1";
+Rulings=5;
+MultiverseID=460977;
+};
+
 {Name="Fearless Halberdier";
-SetCode="GRN";
-Allsets={"GRN"};
+SetCode="M20";
+Allsets={"M20";"GRN";};
 Manacost="{{2}}{{R}}";
 cmc=3;
 Colors={"Red"};
@@ -6879,10 +11534,34 @@ SubTypes={"Human";"Warrior";};
 Rarity="Common";
 Rarities={"Common"};
 Flavor=[=["I spent some time in the Legion, but I'm done taking orders all day."]=];
-CardNumber="GRN100";
+CardNumber="M20329";
 Power="3";
 Toughness="2";
-MultiverseID=452850;
+MultiverseID=469882;
+Sets={
+{Set="GRN";Rarity="Common";CardNumber="100";Flavor=[=["I spent some time in the Legion, but I'm done taking orders all day."]=];};
+};
+};
+
+{Name="Feather, the Redeemed";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{R}}{{W}}{{W}}";
+cmc=3;
+Colors={"White";"Red";};
+Type="Legendary Creature — Angel";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Angel"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Flying<br/>
+Whenever you cast an instant or sorcery spell that targets a creature you control, exile that card instead of putting it into your graveyard as it resolves. If you do, return it to your hand at the beginning of the next end step.]=];
+CardNumber="WAR197";
+Power="3";
+Toughness="4";
+Rulings=6;
+MultiverseID=461124;
 };
 
 {Name="Fell Flagship";
@@ -6925,9 +11604,28 @@ Toughness="3";
 MultiverseID=447232;
 };
 
+{Name="Fencing Ace";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Creature — Human Soldier";
+Types={"Creature"};
+SubTypes={"Human";"Soldier";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Double strike (This creature deals both first-strike and regular combat damage.)]=];
+Flavor=[=["Go find yourself a couple of friends, and bring me a blindfold. Then we might have a fair fight."]=];
+CardNumber="M2016";
+Power="1";
+Toughness="1";
+MultiverseID=466770;
+};
+
 {Name="Feral Abomination";
-SetCode="DOM";
-Allsets={"DOM"};
+SetCode="M20";
+Allsets={"M20";"DOM";};
 Manacost="{{5}}{{B}}";
 cmc=6;
 Colors={"Black"};
@@ -6936,13 +11634,74 @@ Types={"Creature"};
 SubTypes={"Thrull"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[Deathtouch]=];
-Flavor=[=["Urborg used to be lovely—scenic volcanoes, respectable lich lords. Since the Cabal came with their nightmares and thrulls, it's all gone to the worms."<br/>
-—Mister Lostspoons, Skulltown gossip]=];
-CardNumber="DOM92";
+Text=[=[Deathtouch (Any amount of damage this deals to a creature is enough to destroy it.)]=];
+Flavor=[=["If you manage to get to the heart of the bog, you'll find things there that make zombies seem downright lovable."<br/>
+—Byaras, backwoods guide]=];
+CardNumber="M20101";
 Power="5";
 Toughness="5";
-MultiverseID=442980;
+MultiverseID=466855;
+Sets={
+{Set="DOM";Rarity="Common";CardNumber="92";Flavor=[=["Urborg used to be lovely—scenic volcanoes, respectable lich lords. Since the Cabal came with their nightmares and thrulls, it's all gone to the worms."
+—Mister Lostspoons, Skulltown gossip]=];};
+};
+};
+
+{Name="Feral Invocation";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Enchantment — Aura";
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flash (You may cast this spell any time you could cast an instant.)<br/>
+Enchant creature<br/>
+Enchanted creature gets +2/+2.]=];
+Flavor=[=[Nylea's sacred lynx guards those who honor the Nessian Wood and hunts those who don't.]=];
+CardNumber="M20170";
+MultiverseID=466924;
+};
+
+{Name="Feral Maaka";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Creature — Cat";
+Types={"Creature"};
+SubTypes={"Cat"};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=["Lost are the lush meadows and verdant forests, where maaka prowled and lammasu soared. Lost are the wilds, where our hearts were free."<br/>
+—Daiva, Gruul storyteller]=];
+CardNumber="RNA100";
+Power="2";
+Toughness="2";
+MultiverseID=457244;
+};
+
+{Name="Ferocious Pup";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Creature — Wolf";
+Types={"Creature"};
+SubTypes={"Wolf"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Ferocious Pup enters the battlefield, create a 2/2 green Wolf creature token.]=];
+Flavor=[=[The strongest pack has the fiercest pups.]=];
+CardNumber="M20171";
+Power="0";
+Toughness="1";
+MultiverseID=466925;
 };
 
 {Name="Fervent Strike";
@@ -6990,6 +11749,21 @@ Text=[=[{{Tap}}: Add {{C}}.<br/>
 {{2}}, {{Tap}}, Sacrifice Field of Ruin: Destroy target nonbasic land an opponent controls. Each player searches their library for a basic land card, puts it onto the battlefield, then shuffles their library.]=];
 CardNumber="XLN254";
 MultiverseID=435415;
+};
+
+{Name="Field of the Dead";
+SetCode="M20";
+Allsets={"M20"};
+Type="Land";
+Types={"Land"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Field of the Dead enters the battlefield tapped.<br/>
+{{Tap}}: Add {{C}}.<br/>
+Whenever Field of the Dead or another land enters the battlefield under your control, if you control seven or more lands with different names, create a 2/2 black Zombie creature token.]=];
+CardNumber="M20247";
+Rulings=3;
+MultiverseID=467001;
 };
 
 {Name="Fiery Cannonade";
@@ -7076,6 +11850,106 @@ CardNumber="DOM93";
 MultiverseID=442981;
 };
 
+{Name="Final Payment";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{W}}{{B}}";
+cmc=2;
+Colors={"White";"Black";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[As an additional cost to cast this spell, pay 5 life or sacrifice a creature or enchantment.<br/>
+Destroy target creature.]=];
+Flavor=[=[There's nothing quite like the feeling of paying off a large debt.]=];
+CardNumber="RNA171";
+MultiverseID=457315;
+};
+
+{Name="Finale of Devastation";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{X}}{{G}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Search your library and/or graveyard for a creature card with converted mana cost X or less and put it onto the battlefield. If you search your library this way, shuffle it. If X is 10 or more, creatures you control get +X/+X and gain haste until end of turn.]=];
+Flavor=[=[Some spells sing a quiet tune. Others roar.]=];
+CardNumber="WAR160";
+Rulings=4;
+MultiverseID=461087;
+};
+
+{Name="Finale of Eternity";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{X}}{{B}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Destroy up to three target creatures with toughness X or less. If X is 10 or more, return all creature cards from your graveyard to the battlefield.]=];
+Flavor=[=[When you rule by fear, your greatest weakness is one who's no longer afraid.]=];
+CardNumber="WAR91";
+Rulings=6;
+MultiverseID=461018;
+};
+
+{Name="Finale of Glory";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{X}}{{W}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Create X 2/2 white Soldier creature tokens with vigilance. If X is 10 or more, also create X 4/4 white Angel creature tokens with flying and vigilance.]=];
+Flavor=[=[The sky boiled over the citadel, dire and dark. Then the angels brought the dawn.]=];
+CardNumber="WAR12";
+MultiverseID=460939;
+};
+
+{Name="Finale of Promise";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{X}}{{R}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[You may cast up to one target instant card and/or up to one target sorcery card from your graveyard each with converted mana cost X or less without paying their mana costs. If a card cast this way would be put into your graveyard this turn, exile it instead. If X is 10 or more, copy each of those spells twice. You may choose new targets for the copies.]=];
+CardNumber="WAR127";
+Rulings=8;
+MultiverseID=461054;
+};
+
+{Name="Finale of Revelation";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{X}}{{U}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Draw X cards. If X is 10 or more, instead shuffle your graveyard into your library, draw X cards, untap up to five lands, and you have no maximum hand size for the rest of the game.<br/>
+Exile Finale of Revelation.]=];
+Flavor=[=[Ugin saw the gem that connected Bolas to his Meditation Realm as the key to his brother's downfall.]=];
+CardNumber="WAR51";
+MultiverseID=460978;
+};
+
 {Name="Finality";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -7109,8 +11983,8 @@ MultiverseID=452975;
 };
 
 {Name="Fire Elemental";
-SetCode="M19";
-Allsets={"M19";"DOM";};
+SetCode="M20";
+Allsets={"M20";"DOM";"M19";};
 Manacost="{{3}}{{R}}{{R}}";
 cmc=5;
 Colors={"Red"};
@@ -7119,14 +11993,16 @@ Types={"Creature"};
 SubTypes={"Elemental"};
 Rarity="Common";
 Rarities={"Common"};
-Flavor=[=[It treads on feet of coals and strikes with the force of a volcano.]=];
-CardNumber="M19141";
+Flavor=[=["The best way to learn from a book on pyromancy is to burn it."<br/>
+—Jaya Ballard]=];
+CardNumber="M20138";
 Power="5";
 Toughness="4";
-MultiverseID=447277;
+MultiverseID=466892;
 Sets={
 {Set="DOM";Rarity="Common";CardNumber="120";Flavor=[=["The best way to learn from a book on pyromancy is to burn it."
 —Jaya Ballard]=];};
+{Set="M19";Rarity="Common";CardNumber="141";Flavor=[=[It treads on feet of coals and strikes with the force of a volcano.]=];};
 };
 };
 
@@ -7172,6 +12048,27 @@ Rulings=1;
 MultiverseID=452851;
 };
 
+{Name="Fireblade Artist";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{B}}{{R}}";
+cmc=2;
+Colors={"Black";"Red";};
+Type="Creature — Human Shaman";
+Types={"Creature"};
+SubTypes={"Human";"Shaman";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Haste<br/>
+At the beginning of your upkeep, you may sacrifice a creature. When you do, Fireblade Artist deals 2 damage to target opponent or planeswalker.]=];
+Flavor=[=["Let's find out what kind of audience you are. Festive? Fearless?"]=];
+CardNumber="RNA172";
+Power="2";
+Toughness="2";
+Rulings=1;
+MultiverseID=457316;
+};
+
 {Name="Firecannon Blast";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -7208,6 +12105,22 @@ Power="3";
 Toughness="3";
 Rulings=1;
 MultiverseID=443009;
+};
+
+{Name="Firemind Vessel";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}";
+cmc=4;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Firemind Vessel enters the battlefield tapped.<br/>
+{{Tap}}: Add two mana of different colors.]=];
+Flavor=[=[The city mourned Niv-Mizzet's death, but he left behind the components for his rebirth.]=];
+CardNumber="WAR237";
+MultiverseID=461164;
 };
 
 {Name="Firemind's Research";
@@ -7248,6 +12161,41 @@ Power="4";
 Toughness="6";
 Rulings=8;
 MultiverseID=445958;
+};
+
+{Name="Flame Sweep";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flame Sweep deals 2 damage to each creature except for creatures you control with flying.]=];
+Flavor=[=["I have calculated that a dragon in flight, in a single strafing run, can cover an area of—"<br/>
+—Thaedus the Clever, last words]=];
+CardNumber="M20139";
+Rulings=1;
+MultiverseID=466893;
+};
+
+{Name="Flames of the Raze-Boar";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{5}}{{R}}";
+cmc=6;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flames of the Raze-Boar deals 4 damage to target creature an opponent controls. Then Flames of the Raze-Boar deals 2 damage to each other creature that player controls if you control a creature with power 4 or greater.]=];
+Flavor=[=["Fire will cure a multitude of ills."]=];
+CardNumber="RNA101";
+Rulings=2;
+MultiverseID=457245;
 };
 
 {Name="Fleet Swallower";
@@ -7308,6 +12256,24 @@ Rulings=1;
 MultiverseID=439695;
 };
 
+{Name="Flood of Tears";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{U}}{{U}}";
+cmc=6;
+Colors={"Blue"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Return all nonland permanents to their owners' hands. If you return four or more nontoken permanents you control this way, you may put a permanent card from your hand onto the battlefield.]=];
+Flavor=[=["I have wept such a torrent as to scour the land clean."<br/>
+—Mu Yanling]=];
+CardNumber="M2059";
+Rulings=3;
+MultiverseID=466813;
+};
+
 {Name="Flourish";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -7338,6 +12304,101 @@ Text=[=[Search your library for a basic Forest or Plains card, reveal it, put it
 ]=];
 CardNumber="GRN226a";
 MultiverseID=452976;
+};
+
+{Name="Flux Channeler";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Creature — Human Wizard";
+Types={"Creature"};
+SubTypes={"Human";"Wizard";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever you cast a noncreature spell, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)]=];
+Flavor=[=["Inform our allies in the Tenth and throw the circuit. It's about to get weird."]=];
+CardNumber="WAR52";
+Power="2";
+Toughness="2";
+Rulings=7;
+MultiverseID=460979;
+};
+
+{Name="Font of Agonies";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{B}}";
+cmc=1;
+Colors={"Black"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Whenever you pay life, put that many blood counters on Font of Agonies.<br/>
+{{1}}{{B}}, Remove four blood counters from Font of Agonies: Destroy target creature.]=];
+Flavor=[=["No worthwhile reward is easily gained."<br/>
+—Nicol Bolas]=];
+CardNumber="RNA74";
+Rulings=2;
+MultiverseID=457218;
+};
+
+{Name="Footlight Fiend";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{BR}}";
+cmc=1;
+Colors={"Black";"Red";};
+Type="Creature — Devil";
+Types={"Creature"};
+SubTypes={"Devil"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Footlight Fiend dies, it deals 1 damage to any target.]=];
+Flavor=[=["This footlight's broken. Get me a stagehand!"<br/>
+—Judith]=];
+CardNumber="RNA216";
+Power="1";
+Toughness="1";
+MultiverseID=457360;
+};
+
+{Name="Forbidding Spirit";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{W}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Creature — Spirit Cleric";
+Types={"Creature"};
+SubTypes={"Spirit";"Cleric";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Forbidding Spirit enters the battlefield, until your next turn, creatures can't attack you or a planeswalker you control unless their controller pays {{2}} for each of those creatures.]=];
+Flavor=[=["You will respect the dead."]=];
+CardNumber="RNA9";
+Power="3";
+Toughness="3";
+Rulings=4;
+MultiverseID=457153;
+};
+
+{Name="Forced Landing";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Put target creature with flying on the bottom of its owner's library.]=];
+Flavor=[=[The druid knew only one spell, a charm to encourage rapid plant growth. When airborne Eternals invaded her arboretum, she had to get creative.]=];
+CardNumber="WAR161";
+MultiverseID=461088;
 };
 
 {Name="Forebear's Blade";
@@ -7439,21 +12500,24 @@ MultiverseID=439666;
 };
 
 {Name="Forest";
-SetCode="GRN";
-Allsets={"GRN";"XLN";"RIX";"DOM";"M19";};
+SetCode="M20";
+Allsets={"M20";"XLN";"RIX";"DOM";"M19";"GRN";"RNA";"WAR";};
 Type="Basic Land — Forest";
 SuperTypes={"Basic"};
 Types={"Land"};
 SubTypes={"Forest"};
 Rarity="Basic Land";
 Rarities={"Basic Land"};
-CardNumber="GRN264";
-MultiverseID=455604;
+CardNumber="M20278";
+MultiverseID=467032;
 Sets={
 {Set="XLN";Rarity="Basic Land";CardNumber="276";};
 {Set="RIX";Rarity="Basic Land";CardNumber="196";};
 {Set="DOM";Rarity="Basic Land";CardNumber="266";};
 {Set="M19";Rarity="Basic Land";CardNumber="277";};
+{Set="GRN";Rarity="Basic Land";CardNumber="264";};
+{Set="RNA";Rarity="Basic Land";CardNumber="264";};
+{Set="WAR";Rarity="Basic Land";CardNumber="262";};
 };
 };
 
@@ -7490,6 +12554,24 @@ MultiverseID=447387;
 Sets={
 {Set="RIX";Rarity="Uncommon";CardNumber="187";Flavor=[=[In the galleon's grand cathedral, conquistadors swore vows of faith. In its wreckage, they swore vows of revenge.]=];};
 };
+};
+
+{Name="Fortress Crab";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Creature — Crab";
+Types={"Creature"};
+SubTypes={"Crab"};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=[Unbreakable and unappetizing, the crab grows uninterrupted, sometimes to the size of a cottage and beyond.]=];
+CardNumber="M2060";
+Power="1";
+Toughness="6";
+MultiverseID=466814;
 };
 
 {Name="Foul Orchard";
@@ -7540,6 +12622,27 @@ Flavor=[=[The Great Mending that healed the Multiverse also unraveled the thread
 CardNumber="M1997";
 Rulings=4;
 MultiverseID=447233;
+};
+
+{Name="Frenzied Arynx";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{R}}{{G}}";
+cmc=4;
+Colors={"Red";"Green";};
+Type="Creature — Cat Beast";
+Types={"Creature"};
+SubTypes={"Cat";"Beast";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Riot (This creature enters the battlefield with your choice of a +1/+1 counter or haste.)<br/>
+Trample<br/>
+{{4}}{{R}}{{G}}: Frenzied Arynx gets +3/+0 until end of turn.]=];
+CardNumber="RNA173";
+Power="3";
+Toughness="3";
+Rulings=3;
+MultiverseID=457317;
 };
 
 {Name="Frenzied Rage";
@@ -7619,9 +12722,49 @@ Rulings=3;
 MultiverseID=439761;
 };
 
+{Name="Frilled Mystic";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{G}}{{G}}{{U}}{{U}}";
+cmc=4;
+Colors={"Blue";"Green";};
+Type="Creature — Elf Lizard Wizard";
+Types={"Creature"};
+SubTypes={"Elf";"Lizard";"Wizard";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flash<br/>
+When Frilled Mystic enters the battlefield, you may counter target spell.]=];
+Flavor=[=["Your arrival was expected . . . and unwelcome."]=];
+CardNumber="RNA174";
+Power="3";
+Toughness="2";
+MultiverseID=457318;
+};
+
+{Name="Frilled Sandwalla";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{G}}";
+cmc=1;
+Colors={"Green"};
+Type="Creature — Lizard";
+Types={"Creature"};
+SubTypes={"Lizard"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{1}}{{G}}: Frilled Sandwalla gets +2/+2 until end of turn. Activate this ability only once each turn.]=];
+Flavor=[=["Even the smallest creatures are fierce in defense of their own territory."<br/>
+—Vivien Reid]=];
+CardNumber="M20340";
+Power="1";
+Toughness="1";
+MultiverseID=469893;
+};
+
 {Name="Frilled Sea Serpent";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{4}}{{U}}{{U}}";
 cmc=6;
 Colors={"Blue"};
@@ -7633,11 +12776,54 @@ Rarities={"Common"};
 Text=[=[{{5}}{{U}}{{U}}: Frilled Sea Serpent can't be blocked this turn.]=];
 Flavor=[=["Reel it in. No, wait! Throw it back!"<br/>
 —Gertrude, deep-sea angler]=];
-CardNumber="M1956";
+CardNumber="M2061";
 Power="4";
 Toughness="6";
 Rulings=1;
-MultiverseID=447192;
+MultiverseID=466815;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="56";Flavor=[=["Reel it in. No, wait! Throw it back!"
+—Gertrude, deep-sea angler]=];};
+};
+};
+
+{Name="Frost Lynx";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Creature — Elemental Cat";
+Types={"Creature"};
+SubTypes={"Elemental";"Cat";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Frost Lynx enters the battlefield, tap target creature an opponent controls. That creature doesn't untap during its controller's next untap step.]=];
+Flavor=[=[It readily attacks much larger prey, knowing retaliation is impossible.]=];
+CardNumber="M2062";
+Power="2";
+Toughness="2";
+Rulings=1;
+MultiverseID=466816;
+};
+
+{Name="Fry";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[This spell can't be countered.<br/>
+Fry deals 5 damage to target creature or planeswalker that's white or blue.]=];
+Flavor=[=["I'm afraid your dinner got a little . . . overcooked."<br/>
+—Marlan Farthwald, innkeeper]=];
+CardNumber="M20140";
+Rulings=2;
+MultiverseID=466894;
 };
 
 {Name="Fungal Infection";
@@ -7732,6 +12918,50 @@ Toughness="2";
 MultiverseID=447148;
 };
 
+{Name="Galloping Lizrog";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{G}}{{U}}";
+cmc=5;
+Colors={"Blue";"Green";};
+Type="Creature — Frog Lizard";
+Types={"Creature"};
+SubTypes={"Frog";"Lizard";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Trample<br/>
+When Galloping Lizrog enters the battlefield, you may remove any number of +1/+1 counters from among creatures you control. If you do, put twice that many +1/+1 counters on Galloping Lizrog.]=];
+Flavor=[=["I might have overfed him."<br/>
+—Gulistan, Simic biomancer]=];
+CardNumber="RNA175";
+Power="3";
+Toughness="3";
+Rulings=3;
+MultiverseID=457319;
+};
+
+{Name="Gargos, Vicious Watcher";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{G}}{{G}}{{G}}";
+cmc=6;
+Colors={"Green"};
+Type="Legendary Creature — Hydra";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Hydra"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Vigilance<br/>
+Hydra spells you cast cost {{4}} less to cast.<br/>
+Whenever a creature you control becomes the target of a spell, Gargos, Vicious Watcher fights up to one target creature you don't control.]=];
+CardNumber="M20172";
+Power="8";
+Toughness="7";
+Rulings=8;
+MultiverseID=466926;
+};
+
 {Name="Gargoyle Sentinel";
 SetCode="M19";
 Allsets={"M19"};
@@ -7793,6 +13023,46 @@ Toughness="3";
 MultiverseID=452922;
 };
 
+{Name="Gate Colossus";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{8}}";
+cmc=8;
+Type="Artifact Creature — Construct";
+Types={"Artifact";"Creature";};
+SubTypes={"Construct"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[This spell costs {{1}} less to cast for each Gate you control.<br/>
+Gate Colossus can't be blocked by creatures with power 2 or less.<br/>
+Whenever a Gate enters the battlefield under your control, you may put Gate Colossus from your graveyard on top of your library.]=];
+CardNumber="RNA232";
+Power="8";
+Toughness="8";
+Rulings=1;
+MultiverseID=457376;
+};
+
+{Name="Gatebreaker Ram";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Creature — Sheep";
+Types={"Creature"};
+SubTypes={"Sheep"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Gatebreaker Ram gets +1/+1 for each Gate you control.<br/>
+As long as you control two or more Gates, Gatebreaker Ram has vigilance and trample.]=];
+Flavor=[=[So-called "battering rams" pale in comparison to the real thing.]=];
+CardNumber="RNA126";
+Power="2";
+Toughness="2";
+MultiverseID=457270;
+};
+
 {Name="Gatekeeper Gargoyle";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -7812,9 +13082,25 @@ Toughness="3";
 MultiverseID=452985;
 };
 
+{Name="Gates Ablaze";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Gates Ablaze deals X damage to each creature, where X is the number of Gates you control.]=];
+Flavor=[=[When the Izzet's spirit of invention extends to the city's infrastructure, the results are sometimes explosive.]=];
+CardNumber="RNA102";
+MultiverseID=457246;
+};
+
 {Name="Gateway Plaza";
-SetCode="GRN";
-Allsets={"GRN"};
+SetCode="WAR";
+Allsets={"WAR";"GRN";"RNA";};
 Type="Land — Gate";
 Types={"Land"};
 SubTypes={"Gate"};
@@ -7823,9 +13109,52 @@ Rarities={"Common"};
 Text=[=[Gateway Plaza enters the battlefield tapped.<br/>
 When Gateway Plaza enters the battlefield, sacrifice it unless you pay {{1}}.<br/>
 {{Tap}}: Add one mana of any color.]=];
-Flavor=[=[The Chamber of the Guildpact stands as a reminder that even the bitterest struggles can end in cooperation.]=];
-CardNumber="GRN247";
-MultiverseID=452997;
+Flavor=[=[Guild leaders focused their magic on the portal scar. Where the Chamber perished, a parun could be reborn.]=];
+CardNumber="WAR246";
+MultiverseID=461173;
+Sets={
+{Set="GRN";Rarity="Common";CardNumber="247";Flavor=[=[The Chamber of the Guildpact stands as a reminder that even the bitterest struggles can end in cooperation.]=];};
+{Set="RNA";Rarity="Common";CardNumber="247";Flavor=[=[The Chamber of the Guildpact has fallen silent, its bright promise broken.]=];};
+};
+};
+
+{Name="Gateway Sneak";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Creature — Vedalken Rogue";
+Types={"Creature"};
+SubTypes={"Vedalken";"Rogue";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever a Gate enters the battlefield under your control, Gateway Sneak can't be blocked this turn.<br/>
+Whenever Gateway Sneak deals combat damage to a player, draw a card.]=];
+Flavor=[=["I've been through every guildgate in this city, and no one sees me come or go."]=];
+CardNumber="RNA40";
+Power="1";
+Toughness="3";
+MultiverseID=457184;
+};
+
+{Name="Gauntlets of Light";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Enchantment — Aura";
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Enchant creature<br/>
+Enchanted creature gets +0/+2 and assigns combat damage equal to its toughness rather than its power.<br/>
+Enchanted creature has "{{2}}{{W}}: Untap this creature."]=];
+CardNumber="M2017";
+Rulings=1;
+MultiverseID=466771;
 };
 
 {Name="Gearsmith Guardian";
@@ -7884,6 +13213,24 @@ Toughness="2";
 MultiverseID=452879;
 };
 
+{Name="Get the Point";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{B}}{{R}}";
+cmc=5;
+Colors={"Black";"Red";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Destroy target creature. Scry 1.]=];
+Flavor=[=["Vraska sees the grandeur in death but misses the hilarity."<br/>
+—Judith]=];
+CardNumber="RNA176";
+Rulings=1;
+MultiverseID=457320;
+};
+
 {Name="Ghalta, Primal Hunger";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -7896,7 +13243,7 @@ Types={"Creature"};
 SubTypes={"Elder";"Dinosaur";};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[Ghalta, Primal Hunger costs {{X}} less to cast, where X is the total power of creatures you control.<br/>
+Text=[=[This spell costs {{X}} less to cast, where X is the total power of creatures you control.<br/>
 Trample]=];
 Flavor=[=[The earth walks, strongest of all.]=];
 CardNumber="RIX130";
@@ -8006,6 +13353,27 @@ Rulings=1;
 MultiverseID=443015;
 };
 
+{Name="Ghor-Clan Wrecker";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Creature — Human Warrior";
+Types={"Creature"};
+SubTypes={"Human";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Riot (This creature enters the battlefield with your choice of a +1/+1 counter or haste.)<br/>
+Menace (This creature can't be blocked except by two or more creatures.)]=];
+Flavor=[=["Today the Rubblebelt is a bit larger. That's a good day's work."]=];
+CardNumber="RNA103";
+Power="2";
+Toughness="2";
+Rulings=3;
+MultiverseID=457247;
+};
+
 {Name="Ghostform";
 SetCode="M19";
 Allsets={"M19"};
@@ -8020,6 +13388,23 @@ Text=[=[Up to two target creatures can't be blocked this turn.]=];
 Flavor=[=["Picking locks is for beginners."]=];
 CardNumber="M1958";
 MultiverseID=447194;
+};
+
+{Name="Giant Growth";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{G}}";
+cmc=1;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target creature gets +3/+3 until end of turn.]=];
+Flavor=[=["Sometimes Mowu is content to gnaw on a bone. Sometimes he wants the whole skeleton."<br/>
+—Jiang Yanggu]=];
+CardNumber="WAR162";
+MultiverseID=461089;
 };
 
 {Name="Giant Spider";
@@ -8043,6 +13428,87 @@ Rulings=1;
 MultiverseID=447319;
 };
 
+{Name="Gideon Blackblade";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{W}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Legendary Planeswalker — Gideon";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Gideon"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[As long as it's your turn, Gideon Blackblade is a 4/4 Human Soldier creature with indestructible that's still a planeswalker.<br/>
+Prevent all damage that would be dealt to Gideon Blackblade during your turn.<br/>
++1: Up to one other target creature you control gains your choice of vigilance, lifelink, or indestructible until end of turn.<br/>
+−6: Exile target nonland permanent.]=];
+CardNumber="WAR13";
+Loyalty="4";
+Rulings=5;
+MultiverseID=460940;
+};
+
+{Name="Gideon, the Oathsworn";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{W}}{{W}}";
+cmc=6;
+Colors={"White"};
+Type="Legendary Planeswalker — Gideon";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Gideon"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Whenever you attack with two or more non-Gideon creatures, put a +1/+1 counter on each of those creatures.<br/>
++2: Until end of turn, Gideon, the Oathsworn becomes a 5/5 white Soldier creature that's still a planeswalker. Prevent all damage that would be dealt to him this turn. (He can't attack if he was cast this turn.)<br/>
+−9: Exile Gideon, the Oathsworn and each creature your opponents control.]=];
+CardNumber="WAR265";
+Loyalty="4";
+Rulings=7;
+MultiverseID=463832;
+};
+
+{Name="Gideon's Battle Cry";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{W}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Put a +1/+1 counter on each creature you control. You may search your library and/or graveyard for a card named Gideon, the Oathsworn, reveal it, and put it into your hand. If you search your library this way, shuffle it.]=];
+Flavor=[=["Break their formation! Thin their ranks! I'm right behind you!"]=];
+CardNumber="WAR267";
+Rulings=1;
+MultiverseID=463834;
+};
+
+{Name="Gideon's Company";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Creature — Human Soldier";
+Types={"Creature"};
+SubTypes={"Human";"Soldier";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever you gain life, put two +1/+1 counters on Gideon's Company.<br/>
+{{3}}{{W}}: Put a loyalty counter on target Gideon planeswalker.]=];
+Flavor=[=["For the Legion! For Ravnica!"]=];
+CardNumber="WAR268";
+Power="3";
+Toughness="3";
+Rulings=6;
+MultiverseID=463835;
+};
+
 {Name="Gideon's Reproach";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -8057,6 +13523,40 @@ Text=[=[Gideon's Reproach deals 4 damage to target attacking or blocking creatur
 Flavor=[=[On Amonkhet, Gideon lost both his sural and his faith in himself. But he can still throw a punch, and he still knows a bad guy when he sees one.]=];
 CardNumber="DOM19";
 MultiverseID=442907;
+};
+
+{Name="Gideon's Sacrifice";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{W}}";
+cmc=1;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Choose a creature or planeswalker you control. All damage that would be dealt this turn to you and permanents you control is dealt to the chosen permanent instead (if it's still on the battlefield).]=];
+Flavor=[=[To Liliana's surprise, the cost of betraying Bolas did not fall on her.]=];
+CardNumber="WAR14";
+Rulings=6;
+MultiverseID=460941;
+};
+
+{Name="Gideon's Triumph";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Target opponent sacrifices a creature that attacked or blocked this turn. If you control a Gideon planeswalker, that player sacrifices two of those creatures instead.]=];
+Flavor=[=[His triumph came not from victory over his enemies, but from the salvation of those who survived.]=];
+CardNumber="WAR15";
+Rulings=7;
+MultiverseID=460942;
 };
 
 {Name="Gift of Growth";
@@ -8077,21 +13577,42 @@ MultiverseID=443051;
 };
 
 {Name="Gift of Paradise";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{2}}{{G}}";
 cmc=3;
 Colors={"Green"};
 Type="Enchantment — Aura";
 Types={"Enchantment"};
 SubTypes={"Aura"};
-Rarity="Uncommon";
-Rarities={"Uncommon"};
+Rarity="Common";
+Rarities={"Common";"Uncommon";};
 Text=[=[Enchant land<br/>
 When Gift of Paradise enters the battlefield, you gain 3 life.<br/>
 Enchanted land has "{{Tap}}: Add two mana of any one color."]=];
-CardNumber="M19184";
-MultiverseID=447320;
+CardNumber="M20173";
+Rulings=1;
+MultiverseID=466927;
+Sets={
+{Set="M19";Rarity="Uncommon";CardNumber="184";};
+};
+};
+
+{Name="Gift of Strength";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target creature gets +3/+3 and gains reach until end of turn.]=];
+Flavor=[=["When the sky screams, when the ground groans, the End-Raze will soon begin."<br/>
+—Nikya of the Old Ways]=];
+CardNumber="RNA127";
+MultiverseID=457271;
 };
 
 {Name="Gigantosaurus";
@@ -8237,6 +13758,41 @@ Rulings=1;
 MultiverseID=452986;
 };
 
+{Name="Glaring Aegis";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{W}}";
+cmc=1;
+Colors={"White"};
+Type="Enchantment — Aura";
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Enchant creature<br/>
+When Glaring Aegis enters the battlefield, tap target creature an opponent controls.<br/>
+Enchanted creature gets +1/+3.]=];
+CardNumber="M2018";
+Rulings=1;
+MultiverseID=466772;
+};
+
+{Name="Glass of the Guildpact";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}";
+cmc=2;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Multicolored creatures you control get +1/+1.]=];
+Flavor=[=["Counterbalanced forces sustain this city. No faction above others. A beautiful idea."<br/>
+—Emmara]=];
+CardNumber="RNA233";
+MultiverseID=457377;
+};
+
 {Name="Gleaming Barrier";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -8248,13 +13804,54 @@ SubTypes={"Wall"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Defender<br/>
-When Gleaming Barrier dies, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
+When Gleaming Barrier dies, create a Treasure token. (It's an artifact with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")]=];
 Flavor=[=["Gold without freedom might as well be lead."<br/>
 —Angrath]=];
 CardNumber="RIX178";
 Power="0";
 Toughness="4";
 MultiverseID=439841;
+};
+
+{Name="Gleaming Overseer";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{U}}{{B}}";
+cmc=3;
+Colors={"Blue";"Black";};
+Type="Creature — Zombie Wizard";
+Types={"Creature"};
+SubTypes={"Zombie";"Wizard";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Gleaming Overseer enters the battlefield, amass 1. (Put a +1/+1 counter on an Army you control. If you don't control one, create a 0/0 black Zombie Army creature token first.)<br/>
+Zombie tokens you control have hexproof and menace.]=];
+CardNumber="WAR198";
+Power="1";
+Toughness="4";
+Rulings=3;
+MultiverseID=461125;
+};
+
+{Name="Glint-Horn Buccaneer";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{R}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Creature — Minotaur Pirate";
+Types={"Creature"};
+SubTypes={"Minotaur";"Pirate";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Haste<br/>
+Whenever you discard a card, Glint-Horn Buccaneer deals 1 damage to each opponent.<br/>
+{{1}}{{R}}, Discard a card: Draw a card. Activate this ability only if Glint-Horn Buccaneer is attacking.]=];
+CardNumber="M20141";
+Power="2";
+Toughness="4";
+Rulings=2;
+MultiverseID=466895;
 };
 
 {Name="Glorifier of Dusk";
@@ -8297,6 +13894,70 @@ Rulings=1;
 MultiverseID=452923;
 };
 
+{Name="Gnarlback Rhino";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{G}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Creature — Rhino";
+Types={"Creature"};
+SubTypes={"Rhino"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Trample  (This creature can deal excess combat damage to the player or planeswalker it's attacking.)<br/>
+Whenever you cast a spell that targets Gnarlback Rhino, draw a card.]=];
+Flavor=[=["I think it's trying to tell us that the forest is angry."<br/>
+—Vivien Reid]=];
+CardNumber="M20300";
+Power="4";
+Toughness="4";
+Rulings=2;
+MultiverseID=469853;
+};
+
+{Name="Goblin Assailant";
+SetCode="M20";
+Allsets={"M20";"WAR";};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Creature — Goblin Warrior";
+Types={"Creature"};
+SubTypes={"Goblin";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=[What he lacks in patience, intelligence, empathy, lucidity, hygiene, ability to follow orders, self-regard, and discernible skills, he makes up for in sheer chaotic violence.]=];
+CardNumber="M20330";
+Power="2";
+Toughness="2";
+MultiverseID=469883;
+Sets={
+{Set="WAR";Rarity="Common";CardNumber="128";Flavor=[=[What he lacks in patience, intelligence, empathy, lucidity, hygiene, ability to follow orders, self-regard, and discernible skills, he makes up for in sheer chaotic violence.]=];};
+};
+};
+
+{Name="Goblin Assault Team";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Creature — Goblin Warrior";
+Types={"Creature"};
+SubTypes={"Goblin";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Haste<br/>
+When Goblin Assault Team dies, put a +1/+1 counter on target creature you control.]=];
+Flavor=[=[Under the veneer of the various guilds, each goblin has the same basic need: to run screaming at the enemy and hit a bunch of stuff.]=];
+CardNumber="WAR129";
+Power="4";
+Toughness="1";
+Rulings=1;
+MultiverseID=461056;
+};
+
 {Name="Goblin Banneret";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -8332,6 +13993,26 @@ Goblin Barrage deals 4 damage to target creature. If this spell was kicked, it a
 CardNumber="DOM128";
 Rulings=1;
 MultiverseID=443016;
+};
+
+{Name="Goblin Bird-Grabber";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Creature — Goblin";
+Types={"Creature"};
+SubTypes={"Goblin"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{R}}: Goblin Bird-Grabber gains flying until end of turn. Activate this ability only if you control a creature with flying.]=];
+Flavor=[=["I opens my mouth to catches the bugs!"]=];
+CardNumber="M20142";
+Power="2";
+Toughness="1";
+Rulings=1;
+MultiverseID=466896;
 };
 
 {Name="Goblin Chainwhirler";
@@ -8398,6 +14079,23 @@ Rulings=3;
 MultiverseID=452924;
 };
 
+{Name="Goblin Gathering";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Create a number of 1/1 red Goblin creature tokens equal to two plus the number of cards named Goblin Gathering in your graveyard.]=];
+Flavor=[=[Two's a party. Three's a felony.]=];
+CardNumber="RNA104";
+Rulings=1;
+MultiverseID=457248;
+};
+
 {Name="Goblin Instigator";
 SetCode="M19";
 Allsets={"M19"};
@@ -8454,6 +14152,47 @@ CardNumber="M19143";
 Power="1";
 Toughness="1";
 MultiverseID=447279;
+};
+
+{Name="Goblin Ringleader";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Creature — Goblin";
+Types={"Creature"};
+SubTypes={"Goblin"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Haste (This creature can attack and {{Tap}} as soon as it comes under your control.)<br/>
+When Goblin Ringleader enters the battlefield, reveal the top four cards of your library. Put all Goblin cards revealed this way into your hand and the rest on the bottom of your library in any order.]=];
+CardNumber="M20143";
+Power="2";
+Toughness="2";
+Rulings=1;
+MultiverseID=466897;
+};
+
+{Name="Goblin Smuggler";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Creature — Goblin Rogue";
+Types={"Creature"};
+SubTypes={"Goblin";"Rogue";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Haste (This creature can attack and {{Tap}} as soon as it comes under your control.)<br/>
+{{Tap}}: Another target creature with power 2 or less can't be blocked this turn.]=];
+Flavor=[=["I am but a humble traveler. I have no taste for sneakery nor thiefiness."]=];
+CardNumber="M20144";
+Power="2";
+Toughness="2";
+Rulings=1;
+MultiverseID=466898;
 };
 
 {Name="Goblin Trailblazer";
@@ -8518,6 +14257,145 @@ Rulings=1;
 MultiverseID=443018;
 };
 
+{Name="God-Eternal Bontu";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{B}}{{B}}";
+cmc=5;
+Colors={"Black"};
+Type="Legendary Creature — Zombie God";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Zombie";"God";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Menace<br/>
+When God-Eternal Bontu enters the battlefield, sacrifice any number of other permanents, then draw that many cards.<br/>
+When God-Eternal Bontu dies or is put into exile from the battlefield, you may put it into its owner's library third from the top.]=];
+CardNumber="WAR92";
+Power="5";
+Toughness="6";
+Rulings=9;
+MultiverseID=461019;
+};
+
+{Name="God-Eternal Kefnet";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{U}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Legendary Creature — Zombie God";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Zombie";"God";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Flying<br/>
+You may reveal the first card you draw each turn as you draw it. Whenever you reveal an instant or sorcery card this way, copy that card and you may cast the copy. That copy costs {{2}} less to cast.<br/>
+When God-Eternal Kefnet dies or is put into exile from the battlefield, you may put it into its owner's library third from the top.]=];
+CardNumber="WAR53";
+Power="4";
+Toughness="5";
+Rulings=18;
+MultiverseID=460980;
+};
+
+{Name="God-Eternal Oketra";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{W}}{{W}}";
+cmc=5;
+Colors={"White"};
+Type="Legendary Creature — Zombie God";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Zombie";"God";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Double strike<br/>
+Whenever you cast a creature spell, create a 4/4 black Zombie Warrior creature token with vigilance.<br/>
+When God-Eternal Oketra dies or is put into exile from the battlefield, you may put it into its owner's library third from the top.]=];
+CardNumber="WAR16";
+Power="3";
+Toughness="6";
+Rulings=8;
+MultiverseID=460943;
+};
+
+{Name="God-Eternal Rhonas";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{G}}{{G}}";
+cmc=5;
+Colors={"Green"};
+Type="Legendary Creature — Zombie God";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Zombie";"God";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Deathtouch<br/>
+When God-Eternal Rhonas enters the battlefield, double the power of each other creature you control until end of turn. Those creatures gain vigilance until end of turn.<br/>
+When God-Eternal Rhonas dies or is put into exile from the battlefield, you may put it into its owner's library third from the top.]=];
+CardNumber="WAR163";
+Power="5";
+Toughness="5";
+Rulings=8;
+MultiverseID=461090;
+};
+
+{Name="Godless Shrine";
+SetCode="RNA";
+Allsets={"RNA"};
+Type="Land — Plains Swamp";
+Types={"Land"};
+SubTypes={"Plains";"Swamp";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[({{Tap}}: Add {{W}} or {{B}}.)<br/>
+As Godless Shrine enters the battlefield, you may pay 2 life. If you don't, it enters the battlefield tapped.]=];
+Flavor=[=[Sin is debt, and absolution is paid in tithes of gold and blood.]=];
+CardNumber="RNA248";
+Rulings=2;
+MultiverseID=457392;
+};
+
+{Name="God-Pharaoh's Statue";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{6}}";
+cmc=6;
+Type="Legendary Artifact";
+SuperTypes={"Legendary"};
+Types={"Artifact"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Spells your opponents cast cost {{2}} more to cast.<br/>
+At the beginning of your end step, each opponent loses 1 life.]=];
+Flavor=[=[A dictator's infuriating smirk, an affront to everything Ravnica stood for.]=];
+CardNumber="WAR238";
+Rulings=2;
+MultiverseID=461165;
+};
+
+{Name="Gods Willing";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{W}}";
+cmc=1;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Target creature you control gains protection from the color of your choice until end of turn. (It can't be blocked, targeted, dealt damage, enchanted, or equipped by anything of that color.)<br/>
+Scry 1. (Look at the top card of your library. You may put that card on the bottom of your library.)]=];
+CardNumber="M2019";
+Rulings=7;
+MultiverseID=466773;
+};
+
 {Name="Golden Demise";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -8570,6 +14448,25 @@ CardNumber="RIX179b";
 MultiverseID=439843;
 };
 
+{Name="Goldmane Griffin";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{W}}{{W}}";
+cmc=5;
+Colors={"White"};
+Type="Creature — Griffin";
+Types={"Creature"};
+SubTypes={"Griffin"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Flying, vigilance<br/>
+When Goldmane Griffin enters the battlefield, you may search your library and/or graveyard for a card named Ajani, Inspiring Leader, reveal it, and put it into your hand. If you search your library this way, shuffle it.]=];
+CardNumber="M20283";
+Power="3";
+Toughness="2";
+MultiverseID=469836;
+};
+
 {Name="Golgari Findbroker";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -8602,6 +14499,7 @@ Text=[=[Golgari Guildgate enters the battlefield tapped.<br/>
 Flavor=[=["Shut the gates. In the Underrealm we will outlast the coming doom."<br/>
 —Vraska]=];
 CardNumber="GRN248";
+Rulings=2;
 MultiverseID=452998;
 };
 
@@ -8643,6 +14541,26 @@ Rulings=3;
 MultiverseID=452880;
 };
 
+{Name="Golos, Tireless Pilgrim";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{5}}";
+cmc=5;
+Type="Legendary Artifact Creature — Scout";
+SuperTypes={"Legendary"};
+Types={"Artifact";"Creature";};
+SubTypes={"Scout"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[When Golos, Tireless Pilgrim enters the battlefield, you may search your library for a land card, put that card onto the battlefield tapped, then shuffle your library.<br/>
+{{2}}{{W}}{{U}}{{B}}{{R}}{{G}}: Exile the top three cards of your library. You may play them this turn without paying their mana costs.]=];
+CardNumber="M20226";
+Power="3";
+Toughness="5";
+Rulings=4;
+MultiverseID=466980;
+};
+
 {Name="Goreclaw, Terror of Qal Sisma";
 SetCode="M19";
 Allsets={"M19"};
@@ -8665,6 +14583,25 @@ Rulings=3;
 MultiverseID=447322;
 };
 
+{Name="Gorging Vulture";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Creature — Bird";
+Types={"Creature"};
+SubTypes={"Bird"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+When Gorging Vulture enters the battlefield, put the top four cards of your library into your graveyard. You gain 1 life for each creature card put into your graveyard this way.]=];
+CardNumber="M20102";
+Power="2";
+Toughness="2";
+MultiverseID=466856;
+};
+
 {Name="Goring Ceratops";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -8684,6 +14621,24 @@ CardNumber="XLN13";
 Power="3";
 Toughness="3";
 MultiverseID=435164;
+};
+
+{Name="Grafdigger's Cage";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}";
+cmc=1;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Creature cards in graveyards and libraries can't enter the battlefield.<br/>
+Players can't cast spells from graveyards or libraries.]=];
+Flavor=[=["Best bury them right. We don't want any gruesome encores."<br/>
+—Constable Trosk]=];
+CardNumber="M20227";
+Rulings=4;
+MultiverseID=466981;
 };
 
 {Name="Grand Warlord Radha";
@@ -8767,9 +14722,50 @@ Sets={
 };
 };
 
+{Name="Grasping Thrull";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{W}}{{B}}";
+cmc=5;
+Colors={"White";"Black";};
+Type="Creature — Thrull";
+Types={"Creature"};
+SubTypes={"Thrull"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+When Grasping Thrull enters the battlefield, it deals 2 damage to each opponent and you gain 2 life.]=];
+Flavor=[=["Debt due! Debt due!" The thrull's screeching makes children flinch and debtors quail. "Debt due!"]=];
+CardNumber="RNA177";
+Power="3";
+Toughness="3";
+Rulings=1;
+MultiverseID=457321;
+};
+
+{Name="Grateful Apparition";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Creature — Spirit";
+Types={"Creature"};
+SubTypes={"Spirit"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying<br/>
+Whenever Grateful Apparition deals combat damage to a player or planeswalker, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)]=];
+CardNumber="WAR17";
+Power="1";
+Toughness="1";
+Rulings=6;
+MultiverseID=460944;
+};
+
 {Name="Gravedigger";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{3}}{{B}}";
 cmc=4;
 Colors={"Black"};
@@ -8779,17 +14775,40 @@ SubTypes={"Zombie"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
 Text=[=[When Gravedigger enters the battlefield, you may return target creature card from your graveyard to your hand.]=];
-Flavor=[=[A full coffin is like a full coffer—both are attractive to thieves.]=];
-CardNumber="M1998";
+Flavor=[=[In Amonkhet's ever-shifting sands, nothing stays buried for long.]=];
+CardNumber="M20103";
 Power="2";
 Toughness="2";
 Rulings=1;
-MultiverseID=447234;
+MultiverseID=466857;
+Sets={
+{Set="M19";Rarity="Uncommon";CardNumber="98";Flavor=[=[A full coffin is like a full coffer—both are attractive to thieves.]=];};
+};
+};
+
+{Name="Gravel-Hide Goblin";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Creature — Goblin Shaman";
+Types={"Creature"};
+SubTypes={"Goblin";"Shaman";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{3}}{{G}}: Gravel-Hide Goblin gets +2/+2 until end of turn.]=];
+Flavor=[=["No peace accord will save Ravnica. You don't build on rot. You burn it down and start again."<br/>
+—Domri Rade]=];
+CardNumber="RNA105";
+Power="2";
+Toughness="1";
+MultiverseID=457249;
 };
 
 {Name="Gravewaker";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{4}}{{B}}{{B}}";
 cmc=6;
 Colors={"Black"};
@@ -8798,14 +14817,17 @@ Types={"Creature"};
 SubTypes={"Bird";"Spirit";};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[Flying<br/>
+Text=[=[Flying (This creature can't be blocked except by creatures with flying or reach.)<br/>
 {{5}}{{B}}{{B}}: Return target creature card from your graveyard to the battlefield tapped.]=];
-Flavor=[=[Once every seven years it flies on spectral wings over the moors of ancient battlefields.]=];
-CardNumber="M19293";
+Flavor=[=[It glides on silent wings across the midnight sky, and a dread host rises to follow.]=];
+CardNumber="M20323";
 Power="5";
 Toughness="5";
 Rulings=1;
-MultiverseID=450240;
+MultiverseID=469876;
+Sets={
+{Set="M19";Rarity="Rare";CardNumber="293";Flavor=[=[Once every seven years it flies on spectral wings over the moors of ancient battlefields.]=];};
+};
 };
 
 {Name="Graveyard Marshal";
@@ -8865,8 +14887,8 @@ MultiverseID=435345;
 };
 
 {Name="Greenwood Sentinel";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
@@ -8877,10 +14899,55 @@ Rarity="Common";
 Rarities={"Common"};
 Text=[=[Vigilance (Attacking doesn't cause this creature to tap.)]=];
 Flavor=[=[Within a mile of the woodland, you will feel her eyes upon you. Within its borders, you will feel her blade.]=];
-CardNumber="M19187";
+CardNumber="M20174";
 Power="2";
 Toughness="2";
-MultiverseID=447323;
+MultiverseID=466928;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="187";Flavor=[=[Within a mile of the woodland, you will feel her eyes upon you. Within its borders, you will feel her blade.]=];};
+};
+};
+
+{Name="Griffin Protector";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Creature — Griffin";
+Types={"Creature"};
+SubTypes={"Griffin"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+Whenever another creature enters the battlefield under your control, Griffin Protector gets +1/+1 until end of turn.]=];
+Flavor=[=["Here is a companion who will never falter, no matter how desperate the battle!"<br/>
+—Ajani Goldmane]=];
+CardNumber="M2020";
+Power="2";
+Toughness="3";
+Rulings=1;
+MultiverseID=466774;
+};
+
+{Name="Griffin Sentinel";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Creature — Griffin";
+Types={"Creature"};
+SubTypes={"Griffin"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+Vigilance (Attacking doesn't cause this creature to tap.)]=];
+Flavor=[=[Once a griffin sentinel adopts a territory as its own, only death can force it to betray its post.]=];
+CardNumber="M2021";
+Power="1";
+Toughness="3";
+MultiverseID=466775;
 };
 
 {Name="Grim Captain's Call";
@@ -8898,6 +14965,44 @@ Flavor=[=[When the battle is over, the bitterest foes at last find common ground
 CardNumber="XLN108";
 Rulings=4;
 MultiverseID=435262;
+};
+
+{Name="Grim Initiate";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{R}}";
+cmc=1;
+Colors={"Red"};
+Type="Creature — Zombie Warrior";
+Types={"Creature"};
+SubTypes={"Zombie";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[First strike<br/>
+When Grim Initiate dies, amass 1. (Put a +1/+1 counter on an Army you control. If you don't control one, create a 0/0 black Zombie Army creature token first.)]=];
+Flavor=[=[Beneath each gleaming mineral shell rots a once-proud warrior of Amonkhet.]=];
+CardNumber="WAR130";
+Power="1";
+Toughness="1";
+Rulings=2;
+MultiverseID=461057;
+};
+
+{Name="Grotesque Demise";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Exile target creature with power 3 or less.]=];
+Flavor=[=["A debtor's soul has little value, except as a warning to others who might consider defaulting on their loans."<br/>
+—Ubea, Orzhov ministrant]=];
+CardNumber="RNA75";
+MultiverseID=457219;
 };
 
 {Name="Grow from the Ashes";
@@ -8932,6 +15037,61 @@ At the beginning of your end step, if you control four or more creatures, transf
 CardNumber="XLN191a";
 Rulings=4;
 MultiverseID=435346;
+};
+
+{Name="Growth Cycle";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target creature gets +3/+3 until end of turn. It gets an additional +2/+2 until end of turn for each card named Growth Cycle in your graveyard.]=];
+Flavor=[=["Shed your faded husk! Emerge sleeker and stronger!"<br/>
+—Tyris, fauna shaman]=];
+CardNumber="M20175";
+Rulings=2;
+MultiverseID=466929;
+};
+
+{Name="Growth Spiral";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{G}}{{U}}";
+cmc=2;
+Colors={"Blue";"Green";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Draw a card. You may put a land card from your hand onto the battlefield.]=];
+Flavor=[=[Cyclical and spiral patterns are the specialty of the Gyre Clade, which seeks to revitalize the cycles of nature.]=];
+CardNumber="RNA178";
+Rulings=1;
+MultiverseID=457322;
+};
+
+{Name="Growth-Chamber Guardian";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Creature — Elf Crab Warrior";
+Types={"Creature"};
+SubTypes={"Elf";"Crab";"Warrior";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[{{2}}{{G}}: Adapt 2. (If this creature has no +1/+1 counters on it, put two +1/+1 counters on it.)<br/>
+Whenever one or more +1/+1 counters are put on Growth-Chamber Guardian, you may search your library for a card named Growth-Chamber Guardian, reveal it, put it into your hand, then shuffle your library.]=];
+CardNumber="RNA128";
+Power="2";
+Toughness="2";
+Rulings=3;
+MultiverseID=457272;
 };
 
 {Name="Gruesome Fate";
@@ -8970,6 +15130,26 @@ Rulings=4;
 MultiverseID=452821;
 };
 
+{Name="Gruesome Scourger";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{B}}{{B}}";
+cmc=5;
+Colors={"Black"};
+Type="Creature — Orc Warrior";
+Types={"Creature"};
+SubTypes={"Orc";"Warrior";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Gruesome Scourger enters the battlefield, it deals damage to target opponent or planeswalker equal to the number of creatures you control.]=];
+Flavor=[=[His whips twist and tremble like living things, moved by the fury of the horde he commands.]=];
+CardNumber="M20104";
+Power="3";
+Toughness="3";
+Rulings=1;
+MultiverseID=466858;
+};
+
 {Name="Grunn, the Lonely King";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -8992,6 +15172,99 @@ Rulings=3;
 MultiverseID=443053;
 };
 
+{Name="Gruul Beastmaster";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Creature — Human Shaman";
+Types={"Creature"};
+SubTypes={"Human";"Shaman";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Riot (This creature enters the battlefield with your choice of a +1/+1 counter or haste.)<br/>
+Whenever Gruul Beastmaster attacks, another target creature you control gets +X/+0 until end of turn, where X is Gruul Beastmaster's power.]=];
+CardNumber="RNA129";
+Power="2";
+Toughness="2";
+Rulings=6;
+MultiverseID=457273;
+};
+
+{Name="Gruul Guildgate";
+SetCode="RNA";
+Allsets={"RNA"};
+Type="Land — Gate";
+Types={"Land"};
+SubTypes={"Gate"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Gruul Guildgate enters the battlefield tapped.<br/>
+{{Tap}}: Add {{R}} or {{G}}.]=];
+Flavor=[=["Beyond this gate there are no citizens, only predators and prey."<br/>
+—Domri Rade]=];
+CardNumber="RNA249";
+Rulings=2;
+MultiverseID=457393;
+};
+
+{Name="Gruul Locket";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}";
+cmc=3;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{Tap}}: Add {{R}} or {{G}}.<br/>
+{{RG}}{{RG}}{{RG}}{{RG}}, {{Tap}}, Sacrifice Gruul Locket: Draw two cards.]=];
+Flavor=[=["In life, it was a cunning survivor, fearless and quick. May its power pass to you who as you wear its skull."<br/>
+—Gna, Gruul shaman]=];
+CardNumber="RNA234";
+MultiverseID=457378;
+};
+
+{Name="Gruul Spellbreaker";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{R}}{{G}}";
+cmc=3;
+Colors={"Red";"Green";};
+Type="Creature — Ogre Warrior";
+Types={"Creature"};
+SubTypes={"Ogre";"Warrior";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Riot (This creature enters the battlefield with your choice of a +1/+1 counter or haste.)<br/>
+Trample<br/>
+As long as it's your turn, you and Gruul Spellbreaker have hexproof.]=];
+Flavor=[=[She displays her scars with pride.]=];
+CardNumber="RNA179";
+Power="3";
+Toughness="3";
+Rulings=3;
+MultiverseID=457323;
+};
+
+{Name="Guardian Project";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Whenever a nontoken creature enters the battlefield under your control, if it doesn't have the same name as another creature you control or a creature card in your graveyard, draw a card.]=];
+Flavor=[=[Simic's strength comes from its diversity.]=];
+CardNumber="RNA130";
+Rulings=4;
+MultiverseID=457274;
+};
+
 {Name="Guardians of Koilos";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -9009,6 +15282,23 @@ Power="4";
 Toughness="4";
 Rulings=1;
 MultiverseID=443104;
+};
+
+{Name="Guild Globe";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}";
+cmc=2;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Guild Globe enters the battlefield, draw a card.<br/>
+{{2}}, {{Tap}}, Sacrifice Guild Globe: Add two mana of different colors.]=];
+Flavor=[=["Hopefully Ravnica will prove harder to break."<br/>
+—Karn]=];
+CardNumber="WAR239";
+MultiverseID=461166;
 };
 
 {Name="Guild Summit";
@@ -9041,6 +15331,48 @@ CardNumber="GRN250";
 MultiverseID=453000;
 };
 
+{Name="Guildpact Informant";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Creature — Faerie Rogue";
+Types={"Creature"};
+SubTypes={"Faerie";"Rogue";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+Whenever Guildpact Informant deals combat damage to a player or planeswalker, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)]=];
+Flavor=[=["Of course you're being followed!"]=];
+CardNumber="WAR271";
+Power="1";
+Toughness="1";
+MultiverseID=463838;
+};
+
+{Name="Gutterbones";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{B}}";
+cmc=1;
+Colors={"Black"};
+Type="Creature — Skeleton Warrior";
+Types={"Creature"};
+SubTypes={"Skeleton";"Warrior";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Gutterbones enters the battlefield tapped.<br/>
+{{1}}{{B}}: Return Gutterbones from your graveyard to your hand. Activate this ability only during your turn and only if an opponent lost life this turn.]=];
+Flavor=[=["Down here, things don't stay dead."<br/>
+—Lavinia]=];
+CardNumber="RNA76";
+Power="2";
+Toughness="1";
+Rulings=2;
+MultiverseID=457220;
+};
+
 {Name="Guttersnipe";
 SetCode="M19";
 Allsets={"M19"};
@@ -9061,6 +15393,25 @@ Rulings=2;
 MultiverseID=447281;
 };
 
+{Name="Gyre Engineer";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{G}}{{U}}";
+cmc=3;
+Colors={"Blue";"Green";};
+Type="Creature — Vedalken Wizard";
+Types={"Creature"};
+SubTypes={"Vedalken";"Wizard";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{Tap}}: Add {{G}}{{U}}.]=];
+Flavor=[=["As I contemplate what is, I dive ever deeper into the depths of possibility. Then I set an experiment in motion and watch the truth rise to the surface."]=];
+CardNumber="RNA180";
+Power="1";
+Toughness="1";
+MultiverseID=457324;
+};
+
 {Name="Haazda Marshal";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -9079,6 +15430,50 @@ Power="1";
 Toughness="1";
 Rulings=1;
 MultiverseID=452763;
+};
+
+{Name="Haazda Officer";
+SetCode="M20";
+Allsets={"M20";"RNA";};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Creature — Human Soldier";
+Types={"Creature"};
+SubTypes={"Human";"Soldier";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Haazda Officer enters the battlefield, target creature you control gets +1/+1 until end of turn.]=];
+Flavor=[=["You two, cover the alley! You, with me! Eyes on windows, balconies, and rooftops. Who knows what a fish-octopus-crab can do!"]=];
+CardNumber="M20305";
+Power="3";
+Toughness="2";
+MultiverseID=469858;
+Sets={
+{Set="RNA";Rarity="Common";CardNumber="10";Flavor=[=["You two, cover the alley! You, with me! Eyes on windows, balconies, and rooftops. Who knows what a fish-octopus-crab can do!"]=];};
+};
+};
+
+{Name="Hackrobat";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{B}}{{R}}";
+cmc=3;
+Colors={"Black";"Red";};
+Type="Creature — Human Rogue";
+Types={"Creature"};
+SubTypes={"Human";"Rogue";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Spectacle {{B}}{{R}} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)<br/>
+{{B}}: Hackrobat gains deathtouch until end of turn.<br/>
+{{R}}: Hackrobat gets +2/-2 until end of turn.]=];
+Flavor=[=["They all want to see me fall."]=];
+CardNumber="RNA181";
+Power="2";
+Toughness="3";
+Rulings=5;
+MultiverseID=457325;
 };
 
 {Name="Hadana's Climb";
@@ -9120,6 +15515,22 @@ Rulings=3;
 MultiverseID=443084;
 };
 
+{Name="Hallowed Fountain";
+SetCode="RNA";
+Allsets={"RNA"};
+Type="Land — Plains Island";
+Types={"Land"};
+SubTypes={"Plains";"Island";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[({{Tap}}: Add {{W}} or {{U}}.)<br/>
+As Hallowed Fountain enters the battlefield, you may pay 2 life. If you don't, it enters the battlefield tapped.]=];
+Flavor=[=[The ever-watchful center of a growing web of eyes.]=];
+CardNumber="RNA251";
+Rulings=2;
+MultiverseID=457395;
+};
+
 {Name="Hammer Dropper";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -9140,6 +15551,26 @@ Rulings=3;
 MultiverseID=452926;
 };
 
+{Name="Hanged Executioner";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Creature — Spirit";
+Types={"Creature"};
+SubTypes={"Spirit"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Flying<br/>
+When Hanged Executioner enters the battlefield, create a 1/1 white Spirit creature token with flying.<br/>
+{{3}}{{W}}, Exile Hanged Executioner: Exile target creature.]=];
+CardNumber="M2022";
+Power="1";
+Toughness="1";
+MultiverseID=466776;
+};
+
 {Name="Haphazard Bombardment";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -9155,6 +15586,25 @@ At the beginning of your end step, if two or more permanents you don't control h
 CardNumber="DOM131";
 Rulings=4;
 MultiverseID=443019;
+};
+
+{Name="Hard Cover";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{U}}";
+cmc=1;
+Colors={"Blue"};
+Type="Enchantment — Aura";
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Enchant creature<br/>
+Enchanted creature gets +0/+2 and has "{{Tap}}: Draw a card, then discard a card."]=];
+Flavor=[=[A good book is a refuge, but a great book is a fortress.]=];
+CardNumber="M2063";
+Rulings=2;
+MultiverseID=466817;
 };
 
 {Name="Hardy Veteran";
@@ -9255,6 +15705,27 @@ Toughness="5";
 MultiverseID=435210;
 };
 
+{Name="Healer of the Glade";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{G}}";
+cmc=1;
+Colors={"Green"};
+Type="Creature — Elemental";
+Types={"Creature"};
+SubTypes={"Elemental"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Healer of the Glade enters the battlefield, you gain 3 life.]=];
+Flavor=[=["Grief and rage and nightmares fade<br/>
+Where hope and comfort make their stand."<br/>
+—&lt;i&gt;Lament for Bala Ged&lt;/i&gt;, stanza 4]=];
+CardNumber="M20176";
+Power="1";
+Toughness="2";
+MultiverseID=466930;
+};
+
 {Name="Healer's Hawk";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -9292,6 +15763,24 @@ Rulings=3;
 MultiverseID=442908;
 };
 
+{Name="Heartfire";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[As an additional cost to cast this spell, sacrifice a creature or planeswalker.<br/>
+Heartfire deals 4 damage to any target.]=];
+Flavor=[=[The mage looked within and realized there was still one piece of fuel to burn.]=];
+CardNumber="WAR131";
+Rulings=2;
+MultiverseID=461058;
+};
+
 {Name="Heartless Pillage";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -9303,10 +15792,44 @@ Types={"Sorcery"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
 Text=[=[Target opponent discards two cards.<br/>
-Raid — If you attacked with a creature this turn, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
+Raid — If you attacked with a creature this turn, create a Treasure token. (It's an artifact with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")]=];
 CardNumber="XLN109";
 Rulings=3;
 MultiverseID=435263;
+};
+
+{Name="Heart-Piercer Bow";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}";
+cmc=2;
+Type="Artifact — Equipment";
+Types={"Artifact"};
+SubTypes={"Equipment"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Whenever equipped creature attacks, Heart-Piercer Bow deals 1 damage to target creature defending player controls.<br/>
+Equip {{1}} ({{1}}: Attach to target creature you control. Equip only as a sorcery.)]=];
+CardNumber="M20228";
+Rulings=2;
+MultiverseID=466982;
+};
+
+{Name="Heartwarming Redemption";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{R}}{{W}}";
+cmc=4;
+Colors={"White";"Red";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Discard all the cards in your hand, then draw that many cards plus one. You gain life equal to the number of cards in your hand.]=];
+Flavor=[=[Kytheon had known war every day of his life. Now he finally knew peace.]=];
+CardNumber="WAR199";
+Rulings=2;
+MultiverseID=461126;
 };
 
 {Name="Hellkite Whelp";
@@ -9390,6 +15913,66 @@ Rulings=1;
 MultiverseID=435211;
 };
 
+{Name="Herald of the Dreadhorde";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Creature — Zombie Warrior";
+Types={"Creature"};
+SubTypes={"Zombie";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Herald of the Dreadhorde dies, amass 2. (Put two +1/+1 counters on an Army you control. If you don't control one, create a 0/0 black Zombie Army creature token first.)]=];
+Flavor=[=[Amonkhet's dead flowed into a new world in service to their God-Pharaoh.]=];
+CardNumber="WAR93";
+Power="3";
+Toughness="2";
+Rulings=2;
+MultiverseID=461020;
+};
+
+{Name="Herald of the Sun";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{W}}{{W}}";
+cmc=6;
+Colors={"White"};
+Type="Creature — Angel";
+Types={"Creature"};
+SubTypes={"Angel"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying<br/>
+{{3}}{{W}}: Put a +1/+1 counter on another target creature with flying.]=];
+Flavor=[=["Fear neither clouds nor darkness. The light shall overcome them all."]=];
+CardNumber="M2023";
+Power="4";
+Toughness="4";
+MultiverseID=466777;
+};
+
+{Name="Hero of Precinct One";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Creature — Human Warrior";
+Types={"Creature"};
+SubTypes={"Human";"Warrior";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Whenever you cast a multicolored spell, create a 1/1 white Human creature token.]=];
+Flavor=[=[When the established order falters, what remains are ordinary people and their struggle to survive.]=];
+CardNumber="RNA11";
+Power="2";
+Toughness="2";
+Rulings=1;
+MultiverseID=457155;
+};
+
 {Name="Heroic Reinforcements";
 SetCode="M19";
 Allsets={"M19"};
@@ -9438,6 +16021,24 @@ Text=[=[When Hierophant's Chalice enters the battlefield, target opponent loses 
 Flavor=[=[In the Rite of Redemption, nobles take the same vows as Elenda, the first vampire, and make the same eternal sacrifice.]=];
 CardNumber="XLN240";
 MultiverseID=435398;
+};
+
+{Name="High Alert";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{W}}{{U}}";
+cmc=3;
+Colors={"White";"Blue";};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Each creature you control assigns combat damage equal to its toughness rather than its power.<br/>
+Creatures you control can attack as though they didn't have defender.<br/>
+{{2}}{{W}}{{U}}: Untap target creature.]=];
+CardNumber="RNA182";
+Rulings=1;
+MultiverseID=457326;
 };
 
 {Name="Highland Game";
@@ -9607,6 +16208,24 @@ Toughness="3";
 MultiverseID=442941;
 };
 
+{Name="Honor the God-Pharaoh";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[As an additional cost to cast this spell, discard a card.<br/>
+Draw two cards. Amass 1. (Put a +1/+1 counter on an Army you control. If you don't control one, create a 0/0 black Zombie Army creature token first.)]=];
+Flavor=[=[In life, they revered a diverse pantheon of gods. Now they revere only the God-Pharaoh.]=];
+CardNumber="WAR132";
+Rulings=3;
+MultiverseID=461059;
+};
+
 {Name="Horizon Scholar";
 SetCode="M19";
 Allsets={"M19"};
@@ -9637,7 +16256,7 @@ Type="Instant";
 Types={"Instant"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[Counter target creature spell. You create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
+Text=[=[Counter target creature spell. You create a Treasure token. (It's an artifact with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")]=];
 Flavor=[=[Being a merciful pirate, she saved the vampire's gold from falling overboard.]=];
 CardNumber="RIX39";
 Rulings=1;
@@ -9664,8 +16283,8 @@ MultiverseID=435379;
 };
 
 {Name="Hostile Minotaur";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{3}}{{R}}";
 cmc=4;
 Colors={"Red"};
@@ -9676,10 +16295,13 @@ Rarity="Common";
 Rarities={"Common"};
 Text=[=[Haste (This creature can attack and {{Tap}} as soon as it comes under your control.)]=];
 Flavor=[=[The bellow of a minotaur always translates to "charge."]=];
-CardNumber="M19147";
+CardNumber="M20331";
 Power="3";
 Toughness="3";
-MultiverseID=447283;
+MultiverseID=469884;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="147";Flavor=[=[The bellow of a minotaur always translates to "charge."]=];};
+};
 };
 
 {Name="House Guildmage";
@@ -9700,6 +16322,26 @@ Power="2";
 Toughness="2";
 Rulings=3;
 MultiverseID=452927;
+};
+
+{Name="Howling Giant";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{5}}{{G}}{{G}}";
+cmc=7;
+Colors={"Green"};
+Type="Creature — Giant Druid";
+Types={"Creature"};
+SubTypes={"Giant";"Druid";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Reach (This creature can block creatures with flying.)<br/>
+When Howling Giant enters the battlefield, create two 2/2 green Wolf creature tokens.]=];
+Flavor=[=[He and his pack sing the same mournful song to the moon.]=];
+CardNumber="M20177";
+Power="5";
+Toughness="5";
+MultiverseID=466931;
 };
 
 {Name="Howling Golem";
@@ -9763,6 +16405,26 @@ Rulings=2;
 MultiverseID=439817;
 };
 
+{Name="Huatli, the Sun's Heart";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{GW}}";
+cmc=3;
+Colors={"White";"Green";};
+Type="Legendary Planeswalker — Huatli";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Huatli"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Each creature you control assigns combat damage equal to its toughness rather than its power.<br/>
+−3: You gain life equal to the greatest toughness among creatures you control.]=];
+CardNumber="WAR230";
+Loyalty="7";
+Rulings=2;
+MultiverseID=461157;
+};
+
 {Name="Huatli, Warrior Poet";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -9782,6 +16444,27 @@ CardNumber="XLN224";
 Loyalty="3";
 Rulings=4;
 MultiverseID=435380;
+};
+
+{Name="Huatli's Raptor";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{G}}{{W}}";
+cmc=2;
+Colors={"White";"Green";};
+Type="Creature — Dinosaur";
+Types={"Creature"};
+SubTypes={"Dinosaur"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Vigilance<br/>
+When Huatli's Raptor enters the battlefield, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)]=];
+Flavor=[=[The essence of Ixalan was never far from Huatli's heart.]=];
+CardNumber="WAR200";
+Power="2";
+Toughness="3";
+Rulings=6;
+MultiverseID=461127;
 };
 
 {Name="Huatli's Snubhorn";
@@ -9818,6 +16501,25 @@ Flavor=[=["Run like the wind, fierce one. The hunt has begun."]=];
 CardNumber="XLN287";
 Rulings=1;
 MultiverseID=435448;
+};
+
+{Name="Humongulus";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}{{U}}";
+cmc=5;
+Colors={"Blue"};
+Type="Creature — Homunculus";
+Types={"Creature"};
+SubTypes={"Homunculus"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Hexproof (This creature can't be the target of spells or abilities your opponents control.)]=];
+Flavor=[=[Searching the city for Fblthp felt like sifting the rain for a single drop of blood.]=];
+CardNumber="RNA41";
+Power="2";
+Toughness="5";
+MultiverseID=457185;
 };
 
 {Name="Hungering Hydra";
@@ -9877,6 +16579,28 @@ Toughness="1";
 MultiverseID=452765;
 };
 
+{Name="Hydroid Krasis";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{X}}{{G}}{{U}}";
+cmc=2;
+Colors={"Blue";"Green";};
+Type="Creature — Jellyfish Hydra Beast";
+Types={"Creature"};
+SubTypes={"Jellyfish";"Hydra";"Beast";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[When you cast this spell, you gain half X life and draw half X cards. Round down each time.<br/>
+Flying, trample<br/>
+Hydroid Krasis enters the battlefield with X +1/+1 counters on it.]=];
+Flavor=[=[Havoc is a small price to pay for data.]=];
+CardNumber="RNA183";
+Power="0";
+Toughness="0";
+Rulings=1;
+MultiverseID=457327;
+};
+
 {Name="Hypothesizzle";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -9895,6 +16619,23 @@ Rulings=1;
 MultiverseID=452928;
 };
 
+{Name="Icon of Ancestry";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}";
+cmc=3;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[As Icon of Ancestry enters the battlefield, choose a creature type.<br/>
+Creatures you control of the chosen type get +1/+1.<br/>
+{{3}}, {{Tap}}: Look at the top three cards of your library. You may reveal a creature card of the chosen type from among them and put it into your hand. Put the rest on the bottom of your library in a random order.]=];
+CardNumber="M20229";
+Rulings=1;
+MultiverseID=466983;
+};
+
 {Name="Icy Manipulator";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -9911,6 +16652,108 @@ Rulings=1;
 MultiverseID=443107;
 };
 
+{Name="Ignite the Beacon";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{W}}";
+cmc=5;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Search your library for up to two planeswalker cards, reveal them, put them into your hand, then shuffle your library.]=];
+Flavor=[=["If you can't save yourself, you fight to give someone else a chance."<br/>
+—Ajani Goldmane]=];
+CardNumber="WAR18";
+MultiverseID=460945;
+};
+
+{Name="Ilharg, the Raze-Boar";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{R}}{{R}}";
+cmc=5;
+Colors={"Red"};
+Type="Legendary Creature — Boar God";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Boar";"God";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Trample<br/>
+Whenever Ilharg, the Raze-Boar attacks, you may put a creature card from your hand onto the battlefield tapped and attacking. Return that creature to your hand at the beginning of the next end step.<br/>
+When Ilharg, the Raze-Boar dies or is put into exile from the battlefield, you may put it into its owner's library third from the top.]=];
+CardNumber="WAR133";
+Power="6";
+Toughness="6";
+Rulings=10;
+MultiverseID=461060;
+};
+
+{Name="Ill-Gotten Inheritance";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[At the beginning of your upkeep, Ill-Gotten Inheritance deals 1 damage to each opponent and you gain 1 life.<br/>
+{{5}}{{B}}, Sacrifice Ill-Gotten Inheritance: It deals 4 damage to target opponent and you gain 4 life.]=];
+Flavor=[=["The suffering of others is not my concern."]=];
+CardNumber="RNA77";
+Rulings=1;
+MultiverseID=457221;
+};
+
+{Name="Immolation Shaman";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Creature — Viashino Shaman";
+Types={"Creature"};
+SubTypes={"Viashino";"Shaman";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Whenever an opponent activates an ability of an artifact, creature, or land that isn't a mana ability, Immolation Shaman deals 1 damage to that player.<br/>
+{{3}}{{R}}{{R}}: Immolation Shaman gets +3/+3 and gains menace until end of turn.]=];
+Flavor=[=["Hello, kindling."]=];
+CardNumber="RNA106";
+Power="1";
+Toughness="3";
+Rulings=5;
+MultiverseID=457250;
+};
+
+{Name="Immortal Phoenix";
+SetCode="M20";
+Allsets={"M20";"G18";};
+Manacost="{{4}}{{R}}{{R}}";
+cmc=6;
+Colors={"Red"};
+Type="Creature — Phoenix";
+Types={"Creature"};
+SubTypes={"Phoenix"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Flying (This creature can't be blocked except by creatures with flying or reach.)<br/>
+When Immortal Phoenix dies, return it to its owner's hand.]=];
+Flavor=[=[Their fires burn quietly, allowing the phoenixes to glide silently through the canyon.]=];
+CardNumber="M20332";
+Power="5";
+Toughness="3";
+Rulings=1;
+MultiverseID=469885;
+Sets={
+{Set="G18";Rarity="Rare";CardNumber="4";Flavor=[=[Their fires burn quietly, allowing the phoenixes to glide silently through the canyon.]=];};
+};
+};
+
 {Name="Impale";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -9925,6 +16768,28 @@ Text=[=[Destroy target creature.]=];
 Flavor=[=[Never let the glitter of gold distract you from the gleam of steel in the shadows.]=];
 CardNumber="RIX76";
 MultiverseID=439733;
+};
+
+{Name="Impassioned Orator";
+SetCode="M20";
+Allsets={"M20";"RNA";};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Creature — Human Cleric";
+Types={"Creature"};
+SubTypes={"Human";"Cleric";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Whenever another creature enters the battlefield under your control, you gain 1 life.]=];
+Flavor=[=[In times of unrest, the crowd is eager for the comfort of strong convictions.]=];
+CardNumber="M20306";
+Power="2";
+Toughness="2";
+MultiverseID=469859;
+Sets={
+{Set="RNA";Rarity="Common";CardNumber="12";Flavor=[=[In times of unrest, the crowd is eager for the comfort of strong convictions.]=];};
+};
 };
 
 {Name="Imperial Aerosaur";
@@ -9988,6 +16853,45 @@ Rulings=1;
 MultiverseID=435166;
 };
 
+{Name="Imperial Outrider";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Creature — Human Knight";
+Types={"Creature"};
+SubTypes={"Human";"Knight";};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=[Her mount's hollow crest can produce a trumpeting warning that carries for miles, summoning more knights to her aid.]=];
+CardNumber="M20307";
+Power="1";
+Toughness="5";
+MultiverseID=469860;
+};
+
+{Name="Imperious Oligarch";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{W}}{{B}}";
+cmc=2;
+Colors={"White";"Black";};
+Type="Creature — Human Cleric";
+Types={"Creature"};
+SubTypes={"Human";"Cleric";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Vigilance<br/>
+Afterlife 1 (When this creature dies, create a 1/1 white and black Spirit creature token with flying.)]=];
+Flavor=[=[The rights of ghosts are strictly protected under Orzhov bylaws, and those who enforce them can count on the ghosts' assistance.]=];
+CardNumber="RNA184";
+Power="2";
+Toughness="1";
+Rulings=1;
+MultiverseID=457328;
+};
+
 {Name="Impervious Greatwurm";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -10029,6 +16933,58 @@ Flavor=[=["Your contract is in default. You belong to me now. Serve, or die."<br
 CardNumber="DOM54";
 Rulings=3;
 MultiverseID=442942;
+};
+
+{Name="Incongruity";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{G}}{{U}}";
+cmc=3;
+Colors={"Blue";"Green";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Exile target creature. That creature's controller creates a 3/3 green Frog Lizard creature token.]=];
+CardNumber="RNA226b";
+MultiverseID=457370;
+};
+
+{Name="Incubation";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{GU}}";
+cmc=1;
+Colors={"Blue";"Green";};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Look at the top five cards of your library. You may reveal a creature card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.<br/>
+]=];
+CardNumber="RNA226a";
+Rulings=1;
+MultiverseID=457370;
+};
+
+{Name="Incubation Druid";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Creature — Elf Druid";
+Types={"Creature"};
+SubTypes={"Elf";"Druid";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[{{Tap}}: Add one mana of any type that a land you control could produce. If Incubation Druid has a +1/+1 counter on it, add three mana of that type instead.<br/>
+{{3}}{{G}}{{G}}: Adapt 3. (If this creature has no +1/+1 counters on it, put three +1/+1 counters on it.)]=];
+CardNumber="RNA131";
+Power="0";
+Toughness="2";
+Rulings=6;
+MultiverseID=457275;
 };
 
 {Name="Induced Amnesia";
@@ -10142,9 +17098,26 @@ Rulings=1;
 MultiverseID=447284;
 };
 
+{Name="Infuriate";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{R}}";
+cmc=1;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target creature gets +3/+2 until end of turn.]=];
+Flavor=[=["No shirt, no shoes, no service."<br/>
+—Marketplace sign]=];
+CardNumber="M20145";
+MultiverseID=466899;
+};
+
 {Name="Inspired Charge";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{2}}{{W}}{{W}}";
 cmc=4;
 Colors={"White"};
@@ -10153,11 +17126,34 @@ Types={"Instant"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Creatures you control get +2/+1 until end of turn.]=];
-Flavor=[=["Impossible! How could they overwhelm us? We had barricades, war elephants, . . . and they were barely a tenth of our number!"<br/>
-—General Avitora]=];
-CardNumber="M1915";
+Flavor=[=["We are armed with light and steel. Who can stand against us?"]=];
+CardNumber="M2024";
 Rulings=1;
-MultiverseID=447151;
+MultiverseID=466778;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="15";Flavor=[=["Impossible! How could they overwhelm us? We had barricades, war elephants, . . . and they were barely a tenth of our number!"
+—General Avitora]=];};
+};
+};
+
+{Name="Inspiring Captain";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Creature — Human Knight";
+Types={"Creature"};
+SubTypes={"Human";"Knight";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Inspiring Captain enters the battlefield, creatures you control get +1/+1 until end of turn.]=];
+Flavor=[=["Time to show the foe our true mettle."]=];
+CardNumber="M2025";
+Power="3";
+Toughness="3";
+Rulings=2;
+MultiverseID=466779;
 };
 
 {Name="Inspiring Cleric";
@@ -10230,6 +17226,21 @@ CardNumber="GRN227a";
 MultiverseID=452977;
 };
 
+{Name="Interplanar Beacon";
+SetCode="WAR";
+Allsets={"WAR"};
+Type="Land";
+Types={"Land"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever you cast a planeswalker spell, you gain 1 life.<br/>
+{{Tap}}: Add {{C}}.<br/>
+{{1}}, {{Tap}}: Add two mana of different colors. Spend this mana only to cast planeswalker spells.]=];
+CardNumber="WAR247";
+Rulings=2;
+MultiverseID=461174;
+};
+
 {Name="Intervention";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -10264,6 +17275,44 @@ CardNumber="GRN17";
 Power="3";
 Toughness="3";
 MultiverseID=452767;
+};
+
+{Name="Invade the City";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{U}}{{R}}";
+cmc=3;
+Colors={"Blue";"Red";};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Amass X, where X is the number of instant and sorcery cards in your graveyard. (Put X +1/+1 counters on an Army you control. If you don't control one, create a 0/0 black Zombie Army creature token first.)]=];
+Flavor=[=[Death greeted the world with a roar of desert air.]=];
+CardNumber="WAR201";
+Rulings=6;
+MultiverseID=461128;
+};
+
+{Name="Invading Manticore";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{5}}{{R}}";
+cmc=6;
+Colors={"Red"};
+Type="Creature — Zombie Manticore";
+Types={"Creature"};
+SubTypes={"Zombie";"Manticore";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Invading Manticore enters the battlefield, amass 2. (Put two +1/+1 counters on an Army you control. If you don't control one, create a 0/0 black Zombie Army creature token first.)]=];
+Flavor=[=["Fall back! You are no match for this."<br/>
+—Samut]=];
+CardNumber="WAR134";
+Power="4";
+Toughness="5";
+Rulings=2;
+MultiverseID=461061;
 };
 
 {Name="Invent";
@@ -10338,6 +17387,72 @@ Rulings=1;
 MultiverseID=452929;
 };
 
+{Name="Iron Bully";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}";
+cmc=3;
+Type="Artifact Creature — Golem";
+Types={"Artifact";"Creature";};
+SubTypes={"Golem"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Menace (This creature can't be blocked except by two or more creatures.)<br/>
+When Iron Bully enters the battlefield, put a +1/+1 counter on target creature.]=];
+Flavor=[=["Why would someone have built . . . wait, never mind. Send it to the front lines!"<br/>
+—Commander Grozdan]=];
+CardNumber="WAR240";
+Power="1";
+Toughness="1";
+Rulings=1;
+MultiverseID=461167;
+};
+
+{Name="Ironclad Krovod";
+SetCode="M20";
+Allsets={"M20";"WAR";};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Creature — Beast";
+Types={"Creature"};
+SubTypes={"Beast"};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=["We need to block the exits from the plaza! What's big, heavy, and available?"<br/>
+—Gideon Jura]=];
+CardNumber="M20308";
+Power="2";
+Toughness="5";
+MultiverseID=469861;
+Sets={
+{Set="WAR";Rarity="Common";CardNumber="19";Flavor=[=["We need to block the exits from the plaza! What's big, heavy, and available?"
+—Gideon Jura]=];};
+};
+};
+
+{Name="Ironroot Warlord";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{G}}{{W}}";
+cmc=3;
+Colors={"White";"Green";};
+Type="Creature — Treefolk Soldier";
+Types={"Creature"};
+SubTypes={"Treefolk";"Soldier";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Ironroot Warlord's power is equal to the number of creatures you control.<br/>
+{{3}}{{G}}{{W}}: Create a 1/1 white Soldier creature token.]=];
+Flavor=[=["Alone, it's a fortification. At the head of its troops, it's a battering ram."<br/>
+—Skerk Hobnett, wilderness guide]=];
+CardNumber="M20209";
+Power="*";
+Toughness="5";
+Rulings=2;
+MultiverseID=466963;
+};
+
 {Name="Ironshell Beetle";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -10381,21 +17496,24 @@ MultiverseID=447240;
 };
 
 {Name="Island";
-SetCode="GRN";
-Allsets={"GRN";"XLN";"RIX";"DOM";"M19";};
+SetCode="M20";
+Allsets={"M20";"XLN";"RIX";"DOM";"M19";"GRN";"RNA";"WAR";};
 Type="Basic Land — Island";
 SuperTypes={"Basic"};
 Types={"Land"};
 SubTypes={"Island"};
 Rarity="Basic Land";
 Rarities={"Basic Land"};
-CardNumber="GRN261";
-MultiverseID=455601;
+CardNumber="M20266";
+MultiverseID=467020;
 Sets={
 {Set="XLN";Rarity="Basic Land";CardNumber="264";};
 {Set="RIX";Rarity="Basic Land";CardNumber="193";};
 {Set="DOM";Rarity="Basic Land";CardNumber="254";};
 {Set="M19";Rarity="Basic Land";CardNumber="265";};
+{Set="GRN";Rarity="Basic Land";CardNumber="261";};
+{Set="RNA";Rarity="Basic Land";CardNumber="261";};
+{Set="WAR";Rarity="Basic Land";CardNumber="253";};
 };
 };
 
@@ -10536,6 +17654,7 @@ Text=[=[Izzet Guildgate enters the battlefield tapped.<br/>
 {{Tap}}: Add {{U}} or {{R}}.]=];
 Flavor=[=[Every laboratory buzzes with new experiments, each a piece of Ral's ambitious project.]=];
 CardNumber="GRN251";
+Rulings=2;
 MultiverseID=453001;
 };
 
@@ -10554,6 +17673,27 @@ Flavor=[=["Remember to discharge your locket every seven hours. Unless you prefe
 —Daxiver, Izzet electromancer]=];
 CardNumber="GRN238";
 MultiverseID=452988;
+};
+
+{Name="Jace, Arcane Strategist";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{U}}{{U}}";
+cmc=6;
+Colors={"Blue"};
+Type="Legendary Planeswalker — Jace";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Jace"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Whenever you draw your second card each turn, put a +1/+1 counter on target creature you control.<br/>
++1: Draw a card.<br/>
+−7: Creatures you control can't be blocked this turn.]=];
+CardNumber="WAR270";
+Loyalty="4";
+Rulings=4;
+MultiverseID=463837;
 };
 
 {Name="Jace, Cunning Castaway";
@@ -10598,6 +17738,65 @@ Rulings=2;
 MultiverseID=435441;
 };
 
+{Name="Jace, Wielder of Mysteries";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{U}}{{U}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Legendary Planeswalker — Jace";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Jace"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[If you would draw a card while your library has no cards in it, you win the game instead.<br/>
++1: Target player puts the top two cards of their library into their graveyard. Draw a card.<br/>
+−8: Draw seven cards. Then if your library has no cards in it, you win the game.]=];
+CardNumber="WAR54";
+Loyalty="4";
+Rulings=5;
+MultiverseID=460981;
+};
+
+{Name="Jace's Projection";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{U}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Creature — Wizard Illusion";
+Types={"Creature"};
+SubTypes={"Wizard";"Illusion";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever you draw a card, put a +1/+1 counter on Jace's Projection.<br/>
+{{3}}{{U}}: Put a loyalty counter on target Jace planeswalker.]=];
+Flavor=[=["Pardon me if I seem distracted. Part of me is reconnoitering the Tenth District."]=];
+CardNumber="WAR272";
+Power="2";
+Toughness="2";
+Rulings=3;
+MultiverseID=463839;
+};
+
+{Name="Jace's Ruse";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{U}}{{U}}";
+cmc=5;
+Colors={"Blue"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Return up to two target creatures to their owner's hand. You may search your library and/or graveyard for a card named Jace, Arcane Strategist, reveal it, and put it into your hand. If you search your library this way, shuffle it.]=];
+Flavor=[=["The Eternals can recognize faces. They just think I look like a blue minotaur."]=];
+CardNumber="WAR273";
+Rulings=1;
+MultiverseID=463840;
+};
+
 {Name="Jace's Sentinel";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -10615,6 +17814,23 @@ CardNumber="XLN283";
 Power="1";
 Toughness="3";
 MultiverseID=435444;
+};
+
+{Name="Jace's Triumph";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Draw two cards. If you control a Jace planeswalker, draw three cards instead.]=];
+Flavor=[=[His triumph was not in outsmarting Bolas's plan, but in understanding why ultimate power is self-defeating.]=];
+CardNumber="WAR55";
+Rulings=2;
+MultiverseID=460982;
 };
 
 {Name="Jade Bearer";
@@ -10716,6 +17932,43 @@ Rulings=4;
 MultiverseID=443020;
 };
 
+{Name="Jaya, Venerated Firemage";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{R}}";
+cmc=5;
+Colors={"Red"};
+Type="Legendary Planeswalker — Jaya";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Jaya"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[If another red source you control would deal damage to a permanent or player, it deals that much damage plus 1 to that permanent or player instead.<br/>
+−2: Jaya, Venerated Firemage deals 2 damage to any target.]=];
+CardNumber="WAR135";
+Loyalty="5";
+Rulings=3;
+MultiverseID=461062;
+};
+
+{Name="Jaya's Greeting";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Jaya's Greeting deals 3 damage to target creature. Scry 1.]=];
+Flavor=[=["We have visitors? Well, it'd be rude not to give them a traditional Keral Keep welcome."]=];
+CardNumber="WAR136";
+Rulings=1;
+MultiverseID=461063;
+};
+
 {Name="Jaya's Immolating Inferno";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -10775,6 +18028,25 @@ Power="2";
 Toughness="2";
 Rulings=2;
 MultiverseID=443108;
+};
+
+{Name="Jiang Yanggu, Wildcrafter";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Legendary Planeswalker — Yanggu";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Yanggu"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Each creature you control with a +1/+1 counter on it has "{{Tap}}: Add one mana of any color."<br/>
+−1: Put a +1/+1 counter on target creature.]=];
+CardNumber="WAR164";
+Loyalty="3";
+MultiverseID=461091;
 };
 
 {Name="Jodah, Archmage Eternal";
@@ -10875,6 +18147,28 @@ CardNumber="DOM221";
 MultiverseID=443109;
 };
 
+{Name="Judith, the Scourge Diva";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{B}}{{R}}";
+cmc=3;
+Colors={"Black";"Red";};
+Type="Legendary Creature — Human Shaman";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Shaman";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Other creatures you control get +1/+0.<br/>
+Whenever a nontoken creature you control dies, Judith, the Scourge Diva deals 1 damage to any target.]=];
+Flavor=[=[At the end of the show, she stands alone on a stage brilliant with blood.]=];
+CardNumber="RNA185";
+Power="2";
+Toughness="2";
+Rulings=3;
+MultiverseID=457329;
+};
+
 {Name="Juggernaut";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -10935,6 +18229,20 @@ Toughness="1";
 MultiverseID=435351;
 };
 
+{Name="Jungle Hollow";
+SetCode="M20";
+Allsets={"M20"};
+Type="Land";
+Types={"Land"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Jungle Hollow enters the battlefield tapped.<br/>
+When Jungle Hollow enters the battlefield, you gain 1 life.<br/>
+{{Tap}}: Add {{B}} or {{G}}.]=];
+CardNumber="M20248";
+MultiverseID=467002;
+};
+
 {Name="Jungleborn Pioneer";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -10954,6 +18262,26 @@ Toughness="2";
 MultiverseID=439794;
 };
 
+{Name="Junktroller";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}";
+cmc=4;
+Type="Artifact Creature — Golem";
+Types={"Artifact";"Creature";};
+SubTypes={"Golem"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Defender<br/>
+{{Tap}}: Put target card from a graveyard on the bottom of its owner's library.]=];
+Flavor=[=["Hey, wait! That's my boot!"<br/>
+—Darijo, Ivy Street ruffian]=];
+CardNumber="RNA235";
+Power="0";
+Toughness="6";
+MultiverseID=457379;
+};
+
 {Name="Justice Strike";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -10969,6 +18297,44 @@ Flavor=[=["Those who show no mercy to the weak deserve no mercy from the strong.
 —Firemane Kavrova]=];
 CardNumber="GRN182";
 MultiverseID=452932;
+};
+
+{Name="Justiciar's Portal";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Exile target creature you control, then return that card to the battlefield under its owner's control. It gains first strike until end of turn.]=];
+Flavor=[=[With the new guildmaster's innovations, arresters can arrive on the scene moments before a crime is committed.]=];
+CardNumber="RNA13";
+Rulings=4;
+MultiverseID=457157;
+};
+
+{Name="Kaalia, Zenith Seeker";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{R}}{{W}}{{B}}";
+cmc=3;
+Colors={"White";"Black";"Red";};
+Type="Legendary Creature — Human Cleric";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Cleric";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Flying, vigilance<br/>
+When Kaalia, Zenith Seeker enters the battlefield, look at the top six cards of your library. You may reveal an Angel card, a Demon card, and/or a Dragon card from among them and put them into your hand. Put the rest on the bottom of your library in a random order.]=];
+CardNumber="M20210";
+Power="3";
+Toughness="3";
+Rulings=1;
+MultiverseID=466964;
 };
 
 {Name="Kamahl's Druidic Vow";
@@ -11029,6 +18395,42 @@ Rulings=2;
 MultiverseID=442889;
 };
 
+{Name="Karn, the Great Creator";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}";
+cmc=4;
+Type="Legendary Planeswalker — Karn";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Karn"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Activated abilities of artifacts your opponents control can't be activated.<br/>
++1: Until your next turn, up to one target noncreature artifact becomes an artifact creature with power and toughness each equal to its converted mana cost.<br/>
+−2: You may choose an artifact card you own from outside the game or in exile, reveal that card, and put it into your hand.]=];
+CardNumber="WAR1";
+Loyalty="5";
+Rulings=6;
+MultiverseID=460928;
+};
+
+{Name="Karn's Bastion";
+SetCode="WAR";
+Allsets={"WAR"};
+Type="Land";
+Types={"Land"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[{{Tap}}: Add {{C}}.<br/>
+{{4}}, {{Tap}}: Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)]=];
+Flavor=[=["I can't protect everyone here. But those I can, I will."<br/>
+—Karn]=];
+CardNumber="WAR248";
+Rulings=6;
+MultiverseID=461175;
+};
+
 {Name="Karn's Temporal Sundering";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -11066,6 +18468,123 @@ CardNumber="DOM277";
 Power="3";
 Toughness="3";
 MultiverseID=445855;
+};
+
+{Name="Kasmina, Enigmatic Mentor";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Legendary Planeswalker — Kasmina";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Kasmina"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Spells your opponents cast that target a creature or planeswalker you control cost {{2}} more to cast.<br/>
+−2: Create a 2/2 blue Wizard creature token. Draw a card, then discard a card.]=];
+CardNumber="WAR56";
+Loyalty="5";
+Rulings=3;
+MultiverseID=460983;
+};
+
+{Name="Kasmina's Transmutation";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Enchantment — Aura";
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Enchant creature<br/>
+Enchanted creature loses all abilities and has base power and toughness 1/1.]=];
+Flavor=[=["Hop away now, little Eternal. Go eat some flies."<br/>
+—Kasmina]=];
+CardNumber="WAR57";
+Rulings=3;
+MultiverseID=460984;
+};
+
+{Name="Kaya, Bane of the Dead";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{WB}}{{WB}}{{WB}}";
+cmc=6;
+Colors={"White";"Black";};
+Type="Legendary Planeswalker — Kaya";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Kaya"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Your opponents and permanents your opponents control with hexproof can be the targets of spells and abilities you control as though they didn't have hexproof.<br/>
+−3: Exile target creature.]=];
+CardNumber="WAR231";
+Loyalty="7";
+Rulings=1;
+MultiverseID=461158;
+};
+
+{Name="Kaya, Orzhov Usurper";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{W}}{{B}}";
+cmc=3;
+Colors={"White";"Black";};
+Type="Legendary Planeswalker — Kaya";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Kaya"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[+1: Exile up to two target cards from a single graveyard. You gain 2 life if at least one creature card was exiled this way.<br/>
+−1: Exile target nonland permanent with converted mana cost 1 or less.<br/>
+−5: Kaya, Orzhov Usurper deals damage to target player equal to the number of cards that player owns in exile and you gain that much life.]=];
+CardNumber="RNA186";
+Loyalty="3";
+Rulings=3;
+MultiverseID=457330;
+};
+
+{Name="Kaya's Ghostform";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{B}}";
+cmc=1;
+Colors={"Black"};
+Type="Enchantment — Aura";
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Enchant creature or planeswalker you control<br/>
+When enchanted permanent dies or is put into exile, return that card to the battlefield under your control.]=];
+Flavor=[=[The Eternals found some sparks to be quite slippery.]=];
+CardNumber="WAR94";
+Rulings=7;
+MultiverseID=461021;
+};
+
+{Name="Kaya's Wrath";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{W}}{{W}}{{B}}{{B}}";
+cmc=4;
+Colors={"White";"Black";};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Destroy all creatures. You gain life equal to the number of creatures you controlled that were destroyed this way.]=];
+Flavor=[=[Teysa convened the meeting of the Obzedat. Kaya ended it.]=];
+CardNumber="RNA187";
+Rulings=1;
+MultiverseID=457331;
 };
 
 {Name="Kazarov, Sengir Pureblood";
@@ -11112,8 +18631,8 @@ MultiverseID=443022;
 };
 
 {Name="Keldon Raider";
-SetCode="DOM";
-Allsets={"DOM"};
+SetCode="M20";
+Allsets={"M20";"DOM";};
 Manacost="{{2}}{{R}}{{R}}";
 cmc=4;
 Colors={"Red"};
@@ -11124,10 +18643,13 @@ Rarity="Common";
 Rarities={"Common"};
 Text=[=[When Keldon Raider enters the battlefield, you may discard a card. If you do, draw a card.]=];
 Flavor=[=[Keldon raiders' spoils are limited to what their colos can carry. No matter the value, the rest goes up in smoke.]=];
-CardNumber="DOM135";
+CardNumber="M20146";
 Power="4";
 Toughness="3";
-MultiverseID=443023;
+MultiverseID=466900;
+Sets={
+{Set="DOM";Rarity="Common";CardNumber="135";Flavor=[=[Keldon raiders' spoils are limited to what their colos can carry. No matter the value, the rest goes up in smoke.]=];};
+};
 };
 
 {Name="Keldon Warcaller";
@@ -11149,6 +18671,28 @@ Power="2";
 Toughness="2";
 Rulings=1;
 MultiverseID=443024;
+};
+
+{Name="Kethis, the Hidden Hand";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{W}}{{B}}{{G}}";
+cmc=3;
+Colors={"White";"Black";"Green";};
+Type="Legendary Creature — Elf Advisor";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Elf";"Advisor";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Legendary spells you cast cost {{1}} less to cast.<br/>
+Exile two legendary cards from your graveyard: Until end of turn, each legendary card in your graveyard gains "You may play this card from your graveyard."]=];
+Flavor=[=["The pen is mightier than the crown."]=];
+CardNumber="M20211";
+Power="3";
+Toughness="4";
+Rulings=3;
+MultiverseID=466965;
 };
 
 {Name="Kinjalli's Caller";
@@ -11191,6 +18735,47 @@ Power="2";
 Toughness="3";
 Rulings=1;
 MultiverseID=435170;
+};
+
+{Name="Kiora, Behemoth Beckoner";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{GU}}";
+cmc=3;
+Colors={"Blue";"Green";};
+Type="Legendary Planeswalker — Kiora";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Kiora"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever a creature with power 4 or greater enters the battlefield under your control, draw a card.<br/>
+−1: Untap target permanent.]=];
+CardNumber="WAR232";
+Loyalty="7";
+Rulings=2;
+MultiverseID=461159;
+};
+
+{Name="Kiora's Dambreaker";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{5}}{{U}}";
+cmc=6;
+Colors={"Blue"};
+Type="Creature — Leviathan";
+Types={"Creature"};
+SubTypes={"Leviathan"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Kiora's Dambreaker enters the battlefield, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)]=];
+Flavor=[=["When your enemy flees, send the sea to pursue them."<br/>
+—Kiora]=];
+CardNumber="WAR58";
+Power="5";
+Toughness="6";
+Rulings=6;
+MultiverseID=460985;
 };
 
 {Name="Kitesail Corsair";
@@ -11314,6 +18899,67 @@ CardNumber="DOM24";
 Power="3";
 Toughness="1";
 MultiverseID=442912;
+};
+
+{Name="Knight of Sorrows";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}{{W}}";
+cmc=5;
+Colors={"White"};
+Type="Creature — Human Knight";
+Types={"Creature"};
+SubTypes={"Human";"Knight";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Knight of Sorrows can block an additional creature each combat.<br/>
+Afterlife 1 (When this creature dies, create a 1/1 white and black Spirit creature token with flying.)]=];
+Flavor=[=[The helmet reveals no eyes to witness your penance, no mouth to offer absolution.]=];
+CardNumber="RNA14";
+Power="3";
+Toughness="3";
+Rulings=1;
+MultiverseID=457158;
+};
+
+{Name="Knight of the Ebon Legion";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{B}}";
+cmc=1;
+Colors={"Black"};
+Type="Creature — Vampire Knight";
+Types={"Creature"};
+SubTypes={"Vampire";"Knight";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[{{2}}{{B}}: Knight of the Ebon Legion gets +3/+3 and gains deathtouch until end of turn.<br/>
+At the beginning of your end step, if a player lost 4 or more life this turn, put a +1/+1 counter on Knight of the Ebon Legion. (Damage causes loss of life.)]=];
+CardNumber="M20105";
+Power="1";
+Toughness="2";
+Rulings=4;
+MultiverseID=466859;
+};
+
+{Name="Knight of the Last Breath";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{5}}{{W}}{{B}}";
+cmc=7;
+Colors={"White";"Black";};
+Type="Creature — Giant Knight";
+Types={"Creature"};
+SubTypes={"Giant";"Knight";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{3}}, Sacrifice another nontoken creature: Create a 1/1 white and black Spirit creature token with flying.<br/>
+Afterlife 3 (When this creature dies, create three 1/1 white and black Spirit creature tokens with flying.)]=];
+CardNumber="RNA188";
+Power="4";
+Toughness="4";
+Rulings=1;
+MultiverseID=457332;
 };
 
 {Name="Knight of the Stampede";
@@ -11474,6 +19120,25 @@ Toughness="3";
 MultiverseID=455610;
 };
 
+{Name="Kraul Stinger";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Creature — Insect Assassin";
+Types={"Creature"};
+SubTypes={"Insect";"Assassin";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Deathtouch]=];
+Flavor=[=[He listens to the sounds of battle filtering down from above, waiting for silence, waiting for his time to claim the streets.]=];
+CardNumber="WAR165";
+Power="2";
+Toughness="2";
+MultiverseID=461092;
+};
+
 {Name="Kraul Swarm";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -11492,6 +19157,48 @@ CardNumber="GRN73";
 Power="4";
 Toughness="1";
 MultiverseID=452823;
+};
+
+{Name="Krenko, Tin Street Kingpin";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Legendary Creature — Goblin";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Goblin"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Whenever Krenko, Tin Street Kingpin attacks, put a +1/+1 counter on it, then create a number of 1/1 red Goblin creature tokens equal to Krenko's power.]=];
+Flavor=[=["After the people flee, but before the enemy arrives—that's grabbin' time."]=];
+CardNumber="WAR137";
+Power="1";
+Toughness="2";
+Rulings=2;
+MultiverseID=461064;
+};
+
+{Name="Kronch Wrangler";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Creature — Human Warrior";
+Types={"Creature"};
+SubTypes={"Human";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Trample<br/>
+Whenever a creature with power 4 or greater enters the battlefield under your control, put a +1/+1 counter on Kronch Wrangler.]=];
+Flavor=[=[Looking over two city blocks of destruction, he could only cackle with pride.]=];
+CardNumber="WAR166";
+Power="2";
+Toughness="1";
+Rulings=3;
+MultiverseID=461093;
 };
 
 {Name="Krosan Druid";
@@ -11595,6 +19302,29 @@ Rulings=3;
 MultiverseID=442913;
 };
 
+{Name="Kykar, Wind's Fury";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{U}}{{R}}{{W}}";
+cmc=4;
+Colors={"White";"Blue";"Red";};
+Type="Legendary Creature — Bird Wizard";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Bird";"Wizard";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Flying<br/>
+Whenever you cast a noncreature spell, create a 1/1 white Spirit creature token with flying.<br/>
+Sacrifice a Spirit: Add {{R}}.]=];
+Flavor=[=["The raging gale fans the flames of righteous wrath."]=];
+CardNumber="M20212";
+Power="3";
+Toughness="3";
+Rulings=1;
+MultiverseID=466966;
+};
+
 {Name="Lathliss, Dragon Queen";
 SetCode="M19";
 Allsets={"M19"};
@@ -11650,6 +19380,88 @@ Rulings=1;
 MultiverseID=452858;
 };
 
+{Name="Lavakin Brawler";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Creature — Elemental Warrior";
+Types={"Creature"};
+SubTypes={"Elemental";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Whenever Lavakin Brawler attacks, it gets +1/+0 until end of turn for each Elemental you control.]=];
+Flavor=[=[She swings with the ease of flowing lava and hits with the force of a meteor.]=];
+CardNumber="M20147";
+Power="2";
+Toughness="4";
+Rulings=2;
+MultiverseID=466901;
+};
+
+{Name="Lavinia, Azorius Renegade";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{W}}{{U}}";
+cmc=2;
+Colors={"White";"Blue";};
+Type="Legendary Creature — Human Soldier";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Soldier";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Each opponent can't cast noncreature spells with converted mana cost greater than the number of lands that player controls.<br/>
+Whenever an opponent casts a spell, if no mana was spent to cast it, counter that spell.]=];
+Flavor=[=["I told Jace that Ravnica would fall apart if he didn't take his responsibilities seriously. I didn't want to be right."]=];
+CardNumber="RNA189";
+Power="2";
+Toughness="2";
+Rulings=4;
+MultiverseID=457333;
+};
+
+{Name="Lawmage's Binding";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{W}}{{U}}";
+cmc=3;
+Colors={"White";"Blue";};
+Type="Enchantment — Aura";
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flash<br/>
+Enchant creature<br/>
+Enchanted creature can't attack or block, and its activated abilities can't be activated.]=];
+CardNumber="RNA190";
+Rulings=2;
+MultiverseID=457334;
+};
+
+{Name="Law-Rune Enforcer";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{W}}";
+cmc=1;
+Colors={"White"};
+Type="Creature — Human Soldier";
+Types={"Creature"};
+SubTypes={"Human";"Soldier";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{1}}, {{Tap}}: Tap target creature with converted mana cost 2 or greater.]=];
+Flavor=[=["See that no one enters or leaves New Prahv today. And notify me at once of any Planeswalker activity."<br/>
+—Dovin Baan]=];
+CardNumber="WAR20";
+Power="1";
+Toughness="2";
+Rulings=2;
+MultiverseID=460947;
+};
+
 {Name="Lazav, the Multifarious";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -11669,6 +19481,81 @@ Power="1";
 Toughness="3";
 Rulings=7;
 MultiverseID=452934;
+};
+
+{Name="Lazotep Behemoth";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{B}}";
+cmc=5;
+Colors={"Black"};
+Type="Creature — Zombie Hippo";
+Types={"Creature"};
+SubTypes={"Zombie";"Hippo";};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=["I know I should be more concerned. But a big, blue zombie-potamus from beyond the stars? This is what they're invading us with?"<br/>
+—Mileva, Boros legionnaire]=];
+CardNumber="WAR95";
+Power="5";
+Toughness="4";
+MultiverseID=461022;
+};
+
+{Name="Lazotep Plating";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Amass 1. (Put a +1/+1 counter on an Army you control. If you don't control one, create a 0/0 black Zombie Army creature token first.)<br/>
+You and permanents you control gain hexproof until end of turn. (You and they can't be the targets of spells or abilities your opponents control.)]=];
+CardNumber="WAR59";
+Rulings=4;
+MultiverseID=460986;
+};
+
+{Name="Lazotep Reaver";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Creature — Zombie Beast";
+Types={"Creature"};
+SubTypes={"Zombie";"Beast";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Lazotep Reaver enters the battlefield, amass 1. (Put a +1/+1 counter on an Army you control. If you don't control one, create a 0/0 black Zombie Army creature token first.)]=];
+Flavor=[=[Despite their many forms, the Eternals worked in chilling harmony, unburdened by instinct or emotion.]=];
+CardNumber="WAR96";
+Power="1";
+Toughness="2";
+Rulings=2;
+MultiverseID=461023;
+};
+
+{Name="Leafkin Druid";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Creature — Elemental Druid";
+Types={"Creature"};
+SubTypes={"Elemental";"Druid";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{Tap}}: Add {{G}}. If you control four or more creatures, add {{G}}{{G}} instead.]=];
+Flavor=[=["I am rooted in the life of all that thrives around me. You cannot move me."]=];
+CardNumber="M20178";
+Power="0";
+Toughness="3";
+MultiverseID=466932;
 };
 
 {Name="League Guildmage";
@@ -11833,6 +19720,24 @@ Rulings=4;
 MultiverseID=452859;
 };
 
+{Name="Legion's End";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Exile target creature an opponent controls with converted mana cost 2 or less and all other creatures that player controls with the same name as that creature. Then that player reveals their hand and exiles all cards with that name from their hand and graveyard.]=];
+Flavor=[=["With a single word, they were unmade."<br/>
+—Krinnea, &lt;i&gt;Siege of the Bone Spire&lt;/i&gt;]=];
+CardNumber="M20106";
+Rulings=6;
+MultiverseID=466860;
+};
+
 {Name="Legion's Judgment";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -11931,6 +19836,112 @@ Rulings=2;
 MultiverseID=447159;
 };
 
+{Name="Leyline of Abundance";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{G}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[If Leyline of Abundance is in your opening hand, you may begin the game with it on the battlefield.<br/>
+Whenever you tap a creature for mana, add an additional {{G}}.<br/>
+{{6}}{{G}}{{G}}: Put a +1/+1 counter on each creature you control.]=];
+CardNumber="M20179";
+Rulings=1;
+MultiverseID=466933;
+};
+
+{Name="Leyline of Anticipation";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{U}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[If Leyline of Anticipation is in your opening hand, you may begin the game with it on the battlefield.<br/>
+You may cast spells as though they had flash.]=];
+CardNumber="M2064";
+Rulings=1;
+MultiverseID=466818;
+};
+
+{Name="Leyline of Combustion";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{R}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[If Leyline of Combustion is in your opening hand, you may begin the game with it on the battlefield.<br/>
+Whenever you and/or at least one permanent you control becomes the target of a spell or ability an opponent controls, Leyline of Combustion deals 2 damage to that player.]=];
+CardNumber="M20148";
+Rulings=2;
+MultiverseID=466902;
+};
+
+{Name="Leyline of Sanctity";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{W}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[If Leyline of Sanctity is in your opening hand, you may begin the game with it on the battlefield.<br/>
+You have hexproof. (You can't be the target of spells or abilities your opponents control.)]=];
+CardNumber="M2026";
+Rulings=1;
+MultiverseID=466780;
+};
+
+{Name="Leyline of the Void";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{B}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[If Leyline of the Void is in your opening hand, you may begin the game with it on the battlefield.<br/>
+If a card would be put into an opponent's graveyard from anywhere, exile it instead.]=];
+CardNumber="M20107";
+Rulings=4;
+MultiverseID=466861;
+};
+
+{Name="Leyline Prowler";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{B}}{{G}}";
+cmc=3;
+Colors={"Black";"Green";};
+Type="Creature — Nightmare Beast";
+Types={"Creature"};
+SubTypes={"Nightmare";"Beast";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Deathtouch, lifelink<br/>
+{{Tap}}: Add one mana of any color.]=];
+Flavor=[=[It feeds on the dark energies that course through the deep world—and on any other creature lured by the leyline's pull.]=];
+CardNumber="WAR202";
+Power="2";
+Toughness="3";
+MultiverseID=461129;
+};
+
 {Name="Lich's Caress";
 SetCode="M19";
 Allsets={"M19"};
@@ -11990,6 +20001,25 @@ Rulings=4;
 MultiverseID=452769;
 };
 
+{Name="Light Up the Stage";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Spectacle {{R}} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)<br/>
+Exile the top two cards of your library. Until the end of your next turn, you may play those cards.]=];
+Flavor=[=["Places, everyone!"<br/>
+—Judith]=];
+CardNumber="RNA107";
+Rulings=8;
+MultiverseID=457251;
+};
+
 {Name="Lightning Mare";
 SetCode="M19";
 Allsets={"M19"};
@@ -12009,6 +20039,26 @@ CardNumber="M19151";
 Power="3";
 Toughness="1";
 MultiverseID=447287;
+};
+
+{Name="Lightning Stormkin";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{U}}{{R}}";
+cmc=2;
+Colors={"Blue";"Red";};
+Type="Creature — Elemental Wizard";
+Types={"Creature"};
+SubTypes={"Elemental";"Wizard";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying<br/>
+Haste (This creature can attack and {{Tap}} as soon as it comes under your control.)]=];
+Flavor=[=["I strike in the same place as many times as necessary."]=];
+CardNumber="M20213";
+Power="2";
+Toughness="2";
+MultiverseID=466967;
 };
 
 {Name="Lightning Strike";
@@ -12050,6 +20100,28 @@ Power="0";
 Toughness="5";
 Rulings=2;
 MultiverseID=435304;
+};
+
+{Name="Liliana, Dreadhorde General";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{B}}{{B}}";
+cmc=6;
+Colors={"Black"};
+Type="Legendary Planeswalker — Liliana";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Liliana"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Whenever a creature you control dies, draw a card.<br/>
++1: Create a 2/2 black Zombie creature token.<br/>
+−4: Each player sacrifices two creatures.<br/>
+−9: Each opponent chooses a permanent they control of each permanent type and sacrifices the rest.]=];
+CardNumber="WAR97";
+Loyalty="6";
+Rulings=6;
+MultiverseID=461024;
 };
 
 {Name="Liliana, the Necromancer";
@@ -12129,6 +20201,23 @@ Rulings=1;
 MultiverseID=450241;
 };
 
+{Name="Liliana's Triumph";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Each opponent sacrifices a creature. If you control a Liliana planeswalker, each opponent also discards a card.]=];
+Flavor=[=[Her triumph came not from escaping her death, but in claiming her independence.]=];
+CardNumber="WAR98";
+Rulings=4;
+MultiverseID=461025;
+};
+
 {Name="Lingering Phantom";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -12148,6 +20237,27 @@ Power="5";
 Toughness="4";
 Rulings=4;
 MultiverseID=442987;
+};
+
+{Name="Living Twister";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{R}}{{R}}{{G}}";
+cmc=3;
+Colors={"Red";"Green";};
+Type="Creature — Elemental";
+Types={"Creature"};
+SubTypes={"Elemental"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[{{1}}{{R}}, Discard a land card: Living Twister deals 2 damage to any target.<br/>
+{{G}}: Return a tapped land you control to its owner's hand.]=];
+Flavor=[=["The ancient places of Ravnica awaken, stirred by the hoofbeats of Ilharg!"<br/>
+—Nikya of the Old Ways]=];
+CardNumber="WAR203";
+Power="2";
+Toughness="5";
+MultiverseID=461130;
 };
 
 {Name="Llanowar Elves";
@@ -12210,6 +20320,27 @@ Power="1";
 Toughness="3";
 Rulings=1;
 MultiverseID=443058;
+};
+
+{Name="Loaming Shaman";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Creature — Centaur Shaman";
+Types={"Creature"};
+SubTypes={"Centaur";"Shaman";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Loaming Shaman enters the battlefield, target player shuffles any number of target cards from their graveyard into their library.]=];
+Flavor=[=["The living don't ever stay living, and the dead don't always stay dead."<br/>
+—Jeddeg, philosopher of graves]=];
+CardNumber="M20180";
+Power="3";
+Toughness="2";
+Rulings=2;
+MultiverseID=466934;
 };
 
 {Name="Lookout's Dispersal";
@@ -12284,6 +20415,42 @@ Rulings=2;
 MultiverseID=452824;
 };
 
+{Name="Lotus Field";
+SetCode="M20";
+Allsets={"M20"};
+Type="Land";
+Types={"Land"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Hexproof<br/>
+Lotus Field enters the battlefield tapped.<br/>
+When Lotus Field enters the battlefield, sacrifice two lands.<br/>
+{{Tap}}: Add three mana of any one color.]=];
+CardNumber="M20249";
+Rulings=1;
+MultiverseID=467003;
+};
+
+{Name="Loxodon Lifechanter";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{5}}{{W}}";
+cmc=6;
+Colors={"White"};
+Type="Creature — Elephant Cleric";
+Types={"Creature"};
+SubTypes={"Elephant";"Cleric";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[When Loxodon Lifechanter enters the battlefield, you may have your life total become the total toughness of creatures you control.<br/>
+{{5}}{{W}}: Loxodon Lifechanter gets +X/+X until end of turn, where X is your life total.]=];
+CardNumber="M2027";
+Power="4";
+Toughness="6";
+Rulings=5;
+MultiverseID=466781;
+};
+
 {Name="Loxodon Line Breaker";
 SetCode="M19";
 Allsets={"M19"};
@@ -12320,6 +20487,70 @@ Power="3";
 Toughness="4";
 Rulings=7;
 MultiverseID=452770;
+};
+
+{Name="Loxodon Sergeant";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Creature — Elephant Soldier";
+Types={"Creature"};
+SubTypes={"Elephant";"Soldier";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Vigilance<br/>
+When Loxodon Sergeant enters the battlefield, other creatures you control gain vigilance until end of turn.]=];
+Flavor=[=[His voice is both war horn and rallying cry, a trumpeting call that stirs even the faintest heart.]=];
+CardNumber="WAR21";
+Power="3";
+Toughness="3";
+Rulings=2;
+MultiverseID=460948;
+};
+
+{Name="Loyal Pegasus";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{W}}";
+cmc=1;
+Colors={"White"};
+Type="Creature — Pegasus";
+Types={"Creature"};
+SubTypes={"Pegasus"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying<br/>
+Loyal Pegasus can't attack or block alone.]=];
+Flavor=[=["Even if I should die in the saddle, she will not let me fall to the ground."<br/>
+—Hypatia of the Winged Horse]=];
+CardNumber="M2028";
+Power="2";
+Toughness="1";
+Rulings=5;
+MultiverseID=466782;
+};
+
+{Name="Lumbering Battlement";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}{{W}}";
+cmc=5;
+Colors={"White"};
+Type="Creature — Beast";
+Types={"Creature"};
+SubTypes={"Beast"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Vigilance<br/>
+When Lumbering Battlement enters the battlefield, exile any number of other nontoken creatures you control until it leaves the battlefield.<br/>
+Lumbering Battlement gets +2/+2 for each card exiled with it.]=];
+CardNumber="RNA15";
+Power="4";
+Toughness="5";
+Rulings=3;
+MultiverseID=457159;
 };
 
 {Name="Luminous Bonds";
@@ -12386,6 +20617,23 @@ Power="5";
 Toughness="5";
 Rulings=2;
 MultiverseID=442914;
+};
+
+{Name="Macabre Mockery";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{B}}{{R}}";
+cmc=4;
+Colors={"Black";"Red";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Put target creature card from an opponent's graveyard onto the battlefield under your control. It gets +2/+0 and gains haste until end of turn. Sacrifice it at the beginning of the next end step.]=];
+Flavor=[=[The Rakdos put the "fun" in "funeral."]=];
+CardNumber="RNA191";
+Rulings=2;
+MultiverseID=457335;
 };
 
 {Name="Macabre Waltz";
@@ -12458,6 +20706,26 @@ CardNumber="M1926";
 MultiverseID=447162;
 };
 
+{Name="Makeshift Battalion";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Creature — Human Soldier";
+Types={"Creature"};
+SubTypes={"Human";"Soldier";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Whenever Makeshift Battalion and at least two other creatures attack, put a +1/+1 counter on Makeshift Battalion.]=];
+Flavor=[=[Their ranks are thin, their formation is improvised, their weapons are borrowed, and you'd best get out of their way.]=];
+CardNumber="WAR22";
+Power="3";
+Toughness="2";
+Rulings=2;
+MultiverseID=460949;
+};
+
 {Name="Makeshift Munitions";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -12476,8 +20744,8 @@ MultiverseID=435305;
 };
 
 {Name="Mammoth Spider";
-SetCode="DOM";
-Allsets={"DOM"};
+SetCode="M20";
+Allsets={"M20";"DOM";"RNA";};
 Manacost="{{4}}{{G}}";
 cmc=5;
 Colors={"Green"};
@@ -12486,12 +20754,36 @@ Types={"Creature"};
 SubTypes={"Spider"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[Reach]=];
-Flavor=[=[Most spiders of Llanowar disdain elvish alliances. No elf has as many beautiful eyes or as many strong arms.]=];
-CardNumber="DOM171";
+Text=[=[Reach (This creature can block creatures with flying.)]=];
+Flavor=[=["If a careless elf ends up caught in a spider's web, we must expect nature to take its course. Do not blame the spider for being a spider."<br/>
+—Dellin Berting, Tolarian entomologist]=];
+CardNumber="M20181";
 Power="3";
 Toughness="5";
-MultiverseID=443059;
+MultiverseID=466935;
+Sets={
+{Set="DOM";Rarity="Common";CardNumber="171";Flavor=[=[Most spiders of Llanowar disdain elvish alliances. No elf has as many beautiful eyes or as many strong arms.]=];};
+{Set="RNA";Rarity="Common";CardNumber="132";Flavor=[=["The good news is that the migrating drakes are no longer a problem."
+—Bell Migellic, Azorius hussar]=];};
+};
+};
+
+{Name="Mana Geode";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}";
+cmc=3;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Mana Geode enters the battlefield, scry 1.<br/>
+{{Tap}}: Add one mana of any color.<br/>
+]=];
+Flavor=[=["I don't care if it's an all-powerful relic or a street vendor's lucky charm. If it brings you courage, wear it."<br/>
+—Saheeli Rai]=];
+CardNumber="WAR241";
+MultiverseID=461168;
 };
 
 {Name="Manalith";
@@ -12510,8 +20802,8 @@ MultiverseID=447376;
 };
 
 {Name="Maniacal Rage";
-SetCode="GRN";
-Allsets={"GRN"};
+SetCode="M20";
+Allsets={"M20";"GRN";};
 Manacost="{{1}}{{R}}";
 cmc=2;
 Colors={"Red"};
@@ -12522,15 +20814,36 @@ Rarity="Common";
 Rarities={"Common"};
 Text=[=[Enchant creature<br/>
 Enchanted creature gets +2/+2 and can't block.]=];
-Flavor=[=["They tell us the wilds are ours, then they brick them over. They can lie to our faces but not to our fists."<br/>
-—Ghut Rak, Gruul guildmage]=];
-CardNumber="GRN110";
-MultiverseID=452860;
+Flavor=[=[Rage is the culmination of an accelerating cycle of anger and violence that feeds itself in battle, spreading like a flame from one warrior to another.]=];
+CardNumber="M20149";
+MultiverseID=466903;
+Sets={
+{Set="GRN";Rarity="Common";CardNumber="110";Flavor=[=["They tell us the wilds are ours, then they brick them over. They can lie to our faces but not to our fists."
+—Ghut Rak, Gruul guildmage]=];};
+};
+};
+
+{Name="Manifold Key";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}";
+cmc=1;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{1}}, {{Tap}}: Untap another target artifact.<br/>
+{{3}}, {{Tap}}: Target creature can't be blocked this turn.]=];
+Flavor=[=["Locks want to be opened, and treasure wants to be free."<br/>
+—Nayrex Slipfinger, master thief]=];
+CardNumber="M20230";
+Rulings=1;
+MultiverseID=466984;
 };
 
 {Name="Marauder's Axe";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{2}}";
 cmc=2;
 Type="Artifact — Equipment";
@@ -12541,8 +20854,11 @@ Rarities={"Common"};
 Text=[=[Equipped creature gets +2/+0.<br/>
 Equip {{2}} ({{2}}: Attach to target creature you control. Equip only as a sorcery.)]=];
 Flavor=[=[A sharp axe solves most problems.]=];
-CardNumber="M19240";
-MultiverseID=447377;
+CardNumber="M20231";
+MultiverseID=466985;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="240";Flavor=[=[A sharp axe solves most problems.]=];};
+};
 };
 
 {Name="Marauding Looter";
@@ -12563,6 +20879,28 @@ Power="4";
 Toughness="3";
 Rulings=3;
 MultiverseID=435381;
+};
+
+{Name="Marauding Raptor";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Creature — Dinosaur";
+Types={"Creature"};
+SubTypes={"Dinosaur"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Creature spells you cast cost {{1}} less to cast.<br/>
+Whenever another creature enters the battlefield under your control, Marauding Raptor deals 2 damage to it. If a Dinosaur is dealt damage this way, Marauding Raptor gets +2/+0 until end of turn.]=];
+Flavor=[=["Stand still and try not to look like prey!"<br/>
+—Skerk Hobnett, wilderness guide]=];
+CardNumber="M20150";
+Power="2";
+Toughness="3";
+Rulings=2;
+MultiverseID=466904;
 };
 
 {Name="March of the Drowned";
@@ -12621,6 +20959,26 @@ Rulings=1;
 MultiverseID=435267;
 };
 
+{Name="Martyr for the Cause";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Creature — Human Soldier";
+Types={"Creature"};
+SubTypes={"Human";"Soldier";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Martyr for the Cause dies, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)]=];
+Flavor=[=["If I am to die in service, there is no more worthy fight than this."]=];
+CardNumber="WAR23";
+Power="2";
+Toughness="2";
+Rulings=7;
+MultiverseID=460950;
+};
+
 {Name="Martyr of Dusk";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -12660,6 +21018,102 @@ Power="1";
 Toughness="1";
 Rulings=1;
 MultiverseID=443060;
+};
+
+{Name="Mask of Immolation";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Artifact — Equipment";
+Types={"Artifact"};
+SubTypes={"Equipment"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Mask of Immolation enters the battlefield, create a 1/1 red Elemental creature token, then attach Mask of Immolation to it.<br/>
+Equipped creature has "Sacrifice this creature: It deals 1 damage to any target."<br/>
+Equip {{2}} ({{2}}: Attach to target creature you control. Equip only as a sorcery.)]=];
+CardNumber="M20151";
+Rulings=2;
+MultiverseID=466905;
+};
+
+{Name="Mass Manipulation";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{X}}{{X}}{{U}}{{U}}{{U}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Gain control of X target creatures and/or planeswalkers.]=];
+Flavor=[=[Those who cross the Dimir find enemies everywhere they turn.]=];
+CardNumber="RNA42";
+Rulings=2;
+MultiverseID=457186;
+};
+
+{Name="Massacre Girl";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{B}}{{B}}";
+cmc=5;
+Colors={"Black"};
+Type="Legendary Creature — Human Assassin";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Assassin";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Menace<br/>
+When Massacre Girl enters the battlefield, each other creature gets -1/-1 until end of turn. Whenever a creature dies this turn, each creature other than Massacre Girl gets -1/-1 until end of turn.]=];
+CardNumber="WAR99";
+Power="4";
+Toughness="4";
+Rulings=5;
+MultiverseID=461026;
+};
+
+{Name="Master Splicer";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Creature — Human Artificer";
+Types={"Creature"};
+SubTypes={"Human";"Artificer";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Master Splicer enters the battlefield, create a 3/3 colorless Golem artifact creature token.<br/>
+Golems you control get +1/+1.]=];
+Flavor=[=[Phyrexian artificers remove the flesh they no longer need and use it to bring their unholy creations to a greater semblance of life.]=];
+CardNumber="M2029";
+Power="1";
+Toughness="1";
+Rulings=1;
+MultiverseID=466783;
+};
+
+{Name="Masterful Replication";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{5}}{{U}}";
+cmc=6;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Choose one —<br/>
+• Create two 3/3 colorless Golem artifact creature tokens.<br/>
+• Choose target artifact you control. Each other artifact you control becomes a copy of that artifact until end of turn.]=];
+CardNumber="M2065";
+Rulings=4;
+MultiverseID=466819;
 };
 
 {Name="Mastermind's Acquisition";
@@ -12771,6 +21225,26 @@ Jump-start (You may cast this card from your graveyard by discarding a card in a
 CardNumber="GRN111";
 Rulings=4;
 MultiverseID=452861;
+};
+
+{Name="Mayhem Devil";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{B}}{{R}}";
+cmc=3;
+Colors={"Black";"Red";};
+Type="Creature — Devil";
+Types={"Creature"};
+SubTypes={"Devil"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever a player sacrifices a permanent, Mayhem Devil deals 1 damage to any target.]=];
+Flavor=[=[Despite their stake in the city's survival, Rakdos cultists are loath to pass up any opportunity to sow chaos.]=];
+CardNumber="WAR204";
+Power="3";
+Toughness="3";
+Rulings=5;
+MultiverseID=461131;
 };
 
 {Name="Meandering River";
@@ -12939,6 +21413,28 @@ Rulings=1;
 MultiverseID=439823;
 };
 
+{Name="Merfolk Skydiver";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{G}}{{U}}";
+cmc=2;
+Colors={"Blue";"Green";};
+Type="Creature — Merfolk Mutant";
+Types={"Creature"};
+SubTypes={"Merfolk";"Mutant";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying<br/>
+When Merfolk Skydiver enters the battlefield, put a +1/+1 counter on target creature you control.<br/>
+{{3}}{{G}}{{U}}: Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)<br/>
+]=];
+CardNumber="WAR205";
+Power="1";
+Toughness="1";
+Rulings=7;
+MultiverseID=461132;
+};
+
 {Name="Merfolk Trickster";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -12979,6 +21475,26 @@ Toughness="2";
 MultiverseID=442915;
 };
 
+{Name="Mesmerizing Benthid";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{U}}{{U}}";
+cmc=5;
+Colors={"Blue"};
+Type="Creature — Octopus";
+Types={"Creature"};
+SubTypes={"Octopus"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[When Mesmerizing Benthid enters the battlefield, create two 0/2 blue Illusion creature tokens with "Whenever this creature blocks a creature, that creature doesn't untap during its controller's next untap step."<br/>
+Mesmerizing Benthid has hexproof as long as you control an Illusion.]=];
+CardNumber="RNA43";
+Power="4";
+Toughness="5";
+Rulings=2;
+MultiverseID=457187;
+};
+
 {Name="Metamorphic Alteration";
 SetCode="M19";
 Allsets={"M19"};
@@ -12999,8 +21515,8 @@ MultiverseID=447196;
 };
 
 {Name="Meteor Golem";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{7}}";
 cmc=7;
 Type="Artifact Creature — Golem";
@@ -13010,10 +21526,33 @@ Rarity="Uncommon";
 Rarities={"Uncommon"};
 Text=[=[When Meteor Golem enters the battlefield, destroy target nonland permanent an opponent controls.]=];
 Flavor=[=[The impact sent the soldiers scattering—then something came out of the crater.]=];
-CardNumber="M19241";
+CardNumber="M20232";
 Power="3";
 Toughness="3";
-MultiverseID=447378;
+MultiverseID=466986;
+Sets={
+{Set="M19";Rarity="Uncommon";CardNumber="241";Flavor=[=[The impact sent the soldiers scattering—then something came out of the crater.]=];};
+};
+};
+
+{Name="Metropolis Sprite";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Creature — Faerie Rogue";
+Types={"Creature"};
+SubTypes={"Faerie";"Rogue";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+{{U}}: Metropolis Sprite gets +1/-1 until end of turn.]=];
+Flavor=[=["Well, if that goblin didn't want his tongue pierced, he shouldn't have stuck it out at me."]=];
+CardNumber="M2066";
+Power="1";
+Toughness="2";
+MultiverseID=466820;
 };
 
 {Name="Metzali, Tower of Triumph";
@@ -13055,8 +21594,8 @@ MultiverseID=452827;
 };
 
 {Name="Might of the Masses";
-SetCode="GRN";
-Allsets={"GRN"};
+SetCode="M20";
+Allsets={"M20";"GRN";};
 Manacost="{{G}}";
 cmc=1;
 Colors={"Green"};
@@ -13065,11 +21604,14 @@ Types={"Instant"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
 Text=[=[Target creature gets +1/+1 until end of turn for each creature you control.]=];
-Flavor=[=["There is nothing stronger than many hearts united for a single cause."<br/>
-—Emmara]=];
-CardNumber="GRN137";
+Flavor=[=[The Joraga elves never need ask a troll to leave their territory. They merely grant it their combined strength, and it can't resist embarking on a merry rampage.]=];
+CardNumber="M20182";
 Rulings=2;
-MultiverseID=452887;
+MultiverseID=466936;
+Sets={
+{Set="GRN";Rarity="Uncommon";CardNumber="137";Flavor=[=["There is nothing stronger than many hearts united for a single cause."
+—Emmara]=];};
+};
 };
 
 {Name="Mighty Leap";
@@ -13125,8 +21667,8 @@ MultiverseID=447379;
 };
 
 {Name="Mind Rot";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{2}}{{B}}";
 cmc=3;
 Colors={"Black"};
@@ -13136,8 +21678,31 @@ Rarity="Common";
 Rarities={"Common"};
 Text=[=[Target player discards two cards.]=];
 Flavor=[=[Many an inventor has collapsed under the pressure to create a flawless design.]=];
-CardNumber="M19109";
-MultiverseID=447245;
+CardNumber="M20108";
+MultiverseID=466862;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="109";Flavor=[=[Many an inventor has collapsed under the pressure to create a flawless design.]=];};
+};
+};
+
+{Name="Ministrant of Obligation";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Creature — Human Cleric";
+Types={"Creature"};
+SubTypes={"Human";"Cleric";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Afterlife 2 (When this creature dies, create two 1/1 white and black Spirit creature tokens with flying.)]=];
+Flavor=[=[When the price of your sins comes due, the Church of Deals is there to collect.]=];
+CardNumber="RNA16";
+Power="2";
+Toughness="1";
+Rulings=1;
+MultiverseID=457160;
 };
 
 {Name="Mirror Image";
@@ -13158,6 +21723,22 @@ Power="0";
 Toughness="0";
 Rulings=6;
 MultiverseID=447197;
+};
+
+{Name="Mirror March";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{5}}{{R}}";
+cmc=6;
+Colors={"Red"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Whenever a nontoken creature enters the battlefield under your control, flip a coin until you lose a flip. For each flip you won, create a token that's a copy of that creature. Those tokens gain haste. Exile them at the beginning of the next end step.]=];
+CardNumber="RNA108";
+Rulings=6;
+MultiverseID=457252;
 };
 
 {Name="Mishra's Self-Replicator";
@@ -13189,7 +21770,7 @@ Type="Instant";
 Types={"Instant"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[Surveil 2, then choose an instant or sorcery card in your graveyard. You may cast that card this turn. If that card would be put into your graveyard this turn, exile it instead.(To surveil 2, look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)]=];
+Text=[=[Surveil 2, then choose an instant or sorcery card in your graveyard. You may cast that card this turn. If that card would be put into your graveyard this turn, exile it instead. (To surveil 2, look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)]=];
 CardNumber="GRN44";
 Rulings=6;
 MultiverseID=452794;
@@ -13237,6 +21818,27 @@ Sets={
 };
 };
 
+{Name="Mizzium Tank";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{R}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Artifact — Vehicle";
+Types={"Artifact"};
+SubTypes={"Vehicle"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Trample<br/>
+Whenever you cast a noncreature spell, Mizzium Tank becomes an artifact creature and gets +1/+1 until end of turn.<br/>
+Crew 1 (Tap any number of creatures you control with total power 1 or more: This Vehicle becomes an artifact creature until end of turn.)]=];
+CardNumber="WAR138";
+Power="3";
+Toughness="2";
+Rulings=2;
+MultiverseID=461065;
+};
+
 {Name="Mnemonic Betrayal";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -13252,6 +21854,41 @@ Exile Mnemonic Betrayal.]=];
 CardNumber="GRN189";
 Rulings=5;
 MultiverseID=452939;
+};
+
+{Name="Moat Piranhas";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Creature — Fish";
+Types={"Creature"};
+SubTypes={"Fish"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Defender (This creature can't attack.)]=];
+Flavor=[=["Come on, it's not even that deep!"<br/>
+—Gorin the Brazen]=];
+CardNumber="M2067";
+Power="3";
+Toughness="3";
+MultiverseID=466821;
+};
+
+{Name="Mobilized District";
+SetCode="WAR";
+Allsets={"WAR"};
+Type="Land";
+Types={"Land"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[{{Tap}}: Add {{C}}.<br/>
+{{4}}: Mobilized District becomes a 3/3 Citizen creature with vigilance until end of turn. It's still a land. This ability costs {{1}} less to activate for each legendary creature and planeswalker you control.]=];
+Flavor=[=[Sometimes the strongest weapon you can hold in your hand is another hand.]=];
+CardNumber="WAR249";
+Rulings=3;
+MultiverseID=461176;
 };
 
 {Name="Molderhulk";
@@ -13274,6 +21911,24 @@ Rulings=4;
 MultiverseID=452940;
 };
 
+{Name="Moldervine Reclamation";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{B}}{{G}}";
+cmc=5;
+Colors={"Black";"Green";};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever a creature you control dies, you gain 1 life and draw a card.]=];
+Flavor=[=["The heroes of the past nourish our spirits by their example—and nourish our crops by their decay."<br/>
+—Jeddeg, philosopher of graves]=];
+CardNumber="M20214";
+Rulings=2;
+MultiverseID=466968;
+};
+
 {Name="Moment of Craving";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -13289,6 +21944,23 @@ Flavor=[=["The time of condemnation is at hand. Dusk washes over the world, and 
 CardNumber="RIX79";
 Rulings=2;
 MultiverseID=439736;
+};
+
+{Name="Moment of Heroism";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target creature gets +2/+2 and gains lifelink until end of turn. (Damage dealt by the creature also causes its controller to gain that much life.)]=];
+Flavor=[=["My faith is stronger than fang, claw, or mindless hunger."]=];
+CardNumber="M2030";
+Rulings=1;
+MultiverseID=466784;
 };
 
 {Name="Moment of Triumph";
@@ -13327,23 +21999,86 @@ Rulings=4;
 MultiverseID=452828;
 };
 
+{Name="Moorland Inquisitor";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Creature — Human Soldier";
+Types={"Creature"};
+SubTypes={"Human";"Soldier";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{2}}{{W}}: Moorland Inquisitor gains first strike until end of turn. (It deals combat damage before creatures without first strike.)]=];
+Flavor=[=[Inquisitors are taught scripture, philosophy, and the fine art of sharpening an axe.]=];
+CardNumber="M2031";
+Power="2";
+Toughness="2";
+Rulings=1;
+MultiverseID=466785;
+};
+
+{Name="Mortify";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{W}}{{B}}";
+cmc=3;
+Colors={"White";"Black";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Destroy target creature or enchantment.]=];
+Flavor=[=["Your debt is erased."<br/>
+—Hilgur, Orzhov euthanist]=];
+CardNumber="RNA192";
+Rulings=1;
+MultiverseID=457336;
+};
+
 {Name="Mountain";
-SetCode="GRN";
-Allsets={"GRN";"XLN";"RIX";"DOM";"M19";};
+SetCode="M20";
+Allsets={"M20";"XLN";"RIX";"DOM";"M19";"GRN";"RNA";"WAR";};
 Type="Basic Land — Mountain";
 SuperTypes={"Basic"};
 Types={"Land"};
 SubTypes={"Mountain"};
 Rarity="Basic Land";
 Rarities={"Basic Land"};
-CardNumber="GRN263";
-MultiverseID=455603;
+CardNumber="M20274";
+MultiverseID=467028;
 Sets={
 {Set="XLN";Rarity="Basic Land";CardNumber="272";};
 {Set="RIX";Rarity="Basic Land";CardNumber="195";};
 {Set="DOM";Rarity="Basic Land";CardNumber="262";};
 {Set="M19";Rarity="Basic Land";CardNumber="273";};
+{Set="GRN";Rarity="Basic Land";CardNumber="263";};
+{Set="RNA";Rarity="Basic Land";CardNumber="263";};
+{Set="WAR";Rarity="Basic Land";CardNumber="259";};
 };
+};
+
+{Name="Mowu, Loyal Companion";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Legendary Creature — Hound";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Hound"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Trample, vigilance<br/>
+If one or more +1/+1 counters would be put on Mowu, Loyal Companion, that many plus one +1/+1 counters are put on it instead.]=];
+Flavor=[=[Wherever Yanggu goes, Mowu follows—sometimes at his side, sometimes obscuring him from view entirely.]=];
+CardNumber="WAR167";
+Power="3";
+Toughness="3";
+Rulings=1;
+MultiverseID=461094;
 };
 
 {Name="Mox Amber";
@@ -13361,6 +22096,48 @@ Flavor=[=[A moment in time made tangible, it has the power to realize epic visio
 CardNumber="DOM224";
 Rulings=3;
 MultiverseID=443112;
+};
+
+{Name="Mu Yanling, Celestial Wind";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{U}}{{U}}";
+cmc=6;
+Colors={"Blue"};
+Type="Legendary Planeswalker — Yanling";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Yanling"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[+1: Until your next turn, up to one target creature gets -5/-0.<br/>
+−3: Return up to two target creatures to their owners' hands.<br/>
+−7: Creatures you control with flying get +5/+5 until end of turn.]=];
+CardNumber="M20286";
+Loyalty="5";
+Rulings=2;
+MultiverseID=469839;
+};
+
+{Name="Mu Yanling, Sky Dancer";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{U}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Legendary Planeswalker — Yanling";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Yanling"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[+2: Until your next turn, up to one target creature gets -2/-0 and loses flying.<br/>
+−3: Create a 4/4 blue Elemental Bird creature token with flying.<br/>
+−8: You get an emblem with "Islands you control have ‘{{Tap}}: Draw a card.'"]=];
+CardNumber="M2068";
+Loyalty="2";
+Rulings=5;
+MultiverseID=466822;
 };
 
 {Name="Muldrotha, the Gravetide";
@@ -13408,19 +22185,23 @@ MultiverseID=443062;
 };
 
 {Name="Murder";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{1}}{{B}}{{B}}";
 cmc=3;
 Colors={"Black"};
 Type="Instant";
 Types={"Instant"};
-Rarity="Uncommon";
-Rarities={"Uncommon"};
+Rarity="Common";
+Rarities={"Common";"Uncommon";};
 Text=[=[Destroy target creature.]=];
-Flavor=[=["It's not work if you enjoy it."]=];
-CardNumber="M19110";
-MultiverseID=447246;
+Flavor=[=["By fate or by will, every reign must come to an end."<br/>
+—Kethis, the Hidden Hand]=];
+CardNumber="M20109";
+MultiverseID=466863;
+Sets={
+{Set="M19";Rarity="Uncommon";CardNumber="110";Flavor=[=["It's not work if you enjoy it."]=];};
+};
 };
 
 {Name="Murmuring Mystic";
@@ -13499,6 +22280,23 @@ Toughness="1";
 MultiverseID=447199;
 };
 
+{Name="Mystic Forge";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}";
+cmc=4;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[You may look at the top card of your library any time.<br/>
+You may cast the top card of your library if it's an artifact card or a colorless nonland card.<br/>
+{{Tap}}, Pay 1 life: Exile the top card of your library.]=];
+CardNumber="M20233";
+Rulings=6;
+MultiverseID=466987;
+};
+
 {Name="Naban, Dean of Iteration";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -13518,6 +22316,61 @@ Power="2";
 Toughness="1";
 Rulings=10;
 MultiverseID=442946;
+};
+
+{Name="Naga Eternal";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Creature — Zombie Naga";
+Types={"Creature"};
+SubTypes={"Zombie";"Naga";};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=["I recognize that headdress. This one was feared even by her fellow initiates."<br/>
+—Samut]=];
+CardNumber="WAR60";
+Power="3";
+Toughness="2";
+MultiverseID=460987;
+};
+
+{Name="Nahiri, Storm of Stone";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{RW}}{{RW}}";
+cmc=4;
+Colors={"White";"Red";};
+Type="Legendary Planeswalker — Nahiri";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Nahiri"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[As long as it's your turn, creatures you control have first strike and equip abilities you activate cost {{1}} less to activate.<br/>
+−X: Nahiri, Storm of Stone deals X damage to target tapped creature.]=];
+CardNumber="WAR233";
+Loyalty="6";
+MultiverseID=461160;
+};
+
+{Name="Nahiri's Stoneblades";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Up to two target creatures each get +2/+0 until end of turn.]=];
+Flavor=[=[The ancient Planeswalkers Sorin and Nahiri battled across Ravnica, their blows cutting as deep as their grudge.]=];
+CardNumber="WAR139";
+Rulings=1;
+MultiverseID=461066;
 };
 
 {Name="Narcomoeba";
@@ -13542,6 +22395,44 @@ Rulings=2;
 MultiverseID=452797;
 };
 
+{Name="Narset, Parter of Veils";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{U}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Legendary Planeswalker — Narset";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Narset"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Each opponent can't draw more than one card each turn.<br/>
+−2: Look at the top four cards of your library. You may reveal a noncreature, nonland card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.]=];
+CardNumber="WAR61";
+Loyalty="5";
+Rulings=4;
+MultiverseID=460988;
+};
+
+{Name="Narset's Reversal";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{U}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Copy target instant or sorcery spell, then return it to its owner's hand. You may choose new targets for the copy.]=];
+Flavor=[=["In the disarray of battle, an enemy's attack may be your most convenient weapon."<br/>
+—Narset]=];
+CardNumber="WAR62";
+Rulings=10;
+MultiverseID=460989;
+};
+
 {Name="Naru Meha, Master Wizard";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -13562,6 +22453,23 @@ Power="3";
 Toughness="3";
 Rulings=8;
 MultiverseID=442947;
+};
+
+{Name="Natural End";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Destroy target artifact or enchantment. You gain 3 life.]=];
+Flavor=[=[The haunted blade shattered, and the geist drifted gratefully to the Blessed Sleep.]=];
+CardNumber="M20183";
+Rulings=1;
+MultiverseID=466937;
 };
 
 {Name="Naturalize";
@@ -13674,8 +22582,8 @@ MultiverseID=439764;
 };
 
 {Name="Negate";
-SetCode="RIX";
-Allsets={"RIX"};
+SetCode="M20";
+Allsets={"M20";"RIX";};
 Manacost="{{1}}{{U}}";
 cmc=2;
 Colors={"Blue"};
@@ -13685,9 +22593,50 @@ Rarity="Common";
 Rarities={"Common"};
 Text=[=[Counter target noncreature spell.]=];
 Flavor=[=["As one, nature lifts its voice to tell you this: ‘No.'"]=];
-CardNumber="RIX44";
+CardNumber="M2069";
 Rulings=1;
-MultiverseID=439701;
+MultiverseID=466823;
+Sets={
+{Set="RIX";Rarity="Common";CardNumber="44";Flavor=[=["As one, nature lifts its voice to tell you this: ‘No.'"]=];};
+};
+};
+
+{Name="Neheb, Dreadhorde Champion";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{R}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Legendary Creature — Zombie Minotaur Warrior";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Zombie";"Minotaur";"Warrior";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Trample<br/>
+Whenever Neheb, Dreadhorde Champion deals combat damage to a player or planeswalker, you may discard any number of cards. If you do, draw that many cards and add that much {{R}}. Until end of turn, you don't lose this mana as steps and phases end.]=];
+CardNumber="WAR140";
+Power="5";
+Toughness="4";
+Rulings=1;
+MultiverseID=461067;
+};
+
+{Name="Neoform";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{G}}{{U}}";
+cmc=2;
+Colors={"Blue";"Green";};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[As an additional cost to cast this spell, sacrifice a creature.<br/>
+Search your library for a creature card with converted mana cost equal to 1 plus the sacrificed creature's converted mana cost, put that card onto the battlefield with an additional +1/+1 counter on it, then shuffle your library.]=];
+CardNumber="WAR206";
+Rulings=5;
+MultiverseID=461133;
 };
 
 {Name="Nest Robber";
@@ -13710,6 +22659,26 @@ Toughness="1";
 MultiverseID=435306;
 };
 
+{Name="Netcaster Spider";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Creature — Spider";
+Types={"Creature"};
+SubTypes={"Spider"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Reach (This creature can block creatures with flying.)<br/>
+Whenever Netcaster Spider blocks a creature with flying, Netcaster Spider gets +2/+0 until end of turn.]=];
+Flavor=[=[It is an expert at culling individuals who stray too far from the herd.]=];
+CardNumber="M20184";
+Power="2";
+Toughness="3";
+MultiverseID=466938;
+};
+
 {Name="Never Happened";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -13727,8 +22696,8 @@ MultiverseID=452830;
 };
 
 {Name="New Horizons";
-SetCode="XLN";
-Allsets={"XLN"};
+SetCode="WAR";
+Allsets={"WAR";"XLN";};
 Manacost="{{2}}{{G}}";
 cmc=3;
 Colors={"Green"};
@@ -13740,9 +22709,12 @@ Rarities={"Common"};
 Text=[=[Enchant land<br/>
 When New Horizons enters the battlefield, put a +1/+1 counter on target creature you control.<br/>
 Enchanted land has "{{Tap}}: Add two mana of any one color."]=];
-CardNumber="XLN198";
+CardNumber="WAR168";
 Rulings=2;
-MultiverseID=435354;
+MultiverseID=461095;
+Sets={
+{Set="XLN";Rarity="Common";CardNumber="198";};
+};
 };
 
 {Name="Nexus of Fate";
@@ -13806,6 +22778,28 @@ Toughness="2";
 MultiverseID=445850;
 };
 
+{Name="Nicol Bolas, Dragon-God";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{U}}{{B}}{{B}}{{B}}{{R}}";
+cmc=5;
+Colors={"Blue";"Black";"Red";};
+Type="Legendary Planeswalker — Bolas";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Bolas"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Nicol Bolas, Dragon-God has all loyalty abilities of all other planeswalkers on the battlefield.<br/>
++1: You draw a card. Each opponent exiles a card from their hand or a permanent they control.<br/>
+−3: Destroy target creature or planeswalker.<br/>
+−8: Each opponent who doesn't control a legendary creature or planeswalker loses the game.]=];
+CardNumber="WAR207";
+Loyalty="4";
+Rulings=8;
+MultiverseID=461134;
+};
+
 {Name="Nicol Bolas, the Arisen";
 SetCode="M19";
 Allsets={"M19"};
@@ -13865,6 +22859,28 @@ Rulings=2;
 MultiverseID=447247;
 };
 
+{Name="Nightpack Ambusher";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{G}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Creature — Wolf";
+Types={"Creature"};
+SubTypes={"Wolf"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Flash<br/>
+Other Wolves and Werewolves you control get +1/+1.<br/>
+At the beginning of your end step, if you didn't cast a spell this turn, create a 2/2 green Wolf creature token.]=];
+Flavor=[=[A strong leader means a growing pack.]=];
+CardNumber="M20185";
+Power="4";
+Toughness="4";
+Rulings=4;
+MultiverseID=466939;
+};
+
 {Name="Nightveil Predator";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -13908,6 +22924,106 @@ Rulings=2;
 MultiverseID=452798;
 };
 
+{Name="Nikya of the Old Ways";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{R}}{{G}}";
+cmc=5;
+Colors={"Red";"Green";};
+Type="Legendary Creature — Centaur Druid";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Centaur";"Druid";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[You can't cast noncreature spells.<br/>
+Whenever you tap a land for mana, add one mana of any type that land produced.]=];
+Flavor=[=["The hooves of the Raze-Boar will trample the weak—and their city—to dust!"]=];
+CardNumber="RNA193";
+Power="5";
+Toughness="5";
+Rulings=3;
+MultiverseID=457337;
+};
+
+{Name="Nimble Birdsticker";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Creature — Goblin";
+Types={"Creature"};
+SubTypes={"Goblin"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Reach (This creature can block creatures with flying.)]=];
+Flavor=[=["What goes up must get stuck."]=];
+CardNumber="M20333";
+Power="2";
+Toughness="3";
+MultiverseID=469886;
+};
+
+{Name="Nissa, Who Shakes the World";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{G}}{{G}}";
+cmc=5;
+Colors={"Green"};
+Type="Legendary Planeswalker — Nissa";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Nissa"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Whenever you tap a Forest for mana, add an additional {{G}}.<br/>
++1: Put three +1/+1 counters on up to one target noncreature land you control. Untap it. It becomes a 0/0 Elemental creature with vigilance and haste that's still a land.<br/>
+−8: You get an emblem with "Lands you control have indestructible." Search your library for any number of Forest cards, put them onto the battlefield tapped, then shuffle your library.]=];
+CardNumber="WAR169";
+Loyalty="5";
+Rulings=1;
+MultiverseID=461096;
+};
+
+{Name="Nissa's Triumph";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{G}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Search your library for up to two basic Forest cards. If you control a Nissa planeswalker, instead search your library for up to three land cards. Reveal those cards, put them into your hand, then shuffle your library.]=];
+Flavor=[=[Her triumph came not from destroying the unnatural, but from fostering life.]=];
+CardNumber="WAR170";
+Rulings=2;
+MultiverseID=461097;
+};
+
+{Name="Niv-Mizzet Reborn";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{W}}{{U}}{{B}}{{R}}{{G}}";
+cmc=5;
+Colors={"White";"Blue";"Black";"Red";"Green";};
+Type="Legendary Creature — Dragon Avatar";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Dragon";"Avatar";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Flying<br/>
+When Niv-Mizzet Reborn enters the battlefield, reveal the top ten cards of your library. For each color pair, choose a card that's exactly those colors from among them. Put the chosen cards into your hand and the rest on the bottom of your library in a random order.]=];
+CardNumber="WAR208";
+Power="6";
+Toughness="6";
+Rulings=2;
+MultiverseID=461135;
+};
+
 {Name="Niv-Mizzet, Parun";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -13929,6 +23045,24 @@ Power="5";
 Toughness="5";
 Rulings=4;
 MultiverseID=452942;
+};
+
+{Name="No Escape";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Counter target creature or planeswalker spell. If that spell is countered this way, exile it instead of putting it into its owner's graveyard.<br/>
+Scry 1.]=];
+Flavor=[=[Jace surmised that they were walking into Bolas's trap. He felt no joy in being right.]=];
+CardNumber="WAR63";
+Rulings=1;
+MultiverseID=460990;
 };
 
 {Name="Notion Rain";
@@ -13969,6 +23103,44 @@ Rulings=1;
 MultiverseID=447166;
 };
 
+{Name="Noxious Grasp";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Destroy target creature or planeswalker that's green or white. You gain 1 life.]=];
+Flavor=[=["The bog doesn't give a stinking bubble about your title, wealth, or piety. It's just hungry."<br/>
+—Byaras, backwoods guide]=];
+CardNumber="M20110";
+Rulings=1;
+MultiverseID=466864;
+};
+
+{Name="Noxious Groodion";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Creature — Beast";
+Types={"Creature"};
+SubTypes={"Beast"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Deathtouch]=];
+Flavor=[=["Behold the groodion! Ichor-slurper, oozing fiend. Foulest wonder underground. Grandest vermin of them all!"<br/>
+—Zalin the Gutter Bard]=];
+CardNumber="RNA78";
+Power="2";
+Toughness="2";
+MultiverseID=457222;
+};
+
 {Name="Nullhide Ferox";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -13992,8 +23164,8 @@ MultiverseID=452888;
 };
 
 {Name="Oakenform";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{2}}{{G}}";
 cmc=3;
 Colors={"Green"};
@@ -14006,8 +23178,31 @@ Text=[=[Enchant creature<br/>
 Enchanted creature gets +3/+3.]=];
 Flavor=[=["When the beast cloaks itself in the mighty oak, what good is a bow? When the oak wraps itself around the snarling beast, what good is a hatchet?"<br/>
 —Dionus, elvish archdruid]=];
-CardNumber="M19191";
-MultiverseID=447327;
+CardNumber="M20341";
+MultiverseID=469894;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="191";Flavor=[=["When the beast cloaks itself in the mighty oak, what good is a bow? When the oak wraps itself around the snarling beast, what good is a hatchet?"
+—Dionus, elvish archdruid]=];};
+};
+};
+
+{Name="Oath of Kaya";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{W}}{{B}}";
+cmc=3;
+Colors={"White";"Black";};
+Type="Legendary Enchantment";
+SuperTypes={"Legendary"};
+Types={"Enchantment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[When Oath of Kaya enters the battlefield, it deals 3 damage to any target and you gain 3 life.<br/>
+Whenever an opponent attacks a planeswalker you control with one or more creatures, Oath of Kaya deals 2 damage to that player and you gain 2 life.]=];
+Flavor=[=["So everyone gets what they truly deserve, I will keep watch."]=];
+CardNumber="WAR209";
+Rulings=2;
+MultiverseID=461136;
 };
 
 {Name="Oath of Teferi";
@@ -14051,6 +23246,43 @@ Rulings=2;
 MultiverseID=439737;
 };
 
+{Name="Ob Nixilis, the Hate-Twisted";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{B}}{{B}}";
+cmc=5;
+Colors={"Black"};
+Type="Legendary Planeswalker — Nixilis";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Nixilis"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever an opponent draws a card, Ob Nixilis, the Hate-Twisted deals 1 damage to that player.<br/>
+−2: Destroy target creature. Its controller draws two cards.]=];
+CardNumber="WAR100";
+Loyalty="5";
+Rulings=2;
+MultiverseID=461027;
+};
+
+{Name="Ob Nixilis's Cruelty";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target creature gets -5/-5 until end of turn. If that creature would die this turn, exile it instead.]=];
+Flavor=[=[Trapped on Ravnica with no affection for either side, Ob Nixilis sought gratification in random acts of torment.]=];
+CardNumber="WAR101";
+Rulings=1;
+MultiverseID=461028;
+};
+
 {Name="Ochran Assassin";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -14070,6 +23302,45 @@ Power="1";
 Toughness="1";
 Rulings=2;
 MultiverseID=452944;
+};
+
+{Name="Octoprophet";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Creature — Octopus";
+Types={"Creature"};
+SubTypes={"Octopus"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Octoprophet enters the battlefield, scry 2. (Look at the top two cards of your library, then put any number of them on the bottom of your library and the rest on top in any order.)]=];
+Flavor=[=[In every swirl of the tide, it sees the awakening of things yet to come.]=];
+CardNumber="M2070";
+Power="3";
+Toughness="3";
+MultiverseID=466824;
+};
+
+{Name="Ogre Siegebreaker";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{B}}{{R}}";
+cmc=4;
+Colors={"Black";"Red";};
+Type="Creature — Ogre Berserker";
+Types={"Creature"};
+SubTypes={"Ogre";"Berserker";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{2}}{{B}}{{R}}: Destroy target creature that was dealt damage this turn.]=];
+Flavor=[=["What he doesn't burn, he smashes."<br/>
+—Captain Wellis, ogre wrangler]=];
+CardNumber="M20215";
+Power="4";
+Toughness="3";
+MultiverseID=466969;
 };
 
 {Name="Old-Growth Dryads";
@@ -14109,6 +23380,27 @@ Power="1";
 Toughness="3";
 Rulings=4;
 MultiverseID=447200;
+};
+
+{Name="Omnath, Locus of the Roil";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{G}}{{U}}{{R}}";
+cmc=4;
+Colors={"Blue";"Red";"Green";};
+Type="Legendary Creature — Elemental";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Elemental"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[When Omnath, Locus of the Roil enters the battlefield, it deals damage to any target equal to the number of Elementals you control.<br/>
+Whenever a land enters the battlefield under your control, put a +1/+1 counter on target Elemental you control. If you control eight or more lands, draw a card.]=];
+CardNumber="M20216";
+Power="3";
+Toughness="3";
+Rulings=3;
+MultiverseID=466970;
 };
 
 {Name="Omniscience";
@@ -14223,6 +23515,23 @@ Flavor=[=["River and sea, jungle and sky. Water flows freely between the two hal
 —Shaper Tuvasa]=];
 CardNumber="XLN64";
 MultiverseID=435216;
+};
+
+{Name="Open the Gates";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{G}}";
+cmc=1;
+Colors={"Green"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Search your library for a basic land card or Gate card, reveal it, put it into your hand, then shuffle your library.]=];
+Flavor=[=["If you don't have a destination in mind, the route is all that matters."<br/>
+—Tamina, district guide]=];
+CardNumber="RNA133";
+MultiverseID=457277;
 };
 
 {Name="Open the Graves";
@@ -14373,6 +23682,86 @@ Rulings=1;
 MultiverseID=452862;
 };
 
+{Name="Orzhov Enforcer";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Creature — Human Rogue";
+Types={"Creature"};
+SubTypes={"Human";"Rogue";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Deathtouch<br/>
+Afterlife 1 (When this creature dies, create a 1/1 white and black Spirit creature token with flying.)]=];
+Flavor=[=["You'll pay what you owe, with your money or your life."]=];
+CardNumber="RNA79";
+Power="1";
+Toughness="2";
+Rulings=1;
+MultiverseID=457223;
+};
+
+{Name="Orzhov Guildgate";
+SetCode="WAR";
+Allsets={"WAR";"RNA";};
+Type="Land — Gate";
+Types={"Land"};
+SubTypes={"Gate"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Orzhov Guildgate enters the battlefield tapped.<br/>
+{{Tap}}: Add {{W}} or {{B}}.]=];
+Flavor=[=["So much wealth. So much splendor. So much temptation to believe the gilded lie."<br/>
+—Kaya]=];
+CardNumber="WAR269";
+Rulings=2;
+MultiverseID=463836;
+Sets={
+{Set="RNA";Rarity="Common";CardNumber="252";Flavor=[=["So much wealth. So much splendor. So much temptation to believe the gilded lie."
+—Kaya]=];};
+};
+};
+
+{Name="Orzhov Locket";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}";
+cmc=3;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{Tap}}: Add {{W}} or {{B}}.<br/>
+{{WB}}{{WB}}{{WB}}{{WB}}, {{Tap}}, Sacrifice Orzhov Locket: Draw two cards.]=];
+Flavor=[=["It looks expensive, doesn't it? You have no idea . . ."<br/>
+—Milana, Orzhov prelate]=];
+CardNumber="RNA236";
+MultiverseID=457380;
+};
+
+{Name="Orzhov Racketeers";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}{{B}}";
+cmc=5;
+Colors={"Black"};
+Type="Creature — Human Rogue";
+Types={"Creature"};
+SubTypes={"Human";"Rogue";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever Orzhov Racketeers deals combat damage to a player, that player discards a card.<br/>
+Afterlife 2 (When this creature dies, create two 1/1 white and black Spirit creature tokens with flying.)]=];
+Flavor=[=["Looks like you need protection."]=];
+CardNumber="RNA80";
+Power="3";
+Toughness="2";
+Rulings=1;
+MultiverseID=457224;
+};
+
 {Name="Otepec Huntmaster";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -14392,6 +23781,24 @@ Power="1";
 Toughness="2";
 Rulings=2;
 MultiverseID=435307;
+};
+
+{Name="Overcome";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{G}}{{G}}";
+cmc=5;
+Colors={"Green"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Creatures you control get +2/+2 and gain trample until end of turn. (They can deal excess combat damage to the player or planeswalker they're attacking.)]=];
+Flavor=[=["Forward! Until the horizon is ours!"<br/>
+—Khemses, charioteer]=];
+CardNumber="M20186";
+Rulings=1;
+MultiverseID=466940;
 };
 
 {Name="Overflowing Insight";
@@ -14444,6 +23851,63 @@ Flavor=[=[Cradle of the Golgari's new kingdom. Grave of those who wronged its qu
 CardNumber="GRN253";
 Rulings=2;
 MultiverseID=453003;
+};
+
+{Name="Overgrowth Elemental";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Creature — Elemental";
+Types={"Creature"};
+SubTypes={"Elemental"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Overgrowth Elemental enters the battlefield, put a +1/+1 counter on another target Elemental you control.<br/>
+Whenever another creature you control dies, you gain 1 life. If that creature was an Elemental, put a +1/+1 counter on Overgrowth Elemental.]=];
+CardNumber="M20187";
+Power="3";
+Toughness="2";
+Rulings=2;
+MultiverseID=466941;
+};
+
+{Name="Pacifism";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Enchantment — Aura";
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Enchant creature<br/>
+Enchanted creature can't attack or block.]=];
+Flavor=[=["Can't a fella get a moment's peace around here?"]=];
+CardNumber="M2032";
+MultiverseID=466786;
+};
+
+{Name="Pack Mastiff";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Creature — Hound";
+Types={"Creature"};
+SubTypes={"Hound"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{1}}{{R}}: Each creature you control named Pack Mastiff gets +1/+0 until end of turn.]=];
+Flavor=[=[Their loyalty is not to any master, but to the pack.]=];
+CardNumber="M20152";
+Power="2";
+Toughness="2";
+MultiverseID=466906;
 };
 
 {Name="Pack's Favor";
@@ -14526,6 +23990,26 @@ Rulings=2;
 MultiverseID=447356;
 };
 
+{Name="Paradise Druid";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Creature — Elf Druid";
+Types={"Creature"};
+SubTypes={"Elf";"Druid";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Paradise Druid has hexproof as long as it's untapped.(It can't be the target of spells or abilities your opponents control.)<br/>
+{{Tap}}: Add one mana of any color.]=];
+Flavor=[=["There are many kinds of duty, and mine is to see our world grow and endure."]=];
+CardNumber="WAR171";
+Power="2";
+Toughness="1";
+MultiverseID=461098;
+};
+
 {Name="Pardic Wanderer";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -14543,6 +24027,28 @@ CardNumber="DOM226";
 Power="5";
 Toughness="5";
 MultiverseID=443114;
+};
+
+{Name="Parhelion II";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{6}}{{W}}{{W}}";
+cmc=8;
+Colors={"White"};
+Type="Legendary Artifact — Vehicle";
+SuperTypes={"Legendary"};
+Types={"Artifact"};
+SubTypes={"Vehicle"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Flying, first strike, vigilance<br/>
+Whenever Parhelion II attacks, create two 4/4 white Angel creature tokens with flying and vigilance that are attacking.<br/>
+Crew 4 (Tap any number of creatures you control with total power 4 or more: This Vehicle becomes an artifact creature until end of turn.)]=];
+CardNumber="WAR24";
+Power="5";
+Toughness="5";
+Rulings=2;
+MultiverseID=460951;
 };
 
 {Name="Parhelion Patrol";
@@ -14634,6 +24140,26 @@ Flavor=[=[Nicol Bolas would not rest until he was restored to his former glory.]
 CardNumber="M1967";
 Rulings=2;
 MultiverseID=447203;
+};
+
+{Name="Pattern Matcher";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}";
+cmc=4;
+Type="Artifact Creature — Golem";
+Types={"Artifact";"Creature";};
+SubTypes={"Golem"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Pattern Matcher enters the battlefield, you may search your library for a card with the same name as another creature you control, reveal it, put it into your hand, then shuffle your library.]=];
+Flavor=[=["Good! Now put it with the other widdle bunnies."<br/>
+—Sargis Haz, artificer]=];
+CardNumber="M20234";
+Power="3";
+Toughness="3";
+Rulings=2;
+MultiverseID=466988;
 };
 
 {Name="Pause for Reflection";
@@ -14748,6 +24274,68 @@ Flavor=[=[For the first time in her life, Vraska tried to prevent death.]=];
 CardNumber="XLN67";
 Rulings=4;
 MultiverseID=435219;
+};
+
+{Name="Persistent Petitioners";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Creature — Human Advisor";
+Types={"Creature"};
+SubTypes={"Human";"Advisor";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{1}}, {{Tap}}: Target player puts the top card of their library into their graveyard.<br/>
+Tap four untapped Advisors you control: Target player puts the top twelve cards of their library into their graveyard.<br/>
+A deck can have any number of cards named Persistent Petitioners.]=];
+CardNumber="RNA44";
+Power="1";
+Toughness="3";
+Rulings=3;
+MultiverseID=457188;
+};
+
+{Name="Pestilent Spirit";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Creature — Spirit";
+Types={"Creature"};
+SubTypes={"Spirit"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Menace, deathtouch<br/>
+Instant and sorcery spells you control have deathtouch. (Any amount of damage they deal to a creature is enough to destroy it.)]=];
+Flavor=[=[Its stench corrodes steel. Its miasma sickens angels. Its finality ends hope.]=];
+CardNumber="RNA81";
+Power="3";
+Toughness="2";
+Rulings=1;
+MultiverseID=457225;
+};
+
+{Name="Phantom Warrior";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{U}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Creature — Illusion Warrior";
+Types={"Creature"};
+SubTypes={"Illusion";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Phantom Warrior can't be blocked.]=];
+Flavor=[=["Only when I saw my enemy walk through all my defenses, untouchable as the moon in the sky, did I truly know what it is to be afraid."<br/>
+—King Ixes]=];
+CardNumber="M20316";
+Power="2";
+Toughness="2";
+MultiverseID=469869;
 };
 
 {Name="Phylactery Lich";
@@ -14891,7 +24479,7 @@ Types={"Sorcery"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
 Text=[=[As an additional cost to cast this spell, discard a card.<br/>
-Draw two cards and create two colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
+Draw two cards and create two Treasure tokens. (They're artifacts with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")]=];
 Flavor=[=[Goblins can carry their body weight in loot.]=];
 CardNumber="RIX109";
 MultiverseID=439766;
@@ -14907,7 +24495,7 @@ Type="Sorcery";
 Types={"Sorcery"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[Draw two cards. Create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
+Text=[=[Draw two cards. Create a Treasure token. (It's an artifact with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")]=];
 Flavor=[=[Nothing warms the heart like plunder.]=];
 CardNumber="XLN68";
 MultiverseID=435220;
@@ -14963,13 +24551,32 @@ Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[Whenever another creature you control dies, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
+Text=[=[Whenever another creature you control dies, create a Treasure token. (It's an artifact with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")]=];
 Flavor=[=["Shame to let good gold go to the grave."]=];
 CardNumber="RIX81";
 Power="1";
 Toughness="4";
 Rulings=1;
 MultiverseID=439738;
+};
+
+{Name="Pitiless Pontiff";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{W}}{{B}}";
+cmc=2;
+Colors={"White";"Black";};
+Type="Creature — Vampire Cleric";
+Types={"Creature"};
+SubTypes={"Vampire";"Cleric";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{1}}, Sacrifice another creature: Pitiless Pontiff gains deathtouch and indestructible until end of turn. (Damage and effects that say "destroy" don't destroy it.)]=];
+Flavor=[=["Pay in gold. Pay in blood. Pay with the servitude of your spirit kin. But pay you must."]=];
+CardNumber="RNA194";
+Power="2";
+Toughness="2";
+MultiverseID=457338;
 };
 
 {Name="Plague Mare";
@@ -14993,6 +24600,26 @@ Rulings=1;
 MultiverseID=447250;
 };
 
+{Name="Plague Wight";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Creature — Zombie";
+Types={"Creature"};
+SubTypes={"Zombie"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Whenever Plague Wight becomes blocked, each creature blocking it gets -1/-1 until end of turn.]=];
+Flavor=[=[For some goods, the best couriers are the dead.]=];
+CardNumber="RNA82";
+Power="2";
+Toughness="1";
+Rulings=3;
+MultiverseID=457226;
+};
+
 {Name="Plaguecrafter";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -15014,27 +24641,97 @@ MultiverseID=452832;
 };
 
 {Name="Plains";
-SetCode="GRN";
-Allsets={"GRN";"XLN";"RIX";"DOM";"M19";};
+SetCode="M20";
+Allsets={"M20";"XLN";"RIX";"DOM";"M19";"GRN";"RNA";"WAR";};
 Type="Basic Land — Plains";
 SuperTypes={"Basic"};
 Types={"Land"};
 SubTypes={"Plains"};
 Rarity="Basic Land";
 Rarities={"Basic Land"};
-CardNumber="GRN260";
-MultiverseID=455600;
+CardNumber="M20262";
+MultiverseID=467016;
 Sets={
 {Set="XLN";Rarity="Basic Land";CardNumber="260";};
 {Set="RIX";Rarity="Basic Land";CardNumber="192";};
 {Set="DOM";Rarity="Basic Land";CardNumber="250";};
 {Set="M19";Rarity="Basic Land";CardNumber="261";};
+{Set="GRN";Rarity="Basic Land";CardNumber="260";};
+{Set="RNA";Rarity="Basic Land";CardNumber="260";};
+{Set="WAR";Rarity="Basic Land";CardNumber="250";};
 };
 };
 
+{Name="Planar Cleansing";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{W}}{{W}}{{W}}";
+cmc=6;
+Colors={"White"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Destroy all nonland permanents.]=];
+CardNumber="M2033";
+MultiverseID=466787;
+};
+
+{Name="Planewide Celebration";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{5}}{{G}}{{G}}";
+cmc=7;
+Colors={"Green"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Choose four. You may choose the same mode more than once.<br/>
+• Create a 2/2 Citizen creature token that's all colors.<br/>
+• Return target permanent card from your graveyard to your hand.<br/>
+• Proliferate.<br/>
+• You gain 4 life.]=];
+CardNumber="WAR172";
+Rulings=9;
+MultiverseID=461099;
+};
+
+{Name="Plaza of Harmony";
+SetCode="RNA";
+Allsets={"RNA"};
+Type="Land";
+Types={"Land"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[When Plaza of Harmony enters the battlefield, if you control two or more Gates, you gain 3 life.<br/>
+{{Tap}}: Add {{C}}.<br/>
+{{Tap}}: Add one mana of any type that a Gate you control could produce.]=];
+CardNumber="RNA254";
+Rulings=3;
+MultiverseID=457398;
+};
+
+{Name="Pledge of Unity";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{G}}{{W}}";
+cmc=3;
+Colors={"White";"Green";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Put a +1/+1 counter on each creature you control. You gain 1 life for each creature you control.]=];
+Flavor=[=["No one hero will save this day. Today we must all be heroes."<br/>
+—Gideon Jura]=];
+CardNumber="WAR210";
+MultiverseID=461137;
+};
+
 {Name="Plummet";
-SetCode="M19";
-Allsets={"M19";"RIX";};
+SetCode="M20";
+Allsets={"M20";"RIX";"M19";};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
@@ -15043,13 +24740,15 @@ Types={"Instant"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Destroy target creature with flying.]=];
-Flavor=[=["Let nothing own the skies but the wind."<br/>
-—Dejara, Giltwood druid]=];
-CardNumber="M19193";
-MultiverseID=447329;
+Flavor=[=["Even the pterodon, who chases the clouds from its skies, must bow to the great forest below."<br/>
+—Mahuiz, Sun Empire archer]=];
+CardNumber="M20188";
+MultiverseID=466942;
 Sets={
 {Set="RIX";Rarity="Common";CardNumber="143";Flavor=[=["Still, the pterodon chasing the clouds from its skies must bow to the great forest below."
 —Mahuiz, Sun Empire archer]=];};
+{Set="M19";Rarity="Common";CardNumber="193";Flavor=[=["Let nothing own the skies but the wind."
+—Dejara, Giltwood druid]=];};
 };
 };
 
@@ -15074,6 +24773,27 @@ Rulings=2;
 MultiverseID=447357;
 };
 
+{Name="Pollenbright Druid";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Creature — Elf Druid";
+Types={"Creature"};
+SubTypes={"Elf";"Druid";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Pollenbright Druid enters the battlefield, choose one —<br/>
+• Put a +1/+1 counter on target creature.<br/>
+• Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)]=];
+CardNumber="WAR173";
+Power="1";
+Toughness="1";
+Rulings=7;
+MultiverseID=461100;
+};
+
 {Name="Polyraptor";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -15092,6 +24812,24 @@ Power="5";
 Toughness="5";
 Rulings=5;
 MultiverseID=439801;
+};
+
+{Name="Portal of Sanctuary";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{1}}, {{Tap}}: Return target creature you control and each Aura attached to it to their owners' hands. Activate this ability only during your turn.]=];
+Flavor=[=["If you need to disappear for a while, I know a place."<br/>
+—Bilivus, master archivist]=];
+CardNumber="M2071";
+Rulings=1;
+MultiverseID=466825;
 };
 
 {Name="Portcullis Vine";
@@ -15130,6 +24868,25 @@ Flavor=[=[The drive to hunt and feed is raw instinct for dinosaurs. The trick is
 CardNumber="XLN200";
 Rulings=1;
 MultiverseID=435356;
+};
+
+{Name="Pouncing Lynx";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Creature — Cat";
+Types={"Creature"};
+SubTypes={"Cat"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[As long as it's your turn, Pouncing Lynx has first strike.]=];
+Flavor=[=["I don't understand. He's normally so well behaved!"]=];
+CardNumber="WAR25";
+Power="2";
+Toughness="1";
+MultiverseID=460952;
 };
 
 {Name="Powerstone Shard";
@@ -15183,6 +24940,24 @@ Rulings=6;
 MultiverseID=442949;
 };
 
+{Name="Precognitive Perception";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{U}}{{U}}";
+cmc=5;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Draw three cards.<br/>
+Addendum — If you cast this spell during your main phase, instead scry 3, then draw three cards.]=];
+Flavor=[=["To control the present we must master the future."]=];
+CardNumber="RNA45";
+Rulings=2;
+MultiverseID=457189;
+};
+
 {Name="Prey Upon";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -15199,6 +24974,23 @@ Flavor=[=["Light up the dark to find your way, and the dark may seek you out."<b
 CardNumber="GRN143";
 Rulings=1;
 MultiverseID=452893;
+};
+
+{Name="Price of Betrayal";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{B}}";
+cmc=1;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Remove up to five counters from target artifact, creature, planeswalker, or opponent.]=];
+Flavor=[=[The moment Liliana defied Nicol Bolas, her contract was broken, and her life was forfeit. But she was free to choose her fate, and she decided it was worth the price.]=];
+CardNumber="WAR102";
+Rulings=2;
+MultiverseID=461029;
 };
 
 {Name="Price of Fame";
@@ -15234,6 +25026,26 @@ Creatures you control get +1/+1 until end of turn. If you have the city's blessi
 CardNumber="RIX17";
 Rulings=7;
 MultiverseID=439674;
+};
+
+{Name="Priest of Forgotten Gods";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Creature — Human Cleric";
+Types={"Creature"};
+SubTypes={"Human";"Cleric";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[{{Tap}}, Sacrifice two other creatures: Any number of target players each lose 2 life and sacrifice a creature. You add {{B}}{{B}} and draw a card.]=];
+Flavor=[=[The Orzhov are not the only religious tradition on Ravnica, nor the oldest.]=];
+CardNumber="RNA83";
+Power="1";
+Toughness="2";
+Rulings=3;
+MultiverseID=457227;
 };
 
 {Name="Priest of the Wakening Sun";
@@ -15287,6 +25099,26 @@ Rulings=10;
 MultiverseID=435402;
 };
 
+{Name="Prime Speaker Vannifar";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{G}}{{U}}";
+cmc=4;
+Colors={"Blue";"Green";};
+Type="Legendary Creature — Elf Ooze Wizard";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Elf";"Ooze";"Wizard";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[{{Tap}}, Sacrifice another creature: Search your library for a creature card with converted mana cost equal to 1 plus the sacrificed creature's converted mana cost, put that card onto the battlefield, then shuffle your library. Activate this ability only any time you could cast a sorcery.]=];
+CardNumber="RNA195";
+Power="2";
+Toughness="4";
+Rulings=2;
+MultiverseID=457339;
+};
+
 {Name="Primevals' Glorious Rebirth";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -15307,8 +25139,8 @@ MultiverseID=443089;
 };
 
 {Name="Primordial Wurm";
-SetCode="DOM";
-Allsets={"DOM"};
+SetCode="WAR";
+Allsets={"WAR";"DOM";};
 Manacost="{{4}}{{G}}{{G}}";
 cmc=6;
 Colors={"Green"};
@@ -15317,12 +25149,75 @@ Types={"Creature"};
 SubTypes={"Wurm"};
 Rarity="Common";
 Rarities={"Common"};
-Flavor=[=["You can hear its tail thrashing from a mile away. Keep in mind that its jaws may already be half a mile closer."<br/>
-—Jenson Carthalion, Yavimaya exile]=];
-CardNumber="DOM177";
+Flavor=[=[Elite training, single-minded devotion, and lazotep coating help only so much for invaders who are fundamentally bite-sized.]=];
+CardNumber="WAR174";
 Power="7";
 Toughness="6";
-MultiverseID=443065;
+MultiverseID=461101;
+Sets={
+{Set="DOM";Rarity="Common";CardNumber="177";Flavor=[=["You can hear its tail thrashing from a mile away. Keep in mind that its jaws may already be half a mile closer."
+—Jenson Carthalion, Yavimaya exile]=];};
+};
+};
+
+{Name="Prismite";
+SetCode="M20";
+Allsets={"M20";"WAR";};
+Manacost="{{2}}";
+cmc=2;
+Type="Artifact Creature — Golem";
+Types={"Artifact";"Creature";};
+SubTypes={"Golem"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{2}}: Add one mana of any color.]=];
+Flavor=[=[Even its shadow is a dazzling rainbow.]=];
+CardNumber="M20235";
+Power="2";
+Toughness="1";
+MultiverseID=466989;
+Sets={
+{Set="WAR";Rarity="Common";CardNumber="242";Flavor=[=[It didn't budge when the portal opened, nor when the ancient gods emerged. It came to life only when all ten guilds came together to face a common threat.]=];};
+};
+};
+
+{Name="Prison Realm";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Prison Realm enters the battlefield, exile target creature or planeswalker an opponent controls until Prison Realm leaves the battlefield.<br/>
+When Prison Realm enters the battlefield, scry 1.]=];
+Flavor=[=[After millennia to craft victory, Bolas had eternity to contemplate defeat.]=];
+CardNumber="WAR26";
+Rulings=4;
+MultiverseID=460953;
+};
+
+{Name="Prized Unicorn";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Creature — Unicorn";
+Types={"Creature"};
+SubTypes={"Unicorn"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[All creatures able to block Prized Unicorn do so.]=];
+Flavor=[=["Friend and foe alike are irresistibly drawn to its beauty—the good, to their lasting reward, and the evil, to their brief and painful regret."<br/>
+—Vivien Reid]=];
+CardNumber="M20342";
+Power="2";
+Toughness="2";
+Rulings=2;
+MultiverseID=469895;
 };
 
 {Name="Prodigious Growth";
@@ -15373,7 +25268,7 @@ Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[When Prosperous Pirates enters the battlefield, create two colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
+Text=[=[When Prosperous Pirates enters the battlefield, create two Treasure tokens. (They're artifacts with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")]=];
 Flavor=[=[The floating city of High and Dry hasn't yet sunk under the weight of gold, but it's not for want of trying.]=];
 CardNumber="XLN69";
 Power="3";
@@ -15401,6 +25296,27 @@ Rulings=8;
 MultiverseID=439828;
 };
 
+{Name="Prowling Caracal";
+SetCode="M20";
+Allsets={"M20";"RNA";};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Creature — Cat";
+Types={"Creature"};
+SubTypes={"Cat"};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=[A hunter in the city requires the utmost cunning to survive. It must pounce only if the kill is certain, and leave the remains where no one will see.]=];
+CardNumber="M20309";
+Power="3";
+Toughness="1";
+MultiverseID=469862;
+Sets={
+{Set="RNA";Rarity="Common";CardNumber="17";Flavor=[=[A hunter in the city requires the utmost cunning to survive. It must pounce only if the kill is certain, and leave the remains where no one will see.]=];};
+};
+};
+
 {Name="Prying Blade";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -15412,10 +25328,26 @@ SubTypes={"Equipment"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Equipped creature gets +1/+0.<br/>
-Whenever equipped creature deals combat damage to a player, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."<br/>
+Whenever equipped creature deals combat damage to a player, create a Treasure token. (It's an artifact with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")<br/>
 Equip {{2}} ({{2}}: Attach to target creature you control. Equip only as a sorcery.)]=];
 CardNumber="XLN244";
 MultiverseID=435403;
+};
+
+{Name="Prying Eyes";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}{{U}}{{U}}";
+cmc=6;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Draw four cards, then discard two cards.]=];
+Flavor=[=["Citizen! Your crime has been recorded. Cease movement and await arrest, or further penalties will be immediately imposed."]=];
+CardNumber="RNA46";
+MultiverseID=457190;
 };
 
 {Name="Psychic Corrosion";
@@ -15457,6 +25389,26 @@ Rulings=1;
 MultiverseID=447358;
 };
 
+{Name="Pteramander";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{U}}";
+cmc=1;
+Colors={"Blue"};
+Type="Creature — Salamander Drake";
+Types={"Creature"};
+SubTypes={"Salamander";"Drake";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying<br/>
+{{7}}{{U}}: Adapt 4. This ability costs {{1}} less to activate for each instant and sorcery card in your graveyard. (If this creature has no +1/+1 counters on it, put four +1/+1 counters on it.)]=];
+CardNumber="RNA47";
+Power="1";
+Toughness="1";
+Rulings=3;
+MultiverseID=457191;
+};
+
 {Name="Pterodon Knight";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -15474,6 +25426,43 @@ CardNumber="XLN28";
 Power="3";
 Toughness="3";
 MultiverseID=435180;
+};
+
+{Name="Pulse of Murasa";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Return target creature or land card from a graveyard to its owner's hand. You gain 6 life.]=];
+Flavor=[=["Little flower twirl and bloom, arise from this your rocky tomb. Little warrior slash and brawl, be born again to free us all."]=];
+CardNumber="M20189";
+Rulings=1;
+MultiverseID=466943;
+};
+
+{Name="Pyroclastic Elemental";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{R}}{{R}}";
+cmc=5;
+Colors={"Red"};
+Type="Creature — Elemental";
+Types={"Creature"};
+SubTypes={"Elemental"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{1}}{{R}}{{R}}: Pyroclastic Elemental deals 1 damage to target player.]=];
+Flavor=[=["Whoever thought of making mobile volcanoes was a genius."<br/>
+—Chandra Nalaar]=];
+CardNumber="M20296";
+Power="5";
+Toughness="4";
+MultiverseID=469849;
 };
 
 {Name="Pyromantic Pilgrim";
@@ -15568,9 +25557,25 @@ CardNumber="XLN29";
 MultiverseID=435181;
 };
 
+{Name="Quench";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Counter target spell unless its controller pays {{2}}.]=];
+Flavor=[=["When properly invoked, the plasma globule encloses the offensive spell with a satisfying slurp."]=];
+CardNumber="RNA48";
+MultiverseID=457192;
+};
+
 {Name="Rabid Bite";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
@@ -15581,9 +25586,13 @@ Rarities={"Common"};
 Text=[=[Target creature you control deals damage equal to its power to target creature you don't control.]=];
 Flavor=[=["You should have seen the look on &lt;i&gt;both&lt;/i&gt; their faces."<br/>
 —Morkamp, Lambholt innkeeper]=];
-CardNumber="M19195";
+CardNumber="M20190";
 Rulings=1;
-MultiverseID=447331;
+MultiverseID=466944;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="195";Flavor=[=["You should have seen the look on &lt;i&gt;both&lt;/i&gt; their faces."
+—Morkamp, Lambholt innkeeper]=];};
+};
 };
 
 {Name="Radiant Destiny";
@@ -15664,6 +25673,63 @@ Rulings=1;
 MultiverseID=443090;
 };
 
+{Name="Rafter Demon";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{B}}{{R}}";
+cmc=4;
+Colors={"Black";"Red";};
+Type="Creature — Demon";
+Types={"Creature"};
+SubTypes={"Demon"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Spectacle {{3}}{{B}}{{R}} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)<br/>
+When Rafter Demon enters the battlefield, if its spectacle cost was paid, each opponent discards a card.]=];
+CardNumber="RNA196";
+Power="4";
+Toughness="2";
+Rulings=5;
+MultiverseID=457340;
+};
+
+{Name="Ragefire";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Ragefire deals 3 damage to target creature.]=];
+Flavor=[=["Your precious laws can't save you now!"]=];
+CardNumber="RNA270";
+MultiverseID=460004;
+};
+
+{Name="Raging Kronch";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Creature — Beast";
+Types={"Creature"};
+SubTypes={"Beast"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Raging Kronch can't attack alone.]=];
+Flavor=[=["Seeing so much easy prey makes her crazy. See how she snorts and drools?"<br/>
+—Dhuuz, kronch wrangler]=];
+CardNumber="WAR141";
+Power="4";
+Toughness="3";
+Rulings=5;
+MultiverseID=461068;
+};
+
 {Name="Raging Regisaur";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -15722,6 +25788,140 @@ Rulings=3;
 MultiverseID=435270;
 };
 
+{Name="Raise the Alarm";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Create two 1/1 white Soldier creature tokens.]=];
+Flavor=[=[Like blinking or breathing, responding to an alarm is an involuntary reflex.]=];
+CardNumber="M2034";
+MultiverseID=466788;
+};
+
+{Name="Rakdos Firewheeler";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{B}}{{B}}{{R}}{{R}}";
+cmc=4;
+Colors={"Black";"Red";};
+Type="Creature — Human Rogue";
+Types={"Creature"};
+SubTypes={"Human";"Rogue";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Rakdos Firewheeler enters the battlefield, it deals 2 damage to target opponent and 2 damage to up to one target creature or planeswalker.]=];
+Flavor=[=[Ever wonder why you never see an old Rakdos cultist?]=];
+CardNumber="RNA197";
+Power="4";
+Toughness="3";
+Rulings=1;
+MultiverseID=457341;
+};
+
+{Name="Rakdos Guildgate";
+SetCode="RNA";
+Allsets={"RNA"};
+Type="Land — Gate";
+Types={"Land"};
+SubTypes={"Gate"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Rakdos Guildgate enters the battlefield tapped.<br/>
+{{Tap}}: Add {{B}} or {{R}}.]=];
+Flavor=[=["My servants take pains for your pleasure, and take pleasure in your pain!"<br/>
+—Rakdos]=];
+CardNumber="RNA255";
+Rulings=2;
+MultiverseID=457399;
+};
+
+{Name="Rakdos Locket";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}";
+cmc=3;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{Tap}}: Add {{B}} or {{R}}.<br/>
+{{BR}}{{BR}}{{BR}}{{BR}}, {{Tap}}, Sacrifice Rakdos Locket: Draw two cards.]=];
+Flavor=[=["This trinket will gain you admittance to some painfully exclusive gatherings."<br/>
+—Exava, blood witch]=];
+CardNumber="RNA237";
+MultiverseID=457381;
+};
+
+{Name="Rakdos Roustabout";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{B}}{{R}}";
+cmc=3;
+Colors={"Black";"Red";};
+Type="Creature — Ogre Warrior";
+Types={"Creature"};
+SubTypes={"Ogre";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Whenever Rakdos Roustabout becomes blocked, it deals 1 damage to the player or planeswalker it's attacking.]=];
+Flavor=[=["That one has a bright future—perfect instincts for the rhythm of mayhem."<br/>
+—Judith]=];
+CardNumber="RNA198";
+Power="3";
+Toughness="2";
+Rulings=1;
+MultiverseID=457342;
+};
+
+{Name="Rakdos Trumpeter";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Creature — Human Shaman";
+Types={"Creature"};
+SubTypes={"Human";"Shaman";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Menace (This creature can't be blocked except by two or more creatures.)<br/>
+{{3}}{{R}}: Rakdos Trumpeter gets +2/+0 until end of turn.]=];
+Flavor=[=["The louder their performance, the quieter we become in comparison. They are the perfect distractions, for only fools ignore the Rakdos."<br/>
+—Lazav]=];
+CardNumber="RNA84";
+Power="1";
+Toughness="3";
+MultiverseID=457228;
+};
+
+{Name="Rakdos, the Showstopper";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}{{B}}{{R}}";
+cmc=6;
+Colors={"Black";"Red";};
+Type="Legendary Creature — Demon";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Demon"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Flying, trample<br/>
+When Rakdos, the Showstopper enters the battlefield, flip a coin for each creature that isn't a Demon, Devil, or Imp. Destroy each creature whose coin comes up tails.]=];
+Flavor=[=["Entertain me."]=];
+CardNumber="RNA199";
+Power="6";
+Toughness="6";
+Rulings=2;
+MultiverseID=457343;
+};
+
 {Name="Ral, Caller of Storms";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -15764,6 +25964,61 @@ Rulings=5;
 MultiverseID=452945;
 };
 
+{Name="Ral, Storm Conduit";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{U}}{{R}}";
+cmc=4;
+Colors={"Blue";"Red";};
+Type="Legendary Planeswalker — Ral";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Ral"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Whenever you cast or copy an instant or sorcery spell, Ral, Storm Conduit deals 1 damage to target opponent or planeswalker.<br/>
++2: Scry 1.<br/>
+−2: When you cast your next instant or sorcery spell this turn, copy that spell. You may choose new targets for the copy.]=];
+CardNumber="WAR211";
+Loyalty="4";
+Rulings=7;
+MultiverseID=461138;
+};
+
+{Name="Rally of Wings";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Untap all creatures you control. Creatures you control with flying get +2/+2 until end of turn.]=];
+Flavor=[=[Even the clouds became a field of battle. Known as the Sky Theater, it saw the Eternals clash with squadrons of angels.]=];
+CardNumber="WAR27";
+Rulings=1;
+MultiverseID=460954;
+};
+
+{Name="Rally to Battle";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Creatures you control get +1/+3 until end of turn. Untap them.]=];
+Flavor=[=[The guildmasters loom large in the political sphere, but in the end, the rulers of Ravnica are its people.]=];
+CardNumber="RNA18";
+Rulings=1;
+MultiverseID=457162;
+};
+
 {Name="Rallying Roar";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -15798,6 +26053,24 @@ Rulings=1;
 MultiverseID=455606;
 };
 
+{Name="Ral's Outburst";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{U}}{{R}}";
+cmc=4;
+Colors={"Blue";"Red";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Ral's Outburst deals 3 damage to any target. Look at the top two cards of your library. Put one of them into your hand and the other into your graveyard.]=];
+Flavor=[=["Time to find the melting point of lazotep."<br/>
+—Ral Zarek]=];
+CardNumber="WAR212";
+Rulings=2;
+MultiverseID=461139;
+};
+
 {Name="Ral's Staticaster";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -15816,6 +26089,43 @@ Power="3";
 Toughness="3";
 Rulings=2;
 MultiverseID=455608;
+};
+
+{Name="Rampage of the Clans";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Destroy all artifacts and enchantments. For each permanent destroyed this way, its controller creates a 3/3 green Centaur creature token.]=];
+Flavor=[=["Rage! Rage until the whole world burns!"]=];
+CardNumber="RNA134";
+Rulings=2;
+MultiverseID=457278;
+};
+
+{Name="Rampaging Brontodon";
+SetCode="G18";
+Allsets={"G18"};
+Manacost="{{5}}{{G}}{{G}}";
+cmc=7;
+Colors={"Green"};
+Type="Creature — Dinosaur";
+Types={"Creature"};
+SubTypes={"Dinosaur"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Trample<br/>
+Whenever Rampaging Brontodon attacks, it gets +1/+1 until end of turn for each land you control.]=];
+Flavor=[=[Not even the tallest tree stands a chance against the underside of a dinosaur's foot.]=];
+CardNumber="G185";
+Power="7";
+Toughness="7";
+MultiverseID=456520;
 };
 
 {Name="Rampaging Cyclops";
@@ -15882,6 +26192,26 @@ Rulings=1;
 MultiverseID=452989;
 };
 
+{Name="Rampaging Rendhorn";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}{{G}}";
+cmc=5;
+Colors={"Green"};
+Type="Creature — Beast";
+Types={"Creature"};
+SubTypes={"Beast"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Riot (This creature enters the battlefield with your choice of a +1/+1 counter or haste.)]=];
+Flavor=[=[Tumult is its natural habitat.]=];
+CardNumber="RNA135";
+Power="4";
+Toughness="4";
+Rulings=3;
+MultiverseID=457279;
+};
+
 {Name="Ranging Raptors";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -15900,6 +26230,27 @@ Power="2";
 Toughness="3";
 Rulings=2;
 MultiverseID=435357;
+};
+
+{Name="Rapacious Dragon";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{R}}";
+cmc=5;
+Colors={"Red"};
+Type="Creature — Dragon";
+Types={"Creature"};
+SubTypes={"Dragon"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying<br/>
+When Rapacious Dragon enters the battlefield, create two Treasure tokens. (They're artifacts with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")]=];
+Flavor=[=["Surely it won't notice if I take—"<br/>
+—Theria the Sly, last words]=];
+CardNumber="M20153";
+Power="3";
+Toughness="3";
+MultiverseID=466907;
 };
 
 {Name="Raptor Companion";
@@ -15965,6 +26316,28 @@ Rulings=1;
 MultiverseID=442989;
 };
 
+{Name="Ravager Wurm";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{R}}{{G}}{{G}}";
+cmc=6;
+Colors={"Red";"Green";};
+Type="Creature — Wurm";
+Types={"Creature"};
+SubTypes={"Wurm"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Riot (This creature enters the battlefield with your choice of a +1/+1 counter or haste.)<br/>
+When Ravager Wurm enters the battlefield, choose up to one —<br/>
+• Ravager Wurm fights target creature you don't control.<br/>
+• Destroy target land with an activated ability that isn't a mana ability.]=];
+CardNumber="RNA200";
+Power="4";
+Toughness="5";
+Rulings=6;
+MultiverseID=457344;
+};
+
 {Name="Ravenous Chupacabra";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -16024,6 +26397,23 @@ Toughness="2";
 MultiverseID=447251;
 };
 
+{Name="Ravnica at War";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Exile all multicolored permanents.]=];
+Flavor=[=[The heart of Ravnica disappeared before anyone could strike a blow in its defense.]=];
+CardNumber="WAR28";
+Rulings=1;
+MultiverseID=460955;
+};
+
 {Name="Reassembling Skeleton";
 SetCode="M19";
 Allsets={"M19"};
@@ -16058,6 +26448,24 @@ Text=[=[Exile target creature with power 3 or less.]=];
 Flavor=[=[Onora knew with sudden, grim certainty he would never see the Great River again.]=];
 CardNumber="RIX83";
 MultiverseID=439740;
+};
+
+{Name="Reckless Air Strike";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{R}}";
+cmc=1;
+Colors={"Red"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Choose one —<br/>
+• Reckless Air Strike deals 3 damage to target creature with flying.<br/>
+• Destroy target artifact.]=];
+Flavor=[=["I have a &lt;i&gt;great&lt;/i&gt; idea!"]=];
+CardNumber="M20154";
+MultiverseID=466908;
 };
 
 {Name="Reckless Rage";
@@ -16130,6 +26538,24 @@ CardNumber="RIX84";
 MultiverseID=439741;
 };
 
+{Name="Reduce to Ashes";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{R}}";
+cmc=5;
+Colors={"Red"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Reduce to Ashes deals 5 damage to target creature. If that creature would die this turn, exile it instead.]=];
+Flavor=[=["Before they can go to their final rest, the wicked must be purified by fire."<br/>
+—Harra the Adjudicator]=];
+CardNumber="M20155";
+Rulings=1;
+MultiverseID=466909;
+};
+
 {Name="Regal Bloodlord";
 SetCode="M19";
 Allsets={"M19"};
@@ -16149,6 +26575,23 @@ Power="2";
 Toughness="4";
 Rulings=4;
 MultiverseID=447359;
+};
+
+{Name="Regenesis";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{G}}{{G}}";
+cmc=5;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Return up to two target permanent cards from your graveyard to your hand.]=];
+Flavor=[=["When you get right down to it, the difference between death and life is just a membrane-enclosed environment maintained by a metabolic process."<br/>
+—Gulistan, Simic biomancer]=];
+CardNumber="RNA136";
+MultiverseID=457280;
 };
 
 {Name="Regisaur Alpha";
@@ -16207,6 +26650,23 @@ Flavor=[=["Here and gone like a fleeting breeze."]=];
 CardNumber="RIX46";
 Rulings=4;
 MultiverseID=439703;
+};
+
+{Name="Relentless Advance";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Amass 3. (Put three +1/+1 counters on an Army you control. If you don't control one, create a 0/0 black Zombie Army creature token first.)]=];
+Flavor=[=[They approach in formation, every movement efficient and sure. They halt, listen, and then press on in silent unison.]=];
+CardNumber="WAR64";
+Rulings=2;
+MultiverseID=460991;
 };
 
 {Name="Relentless Raptor";
@@ -16285,6 +26745,43 @@ Toughness="1";
 MultiverseID=447169;
 };
 
+{Name="Renowned Weaponsmith";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Creature — Human Artificer";
+Types={"Creature"};
+SubTypes={"Human";"Artificer";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{Tap}}: Add {{C}}{{C}}. Spend this mana only to cast artifact spells or activate abilities of artifacts.<br/>
+{{U}}, {{Tap}}: Search your library for a card named Heart-Piercer Bow or Vial of Dragonfire, reveal it, put it into your hand, then shuffle your library.]=];
+CardNumber="M2072";
+Power="1";
+Toughness="3";
+Rulings=2;
+MultiverseID=466826;
+};
+
+{Name="Repeated Reverberation";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{R}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[When you next cast an instant spell, cast a sorcery spell, or activate a loyalty ability this turn, copy that spell or ability twice. You may choose new targets for the copies.]=];
+Flavor=[=[It's in the nature of fire to grow.]=];
+CardNumber="M20156";
+Rulings=9;
+MultiverseID=466910;
+};
+
 {Name="Repeating Barrage";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -16302,6 +26799,39 @@ Rulings=2;
 MultiverseID=435310;
 };
 
+{Name="Replicate";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{G}}{{U}}";
+cmc=3;
+Colors={"Blue";"Green";};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Create a token that's a copy of target creature you control.]=];
+CardNumber="RNA227b";
+Rulings=5;
+MultiverseID=457371;
+};
+
+{Name="Repudiate";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{GU}}{{GU}}";
+cmc=2;
+Colors={"Blue";"Green";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Counter target activated or triggered ability. (Mana abilities can't be targeted.)<br/>
+]=];
+CardNumber="RNA227a";
+Rulings=5;
+MultiverseID=457371;
+};
+
 {Name="Rescue";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -16316,6 +26846,48 @@ Text=[=[Return target permanent you control to its owner's hand.]=];
 Flavor=[=[With just a few seconds to escape, Deryan saved Hurkyl's editions on restoring physical objects from ash.]=];
 CardNumber="DOM63";
 MultiverseID=442951;
+};
+
+{Name="Rescuer Sphinx";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{U}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Creature — Sphinx";
+Types={"Creature"};
+SubTypes={"Sphinx"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying<br/>
+As Rescuer Sphinx enters the battlefield, you may return a nonland permanent you control to its owner's hand. If you do, Rescuer Sphinx enters the battlefield with a +1/+1 counter on it.]=];
+Flavor=[=["Now, little fighter, show me you deserved this second chance."]=];
+CardNumber="WAR65";
+Power="3";
+Toughness="2";
+Rulings=3;
+MultiverseID=460992;
+};
+
+{Name="Resolute Watchdog";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{W}}";
+cmc=1;
+Colors={"White"};
+Type="Creature — Hound";
+Types={"Creature"};
+SubTypes={"Hound"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Defender<br/>
+{{1}}, Sacrifice Resolute Watchdog: Target creature you control gains indestructible until end of turn. (Damage and effects that say "destroy" don't destroy it.)]=];
+Flavor=[=[A friend in good times, a guardian in bad times, and a savior when all else fails.]=];
+CardNumber="RNA19";
+Power="1";
+Toughness="3";
+Rulings=1;
+MultiverseID=457163;
 };
 
 {Name="Resplendent Angel";
@@ -16392,6 +26964,44 @@ Rulings=2;
 MultiverseID=452979;
 };
 
+{Name="Retributive Wand";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}";
+cmc=3;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{3}}, {{Tap}}: Retributive Wand deals 1 damage to any target.<br/>
+When Retributive Wand is put into a graveyard from the battlefield, it deals 5 damage to any target.]=];
+Flavor=[=["The last blast is the biggest."<br/>
+—Sargis Haz, artificer]=];
+CardNumber="M20236";
+Rulings=1;
+MultiverseID=466990;
+};
+
+{Name="Return to Nature";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Choose one —<br/>
+• Destroy target artifact.<br/>
+• Destroy target enchantment.<br/>
+• Exile target card from a graveyard.]=];
+Flavor=[=["Yes, nature is stronger. You don't see little buildings sprouting on trees."<br/>
+—Emmara]=];
+CardNumber="WAR175";
+MultiverseID=461102;
+};
+
 {Name="Revel in Riches";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -16402,11 +27012,27 @@ Type="Enchantment";
 Types={"Enchantment"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[Whenever a creature an opponent controls dies, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."<br/>
+Text=[=[Whenever a creature an opponent controls dies, create a Treasure token. (It's an artifact with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")<br/>
 At the beginning of your upkeep, if you control ten or more Treasures, you win the game.]=];
 CardNumber="XLN117";
 Rulings=4;
 MultiverseID=435271;
+};
+
+{Name="Revenge";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}{{W}}{{B}}";
+cmc=6;
+Colors={"White";"Black";};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Double your life total. Target opponent loses half their life, rounded up.]=];
+CardNumber="RNA228b";
+Rulings=1;
+MultiverseID=457372;
 };
 
 {Name="Revitalize";
@@ -16425,6 +27051,23 @@ Flavor=[=["A potion is no substitute for a skilled surgeon, but it will hold you
 —Torricks, battlefield medic]=];
 CardNumber="M1935";
 MultiverseID=447171;
+};
+
+{Name="Revival";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{WB}}{{WB}}";
+cmc=2;
+Colors={"White";"Black";};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Return target creature card with converted mana cost 3 or less from your graveyard to the battlefield.<br/>
+]=];
+CardNumber="RNA228a";
+Rulings=1;
+MultiverseID=457372;
 };
 
 {Name="Rhizome Lurcher";
@@ -16467,9 +27110,27 @@ Toughness="2";
 MultiverseID=447334;
 };
 
+{Name="Rhythm of the Wild";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{R}}{{G}}";
+cmc=3;
+Colors={"Red";"Green";};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Creature spells you control can't be countered.<br/>
+Nontoken creatures you control have riot. (They enter the battlefield with your choice of a +1/+1 counter or haste.)]=];
+Flavor=[=[Some view Domri's unlikely ascent as a sign of Ilharg the Raze-Boar's imminent return.]=];
+CardNumber="RNA201";
+Rulings=9;
+MultiverseID=457345;
+};
+
 {Name="Riddlemaster Sphinx";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{4}}{{U}}{{U}}";
 cmc=6;
 Colors={"Blue"};
@@ -16478,13 +27139,38 @@ Types={"Creature"};
 SubTypes={"Sphinx"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[Flying<br/>
+Text=[=[Flying (This creature can't be blocked except by creatures with flying or reach.)<br/>
 When Riddlemaster Sphinx enters the battlefield, you may return target creature an opponent controls to its owner's hand.]=];
 Flavor=[=["Safe passage requires only a simple answer to a simple question, traveler."]=];
-CardNumber="M19287";
+CardNumber="M20317";
 Power="5";
 Toughness="5";
-MultiverseID=450234;
+MultiverseID=469870;
+Sets={
+{Set="M19";Rarity="Rare";CardNumber="287";Flavor=[=["Safe passage requires only a simple answer to a simple question, traveler."]=];};
+};
+};
+
+{Name="Rienne, Angel of Rebirth";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{R}}{{G}}{{W}}";
+cmc=5;
+Colors={"White";"Red";"Green";};
+Type="Legendary Creature — Angel";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Angel"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Flying<br/>
+Other multicolored creatures you control get +1/+0.<br/>
+Whenever another multicolored creature you control dies, return it to its owner's hand at the beginning of the next end step.]=];
+CardNumber="M20281";
+Power="5";
+Toughness="4";
+Rulings=4;
+MultiverseID=470528;
 };
 
 {Name="Rigging Runner";
@@ -16563,6 +27249,25 @@ Rulings=2;
 MultiverseID=435359;
 };
 
+{Name="Ripscale Predator";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{R}}{{R}}";
+cmc=6;
+Colors={"Red"};
+Type="Creature — Dinosaur";
+Types={"Creature"};
+SubTypes={"Dinosaur"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Menace (This creature can't be blocked except by two or more creatures.)]=];
+Flavor=[=[Dinosaurs rarely understand the idea of boundaries between the wild and the urban landscape.]=];
+CardNumber="M20157";
+Power="6";
+Toughness="5";
+MultiverseID=466911;
+};
+
 {Name="Rise from the Grave";
 SetCode="M19";
 Allsets={"M19"};
@@ -16579,6 +27284,47 @@ Flavor=[=["Death is no excuse for disobedience."<br/>
 CardNumber="M19117";
 Rulings=3;
 MultiverseID=447253;
+};
+
+{Name="Risen Reef";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{G}}{{U}}";
+cmc=3;
+Colors={"Blue";"Green";};
+Type="Creature — Elemental";
+Types={"Creature"};
+SubTypes={"Elemental"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever Risen Reef or another Elemental enters the battlefield under your control, look at the top card of your library. If it's a land card, you may put it onto the battlefield tapped. If you don't put the card onto the battlefield, put it into your hand.]=];
+Flavor=[=["No, not ‘washed' ashore. It &lt;i&gt;walked&lt;/i&gt; ashore."<br/>
+—Shafring Hulm, beachcomber]=];
+CardNumber="M20217";
+Power="1";
+Toughness="1";
+Rulings=1;
+MultiverseID=466971;
+};
+
+{Name="Rising Populace";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Creature — Human";
+Types={"Creature"};
+SubTypes={"Human"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Whenever another creature or planeswalker you control dies, put a +1/+1 counter on Rising Populace.]=];
+Flavor=[=[Grief is a crucible where resolve is tempered.]=];
+CardNumber="WAR29";
+Power="2";
+Toughness="2";
+Rulings=2;
+MultiverseID=460956;
 };
 
 {Name="Risk Factor";
@@ -16745,6 +27491,48 @@ Rulings=1;
 MultiverseID=439705;
 };
 
+{Name="Rix Maadi Reveler";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Creature — Human Shaman";
+Types={"Creature"};
+SubTypes={"Human";"Shaman";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Spectacle {{2}}{{B}}{{R}} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)<br/>
+When Rix Maadi Reveler enters the battlefield, discard a card, then draw a card. If Rix Maadi Reveler's spectacle cost was paid, instead discard your hand, then draw three cards.]=];
+CardNumber="RNA109";
+Power="2";
+Toughness="2";
+Rulings=7;
+MultiverseID=457253;
+};
+
+{Name="Roalesk, Apex Hybrid";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{G}}{{G}}{{U}}";
+cmc=5;
+Colors={"Blue";"Green";};
+Type="Legendary Creature — Human Mutant";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Mutant";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Flying, trample<br/>
+When Roalesk, Apex Hybrid enters the battlefield, put two +1/+1 counters on another target creature you control.<br/>
+When Roalesk dies, proliferate, then proliferate again. (Choose any number of permanents and/or players, then give each another counter of each kind already there. Then do it again.)]=];
+CardNumber="WAR213";
+Power="4";
+Toughness="5";
+Rulings=8;
+MultiverseID=461140;
+};
+
 {Name="Roc Charger";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -16782,6 +27570,23 @@ CardNumber="M19243";
 MultiverseID=447380;
 };
 
+{Name="Role Reversal";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{U}}{{U}}{{R}}";
+cmc=3;
+Colors={"Blue";"Red";};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Exchange control of two target permanents that share a permanent type.]=];
+Flavor=[=[Uthlon the Wise scandalized sphinx society, hooting the answers to riddles as he rampaged through Tin Street. Grangle, on the other hand, sat for hours, deep in thought, largely ignored by fellow goblins.]=];
+CardNumber="WAR214";
+Rulings=6;
+MultiverseID=461141;
+};
+
 {Name="Rona, Disciple of Gix";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -16805,8 +27610,8 @@ MultiverseID=443091;
 };
 
 {Name="Root Snare";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="RNA";
+Allsets={"RNA";"M19";};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
@@ -16815,9 +27620,12 @@ Types={"Instant"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Prevent all combat damage that would be dealt this turn.]=];
-Flavor=[=[The only casualties were a snapped spear, a lost helmet, and some bruised egos.]=];
-CardNumber="M19199";
-MultiverseID=447335;
+Flavor=[=[The roots run deep under stone and street, with strength that needs but a whisper to awaken.]=];
+CardNumber="RNA137";
+MultiverseID=457281;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="199";Flavor=[=[The only casualties were a snapped spear, a lost helmet, and some bruised egos.]=];};
+};
 };
 
 {Name="Rootbound Crag";
@@ -16856,6 +27664,27 @@ Rulings=7;
 MultiverseID=452947;
 };
 
+{Name="Rotting Regisaur";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Creature — Zombie Dinosaur";
+Types={"Creature"};
+SubTypes={"Zombie";"Dinosaur";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[At the beginning of your upkeep, discard a card.]=];
+Flavor=[=["Now, &lt;i&gt;that's&lt;/i&gt; a zombie!"<br/>
+—Modriss of Zargoth Fen]=];
+CardNumber="M20111";
+Power="7";
+Toughness="6";
+Rulings=2;
+MultiverseID=466865;
+};
+
 {Name="Rowdy Crew";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -16874,6 +27703,43 @@ Power="3";
 Toughness="3";
 Rulings=4;
 MultiverseID=435313;
+};
+
+{Name="Rubble Reading";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Destroy target land. Scry 2.]=];
+Flavor=[=[Gruul oracles see omens in all forms of destruction: the entrails of a maaka's prey, the flight of vultures over a battlefield, the scattering of toppled stone.]=];
+CardNumber="RNA110";
+Rulings=1;
+MultiverseID=457254;
+};
+
+{Name="Rubble Slinger";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{RG}}";
+cmc=3;
+Colors={"Red";"Green";};
+Type="Creature — Human Warrior";
+Types={"Creature"};
+SubTypes={"Human";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Reach]=];
+Flavor=[=["Tear down the city, lie by lie. Then throw it back at the liars, stone by stone."<br/>
+—Domri Rade]=];
+CardNumber="RNA217";
+Power="2";
+Toughness="3";
+MultiverseID=457361;
 };
 
 {Name="Rubblebelt Boar";
@@ -16895,6 +27761,84 @@ Toughness="3";
 MultiverseID=452864;
 };
 
+{Name="Rubblebelt Recluse";
+SetCode="M20";
+Allsets={"M20";"RNA";};
+Manacost="{{4}}{{R}}";
+cmc=5;
+Colors={"Red"};
+Type="Creature — Ogre Berserker";
+Types={"Creature"};
+SubTypes={"Ogre";"Berserker";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Rubblebelt Recluse attacks each combat if able.]=];
+Flavor=[=[Joining a guild, even the Gruul, would mean giving up some of his independence. He'd rather smash what he wants to smash.]=];
+CardNumber="M20334";
+Power="6";
+Toughness="5";
+Rulings=1;
+MultiverseID=469887;
+Sets={
+{Set="RNA";Rarity="Common";CardNumber="111";Flavor=[=[Joining a guild, even the Gruul, would mean giving up some of his independence. He'd rather smash what he wants to smash.]=];};
+};
+};
+
+{Name="Rubblebelt Rioters";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{R}}{{G}}";
+cmc=3;
+Colors={"Red";"Green";};
+Type="Creature — Human Berserker";
+Types={"Creature"};
+SubTypes={"Human";"Berserker";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Haste<br/>
+Whenever Rubblebelt Rioters attacks, it gets +X/+0 until end of turn, where X is the greatest power among creatures you control.]=];
+Flavor=[=["If the system is broken, break the system."<br/>
+—Domri Rade]=];
+CardNumber="WAR215";
+Power="0";
+Toughness="4";
+Rulings=2;
+MultiverseID=461142;
+};
+
+{Name="Rubblebelt Runner";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{R}}{{G}}";
+cmc=3;
+Colors={"Red";"Green";};
+Type="Creature — Viashino Warrior";
+Types={"Creature"};
+SubTypes={"Viashino";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Rubblebelt Runner can't be blocked by creature tokens.]=];
+Flavor=[=[The sly, stealthy warriors of the Slizt Clan survive by hiding in high ground and ambushing their enemies. Other Gruul call them skulkers and cowards, but only from a safe distance.]=];
+CardNumber="RNA202";
+Power="3";
+Toughness="3";
+MultiverseID=457346;
+};
+
+{Name="Rugged Highlands";
+SetCode="M20";
+Allsets={"M20"};
+Type="Land";
+Types={"Land"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Rugged Highlands enters the battlefield tapped.<br/>
+When Rugged Highlands enters the battlefield, you gain 1 life.<br/>
+{{Tap}}: Add {{R}} or {{G}}.]=];
+CardNumber="M20250";
+MultiverseID=467004;
+};
+
 {Name="Ruin Raider";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -16912,6 +27856,43 @@ Power="3";
 Toughness="2";
 Rulings=6;
 MultiverseID=435272;
+};
+
+{Name="Rule of Law";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Each player can't cast more than one spell each turn.]=];
+Flavor=[=[The law is meant to ensure that people kill each other with only the utmost fairness.]=];
+CardNumber="M2035";
+Rulings=2;
+MultiverseID=466789;
+};
+
+{Name="Rumbling Ruin";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{5}}{{R}}";
+cmc=6;
+Colors={"Red"};
+Type="Creature — Elemental";
+Types={"Creature"};
+SubTypes={"Elemental"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Rumbling Ruin enters the battlefield, count the number of +1/+1 counters on creatures you control. Creatures your opponents control with power less than or equal to that number can't block this turn.]=];
+Flavor=[=[The Rubblebelt grows restless.]=];
+CardNumber="RNA112";
+Power="6";
+Toughness="6";
+Rulings=3;
+MultiverseID=457256;
 };
 
 {Name="Rummaging Goblin";
@@ -17051,7 +28032,7 @@ Types={"Creature"};
 SubTypes={"Orc";"Pirate";};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[{{2}}{{B}}, Sacrifice a creature: Create two colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."<br/>
+Text=[=[{{2}}{{B}}, Sacrifice a creature: Create two Treasure tokens. (They're artifacts with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")<br/>
 Sacrifice three Treasures: Draw a card.]=];
 Flavor=[=["This scum is barely worth the trouble."]=];
 CardNumber="XLN119";
@@ -17118,6 +28099,101 @@ Toughness="2";
 MultiverseID=442952;
 };
 
+{Name="Sage's Row Denizen";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Creature — Vedalken Wizard";
+Types={"Creature"};
+SubTypes={"Vedalken";"Wizard";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Whenever another blue creature enters the battlefield under your control, target player puts the top two cards of their library into their graveyard.]=];
+Flavor=[=["Forget what you have learned from other teachers. I bring you the truth."]=];
+CardNumber="M2073";
+Power="2";
+Toughness="3";
+MultiverseID=466827;
+};
+
+{Name="Sage's Row Savant";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Creature — Vedalken Wizard";
+Types={"Creature"};
+SubTypes={"Vedalken";"Wizard";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Sage's Row Savant enters the battlefield, scry 2.]=];
+Flavor=[=[The streets of Ravnica are full of former guild members now using their institutional skills for personal gain.]=];
+CardNumber="RNA49";
+Power="2";
+Toughness="1";
+MultiverseID=457193;
+};
+
+{Name="Sagittars' Volley";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Destroy target creature with flying. Sagittars' Volley deals 1 damage to each creature with flying your opponents control.]=];
+Flavor=[=["My bowstring hums in tune with the song of the Worldsoul."<br/>
+—Alcarus, Selesnya sagittar]=];
+CardNumber="RNA138";
+Rulings=2;
+MultiverseID=457282;
+};
+
+{Name="Saheeli, Sublime Artificer";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{UR}}{{UR}}";
+cmc=3;
+Colors={"Blue";"Red";};
+Type="Legendary Planeswalker — Saheeli";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Saheeli"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever you cast a noncreature spell, create a 1/1 colorless Servo artifact creature token.<br/>
+−2: Target artifact you control becomes a copy of another target artifact or creature you control until end of turn, except it's an artifact in addition to its other types.]=];
+CardNumber="WAR234";
+Loyalty="5";
+Rulings=8;
+MultiverseID=461161;
+};
+
+{Name="Saheeli's Silverwing";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}";
+cmc=4;
+Type="Artifact Creature — Drake";
+Types={"Artifact";"Creature";};
+SubTypes={"Drake"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+When Saheeli's Silverwing enters the battlefield, look at the top card of target opponent's library.]=];
+Flavor=[=["Track the source of those thopters," Saheeli told her creation. "And feel free to snack on as many as you want."]=];
+CardNumber="WAR243";
+Power="2";
+Toughness="3";
+MultiverseID=461170;
+};
+
 {Name="Sai, Master Thopterist";
 SetCode="M19";
 Allsets={"M19"};
@@ -17151,7 +28227,7 @@ Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[When Sailor of Means enters the battlefield, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
+Text=[=[When Sailor of Means enters the battlefield, create a Treasure token. (It's an artifact with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")]=];
 Flavor=[=[The rising tide of Orazca's plunder lifted all ships.]=];
 CardNumber="RIX49";
 Power="1";
@@ -17160,6 +28236,26 @@ MultiverseID=439706;
 Sets={
 {Set="XLN";Rarity="Common";CardNumber="73";Flavor=[=[In the Brazen Coalition, the wheels of business are greased with plunder.]=];};
 };
+};
+
+{Name="Salvager of Ruin";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}";
+cmc=3;
+Type="Artifact Creature — Construct";
+Types={"Artifact";"Creature";};
+SubTypes={"Construct"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Sacrifice Salvager of Ruin: Choose target permanent card in your graveyard that was put there from the battlefield this turn. Return it to your hand.]=];
+Flavor=[=["The next model should be able to achieve a rescue without self-destruction."<br/>
+—Sargis Haz, artificer]=];
+CardNumber="M20237";
+Power="2";
+Toughness="1";
+Rulings=4;
+MultiverseID=466991;
 };
 
 {Name="Salvager of Secrets";
@@ -17179,6 +28275,43 @@ CardNumber="M1970";
 Power="2";
 Toughness="2";
 MultiverseID=447206;
+};
+
+{Name="Samut, Tyrant Smasher";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{RG}}{{RG}}";
+cmc=4;
+Colors={"Red";"Green";};
+Type="Legendary Planeswalker — Samut";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Samut"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Creatures you control have haste.<br/>
+−1: Target creature gets +2/+1 and gains haste until end of turn. Scry 1.]=];
+CardNumber="WAR235";
+Loyalty="5";
+Rulings=1;
+MultiverseID=461162;
+};
+
+{Name="Samut's Sprint";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{R}}";
+cmc=1;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target creature gets +2/+1 and gains haste until end of turn. Scry 1.]=];
+Flavor=[=[Samut's war was intensely personal. Every hour she faced enemies she once loved as friends and horrors she once revered as gods.]=];
+CardNumber="WAR142";
+Rulings=1;
+MultiverseID=461069;
 };
 
 {Name="Sanctum of the Sun";
@@ -17276,6 +28409,25 @@ Rulings=1;
 MultiverseID=435185;
 };
 
+{Name="Sanitarium Skeleton";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{B}}";
+cmc=1;
+Colors={"Black"};
+Type="Creature — Skeleton";
+Types={"Creature"};
+SubTypes={"Skeleton"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{2}}{{B}}: Return Sanitarium Skeleton from your graveyard to your hand.]=];
+Flavor=[=[His mind was lost long before his flesh.]=];
+CardNumber="M20112";
+Power="1";
+Toughness="2";
+MultiverseID=466866;
+};
+
 {Name="Saproling Migration";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -17291,6 +28443,27 @@ Create two 1/1 green Saproling creature tokens. If this spell was kicked, create
 Flavor=[=[Thallids herd saprolings from place to place in search of detritus to feed them.]=];
 CardNumber="DOM178";
 MultiverseID=443066;
+};
+
+{Name="Sarkhan the Masterless";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{R}}{{R}}";
+cmc=5;
+Colors={"Red"};
+Type="Legendary Planeswalker — Sarkhan";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Sarkhan"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Whenever a creature attacks you or a planeswalker you control, each Dragon you control deals 1 damage to that creature.<br/>
++1: Until end of turn, each planeswalker you control becomes a 4/4 red Dragon creature and gains flying.<br/>
+−3: Create a 4/4 red Dragon creature token with flying.]=];
+CardNumber="WAR143";
+Loyalty="5";
+Rulings=2;
+MultiverseID=461070;
 };
 
 {Name="Sarkhan, Dragonsoul";
@@ -17333,6 +28506,22 @@ CardNumber="M19154";
 Loyalty="3";
 Rulings=2;
 MultiverseID=447290;
+};
+
+{Name="Sarkhan's Catharsis";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{R}}";
+cmc=5;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Sarkhan's Catharsis deals 5 damage to target player or planeswalker.]=];
+Flavor=[=["You once brought havoc to my home and ruined my mind. I'm here to return the favor, Bolas."]=];
+CardNumber="WAR144";
+MultiverseID=461071;
 };
 
 {Name="Sarkhan's Dragonfire";
@@ -17389,6 +28578,27 @@ Toughness="2";
 MultiverseID=450246;
 };
 
+{Name="Saruli Caretaker";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{G}}";
+cmc=1;
+Colors={"Green"};
+Type="Creature — Dryad";
+Types={"Creature"};
+SubTypes={"Dryad"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Defender<br/>
+{{Tap}}, Tap an untapped creature you control: Add one mana of any color.]=];
+Flavor=[=["I hold the seed of our new beginning."]=];
+CardNumber="RNA139";
+Power="0";
+Toughness="3";
+Rulings=1;
+MultiverseID=457283;
+};
+
 {Name="Satyr Enchanter";
 SetCode="M19";
 Allsets={"M19"};
@@ -17409,6 +28619,65 @@ Rulings=1;
 MultiverseID=447360;
 };
 
+{Name="Sauroform Hybrid";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Creature — Human Lizard Warrior";
+Types={"Creature"};
+SubTypes={"Human";"Lizard";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{4}}{{G}}{{G}}: Adapt 4. (If this creature has no +1/+1 counters on it, put four +1/+1 counters on it.)]=];
+Flavor=[=["Within each of us, the potential for great power waits to be released."<br/>
+—Zija, Simic mutationist]=];
+CardNumber="RNA140";
+Power="2";
+Toughness="2";
+Rulings=2;
+MultiverseID=457284;
+};
+
+{Name="Savage Gorger";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{B}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Creature — Vampire";
+Types={"Creature"};
+SubTypes={"Vampire"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+At the beginning of your end step, if an opponent lost life this turn, put a +1/+1 counter on Savage Gorger. (Damage causes loss of life.)]=];
+Flavor=[=["I have no patience for sipping blood from crystal goblets. I want to bite and tear."]=];
+CardNumber="M20291";
+Power="1";
+Toughness="1";
+Rulings=3;
+MultiverseID=469844;
+};
+
+{Name="Savage Smash";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{R}}{{G}}";
+cmc=3;
+Colors={"Red";"Green";};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target creature you control gets +2/+2 until end of turn. It fights target creature you don't control. (Each deals damage equal to its power to the other.)]=];
+Flavor=[=[A Gruul berserker is never unarmed.]=];
+CardNumber="RNA203";
+Rulings=3;
+MultiverseID=457347;
+};
+
 {Name="Savage Stomp";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -17424,6 +28693,46 @@ Put a +1/+1 counter on target creature you control. Then that creature fights ta
 CardNumber="XLN205";
 Rulings=3;
 MultiverseID=435361;
+};
+
+{Name="Savannah Sage";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Creature — Cat Cleric";
+Types={"Creature"};
+SubTypes={"Cat";"Cleric";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Savannah Sage enters the battlefield, you gain 2 life.]=];
+Flavor=[=["Now is not the time for your light to fade."]=];
+CardNumber="M20284";
+Power="2";
+Toughness="2";
+MultiverseID=469837;
+};
+
+{Name="Scampering Scorcher";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Creature — Elemental";
+Types={"Creature"};
+SubTypes={"Elemental"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Scampering Scorcher enters the battlefield, create two 1/1 red Elemental creature tokens. Elementals you control gain haste until end of turn. (They can attack and {{Tap}} this turn.)]=];
+Flavor=[=["Keep your flammables out of reach."<br/>
+—Kerin, watch sergeant]=];
+CardNumber="M20158";
+Power="1";
+Toughness="1";
+Rulings=1;
+MultiverseID=466912;
 };
 
 {Name="Scapeshift";
@@ -17444,6 +28753,23 @@ Rulings=1;
 MultiverseID=447337;
 };
 
+{Name="Scheming Symmetry";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{B}}";
+cmc=1;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Choose two target players. Each of them searches their library for a card, then shuffles their library and puts that card on top of it.]=];
+Flavor=[=["One for you, one for me. What could be more fair?"<br/>
+—Kethis, the Hidden Hand]=];
+CardNumber="M20113";
+MultiverseID=466867;
+};
+
 {Name="Scholar of Stars";
 SetCode="M19";
 Allsets={"M19"};
@@ -17461,6 +28787,152 @@ CardNumber="M1971";
 Power="3";
 Toughness="2";
 MultiverseID=447207;
+};
+
+{Name="Scholar of the Ages";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{5}}{{U}}{{U}}";
+cmc=7;
+Colors={"Blue"};
+Type="Creature — Human Wizard";
+Types={"Creature"};
+SubTypes={"Human";"Wizard";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Scholar of the Ages enters the battlefield, return up to two target instant and/or sorcery cards from your graveyard to your hand.]=];
+Flavor=[=["I study the past to find hope for the future."]=];
+CardNumber="M2074";
+Power="3";
+Toughness="3";
+Rulings=1;
+MultiverseID=466828;
+};
+
+{Name="Scorch Spitter";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{R}}";
+cmc=1;
+Colors={"Red"};
+Type="Creature — Elemental Lizard";
+Types={"Creature"};
+SubTypes={"Elemental";"Lizard";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Whenever Scorch Spitter attacks, it deals 1 damage to the player or planeswalker it's attacking.]=];
+Flavor=[=["Yes, she can be a nuisance. But at least my tea never gets cold."<br/>
+—Marlan Farthwald, innkeeper]=];
+CardNumber="M20159";
+Power="1";
+Toughness="1";
+Rulings=2;
+MultiverseID=466913;
+};
+
+{Name="Scorchmark";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Scorchmark deals 2 damage to target creature. If that creature would die this turn, exile it instead.]=];
+Flavor=[=["Have you seen your face? Trust me, this will be an improvement."]=];
+CardNumber="RNA113";
+Rulings=1;
+MultiverseID=457257;
+};
+
+{Name="Scoured Barrens";
+SetCode="M20";
+Allsets={"M20"};
+Type="Land";
+Types={"Land"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Scoured Barrens enters the battlefield tapped.<br/>
+When Scoured Barrens enters the battlefield, you gain 1 life.<br/>
+{{Tap}}: Add {{W}} or {{B}}.]=];
+CardNumber="M20251";
+MultiverseID=467005;
+};
+
+{Name="Scrabbling Claws";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}";
+cmc=1;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{Tap}}: Target player exiles a card from their graveyard.<br/>
+{{1}}, Sacrifice Scrabbling Claws: Exile target card from a graveyard. Draw a card.]=];
+Flavor=[=[Feed it steel. Feed it gold. Feed it bone. In the belly of the furnace, the flames know no difference.]=];
+CardNumber="RNA238";
+MultiverseID=457382;
+};
+
+{Name="Screaming Shield";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}";
+cmc=1;
+Type="Artifact — Equipment";
+Types={"Artifact"};
+SubTypes={"Equipment"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Equipped creature gets +0/+3 and has "{{2}}, {{Tap}}: Target player puts the top three cards of their library into their graveyard."<br/>
+Equip {{3}} ({{3}}: Attach to target creature you control. Equip only as a sorcery.)]=];
+Flavor=[=[Shhh . . .]=];
+CardNumber="RNA239";
+MultiverseID=457383;
+};
+
+{Name="Scuttlegator";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}{{GU}}{{GU}}";
+cmc=6;
+Colors={"Blue";"Green";};
+Type="Creature — Crab Turtle Crocodile";
+Types={"Creature"};
+SubTypes={"Crab";"Turtle";"Crocodile";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Defender<br/>
+{{6}}{{GU}}{{GU}}: Adapt 3. (If this creature has no +1/+1 counters on it, put three +1/+1 counters on it.)<br/>
+As long as Scuttlegator has a +1/+1 counter on it, it can attack as though it didn't have defender.]=];
+CardNumber="RNA218";
+Power="6";
+Toughness="6";
+Rulings=2;
+MultiverseID=457362;
+};
+
+{Name="Scuttlemutt";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}";
+cmc=3;
+Type="Artifact Creature — Scarecrow";
+Types={"Artifact";"Creature";};
+SubTypes={"Scarecrow"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{Tap}}: Add one mana of any color.<br/>
+{{Tap}}: Target creature becomes the color or colors of your choice until end of turn.]=];
+Flavor=[=[With five lenses on its "head," it sees the world in a range of colors beyond ordinary perception.]=];
+CardNumber="M20238";
+Power="2";
+Toughness="2";
+Rulings=3;
+MultiverseID=466992;
 };
 
 {Name="Sea Legs";
@@ -17538,6 +29010,24 @@ Rulings=4;
 MultiverseID=435226;
 };
 
+{Name="Season of Growth";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever a creature enters the battlefield under your control, scry 1. (Look at the top card of your library. You may put that card on the bottom of your library.)<br/>
+Whenever you cast a spell that targets a creature you control, draw a card.]=];
+Flavor=[=["Awake, and lift your faces to the sun."]=];
+CardNumber="M20191";
+Rulings=3;
+MultiverseID=466945;
+};
+
 {Name="Secrets of the Golden City";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -17554,6 +29044,29 @@ Flavor=[=[Stolen knowledge can never be stolen back.]=];
 CardNumber="RIX52";
 Rulings=5;
 MultiverseID=439709;
+};
+
+{Name="Sedge Scorpion";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{G}}";
+cmc=1;
+Colors={"Green"};
+Type="Creature — Scorpion";
+Types={"Creature"};
+SubTypes={"Scorpion"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Deathtouch (Any amount of damage this deals to a creature is enough to destroy it.)]=];
+Flavor=[=[Thakolides the Mighty<br/>
+Slayer of minotaurs<br/>
+Vanquisher of giants<br/>
+Killed by a scorpion<br/>
+—Inscription on an Akroan grave]=];
+CardNumber="M20192";
+Power="1";
+Toughness="1";
+MultiverseID=466946;
 };
 
 {Name="See Red";
@@ -17643,6 +29156,7 @@ Text=[=[Selesnya Guildgate enters the battlefield tapped.<br/>
 Flavor=[=["Everyone who crosses that threshold is our most cherished friend. Everyone who crosses it again is our bitterest enemy."<br/>
 —Trostani]=];
 CardNumber="GRN255";
+Rulings=2;
 MultiverseID=453005;
 };
 
@@ -17661,6 +29175,68 @@ Flavor=[=["Think of the locket as a seed you bear, spreading life from Vitu-Ghaz
 —Heruj, Selesnya hierophant]=];
 CardNumber="GRN240";
 MultiverseID=452990;
+};
+
+{Name="Senate Courier";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Creature — Bird";
+Types={"Creature"};
+SubTypes={"Bird"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+{{1}}{{W}}: Senate Courier gains vigilance until end of turn.]=];
+Flavor=[=["This Dovin Baan came from nowhere. Watch him. Read his letters. He is more than he appears."<br/>
+—Lazav]=];
+CardNumber="RNA50";
+Power="1";
+Toughness="4";
+Rulings=1;
+MultiverseID=457194;
+};
+
+{Name="Senate Griffin";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{WU}}{{WU}}";
+cmc=4;
+Colors={"White";"Blue";};
+Type="Creature — Griffin";
+Types={"Creature"};
+SubTypes={"Griffin"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+When Senate Griffin enters the battlefield, scry 1.]=];
+Flavor=[=["The Senate griffins overhead used to make people think of order and safety. Not anymore."<br/>
+—Lavinia]=];
+CardNumber="RNA219";
+Power="3";
+Toughness="2";
+MultiverseID=457363;
+};
+
+{Name="Senate Guildmage";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{W}}{{U}}";
+cmc=2;
+Colors={"White";"Blue";};
+Type="Creature — Human Wizard";
+Types={"Creature"};
+SubTypes={"Human";"Wizard";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{W}}, {{Tap}}: You gain 2 life.<br/>
+{{U}}, {{Tap}}: Draw a card, then discard a card.]=];
+CardNumber="RNA204";
+Power="2";
+Toughness="2";
+MultiverseID=457348;
 };
 
 {Name="Sentinel of the Pearl Trident";
@@ -17696,6 +29272,70 @@ Text=[=[When Sentinel Totem enters the battlefield, scry 1. (Look at the top car
 {{Tap}}, Exile Sentinel Totem: Exile all cards from all graveyards.]=];
 CardNumber="XLN245";
 MultiverseID=435404;
+};
+
+{Name="Sentinel's Mark";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Enchantment — Aura";
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flash<br/>
+Enchant creature<br/>
+Enchanted creature gets +1/+2 and has vigilance.<br/>
+Addendum — When Sentinel's Mark enters the battlefield, if you cast it during your main phase, enchanted creature gains lifelink until end of turn.]=];
+CardNumber="RNA20";
+Rulings=3;
+MultiverseID=457164;
+};
+
+{Name="Sephara, Sky's Blade";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{W}}{{W}}{{W}}";
+cmc=7;
+Colors={"White"};
+Type="Legendary Creature — Angel";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Angel"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[You may pay {{W}} and tap four untapped creatures you control with flying rather than pay this spell's mana cost.<br/>
+Flying, lifelink<br/>
+Other creatures you control with flying have indestructible. (Damage and effects that say "destroy" don't destroy them.)]=];
+CardNumber="M2036";
+Power="7";
+Toughness="7";
+Rulings=3;
+MultiverseID=466790;
+};
+
+{Name="Seraph of the Scales";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{W}}{{B}}";
+cmc=4;
+Colors={"White";"Black";};
+Type="Creature — Angel";
+Types={"Creature"};
+SubTypes={"Angel"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Flying<br/>
+{{W}}: Seraph of the Scales gains vigilance until end of turn.<br/>
+{{B}}: Seraph of the Scales gains deathtouch until end of turn.<br/>
+Afterlife 2 (When this creature dies, create two 1/1 white and black Spirit creature tokens with flying.)]=];
+CardNumber="RNA205";
+Power="4";
+Toughness="3";
+Rulings=2;
+MultiverseID=457349;
 };
 
 {Name="Sergeant-at-Arms";
@@ -17759,8 +29399,8 @@ MultiverseID=442922;
 };
 
 {Name="Serra's Guardian";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{4}}{{W}}{{W}}";
 cmc=6;
 Colors={"White"};
@@ -17769,14 +29409,18 @@ Types={"Creature"};
 SubTypes={"Angel"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[Flying<br/>
+Text=[=[Flying (This creature can't be blocked except by creatures with flying or reach.)<br/>
 Vigilance (Attacking doesn't cause this creature to tap.)<br/>
 Other creatures you control have vigilance.]=];
 Flavor=[=[She watches over the city just as Serra watches over all.]=];
-CardNumber="M19284";
+CardNumber="M20310";
 Power="5";
 Toughness="5";
-MultiverseID=450231;
+Rulings=1;
+MultiverseID=469863;
+Sets={
+{Set="M19";Rarity="Rare";CardNumber="284";Flavor=[=[She watches over the city just as Serra watches over all.]=];};
+};
 };
 
 {Name="Settle the Score";
@@ -17966,6 +29610,43 @@ Rulings=2;
 MultiverseID=435362;
 };
 
+{Name="Shared Summons";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{G}}{{G}}";
+cmc=5;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Search your library for up to two creature cards with different names, reveal them, put them into your hand, then shuffle your library.]=];
+Flavor=[=["In times of need, the forest creates its own protectors."<br/>
+—Vivien Reid]=];
+CardNumber="M20193";
+MultiverseID=466947;
+};
+
+{Name="Sharktocrab";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{G}}{{U}}";
+cmc=4;
+Colors={"Blue";"Green";};
+Type="Creature — Fish Octopus Crab";
+Types={"Creature"};
+SubTypes={"Fish";"Octopus";"Crab";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{2}}{{G}}{{U}}: Adapt 1. (If this creature has no +1/+1 counters on it, put a +1/+1 counter on it.)<br/>
+Whenever one or more +1/+1 counters are put on Sharktocrab, tap target creature an opponent controls. That creature doesn't untap during its controller's next untap step.]=];
+CardNumber="RNA206";
+Power="4";
+Toughness="4";
+Rulings=4;
+MultiverseID=457350;
+};
+
 {Name="Shatter";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -18037,6 +29718,44 @@ Rulings=3;
 MultiverseID=443116;
 };
 
+{Name="Shifting Ceratops";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{G}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Creature — Dinosaur";
+Types={"Creature"};
+SubTypes={"Dinosaur"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[This spell can't be countered.<br/>
+Protection from blue (This creature can't be blocked, targeted, dealt damage, enchanted, or equipped by anything blue.)<br/>
+{{G}}: Shifting Ceratops gains your choice of reach, trample, or haste until end of turn.]=];
+CardNumber="M20194";
+Power="5";
+Toughness="4";
+Rulings=2;
+MultiverseID=466948;
+};
+
+{Name="Shimmer of Possibility";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Look at the top four cards of your library. Put one of them into your hand and the rest on the bottom of your library in a random order.]=];
+Flavor=[=["There's something peculiar about the rain today."<br/>
+—Janoc, Tin Street tinker]=];
+CardNumber="RNA51";
+MultiverseID=457195;
+};
+
 {Name="Shining Aerosaur";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -18078,8 +29797,8 @@ MultiverseID=435229;
 };
 
 {Name="Shivan Dragon";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{4}}{{R}}{{R}}";
 cmc=6;
 Colors={"Red"};
@@ -18090,11 +29809,15 @@ Rarity="Rare";
 Rarities={"Rare"};
 Text=[=[Flying (This creature can't be blocked except by creatures with flying or reach.)<br/>
 {{R}}: Shivan Dragon gets +1/+0 until end of turn.]=];
-Flavor=[=[The undisputed master of the mountains of Shiv.]=];
-CardNumber="M19300";
+Flavor=[=["It's just playing with us, Marsden."<br/>
+—Dafynne the Radiant, last words]=];
+CardNumber="M20335";
 Power="5";
 Toughness="5";
-MultiverseID=450247;
+MultiverseID=469888;
+Sets={
+{Set="M19";Rarity="Rare";CardNumber="300";Flavor=[=[The undisputed master of the mountains of Shiv.]=];};
+};
 };
 
 {Name="Shivan Fire";
@@ -18115,8 +29838,8 @@ MultiverseID=443030;
 };
 
 {Name="Shock";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{R}}";
 cmc=1;
 Colors={"Red"};
@@ -18125,9 +29848,12 @@ Types={"Instant"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Shock deals 2 damage to any target.]=];
-Flavor=[=[The tools of invention became the weapons of revolution.]=];
-CardNumber="M19156";
-MultiverseID=447292;
+Flavor=[=["I love this thing! It's my best invention since the boulderfist gauntlet!"]=];
+CardNumber="M20160";
+MultiverseID=466914;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="156";Flavor=[=[The tools of invention became the weapons of revolution.]=];};
+};
 };
 
 {Name="Shore Keeper";
@@ -18165,6 +29891,63 @@ Flavor=[=["Sometimes the only difference between a martyr and a hero is a sword.
 —Captain Sisay, Memoirs]=];
 CardNumber="DOM229";
 MultiverseID=443117;
+};
+
+{Name="Show of Valor";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target creature gets +2/+4 until end of turn.]=];
+Flavor=[=["As the knight struggled to stand, his squire took up his blade. The foe advanced not a single step."<br/>
+—Krinnea, &lt;i&gt;Siege of the Bone Spire&lt;/i&gt;]=];
+CardNumber="M20311";
+MultiverseID=469864;
+};
+
+{Name="Shriekdiver";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Creature — Zombie Bird Warrior";
+Types={"Creature"};
+SubTypes={"Zombie";"Bird";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+{{1}}: Shriekdiver gains haste until end of turn.]=];
+Flavor=[=["It's faster than we are. Draw its attention while the Ledev take aim!"<br/>
+—Shauntal, Boros legionnaire]=];
+CardNumber="WAR103";
+Power="2";
+Toughness="1";
+MultiverseID=461030;
+};
+
+{Name="Siege Mastodon";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{W}}";
+cmc=5;
+Colors={"White"};
+Type="Creature — Elephant";
+Types={"Creature"};
+SubTypes={"Elephant"};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=["The walls of the wicked will fall before us. Ready the siege engines. We proceed to war!"<br/>
+—General Avitora]=];
+CardNumber="M20312";
+Power="3";
+Toughness="5";
+MultiverseID=469865;
 };
 
 {Name="Siege Wurm";
@@ -18316,6 +30099,64 @@ Rulings=2;
 MultiverseID=439846;
 };
 
+{Name="Silent Submersible";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{U}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Artifact — Vehicle";
+Types={"Artifact"};
+SubTypes={"Vehicle"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Whenever Silent Submersible deals combat damage to a player or planeswalker, draw a card.<br/>
+Crew 2 (Tap any number of creatures you control with total power 2 or more: This Vehicle becomes an artifact creature until end of turn.)]=];
+CardNumber="WAR66";
+Power="2";
+Toughness="3";
+MultiverseID=460993;
+};
+
+{Name="Silhana Wayfinder";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Creature — Elf Scout";
+Types={"Creature"};
+SubTypes={"Elf";"Scout";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Silhana Wayfinder enters the battlefield, look at the top four cards of your library. You may reveal a creature or land card from among them and put it on top of your library. Put the rest on the bottom of your library in a random order.]=];
+Flavor=[=["Stay close! It's just a little farther."]=];
+CardNumber="RNA141";
+Power="2";
+Toughness="1";
+MultiverseID=457285;
+};
+
+{Name="Silverback Shaman";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{G}}{{G}}";
+cmc=5;
+Colors={"Green"};
+Type="Creature — Ape Shaman";
+Types={"Creature"};
+SubTypes={"Ape";"Shaman";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)<br/>
+When Silverback Shaman dies, draw a card.]=];
+Flavor=[=[The apes of Yavimaya draw strength from the spirits of their ancestors.]=];
+CardNumber="M20195";
+Power="5";
+Toughness="4";
+MultiverseID=466949;
+};
+
 {Name="Silverbeak Griffin";
 SetCode="M19";
 Allsets={"M19"};
@@ -18374,6 +30215,80 @@ CardNumber="RIX53";
 Power="2";
 Toughness="1";
 MultiverseID=439710;
+};
+
+{Name="Simic Ascendancy";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{G}}{{U}}";
+cmc=2;
+Colors={"Blue";"Green";};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[{{1}}{{G}}{{U}}: Put a +1/+1 counter on target creature you control.<br/>
+Whenever one or more +1/+1 counters are put on a creature you control, put that many growth counters on Simic Ascendancy.<br/>
+At the beginning of your upkeep, if Simic Ascendancy has twenty or more growth counters on it, you win the game.]=];
+CardNumber="RNA207";
+Rulings=4;
+MultiverseID=457351;
+};
+
+{Name="Simic Guildgate";
+SetCode="WAR";
+Allsets={"WAR";"RNA";};
+Type="Land — Gate";
+Types={"Land"};
+SubTypes={"Gate"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Simic Guildgate enters the battlefield tapped.<br/>
+{{Tap}}: Add {{G}} or {{U}}.]=];
+Flavor=[=["Mystery is beauty. Within the unknown we plumb revelation."<br/>
+—Vannifar]=];
+CardNumber="WAR274";
+Rulings=2;
+MultiverseID=463841;
+Sets={
+{Set="RNA";Rarity="Common";CardNumber="257";Flavor=[=["Mystery is beauty. Within the unknown we plumb revelation."
+—Vannifar]=];};
+};
+};
+
+{Name="Simic Locket";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}";
+cmc=3;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{Tap}}: Add {{G}} or {{U}}.<br/>
+{{GU}}{{GU}}{{GU}}{{GU}}, {{Tap}}, Sacrifice Simic Locket: Draw two cards.]=];
+Flavor=[=["Like our guild itself, this locket can stand for many things. You must discern what it means for you."<br/>
+—Vannifar]=];
+CardNumber="RNA240";
+MultiverseID=457384;
+};
+
+{Name="Single Combat";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{W}}{{W}}";
+cmc=5;
+Colors={"White"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Each player chooses a creature or planeswalker they control, then sacrifices the rest. Players can't cast creature or planeswalker spells until the end of your next turn.]=];
+Flavor=[=[Not even a threat to the entire Multiverse<br/>
+could persuade them to put aside their feud.]=];
+CardNumber="WAR30";
+Rulings=2;
+MultiverseID=460957;
 };
 
 {Name="Sinister Sabotage";
@@ -18494,9 +30409,52 @@ Toughness="3";
 MultiverseID=450250;
 };
 
+{Name="Skarrgan Hellkite";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{R}}{{R}}";
+cmc=5;
+Colors={"Red"};
+Type="Creature — Dragon";
+Types={"Creature"};
+SubTypes={"Dragon"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Riot (This creature enters the battlefield with your choice of a +1/+1 counter or haste.)<br/>
+Flying<br/>
+{{3}}{{R}}: Skarrgan Hellkite deals 2 damage divided as you choose among one or two targets. Activate this ability only if Skarrgan Hellkite has a +1/+1 counter on it.]=];
+CardNumber="RNA114";
+Power="4";
+Toughness="4";
+Rulings=6;
+MultiverseID=457258;
+};
+
+{Name="Skatewing Spy";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Creature — Vedalken Rogue Mutant";
+Types={"Creature"};
+SubTypes={"Vedalken";"Rogue";"Mutant";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{5}}{{U}}: Adapt 2. (If this creature has no +1/+1 counters on it, put two +1/+1 counters on it.)<br/>
+Each creature you control with a +1/+1 counter on it has flying.]=];
+Flavor=[=["A better Ravnica begins with a better Simic."<br/>
+—Vannifar]=];
+CardNumber="RNA52";
+Power="2";
+Toughness="3";
+Rulings=2;
+MultiverseID=457196;
+};
+
 {Name="Skeleton Archer";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{3}}{{B}}";
 cmc=4;
 Colors={"Black"};
@@ -18506,12 +30464,34 @@ SubTypes={"Skeleton";"Archer";};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[When Skeleton Archer enters the battlefield, it deals 1 damage to any target.]=];
-Flavor=[=["When it comes to killing with precision, a soul is but a hindrance."<br/>
-—Isareth the Awakener]=];
-CardNumber="M19118";
+Flavor=[=["Soul, flesh, even eyes—none of these are strictly necessary for deadly precision."<br/>
+—Modriss of Zargoth Fen]=];
+CardNumber="M20324";
 Power="3";
 Toughness="3";
-MultiverseID=447254;
+MultiverseID=469877;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="118";Flavor=[=["When it comes to killing with precision, a soul is but a hindrance."
+—Isareth the Awakener]=];};
+};
+};
+
+{Name="Skewer the Critics";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Spectacle {{R}} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)<br/>
+Skewer the Critics deals 3 damage to any target.]=];
+Flavor=[=[Going to a Rakdos show is dangerous. Trying to leave early can be fatal.]=];
+CardNumber="RNA115";
+Rulings=5;
+MultiverseID=457259;
 };
 
 {Name="Skilled Animator";
@@ -18550,6 +30530,27 @@ CardNumber="DOM144";
 Power="1";
 Toughness="1";
 MultiverseID=443032;
+};
+
+{Name="Skitter Eel";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Creature — Fish Crab";
+Types={"Creature"};
+SubTypes={"Fish";"Crab";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{2}}{{U}}: Adapt 2. (If this creature has no +1/+1 counters on it, put two +1/+1 counters on it.)]=];
+Flavor=[=["Life has no mistakes, only experiments."<br/>
+—Yolov, Simic bioengineer]=];
+CardNumber="RNA53";
+Power="3";
+Toughness="3";
+Rulings=2;
+MultiverseID=457197;
 };
 
 {Name="Skittering Heartstopper";
@@ -18648,6 +30649,47 @@ Toughness="2";
 MultiverseID=435385;
 };
 
+{Name="Sky Tether";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{W}}";
+cmc=1;
+Colors={"White"};
+Type="Enchantment — Aura";
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Enchant creature<br/>
+Enchanted creature has defender and loses flying.]=];
+Flavor=[=["If you can't control your mount, I will control it for you."<br/>
+—Mirela, Azorius hussar]=];
+CardNumber="RNA21";
+Rulings=2;
+MultiverseID=457165;
+};
+
+{Name="Sky Theater Strix";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Creature — Bird";
+Types={"Creature"};
+SubTypes={"Bird"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+Whenever you cast a noncreature spell, Sky Theater Strix gets +1/+0 until end of turn.]=];
+Flavor=[=[Courier owls joined the fray, attacking the Dreadhorde with a viciousness usually reserved for mail thieves.]=];
+CardNumber="WAR67";
+Power="1";
+Toughness="2";
+Rulings=1;
+MultiverseID=460994;
+};
+
 {Name="Skyblade of the Legion";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -18684,6 +30726,27 @@ CardNumber="GRN198";
 Power="2";
 Toughness="2";
 MultiverseID=452948;
+};
+
+{Name="Skyknight Vanguard";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{R}}{{W}}";
+cmc=2;
+Colors={"White";"Red";};
+Type="Creature — Human Knight";
+Types={"Creature"};
+SubTypes={"Human";"Knight";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying<br/>
+Whenever Skyknight Vanguard attacks, create a 1/1 white Soldier creature token that's tapped and attacking.]=];
+Flavor=[=["Jump! NOW!"]=];
+CardNumber="M20218";
+Power="1";
+Toughness="2";
+Rulings=2;
+MultiverseID=466972;
 };
 
 {Name="Skyline Scout";
@@ -18860,6 +30923,26 @@ Rulings=1;
 MultiverseID=447210;
 };
 
+{Name="Sleep Paralysis";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Enchantment — Aura";
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Enchant creature<br/>
+When Sleep Paralysis enters the battlefield, tap enchanted creature.<br/>
+Enchanted creature doesn't untap during its controller's untap step.]=];
+Flavor=[=[Sleep doesn't always mean rest.]=];
+CardNumber="M2075";
+Rulings=1;
+MultiverseID=466829;
+};
+
 {Name="Slice in Twain";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -18876,6 +30959,26 @@ Flavor=[=[The magic of the River Heralds is so great that even a single shaman c
 CardNumber="XLN207";
 Rulings=1;
 MultiverseID=435363;
+};
+
+{Name="Slimebind";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Enchantment — Aura";
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flash<br/>
+Enchant creature<br/>
+Enchanted creature gets -4/-0.]=];
+Flavor=[=["Relax. It's quite harmless. And it will dissolve completely in a month or two."<br/>
+—Navona, Simic field tester]=];
+CardNumber="RNA54";
+MultiverseID=457198;
 };
 
 {Name="Slimefoot, the Stowaway";
@@ -18957,6 +31060,26 @@ CardNumber="M19158";
 MultiverseID=447294;
 };
 
+{Name="Smelt-Ward Ignus";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Creature — Elemental";
+Types={"Creature"};
+SubTypes={"Elemental"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{2}}{{R}}, Sacrifice Smelt-Ward Ignus: Gain control of target creature with power 3 or less until end of turn. Untap that creature. It gains haste until end of turn. Activate this ability only any time you could cast a sorcery.]=];
+Flavor=[=["Come in, yes? Is warm!"]=];
+CardNumber="RNA116";
+Power="2";
+Toughness="1";
+Rulings=2;
+MultiverseID=457260;
+};
+
 {Name="Smelt-Ward Minotaur";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -18978,9 +31101,27 @@ Rulings=2;
 MultiverseID=452866;
 };
 
+{Name="Smothering Tithe";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Whenever an opponent draws a card, that player may pay {{2}}. If the player doesn't, you create a Treasure token. (It's an artifact with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")]=];
+Flavor=[=["I await your donation."<br/>
+—Dasha, Orzhov priest]=];
+CardNumber="RNA22";
+Rulings=1;
+MultiverseID=457166;
+};
+
 {Name="Snapping Drake";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{3}}{{U}}";
 cmc=4;
 Colors={"Blue"};
@@ -18989,12 +31130,15 @@ Types={"Creature"};
 SubTypes={"Drake"};
 Rarity="Common";
 Rarities={"Common"};
-Text=[=[Flying]=];
+Text=[=[Flying (This creature can't be blocked except by creatures with flying or reach.)]=];
 Flavor=[=[Foul-tempered, poorly trained, and mule-stubborn, the drake is the perfect test of the master's will.]=];
-CardNumber="M1975";
+CardNumber="M20318";
 Power="3";
 Toughness="2";
-MultiverseID=447211;
+MultiverseID=469871;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="75";Flavor=[=[Foul-tempered, poorly trained, and mule-stubborn, the drake is the perfect test of the master's will.]=];};
+};
 };
 
 {Name="Snapping Sailback";
@@ -19018,6 +31162,27 @@ Rulings=2;
 MultiverseID=435364;
 };
 
+{Name="Snarespinner";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Creature — Spider";
+Types={"Creature"};
+SubTypes={"Spider"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Reach<br/>
+Whenever Snarespinner blocks a creature with flying, Snarespinner gets +2/+0 until end of turn.]=];
+Flavor=[=["Let's lure the drakes to the webs over the Samok Stand. Keep the spiders content."<br/>
+—Aurelia]=];
+CardNumber="WAR176";
+Power="1";
+Toughness="3";
+MultiverseID=461103;
+};
+
 {Name="Snubhorn Sentry";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -19037,6 +31202,23 @@ Power="0";
 Toughness="3";
 Rulings=7;
 MultiverseID=439680;
+};
+
+{Name="Solar Blaze";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{R}}{{W}}";
+cmc=4;
+Colors={"White";"Red";};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Each creature deals damage to itself equal to its power.]=];
+Flavor=[=["The primary weapon is nothing more than light. It shows them what they are, and they burn of their own accord."<br/>
+—Aurelia]=];
+CardNumber="WAR216";
+MultiverseID=461143;
 };
 
 {Name="Song of Freyalise";
@@ -19076,6 +31258,25 @@ Rulings=6;
 MultiverseID=452949;
 };
 
+{Name="Sorcerer of the Fang";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Creature — Human Wizard";
+Types={"Creature"};
+SubTypes={"Human";"Wizard";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{5}}{{B}}, {{Tap}}: Sorcerer of the Fang deals 2 damage to target opponent or planeswalker.]=];
+Flavor=[=["The Great Serpent slumbers now, but all warmbloods will grovel in the dirt at its awakening!"]=];
+CardNumber="M20114";
+Power="1";
+Toughness="3";
+MultiverseID=466868;
+};
+
 {Name="Sorcerer's Wand";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -19109,6 +31310,128 @@ Rulings=5;
 MultiverseID=435407;
 };
 
+{Name="Sorin, Imperious Bloodlord";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Legendary Planeswalker — Sorin";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Sorin"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[+1: Target creature you control gains deathtouch and lifelink until end of turn. If it's a Vampire, put a +1/+1 counter on it.<br/>
++1: You may sacrifice a Vampire. When you do, Sorin, Imperious Bloodlord deals 3 damage to any target and you gain 3 life.<br/>
+−3: You may put a Vampire creature card from your hand onto the battlefield.]=];
+CardNumber="M20115";
+Loyalty="4";
+Rulings=3;
+MultiverseID=466869;
+};
+
+{Name="Sorin, Vampire Lord";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{B}}{{B}}";
+cmc=6;
+Colors={"Black"};
+Type="Legendary Planeswalker — Sorin";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Sorin"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[+1: Up to one target creature gets +2/+0 until end of turn.<br/>
+−2: Sorin, Vampire Lord deals 4 damage to any target. You gain 4 life.<br/>
+−8: Until end of turn, each Vampire you control gains "{{Tap}}: Gain control of target creature."]=];
+CardNumber="M20290";
+Loyalty="4";
+Rulings=2;
+MultiverseID=469843;
+};
+
+{Name="Sorin, Vengeful Bloodlord";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{W}}{{B}}";
+cmc=4;
+Colors={"White";"Black";};
+Type="Legendary Planeswalker — Sorin";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Sorin"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[As long as it's your turn, creatures and planeswalkers you control have lifelink.<br/>
++2: Sorin, Vengeful Bloodlord deals 1 damage to target player or planeswalker.<br/>
+−X: Return target creature card with converted mana cost X from your graveyard to the battlefield. That creature is a Vampire in addition to its other types.]=];
+CardNumber="WAR217";
+Loyalty="4";
+Rulings=3;
+MultiverseID=461144;
+};
+
+{Name="Sorin's Guide";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{B}}{{B}}";
+cmc=5;
+Colors={"Black"};
+Type="Creature — Vampire";
+Types={"Creature"};
+SubTypes={"Vampire"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[When Sorin's Guide enters the battlefield, you may search your library and/or graveyard for a card named Sorin, Vampire Lord, reveal it, and put it into your hand. If you search your library this way, shuffle it.]=];
+Flavor=[=["My people serve the dragon Kolaghan, but I give my blood for a greater lord."]=];
+CardNumber="M20292";
+Power="4";
+Toughness="2";
+MultiverseID=469845;
+};
+
+{Name="Sorin's Thirst";
+SetCode="M20";
+Allsets={"M20";"WAR";};
+Manacost="{{B}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Sorin's Thirst deals 2 damage to target creature and you gain 2 life.]=];
+Flavor=[=["All your steel won't protect you if your will is weak."]=];
+CardNumber="M20325";
+Rulings=1;
+MultiverseID=469878;
+Sets={
+{Set="WAR";Rarity="Common";CardNumber="104";Flavor=[=["I see you're out of the wall."
+—Nahiri]=];};
+};
+};
+
+{Name="Soul Diviner";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{U}}{{B}}";
+cmc=2;
+Colors={"Blue";"Black";};
+Type="Creature — Zombie Wizard";
+Types={"Creature"};
+SubTypes={"Zombie";"Wizard";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[{{Tap}}, Remove a counter from an artifact, creature, land, or planeswalker you control: Draw a card.]=];
+Flavor=[=[As the Eternal's cold fingers tightened around his throat, Domri realized what kind of master he had rushed to serve.]=];
+CardNumber="WAR218";
+Power="2";
+Toughness="3";
+MultiverseID=461145;
+};
+
 {Name="Soul of the Rapids";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -19130,8 +31453,8 @@ MultiverseID=439713;
 };
 
 {Name="Soul Salvage";
-SetCode="DOM";
-Allsets={"DOM"};
+SetCode="M20";
+Allsets={"M20";"DOM";};
 Manacost="{{2}}{{B}}";
 cmc=3;
 Colors={"Black"};
@@ -19141,8 +31464,30 @@ Rarity="Common";
 Rarities={"Common"};
 Text=[=[Return up to two target creature cards from your graveyard to your hand.]=];
 Flavor=[=[The first mistake the Grimnant knights made was bullying the owner of an Urborg corpse shop. Their second mistake was dying.]=];
-CardNumber="DOM104";
-MultiverseID=442992;
+CardNumber="M20116";
+MultiverseID=466870;
+Sets={
+{Set="DOM";Rarity="Common";CardNumber="104";Flavor=[=[The first mistake the Grimnant knights made was bullying the owner of an Urborg corpse shop. Their second mistake was dying.]=];};
+};
+};
+
+{Name="Soulmender";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{W}}";
+cmc=1;
+Colors={"White"};
+Type="Creature — Human Cleric";
+Types={"Creature"};
+SubTypes={"Human";"Cleric";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{Tap}}: You gain 1 life.]=];
+Flavor=[=["Healing is more art than magic. Well, there is still quite a bit of magic."]=];
+CardNumber="M2037";
+Power="1";
+Toughness="1";
+MultiverseID=466791;
 };
 
 {Name="Sovereign's Bite";
@@ -19160,6 +31505,63 @@ Flavor=[=["You have given all to your kingdom, dear knight. Serenity shall be yo
 —Queen Lian]=];
 CardNumber="M19120";
 MultiverseID=447256;
+};
+
+{Name="Spark Double";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Creature — Illusion";
+Types={"Creature"};
+SubTypes={"Illusion"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[You may have Spark Double enter the battlefield as a copy of a creature or planeswalker you control, except it enters with an additional +1/+1 counter on it if it's a creature, it enters with an additional loyalty counter on it if it's a planeswalker, and it isn't legendary if that permanent is legendary.]=];
+CardNumber="WAR68";
+Power="0";
+Toughness="0";
+Rulings=9;
+MultiverseID=460995;
+};
+
+{Name="Spark Harvest";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{B}}";
+cmc=1;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[As an additional cost to cast this spell, sacrifice a creature or pay {{3}}{{B}}.<br/>
+Destroy target creature or planeswalker.]=];
+Flavor=[=[With the harvest of Domri's spark, the Elderspell began to fuel Bolas's ascension to godhood.]=];
+CardNumber="WAR105";
+Rulings=1;
+MultiverseID=461032;
+};
+
+{Name="Spark Reaper";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Creature — Zombie";
+Types={"Creature"};
+SubTypes={"Zombie"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{3}}, Sacrifice a creature or planeswalker: You gain 1 life and draw a card.]=];
+Flavor=[=["I know they're unstoppable fighters created to harvest souls—it's just they're so rude about it."<br/>
+—Kaya]=];
+CardNumber="WAR106";
+Power="2";
+Toughness="3";
+MultiverseID=461033;
 };
 
 {Name="Sparktongue Dragon";
@@ -19202,6 +31604,71 @@ Rulings=1;
 MultiverseID=443120;
 };
 
+{Name="Spawn of Mayhem";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{B}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Creature — Demon";
+Types={"Creature"};
+SubTypes={"Demon"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Spectacle {{1}}{{B}}{{B}} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)<br/>
+Flying, trample<br/>
+At the beginning of your upkeep, Spawn of Mayhem deals 1 damage to each player. Then if you have 10 or less life, put a +1/+1 counter on Spawn of Mayhem.]=];
+CardNumber="RNA85";
+Power="4";
+Toughness="4";
+Rulings=8;
+MultiverseID=457229;
+};
+
+{Name="Spear Spewer";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{R}}";
+cmc=1;
+Colors={"Red"};
+Type="Creature — Goblin Warrior";
+Types={"Creature"};
+SubTypes={"Goblin";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Defender<br/>
+{{Tap}}: Spear Spewer deals 1 damage to each player.]=];
+Flavor=[=["Don't waste time aiming, you lazy gob-slug! Fire!"<br/>
+—Krenko, mob boss]=];
+CardNumber="RNA117";
+Power="0";
+Toughness="2";
+Rulings=1;
+MultiverseID=457261;
+};
+
+{Name="Spectral Sailor";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{U}}";
+cmc=1;
+Colors={"Blue"};
+Type="Creature — Spirit Pirate";
+Types={"Creature"};
+SubTypes={"Spirit";"Pirate";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flash (You may cast this spell any time you could cast an instant.)<br/>
+Flying<br/>
+{{3}}{{U}}: Draw a card.]=];
+Flavor=[=["Any ship that sails on these mean seas for long is bound to pick up a ghost or two."<br/>
+—Admiral Beckett Brass]=];
+CardNumber="M2076";
+Power="1";
+Toughness="1";
+MultiverseID=466830;
+};
+
 {Name="Spell Pierce";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -19229,10 +31696,111 @@ Type="Instant";
 Types={"Instant"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[Counter target spell. Create X colorless Treasure artifact tokens, where X is that spell's converted mana cost. They have "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
+Text=[=[Counter target spell. Create X Treasure tokens, where X is that spell's converted mana cost. (They're artifacts with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")]=];
 CardNumber="XLN82";
 Rulings=2;
 MultiverseID=435235;
+};
+
+{Name="Spellgorger Weird";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Creature — Weird";
+Types={"Creature"};
+SubTypes={"Weird"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Whenever you cast a noncreature spell, put a +1/+1 counter on Spellgorger Weird.]=];
+Flavor=[=[Freed from their respective labs, the two weirds formed a partnership, feeding on the arcane energies of war.]=];
+CardNumber="WAR145";
+Power="2";
+Toughness="2";
+Rulings=1;
+MultiverseID=461072;
+};
+
+{Name="Spellkeeper Weird";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Creature — Weird";
+Types={"Creature"};
+SubTypes={"Weird"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{2}}, {{Tap}}, Sacrifice Spellkeeper Weird: Return target instant or sorcery card from your graveyard to your hand.]=];
+Flavor=[=[They worked well as a team, but they knew it couldn't last forever.]=];
+CardNumber="WAR69";
+Power="1";
+Toughness="4";
+MultiverseID=460996;
+};
+
+{Name="Sphinx of Foresight";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{U}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Creature — Sphinx";
+Types={"Creature"};
+SubTypes={"Sphinx"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[You may reveal this card from your opening hand. If you do, scry 3 at the beginning of your first upkeep.<br/>
+Flying<br/>
+At the beginning of your upkeep, scry 1.]=];
+Flavor=[=["I do not understand the future I see: the guilds subverted, the world at war, armies bent to a cruel conqueror's will."]=];
+CardNumber="RNA55";
+Power="4";
+Toughness="4";
+Rulings=2;
+MultiverseID=457199;
+};
+
+{Name="Sphinx of New Prahv";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{W}}{{W}}{{U}}{{U}}";
+cmc=4;
+Colors={"White";"Blue";};
+Type="Creature — Sphinx";
+Types={"Creature"};
+SubTypes={"Sphinx"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying, vigilance<br/>
+Spells your opponents cast that target Sphinx of New Prahv cost {{2}} more to cast.]=];
+Flavor=[=[Azorius sphinxes are loyal to the precepts of the law, not to any particular guildmaster—even one of their own kind.]=];
+CardNumber="RNA208";
+Power="4";
+Toughness="3";
+MultiverseID=457352;
+};
+
+{Name="Sphinx of the Guildpact";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{7}}";
+cmc=7;
+Type="Artifact Creature — Sphinx";
+Types={"Artifact";"Creature";};
+SubTypes={"Sphinx"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Sphinx of the Guildpact is all colors.<br/>
+Flying<br/>
+Hexproof from monocolored (This creature can't be the target of monocolored spells or abilities your opponents control.)]=];
+CardNumber="RNA241";
+Power="5";
+Toughness="5";
+Rulings=2;
+MultiverseID=457385;
 };
 
 {Name="Sphinx's Decree";
@@ -19251,6 +31819,24 @@ Flavor=[=["Be still."<br/>
 CardNumber="RIX24";
 Rulings=1;
 MultiverseID=439681;
+};
+
+{Name="Sphinx's Insight";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{W}}{{U}}";
+cmc=4;
+Colors={"White";"Blue";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Draw two cards.<br/>
+Addendum — If you cast this spell during your main phase, you gain 2 life.]=];
+Flavor=[=["Do not think me blind to your true mission . . . or your true master, Grand Arbiter."]=];
+CardNumber="RNA209";
+Rulings=2;
+MultiverseID=457353;
 };
 
 {Name="Spike-Tailed Ceratops";
@@ -19272,6 +31858,26 @@ Toughness="4";
 MultiverseID=435365;
 };
 
+{Name="Spikewheel Acrobat";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Creature — Human Rogue";
+Types={"Creature"};
+SubTypes={"Human";"Rogue";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Spectacle {{2}}{{R}} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)]=];
+Flavor=[=["Every street's a stage, and every screaming bystander's an audience."]=];
+CardNumber="RNA118";
+Power="5";
+Toughness="2";
+Rulings=5;
+MultiverseID=457262;
+};
+
 {Name="Spinal Centipede";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -19290,6 +31896,28 @@ Power="3";
 Toughness="2";
 Rulings=1;
 MultiverseID=452836;
+};
+
+{Name="Spire Mangler";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Creature — Insect";
+Types={"Creature"};
+SubTypes={"Insect"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flash<br/>
+Flying<br/>
+When Spire Mangler enters the battlefield, target creature with flying you control gets +2/+0 until end of turn.]=];
+Flavor=[=[Its mandibles can leave a rider in the clouds astride a headless griffin.]=];
+CardNumber="RNA86";
+Power="2";
+Toughness="1";
+Rulings=1;
+MultiverseID=457230;
 };
 
 {Name="Spire Winder";
@@ -19329,6 +31957,27 @@ Flavor=[=[". . . a cryptic objective."<br/>
 CardNumber="XLN249b";
 Rulings=1;
 MultiverseID=435409;
+};
+
+{Name="Spirit of the Spires";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Creature — Spirit";
+Types={"Creature"};
+SubTypes={"Spirit"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying<br/>
+Other creatures you control with flying get +0/+1.]=];
+Flavor=[=[She breathes fair winds to tired griffins and lifts songbirds beyond the reach of stalking cats.]=];
+CardNumber="RNA23";
+Power="2";
+Toughness="4";
+Rulings=1;
+MultiverseID=457167;
 };
 
 {Name="Spiritual Guardian";
@@ -19453,6 +32102,27 @@ Rulings=7;
 MultiverseID=452895;
 };
 
+{Name="Squad Captain";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{W}}";
+cmc=5;
+Colors={"White"};
+Type="Creature — Human Soldier";
+Types={"Creature"};
+SubTypes={"Human";"Soldier";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Vigilance (Attacking doesn't cause this creature to tap.)<br/>
+Squad Captain enters the battlefield with a +1/+1 counter on it for each other creature you control.]=];
+Flavor=[=[The strength of the one is the strength of the many.]=];
+CardNumber="M2038";
+Power="2";
+Toughness="2";
+Rulings=1;
+MultiverseID=466792;
+};
+
 {Name="Squee, the Immortal";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -19549,6 +32219,27 @@ Toughness="3";
 MultiverseID=447174;
 };
 
+{Name="Starfield Mystic";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Creature — Human Cleric";
+Types={"Creature"};
+SubTypes={"Human";"Cleric";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Enchantment spells you cast cost {{1}} less to cast.<br/>
+Whenever an enchantment you control is put into a graveyard from the battlefield, put a +1/+1 counter on Starfield Mystic.]=];
+Flavor=[=["The realm of the gods opens before me!"]=];
+CardNumber="M2039";
+Power="2";
+Toughness="2";
+Rulings=1;
+MultiverseID=466793;
+};
+
 {Name="Statue";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -19602,6 +32293,61 @@ Rulings=2;
 MultiverseID=435191;
 };
 
+{Name="Steadfast Sentry";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Creature — Human Soldier";
+Types={"Creature"};
+SubTypes={"Human";"Soldier";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Vigilance (Attacking doesn't cause this creature to tap.)<br/>
+When Steadfast Sentry dies, put a +1/+1 counter on target creature you control.]=];
+Flavor=[=["Get up, slugabeds! We've got company, and they're not dressed for a party!"]=];
+CardNumber="M2040";
+Power="3";
+Toughness="2";
+Rulings=1;
+MultiverseID=466794;
+};
+
+{Name="Steady Aim";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Untap target creature. It gets +1/+4 and gains reach until end of turn.]=];
+Flavor=[=[The archer's heart broke seeing her compatriots die far below, but she held position until the enemy was in range.]=];
+CardNumber="WAR177";
+Rulings=1;
+MultiverseID=461104;
+};
+
+{Name="Stealth Mission";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Put two +1/+1 counters on target creature you control. That creature can't be blocked this turn.]=];
+Flavor=[=["What they don't know will definitely hurt them."<br/>
+—Lazav]=];
+CardNumber="WAR70";
+MultiverseID=460997;
+};
+
 {Name="Steam Vents";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -19639,6 +32385,46 @@ Rulings=1;
 MultiverseID=443070;
 };
 
+{Name="Steel Overseer";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}";
+cmc=2;
+Type="Artifact Creature — Construct";
+Types={"Artifact";"Creature";};
+SubTypes={"Construct"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[{{Tap}}: Put a +1/+1 counter on each artifact creature you control.]=];
+Flavor=[=["The world is already run by all manner of machines. One day, they'll remind us of that fact."<br/>
+—Sargis Haz, artificer]=];
+CardNumber="M20239";
+Power="1";
+Toughness="1";
+Rulings=1;
+MultiverseID=466993;
+};
+
+{Name="Steeple Creeper";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Creature — Frog Snake";
+Types={"Creature"};
+SubTypes={"Frog";"Snake";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{3}}{{U}}: Steeple Creeper gains flying until end of turn.]=];
+Flavor=[=["If the Fin Clade cannot produce a reliable venomous krasis, mobile in both air and water, then the Guardian Project will absorb its resources."<br/>
+—Vannifar]=];
+CardNumber="RNA142";
+Power="4";
+Toughness="2";
+MultiverseID=457286;
+};
+
 {Name="Stitcher's Supplier";
 SetCode="M19";
 Allsets={"M19"};
@@ -19658,6 +32444,40 @@ Toughness="1";
 MultiverseID=447257;
 };
 
+{Name="Stomping Ground";
+SetCode="RNA";
+Allsets={"RNA"};
+Type="Land — Mountain Forest";
+Types={"Land"};
+SubTypes={"Mountain";"Forest";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[({{Tap}}: Add {{R}} or {{G}}.)<br/>
+As Stomping Ground enters the battlefield, you may pay 2 life. If you don't, it enters the battlefield tapped.]=];
+Flavor=[=["What we begin, the End-Raze will finish. Then we will dance in Ravnica's rubble."<br/>
+—Nikya of the Old Ways]=];
+CardNumber="RNA259";
+Rulings=2;
+MultiverseID=457403;
+};
+
+{Name="Stone Golem";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{5}}";
+cmc=5;
+Type="Artifact Creature — Golem";
+Types={"Artifact";"Creature";};
+SubTypes={"Golem"};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=[The sculptor, like most artists, put his heart and soul into his work. But the newly awakened golem decided it wanted its creator's other, more tangible parts.]=];
+CardNumber="M20240";
+Power="4";
+Toughness="4";
+MultiverseID=466994;
+};
+
 {Name="Stone Quarry";
 SetCode="M19";
 Allsets={"M19";"XLN";"RIX";};
@@ -19674,6 +32494,23 @@ Sets={
 {Set="XLN";Rarity="Common";CardNumber="289";Flavor=[=[The Sun Empire's cities are built from the bones of the earth.]=];};
 {Set="RIX";Rarity="Uncommon";CardNumber="190";Flavor=[=[The Sun Empire's cities are built from the bones of the earth.]=];};
 };
+};
+
+{Name="Stony Strength";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{G}}";
+cmc=1;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Put a +1/+1 counter on target creature you control. Untap that creature.]=];
+Flavor=[=["What you build, we will destroy . . . and bury you in the rubble!"]=];
+CardNumber="RNA143";
+Rulings=1;
+MultiverseID=457287;
 };
 
 {Name="Storm Fleet Aerialist";
@@ -19819,6 +32656,41 @@ Rulings=2;
 MultiverseID=435238;
 };
 
+{Name="Storm Strike";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{R}}";
+cmc=1;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target creature gets +1/+0 and gains first strike until end of turn. Scry 1.]=];
+Flavor=[=["My shout is thunder and my fist is lightning!"]=];
+CardNumber="RNA119";
+Rulings=1;
+MultiverseID=457263;
+};
+
+{Name="Storm the Citadel";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{G}}";
+cmc=5;
+Colors={"Green"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Until end of turn, creatures you control get +2/+2 and gain "Whenever this creature deals combat damage to a player or planeswalker, destroy target artifact or enchantment defending player controls."]=];
+Flavor=[=["If we die, we die. But we cannot let him win."<br/>
+—Ajani Goldmane]=];
+CardNumber="WAR178";
+Rulings=2;
+MultiverseID=461105;
+};
+
 {Name="Storm the Vault";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -19830,11 +32702,33 @@ SuperTypes={"Legendary"};
 Types={"Enchantment"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[Whenever one or more creatures you control deal combat damage to a player, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."<br/>
+Text=[=[Whenever one or more creatures you control deal combat damage to a player, create a Treasure token. (It's an artifact with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")<br/>
 At the beginning of your end step, if you control five or more artifacts, transform Storm the Vault.]=];
 CardNumber="RIX173a";
 Rulings=4;
 MultiverseID=439834;
+};
+
+{Name="Storrev, Devkarin Lich";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{B}}{{B}}{{G}}";
+cmc=4;
+Colors={"Black";"Green";};
+Type="Legendary Creature — Zombie Elf Wizard";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Zombie";"Elf";"Wizard";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Trample<br/>
+Whenever Storrev, Devkarin Lich deals combat damage to a player or planeswalker, return to your hand target creature or planeswalker card in your graveyard that wasn't put there this combat.]=];
+Flavor=[=[In times of war, only death flourishes.]=];
+CardNumber="WAR219";
+Power="5";
+Toughness="4";
+Rulings=2;
+MultiverseID=461146;
 };
 
 {Name="Strangling Spores";
@@ -19973,6 +32867,24 @@ Toughness="1";
 MultiverseID=452950;
 };
 
+{Name="Summary Judgment";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Summary Judgment deals 3 damage to target tapped creature.<br/>
+Addendum — If you cast this spell during your main phase, it deals 5 damage to that creature instead.]=];
+Flavor=[=[Any challenge to Azorius authority is met with swift and potent retribution.]=];
+CardNumber="RNA24";
+Rulings=2;
+MultiverseID=457168;
+};
+
 {Name="Sun Sentinel";
 SetCode="M19";
 Allsets={"M19";"RIX";};
@@ -20009,6 +32921,25 @@ Text=[=[Whenever you cast a spell from your hand, reveal the top X cards of your
 CardNumber="XLN165";
 Rulings=8;
 MultiverseID=435319;
+};
+
+{Name="Sunblade Angel";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{5}}{{W}}";
+cmc=6;
+Colors={"White"};
+Type="Creature — Angel";
+Types={"Creature"};
+SubTypes={"Angel"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying, first strike, vigilance, lifelink]=];
+Flavor=[=[At Feather's command, squadrons of battle angels swarmed out of the &lt;i&gt;Parhelion II&lt;/i&gt;, unsheathing blades made of molten dawn.]=];
+CardNumber="WAR31";
+Power="3";
+Toughness="3";
+MultiverseID=460958;
 };
 
 {Name="Sun-Blessed Mount";
@@ -20112,6 +33043,27 @@ Power="5";
 Toughness="4";
 Rulings=3;
 MultiverseID=435318;
+};
+
+{Name="Sunder Shaman";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{R}}{{R}}{{G}}{{G}}";
+cmc=4;
+Colors={"Red";"Green";};
+Type="Creature — Giant Shaman";
+Types={"Creature"};
+SubTypes={"Giant";"Shaman";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Sunder Shaman can't be blocked by more than one creature.<br/>
+Whenever Sunder Shaman deals combat damage to a player, destroy target artifact or enchantment that player controls.]=];
+Flavor=[=["You take our wilds, we take your city."]=];
+CardNumber="RNA210";
+Power="5";
+Toughness="5";
+Rulings=1;
+MultiverseID=457354;
 };
 
 {Name="Sunhome Stalwart";
@@ -20290,21 +33242,24 @@ MultiverseID=439776;
 };
 
 {Name="Swamp";
-SetCode="GRN";
-Allsets={"GRN";"XLN";"RIX";"DOM";"M19";};
+SetCode="M20";
+Allsets={"M20";"XLN";"RIX";"DOM";"M19";"GRN";"RNA";"WAR";};
 Type="Basic Land — Swamp";
 SuperTypes={"Basic"};
 Types={"Land"};
 SubTypes={"Swamp"};
 Rarity="Basic Land";
 Rarities={"Basic Land"};
-CardNumber="GRN262";
-MultiverseID=455602;
+CardNumber="M20270";
+MultiverseID=467024;
 Sets={
 {Set="XLN";Rarity="Basic Land";CardNumber="268";};
 {Set="RIX";Rarity="Basic Land";CardNumber="194";};
 {Set="DOM";Rarity="Basic Land";CardNumber="258";};
 {Set="M19";Rarity="Basic Land";CardNumber="269";};
+{Set="GRN";Rarity="Basic Land";CardNumber="262";};
+{Set="RNA";Rarity="Basic Land";CardNumber="262";};
+{Set="WAR";Rarity="Basic Land";CardNumber="256";};
 };
 };
 
@@ -20407,6 +33362,39 @@ Rulings=1;
 MultiverseID=452953;
 };
 
+{Name="Swiftwater Cliffs";
+SetCode="M20";
+Allsets={"M20"};
+Type="Land";
+Types={"Land"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Swiftwater Cliffs enters the battlefield tapped.<br/>
+When Swiftwater Cliffs enters the battlefield, you gain 1 life.<br/>
+{{Tap}}: Add {{U}} or {{R}}.]=];
+CardNumber="M20252";
+MultiverseID=467006;
+};
+
+{Name="Swirling Torrent";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{5}}{{U}}";
+cmc=6;
+Colors={"Blue"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Choose one or both —<br/>
+• Put target creature on top of its owner's library.<br/>
+• Return target creature to its owner's hand.]=];
+Flavor=[=["Oops!"<br/>
+—Grupgrup, sluiceway technician]=];
+CardNumber="RNA56";
+MultiverseID=457200;
+};
+
 {Name="Switcheroo";
 SetCode="M19";
 Allsets={"M19"};
@@ -20494,6 +33482,25 @@ Rulings=3;
 MultiverseID=443071;
 };
 
+{Name="Sylvan Brushstrider";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Creature — Beast";
+Types={"Creature"};
+SubTypes={"Beast"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Sylvan Brushstrider enters the battlefield, you gain 2 life.]=];
+Flavor=[=[The mournful lowing of brushstriders warns of changing weather and ill winds.]=];
+CardNumber="RNA144";
+Power="3";
+Toughness="2";
+MultiverseID=457288;
+};
+
 {Name="Syncopate";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -20508,6 +33515,47 @@ Text=[=[Counter target spell unless its controller pays {{X}}. If that spell is 
 Flavor=[=[The fire spell stuttered and broke. Its pieces reached Teferi out of rhythm, meaningless.]=];
 CardNumber="DOM67";
 MultiverseID=442955;
+};
+
+{Name="Syndicate Guildmage";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{W}}{{B}}";
+cmc=2;
+Colors={"White";"Black";};
+Type="Creature — Human Cleric";
+Types={"Creature"};
+SubTypes={"Human";"Cleric";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{1}}{{W}}, {{Tap}}: Tap target creature with power 4 or greater.<br/>
+{{4}}{{B}}, {{Tap}}: Syndicate Guildmage deals 2 damage to target opponent or planeswalker.]=];
+CardNumber="RNA211";
+Power="2";
+Toughness="2";
+MultiverseID=457355;
+};
+
+{Name="Syndicate Messenger";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Creature — Bird";
+Types={"Creature"};
+SubTypes={"Bird"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+Afterlife 1 (When this creature dies, create a 1/1 white and black Spirit creature token with flying.)]=];
+Flavor=[=["Many wings haunt the skies these days. Few of them bear good tidings."<br/>
+—Lavinia]=];
+CardNumber="RNA25";
+Power="2";
+Toughness="3";
+Rulings=1;
+MultiverseID=457169;
 };
 
 {Name="Tactical Advantage";
@@ -20566,8 +33614,8 @@ MultiverseID=452778;
 };
 
 {Name="Take Vengeance";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{1}}{{W}}";
 cmc=2;
 Colors={"White"};
@@ -20577,8 +33625,29 @@ Rarity="Common";
 Rarities={"Common"};
 Text=[=[Destroy target tapped creature.]=];
 Flavor=[=["Your death will be a balm, your passing a welcome revision, and all will sigh with peace to know of your demise."]=];
-CardNumber="M1940";
-MultiverseID=447176;
+CardNumber="M20313";
+MultiverseID=469866;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="40";Flavor=[=["Your death will be a balm, your passing a welcome revision, and all will sigh with peace to know of your demise."]=];};
+};
+};
+
+{Name="Tale's End";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Counter target activated ability, triggered ability, or legendary spell.]=];
+Flavor=[=["When you are gone, will anyone remember your story?"<br/>
+—Unknown]=];
+CardNumber="M2077";
+Rulings=5;
+MultiverseID=466831;
 };
 
 {Name="Talons of Wildwood";
@@ -20597,6 +33666,43 @@ Enchanted creature gets +1/+1 and has trample. (It can deal excess combat damage
 {{2}}{{G}}: Return Talons of Wildwood from your graveyard to your hand.]=];
 CardNumber="M19202";
 MultiverseID=447338;
+};
+
+{Name="Tamiyo, Collector of Tales";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{G}}{{U}}";
+cmc=4;
+Colors={"Blue";"Green";};
+Type="Legendary Planeswalker — Tamiyo";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Tamiyo"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Spells and abilities your opponents control can't cause you to discard cards or sacrifice permanents.<br/>
++1: Choose a nonland card name, then reveal the top four cards of your library. Put all cards with the chosen name from among them into your hand and the rest into your graveyard.<br/>
+−3: Return target card from your graveyard to your hand.]=];
+CardNumber="WAR220";
+Loyalty="5";
+Rulings=5;
+MultiverseID=461147;
+};
+
+{Name="Tamiyo's Epiphany";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Scry 4, then draw two cards.]=];
+Flavor=[=[Tamiyo wished only to observe the war, but she soon realized neutrality was not an option.]=];
+CardNumber="WAR71";
+MultiverseID=460998;
 };
 
 {Name="Tattered Mummy";
@@ -20640,21 +33746,25 @@ MultiverseID=443094;
 };
 
 {Name="Tectonic Rift";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{3}}{{R}}";
 cmc=4;
 Colors={"Red"};
 Type="Sorcery";
 Types={"Sorcery"};
-Rarity="Uncommon";
-Rarities={"Uncommon"};
+Rarity="Common";
+Rarities={"Common";"Uncommon";};
 Text=[=[Destroy target land. Creatures without flying can't block this turn.]=];
 Flavor=[=["You will kneel before me, even if I have to split the earth under your feet!"<br/>
 —Ash Kronor, Keldon warlord]=];
-CardNumber="M19162";
+CardNumber="M20161";
 Rulings=2;
-MultiverseID=447298;
+MultiverseID=466915;
+Sets={
+{Set="M19";Rarity="Uncommon";CardNumber="162";Flavor=[=["You will kneel before me, even if I have to split the earth under your feet!"
+—Ash Kronor, Keldon warlord]=];};
+};
 };
 
 {Name="Teferi, Hero of Dominaria";
@@ -20674,8 +33784,29 @@ Text=[=[+1: Draw a card. At the beginning of the next end step, untap up to two 
 −8: You get an emblem with "Whenever you draw a card, exile target permanent an opponent controls."]=];
 CardNumber="DOM207";
 Loyalty="4";
-Rulings=3;
+Rulings=2;
 MultiverseID=443095;
+};
+
+{Name="Teferi, Time Raveler";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{W}}{{U}}";
+cmc=3;
+Colors={"White";"Blue";};
+Type="Legendary Planeswalker — Teferi";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Teferi"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Each opponent can cast spells only any time they could cast a sorcery.<br/>
++1: Until your next turn, you may cast sorcery spells as though they had flash.<br/>
+−3: Return up to one target artifact, creature, or enchantment to its owner's hand. Draw a card.]=];
+CardNumber="WAR221";
+Loyalty="4";
+Rulings=2;
+MultiverseID=461148;
 };
 
 {Name="Teferi, Timebender";
@@ -20715,6 +33846,23 @@ CardNumber="DOM273";
 Power="2";
 Toughness="6";
 MultiverseID=445851;
+};
+
+{Name="Teferi's Time Twist";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Exile target permanent you control. Return that card to the battlefield under its owner's control at the beginning of the next end step. If it enters the battlefield as a creature, it enters with an additional +1/+1 counter on it.]=];
+Flavor=[=["The safest place for you is not now."]=];
+CardNumber="WAR72";
+Rulings=5;
+MultiverseID=460999;
 };
 
 {Name="Tempest Caller";
@@ -20814,6 +33962,79 @@ Rulings=2;
 MultiverseID=435244;
 };
 
+{Name="Temple of Epiphany";
+SetCode="M20";
+Allsets={"M20"};
+Type="Land";
+Types={"Land"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Temple of Epiphany enters the battlefield tapped.<br/>
+When Temple of Epiphany enters the battlefield, scry 1.<br/>
+{{Tap}}: Add {{U}} or {{R}}.]=];
+CardNumber="M20253";
+MultiverseID=467007;
+};
+
+{Name="Temple of Malady";
+SetCode="M20";
+Allsets={"M20"};
+Type="Land";
+Types={"Land"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Temple of Malady enters the battlefield tapped.<br/>
+When Temple of Malady enters the battlefield, scry 1.<br/>
+{{Tap}}: Add {{B}} or {{G}}.]=];
+CardNumber="M20254";
+MultiverseID=467008;
+};
+
+{Name="Temple of Mystery";
+SetCode="M20";
+Allsets={"M20"};
+Type="Land";
+Types={"Land"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Temple of Mystery enters the battlefield tapped.<br/>
+When Temple of Mystery enters the battlefield, scry 1.<br/>
+{{Tap}}: Add {{G}} or {{U}}.]=];
+CardNumber="M20255";
+Rulings=4;
+MultiverseID=467009;
+};
+
+{Name="Temple of Silence";
+SetCode="M20";
+Allsets={"M20"};
+Type="Land";
+Types={"Land"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Temple of Silence enters the battlefield tapped.<br/>
+When Temple of Silence enters the battlefield, scry 1.<br/>
+{{Tap}}: Add {{W}} or {{B}}.]=];
+CardNumber="M20256";
+Rulings=4;
+MultiverseID=467010;
+};
+
+{Name="Temple of Triumph";
+SetCode="M20";
+Allsets={"M20"};
+Type="Land";
+Types={"Land"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Temple of Triumph enters the battlefield tapped.<br/>
+When Temple of Triumph enters the battlefield, scry 1.<br/>
+{{Tap}}: Add {{R}} or {{W}}.]=];
+CardNumber="M20257";
+Rulings=4;
+MultiverseID=467011;
+};
+
 {Name="Temporal Machinations";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -20871,6 +34092,49 @@ Toughness="2";
 MultiverseID=452779;
 };
 
+{Name="Tenth District Legionnaire";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{R}}{{W}}";
+cmc=2;
+Colors={"White";"Red";};
+Type="Creature — Human Soldier";
+Types={"Creature"};
+SubTypes={"Human";"Soldier";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Haste<br/>
+Whenever you cast a spell that targets Tenth District Legionnaire, put a +1/+1 counter on Tenth District Legionnaire, then scry 1.]=];
+Flavor=[=["The Tenth is under heavy attack, but it's being handled. I sent Mileva."<br/>
+—Tajic]=];
+CardNumber="WAR222";
+Power="2";
+Toughness="2";
+Rulings=2;
+MultiverseID=461149;
+};
+
+{Name="Tenth District Veteran";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Creature — Human Soldier";
+Types={"Creature"};
+SubTypes={"Human";"Soldier";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Vigilance<br/>
+Whenever Tenth District Veteran attacks, untap another target creature you control.]=];
+Flavor=[=["I keep reminding myself we do this because others can't, because we love this city. If we don't save it, no one will."]=];
+CardNumber="RNA26";
+Power="2";
+Toughness="3";
+Rulings=1;
+MultiverseID=457170;
+};
+
 {Name="Territorial Allosaurus";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -20890,6 +34154,27 @@ Power="5";
 Toughness="5";
 Rulings=2;
 MultiverseID=443072;
+};
+
+{Name="Territorial Boar";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Creature — Boar";
+Types={"Creature"};
+SubTypes={"Boar"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Whenever a creature with power 4 or greater enters the battlefield under your control, Territorial Boar gets +1/+1 and gains vigilance until end of turn.]=];
+Flavor=[=["The presence of the strong will make you stronger."<br/>
+—Yeva, Nature's Herald]=];
+CardNumber="RNA145";
+Power="2";
+Toughness="2";
+Rulings=3;
+MultiverseID=457289;
 };
 
 {Name="Territorial Hammerskull";
@@ -20976,6 +34261,67 @@ Rulings=2;
 MultiverseID=439743;
 };
 
+{Name="Teyo, the Shieldmage";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Legendary Planeswalker — Teyo";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Teyo"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[You have hexproof. (You can't be the target of spells or abilities your opponents control.)<br/>
+−2: Create a 0/3 white Wall creature token with defender.]=];
+CardNumber="WAR32";
+Loyalty="5";
+MultiverseID=460959;
+};
+
+{Name="Teyo's Lightshield";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Creature — Illusion";
+Types={"Creature"};
+SubTypes={"Illusion"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Teyo's Lightshield enters the battlefield, put a +1/+1 counter on target creature you control.]=];
+Flavor=[=[Teyo gifted his shields to as many allies as possible, knowing he could not always be there to protect them himself.]=];
+CardNumber="WAR33";
+Power="0";
+Toughness="3";
+Rulings=1;
+MultiverseID=460960;
+};
+
+{Name="Teysa Karlov";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{W}}{{B}}";
+cmc=4;
+Colors={"White";"Black";};
+Type="Legendary Creature — Human Advisor";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Advisor";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[If a creature dying causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.<br/>
+Creature tokens you control have vigilance and lifelink.]=];
+Flavor=[=[While Kaya is guildmaster, Teysa waits patiently at the center of the Orzhov web of power.]=];
+CardNumber="RNA212";
+Power="2";
+Toughness="4";
+Rulings=10;
+MultiverseID=457356;
+};
+
 {Name="Tezzeret, Artifice Master";
 SetCode="M19";
 Allsets={"M19"};
@@ -21016,6 +34362,28 @@ CardNumber="M19286";
 Loyalty="4";
 Rulings=13;
 MultiverseID=450233;
+};
+
+{Name="Tezzeret, Master of the Bridge";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{U}}{{B}}";
+cmc=6;
+Colors={"Blue";"Black";};
+Type="Legendary Planeswalker — Tezzeret";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Tezzeret"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Creature and planeswalker spells you cast have affinity for artifacts. (They cost {{1}} less to cast for each artifact you control.)<br/>
++2: Tezzeret, Master of the Bridge deals X damage to each opponent, where X is the number of artifacts you control. You gain X life.<br/>
+−3: Return target artifact card from your graveyard to your hand.<br/>
+−8: Exile the top ten cards of your library. Put all artifact cards from among them onto the battlefield.]=];
+CardNumber="WAR275";
+Loyalty="5";
+Rulings=8;
+MultiverseID=463842;
 };
 
 {Name="Tezzeret's Gatebreaker";
@@ -21129,6 +34497,23 @@ Rulings=12;
 MultiverseID=442930;
 };
 
+{Name="The Elderspell";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{B}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Destroy any number of target planeswalkers. Choose a planeswalker you control. Put two loyalty counters on it for each planeswalker destroyed this way.]=];
+Flavor=[=[The path to power is often paved with atrocities.]=];
+CardNumber="WAR89";
+Rulings=2;
+MultiverseID=461016;
+};
+
 {Name="The Eldest Reborn";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -21189,6 +34574,29 @@ Rulings=9;
 MultiverseID=443011;
 };
 
+{Name="The Haunt of Hightower";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}{{B}}{{B}}";
+cmc=6;
+Colors={"Black"};
+Type="Legendary Creature — Vampire";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Vampire"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Flying, lifelink<br/>
+Whenever The Haunt of Hightower attacks, defending player discards a card.<br/>
+Whenever a card is put into an opponent's graveyard from anywhere, put a +1/+1 counter on The Haunt of Hightower.]=];
+Flavor=[=[It drains vitality from those it touches.]=];
+CardNumber="RNA273";
+Power="3";
+Toughness="3";
+Rulings=2;
+MultiverseID=460007;
+};
+
 {Name="The Immortal Sun";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -21247,6 +34655,64 @@ Rulings=14;
 MultiverseID=442945;
 };
 
+{Name="The Wanderer";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Legendary Planeswalker";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Prevent all noncombat damage that would be dealt to you and other permanents you control.<br/>
+−2: Exile target creature with power 4 or greater.]=];
+CardNumber="WAR37";
+Loyalty="5";
+Rulings=1;
+MultiverseID=460964;
+};
+
+{Name="Theater of Horrors";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{B}}{{R}}";
+cmc=3;
+Colors={"Black";"Red";};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[At the beginning of your upkeep, exile the top card of your library.<br/>
+During your turn, if an opponent lost life this turn, you may play cards exiled with Theater of Horrors.<br/>
+{{3}}{{R}}: Theater of Horrors deals 1 damage to target opponent or planeswalker.]=];
+CardNumber="RNA213";
+Rulings=4;
+MultiverseID=457357;
+};
+
+{Name="Thicket Crasher";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Creature — Elemental Rhino";
+Types={"Creature"};
+SubTypes={"Elemental";"Rhino";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)<br/>
+Other Elementals you control have trample.]=];
+Flavor=[=["Tread too hard in the forest and it will tread on you in return."<br/>
+—Vivien Reid]=];
+CardNumber="M20196";
+Power="4";
+Toughness="3";
+MultiverseID=466950;
+};
+
 {Name="Thief of Sanity";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -21265,6 +34731,47 @@ Power="2";
 Toughness="2";
 Rulings=5;
 MultiverseID=452955;
+};
+
+{Name="Thirsting Bloodlord";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{B}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Creature — Vampire";
+Types={"Creature"};
+SubTypes={"Vampire"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Other Vampires you control get +1/+1.]=];
+Flavor=[=["A whole life, full of memories and experience, love and sorrow, drained drop by drop into this bottle. Could any feast be more glorious?"]=];
+CardNumber="M20293";
+Power="3";
+Toughness="3";
+Rulings=1;
+MultiverseID=469846;
+};
+
+{Name="Thirsting Shade";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{B}}";
+cmc=1;
+Colors={"Black"};
+Type="Creature — Shade";
+Types={"Creature"};
+SubTypes={"Shade"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Lifelink<br/>
+{{2}}{{B}}: Thirsting Shade gets +1/+1 until end of turn.]=];
+Flavor=[=["Your life is a blinding light, your breath a gale, your pulse a deafening drum. Be still. Be still."<br/>
+—Dahlya Trul, "Irbitov Lament"]=];
+CardNumber="RNA87";
+Power="1";
+Toughness="1";
+MultiverseID=457231;
 };
 
 {Name="Thorn Elemental";
@@ -21324,6 +34831,57 @@ CardNumber="M19204";
 Power="4";
 Toughness="5";
 MultiverseID=447340;
+};
+
+{Name="Thornwood Falls";
+SetCode="M20";
+Allsets={"M20"};
+Type="Land";
+Types={"Land"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Thornwood Falls enters the battlefield tapped.<br/>
+When Thornwood Falls enters the battlefield, you gain 1 life.<br/>
+{{Tap}}: Add {{G}} or {{U}}.]=];
+CardNumber="M20258";
+MultiverseID=467012;
+};
+
+{Name="Thought Collapse";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{U}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Counter target spell. Its controller puts the top three cards of their library into their graveyard.]=];
+Flavor=[=["I can think of no greater punishment than answering your question in full."<br/>
+—Lazav]=];
+CardNumber="RNA57";
+Rulings=1;
+MultiverseID=457201;
+};
+
+{Name="Thought Distortion";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{B}}{{B}}";
+cmc=6;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[This spell can't be countered.<br/>
+Target opponent reveals their hand. Exile all noncreature, nonland cards from that player's hand and graveyard.]=];
+Flavor=[=["The skull is rigid, but the mind is so deliciously supple."<br/>
+—Eromena the Mind Render]=];
+CardNumber="M20117";
+Rulings=2;
+MultiverseID=466871;
 };
 
 {Name="Thought Erasure";
@@ -21399,6 +34957,23 @@ Rulings=1;
 MultiverseID=443121;
 };
 
+{Name="Thrash";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{RG}}{{RG}}";
+cmc=2;
+Colors={"Red";"Green";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Target creature you control deals damage equal to its power to target creature or planeswalker you don't control.<br/>
+]=];
+CardNumber="RNA229a";
+Rulings=1;
+MultiverseID=457373;
+};
+
 {Name="Thrash of Raptors";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -21419,8 +34994,8 @@ MultiverseID=435322;
 };
 
 {Name="Thrashing Brontodon";
-SetCode="RIX";
-Allsets={"RIX"};
+SetCode="M20";
+Allsets={"M20";"RIX";};
 Manacost="{{1}}{{G}}{{G}}";
 cmc=3;
 Colors={"Green"};
@@ -21431,10 +35006,28 @@ Rarity="Uncommon";
 Rarities={"Uncommon"};
 Text=[=[{{1}}, Sacrifice Thrashing Brontodon: Destroy target artifact or enchantment.]=];
 Flavor=[=[It cares more about preserving the herd's territory than about preserving itself.]=];
-CardNumber="RIX148";
+CardNumber="M20197";
 Power="3";
 Toughness="4";
-MultiverseID=439805;
+MultiverseID=466951;
+Sets={
+{Set="RIX";Rarity="Uncommon";CardNumber="148";Flavor=[=[It cares more about preserving the herd's territory than about preserving itself.]=];};
+};
+};
+
+{Name="Threat";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{R}}{{G}}";
+cmc=4;
+Colors={"Red";"Green";};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Create a 4/4 red and green Beast creature token with trample.]=];
+CardNumber="RNA229b";
+MultiverseID=457373;
 };
 
 {Name="Thud";
@@ -21456,6 +35049,27 @@ Rulings=3;
 MultiverseID=447299;
 };
 
+{Name="Thunder Drake";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Creature — Elemental Drake";
+Types={"Creature"};
+SubTypes={"Elemental";"Drake";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+Whenever you cast your second spell each turn, put a +1/+1 counter on Thunder Drake.]=];
+Flavor=[=[The arrival of the Planar Bridge caused eddies in the aether, creating some entirely new species while transforming others.]=];
+CardNumber="WAR73";
+Power="2";
+Toughness="3";
+Rulings=2;
+MultiverseID=461000;
+};
+
 {Name="Thunderherd Migration";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -21472,6 +35086,28 @@ Flavor=[=[The herds follow as new growth arises.]=];
 CardNumber="RIX149";
 Rulings=1;
 MultiverseID=439806;
+};
+
+{Name="Thundering Ceratok";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{G}}";
+cmc=5;
+Colors={"Green"};
+Type="Creature — Rhino";
+Types={"Creature"};
+SubTypes={"Rhino"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Trample<br/>
+When Thundering Ceratok enters the battlefield, other creatures you control gain trample until end of turn.]=];
+Flavor=[=["I thought this was a civilized plane. How are there so many feral beasts?"<br/>
+—Dovin Baan]=];
+CardNumber="WAR179";
+Power="4";
+Toughness="5";
+Rulings=1;
+MultiverseID=461106;
 };
 
 {Name="Thundering Spineback";
@@ -21495,6 +35131,26 @@ Toughness="5";
 MultiverseID=435366;
 };
 
+{Name="Thunderkin Awakener";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Creature — Elemental Shaman";
+Types={"Creature"};
+SubTypes={"Elemental";"Shaman";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Haste<br/>
+Whenever Thunderkin Awakener attacks, choose target Elemental creature card in your graveyard with toughness less than Thunderkin Awakener's toughness. Return that card to the battlefield tapped and attacking. Sacrifice it at the beginning of the next end step.]=];
+CardNumber="M20162";
+Power="1";
+Toughness="2";
+Rulings=5;
+MultiverseID=466916;
+};
+
 {Name="Tiana, Ship's Caretaker";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -21515,6 +35171,47 @@ Power="3";
 Toughness="3";
 Rulings=5;
 MultiverseID=443096;
+};
+
+{Name="Tibalt, Rakish Instigator";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Legendary Planeswalker — Tibalt";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Tibalt"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Your opponents can't gain life.<br/>
+−2: Create a 1/1 red Devil creature token with "When this creature dies, it deals 1 damage to any target."]=];
+CardNumber="WAR146";
+Loyalty="5";
+Rulings=2;
+MultiverseID=461073;
+};
+
+{Name="Tibalt's Rager";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Creature — Devil";
+Types={"Creature"};
+SubTypes={"Devil"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Tibalt's Rager dies, it deals 1 damage to any target.<br/>
+{{1}}{{R}}: Tibalt's Rager gets +2/+0 until end of turn.]=];
+Flavor=[=["Find out whose that is. I like its energy."<br/>
+—Judith]=];
+CardNumber="WAR147";
+Power="1";
+Toughness="2";
+MultiverseID=461074;
 };
 
 {Name="Tilonalli's Crown";
@@ -21632,6 +35329,24 @@ Rulings=9;
 MultiverseID=442958;
 };
 
+{Name="Time Wipe";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{W}}{{W}}{{U}}";
+cmc=5;
+Colors={"White";"Blue";};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Return a creature you control to its owner's hand, then destroy all creatures.]=];
+Flavor=[=["To comprehend the full answer requires years of temporal study. In short, they were now never born in the first place."<br/>
+—Teferi]=];
+CardNumber="WAR223";
+Rulings=2;
+MultiverseID=461150;
+};
+
 {Name="Timestream Navigator";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -21650,6 +35365,27 @@ Power="1";
 Toughness="1";
 Rulings=6;
 MultiverseID=439716;
+};
+
+{Name="Tin Street Dodger";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{R}}";
+cmc=1;
+Colors={"Red"};
+Type="Creature — Goblin Rogue";
+Types={"Creature"};
+SubTypes={"Goblin";"Rogue";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Haste<br/>
+{{R}}: Tin Street Dodger can't be blocked this turn except by creatures with defender.]=];
+Flavor=[=["That giant didn't even see me, let alone catch me! And I was close enough to smell him! Of course, that's not saying much."]=];
+CardNumber="RNA120";
+Power="1";
+Toughness="1";
+Rulings=1;
+MultiverseID=457264;
 };
 
 {Name="Tishana, Voice of Thunder";
@@ -21694,9 +35430,27 @@ Rulings=3;
 MultiverseID=435367;
 };
 
+{Name="Titanic Brawl";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[This spell costs {{1}} less to cast if it targets a creature you control with a +1/+1 counter on it.<br/>
+Target creature you control fights target creature you don't control. (Each deals damage equal to its power to the other.)]=];
+Flavor=[=[Whoever wins, the neighborhood loses.]=];
+CardNumber="RNA146";
+Rulings=1;
+MultiverseID=457290;
+};
+
 {Name="Titanic Growth";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{1}}{{G}}";
 cmc=2;
 Colors={"Green"};
@@ -21706,8 +35460,51 @@ Rarity="Common";
 Rarities={"Common"};
 Text=[=[Target creature gets +4/+4 until end of turn.]=];
 Flavor=[=[The massive dominate through might. The tiny survive with guile. Beware the tiny who become massive.]=];
-CardNumber="M19205";
-MultiverseID=447341;
+CardNumber="M20343";
+MultiverseID=469896;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="205";Flavor=[=[The massive dominate through might. The tiny survive with guile. Beware the tiny who become massive.]=];};
+};
+};
+
+{Name="Tithe Taker";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Creature — Human Soldier";
+Types={"Creature"};
+SubTypes={"Human";"Soldier";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[During your turn, spells your opponents cast cost {{1}} more to cast and abilities your opponents activate cost {{1}} more to activate unless they're mana abilities.<br/>
+Afterlife 1 (When this creature dies, create a 1/1 white and black Spirit creature token with flying.)]=];
+CardNumber="RNA27";
+Power="2";
+Toughness="1";
+Rulings=4;
+MultiverseID=457171;
+};
+
+{Name="Tithebearer Giant";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{5}}{{B}}";
+cmc=6;
+Colors={"Black"};
+Type="Creature — Giant Warrior";
+Types={"Creature"};
+SubTypes={"Giant";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Tithebearer Giant enters the battlefield, you draw a card and you lose 1 life.]=];
+Flavor=[=["I've always said full war chests win wars, but I didn't mean by bashing enemy skulls with them."<br/>
+—Teysa]=];
+CardNumber="WAR107";
+Power="4";
+Toughness="5";
+MultiverseID=461034;
 };
 
 {Name="Tocatli Honor Guard";
@@ -21751,6 +35548,44 @@ Sets={
 };
 };
 
+{Name="Toll of the Invasion";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target opponent reveals their hand. You choose a nonland card from it. That player discards that card.<br/>
+Amass 1. (Put a +1/+1 counter on an Army you control. If you don't control one, create a 0/0 black Zombie Army creature token first.)]=];
+CardNumber="WAR108";
+Rulings=4;
+MultiverseID=461035;
+};
+
+{Name="Tolsimir, Friend to Wolves";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{G}}{{G}}{{W}}";
+cmc=5;
+Colors={"White";"Green";};
+Type="Legendary Creature — Elf Scout";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Elf";"Scout";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[When Tolsimir, Friend to Wolves enters the battlefield, create Voja, Friend to Elves, a legendary 3/3 green and white Wolf creature token.<br/>
+Whenever a Wolf enters the battlefield under your control, you gain 3 life and that creature fights up to one target creature you don't control.]=];
+CardNumber="WAR224";
+Power="3";
+Toughness="3";
+Rulings=4;
+MultiverseID=461151;
+};
+
 {Name="Tomb of the Dusk Rose";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -21786,6 +35621,86 @@ CardNumber="RIX87";
 Power="1";
 Toughness="1";
 MultiverseID=439744;
+};
+
+{Name="Tome of the Guildpact";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{5}}";
+cmc=5;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Whenever you cast a multicolored spell, draw a card.<br/>
+{{Tap}}: Add one mana of any color.]=];
+Flavor=[=["Reading it has given me a glimpse of what makes this deeply flawed city so very magnificent."<br/>
+—Dovin Baan]=];
+CardNumber="RNA242";
+Rulings=1;
+MultiverseID=457386;
+};
+
+{Name="Tomebound Lich";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{U}}{{B}}";
+cmc=3;
+Colors={"Blue";"Black";};
+Type="Creature — Zombie Wizard";
+Types={"Creature"};
+SubTypes={"Zombie";"Wizard";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Deathtouch (Any amount of damage this deals to a creature is enough to destroy it.)<br/>
+Lifelink (Damage dealt by this creature also causes you to gain that much life.)<br/>
+Whenever Tomebound Lich enters the battlefield or deals combat damage to a player, draw a card, then discard a card.]=];
+CardNumber="M20219";
+Power="1";
+Toughness="3";
+Rulings=1;
+MultiverseID=466973;
+};
+
+{Name="Tomik, Distinguished Advokist";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{W}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Legendary Creature — Human Advisor";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Human";"Advisor";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Flying<br/>
+Lands on the battlefield and land cards in graveyards can't be the targets of spells or abilities your opponents control.<br/>
+Your opponents can't play land cards from graveyards.]=];
+Flavor=[=["Some bend the law. I tie it into knots."]=];
+CardNumber="WAR34";
+Power="2";
+Toughness="3";
+Rulings=2;
+MultiverseID=460961;
+};
+
+{Name="Topple the Statue";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Tap target permanent. If it's an artifact, destroy it.<br/>
+Draw a card.]=];
+Flavor=[=[Bolas cared little when his statue fell, thinking it a useful distraction, underestimating the surge of resolve it gave his opponents.]=];
+CardNumber="WAR35";
+Rulings=3;
+MultiverseID=460962;
 };
 
 {Name="Torch Courier";
@@ -21849,8 +35764,8 @@ MultiverseID=447300;
 };
 
 {Name="Totally Lost";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="WAR";
+Allsets={"WAR";"M19";};
 Manacost="{{4}}{{U}}";
 cmc=5;
 Colors={"Blue"};
@@ -21859,9 +35774,30 @@ Types={"Instant"};
 Rarity="Common";
 Rarities={"Common"};
 Text=[=[Put target nonland permanent on top of its owner's library.]=];
-Flavor=[=[Fblthp had always hated crowds.]=];
-CardNumber="M1981";
-MultiverseID=447217;
+Flavor=[=[At least this was better than that week at the Juri Revue.]=];
+CardNumber="WAR74";
+MultiverseID=461001;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="81";Flavor=[=[Fblthp had always hated crowds.]=];};
+};
+};
+
+{Name="Tower Defense";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Creatures you control get +0/+5 and gain reach until end of turn.]=];
+Flavor=[=["We've been practicing for this all our lives. This is the final test!"<br/>
+—Korun Nar, Rubblebelt hunter]=];
+CardNumber="RNA147";
+Rulings=1;
+MultiverseID=457291;
 };
 
 {Name="Tragic Poet";
@@ -21881,6 +35817,20 @@ CardNumber="DOM37";
 Power="1";
 Toughness="1";
 MultiverseID=442925;
+};
+
+{Name="Tranquil Cove";
+SetCode="M20";
+Allsets={"M20"};
+Type="Land";
+Types={"Land"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Tranquil Cove enters the battlefield tapped.<br/>
+When Tranquil Cove enters the battlefield, you gain 1 life.<br/>
+{{Tap}}: Add {{W}} or {{U}}.]=];
+CardNumber="M20259";
+MultiverseID=467013;
 };
 
 {Name="Tranquil Expanse";
@@ -21996,7 +35946,7 @@ Type="Artifact";
 Types={"Artifact"};
 Rarity="Rare";
 Rarities={"Rare"};
-Text=[=[{{1}}, {{Tap}}: Scry 1. Put a landmark counter on Treasure Map. Then if there are three or more landmark counters on it, remove those counters, transform Treasure Map, and create three colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
+Text=[=[{{1}}, {{Tap}}: Scry 1. Put a landmark counter on Treasure Map. Then if there are three or more landmark counters on it, remove those counters, transform Treasure Map, and create three Treasure tokens. (They're artifacts with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")]=];
 CardNumber="XLN250a";
 Rulings=3;
 MultiverseID=435410;
@@ -22019,6 +35969,27 @@ III — Target creature you control with the greatest power gains flying, first 
 CardNumber="DOM38";
 Rulings=8;
 MultiverseID=442926;
+};
+
+{Name="Trollbred Guardian";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}{{G}}";
+cmc=5;
+Colors={"Green"};
+Type="Creature — Troll Frog Warrior";
+Types={"Creature"};
+SubTypes={"Troll";"Frog";"Warrior";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[{{2}}{{G}}: Adapt 2. (If this creature has no +1/+1 counters on it, put two +1/+1 counters on it.)<br/>
+Each creature you control with a +1/+1 counter on it has trample.]=];
+Flavor=[=[His favorite food is kraul.]=];
+CardNumber="RNA148";
+Power="5";
+Toughness="5";
+Rulings=2;
+MultiverseID=457292;
 };
 
 {Name="Trostani Discordant";
@@ -22054,7 +36025,7 @@ Types={"Enchantment"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
 Text=[=[Each opponent must attack you or a planeswalker you control with at least one creature each combat if able.<br/>
-At the beginning of your end step, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
+At the beginning of your end step, create a Treasure token. (It's an artifact with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")]=];
 CardNumber="XLN171";
 Rulings=3;
 MultiverseID=435325;
@@ -22097,6 +36068,28 @@ Rulings=3;
 MultiverseID=447301;
 };
 
+{Name="Trusted Pegasus";
+SetCode="M20";
+Allsets={"M20";"WAR";};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Creature — Pegasus";
+Types={"Creature"};
+SubTypes={"Pegasus"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying (This creature can't be blocked except by creatures with flying or reach.)<br/>
+Whenever Trusted Pegasus attacks, target attacking creature without flying gains flying until end of turn.]=];
+CardNumber="M20314";
+Power="2";
+Toughness="2";
+MultiverseID=469867;
+Sets={
+{Set="WAR";Rarity="Common";CardNumber="36";Flavor=[=["Would you give your life to save this world?" Gideon murmured. The pegasus snorted and spread wide its mighty wings.]=];};
+};
+};
+
 {Name="Trusty Packbeast";
 SetCode="M19";
 Allsets={"M19"};
@@ -22115,6 +36108,46 @@ CardNumber="M1941";
 Power="2";
 Toughness="3";
 MultiverseID=447177;
+};
+
+{Name="Turret Ogre";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{3}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Creature — Ogre Warrior";
+Types={"Creature"};
+SubTypes={"Ogre";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Reach<br/>
+When Turret Ogre enters the battlefield, if you control another creature with power 4 or greater, Turret Ogre deals 2 damage to each opponent.]=];
+Flavor=[=[Common Gruul career aspirations: berserker, shaman, catapult.]=];
+CardNumber="WAR148";
+Power="4";
+Toughness="3";
+Rulings=3;
+MultiverseID=461075;
+};
+
+{Name="Twilight Panther";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{W}}";
+cmc=1;
+Colors={"White"};
+Type="Creature — Cat Spirit";
+Types={"Creature"};
+SubTypes={"Cat";"Spirit";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{B}}: Twilight Panther gains deathtouch until end of turn.]=];
+Flavor=[=[A pet that can hunt both flesh and spirit is precious in a place where smiling assassins keep company with ghostly shadows.]=];
+CardNumber="RNA28";
+Power="1";
+Toughness="2";
+MultiverseID=457172;
 };
 
 {Name="Twilight Prophet";
@@ -22136,6 +36169,26 @@ Power="2";
 Toughness="4";
 Rulings=11;
 MultiverseID=439745;
+};
+
+{Name="Twinblade Paladin";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{W}}";
+cmc=4;
+Colors={"White"};
+Type="Creature — Human Knight";
+Types={"Creature"};
+SubTypes={"Human";"Knight";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever you gain life, put a +1/+1 counter on Twinblade Paladin.<br/>
+As long as you have 25 or more life, Twinblade Paladin has double strike. (It deals both first-strike and regular combat damage.)]=];
+CardNumber="M20285";
+Power="3";
+Toughness="3";
+Rulings=7;
+MultiverseID=469838;
 };
 
 {Name="Two-Headed Giant";
@@ -22177,6 +36230,118 @@ Toughness="2";
 MultiverseID=447259;
 };
 
+{Name="Tyrant's Scorn";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{U}}{{B}}";
+cmc=2;
+Colors={"Blue";"Black";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Choose one —<br/>
+• Destroy target creature with converted mana cost 3 or less.<br/>
+• Return target creature to its owner's hand.]=];
+Flavor=[=["The hero with the magic sword slays the dragon? Not this time."<br/>
+—Nicol Bolas]=];
+CardNumber="WAR225";
+Rulings=1;
+MultiverseID=461152;
+};
+
+{Name="Ugin, the Ineffable";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{6}}";
+cmc=6;
+Type="Legendary Planeswalker — Ugin";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Ugin"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Colorless spells you cast cost {{2}} less to cast.<br/>
++1: Exile the top card of your library face down and look at it. Create a 2/2 colorless Spirit creature token. When that token leaves the battlefield, put the exiled card into your hand.<br/>
+−3: Destroy target permanent that's one or more colors.]=];
+CardNumber="WAR2";
+Loyalty="4";
+Rulings=7;
+MultiverseID=460929;
+};
+
+{Name="Ugin's Conjurant";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{X}}";
+cmc=0;
+Type="Creature — Spirit Monk";
+Types={"Creature"};
+SubTypes={"Spirit";"Monk";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Ugin's Conjurant enters the battlefield with X +1/+1 counters on it.<br/>
+If damage would be dealt to Ugin's Conjurant while it has a +1/+1 counter on it, prevent that damage and remove that many +1/+1 counters from Ugin's Conjurant.]=];
+CardNumber="WAR3";
+Power="0";
+Toughness="0";
+Rulings=2;
+MultiverseID=460930;
+};
+
+{Name="Unbreakable Formation";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{W}}";
+cmc=3;
+Colors={"White"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Creatures you control gain indestructible until end of turn.<br/>
+Addendum — If you cast this spell during your main phase, put a +1/+1 counter on each of those creatures and they gain vigilance until end of turn.]=];
+CardNumber="RNA29";
+Rulings=3;
+MultiverseID=457173;
+};
+
+{Name="Uncaged Fury";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{R}}";
+cmc=3;
+Colors={"Red"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Target creature gets +1/+1 and gains double strike until end of turn. (It deals both first-strike and regular combat damage.)]=];
+Flavor=[=[The cage is a crucible for the rage that builds inside, refining it into something pure and terrible.]=];
+CardNumber="M20163";
+MultiverseID=466917;
+};
+
+{Name="Unchained Berserker";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{R}}";
+cmc=2;
+Colors={"Red"};
+Type="Creature — Human Berserker";
+Types={"Creature"};
+SubTypes={"Human";"Berserker";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Protection from white (This creature can't be blocked, targeted, dealt damage, enchanted, or equipped by anything white.)<br/>
+Unchained Berserker gets +2/+0 as long as it's attacking.]=];
+Flavor=[=[Sathros turned his restraints to revenge.]=];
+CardNumber="M20164";
+Power="1";
+Toughness="1";
+MultiverseID=466918;
+};
+
 {Name="Unclaimed Territory";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -22209,6 +36374,27 @@ CardNumber="M1982";
 MultiverseID=447218;
 };
 
+{Name="Undead Servant";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Creature — Zombie";
+Types={"Creature"};
+SubTypes={"Zombie"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Undead Servant enters the battlefield, create a 2/2 black Zombie creature token for each card named Undead Servant in your graveyard.]=];
+Flavor=[=["There are always more like you."<br/>
+—Modriss of Zargoth Fen]=];
+CardNumber="M20118";
+Power="3";
+Toughness="2";
+Rulings=1;
+MultiverseID=466872;
+};
+
 {Name="Undercity Necrolisk";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -22229,6 +36415,27 @@ Rulings=1;
 MultiverseID=452837;
 };
 
+{Name="Undercity Scavenger";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Creature — Ogre Warrior";
+Types={"Creature"};
+SubTypes={"Ogre";"Warrior";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Undercity Scavenger enters the battlefield, you may sacrifice another creature. If you do, put two +1/+1 counters on Undercity Scavenger, then scry 2.]=];
+Flavor=[=["We grow strong by feasting on failure."<br/>
+—Izoni]=];
+CardNumber="RNA88";
+Power="3";
+Toughness="3";
+Rulings=2;
+MultiverseID=457232;
+};
+
 {Name="Undercity Uprising";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -22245,6 +36452,23 @@ Flavor=[=["Now it's your turn to hide."<br/>
 CardNumber="GRN210";
 Rulings=4;
 MultiverseID=452960;
+};
+
+{Name="Undercity's Embrace";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target opponent sacrifices a creature. If you control a creature with power 4 or greater, you gain 4 life.]=];
+Flavor=[=[The undercity is always hungry.]=];
+CardNumber="RNA89";
+Rulings=3;
+MultiverseID=457233;
 };
 
 {Name="Underrealm Lich";
@@ -22302,6 +36526,26 @@ CardNumber="XLN172";
 MultiverseID=435326;
 };
 
+{Name="Unholy Indenture";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Enchantment — Aura";
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Enchant creature<br/>
+When enchanted creature dies, return that card to the battlefield under your control with a +1/+1 counter on it.]=];
+Flavor=[=["Don't think of it as selling your soul. It's more like you're bequeathing it to me."<br/>
+—Vilis, Broker of Blood]=];
+CardNumber="M20119";
+Rulings=6;
+MultiverseID=466873;
+};
+
 {Name="Unknown Shores";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -22315,6 +36559,23 @@ Flavor=[=["Just imagine what's waiting around the bend. Adventure. Discovery. Ri
 —Captain Lannery Storm]=];
 CardNumber="XLN259";
 MultiverseID=435420;
+};
+
+{Name="Unlikely Aid";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Target creature gets +2/+0 and gains indestructible until end of turn. (Damage and  effects that say "destroy" don't destroy it.)]=];
+Flavor=[=["No one will ever ride me again, Gideon. Expect no further favors."<br/>
+—Rakdos]=];
+CardNumber="WAR109";
+MultiverseID=461036;
 };
 
 {Name="Unmoored Ego";
@@ -22331,6 +36592,23 @@ Text=[=[Choose a card name. Search target opponent's graveyard, hand, and librar
 Flavor=[=[A well-chosen word can restore a mind or snap its tethers.]=];
 CardNumber="GRN212";
 MultiverseID=452962;
+};
+
+{Name="Unsummon";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{U}}";
+cmc=1;
+Colors={"Blue"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Return target creature to its owner's hand.]=];
+Flavor=[=["Don't you have somewhere else to be?"<br/>
+—Sharuum the Hegemon]=];
+CardNumber="M2078";
+MultiverseID=466832;
 };
 
 {Name="Untamed Kavu";
@@ -22569,6 +36847,49 @@ Rulings=1;
 MultiverseID=447260;
 };
 
+{Name="Vampire of the Dire Moon";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{B}}";
+cmc=1;
+Colors={"Black"};
+Type="Creature — Vampire";
+Types={"Creature"};
+SubTypes={"Vampire"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Deathtouch (Any amount of damage this deals to a creature is enough to destroy it.)<br/>
+Lifelink (Damage dealt by this creature also causes you to gain that much life.)]=];
+Flavor=[=["This place suits me: craven authorities and plentiful prey."]=];
+CardNumber="M20120";
+Power="1";
+Toughness="1";
+MultiverseID=466874;
+};
+
+{Name="Vampire Opportunist";
+SetCode="M20";
+Allsets={"M20";"WAR";};
+Manacost="{{1}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Creature — Vampire";
+Types={"Creature"};
+SubTypes={"Vampire"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{6}}{{B}}: Each opponent loses 2 life and you gain 2 life.]=];
+Flavor=[=["I think I cracked a fang."]=];
+CardNumber="M20326";
+Power="2";
+Toughness="1";
+Rulings=1;
+MultiverseID=469879;
+Sets={
+{Set="WAR";Rarity="Common";CardNumber="110";Flavor=[=["I think I cracked a fang."]=];};
+};
+};
+
 {Name="Vampire Revenant";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -22715,6 +37036,22 @@ Toughness="1";
 MultiverseID=452807;
 };
 
+{Name="Veil of Summer";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{G}}";
+cmc=1;
+Colors={"Green"};
+Type="Instant";
+Types={"Instant"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Draw a card if an opponent has cast a blue or black spell this turn. Spells you control can't be countered this turn. You and permanents you control gain hexproof from blue and from black until end of turn. (You and they can't be the targets of blue or black spells or abilities your opponents control.)]=];
+CardNumber="M20198";
+Rulings=3;
+MultiverseID=466952;
+};
+
 {Name="Veiled Shade";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -22753,6 +37090,46 @@ Power="4";
 Toughness="4";
 Rulings=8;
 MultiverseID=452780;
+};
+
+{Name="Vengeant Vampire";
+SetCode="G18";
+Allsets={"G18"};
+Manacost="{{4}}{{B}}{{B}}";
+cmc=6;
+Colors={"Black"};
+Type="Creature — Vampire";
+Types={"Creature"};
+SubTypes={"Vampire"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Lifelink<br/>
+When Vengeant Vampire dies, destroy target creature an opponent controls and you gain 4 life.]=];
+Flavor=[=["Those who stood in my path now lay behind me."]=];
+CardNumber="G183";
+Power="4";
+Toughness="4";
+MultiverseID=456518;
+};
+
+{Name="Vengeful Warchief";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{B}}";
+cmc=5;
+Colors={"Black"};
+Type="Creature — Orc Warrior";
+Types={"Creature"};
+SubTypes={"Orc";"Warrior";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever you lose life for the first time each turn, put a +1/+1 counter on Vengeful Warchief. (Damage causes loss of life.)]=];
+Flavor=[=["Try to steal from me and I'll add your skull to my collection."]=];
+CardNumber="M20121";
+Power="4";
+Toughness="4";
+Rulings=4;
+MultiverseID=466875;
 };
 
 {Name="Verdant Force";
@@ -22814,6 +37191,25 @@ Rulings=1;
 MultiverseID=435369;
 };
 
+{Name="Verity Circle";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Whenever a creature an opponent controls becomes tapped, if it isn't being declared as an attacker, you may draw a card.<br/>
+{{4}}{{U}}: Tap target creature without flying.]=];
+Flavor=[=["Here, there is only truth."<br/>
+—Barvisa, Azorius emissary]=];
+CardNumber="RNA58";
+Rulings=3;
+MultiverseID=457202;
+};
+
 {Name="Verix Bladewing";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -22853,6 +37249,22 @@ CardNumber="GRN219";
 Power="2";
 Toughness="2";
 MultiverseID=452969;
+};
+
+{Name="Vial of Dragonfire";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}";
+cmc=2;
+Type="Artifact";
+Types={"Artifact"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{2}}, {{Tap}}, Sacrifice Vial of Dragonfire: It deals 2 damage to target creature.]=];
+Flavor=[=["The artificer assured me that the vial is strong enough to contain the dragon's breath. I just need to make sure to throw it far enough."<br/>
+—Kunh Mei, last words]=];
+CardNumber="M20241";
+MultiverseID=466995;
 };
 
 {Name="Viashino Pyromancer";
@@ -22967,6 +37379,49 @@ Rulings=5;
 MultiverseID=452897;
 };
 
+{Name="Vilis, Broker of Blood";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{5}}{{B}}{{B}}{{B}}";
+cmc=8;
+Colors={"Black"};
+Type="Legendary Creature — Demon";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Demon"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Flying<br/>
+{{B}}, Pay 2 life: Target creature gets -1/-1 until end of turn.<br/>
+Whenever you lose life, draw that many cards. (Damage causes loss of life.)]=];
+Flavor=[=["You can sign, or you can spend your life imagining what might have been yours."]=];
+CardNumber="M20122";
+Power="8";
+Toughness="8";
+Rulings=2;
+MultiverseID=466876;
+};
+
+{Name="Vindictive Vampire";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{B}}";
+cmc=4;
+Colors={"Black"};
+Type="Creature — Vampire";
+Types={"Creature"};
+SubTypes={"Vampire"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever another creature you control dies, Vindictive Vampire deals 1 damage to each opponent and you gain 1 life.]=];
+Flavor=[=[In theory, the Guildpact keeps guild feuds from spiraling out of control. Personal feuds, however, are not covered.]=];
+CardNumber="RNA90";
+Power="2";
+Toughness="3";
+Rulings=3;
+MultiverseID=457234;
+};
+
 {Name="Vine Mare";
 SetCode="M19";
 Allsets={"M19"};
@@ -23065,6 +37520,126 @@ Loyalty="5";
 MultiverseID=447344;
 };
 
+{Name="Vivien, Arkbow Ranger";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{G}}{{G}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Legendary Planeswalker — Vivien";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Vivien"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[+1: Distribute two +1/+1 counters among up to two target creatures. They gain trample until end of turn.<br/>
+−3: Target creature you control deals damage equal to its power to target creature or planeswalker.<br/>
+−5: You may choose a creature card you own from outside the game, reveal it, and put it into your hand.]=];
+CardNumber="M20199";
+Loyalty="4";
+Rulings=5;
+MultiverseID=466953;
+};
+
+{Name="Vivien, Champion of the Wilds";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Legendary Planeswalker — Vivien";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Vivien"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[You may cast creature spells as though they had flash.<br/>
++1: Until your next turn, up to one target creature gains vigilance and reach.<br/>
+−2: Look at the top three cards of your library. Exile one face down and put the rest on the bottom of your library in any order. For as long as it remains exiled, you may look at that card and you may cast it if it's a creature card.]=];
+CardNumber="WAR180";
+Loyalty="4";
+Rulings=3;
+MultiverseID=461107;
+};
+
+{Name="Vivien, Nature's Avenger";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{G}}{{G}}";
+cmc=6;
+Colors={"Green"};
+Type="Legendary Planeswalker — Vivien";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Vivien"};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[+1: Put three +1/+1 counters on up to one target creature.<br/>
+−1: Reveal cards from the top of your library until you reveal a creature card. Put that card into your hand and the rest on the bottom of your library in a random order.<br/>
+−6: Target creature gets +10/+10 and gains trample until end of turn.]=];
+CardNumber="M20298";
+Loyalty="3";
+Rulings=1;
+MultiverseID=469851;
+};
+
+{Name="Vivien's Arkbow";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Legendary Artifact";
+SuperTypes={"Legendary"};
+Types={"Artifact"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[{{X}}, {{Tap}}, Discard a card: Look at the top X cards of your library. You may put a creature card with converted mana cost X or less from among them onto the battlefield. Put the rest on the bottom of your library in a random order.]=];
+CardNumber="WAR181";
+Rulings=1;
+MultiverseID=461108;
+};
+
+{Name="Vivien's Crocodile";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Creature — Crocodile Spirit";
+Types={"Creature"};
+SubTypes={"Crocodile";"Spirit";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Vivien's Crocodile gets +1/+1 as long as you control a Vivien planeswalker.]=];
+Flavor=[=["Regardless of where they come from, crocs are usually able to find their way home. For this one, home is me."<br/>
+—Vivien Reid]=];
+CardNumber="M20301";
+Power="3";
+Toughness="3";
+Rulings=1;
+MultiverseID=469854;
+};
+
+{Name="Vivien's Grizzly";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{G}}";
+cmc=3;
+Colors={"Green"};
+Type="Creature — Bear Spirit";
+Types={"Creature"};
+SubTypes={"Bear";"Spirit";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{3}}{{G}}: Look at the top card of your library. If it's a creature or planeswalker card, you may reveal it and put it into your hand. If you don't put the card into your hand, put it on the bottom of your library.]=];
+CardNumber="WAR182";
+Power="2";
+Toughness="3";
+Rulings=1;
+MultiverseID=461109;
+};
+
 {Name="Vivien's Invocation";
 SetCode="M19";
 Allsets={"M19"};
@@ -23102,6 +37677,46 @@ Rulings=1;
 MultiverseID=450252;
 };
 
+{Name="Vizier of the Scorpion";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Creature — Zombie Wizard";
+Types={"Creature"};
+SubTypes={"Zombie";"Wizard";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Vizier of the Scorpion enters the battlefield, amass 1. (Put a +1/+1 counter on an Army you control. If you don't control one, create a 0/0 black Zombie Army creature token first.)<br/>
+Zombie tokens you control have deathtouch.]=];
+Flavor=[=[His blessing is a curse.]=];
+CardNumber="WAR111";
+Power="1";
+Toughness="1";
+Rulings=3;
+MultiverseID=461038;
+};
+
+{Name="Vizkopa Vampire";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{WB}}";
+cmc=3;
+Colors={"White";"Black";};
+Type="Creature — Vampire";
+Types={"Creature"};
+SubTypes={"Vampire"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Lifelink]=];
+Flavor=[=[Orzhov vampires look for allies in unlikely places in case their new guildmaster turns on them. The fate of the Obzedat is proof of Kaya's power and her hatred of the living dead.]=];
+CardNumber="RNA220";
+Power="3";
+Toughness="1";
+MultiverseID=457364;
+};
+
 {Name="Vodalian Arcanist";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -23122,8 +37737,8 @@ MultiverseID=442961;
 };
 
 {Name="Volcanic Dragon";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{4}}{{R}}{{R}}";
 cmc=6;
 Colors={"Red"};
@@ -23132,13 +37747,17 @@ Types={"Creature"};
 SubTypes={"Dragon"};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[Flying<br/>
+Text=[=[Flying (This creature can't be blocked except by creatures with flying or reach.)<br/>
 Haste (This creature can attack and {{Tap}} as soon as it comes under your control.)]=];
-Flavor=[=[Sometimes an eruption in Shiv produces something more dangerous than a mere river of molten rock.]=];
-CardNumber="M19167";
+Flavor=[=["That's no ordinary eruption!"<br/>
+—Grazlash Stonehold, last words]=];
+CardNumber="M20336";
 Power="4";
 Toughness="4";
-MultiverseID=447303;
+MultiverseID=469889;
+Sets={
+{Set="M19";Rarity="Uncommon";CardNumber="167";Flavor=[=[Sometimes an eruption in Shiv produces something more dangerous than a mere river of molten rock.]=];};
+};
 };
 
 {Name="Volley Veteran";
@@ -23219,6 +37838,29 @@ Rulings=6;
 MultiverseID=439747;
 };
 
+{Name="Voracious Hydra";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{X}}{{G}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Creature — Hydra";
+Types={"Creature"};
+SubTypes={"Hydra"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Trample<br/>
+Voracious Hydra enters the battlefield with X +1/+1 counters on it.<br/>
+When Voracious Hydra enters the battlefield, choose one —<br/>
+• Double the number of +1/+1 counters on Voracious Hydra.<br/>
+• Voracious Hydra fights target creature you don't control.]=];
+CardNumber="M20200";
+Power="0";
+Toughness="1";
+Rulings=2;
+MultiverseID=466954;
+};
+
 {Name="Voracious Vampire";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -23237,6 +37879,24 @@ CardNumber="RIX91";
 Power="2";
 Toughness="2";
 MultiverseID=439748;
+};
+
+{Name="Vorstclaw";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{G}}{{G}}";
+cmc=6;
+Colors={"Green"};
+Type="Creature — Elemental Horror";
+Types={"Creature"};
+SubTypes={"Elemental";"Horror";};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=[Roots reach deep, and sometimes they tap into things better left undisturbed.]=];
+CardNumber="M20201";
+Power="7";
+Toughness="7";
+MultiverseID=466955;
 };
 
 {Name="Vraska, Golgari Queen";
@@ -23293,7 +37953,7 @@ SubTypes={"Vraska"};
 Rarity="Mythic Rare";
 Rarities={"Mythic Rare"};
 Text=[=[+2: Create a 2/2 black Pirate creature token with menace.<br/>
-−3: Destroy target artifact, creature, or enchantment. Create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."<br/>
+−3: Destroy target artifact, creature, or enchantment. Create a Treasure token. (It's an artifact with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")<br/>
 −10: Target player's life total becomes 1.]=];
 CardNumber="XLN232";
 Loyalty="6";
@@ -23320,6 +37980,25 @@ CardNumber="RIX197";
 Loyalty="5";
 Rulings=2;
 MultiverseID=441891;
+};
+
+{Name="Vraska, Swarm's Eminence";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{BG}}{{BG}}";
+cmc=4;
+Colors={"Black";"Green";};
+Type="Legendary Planeswalker — Vraska";
+SuperTypes={"Legendary"};
+Types={"Planeswalker"};
+SubTypes={"Vraska"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever a creature you control with deathtouch deals damage to a player or planeswalker, put a +1/+1 counter on that creature.<br/>
+−2: Create a 1/1 black Assassin creature token with deathtouch and "Whenever this creature deals damage to a planeswalker, destroy that planeswalker."]=];
+CardNumber="WAR236";
+Loyalty="5";
+MultiverseID=461163;
 };
 
 {Name="Vraska's Conquistador";
@@ -23356,6 +38035,25 @@ Flavor=[=[It wasn't long before the taverns of High and Dry were full of whisper
 CardNumber="XLN129";
 Rulings=2;
 MultiverseID=435283;
+};
+
+{Name="Vraska's Finisher";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{2}}{{B}}";
+cmc=3;
+Colors={"Black"};
+Type="Creature — Gorgon Assassin";
+Types={"Creature"};
+SubTypes={"Gorgon";"Assassin";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Vraska's Finisher enters the battlefield, destroy target creature or planeswalker an opponent controls that was dealt damage this turn.]=];
+Flavor=[=["You might have pleaded your case with my queen earlier. Now I am here, and it is far too late."]=];
+CardNumber="WAR112";
+Power="3";
+Toughness="2";
+MultiverseID=461039;
 };
 
 {Name="Vraska's Scorn";
@@ -23430,6 +38128,27 @@ Rulings=2;
 MultiverseID=435371;
 };
 
+{Name="Wakeroot Elemental";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{G}}{{G}}";
+cmc=6;
+Colors={"Green"};
+Type="Creature — Elemental";
+Types={"Creature"};
+SubTypes={"Elemental"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[{{G}}{{G}}{{G}}{{G}}{{G}}: Untap target land you control. It becomes a 5/5 Elemental creature with haste. It's still a land. (This effect lasts as long as that land remains on the battlefield.)]=];
+Flavor=[=["When the forest walks, it's too late to run."<br/>
+—Horent, Khalni druid]=];
+CardNumber="M20202";
+Power="5";
+Toughness="5";
+Rulings=1;
+MultiverseID=466956;
+};
+
 {Name="Walk the Plank";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -23447,8 +38166,8 @@ MultiverseID=435284;
 };
 
 {Name="Walking Corpse";
-SetCode="M19";
-Allsets={"M19"};
+SetCode="M20";
+Allsets={"M20";"M19";};
 Manacost="{{1}}{{B}}";
 cmc=2;
 Colors={"Black"};
@@ -23457,12 +38176,36 @@ Types={"Creature"};
 SubTypes={"Zombie"};
 Rarity="Common";
 Rarities={"Common"};
-Flavor=[=["Feeding a normal army is a problem of logistics. With zombies, it is an asset. Feeding is why they fight. Feeding is why they are feared."<br/>
-—Jadar, ghoulcaller of Nephalia]=];
-CardNumber="M19126";
+Flavor=[=["What does it mean when the dead feed on the dead? When no new life emerges, but only more death? Is it not an endless spiral into annihilation?"<br/>
+—Jeddeg, philosopher of graves]=];
+CardNumber="M20327";
 Power="2";
 Toughness="2";
-MultiverseID=447262;
+MultiverseID=469880;
+Sets={
+{Set="M19";Rarity="Common";CardNumber="126";Flavor=[=["Feeding a normal army is a problem of logistics. With zombies, it is an asset. Feeding is why they fight. Feeding is why they are feared."
+—Jadar, ghoulcaller of Nephalia]=];};
+};
+};
+
+{Name="Wall of Lost Thoughts";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Creature — Wall";
+Types={"Creature"};
+SubTypes={"Wall"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Defender<br/>
+When Wall of Lost Thoughts enters the battlefield, target player puts the top four cards of their library into their graveyard.]=];
+Flavor=[=[Those who intrude upon the Dimir seldom remember that they have done so.]=];
+CardNumber="RNA59";
+Power="0";
+Toughness="4";
+MultiverseID=457203;
 };
 
 {Name="Wall of Mist";
@@ -23485,6 +38228,27 @@ MultiverseID=452808;
 Sets={
 {Set="M19";Rarity="Common";CardNumber="83";Flavor=[=[The seafloor is flecked with the bones of fools who dared to sail into the mist.]=];};
 };
+};
+
+{Name="Wall of Runes";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{U}}";
+cmc=1;
+Colors={"Blue"};
+Type="Creature — Wall";
+Types={"Creature"};
+SubTypes={"Wall"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Defender<br/>
+When Wall of Runes enters the battlefield, scry 1.]=];
+Flavor=[=["It's strangely satisfying seeing an undead killing machine from another world standing befuddled in front of a wall of text."<br/>
+—Lavinia]=];
+CardNumber="WAR75";
+Power="0";
+Toughness="4";
+MultiverseID=461002;
 };
 
 {Name="Wall of Vines";
@@ -23523,6 +38287,24 @@ CardNumber="GRN242";
 MultiverseID=452992;
 };
 
+{Name="Wanderer's Strike";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{W}}";
+cmc=5;
+Colors={"White"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Exile target creature, then proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)]=];
+Flavor=[=["Precise, clean cuts. No one saw anything. Again. Tag the report with my code and file it."<br/>
+—Lavinia]=];
+CardNumber="WAR38";
+Rulings=7;
+MultiverseID=460965;
+};
+
 {Name="Wanted Scoundrels";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -23534,12 +38316,32 @@ Types={"Creature"};
 SubTypes={"Human";"Pirate";};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[When Wanted Scoundrels dies, target opponent creates two colorless Treasure artifact tokens with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
+Text=[=[When Wanted Scoundrels dies, target opponent creates two Treasure tokens. (They're artifacts with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")]=];
 Flavor=[=["Trust me. The reward's not worth it."]=];
 CardNumber="XLN131";
 Power="4";
 Toughness="3";
 MultiverseID=435285;
+};
+
+{Name="War Screecher";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{W}}";
+cmc=2;
+Colors={"White"};
+Type="Creature — Bird";
+Types={"Creature"};
+SubTypes={"Bird"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Flying<br/>
+{{5}}{{W}}, {{Tap}}: Other creatures you control get +1/+1 until end of turn.]=];
+Flavor=[=[Soaring over Vitu-Ghazi, New Prahv, and Orzhova, the Conclave's trained falcons provided critical intelligence.]=];
+CardNumber="WAR39";
+Power="1";
+Toughness="3";
+MultiverseID=460966;
 };
 
 {Name="Warcry Phoenix";
@@ -23561,6 +38363,62 @@ Power="2";
 Toughness="2";
 Rulings=2;
 MultiverseID=443038;
+};
+
+{Name="Warden";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{W}}{{U}}";
+cmc=5;
+Colors={"White";"Blue";};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Create a 4/4 white and blue Sphinx creature token with flying and vigilance.]=];
+CardNumber="RNA230b";
+MultiverseID=457374;
+};
+
+{Name="Warden of Evos Isle";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Creature — Bird Wizard";
+Types={"Creature"};
+SubTypes={"Bird";"Wizard";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying<br/>
+Creature spells with flying you cast cost {{1}} less to cast.]=];
+Flavor=[=[On Evos Isle, the swift and formidable aven enforce the will of the ruling sphinxes.]=];
+CardNumber="M2079";
+Power="2";
+Toughness="2";
+Rulings=2;
+MultiverseID=466833;
+};
+
+{Name="Wardscale Crocodile";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{4}}{{G}}";
+cmc=5;
+Colors={"Green"};
+Type="Creature — Crocodile";
+Types={"Creature"};
+SubTypes={"Crocodile"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Hexproof (This creature can't be the target of spells or abilities your opponents control.)]=];
+Flavor=[=["The Eternals had to endure Amonkhet's five trials. Let's see if they can pass the Trial of Ravnica."<br/>
+—Jace Beleren]=];
+CardNumber="WAR183";
+Power="5";
+Toughness="3";
+MultiverseID=461110;
 };
 
 {Name="Warkite Marauder";
@@ -23602,6 +38460,23 @@ Rulings=1;
 MultiverseID=443039;
 };
 
+{Name="Warrant";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{WU}}{{WU}}";
+cmc=2;
+Colors={"White";"Blue";};
+Type="Instant";
+Types={"Instant"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Put target attacking or blocking creature on top of its owner's library.<br/>
+]=];
+CardNumber="RNA230a";
+Rulings=1;
+MultiverseID=457374;
+};
+
 {Name="Wary Okapi";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -23640,6 +38515,44 @@ Power="3";
 Toughness="4";
 Rulings=2;
 MultiverseID=452809;
+};
+
+{Name="Watchful Giant";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{5}}{{W}}";
+cmc=6;
+Colors={"White"};
+Type="Creature — Giant Soldier";
+Types={"Creature"};
+SubTypes={"Giant";"Soldier";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[When Watchful Giant enters the battlefield, create a 1/1 white Human creature token.]=];
+Flavor=[=[Loitering is not only illegal but unwise, since those who stay too long in one place are apt to be stepped on.]=];
+CardNumber="RNA30";
+Power="3";
+Toughness="6";
+MultiverseID=457174;
+};
+
+{Name="Waterkin Shaman";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Creature — Elemental Shaman";
+Types={"Creature"};
+SubTypes={"Elemental";"Shaman";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever a creature with flying enters the battlefield under your control, Waterkin Shaman gets +1/+1 until end of turn.]=];
+Flavor=[=["They come to drink, to bathe, and—I believe—to play."]=];
+CardNumber="M20288";
+Power="2";
+Toughness="1";
+MultiverseID=469841;
 };
 
 {Name="Waterknot";
@@ -23841,6 +38754,22 @@ Rulings=3;
 MultiverseID=452840;
 };
 
+{Name="Widespread Brutality";
+SetCode="WAR";
+Allsets={"WAR"};
+Manacost="{{1}}{{B}}{{R}}{{R}}";
+cmc=4;
+Colors={"Black";"Red";};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Amass 2, then the Army you amassed deals damage equal to its power to each non-Army creature. (To amass 2, put two +1/+1 counters on an Army you control. If you don't control one, create a 0/0 black Zombie Army creature token first.)]=];
+CardNumber="WAR226";
+Rulings=2;
+MultiverseID=461153;
+};
+
 {Name="Wild Ceratok";
 SetCode="GRN";
 Allsets={"GRN"};
@@ -23875,6 +38804,44 @@ CardNumber="DOM188";
 MultiverseID=443076;
 };
 
+{Name="Wilderness Reclamation";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{3}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[At the beginning of your end step, untap all lands you control.]=];
+Flavor=[=["Walls crack. Buildings fall. Always the wilds return."<br/>
+—Domri Rade]=];
+CardNumber="RNA149";
+MultiverseID=457293;
+};
+
+{Name="Wildfire Elemental";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{R}}{{R}}";
+cmc=4;
+Colors={"Red"};
+Type="Creature — Elemental";
+Types={"Creature"};
+SubTypes={"Elemental"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Whenever an opponent is dealt noncombat damage, creatures you control get +1/+0 until end of turn.]=];
+Flavor=[=["Fire is always dancing, leaping and whirling, seeking more fuel. It never rests, so why should I?"<br/>
+—Chandra Nalaar]=];
+CardNumber="M20297";
+Power="3";
+Toughness="3";
+Rulings=4;
+MultiverseID=469850;
+};
+
 {Name="Wildgrowth Walker";
 SetCode="XLN";
 Allsets={"XLN"};
@@ -23907,7 +38874,7 @@ Types={"Creature"};
 SubTypes={"Goblin";"Pirate";};
 Rarity="Uncommon";
 Rarities={"Uncommon"};
-Text=[=[When Wily Goblin enters the battlefield, create a colorless Treasure artifact token with "{{Tap}}, Sacrifice this artifact: Add one mana of any color."]=];
+Text=[=[When Wily Goblin enters the battlefield, create a Treasure token. (It's an artifact with "{{Tap}}, Sacrifice this artifact: Add one mana of any color.")]=];
 Flavor=[=[Goblins climb and swing with ease, whether through a pirate ship's rigging or a tree's branches.]=];
 CardNumber="XLN174";
 Power="1";
@@ -23976,6 +38943,40 @@ Rulings=3;
 MultiverseID=447220;
 };
 
+{Name="Wind-Scarred Crag";
+SetCode="M20";
+Allsets={"M20"};
+Type="Land";
+Types={"Land"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Wind-Scarred Crag enters the battlefield tapped.<br/>
+When Wind-Scarred Crag enters the battlefield, you gain 1 life.<br/>
+{{Tap}}: Add {{R}} or {{W}}.]=];
+CardNumber="M20260";
+MultiverseID=467014;
+};
+
+{Name="Windstorm Drake";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{4}}{{U}}";
+cmc=5;
+Colors={"Blue"};
+Type="Creature — Drake";
+Types={"Creature"};
+SubTypes={"Drake"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Flying<br/>
+Other creatures you control with flying get +1/+0.]=];
+Flavor=[=[Drakes become especially voracious as they prepare for their autumn migration, hunting the city's thoroughfares from dawn to dusk.]=];
+CardNumber="RNA60";
+Power="3";
+Toughness="3";
+MultiverseID=457204;
+};
+
 {Name="Winged Temple of Orazca";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -23990,6 +38991,24 @@ Text=[=[(Transforms from Hadana's Climb.)<br/>
 {{1}}{{G}}{{U}}, {{Tap}}: Target creature you control gains flying and gets +X/+X until end of turn, where X is its power.]=];
 CardNumber="RIX158b";
 MultiverseID=439816;
+};
+
+{Name="Winged Words";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{U}}";
+cmc=3;
+Colors={"Blue"};
+Type="Sorcery";
+Types={"Sorcery"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[This spell costs {{1}} less to cast if you control a creature with flying.<br/>
+Draw two cards.]=];
+Flavor=[=[Magic written across the sky falls like rain on thirsty ground, bringing forth wisdom in its season.]=];
+CardNumber="M2080";
+Rulings=2;
+MultiverseID=466834;
 };
 
 {Name="Wishcoin Crab";
@@ -24070,6 +39089,44 @@ Rulings=8;
 MultiverseID=452870;
 };
 
+{Name="Wolfkin Bond";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{4}}{{G}}";
+cmc=5;
+Colors={"Green"};
+Type="Enchantment — Aura";
+Types={"Enchantment"};
+SubTypes={"Aura"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Enchant creature<br/>
+When Wolfkin Bond enters the battlefield, create a 2/2 green Wolf creature token.<br/>
+Enchanted creature gets +2/+2.]=];
+CardNumber="M20203";
+Rulings=2;
+MultiverseID=466957;
+};
+
+{Name="Wolfrider's Saddle";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{G}}";
+cmc=4;
+Colors={"Green"};
+Type="Artifact — Equipment";
+Types={"Artifact"};
+SubTypes={"Equipment"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Wolfrider's Saddle enters the battlefield, create a 2/2 green Wolf creature token, then attach Wolfrider's Saddle to it.<br/>
+Equipped creature gets +1/+1 and can't be blocked by more than one creature.<br/>
+Equip {{3}} ({{3}}: Attach to target creature you control. Equip only as a sorcery.)]=];
+CardNumber="M20204";
+Rulings=3;
+MultiverseID=466958;
+};
+
 {Name="Woodland Cemetery";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -24083,6 +39140,45 @@ Flavor=[=["They never found the body of young Josu, or that of his murderous sis
 —"The Fall of the House of Vess"]=];
 CardNumber="DOM248";
 MultiverseID=443136;
+};
+
+{Name="Woodland Champion";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Creature — Elf Scout";
+Types={"Creature"};
+SubTypes={"Elf";"Scout";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Whenever one or more tokens enter the battlefield under your control, put that many +1/+1 counters on Woodland Champion.]=];
+Flavor=[=["Every footfall on the forest floor is a heartbeat sending strength into my veins."]=];
+CardNumber="M20205";
+Power="2";
+Toughness="2";
+Rulings=1;
+MultiverseID=466959;
+};
+
+{Name="Woodland Mystic";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{G}}";
+cmc=2;
+Colors={"Green"};
+Type="Creature — Elf Druid";
+Types={"Creature"};
+SubTypes={"Elf";"Druid";};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{Tap}}: Add {{G}}.]=];
+Flavor=[=["I sing to the branches, and they reach to the sky. I sing to the leaves, and they open to the sun. I sing to the roots, and they dig their fingers deep. I sing the song that creation sung."]=];
+CardNumber="M20344";
+Power="1";
+Toughness="1";
+MultiverseID=469897;
 };
 
 {Name="Woodland Stream";
@@ -24143,6 +39239,47 @@ Rulings=7;
 MultiverseID=452965;
 };
 
+{Name="Wrecking Beast";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{5}}{{G}}{{G}}";
+cmc=7;
+Colors={"Green"};
+Type="Creature — Beast";
+Types={"Creature"};
+SubTypes={"Beast"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[Riot (This creature enters the battlefield with your choice of a +1/+1 counter or haste.)<br/>
+Trample]=];
+Flavor=[=["The best construction makes the most satisfying destruction."<br/>
+—Domri Rade]=];
+CardNumber="RNA150";
+Power="6";
+Toughness="6";
+Rulings=3;
+MultiverseID=457294;
+};
+
+{Name="Yanling's Harbinger";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{U}}{{U}}";
+cmc=5;
+Colors={"Blue"};
+Type="Creature — Bird";
+Types={"Creature"};
+SubTypes={"Bird"};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[Flying<br/>
+When Yanling's Harbinger enters the battlefield, you may search your library and/or graveyard for a card named Mu Yanling, Celestial Wind, reveal it, and put it into your hand. If you search your library this way, shuffle it.]=];
+CardNumber="M20289";
+Power="2";
+Toughness="4";
+MultiverseID=469842;
+};
+
 {Name="Yargle, Glutton of Urborg";
 SetCode="DOM";
 Allsets={"DOM"};
@@ -24160,6 +39297,74 @@ CardNumber="DOM113";
 Power="9";
 Toughness="3";
 MultiverseID=443001;
+};
+
+{Name="Yarok, the Desecrated";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{2}}{{B}}{{G}}{{U}}";
+cmc=5;
+Colors={"Blue";"Black";"Green";};
+Type="Legendary Creature — Elemental Horror";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Elemental";"Horror";};
+Rarity="Mythic Rare";
+Rarities={"Mythic Rare"};
+Text=[=[Deathtouch, lifelink<br/>
+If a permanent entering the battlefield causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.]=];
+Flavor=[=["Yarok grieves within the waste<br/>
+Of Bala Ged's corrupted land."<br/>
+—&lt;i&gt;Lament for Bala Ged&lt;/i&gt;, stanza 1]=];
+CardNumber="M20220";
+Power="3";
+Toughness="5";
+Rulings=9;
+MultiverseID=466974;
+};
+
+{Name="Yarok's Fenlurker";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{B}}{{B}}";
+cmc=2;
+Colors={"Black"};
+Type="Creature — Horror";
+Types={"Creature"};
+SubTypes={"Horror"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Yarok's Fenlurker enters the battlefield, each opponent exiles a card from their hand.<br/>
+{{2}}{{B}}: Yarok's Fenlurker gets +1/+1 until end of turn.]=];
+Flavor=[=["Yarok's nightmares lurk and wait<br/>
+Where dark despair is near at hand."<br/>
+—&lt;i&gt;Lament for Bala Ged&lt;/i&gt;, stanza 3]=];
+CardNumber="M20123";
+Power="1";
+Toughness="1";
+MultiverseID=466877;
+};
+
+{Name="Yarok's Wavecrasher";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{3}}{{U}}";
+cmc=4;
+Colors={"Blue"};
+Type="Creature — Elemental";
+Types={"Creature"};
+SubTypes={"Elemental"};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[When Yarok's Wavecrasher enters the battlefield, return another creature you control to its owner's hand.]=];
+Flavor=[=["Yarok's waters rush and rage<br/>
+Where armies bled into the sand."<br/>
+—&lt;i&gt;Lament for Bala Ged&lt;/i&gt;, stanza 2]=];
+CardNumber="M2081";
+Power="4";
+Toughness="4";
+Rulings=1;
+MultiverseID=466835;
 };
 
 {Name="Yavimaya Sapherd";
@@ -24199,6 +39404,24 @@ Flavor=[=[Centuries ago, a mad god offered a simple trade.]=];
 CardNumber="DOM114";
 Rulings=2;
 MultiverseID=443002;
+};
+
+{Name="Yoked Ox";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{W}}";
+cmc=1;
+Colors={"White"};
+Type="Creature — Ox";
+Types={"Creature"};
+SubTypes={"Ox"};
+Rarity="Common";
+Rarities={"Common"};
+Flavor=[=[The courage of those who work the land is born of long days of labor in the hot summer sun and the cold winter wind. It is the courage of the earth itself.]=];
+CardNumber="M2041";
+Power="0";
+Toughness="4";
+MultiverseID=466795;
 };
 
 {Name="Zacama, Primal Calamity";
@@ -24246,6 +39469,45 @@ Toughness="6";
 MultiverseID=442964;
 };
 
+{Name="Zegana, Utopian Speaker";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{2}}{{G}}{{U}}";
+cmc=4;
+Colors={"Blue";"Green";};
+Type="Legendary Creature — Merfolk Wizard";
+SuperTypes={"Legendary"};
+Types={"Creature"};
+SubTypes={"Merfolk";"Wizard";};
+Rarity="Rare";
+Rarities={"Rare"};
+Text=[=[When Zegana, Utopian Speaker enters the battlefield, if you control another creature with a +1/+1 counter on it, draw a card.<br/>
+{{4}}{{G}}{{U}}: Adapt 4. (If this creature has no +1/+1 counters on it, put four +1/+1 counters on it.)<br/>
+Each creature you control with a +1/+1 counter on it has trample.]=];
+CardNumber="RNA214";
+Power="4";
+Toughness="4";
+Rulings=2;
+MultiverseID=457358;
+};
+
+{Name="Zephyr Charge";
+SetCode="M20";
+Allsets={"M20"};
+Manacost="{{1}}{{U}}";
+cmc=2;
+Colors={"Blue"};
+Type="Enchantment";
+Types={"Enchantment"};
+Rarity="Common";
+Rarities={"Common"};
+Text=[=[{{1}}{{U}}: Target creature gains flying until end of turn.]=];
+Flavor=[=["The knights charged forward on wings of wind, and the necromancer's horde roared in helpless rage."<br/>
+—Krinnea, &lt;i&gt;Siege of the Bone Spire&lt;/i&gt;]=];
+CardNumber="M2082";
+MultiverseID=466836;
+};
+
 {Name="Zetalpa, Primal Dawn";
 SetCode="RIX";
 Allsets={"RIX"};
@@ -24280,6 +39542,26 @@ Flavor=[=["The wind whispers, ‘come home,' but I cannot."<br/>
 —Teferi]=];
 CardNumber="DOM249";
 MultiverseID=443137;
+};
+
+{Name="Zhur-Taa Goblin";
+SetCode="RNA";
+Allsets={"RNA"};
+Manacost="{{R}}{{G}}";
+cmc=2;
+Colors={"Red";"Green";};
+Type="Creature — Goblin Berserker";
+Types={"Creature"};
+SubTypes={"Goblin";"Berserker";};
+Rarity="Uncommon";
+Rarities={"Uncommon"};
+Text=[=[Riot (This creature enters the battlefield with your choice of a +1/+1 counter or haste.)]=];
+Flavor=[=[Among the Zhur-Taa Clan, goblins are the first to enter battlefury. When the battle is over, the survivors are still frothing at the mouth, looking for someone to hit.]=];
+CardNumber="RNA215";
+Power="2";
+Toughness="2";
+Rulings=3;
+MultiverseID=457359;
 };
 
 };
