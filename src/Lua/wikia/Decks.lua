@@ -234,11 +234,11 @@ local function BannedSection()
     if count > 1 then
         text = string.sub(text, 1, lastStart - 2) .. " and " .. string.sub(text, lastStart + 1)
     end
-    return "{{Banned|" .. text .. "}}[[Category:Decks with banned cards]]\n"
+    return "{{NoticeBanned|" .. text .. "}}<br />[[Category:Decks with banned cards]]\n"
 end
 
 local function PlayableSection()
-    return deck.Playable() and "" or "{{UnplayableDeck}}"
+    return deck.Playable() and "" or "{{NoticeUnplayable}}<br />"
 end
 
 local function BackTo(backto)

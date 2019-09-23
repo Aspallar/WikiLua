@@ -286,7 +286,7 @@ local function GetOtherCard(name)
     local s
     local card = cardService.GetOtherByName(name)
     if card then
-        s = "{{CardUnavailable}}\n{{clear}}\n" .. GenerateOtherCardPage(card)
+        s = "{{NoticeCardUnavailable}}\n{{clear}}\n" .. GenerateOtherCardPage(card)
         if card.CardNumber and (string.find(card.CardNumber, "a")) then
             local card2 = cardService.GetOtherByNumber(gsub(card.CardNumber, "a", "b"))
             s = s .. "\n{{clear}}\n<big><big><big>" .. card2.Name .. "</big></big></big>\n" .. GenerateOtherCardPage(card2)
