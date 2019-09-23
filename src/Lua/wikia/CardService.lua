@@ -85,6 +85,10 @@ local criteriaList = {
     NameMatches = function(card, condition)
         return match(card.Name, condition)
     end;
+    -- condition ∈ {true,false}
+    Standard = function(card, condition)
+        return p.IsStandard(card) == condition
+    end;
 }
 
 local function PrepareCriteria(criteria)
@@ -95,7 +99,7 @@ local function PrepareCriteria(criteria)
             assert(func and criteriaList[func] and cond, "Invalid card criteria. " .. criteria[i])
             if func == "Text" or func == "NotText" then
                 cond = lower(cond)
-            elseif func == "Colorless" or func == "Multicolor" then
+            elseif func == "Colorless" or func == "Multicolor" or func == "Standard" then
                 cond = cond == "true"
             end
             table.insert(prepared, {test = criteriaList[func], condition = cond})
@@ -187,5 +191,9 @@ function p.GetOtherByCriteria(criteria)
     end
 end
 
+function p.IsStandard(card)
+    local set = card.SetCode
+    return set ~= "XLN" and set ~= "RIX" and set ~= "DOM" and set ~= "M19"
+end
 
 return p
