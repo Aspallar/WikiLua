@@ -1,7 +1,7 @@
 require("wikienv")
 local start, finish
 local clock = os.clock
-local cards = require("wikia\\cards2")
+local cards = require("wikia\\cards")
 -- local result = cards.TestGetCardsTable({"Set$XLN"})
 -- local result = cards.TestGetCardsTable({"Set$RIX"})
 -- local result = cards.TestGetCardsTable({"Rarity$Common"})
@@ -10,9 +10,11 @@ local cards = require("wikia\\cards2")
 -- local result = cards.TestGetCardsTable({"NameMatches$Guide$"})
 -- local result = cards.TestGetCardsTable({"NameMatches$"})
 start = clock()
-local result = cards.TestGetCardsTable(nil)
+-- local result = cards.TestGetCardsTable(nil)
+-- local result = cards.TestGetCardsTable({"Type$Land", "NameMatches$^Z"})
+local result = cards.TestGetCardsTable({"Standard$true", "NameMatches$^Z"})
 finish = clock()
 -- local result = cards.TestGetCardsTable({"Text$energy"})
 
--- print(result)
+print(result)
 print (finish - start)

@@ -126,4 +126,14 @@ function p.Playable()
     return true
 end
 
+function p.Historic(cardService)
+    for entry in p.All() do
+        if not cardService.IsStandard(entry[2]) then return true end
+    end
+    for _, entry in pairs(p.Sideboard) do
+        if not cardService.IsStandard(entry[2]) then return true end
+    end
+    return false
+end
+
 return p

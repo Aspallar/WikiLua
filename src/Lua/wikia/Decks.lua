@@ -212,10 +212,13 @@ local function ParseDeck(list)
     end
 end
 
-local function OtherCategories()
+local function OtherCategories(isStandard)
     local cats = #deck.errors > 0 and "[[Category: Decks with invalid cards]]" or ""
     if deck.HasMultiples() then
         cats = cats .. "[[Category: Multiple Card Entry]]"
+    end
+    if isStandard then
+        cats = cats .. "[[Category:Standard Deck]]"
     end
     return cats
 end
@@ -237,8 +240,9 @@ local function BannedSection()
     return "{{NoticeBanned|" .. text .. "}}<br />[[Category:Decks with banned cards]]\n"
 end
 
-local function PlayableSection()
-    return deck.Playable() and "" or "{{NoticeUnplayable}}<br />"
+local function PlayableOrHistoricSection()
+    if not deck.Playable() then return "{{NoticeUnplayable}}<br />" end
+    return deck.Historic(cardService) and "{{NoticeHistoric}}<br />" or ""
 end
 
 local function BackTo(backto)
@@ -256,15 +260,16 @@ local function GenerateDeckFromList(name, list, backto)
     ParseDeck(list)
     local cardList, altCardList = GetAdditionalData()
     local sideboard = GetSideboardData(altCardList)
+    local playableOrHistoric = PlayableOrHistoricSection()
     return string.format("<div class=\"mdw-deckbox\"><span class=\"mdw-deckbox-count\">%d Cards</span><div style=\"display:inline-block; float:right;\">%s</div><hr />%s{{Clear}}</div>",
         deck.CardTotal(),
         BackTo(backto),
-        PlayableSection() .. BannedSection() .. DeckListSection(name) ..
+        playableOrHistoric .. BannedSection() .. DeckListSection(name) ..
         SideboardSection() ..
         DataSection(json.encode(cardList), "mdw-chartdata-pre") ..
         DataSection(json.encode(altCardList), "mdw-alt-carddata") ..
         DataSection(json.encode(sideboard), "mdw-sideboard-data") ..
-        OtherCategories())
+        OtherCategories(playableOrHistoric == ""))
 end
 
 function p.TestGenerateDeckFromList(name, inputList, backto)
