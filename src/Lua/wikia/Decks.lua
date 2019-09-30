@@ -39,6 +39,8 @@ local function CardTemplate(card)
         template = "{{CardUnplayable|"
     elseif card.Banned then
         template = "{{CardWarning|"
+    elseif card.IsHistoric then
+        template = "{{CardHistoric|"
     else
         template = "{{Card|"
     end
@@ -200,9 +202,9 @@ local function ParseDeck(list)
                 local card = cardService.GetByNameIgnoreCase(name)
                 if card then
                     if isSideboard then
-                        deck.AddSideboard(amount, card)
+                        deck.AddSideboard(amount, card, not cardService.IsStandard(card))
                     else
-                        deck.AddCard(amount, card)
+                        deck.AddCard(amount, card, not cardService.IsStandard(card))
                     end
                 else
                     deck.AddError(amount, name)
@@ -242,7 +244,7 @@ end
 
 local function PlayableOrHistoricSection()
     if not deck.Playable() then return "{{NoticeUnplayable}}<br />" end
-    return deck.Historic(cardService) and "{{NoticeHistoric}}<br />" or ""
+    return deck.Historic() and "{{NoticeHistoric}}<br />" or ""
 end
 
 local function BackTo(backto)

@@ -3,6 +3,7 @@ local p = {}
 local banned = {}
 local hasMultiples = false
 local numCardsInDeck = 0
+local deckIsHistoric = false
 
 p.Land = {}
 p. Creature = {}
@@ -55,6 +56,13 @@ local function UpdateBanned(card)
     end
 end
 
+local function UpdateHistoric(card, isHistoric)
+    if isHistoric then
+        card.IsHistoric = true
+        deckIsHistoric = true
+    end
+end
+
 function p.All()
     local cardlists = {p.Land, p.Creature, p.Artifact, p.Enchantment, p.Instant, p.Sorcery, p.Planeswalker}
     local entryIndex = 1
@@ -73,8 +81,9 @@ function p.All()
     end
 end
 
-function p.AddCard(amount, card)
+function p.AddCard(amount, card, isHistoric)
     UpdateBanned(card)
+    UpdateHistoric(card, isHistoric)
     numCardsInDeck = numCardsInDeck + amount
     if TableContains(card.Types,"Land") then
         Add(p.Land, amount, card)
@@ -95,8 +104,9 @@ function p.AddCard(amount, card)
     end
 end
 
-function p.AddSideboard(amount, card)
+function p.AddSideboard(amount, card, isHistoric)
     UpdateBanned(card)
+    UpdateHistoric(card, isHistoric)
     Add(p.Sideboard, amount, card)
 end
 
@@ -126,14 +136,8 @@ function p.Playable()
     return true
 end
 
-function p.Historic(cardService)
-    for entry in p.All() do
-        if not cardService.IsStandard(entry[2]) then return true end
-    end
-    for _, entry in pairs(p.Sideboard) do
-        if not cardService.IsStandard(entry[2]) then return true end
-    end
-    return false
+function p.Historic()
+    return deckIsHistoric
 end
 
 return p
