@@ -51,6 +51,7 @@ setNames["GRN"]="Guilds of Ravnica"
 setNames["RNA"]="Ravnica Allegiance"
 setNames["WAR"]="War of the Spark"
 setNames["M20"]="Core Set 2020"
+setNames["ELD"]="Throne of Eldraine"
 
 local function SetLinkName(setCode)
     if setCode == "HOU" then
