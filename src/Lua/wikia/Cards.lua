@@ -299,7 +299,8 @@ local function GetOtherCard(name)
 end
 
 local function GetCard(card)
-    local s = GenerateCardPage(card)
+    local s = cardService.IsStandard(card) and "" or "{{NoticeHistoricCard}}\n"
+    s = s .. GenerateCardPage(card)
     if card.CardNumber and (string.find(card.CardNumber, "a")) then
         local card2 = cardService.GetByNumber(gsub(card.CardNumber, "a", "b"))
         s = s .. "\n{{clear}}\n<big><big><big>" .. card2.Name .. "</big></big></big>\n" .. GenerateCardPage(card2)
