@@ -58,7 +58,7 @@
     }
 
     function typeEntry(text) {
-        var max = 50;
+        var max = 60;
         return (text.length <= max) ? text.substring(0, max) : text.substring(0, max) + '...';
     }
 
@@ -76,7 +76,7 @@
     }
 
     function days(queries) {
-        return (queries.length === 0 || queries[0].days === -1) ? 'Unknown' : queries[0].days;
+        return (queries.length === 0) ? -1 : queries[0].days;
     }
 
     function displayDecks(results) {
@@ -88,15 +88,19 @@
                 .append($('<td>').html(queryTypes(result.queries)));
             table.append(row);
         });
-        $('#mw-content-text').html(table).prepend(
-            $('<p>').text(results.length + ' Queried Decks').css('font-weight','bold')
-        );
+        $('#mw-content-text').html(table)
+            .prepend($('<p>').text(results.length + ' Queried Decks').css('font-weight','bold'))
+            .append($('<p>').text('A days value of -1 means that the query date is unknown').css('font-style', 'italic'));
+        mw.loader.using('jquery.tablesorter', function () {
+            table.tablesorter({cssHeader:''});
+            table.find('th').css('cursor', 'pointer').find('div').remove();
+        });
     }
 
     $(function () {
         $('.page-header__title').text('Deck Queries');
         $('title').text('Deck Queries');
-        $('#mw-content-text').html('<p>Fetching queries decks...</p>');
+        $('#mw-content-text').html('<p>Fetching queried decks...</p>');
         fetchQueryDeckInfo().done(function (result) {
             result.sort(function (a, b) {
                 var aval = a.queries.length > 0 ? a.queries[0].seconds : 0;
