@@ -32,7 +32,7 @@
     function fetchQueryDeckInfo() {
         var deferred = $.Deferred();
 
-        var query = mw.config.get('wgScriptPath') + '/api.php?action=query&format=json&generator=categorymembers&gcmtitle=Category:Queried_Deck&gcmlimit=50&prop=revisions&rvprop=content';
+        var query = mw.config.get('wgScriptPath') + '/api.php?action=query&format=json&generator=categorymembers&gcmtitle=Category:Queried_Deck&gcmlimit=500&prop=revisions&rvprop=content';
         $.getJSON(query).done(function (data) {
             var result = [];
             if (data.query && data.query.pages) {
@@ -80,16 +80,17 @@
     }
 
     function displayDecks(results) {
-        console.dir(results);
         var table = $('<table class="article-table"><th>Deck</th><th>Days</th><th>Reason</th></table>');
         results.forEach(function (result) {
-            var row = $('<tr>');
-            row.append($('<td>').html(link(result.title)));
-            row.append($('<td>').html(days(result.queries)));
-            row.append($('<td>').html(queryTypes(result.queries)));
+            var row = $('<tr>')
+                .append($('<td>').html(link(result.title)))
+                .append($('<td>').html(days(result.queries)))
+                .append($('<td>').html(queryTypes(result.queries)));
             table.append(row);
         });
-        $('#mw-content-text').html(table);
+        $('#mw-content-text').html(table).prepend(
+            $('<p>').text(results.length + ' Queried Decks').css('font-weight','bold')
+        );
     }
 
     $(function () {
