@@ -2,7 +2,41 @@
     /*global mw*/
     'use strict';
 
-    if (mw.config.get('wgPageName') !== 'Special:QueryDecks') {
+    var pageName = mw.config.get('wgPageName');
+
+    if (mw.config.get('wgAction') === 'delete' && pageName.substring(0,6) === 'Decks/') {
+        $(function () {
+            var reason = mw.util.getParamValue('reason');
+            var days = mw.util.getParamValue('days');
+
+            if (days === null && reason === null)
+                return;
+
+            var text;
+            switch (reason) {
+                case 'rnd': text = 'Random deck name.'; break;
+                case 'poor': text = 'Poor deck name.'; break;
+                case 'inv': text = 'Invalid cards in deck.'; break;
+                case 'meta': text = 'Outdated meta.'; break;
+                case 'gt60': text = 'More than 60 cards in deck.'; break;
+                case 'lt60': text = 'Less than 60 cards in deck.'; break;
+                case 'sbd': text = 'Short sideboard.'; break;
+                default: text = ''; break;
+            }
+
+            if (days !== null) {
+                if (text.length > 0) text += ' ';
+                text += 'No response from OP in ' + days + ' days';
+            }
+
+            $('#wpWatch').prop('checked', false);
+            $('#wpReason').val(text);
+            $('#wpDeleteReasonList').val('Housekeeping');            
+        });
+    }
+
+
+    if (pageName !== 'Special:QueryDecks') {
         $(function () {
             $('#my-tools-menu').prepend(
                 $('<li>')
@@ -71,8 +105,19 @@
         return html;
     }
 
-    function link(title) {
+    function deckLink(title) {
         return $('<a>', {target: '_blank', href: mw.util.getUrl(title), text: title});
+    }
+
+    function deleteLink(entry) {
+        var params = { action: 'delete' };
+        if (entry.queries.length > 0) {
+            var q = entry.queries[0];
+            if (q.days >= 0)
+                params.days = q.days;
+            params.reason = q.text.substring(0, 10);
+        }
+        return $('<a>', {target: '_blank', href: mw.util.getUrl(entry.title, params), text: 'Delete'});
     }
 
     function days(queries) {
@@ -80,16 +125,17 @@
     }
 
     function displayDecks(results) {
-        var table = $('<table class="article-table"><th>Deck</th><th>Days</th><th>Reason</th></table>');
+        var table = $('<table class="article-table"><th>Deck</th><th>Days</th><th>Reason</th><th>&nbsp;</th></table>');
         results.forEach(function (result) {
             var row = $('<tr>')
-                .append($('<td>').html(link(result.title)))
+                .append($('<td>').html(deckLink(result.title)))
                 .append($('<td>').html(days(result.queries)))
-                .append($('<td>').html(queryTypes(result.queries)));
+                .append($('<td>').html(queryTypes(result.queries)))
+                .append($('<td>').html(deleteLink(result)));
             table.append(row);
         });
         $('#mw-content-text').html(table)
-            .prepend($('<p>').text(results.length + ' Queried Decks').css('font-weight','bold'))
+            .prepend($('<p>').text(results.length + ' Queried Decks').css('font-weight', 'bold'))
             .append($('<p>').text('A days value of -1 means that the query date is unknown').css('font-style', 'italic'));
         mw.loader.using('jquery.tablesorter', function () {
             table.tablesorter({cssHeader:''});
