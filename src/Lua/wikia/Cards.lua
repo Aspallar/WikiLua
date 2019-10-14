@@ -87,8 +87,9 @@ local function PT(card)
     end
 end
 
-local function DescriptionBox(card)
-    return "[["..card.Name.."]] "..(card.Manacost or "").." ("..(card.cmc or 0)..")<br/>"..
+local function DescriptionBox(card, amount)
+    amount = (amount and amount ~= "") and '<span class="mdw-card-amount">' .. amount .. '</span> x ' or ""
+    return amount .. "[["..card.Name.."]] "..(card.Manacost or "").." ("..(card.cmc or 0)..")<br/>"..
     card.Type.." "..PT(card).."<br/>"..
     (card.Text or "")
 end
@@ -120,12 +121,11 @@ local function GenerateCardRow(card)
         ExpansionSymbol(card))
 end
 
-local function GenerateAnyCardRow(card)
+local function GenerateAnyCardRow(card, amount)
     return string.format(anyCardRowTemplate,
         "[[File:"..card.Name..".png|95px|link="..card.Name.."]]",
-        DescriptionBox(card))
+        DescriptionBox(card, amount))
 end
-
 
 local function GetReprintsTable(card)
     local row = "{{ReprintRow|%s|%s|%s|<br />%s}}\n"
@@ -279,8 +279,9 @@ end
 
 function p.GetAnyCardRow(frame)
     local name = frame.args[1]
+    local amount = frame.args[2]
     local card = cardService.GetByNameIgnoreCase(name)
-    return frame:preprocess(GenerateAnyCardRow(card))
+    return frame:preprocess(GenerateAnyCardRow(card, amount))
 end
 
 local function GetOtherCard(name)
