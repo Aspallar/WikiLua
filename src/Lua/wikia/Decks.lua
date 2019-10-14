@@ -249,7 +249,11 @@ end
 
 local function BackTo(backto)
     if backto == nil then
-        return "back to [[Decklists]]"
+        if deck.Historic() then
+            return "back to [[Decklists/Historic|Historic Decks]]"
+        else
+            return "back to [[Decklists|Standard Decks]]"
+        end
     end
     if backto == "none" then
         return ""
