@@ -1,7 +1,7 @@
 // ==========================================================================
 // ImportDeck
 //
-// Version 1.8.1
+// Version 1.8.2
 // Author: Aspallar
 //
 // Provides a user friendly way to import a deck from Magic Arena
@@ -15,7 +15,7 @@
     /* global mw*/
     'use strict';
 
-    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-8-1'))
+    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-8-2'))
         return;
 
     var newDeckTemplate = '';
@@ -34,8 +34,8 @@
             caseText: function(text) {
                 text = text.trim().toLowerCase();
                 return text.replace(/\w+/g, function(word, offset) {
-                    if (word === 's' && offset > 1 && /['\u2019]/.test(text[offset - 1]))
-                        return 's';
+                    if (offset > 1 && /['\u2019]/.test(text[offset - 1]))
+                        return word;
                     else if ((acronyms && acronyms.indexOf(word) !== -1) || isColorString(word))
                         return word.toUpperCase();
                     else if (minorWords && offset !== 0 && minorWords.indexOf(word) !== -1)
