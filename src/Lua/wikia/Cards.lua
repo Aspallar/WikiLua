@@ -30,7 +30,6 @@ local rulingTemplate = [[|-
 local cardPageTemplate = [=[{| class="article-table mdw-cardinfo-table"
 %s
 |}
-<br/>
 [[File:%s.png|265px|link=]]]=]
 
 local numCardsPerPage = 100
