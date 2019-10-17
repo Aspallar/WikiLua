@@ -1,4 +1,4 @@
-var gulp        = require('gulp');
+var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 var proxyMiddleware = require('http-proxy-middleware');
 
@@ -33,4 +33,4 @@ gulp.task('serve', function() {
     gulp.watch(["src/web/**/*.html", "src/web/**/*.css", "src/web/**/*.js"]).on('change', browserSync.reload);
 });
 
-gulp.task('default', ['serve']);
+gulp.task('default', gulp.series('serve'));
