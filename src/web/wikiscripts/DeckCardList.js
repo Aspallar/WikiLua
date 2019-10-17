@@ -1,7 +1,7 @@
 // ==========================================================================
 // Displays a detailed card list of all cards in a deck.
 //
-// Version 1.0.0
+// Version 1.1.0
 // Author: Aspallar
 //
 // ** Please do not edit this code directly in the wikia.
@@ -11,11 +11,11 @@
 //
 //<nowiki>
 (function ($) {
-    /*global mw*/
+    /*global mw, tooltips*/
     /*jshint -W003*/
     'use strict';
 
-    if(document.getElementById('mdw-view-card-list') === null || $('#mdw-disabled-js').attr('data-deckcardlist-1-0-0'))
+    if(document.getElementById('mdw-view-card-list') === null || $('#mdw-disabled-js').attr('data-deckcardlist-1-1-0'))
         return;
 
     var parsed = false;
@@ -94,7 +94,11 @@
             }).done(function (data) {
                 parsed = true;
                 if (data.parse && data.parse.text) {
-                    $('#mdw-deck-card-list').html(data.parse.text['*']).show(400);
+                    var container = $('#mdw-deck-card-list');
+                    container.html(data.parse.text['*']);
+                    if (tooltips && tooltips.applyTooltips)
+                        tooltips.applyTooltips(container.get(0));
+                    container.show(400);
                     showButton();
                 } else {
                     parseError();

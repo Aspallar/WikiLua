@@ -122,7 +122,7 @@ end
 
 local function GenerateAnyCardRow(card, amount)
     return string.format(anyCardRowTemplate,
-        "[[File:"..card.Name..".png|95px|link="..card.Name.."]]",
+        '<span class="card-image-tooltip" data-parameter="' .. card.Name .. '">[[File:' .. card.Name .. '.png|95px|link=' .. card.Name .. ']]</span>',
         DescriptionBox(card, amount))
 end
 
