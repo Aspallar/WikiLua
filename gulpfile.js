@@ -13,7 +13,7 @@ const apiProxy = proxyMiddleware('/api.php', {
 
 const wikiProxy = proxyMiddleware('/wiki/', {
   // target: 'http://aspallar.wikia.com/wiki/',
-  target: 'http://magicarena.wikia.com/wiki/',
+  target: 'https://magicarena.wikia.com/wiki/',
   changeOrigin: true,
   logLevel: logLevel
 });
