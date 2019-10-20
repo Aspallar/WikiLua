@@ -5,6 +5,7 @@ local hasMultiples = false
 local numCardsInDeck = 0
 local deckIsHistoric = false
 
+p.Commander = {} -- will only contain 1 entry, it's a table to maintain symmetry with others
 p.Land = {}
 p. Creature = {}
 p.Artifact = {}
@@ -64,7 +65,7 @@ local function UpdateHistoric(card, isHistoric)
 end
 
 function p.All()
-    local cardlists = {p.Land, p.Creature, p.Artifact, p.Enchantment, p.Instant, p.Sorcery, p.Planeswalker}
+    local cardlists = {p.Commander, p.Land, p.Creature, p.Artifact, p.Enchantment, p.Instant, p.Sorcery, p.Planeswalker}
     local entryIndex = 1
     local cardlistIndex = 1
     return function ()
@@ -79,6 +80,13 @@ function p.All()
             entryIndex = 1
         end
     end
+end
+
+function p.AddCommander(card, isHistoric)
+    UpdateBanned(card)
+    UpdateHistoric(card, isHistoric)
+    numCardsInDeck = numCardsInDeck + 1
+    p.Commander = { {1, card} }
 end
 
 function p.AddCard(amount, card, isHistoric)

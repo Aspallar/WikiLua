@@ -91,6 +91,7 @@ end
 
 local function GetCardLists()
     local s = ""
+    s = s .. CardTypeSection(deck.Commander, "[[File:Icon commander.svg|23px|link=|baseline]]", "Commander", false)
     s = s .. CardTypeSection(deck.Land, "[[File:Icon land.png|23px|link=]]", "Lands", false)
     s = s .. CardTypeSection(deck.Creature, "[[File:Icon creature.png|23px|link=]]", "Creatures", true)
     s = s .. CardTypeSection(deck.Artifact, "[[File:Icon artifact.png|23px|link=]]", "Artifacts", true)
@@ -214,6 +215,17 @@ local function ParseDeck(list)
     end
 end
 
+local function AddCommander(name)
+    if name ~= nil then
+        local card = cardService.GetByNameIgnoreCase(name)
+        if card then
+            deck.AddCommander(card, not cardService.IsStandard(card))
+        else
+            deck.AddError(1, name)
+        end
+    end
+end
+
 local function OtherCategories(isStandard)
     local cats = #deck.errors > 0 and "[[Category: Decks with invalid cards]]" or ""
     if deck.HasMultiples() then
@@ -262,8 +274,9 @@ local function BackTo(backto)
     return string.format("back to [[%s|%s]]", page, text)
 end
 
-local function GenerateDeckFromList(name, list, backto)
+local function GenerateDeckFromList(name, commander, list, backto)
     ParseDeck(list)
+    AddCommander(commander)
     local cardList, altCardList = GetAdditionalData()
     local sideboard = GetSideboardData(altCardList)
     local playableOrHistoric = PlayableOrHistoricSection()
@@ -278,15 +291,16 @@ local function GenerateDeckFromList(name, list, backto)
         OtherCategories(playableOrHistoric == ""))
 end
 
-function p.TestGenerateDeckFromList(name, inputList, backto)
-    local list = mw.text.split(inputList, "\n" )
-    return GenerateDeckFromList(name, list, backto)
-end
+-- TODO: update for brawl
+-- function p.TestGenerateDeckFromList(name, inputList, backto)
+--     local list = mw.text.split(inputList, "\n" )
+--     return GenerateDeckFromList(name, list, backto)
+-- end
 
 function p.GenerateDeckFromList(frame)
     local args = utils.RecreateTable(frame:getParent().args)
     local list = mw.text.split(args.Deck, "\n")
-    return frame:preprocess(GenerateDeckFromList(args.Name, list, args.BackTo))
+    return frame:preprocess(GenerateDeckFromList(args.Name, args.Commander, list, args.BackTo))
 end
 
 return p

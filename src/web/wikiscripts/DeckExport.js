@@ -337,7 +337,4 @@ window.magicArena.deckExport = window.magicArena.deckExport || (function ($) {
         ui = new Ui().start();
     });
 
-    return {
-        refresh: function
-
 }(jQuery));
