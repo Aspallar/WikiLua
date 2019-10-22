@@ -1,7 +1,7 @@
 // ==========================================================================
 // ImportDeck
 //
-// Version 1.8.2
+// Version 1.9.0
 // Author: Aspallar
 //
 // Provides a user friendly way to import a deck from Magic Arena
@@ -15,11 +15,13 @@
     /* global mw*/
     'use strict';
 
-    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-8-2'))
+    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-9-0'))
         return;
 
     var newDeckTemplate = '';
     var translation = null;
+    var commanderKeywords = ['commander'];
+    var deckKeywords = ['deck'];
     var titleCaser;
 
     function TitleCaser(minorWords, acronyms) {
@@ -51,7 +53,6 @@
         return contents.replace(/<[\/]?noinclude>|<[\/]?includeonly>/g, '');
     }
 
-    //<nowiki>
     function signatureToAnonTemplate(contents) {
         return contents.replace(
             '~~~~',
@@ -206,7 +207,7 @@
                 action: 'edit',
                 title: title,
                 summary: 'Imported deck',
-                createonly: 'yes',
+                createonly: '1',
                 text: content,
                 token: mw.user.tokens.get('editToken')
             }).done(function(result) {
@@ -230,12 +231,28 @@
         return cardEntry.replace(/\([A-Z][0-9A-Z][0-9A-Z]\)/, '');
     }
 
+    function isCommanderKeyword(entry) {
+        return commanderKeywords.indexOf(entry.toLowerCase()) !== -1;
+    }
+
+    function isDeckKeyword(entry) {
+        return deckKeywords.indexOf(entry.toLowerCase()) !== -1;
+    }
+
     function parseDeckDef(deckdef) {
         var match;
         var disallowed = disallowedRegex();
         var maxLength = $('#mdw-import-deck').attr('data-maxcardlength') || 40;
         var result = { validEntries: [], badEntries: [], sideboardCount: 0, cardCount: 0, sideCardCount: 0 };
-        deckdef.split('\n').forEach(function (entry) {
+
+        var entries = deckdef.split('\n').map(function (entry) {return entry.trim(); });
+        var isBrawl = isCommanderKeyword(entries[0]);
+        if (isBrawl)
+            entries = entries.filter(function (entry) { return entry.length > 0; });
+        var commanderDone = false;
+        var deckDone = false;
+
+        entries.forEach(function (entry) {
             entry = entry.trim();
             if (entry.length === 0) {
                 ++result.sideboardCount;
@@ -244,6 +261,22 @@
                 result.badEntries.push(entry.substring(0, maxLength) + '... (too long)');
             } else if (disallowed && disallowed.test(stripSetCode(entry))) {
                 result.badEntries.push(entry);
+            } else if (isBrawl && isCommanderKeyword(entry)) {
+                if (commanderDone) {
+                    result.badEntries.push('More than 1 "Commander" entry');
+                }
+                else {
+                    result.validEntries.push('Commander');
+                    commanderDone = true;
+                }
+            } else if (isBrawl && isDeckKeyword(entry)) {
+                if (deckDone) {
+                    result.badEntries.push('More than 1 "Deck" entry');
+                }
+                else {
+                    result.validEntries.push('Deck');
+                    deckDone = true;
+                }
             } else if ((match = /^(\d+)\s+.*\S.*$/.exec(entry))) {
                 result.validEntries.push(correctCardName(entry));
                 if (result.sideboardCount === 0)
@@ -388,14 +421,24 @@
         annon.fadeIn(400);
     }
 
+    function extendKeywords(values, keywords) {
+        if (values) {
+            values.split('|').forEach(function (val) {
+                keywords.push(val);
+            });
+        }
+    }
+
     function initialize() {
         var deckImport = $('#mdw-import-deck');
+        extendKeywords(deckImport.attr('data-deck'), deckKeywords);
+        extendKeywords(deckImport.attr('data-commander'), commanderKeywords);
         if (deckImport.attr('data-allowanon') || mw.config.get('wgUserId'))
             initializeImportForm(deckImport);
         else
             mustBeSignedIn();
     }
 
-    $(document).ready(initialize);
+    $(initialize);
 
 }(jQuery));

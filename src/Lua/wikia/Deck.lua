@@ -83,9 +83,11 @@ function p.All()
 end
 
 function p.AddCommander(card, isHistoric)
+    assert(#p.Commander == 0, "AddCommander called more than once")
     UpdateBanned(card)
     UpdateHistoric(card, isHistoric)
     numCardsInDeck = numCardsInDeck + 1
+    card.IsCommander = true;
     p.Commander = { {1, card} }
 end
 
@@ -146,6 +148,10 @@ end
 
 function p.Historic()
     return deckIsHistoric
+end
+
+function p.Brawl()
+    return #p.Commander > 0
 end
 
 return p

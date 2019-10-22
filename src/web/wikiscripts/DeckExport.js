@@ -2,21 +2,20 @@
 // Deck Export
 // Adds the export text box to deck articles with copy to clipboard button
 // and a select to allow export cards to be replaced with reprint alternatives.
-// Version 3.2.1
+// Version 3.3.0
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wikia.
 // ** Instead use the git repository https://github.com/Aspallar/WikiLua
 //
-window.magicArena = window.magicArena || {};
-window.magicArena.deckExport = window.magicArena.deckExport || (function ($) {
+(function ($) {
     'use strict';
 
     // don't run if wrong page or this version is disabled on page
     if (document.getElementById('mdw-arena-export-div') === null ||
             document.getElementById('mdw-rarity-table-full') === null ||
             document.getElementById('mdw-rarity-table-small') === null ||
-            $('#mdw-disabled-js').attr('data-deckexport-3-2-1'))
+            $('#mdw-disabled-js').attr('data-deckexport-3-3-0'))
         return;
 
     function RarityTotals(cards) {
@@ -51,6 +50,7 @@ window.magicArena.deckExport = window.magicArena.deckExport || (function ($) {
         var importCards = [];
         var altImportCards = [];
         var sideboardCards = [];
+        var commander = null;
 
         function baseDisplayName(card) {
             return card.name + ' (' + card.set + ') ' + card.cardNumber;
@@ -84,8 +84,15 @@ window.magicArena.deckExport = window.magicArena.deckExport || (function ($) {
         }
 
         function parseCardData(dataString) {
-            if (dataString !== null && dataString.length > 0)
-               importCards = JSON.parse(dataString);
+            if (dataString !== null && dataString.length > 0) {
+                importCards = JSON.parse(dataString);
+                for (var k = 0, l = importCards.length; k < l; k++) {
+                    if (importCards[k].isCmd) {
+                        commander = importCards[k];
+                        break; //for
+                    }
+                }
+            }
         }
 
         function parseSideboardData(dataString) {
@@ -143,6 +150,29 @@ window.magicArena.deckExport = window.magicArena.deckExport || (function ($) {
             }
         }
 
+        function brawlText() {
+            var text = 'Commander\n' + importDisplayName(commander) + '\n\nDeck\n';
+            importCards.forEach(function(card) {
+                if (!card.isCmd)
+                    text += importDisplayName(card) + '\n';
+            });
+            return text;
+        }
+
+        function standardText(includeSideboard) {
+            var text = '';
+            importCards.forEach(function(card) {
+                text += importDisplayName(card) + '\n';
+            });
+            if (includeSideboard && sideboardCards.length > 0) {
+                text += '\n';
+                sideboardCards.forEach(function (card) {
+                    text += importDisplayName(card) + '\n';
+                });
+            }
+            return text;
+        }
+
         return {
             swapCards: function (altCardIndex) {
                 return swapCards(altCardIndex);
@@ -154,17 +184,7 @@ window.magicArena.deckExport = window.magicArena.deckExport || (function ($) {
                 return new RarityTotals(sideboardCards);
             },
             text: function (includeSideboard) {
-                var text = '';
-                importCards.forEach(function(card) {
-                    text += importDisplayName(card) + '\n';
-                });
-                if (includeSideboard && sideboardCards.length > 0) {
-                    text += '\n';
-                    sideboardCards.forEach(function (card) {
-                        text += importDisplayName(card) + '\n';
-                    });
-                }
-                return text;
+                return commander ? brawlText() : standardText(includeSideboard);
             },
             getAltOptions: function () {
                 var options = document.createDocumentFragment();

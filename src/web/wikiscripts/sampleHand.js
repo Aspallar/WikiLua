@@ -1,21 +1,20 @@
 // <nowiki>
 // ==========================================================================
-// Start: Sample Hand
+// Sample Hand
 // Implements sample hand generation for deck articles
-// Version 1.3.2
+// Version 1.4.0
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wikia.
 // ** Instead use the git repository https://github.com/Aspallar/WikiLua
 // ** this file is the sampleHand.js file in the src\Web\wikiscripts folder.
-//
 (function ($) {
     /*global mw */
     'use strict';
 
     // do nothing on articles with no random hand or this version is disabled on page
     if (document.getElementById('mdw-random-hand') === null ||
-            $('#mdw-disabled-js').attr('data-samplehand-1-3-2')) {
+            $('#mdw-disabled-js').attr('data-samplehand-1-4-0')) {
         return;
     }
 
@@ -72,9 +71,11 @@
             try {
                 var data = JSON.parse(dataString);
                 data.forEach(function (entry) {
-                    var adjustedName = adjustName(entry.name);
-                    for (var k = 0; k < entry.num; k++)
-                        deck.push(new DeckEntry(adjustedName));
+                    if (!entry.isCmd) {
+                        var adjustedName = adjustName(entry.name);
+                        for (var k = 0; k < entry.num; k++)
+                            deck.push(new DeckEntry(adjustedName));
+                    }
                 });
             } catch (error) {
                 console.log('sampleHand.js Deck:init() error parsing deck data\n' + error);
@@ -300,12 +301,9 @@
     }
 
     var controller;
-    $(document).ready(function () {
+    $(function () {
         var deck = new Deck().initialize($('#mdw-chartdata-pre').text());
         var cardPanel = new CardPanel(cardSection(), tooltipElement(), new ImageSource());
         controller = new Controller(cardPanel, deck).start();
     });
 })(jQuery);
-// End: Sample Hand
-// ==========================================================================
-// </nowiki>

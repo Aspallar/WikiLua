@@ -136,6 +136,7 @@ local function LocalCardEntry(amount, exportName, card)
         cardNumber = CardNumberNumericPart(card.CardNumber);
         set = ExportSetName(card.SetCode);
         rarity = card.Rarity;
+        isCmd = card.IsCommander;
     }
 end
 
@@ -192,23 +193,29 @@ local function DeckListSection(name)
 end
 
 local function ParseDeck(list)
-    local isSideboard = false;
+    local isSideboard, isCommander = false, false
     for _, cardEntry in pairs(list) do
-        cardEntry = mw.text.trim(cardEntry)
-        if (cardEntry ~= "") then
+        cardEntry = string.lower(mw.text.trim(cardEntry))
+        if cardEntry ~= "" and cardEntry ~= "deck" then
             if string.sub(cardEntry, 1, 2) == "--" then
                 isSideboard = true
+            elseif cardEntry == "commander" then
+                isCommander = true
             else
                 local amount, name = ParseCardEntry(cardEntry)
                 local card = cardService.GetByNameIgnoreCase(name)
                 if card then
-                    if isSideboard then
+                    if isCommander then
+                        isCommander = false
+                        deck.AddCommander(card, not cardService.IsStandard(card))
+                    elseif isSideboard then
                         deck.AddSideboard(amount, card, not cardService.IsStandard(card))
                     else
                         deck.AddCard(amount, card, not cardService.IsStandard(card))
                     end
                 else
                     deck.AddError(amount, name)
+                    isCommander = false
                 end
             end
         end
@@ -226,12 +233,14 @@ local function AddCommander(name)
     end
 end
 
-local function OtherCategories(isStandard)
+local function OtherCategories(isStandard, isBrawl)
     local cats = #deck.errors > 0 and "[[Category: Decks with invalid cards]]" or ""
     if deck.HasMultiples() then
         cats = cats .. "[[Category: Multiple Card Entry]]"
     end
-    if isStandard then
+    if isBrawl then
+        cats = cats .. "[[Category:Brawl Deck]]"
+    elseif isStandard then
         cats = cats .. "[[Category:Standard Deck]]"
     end
     return cats
@@ -261,7 +270,9 @@ end
 
 local function BackTo(backto)
     if backto == nil then
-        if deck.Historic() then
+        if deck.Brawl() then
+            return "back to [[Decklists/Brawl|Brawl Decks]]"
+        elseif deck.Historic() then
             return "back to [[Decklists/Historic|Historic Decks]]"
         else
             return "back to [[Decklists|Standard Decks]]"
@@ -288,14 +299,13 @@ local function GenerateDeckFromList(name, commander, list, backto)
         DataSection(json.encode(cardList), "mdw-chartdata-pre") ..
         DataSection(json.encode(altCardList), "mdw-alt-carddata") ..
         DataSection(json.encode(sideboard), "mdw-sideboard-data") ..
-        OtherCategories(playableOrHistoric == ""))
+        OtherCategories(playableOrHistoric == "", deck.Brawl()))
 end
 
--- TODO: update for brawl
--- function p.TestGenerateDeckFromList(name, inputList, backto)
---     local list = mw.text.split(inputList, "\n" )
---     return GenerateDeckFromList(name, list, backto)
--- end
+function p.TestGenerateDeckFromList(name, inputList, backto, commander)
+    local list = mw.text.split(inputList, "\n" )
+    return GenerateDeckFromList(name, commander, list, backto)
+end
 
 function p.GenerateDeckFromList(frame)
     local args = utils.RecreateTable(frame:getParent().args)
