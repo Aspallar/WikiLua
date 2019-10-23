@@ -2,7 +2,7 @@
 // Implements a deck builder/editor to allow users to edit deck definitions
 // without having to edit wikitext
 //
-// Version 1.4.2
+// Version 1.5.0
 // Author: Aspallar
 //
 // Beta early prototype release.
@@ -14,7 +14,7 @@
     'use strict';
     /*global mw, magicArena, tooltips, globalCardnames, _ */ // globalCardnames is only for local testing
 
-    if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-4-2'))
+    if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-5-0'))
         return;
 
     var globalNavHeight;
@@ -338,7 +338,10 @@
                 sideboardCards.draw();
             },
             getText: function () {
-                var text = '\n' + deckCards.text();
+                var text = '\n';
+                if (this.commander)
+                    text += 'Commander\n' + this.commander + '\n' + 'Deck\n';
+                text += deckCards.text();
                 if (!sideboardCards.isEmpty())
                     text += '---- sideboard ----\n' + sideboardCards.text();
                 return text;
@@ -398,7 +401,7 @@
         if (startPos >= endPos)
             return null;
         var deckText = content.substring(startPos, endPos);
-        return deckText;
+        return deckText.trim();
     }
 
     function showError(message, targetId) {
@@ -605,7 +608,18 @@
         var deckCards = {};
         var sideboardCards = {};
         var current = deckCards;
-        text.split('\n').forEach(function (line) {
+        var entries = text.split('\n')
+            .map(function (entry) { return entry.trim(); })
+            .filter(function (entry) { return entry.length > 0; });
+
+        if (entries.length > 1 && entries[0].toLowerCase() === 'commander') {
+            deck.commader = entries[1];
+            entries = entries.filter(function (entry, index) {
+                return index > 1 && entry.toLowerCase() !== 'deck';
+            });
+        }
+
+        entries.forEach(function (line) {
             if (line.substring(0, 2) !== '--') {
                 var card = parseCardEntry(line);
                 if (card !== null) {
@@ -617,6 +631,7 @@
                 current = sideboardCards;
             }
         });
+
         deck.setDeck(deckCards);
         deck.setSideboard(sideboardCards);
         deck.drawAll();
