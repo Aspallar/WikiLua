@@ -378,11 +378,16 @@
         return contents.replace(/<[\/]?noinclude>|<[\/]?includeonly>/g, '');
     }
 
+    function adjustName(name) {
+        var pos = name.indexOf('//');
+        return pos === -1 ? name : name.substring(0, pos - 1);
+    }
+
     function parseCardEntry(entry) {
         var match = /^\s*(\d+)\s+(.+?)(?= \/\/\/| \(|\s*$)/.exec(entry);
         if (match) {
             var amount = parseInt(match[1], 10);
-            var casedName = allCards.getCasedName(match[2]);
+            var casedName = allCards.getCasedName(adjustName(match[2]));
             var name = casedName !== undefined ? casedName : mw.html.escape(match[2]);
             return { amount: amount, name: name };
         } else {
@@ -613,7 +618,7 @@
             .filter(function (entry) { return entry.length > 0; });
 
         if (entries.length > 1 && entries[0].toLowerCase() === 'commander') {
-            deck.commader = entries[1];
+            deck.commander = entries[1];
             entries = entries.filter(function (entry, index) {
                 return index > 1 && entry.toLowerCase() !== 'deck';
             });
@@ -843,3 +848,4 @@
     $(document).ready(initialize);
 
 }(jQuery));
+
