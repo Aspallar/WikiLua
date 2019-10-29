@@ -2,7 +2,7 @@
 // Deck Export
 // Adds the export text box to deck articles with copy to clipboard button
 // and a select to allow export cards to be replaced with reprint alternatives.
-// Version 3.3.0
+// Version 3.4.0
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wikia.
@@ -15,7 +15,7 @@
     if (document.getElementById('mdw-arena-export-div') === null ||
             document.getElementById('mdw-rarity-table-full') === null ||
             document.getElementById('mdw-rarity-table-small') === null ||
-            $('#mdw-disabled-js').attr('data-deckexport-3-3-0'))
+            $('#mdw-disabled-js').attr('data-deckexport-3-4-0'))
         return;
 
     function RarityTotals(cards) {
@@ -160,12 +160,12 @@
         }
 
         function standardText(includeSideboard) {
-            var text = '';
+            var text = 'Deck\n';
             importCards.forEach(function(card) {
                 text += importDisplayName(card) + '\n';
             });
             if (includeSideboard && sideboardCards.length > 0) {
-                text += '\n';
+                text += '\nSideboard\n';
                 sideboardCards.forEach(function (card) {
                     text += importDisplayName(card) + '\n';
                 });

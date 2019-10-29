@@ -1,7 +1,7 @@
 // ==========================================================================
 // ImportDeck
 //
-// Version 1.9.0
+// Version 1.10.0
 // Author: Aspallar
 //
 // Provides a user friendly way to import a deck from Magic Arena
@@ -15,13 +15,14 @@
     /* global mw*/
     'use strict';
 
-    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-9-0'))
+    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-10-0'))
         return;
 
     var newDeckTemplate = '';
     var translation = null;
     var commanderKeywords = ['commander'];
     var deckKeywords = ['deck'];
+    var sideboardKeywords = ['sideboard'];
     var titleCaser;
 
     function TitleCaser(minorWords, acronyms) {
@@ -239,6 +240,11 @@
         return deckKeywords.indexOf(entry.toLowerCase()) !== -1;
     }
 
+    function isSideboardKeyword(entry) {
+        return sideboardKeywords.indexOf(entry.toLowerCase()) !== -1;
+    }
+
+    // TODO: rewrite this to parse new game import/export formats without the nasy hacks
     function parseDeckDef(deckdef) {
         var match;
         var disallowed = disallowedRegex();
@@ -247,13 +253,25 @@
 
         var entries = deckdef.split('\n').map(function (entry) {return entry.trim(); });
         var isBrawl = isCommanderKeyword(entries[0]);
-        if (isBrawl)
+        if (isBrawl){
             entries = entries.filter(function (entry) { return entry.length > 0; });
+        } else {
+            // Turn new format for normal decks to old format (nasty hack)
+            if (isDeckKeyword(entries[0])) {
+                do {
+                    entries.shift();
+                } while (entries.length > 0 && entries[0].length === 0);
+            }
+            entries = entries.map(function (entry) {
+                return isSideboardKeyword(entry) ? '' : entry;
+            }).filter(function (entry, index) {
+                return entry.length > 0 || (index > 0 && entries[index - 1].length !== 0);
+            });
+        }
         var commanderDone = false;
         var deckDone = false;
 
         entries.forEach(function (entry) {
-            entry = entry.trim();
             if (entry.length === 0) {
                 ++result.sideboardCount;
                 result.validEntries.push('--- sideboard ---');
@@ -433,6 +451,7 @@
         var deckImport = $('#mdw-import-deck');
         extendKeywords(deckImport.attr('data-deck'), deckKeywords);
         extendKeywords(deckImport.attr('data-commander'), commanderKeywords);
+        extendKeywords(deckImport.attr('data-sideboard'), sideboardKeywords);
         if (deckImport.attr('data-allowanon') || mw.config.get('wgUserId'))
             initializeImportForm(deckImport);
         else
