@@ -1,40 +1,40 @@
 // ==========================================================================
-// Start: Deck Ratings
+// Deck Ratings
 //    1. Supports the rating 'stars' on deck pages
 //    2. Updates the rating column on deck tables
-// Version 1.2.2
+// Version 1.3.0
 // Author: Aspallar
 //
 // ** Please do not edit this code directly in the wikia.
 // ** Instead use the git repository https://github.com/Aspallar/WikiLua
 //
-// This code was inspired by the rating system used on http://de.sonic.wikia.com
-//
+// This code was inspired by the rating system used on https://de.sonic.fandom.com
+// <nowiki>
 (function ($) {
     /* global mw */
     'use strict';
 
     if ((document.getElementById('mdw-rating') === null && $('.mdw-ratingtable').length === 0) ||
-         $('#mdw-disabled-js').attr('data-ratings-1-2-2'))
+         $('#mdw-disabled-js').attr('data-ratings-1-3-0'))
         return;
 
     var ratingsDataPageName = 'Ratings:DeckRatings';
 
-    function showError(error) {
-        console.log(error);
-        $('#mdw-rating').html('Error');
+    function error(error) {
+        console.error(error);
+        $('#mdw-rating').html('Error').addClass('mdw-error');
+    }
+
+    function ajaxError(status) {
+        error('Ajax error: ' + status);
     }
 
     function stripDeckPrefix(deckName) {
-        if (deckName.substring(0, 6) === 'Decks/')
-            return deckName.substring(6);
-        return deckName;
+        return deckName.substring(0, 6) === 'Decks/' ? deckName.substring(6) : deckName;
     }
 
-    function getDeckName() {
-        var name = mw.config.get('wgTitle');
-        name = stripDeckPrefix(name);
-        return name;
+    function deckName() {
+        return stripDeckPrefix(mw.config.get('wgTitle'));
     }
 
     function validRating(rating) {
@@ -45,46 +45,13 @@
     }
 
     function calcScore(rating) {
-        if (!validRating(rating))
-            return 0;
-        return Math.round(rating.total / rating.votes);
-    }
-
-    function parseData(dataText) {
-        try {
-            return JSON.parse(dataText);
-        } catch(error) {
-            $('.mdw-ratings-box').css('display', 'none');
-            showError('Ratings data error: ' + error);
-            return null; 
-        }
-    }
-
-    function wikiApiCall(data, method, cbSuccess) {
-        data.format = 'json';
-        $.ajax({
-            data: data,
-            dataType: 'json',
-            url: mw.config.get('wgScriptPath') + '/api.php',
-            type: method,
-            success: function (response) {
-                if (response.error === undefined)
-                    cbSuccess(response);
-                else
-                    showError('API error in wikiApiCall: ' + response.error.info);
-            },
-            error: function (xhr, error) {
-                showError('AJAX error in wikiApiCall: ' + error);
-            },
-            timeout: 10000 
-        });
+        return validRating(rating) ? Math.round(rating.total / rating.votes) : 0;
     }
 
     function findRating(name, ratingData) {
         for (var k = 0, l = ratingData.length; k < l; k++) {
-            if (ratingData[k].name === name) {
+            if (ratingData[k].name === name)
                 return ratingData[k];
-            }
         }
         return null;
     }
@@ -109,40 +76,35 @@
     }
 
     function getDataFromPage(page) {
-        var content = page.revisions[0]['*'];
-        return parseData(content);
-    }
-
-    function getPageFromResponse(response) {
-        var pages = response.query.pages;
-        for (var property in pages) {
-            if (pages.hasOwnProperty(property))
-                return pages[property];
+        var data = [];
+        try {
+            data = JSON.parse(page.revisions[0]['*']);
+        } catch (e) {
+            error('Ratings data error: ' + e);
         }
-        return null;
+        return data;
     }
 
-    function fetchRatingPage(cbDone) {
-        wikiApiCall({
+    function fetchRatingPage(api) {
+        var deferred = $.Deferred();
+        api.get({
             action: 'query',
             prop: 'info|revisions',
             intoken: 'edit',
             titles: ratingsDataPageName,
             rvprop: 'content|timestamp',
             rvlimit: '1'
-        },
-        'GET',
-        function (response) {
-            var page = getPageFromResponse(response);
-            cbDone(page);
+        }).then(function (response){
+            deferred.resolve(Object.values(response.query.pages)[0]);
+        }).fail(function (_, status) {
+            ajaxError(status);
         });
+        return deferred.promise();
     }
 
     function fetchRatingData(cbDone) {
-        fetchRatingPage(function (page) {
-            var data = getDataFromPage(page);
-            if (data === null)
-                data = [];
+        fetchRatingPage(new mw.Api()).then(function (page) {
+            var data = getDataFromPage(page) || [];
             cbDone(data);
         });
     }
@@ -153,7 +115,8 @@
     }
 
     function updateRating(deckName, score) {
-        fetchRatingPage(function (page) {
+        var api = new mw.Api();
+        fetchRatingPage(api).done(function (page) {
             var data = getDataFromPage(page);
             if (data === null)
                 return; 
@@ -161,23 +124,23 @@
             addScore(rating, score);
             var newContent = JSON.stringify(data, null, 1);
             updateRatingUiValue(calcScore(rating));
-            wikiApiCall({
-                minor: 'yes',
+            api.post({
+                minor: '1',
                 summary: 'Rating for [[Decks/' + deckName + '|' + deckName + ']] (' + score + ')',
                 action: 'edit',
                 title: ratingsDataPageName,
                 basetimestamp: page.revisions[0].timestamp,
                 startimestamp: page.starttimestamp,
-                token: page.edittoken,
-                watchlist: 'unwatch',
-                text: newContent
-            },
-            'POST',
-            function (response) {
+                watchlist: 'nochange',
+                text: newContent,
+                token: page.edittoken
+            }).done(function (response){
                 if (response.edit.result !== 'Success')
-                    showError('Update fail in updateRating: ' + response.edit.result);
+                    error('Update fail in updateRating: ' + response.edit.result);
                 else
                     $('#mdw-rating').html('Voted.');
+            }).fail(function (_, status) {
+                ajaxError(status);
             });
         });
     }
@@ -201,16 +164,15 @@
     function onRatingClick() {
         /* jshint -W040 */ // allow old school jquery use of this
         var rating = parseInt($(this).attr('data-rating'), 10);
-        var indicator = $('<img>', {
+        $('#mdw-rating').html($('<img>', {
             src: mw.config.get('stylepath') + '/common/images/ajax.gif'
-        });
-        $('#mdw-rating').html(indicator);
-        updateRating(getDeckName(), rating);
+        }));
+        updateRating(deckName(), rating);
     }
 
     function initializeRating() {
         fetchRatingData(function (data) {
-            var rating = findRating(getDeckName(), data);
+            var rating = findRating(deckName(), data);
             if (rating !== null)
                 updateRatingUiValue(calcScore(rating));
         });
@@ -223,8 +185,8 @@
             .click(onRatingClick);
     }
 
-    function addDataRatingAttributes(className) {
-        $(className).each(function (index, element) {
+    function addDataRatingAttributes(selector) {
+        $(selector).each(function (index, element) {
             $(element).attr('data-rating', index + 1);
         });
     }
@@ -246,7 +208,7 @@
 
     function validateRatingsTable(table) {
         var digits = /^\d+$/;
-        var messages = ['The following mdw-ratingrable table contains errors.'];
+        var messages = ['The following mdw-ratingtable contains errors.'];
         var attr = table.attr('data-deckcol');
         if (attr === undefined)
             messages.push('Missing data-deckcol attribute.');
@@ -286,18 +248,15 @@
         initializeRating();
     }
 
-    $(document).ready(function () {
+    $(function () {
         if (document.getElementById('mdw-rating') !== null) {
             // we are on a deck page with rating
             initializeStars();
-        }
-        else {
+        } else {
             // we are on a page with a ratings table
             updateRatingColumn();
         }
     });
 
 }(jQuery));
-// End: Deck Ratings
-// ==========================================================================
 
