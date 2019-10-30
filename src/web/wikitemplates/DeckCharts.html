@@ -1,62 +1,69 @@
 <includeonly>
-    <div id="mdw-deckcharts" class="mdw-chart-container">
-        <div class="mdw-chart-box mdw-chart-box-small">
-            <div class="mdw-chart-header">
-                [[Mana|Mana]] Curve
-            </div>
-            <div id="mdw-manacurve-chart">{{NoChartsText}}</div>
-        </div>
-        <div class="mdw-chart-box mdw-chart-box-small mdw-chart-box-right">
-            <div class="mdw-chart-header">
-                [[Colors|Color]] Distribution
-                <span class="mdw-charts-more-button mdw-button mdw-chart-box-button">More...</span>
-            </div>
-            <div id="mdw-cardsbycolor-chart">{{NoChartsText}}</div>
-        </div>
-        <div id="mdw-misc-stats-contents" class="mdw-chart-box mdw-chart-box-small mdw-chart-box-right" style="display:none">
-            <div class="mdw-chart-header">
-                Miscellaneous
-                <span class="mdw-charts-more-button mdw-button mdw-chart-box-button">Back</span>
-            </div>
-            <div class="mdw-chart-box-padding">
-                <div>
-                    Average [[Mana#Converted_mana_cost|CMC]]:
-                    <span id="mdw-mean-cmc" class="mdw-highlight"></span>
-                </div>
-                <div style="margin-top:20px;">Probability of exactly n lands in starting hand</div>
-                <table class="mdw-table">
-                    <tr>
-                        <th>Lands (n)</th>
-                        <th>0</th>
-                        <th>1</th>
-                        <th>2</th>
-                        <th>3</th>
-                        <th>4</th>
-                        <th>5</th>
-                        <th>6</th>
-                        <th>7</th>
-                    </tr>
-                    <tr id="mdw-land-probabilities">
-                        <td>Probability (%)</td>
-                        <td>[0]</td>
-                        <td>[1]</td>
-                        <td>[2]</td>
-                        <td>[3]</td>
-                        <td>[4]</td>
-                        <td>[5]</td>
-                        <td>[6]</td>
-                        <td>[7]</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+    <div id="mdw-deckcharts-error" style="display:none;">
+        <p class="mdw-charts-nodata">
+            Charts are not avaialable. A deck must contain and least one non-land card for charts.
+        </p>
     </div>
-    {{Clear}}
-    <div class="mdw-chart-box">
-        <div class="mdw-chart-header">
-            [[Card types|Card Type]] Distribution
+    <div id="mdw-deckcharts-container">
+        <div id="mdw-deckcharts" class="mdw-chart-container">
+            <div class="mdw-chart-box mdw-chart-box-small">
+                <div class="mdw-chart-header">
+                    [[Mana|Mana]] Curve
+                </div>
+                <div id="mdw-manacurve-chart">{{NoChartsText}}</div>
+            </div>
+            <div class="mdw-chart-box mdw-chart-box-small mdw-chart-box-right">
+                <div class="mdw-chart-header">
+                    [[Color|Color]] Distribution
+                    <span class="mdw-charts-more-button mdw-button mdw-chart-box-button">More...</span>
+                </div>
+                <div id="mdw-cardsbycolor-chart">{{NoChartsText}}</div>
+            </div>
+            <div id="mdw-misc-stats-contents" class="mdw-chart-box mdw-chart-box-small mdw-chart-box-right" style="display:none">
+                <div class="mdw-chart-header">
+                    Miscellaneous
+                    <span class="mdw-charts-more-button mdw-button mdw-chart-box-button">Back</span>
+                </div>
+                <div class="mdw-chart-box-padding">
+                    <div>
+                        Average [[Mana#Converted_Mana_Cost|CMC]]:
+                        <span id="mdw-mean-cmc" class="mdw-highlight"></span>
+                    </div>
+                    <div style="margin-top:20px;">Probability of exactly n lands in starting hand</div>
+                    <table class="mdw-table">
+                        <tr>
+                            <th>Lands (n)</th>
+                            <th>0</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                            <th>7</th>
+                        </tr>
+                        <tr id="mdw-land-probabilities">
+                            <td>Probability (%)</td>
+                            <td>[0]</td>
+                            <td>[1]</td>
+                            <td>[2]</td>
+                            <td>[3]</td>
+                            <td>[4]</td>
+                            <td>[5]</td>
+                            <td>[6]</td>
+                            <td>[7]</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
-        <div id="mdw-types-chart">{{NoChartsText}}</div>
+        {{Clear}}
+        <div class="mdw-chart-box">
+            <div class="mdw-chart-header">
+                [[Card Types|Card Type]] Distribution
+            </div>
+            <div id="mdw-types-chart">{{NoChartsText}}</div>
+        </div>
     </div>
     {{Clear}}
 </includeonly>
