@@ -21,6 +21,8 @@
                 case 'gt60': text = 'More than 60 cards in deck.'; break;
                 case 'lt60': text = 'Less than 60 cards in deck.'; break;
                 case 'sbd': text = 'Short sideboard.'; break;
+                case 'garbage': text = 'Unworkable deck'; break;
+                case 'nocmd': text = 'No commander specified'; break;
                 default: text = ''; break;
             }
 
