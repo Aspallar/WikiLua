@@ -1,7 +1,7 @@
 // ==========================================================================
 // ImportDeck
 //
-// Version 1.10.0
+// Version 1.11.0
 // Author: Aspallar
 //
 // Provides a user friendly way to import a deck from Magic Arena
@@ -12,10 +12,10 @@
 //
 //<nowiki>
 (function ($) {
-    /* global mw*/
+    /* global mw, tooltips, BannerNotification, magicArena*/
     'use strict';
 
-    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-10-0'))
+    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-11-0'))
         return;
 
     var newDeckTemplate = '';
@@ -24,6 +24,7 @@
     var deckKeywords = ['deck'];
     var sideboardKeywords = ['sideboard'];
     var titleCaser;
+    var awaitingCharts = true;
 
     function TitleCaser(minorWords, acronyms) {
 
@@ -97,6 +98,7 @@
     function controlsDisabled(disabled) {
         $('#mdw-import-button').prop('disabled', disabled);
         $('input[name="mdw-import-lang"').prop('disabled', disabled);
+        $('#mdw-preview-button').prop('disabled', awaitingCharts || disabled);
     }
 
     function disableControls() {
@@ -151,11 +153,7 @@
         else
             return true;
     }
-
-    function redirectToTitle(title) {
-        window.location = mw.util.getUrl(title);
-    }
-
+    
     function handleCreateError(error) {
         enableControls();
         if (error.code === 'articleexists') {
@@ -202,7 +200,7 @@
         showWorking();
         mw.loader.using('mediawiki.api').then(function () {
             var content = newDeckTemplate.replace('$1', getDeckText(deckEntries)) +
-                '\n<!-- Original Deck Text\n' + mw.html.escape(originalText) + '-->\n';
+                '\n<!-- Original Deck Text\n' + originalText.replace(/>/g, '&gt;') + '-->\n';
             var title = 'Decks/' + name;
             new mw.Api().post({
                 action: 'edit',
@@ -214,13 +212,33 @@
             }).done(function(result) {
                 hideWorking();
                 if (result.error === undefined)
-                    redirectToTitle(title);
+                    window.location = mw.util.getUrl(title);
                 else
                     handleCreateError(result.error);
             }).fail(function(code, result) {
                 unexpectedError(code + (code === 'http' ? ' ' + result.textStatus : ''));
             });
         });
+    }
+
+    function wikiParse(text) {
+        var deferred = $.Deferred();
+        mw.loader.using('mediawiki.api', function () {
+            new mw.Api().post({
+                action: 'parse',
+                disablepp: 1,
+                prop: 'text',
+                text: text
+            }).done(function (response) {
+                if (response && response.parse && response.parse.text)
+                    deferred.resolve(response.parse.text['*']);
+                else
+                    deferred.reject('Unknown server response while previewing deck.');
+            }).fail(function () {
+                deferred.reject('Network error while previewing deck.');
+            });
+        });
+        return deferred.promise();
     }
 
     function disallowedRegex() {
@@ -308,9 +326,42 @@
         return result;
     }
 
-    function clickImport() {
+    function showPreviewMessage(message, isError) {
+        var span = $('<span>').text(message);
+        if (isError) span.addClass('mdw-error');
+        $('#mdw-import-preview-message').html(span);
+        setTimeout(function () {
+            $('#mdw-import-preview-message').empty();
+        }, 3000);
+    }
+
+    function previewDeck(deckEntries) {
+        var deckTemplate = '{{Deck|Name=Deck Preview\n|BackTo=none\n|Deck=' + getDeckText(deckEntries) + '}}';
+        showWorking();
+        wikiParse(deckTemplate).done(function (deckHtml) {
+            hideWorking();
+            var deckPreview = $('#mdw-import-deck-preview');
+            deckPreview.html(deckHtml).find('a').attr('target', '_blank');
+            if (tooltips && tooltips.applyTooltips)
+                tooltips.applyTooltips(deckPreview.get(0));
+            $('#mdw-import-preview').show('fast', function() {
+                magicArena.charts.refresh();
+            });
+        }).fail(function (error) {
+            hideWorking();
+            $('#mdw-db-preview-button').val('Preview Deck');
+            showPreviewMessage(error, true);
+            $('#mdw-db-preview').hide();
+        });
+    }
+
+    function clearErrors() {
         hideBadEntries();
-        $('.mdw-error').html('');
+        $('.mdw-error').empty();
+    }
+
+    function clickImport() {
+        clearErrors();
         var result;
         var nameValid = validateDeckName();
         var deckErrors = [];
@@ -336,21 +387,31 @@
             createDeckPage($('#mdw-import-deckname').val(), result.validEntries, text);
     }
 
+    function clickPreview() {
+        clearErrors();
+        var result;
+        var deckErrors = [];
+        var text = $('#mdw-import-deckdef').val().trim();
+        if (text.length === 0)
+            deckErrors.push('You must enter a deck definition');
+        else {
+            result = parseDeckDef(text);
+            if (result.badEntries.length > 0) {
+                showBadEntries(result.badEntries);
+                deckErrors.push('Import contains invalid entries (see below).');
+            }
+            if (result.sideboardCount > 1) 
+                deckErrors.push('Import contains more than one sideboard.');
+        }
+        if (deckErrors.length === 0)
+            previewDeck(result.validEntries);
+        else 
+            displayError('deckdef', deckErrors);
+    }
+
     function showTranslationLoadFail(langCode) {
-        $.showCustomModal(
-            'Load Error',
-            '<p>Failed to load translation data (' + langCode + '). Defaulting back to English.</p>', {
-            id: 'mdw-loadfail-dialog',
-            width: 350,
-            buttons: [{
-                id: 'mdw-loadfail-dialog-ok',
-                message: 'OK',
-                defaultButton: true,
-                handler: function () {
-                    $('#mdw-loadfail-dialog').closeModal();
-                }
-            }]
-        });
+        new BannerNotification('Failed to load translation data (' + mw.html.escape(langCode) + '). Defaulting back to English.',
+            'error').show();
     }
 
     function parseTranslation(data) {
@@ -396,9 +457,11 @@
         );
         $('#mdw-import-deckdef-span')
             .append('<textarea id="mdw-import-deckdef" cols="60" rows="25"></textarea>');
-        $('#mdw-import-button-span')
-            .append('<input type="button" id="mdw-import-button" value="Import Deck" />')
+        var importBtn = $('<input type="button" id="mdw-import-button" value="Import Deck" />')
             .click(clickImport);
+        var previewBtn = $('<input type="button" id="mdw-preview-button" value="Preview Deck" disabled />')
+            .click(clickPreview);
+        $('#mdw-import-button-span').append(importBtn).append('&nbsp;').append(previewBtn);
         var languages = $('<label><input type="radio" name="mdw-import-lang" id="mdw-import-english" checked value="en"><span>English</span></label>\
             <label><input type="radio" name="mdw-import-lang" value="de"><span>Deutsch</span></label>\
             <label><input type="radio" name="mdw-import-lang" value="es"><span>Español</span></label>\
@@ -407,6 +470,10 @@
             <label><input type="radio" name="mdw-import-lang" value="pt-br"><span>Português</span></label>');
         languages.find('input[name="mdw-import-lang"]').change(changeLanguage);
         $('#mdw-lang-span').replaceWith(languages);
+        mw.hook('magicarena.chartsready').add(function () {
+            awaitingCharts = false;
+            $('#mdw-preview-button').prop('disabled', false);
+        });
     }
 
     function initializeImportForm(deckImport) {
