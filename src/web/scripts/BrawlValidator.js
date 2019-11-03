@@ -48,16 +48,42 @@
         return identity;
     }
 
+
+    function checkBasicLands(deck) {
+        var basicLands = JSON.parse($('#mdw-chartdata-pre').text())
+            .filter(function (c) { return c.rarity === 'Basic Land'; });
+        var count = 0;
+        deck.each(function () {
+            var that = $(this);
+            var name = that.text();
+            if (basicLands.find(function (c) { return c.name === name; })) {
+                that.addClass('mdw-basic-land');
+                ++count;
+            }
+        });
+        if (count > 1) {
+            deck.siblings('.mdw-basic-land').addClass('mdw-wrong-color-identity');
+            return false;
+        }
+        return true;
+    }
+
     function validateBrawl(event) {
         event.preventDefault();
         loadIdentities().done(function () {
             var deck = $('div.div-col.columns.column-count.column-count-2 span.card-image-tooltip');
-            deck.removeClass('mdw-wrong-color-identity');
             var commander = deck.first().text();
             var commanderIdentity = getIdentity(commander);
-            if (commanderIdentity) {
-                var identityCheck = new RegExp('^[' + commanderIdentity + ']+$|^$');
-                var valid = true;
+            if (commanderIdentity !== undefined) {
+                var identityCheck, valid;
+                if (commanderIdentity === '') {
+                    identityCheck = /^$/;
+                    valid = checkBasicLands(deck);
+                    deck = deck.not('.mdw-basic-land');
+                } else {
+                    identityCheck = new RegExp('^[' + commanderIdentity + ']*$');
+                    valid = true;
+                }
                 deck.each(function () {
                     var that = $(this);
                     if (!identityCheck.test(getIdentity(that.text()))) {
@@ -69,8 +95,6 @@
                     notify('Deck passes color identity checks (' + commander + ' ' + commanderIdentity + ').', 'notify');
                 else
                     notify('Deck failed color identity checks (' + commander + ' ' + commanderIdentity + ').', 'error');
-            } else {
-                notify('Cannot verify colorless commander decks (' + commander + ').', 'error');
             }
         }).fail(function () {
             notify('Unable to obtain color identity data','error');
