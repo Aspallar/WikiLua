@@ -48,24 +48,24 @@
         return identity;
     }
 
-
     function checkBasicLands(deck) {
-        var basicLands = JSON.parse($('#mdw-chartdata-pre').text())
-            .filter(function (c) { return c.rarity === 'Basic Land'; });
-        var count = 0;
-        deck.each(function () {
-            var that = $(this);
-            var name = that.text();
-            if (basicLands.find(function (c) { return c.name === name; })) {
-                that.addClass('mdw-basic-land');
-                ++count;
-            }
-        });
-        if (count > 1) {
-            deck.siblings('.mdw-basic-land').addClass('mdw-wrong-color-identity');
+        var landNames = ['Forest', 'Plains', 'Mountain', 'Island', 'Swamp'];
+        var lands = deck.filter(function () {
+            return landNames.includes($(this).text());
+        }).addClass('mdw-basic-land');
+        if (lands.length > 1) {
+            lands.addClass('mdw-wrong-color-identity');
             return false;
         }
         return true;
+    }
+
+    function notifyResult(valid, commander, identity) {
+        var commanderText = ' (' + commander + ': ' + (identity || 'colorless') + ').';
+        if (valid)
+            notify('Deck passes color identity checks' + commanderText, 'notify');
+        else
+            notify('Deck failed color identity checks' + commanderText, 'error');
     }
 
     function validateBrawl(event) {
@@ -91,10 +91,7 @@
                         that.addClass('mdw-wrong-color-identity');
                     }
                 });
-                if (valid)
-                    notify('Deck passes color identity checks (' + commander + ' ' + commanderIdentity + ').', 'notify');
-                else
-                    notify('Deck failed color identity checks (' + commander + ' ' + commanderIdentity + ').', 'error');
+                notifyResult(valid, commander, commanderIdentity);
             }
         }).fail(function () {
             notify('Unable to obtain color identity data','error');
