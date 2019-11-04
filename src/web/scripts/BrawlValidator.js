@@ -84,13 +84,9 @@
                     identityCheck = new RegExp('^[' + commanderIdentity + ']*$');
                     valid = true;
                 }
-                deck.each(function () {
-                    var that = $(this);
-                    if (!identityCheck.test(getIdentity(that.text()))) {
-                        valid = false;
-                        that.addClass('mdw-wrong-color-identity');
-                    }
-                });
+                valid = deck.filter(function () {
+                    return !identityCheck.test(getIdentity($(this).text()));
+                }).addClass('mdw-wrong-color-identity').length === 0 && valid;
                 notifyResult(valid, commander, commanderIdentity);
             }
         }).fail(function () {
