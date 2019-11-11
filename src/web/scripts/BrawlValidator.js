@@ -15,7 +15,10 @@
         identities = {};
         data.split('\n').forEach(function (line) {
             var entry = line.split('|');
-            identities[entry[0]] = entry[1];
+            identities[entry[0]] = {
+                id: entry[1],
+                legendary: entry.length > 2
+            };
         });
     }
 
@@ -43,9 +46,11 @@
 
     function getIdentity(name) {
         var identity = identities[name];
-        if (identity === undefined)
+        if (identity === undefined) {
             notify('No identity data for ' + name, 'error');
-        return identity;
+            return identity;
+        }
+        return identity.id;
     }
 
     function checkBasicLands(deck) {
@@ -55,40 +60,72 @@
         }).addClass('mdw-basic-land');
         if (lands.length > 1) {
             lands.addClass('mdw-wrong-color-identity');
-            return false;
+            return 1;
         }
-        return true;
+        return 0;
     }
 
-    function notifyResult(valid, commander, identity) {
-        var commanderText = ' (' + commander + ': ' + (identity || 'colorless') + ').';
-        if (valid)
-            notify('Deck passes color identity checks' + commanderText, 'notify');
-        else
-            notify('Deck failed color identity checks' + commanderText, 'error');
+    function getCardData() {
+        var data;
+        try { data = JSON.parse($('#mdw-chartdata-pre').text()); } catch (e) { }
+        return data || [];
+    }
+
+    function commanderText(commander, identity) {
+        return '(' + commander + ': ' + (identity || 'colorless') + ').';
+    }
+
+    function checkCommanderType(commander, identity, cardData) {
+        if (!identities[commander].legendary ||
+            !cardData.find(function (e) {
+                return e.name === commander && (e.types.includes('Planeswalker') || e.types.includes('Creature'));
+            })
+        ) {
+            notify(commanderText(commander, identity) + ' is not a legendary planeswalker or creature.', 'error');
+            return 1;
+        }
+        return 0;
+    }
+
+    function checkAmounts(cardData) {
+        if (cardData.find(function (e) { return e.rarity !== 'Basic Land' && e.num !== 1; })) {
+            notify('Amounts check failed. More than 1 card of the same type', 'error');
+            return 1;
+        }
+        return 0;
+    }
+
+    function checkColors(deck, commander, identity) {
+        var identityCheck, errors;
+        if (identity === '') {
+            identityCheck = /^$/;
+            errors = checkBasicLands(deck);
+            deck = deck.not('.mdw-basic-land');
+        } else {
+            identityCheck = new RegExp('^[' + identity + ']*$');
+            errors = 0;
+        }
+        errors += deck.filter(function () {
+            return !identityCheck.test(getIdentity($(this).text()));
+        }).addClass('mdw-wrong-color-identity').length;
+        if (errors !== 0)
+            notify('Deck failed color identity checks ' + commanderText(commander,identity), 'error');
+
+        return errors;
     }
 
     function validateBrawl(event) {
         event.preventDefault();
         loadIdentities().done(function () {
+            var cardData = getCardData();
             var deck = $('div.div-col.columns.column-count.column-count-2 span.card-image-tooltip');
             var commander = deck.first().text();
             var commanderIdentity = getIdentity(commander);
-            if (commanderIdentity !== undefined) {
-                var identityCheck, valid;
-                if (commanderIdentity === '') {
-                    identityCheck = /^$/;
-                    valid = checkBasicLands(deck);
-                    deck = deck.not('.mdw-basic-land');
-                } else {
-                    identityCheck = new RegExp('^[' + commanderIdentity + ']*$');
-                    valid = true;
-                }
-                valid = deck.filter(function () {
-                    return !identityCheck.test(getIdentity($(this).text()));
-                }).addClass('mdw-wrong-color-identity').length === 0 && valid;
-                notifyResult(valid, commander, commanderIdentity);
-            }
+            var errors = checkCommanderType(commander, commanderIdentity, cardData) +
+                checkAmounts(cardData) +
+                checkColors(deck, commander, commanderIdentity);
+            if (errors === 0)
+                notify('All brawl checks passed ' + commanderText(commander, commanderIdentity),'notify');
         }).fail(function () {
             notify('Unable to obtain color identity data','error');
         });
