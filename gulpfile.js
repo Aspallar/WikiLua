@@ -1,3 +1,8 @@
+// NOTE: gulp and browserSync are no longer being used during development
+//       so this file is probably out of date
+//       left here in case I ever goback to using it (unlikely as it installs half the world
+///      as dependencies + CORS problemd when running locally)
+
 var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 var proxyMiddleware = require('http-proxy-middleware');

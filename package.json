@@ -18,8 +18,5 @@
   },
   "homepage": "https://github.com/Aspallar/WikiLua#readme",
   "devDependencies": {
-    "browser-sync": "^2.26.7",
-    "gulp": "^4.0.2",
-    "http-proxy-middleware": "^0.20.0"
   }
 }
