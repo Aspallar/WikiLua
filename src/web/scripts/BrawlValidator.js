@@ -6,9 +6,11 @@
         return;
 
     var identities;
+    var wrongColorClass = 'mdw-wrong-color-identity';
+    var basicLandClass = 'mdw-basic-land';
 
     function notify(message, type) {
-        new BannerNotification(message, type).show();
+        new BannerNotification(message, type || 'error').show();
     }
 
     function parseIdentities(data) {
@@ -23,18 +25,19 @@
     }
 
     function loadIdentities() {
+        var cacheKey = 'mdw-color-identity';
         var deferred = $.Deferred();
         if (identities) {
             deferred.resolve();
         } else {
-            var cached = sessionStorage.getItem('mdw-color-identity');
+            var cached = sessionStorage.getItem(cacheKey);
             if (cached !== null) {
                 identities = JSON.parse(cached);
                 deferred.resolve();
             } else {
                 $.get(mw.util.getUrl('MediaWiki:Custom-Cards-ColorIdentity', {action: 'raw'})).done(function (data) {
                     parseIdentities(data);
-                    sessionStorage.setItem('mdw-color-identity', JSON.stringify(identities));
+                    sessionStorage.setItem(cacheKey, JSON.stringify(identities));
                     deferred.resolve();
                 }).fail(function () {
                     deferred.reject();
@@ -46,8 +49,8 @@
 
     function getIdentity(name) {
         var identity = identities[name];
-        if (identity === undefined) {
-            notify('No identity data for ' + name, 'error');
+        if (!identity) {
+            notify('No identity data for ' + name);
             return identity;
         }
         return identity.id;
@@ -57,9 +60,9 @@
         var landNames = ['Forest', 'Plains', 'Mountain', 'Island', 'Swamp'];
         var lands = deck.filter(function () {
             return landNames.includes($(this).text());
-        }).addClass('mdw-basic-land');
+        }).addClass(basicLandClass);
         if (lands.length > 1) {
-            lands.addClass('mdw-wrong-color-identity');
+            lands.addClass(wrongColorClass);
             return 1;
         }
         return 0;
@@ -81,15 +84,35 @@
                 return e.name === commander && (e.types.includes('Planeswalker') || e.types.includes('Creature'));
             })
         ) {
-            notify(commanderText(commander, identity) + ' is not a legendary planeswalker or creature.', 'error');
+            notify(commanderText(commander, identity) + ' is not a legendary planeswalker or creature.');
             return 1;
         }
         return 0;
     }
 
-    function checkAmounts(cardData) {
-        if (cardData.find(function (e) { return e.rarity !== 'Basic Land' && e.num !== 1; })) {
-            notify('Amounts check failed. More than 1 card of the same type', 'error');
+    function checkAmounts(deck, cardData) {
+        var wrongAmounts = cardData
+            .filter(function (e) { return e.rarity !== 'Basic Land' && e.num !== 1; })
+            .map(function (e) { return e.name; });
+        if (wrongAmounts.length > 0) {
+            deck.filter(function () { return wrongAmounts.includes($(this).text()); })
+                .addClass('mdw-wrong-brawl-amount');
+            notify('More than 1 copy of same card.');
+        }
+        return wrongAmounts.length;
+    }
+
+    function checkTotal(cardData) {
+        if (cardData.reduce(function (a, e) { return a + e.num; }, 0) !== 60) {
+            notify('Deck is not exacly 60 cards.');
+            return 1;
+        }
+        return 0;
+    }
+
+    function checkNoSideboard() {
+        if ($('#mdw-sideboard-data').text() !== '[]') {
+            notify('Sideboards are not allowed in brawl decks.');
             return 1;
         }
         return 0;
@@ -100,16 +123,16 @@
         if (identity === '') {
             identityCheck = /^$/;
             errors = checkBasicLands(deck);
-            deck = deck.not('.mdw-basic-land');
+            deck = deck.not('.' + basicLandClass);
         } else {
             identityCheck = new RegExp('^[' + identity + ']*$');
             errors = 0;
         }
         errors += deck.filter(function () {
             return !identityCheck.test(getIdentity($(this).text()));
-        }).addClass('mdw-wrong-color-identity').length;
+        }).addClass(wrongColorClass).length;
         if (errors !== 0)
-            notify('Deck failed color identity checks ' + commanderText(commander,identity), 'error');
+            notify('Deck failed color identity checks ' + commanderText(commander, identity));
 
         return errors;
     }
@@ -121,13 +144,15 @@
             var deck = $('div.div-col.columns.column-count.column-count-2 span.card-image-tooltip');
             var commander = deck.first().text();
             var commanderIdentity = getIdentity(commander);
-            var errors = checkCommanderType(commander, commanderIdentity, cardData) +
-                checkAmounts(cardData) +
+            var errors = checkNoSideboard() +
+                checkTotal(cardData) +
+                checkAmounts(deck, cardData) +
+                checkCommanderType(commander, commanderIdentity, cardData) +
                 checkColors(deck, commander, commanderIdentity);
             if (errors === 0)
-                notify('All brawl checks passed ' + commanderText(commander, commanderIdentity),'notify');
+                notify('All brawl checks passed ' + commanderText(commander, commanderIdentity), 'notify');
         }).fail(function () {
-            notify('Unable to obtain color identity data','error');
+            notify('Unable to obtain color identity data');
         });
     }
 
