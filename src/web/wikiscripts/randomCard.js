@@ -1,11 +1,11 @@
 // ==========================================================================
-// Implements a Special:RandomCard paage which redirects the user to a
+// Implements a Special:RandomCard page which redirects the user to a
 // randomly selected card page/
 //
-// Version 1.0.0
+// Version 1.0.1
 // Author: Aspallar
 
-(function () {
+(function ($) {
     /*global mw*/
     'use strict';
 
@@ -14,7 +14,7 @@
 
     $.get(mw.util.getUrl('MediaWiki:Custom-CardData', {action: 'raw'})).done(function (data) {
         var cards = data.split('\n');
-        var index = Math.floor(Math.random() * Math.floor(cards.length));
+        var index = Math.floor(Math.random() * cards.length);
         var card = cards[index];
         card = card.substring(0, card.indexOf('|'));
         window.location = mw.util.getUrl(card);
@@ -27,4 +27,3 @@
     });
 
 }(jQuery));
-
