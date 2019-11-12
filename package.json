@@ -18,5 +18,6 @@
   },
   "homepage": "https://github.com/Aspallar/WikiLua#readme",
   "devDependencies": {
+    "uglify-js": "^3.6.8"
   }
 }
