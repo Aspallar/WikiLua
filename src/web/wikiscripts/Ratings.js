@@ -2,7 +2,7 @@
 // Deck Ratings
 //    1. Supports the rating 'stars' on deck pages
 //    2. Updates the rating column on deck tables
-// Version 1.3.0
+// Version 1.3.1
 // Author: Aspallar
 //
 // ** Please do not edit this code directly in the wikia.
@@ -15,7 +15,7 @@
     'use strict';
 
     if ((document.getElementById('mdw-rating') === null && $('.mdw-ratingtable').length === 0) ||
-         $('#mdw-disabled-js').attr('data-ratings-1-3-0'))
+         $('#mdw-disabled-js').attr('data-ratings-1-3-1'))
         return;
 
     var ratingsDataPageName = 'Ratings:DeckRatings';
@@ -249,14 +249,15 @@
     }
 
     $(function () {
-        if (document.getElementById('mdw-rating') !== null) {
-            // we are on a deck page with rating
-            initializeStars();
-        } else {
-            // we are on a page with a ratings table
-            updateRatingColumn();
-        }
+        mw.loader.using('mediawiki.api').then(function() {
+            if (document.getElementById('mdw-rating') !== null) {
+                // we are on a deck page with rating
+                initializeStars();
+            } else {
+                // we are on a page with a ratings table
+                updateRatingColumn();
+            }
+        });
     });
 
 }(jQuery));
-
