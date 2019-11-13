@@ -15,7 +15,7 @@ htmlminifier deploy\templates\.
 
 set ugly=node node_modules\uglify-js\bin\uglifyjs
 for %%f in (src\web\adminscripts\*.js) do (
-    echo Uglify %%f to %%~nf.min.js
+    echo Uglify deploy\js\%%~nf.min.js
     %ugly% %%f --compress --mangle --output deploy\js\%%~nf.min.js
 )
 
