@@ -1,20 +1,21 @@
 // ==========================================================================
 // Adds a "Hightlight historic cards" link to historic decks which hightlights
-// the cards that ca only be played in historic formats.
+// the cards that can only be played in historic formats.
 //
-// Version 1.0.0
+// Version 1.1.0
 // Author: Aspallar
 //
 // ** Please do not edit this code directly in the wikia.
 // ** Instead use the git repository https://github.com/Aspallar/WikiLua
 //
-(function ($) {
+window.magicArena = window.magicArena || {};
+window.magicArena.highlightHistoric = window.magicArena.highlightHistoric || (function ($) {
     'use strict';
 
-    if (document.getElementById('mdw-show-historic') === null || $('#mdw-disabled-js').attr('data-historiccards-1-0-0'))
-        return;
+    if ($('#mdw-disabled-js').attr('data-historiccards-1-1-0'))
+        return null;
 
-    var highlighted = false;
+    var highlighted;
     var highlightText = 'Highlight historic cards';
 
     function toggleHighlight(event) {
@@ -29,12 +30,19 @@
         }
     }
 
-    function initialize() {
-        $('#mdw-show-historic').html(
+    function setLink(link) {
+        highlighted = false;
+        link.html(
             $('<br>').after($('<a>', { id: 'mdw-historic-highlight', href: '#', text: highlightText}).click(toggleHighlight))
         );
     }
 
-    $(initialize);
+    function apply(content) {
+        setLink(content.find('#mdw-show-historic'));
+    }
+
+    $(function () { setLink($('#mdw-show-historic')); });
+
+    return apply;
 
 }(jQuery));
