@@ -12,7 +12,8 @@
 //
 (function ($) {
     'use strict';
-    /*global mw, magicArena, tooltips, globalCardnames, _ */ // globalCardnames is only for local testing
+    /*rem global mw, magicArena, tooltips, globalCardnames, _ */ // globalCardnames is only for local testing
+    /*global mw, magicArena, tooltips, _ */ // globalCardnames is only for local testing
 
     if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-6-0'))
         return;

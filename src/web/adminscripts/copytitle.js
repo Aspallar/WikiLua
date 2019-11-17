@@ -7,7 +7,7 @@ $(function (){
         that.css('color', 'red');
         var copyText = that.text();
         if (!event.ctrlKey)
-            copyText = 'Duplicate of [[' + copyText + ']]'
+            copyText = 'Duplicate of [[' + copyText + ']]';
         navigator.clipboard.writeText(copyText).then(function () {
             setTimeout(function () {
                 that.css('color', color);
