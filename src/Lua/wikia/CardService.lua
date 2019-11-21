@@ -7,6 +7,15 @@ local totalCards = #cards
 
 local gsub, match, find, lower, upper = string.gsub, string.match, string.find, string.lower, string.upper
 
+local standardSets = {
+    ["GRN"] = 1;
+    ["RNA"] = 1;
+    ["WAR"] = 1;
+    ["M20"] = 1;
+    ["ELD"] = 1;
+    ["ANA"] = 1;
+}
+
 local function CaseInsensitivePattern(s)
     s = gsub(s, "%-", "%%-")
     s = gsub(s, "%a", function (c) return string.format("[%s%s]", lower(c), upper(c)) end)
@@ -192,9 +201,7 @@ function p.GetOtherByCriteria(criteria)
 end
 
 function p.IsStandard(card)
-    local set = card.SetCode
-    return set == "GRN" or set == "RNA" or set == "WAR"
-        or set == "M20" or set == "ELD" or set == "ANA"
+    return standardSets[card.SetCode] ~= nil
 end
 
 return p
