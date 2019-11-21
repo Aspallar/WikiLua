@@ -34,27 +34,47 @@ local cardPageTemplate = [=[{| class="article-table mdw-cardinfo-table"
 
 local numCardsPerPage = 100
 
-local setNames = {}
-setNames["KLD"]="Kaladesh"
-setNames["AER"]="Aether Revolt"
-setNames["W17"]="Welcome Deck 2017"
-setNames["AKH"]="Amonkhet"
-setNames["HOU"]="Hour of Devastation"
-setNames["XLN"]="Ixalan"
-setNames["RIX"]="Rivals of Ixalan"
-setNames["DOM"]="Dominaria"
-setNames["M19"]="Core Set 2019"
-setNames["G18"]="Gift Pack"
-setNames["ANA"]="Arena Only"
-setNames["GRN"]="Guilds of Ravnica"
-setNames["RNA"]="Ravnica Allegiance"
-setNames["WAR"]="War of the Spark"
-setNames["M20"]="Core Set 2020"
-setNames["ELD"]="Throne of Eldraine"
+local setNames = {
+    ["KLD"]="Kaladesh";
+    ["AER"]="Aether Revolt";
+    ["W17"]="Welcome Deck 2017";
+    ["AKH"]="Amonkhet";
+    ["HOU"]="Hour of Devastation";
+    ["XLN"]="Ixalan";
+    ["RIX"]="Rivals of Ixalan";
+    ["DOM"]="Dominaria";
+    ["M19"]="Core Set 2019";
+    ["G18"]="Gift Pack";
+    ["ANA"]="Arena Only";
+    ["GRN"]="Guilds of Ravnica";
+    ["RNA"]="Ravnica Allegiance";
+    ["WAR"]="War of the Spark";
+    ["M20"]="Core Set 2020";
+    ["ELD"]="Throne of Eldraine";
+    ["HA1"]="Historic Anthology 1";
+    ["GTC"]="Gatecrash";
+    ["INV"]="Invasion";
+    ["EMN"]="Eldritch Moon";
+    ["DST"]="Darksteel";
+    ["ORI"]="Magic Origins";
+    ["SOK"]="Saviors of Kamigawa";
+    ["M10"]="Magic 2010";
+    ["LRW"]="Lorwyn";
+    ["ROE"]="Rise of the Eldrazi";
+    ["MOR"]="Morningtide";
+    ["WTH"]="Weatherlight";
+    ["8ED"]="Eighth Edition";
+    ["M11"]="Magic 2011";
+    ["WWK"]="Worldwake";
+    ["MH1"]="Modern Horizons";
+}
 
 local function SetLinkName(setCode)
     if setCode == "HOU" then
         return "Hour of Devastation (set)"
+    end
+    if setCode == "WTH" then
+        return "Weatherlight (set)"
     end
     return setNames[setCode]
 end
@@ -62,6 +82,9 @@ end
 local function SetLink(setCode)
     if setCode == "HOU" then
         return "[[Hour of Devastation (set)|Hour of Devastation]]"
+    end
+    if setCode == "WTH" then
+        return "[[Weatherlight (set)|Weatherlight]]"
     end
     return "[[" .. setNames[setCode] .. "]]"
 end

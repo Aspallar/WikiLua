@@ -193,7 +193,8 @@ end
 
 function p.IsStandard(card)
     local set = card.SetCode
-    return set ~= "XLN" and set ~= "RIX" and set ~= "DOM" and set ~= "M19"
+    return set == "GRN" or set == "RNA" or set == "WAR"
+        or set == "M20" or set == "ELD" or set == "ANA"
 end
 
 return p
