@@ -91,13 +91,13 @@
     }
 
     function checkAmounts(deck, cardData) {
-        var wrongAmounts = cardData
-            .filter(function (e) { return e.rarity !== 'Basic Land' && e.num !== 1; })
-            .map(function (e) { return e.name; });
+        var wrongAmounts = cardData.filter(function (e) {
+                return e.name === 'Seven Dwarves' ? e.num > 7 : e.rarity !== 'Basic Land' && e.num !== 1;
+            }).map(function (e) { return e.name; });
         if (wrongAmounts.length > 0) {
             deck.filter(function () { return wrongAmounts.includes($(this).text()); })
                 .addClass('mdw-wrong-brawl-amount');
-            notify('More than 1 copy of same card.');
+            notify('Invalid card amounts.');
         }
         return wrongAmounts.length;
     }
