@@ -23,6 +23,7 @@
                 case 'sbd': text = 'Short sideboard.'; break;
                 case 'garbage': text = 'Unworkable deck'; break;
                 case 'nocmd': text = 'No commander specified'; break;
+                case 'hisban': text = 'Contains banned/suspended cards'; break;
                 default: text = ''; break;
             }
 
