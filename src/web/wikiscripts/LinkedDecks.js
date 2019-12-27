@@ -2,7 +2,7 @@
 // Implements a link on card pages that displays links to the decks which
 // contain that card.
 //
-// Version 1.0.0
+// Version 1.0.1
 // Author: Aspallar
 //
 // ** Please do not edit this code directly in the wikia.
@@ -12,7 +12,7 @@
     'use strict';
     /*global mw */
 
-    if (document.getElementById('mdw-deck-links') === null || $('#mdw-disabled-js').attr('data-linkeddecks-1-0-0'))
+    if (document.getElementById('mdw-deck-links') === null || $('#mdw-disabled-js').attr('data-linkeddecks-1-0-1'))
         return;
 
     function wikiApiCall(data, method) {
@@ -34,7 +34,8 @@
                 action: 'query',
                 list: 'backlinks',
                 bltitle: mw.config.get('wgTitle'),
-                bllimit: 100,
+                bllimit: 500,
+                rawcontinue: '',
                 blfilterredir: 'nonredirects',
                 blcontinue: blcontinue
             }, 'GET').done(function (data) {

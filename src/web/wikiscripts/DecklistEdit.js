@@ -1,7 +1,7 @@
 // ==========================================================================
 // DecklistEdit
 //
-// Version 1.7.0
+// Version 1.7.1
 // Author: Aspallar
 //
 // Provides a user friendly way to add a deck to a deck list.
@@ -13,7 +13,7 @@
     /*global mw, Set */
     'use strict';
 
-    if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('data-decklistedit-1-7-0'))
+    if (document.getElementById('mdw-dle-editor') === null || $('#mdw-disabled-js').attr('data-decklistedit-1-7-1'))
         return;
 
     var config, api;
@@ -179,6 +179,7 @@
                 list: 'allpages',
                 apprefix: 'Decks/',
                 aplimit: 500,
+                rawcontinue: '',
                 apfrom: apfrom
             }).done(function(data) {
                 if (data.error) {
