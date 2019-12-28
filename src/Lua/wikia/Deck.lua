@@ -7,7 +7,7 @@ local deckIsHistoric = false
 
 p.Commander = {} -- will only contain 1 entry, it's a table to maintain symmetry with others
 p.Land = {}
-p. Creature = {}
+p.Creature = {}
 p.Artifact = {}
 p.Enchantment = {}
 p.Instant = {}
@@ -58,7 +58,7 @@ local function UpdateBanned(card)
 end
 
 local function UpdateHistoric(card, isHistoric)
-    if isHistoric then
+    if isHistoric and not (p.Brawl() and card.Name == "Rhys the Redeemed") then
         card.IsHistoric = true
         deckIsHistoric = true
     end
