@@ -67,6 +67,7 @@ local setNames = {
     ["M11"]="Magic 2011";
     ["WWK"]="Worldwake";
     ["MH1"]="Modern Horizons";
+    ["SHM"]="Shadowmoor";
 }
 
 local function SetLinkName(setCode)
