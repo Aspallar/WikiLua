@@ -22,8 +22,9 @@
                 case 'lt60': text = 'Less than 60 cards in deck.'; break;
                 case 'sbd': text = 'Short sideboard.'; break;
                 case 'garbage': text = 'Unworkable deck'; break;
-                case 'nocmd': text = 'No commander specified'; break;
+                case 'nocmd': text = 'Invalid brawl deck. No commander specified'; break;
                 case 'hisban': text = 'Contains banned/suspended cards'; break;
+                case 'not60': text = 'Invalid brawl deck. Does not have exactly 60 cards.'; break;
                 default: text = ''; break;
             }
 
