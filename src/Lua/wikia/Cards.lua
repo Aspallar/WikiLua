@@ -119,7 +119,8 @@ local function DescriptionBox(card, amount)
 end
 
 local function ExpansionSymbol(card)
-    return "{{"..card.SetCode..card.Rarity:sub(1,1).."}}"
+    local title = setNames[card.SetCode] .. " " .. card.Rarity
+    return "<span title=\"" .. title .. "\">{{" .. card.SetCode..card.Rarity:sub(1,1).."}}</span>"
 end
 
 local function GetRulings(card, isOtherCard)
