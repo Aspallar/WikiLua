@@ -2,7 +2,7 @@
 // Implements a deck builder/editor to allow users to edit deck definitions
 // without having to edit wikitext
 //
-// Version 1.6.0
+// Version 1.7.0
 // Author: Aspallar
 //
 // Beta early prototype release.
@@ -12,10 +12,9 @@
 //
 (function ($) {
     'use strict';
-    /*rem global mw, magicArena, tooltips, globalCardnames, _ */ // globalCardnames is only for local testing
-    /*global mw, magicArena, tooltips, _ */ // globalCardnames is only for local testing
+    /*global mw, magicArena, tooltips, _ */ 
 
-    if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-6-0'))
+    if (document.getElementById('mdw-deck-builder') === null || $('#mdw-disabled-js').attr('data-builder-1-7-0'))
         return;
 
     var globalNavHeight;
@@ -360,19 +359,10 @@
         };
     } // end deck
 
-
     function fatalError(message) {
         $('#mdw-deck-builder').hide();
         $('#mdw-db-errormessage').text(message);
         $('#mdw-db-fatal-error').show();
-    }
-
-    function getBaseUrl() {
-        return mw.config.get('wgArticlePath').replace('$1', '');
-    }
-
-    function buildUrl(page, query) {
-        return getBaseUrl() + page + (query ? '?' + $.param(query) : '');
     }
 
     function removeIncludes(contents) {
@@ -430,8 +420,7 @@
 
     function fetchCardData() {
         var deferred = $.Deferred();
-        // deferred.resolve(globalCardnames); // used for local testing
-        $.get(buildUrl('MediaWiki:Custom-CardData', {action: 'raw'})).done(function (data) {
+        $.get(mw.util.getUrl('MediaWiki:Custom-CardData', {action: 'raw'})).done(function (data) {
             deferred.resolve(data);
         }).fail(function () {
             fatalError('Unable to obtain card data.');
@@ -517,7 +506,7 @@
 
     function createDeckPage(name, deckText) {
         mw.loader.using('mediawiki.api').then(function () {
-            $.get(buildUrl('Template:NewDeck', {action: 'raw'})).then(function (newDeckTemplate) {
+            $.get(mw.util.getUrl('Template:NewDeck', {action: 'raw'})).then(function (newDeckTemplate) {
                 deckText = deckText.substring(1, deckText.length - 1); // strip leading and trailing newlines
                 var content = removeIncludes(newDeckTemplate).replace('$1', deckText);
                 var title = 'Decks/' + name;
@@ -831,6 +820,7 @@
                 var deckName = mw.util.getParamValue('deck');
                 if (deckName) {
                     deck.setNew(false);
+                    $('#md-db-existswarning').show();
                     $('#mdw-db-deckname').val(deckName).prop('disabled', true);
                     fetchDeckPage(deckName).done(function (page) {
                         deckPage = page;
