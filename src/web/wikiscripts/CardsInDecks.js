@@ -5,7 +5,7 @@
 //    all the decks for all the cards specified in wikitext on the server. Results
 //    in a significantly smaller page and a lot less wikitext for the server to parse.
 //
-// Version 1.1.0
+// Version 1.1.1
 // Author: Aspallar
 //
 // ** Please do not edit this code directly in the wikia.
@@ -15,7 +15,7 @@
     /*global mw*/
     'use strict';
 
-    if (document.getElementById('mdw-cardsindecks-container') === null || $('#mdw-disabled-js').attr('data-cardsindecks-1-1-0'))
+    if (document.getElementById('mdw-cardsindecks-container') === null || $('#mdw-disabled-js').attr('data-cardsindecks-1-1-1'))
         return;
 
     var rightImageSrc = mw.config.get('stylepath') + '/common/images/Arr_r.png';
@@ -24,7 +24,7 @@
     function fillDeckDiv(div) {
         var ul = $('<ul>');
         var cardDecks = JSON.parse(div.attr('data-decks'));
-        var allDecks = JSON.parse($('#mdw-deck-data').html());
+        var allDecks = JSON.parse($('#mdw-deck-data').text());
         var prefix = $('#mdw-cardsindecks-config').attr('data-deck-prefix');
         if (prefix === undefined) prefix = 'Decks/';
         cardDecks.forEach(function (deckIndex) {
