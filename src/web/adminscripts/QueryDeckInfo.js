@@ -21,16 +21,21 @@
                 case 'gt60': text = 'More than 60 cards in deck.'; break;
                 case 'lt60': text = 'Less than 60 cards in deck.'; break;
                 case 'sbd': text = 'Short sideboard.'; break;
-                case 'garbage': text = 'Unworkable deck'; break;
+                case 'garbage': text = 'Unworkable deck.'; break;
                 case 'nocmd': text = 'Invalid brawl deck. No commander specified'; break;
-                case 'hisban': text = 'Contains banned/suspended cards'; break;
+                case 'hisban': text = 'Contains banned/suspended cards.'; break;
                 case 'not60': text = 'Invalid brawl deck. Does not have exactly 60 cards.'; break;
+                case 'list': text = 'Removing old temporary card list'; break;
                 default: text = ''; break;
             }
 
             if (days !== null) {
-                if (text.length > 0) text += ' ';
-                text += 'No response from OP in ' + days + ' days';
+                if (reason !== 'list') {
+                    if (text.length > 0) text += ' ';
+                    text += 'No response from OP in ' + days + ' days';
+                } else {
+                    text += ' after ' + days + ' days';
+                }
             }
 
             $('#wpWatch').prop('checked', false);
