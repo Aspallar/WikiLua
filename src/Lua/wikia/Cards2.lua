@@ -61,7 +61,9 @@ end
 
 
 local function ConcatTables(target,source)
-    if not source then return end
+    if not source then
+        return
+    end
     for _,v in pairs(source) do
         table.insert(target,v)
     end
@@ -90,10 +92,14 @@ local function ExpansionSymbol(card)
 end
 
 local function GetRulings(card)
-    if card.Rulings == nil then return "" end
+    if card.Rulings == nil then
+        return ""
+    end
     local rulings = mw.loadData("Module:Data/Rulings")
     local rules = rulings[card.CardNumber]
-    if rules == nil then return "" end
+    if rules == nil then
+        return ""
+    end
     local s = [=[{{clear}}
 {| class="article-table mdw-cardrulings-table"
 |+ Card rulings ([[Card rulings|?]])

@@ -30,9 +30,13 @@ end
 --luacheck: pop
 
 local function TableContains(tbl, item)
-    if (not tbl) or (not item) then return false end
+    if (not tbl) or (not item) then
+        return false
+    end
     for _, v in pairs(tbl) do
-        if v == item then return true end
+        if v == item then
+            return true
+        end
     end
     return false
 end
@@ -138,10 +142,14 @@ end
 
 function p.Playable()
     for entry in p.All() do
-        if not entry[2].Playable then return false end
+        if not entry[2].Playable then
+            return false
+        end
     end
     for _, entry in pairs(p.Sideboard) do
-        if not entry[2].Playable then return false end
+        if not entry[2].Playable then
+            return false
+        end
     end
     return true
 end

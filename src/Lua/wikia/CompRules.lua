@@ -139,7 +139,9 @@ local function RulesLines(startPattern, indexPattern)
         indexPattern = "^" .. PatternEscape(gsub(ParseLine(line), "%.$", ""))
     end
     return function ()
-        if not endpos then return nil end
+        if not endpos then
+            return nil
+        end
         local currentLine, _ = line
         repeat
             _, endpos, line = find(rulesText, "(.-)\n", endpos + 1)

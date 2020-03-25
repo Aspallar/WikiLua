@@ -81,7 +81,9 @@ local function OtherCards(cards)
 end
 
 local function SideboardSection()
-    if #deck.Sideboard == 0 then return "" end
+    if #deck.Sideboard == 0 then
+        return ""
+    end
     local totalAmount = SumAmounts(deck.Sideboard)
     local s = "{{Sideboard|" .. totalAmount .. "}}\n{{Div col}}\n" ..
         CardList(deck.Sideboard) ..
@@ -255,7 +257,9 @@ local function BannedSection()
         text = text .. string.lower(bannedFormat) .. ", "
         count = count + 1
     end
-    if count == 0 then return "" end
+    if count == 0 then
+        return ""
+    end
     text = string.sub(text, 1 , -3)
     if count > 1 then
         text = string.sub(text, 1, lastStart - 2) .. " and " .. string.sub(text, lastStart + 1)
@@ -264,7 +268,9 @@ local function BannedSection()
 end
 
 local function PlayableOrHistoricSection()
-    if not deck.Playable() then return "{{NoticeUnplayable}}<br />" end
+    if not deck.Playable() then
+        return "{{NoticeUnplayable}}<br />"
+    end
     return deck.Historic() and "{{NoticeHistoric}}<br />" or ""
 end
 

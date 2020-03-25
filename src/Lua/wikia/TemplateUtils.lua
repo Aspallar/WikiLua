@@ -11,7 +11,9 @@ local p = {}
 --delim = the delimiter between the resulting templates
 function p.ExplodeForeach(frame)
 	local args = frame:getParent().args
-	if args[2] == nil then return "" end
+	if args[2] == nil then
+		return ""
+	end
 
 	local template = args[1]
 	local inputs = mw.text.split( args[2], args[3])

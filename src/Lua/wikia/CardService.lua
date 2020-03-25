@@ -8,6 +8,7 @@ local totalCards = #cards
 local gsub, match, find, lower, upper = string.gsub, string.match, string.find, string.lower, string.upper
 
 local standardSets = {
+    ["THB"] = 1;
     ["GRN"] = 1;
     ["RNA"] = 1;
     ["WAR"] = 1;
@@ -34,9 +35,13 @@ do
 end
 
 local function Contains(t, item)
-    if not t or not item then return false end
+    if not t or not item then
+        return false
+    end
     for _, v in pairs(t) do
-        if v == item then return true end
+        if v == item then
+            return true
+        end
     end
     return false
 end
@@ -120,7 +125,9 @@ end
 local function MeetsCriteria(card, criteria)
     if criteria then
         for _, criterion in ipairs(criteria) do
-            if not criterion.test(card, criterion.condition) then return false end
+            if not criterion.test(card, criterion.condition) then
+                return false
+            end
         end
     end
     return true
@@ -150,27 +157,35 @@ end
 
 function p.GetByName(name)
     for i = 1, totalCards do
-        if cards[i].Name == name then return cards[i] end
+        if cards[i].Name == name then
+            return cards[i]
+        end
     end
 end
 
 function p.GetOtherByName(name)
     local otherCards = GetOtherCards()
     for i = 1, #otherCards do
-        if otherCards[i].Name == name then return otherCards[i] end
+        if otherCards[i].Name == name then
+            return otherCards[i]
+        end
     end
 end
 
 function p.GetByNumber(cardnumber)
     for i = 1, totalCards do
-        if cards[i].CardNumber == cardnumber then return cards[i] end
+        if cards[i].CardNumber == cardnumber then
+            return cards[i]
+        end
     end
 end
 
 function p.GetOtherByNumber(cardnumber)
     local otherCards = GetOtherCards()
     for i = 1, #otherCards do
-        if otherCards[i].CardNumber == cardnumber then return otherCards[i] end
+        if otherCards[i].CardNumber == cardnumber then
+            return otherCards[i]
+        end
     end
 end
 
@@ -181,7 +196,9 @@ function p.GetByCriteria(criteria)
         while current <= totalCards do
             local card = cards[current]
             current = current + 1
-            if MeetsCriteria(card, criteria) then return card end
+            if MeetsCriteria(card, criteria) then
+                return card
+            end
         end
     end
 end
@@ -195,7 +212,9 @@ function p.GetOtherByCriteria(criteria)
         while current <= total do
             local card = otherCards[current]
             current = current + 1
-            if MeetsCriteria(card, criteria) then return card end
+            if MeetsCriteria(card, criteria) then
+                return card
+            end
         end
     end
 end
