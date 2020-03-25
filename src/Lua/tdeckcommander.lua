@@ -1,11 +1,49 @@
 require("wikienv")
 local decks = require("wikia\\decks")
 local inputList = [=[
-1 Consign /// Oblivion (HOU) 149
-4 Rekindling Phoenix (RIX) 111
-20 Mountain (RIX) 195
+Commander
+1 Thassa, Deep-Dwelling (THB) 71
+Deck
+1 Callaphe, Beloved of the Sea (THB) 45
+22 Island (THB) 251
+1 Threnody Singer (THB) 75
+1 Thassa's Oracle (THB) 73
+1 Sage of Mysteries (THB) 62
+1 Omen of the Sea (THB) 58
+1 Towering-Wave Mystic (THB) 77
+1 Thirst for Meaning (THB) 74
+1 Naiad of Hidden Coves (THB) 56
+1 Nadir Kraken (THB) 55
+1 Wall of Lost Thoughts (RNA) 59
+1 Thassa's Intervention (THB) 72
+1 Sea God's Scorn (THB) 63
+1 Thought Collapse (RNA) 57
+1 Clear the Mind (RNA) 34
+1 Triton Waverider (THB) 78
+1 Didn't Say Please (ELD) 42
+1 Run Away Together (ELD) 62
+1 Unsummon (M20) 78
+1 Brineborn Cutthroat (M20) 50
+1 Negate (M20) 69
+1 Dungeon Geists (M20) 57
+1 Leyline of Anticipation (M20) 64
+1 Winged Words (M20) 80
+1 Agent of Treachery (M20) 43
+1 Warden of Evos Isle (M20) 79
+1 Cloudkin Seer (M20) 54
+1 Sage's Row Denizen (M20) 73
+1 Anticipate (M20) 45
+1 Wall of Runes (WAR) 75
+1 Augur of Bolas (WAR) 41
+1 Drowned Secrets (GRN) 39
+1 Muse Drake (GRN) 46
+1 Castle Vantress (ELD) 242
+1 Jace's Triumph (WAR) 55
+1 Mystic Sanctuary (ELD) 247
+1 Opt (XLN) 65
+1 Talrand, Sky Summoner (M13) 72
 ]=]
 
-local result = decks.TestGenerateDeckFromList("Test Deck", inputList, nil, "Nicol Bolas, Dragon-God")
+local result = decks.TestGenerateDeckFromList("Test Deck", inputList, nil, nil)
 print(result)
 

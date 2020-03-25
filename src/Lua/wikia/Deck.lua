@@ -5,6 +5,13 @@ local hasMultiples = false
 local numCardsInDeck = 0
 local deckIsHistoric = false
 
+-- list of historic cards that can be used in brawl decks
+-- if a brawl deck contains one of these it will not be flagged as historic
+local brawlCards = {
+    ["Rhys the Redeemed"] = 1;
+    ["Talrand, Sky Summoner"] = 1;
+}
+
 p.Commander = {} -- will only contain 1 entry, it's a table to maintain symmetry with others
 p.Land = {}
 p.Creature = {}
@@ -62,7 +69,7 @@ local function UpdateBanned(card)
 end
 
 local function UpdateHistoric(card, isHistoric)
-    if isHistoric and not (p.Brawl() and card.Name == "Rhys the Redeemed") then
+    if isHistoric and not (p.Brawl() and brawlCards[card.Name] ~= nil) then
         card.IsHistoric = true
         deckIsHistoric = true
     end
