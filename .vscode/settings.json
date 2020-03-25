@@ -1,0 +1,13 @@
+{
+    "Lua.workspace.ignoreDir": [
+        ".vscode",
+        "src/Lua/dev/*.lua",
+        "src/Lua/lib/*.lua",
+        "src/Lua/mwhtml.lua",
+        "src/Lua/wikienv.lua"
+    ],
+    "Lua.diagnostics.globals": [
+        "mw",
+        "unpack"
+    ]
+}

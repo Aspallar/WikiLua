@@ -1,0 +1,23 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lua",
+            "request": "launch",
+            "name": "Lua",
+            "program": "${file}",
+            "path": "${workspaceFolder}/src/Lua/?.lua"
+        },
+        {
+            "type": "lua",
+            "request": "launch",
+            "name": "Lua tcard",
+            "program": "${workspaceFolder}/src/Lua/tcard.lua",
+            "path": "${workspaceFolder}/src/Lua/?.lua",
+            "arg": ["Opt"]
+        }
+    ]
+}
