@@ -69,6 +69,7 @@ local setNames = {
     ["MH1"]="Modern Horizons";
     ["SHM"]="Shadowmoor";
     ["THB"]="Theros Beyond Death";
+    ["M15"]="Magic 2015 Core Set";
 }
 
 local function SetLinkName(setCode)
