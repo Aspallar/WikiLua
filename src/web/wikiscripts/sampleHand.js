@@ -2,7 +2,7 @@
 // ==========================================================================
 // Sample Hand
 // Implements sample hand generation for deck articles
-// Version 1.4.0
+// Version 1.4.1
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wikia.
@@ -14,7 +14,7 @@
 
     // do nothing on articles with no random hand or this version is disabled on page
     if (document.getElementById('mdw-random-hand') === null ||
-            $('#mdw-disabled-js').attr('data-samplehand-1-4-0')) {
+            $('#mdw-disabled-js').attr('data-samplehand-1-4-1')) {
         return;
     }
 
@@ -89,12 +89,7 @@
     function ImageSource() {
         var sourceCache = {};
         var pending = {};
-
-        function apiParseCommandUrl(cardName) {
-            var url = '/api.php?format=json&action=parse&disablepp=true&prop=text&text=%5B%5BFile%3A[[cardname]].png%7C223px%7Clink%3D%5D%5D';
-            url = url.replace('[[cardname]]', encodeURIComponent(cardName));
-            return url;
-        }
+        var api = new mw.Api();
 
         return {
             setCardImageSource: function (img, cardName) {
@@ -106,8 +101,12 @@
                 img.attr('src', 'https://vignette.wikia.nocookie.net/magicarena/images/1/19/Cardback.png/revision/latest?cb=20171013170540');
                 if (pending[cardName] === undefined) {
                     pending[cardName] = [img];
-                    var parseUrl = apiParseCommandUrl(cardName);
-                    $.getJSON(parseUrl, function (data) {
+                    api.get({
+                        action: 'parse',
+                        disablepp: 1,
+                        prop: 'text',
+                        text: '[[File:' + cardName + '.png|223px|link=]]',
+                    }).done(function (data) {
                         var text = data.parse.text['*'];
                         var imageUrl = /src\s*=\s*"([^"]+)"/.exec(text)[1];
                         sourceCache[cardName] = imageUrl;
@@ -302,8 +301,10 @@
 
     var controller;
     $(function () {
-        var deck = new Deck().initialize($('#mdw-chartdata-pre').text());
-        var cardPanel = new CardPanel(cardSection(), tooltipElement(), new ImageSource());
-        controller = new Controller(cardPanel, deck).start();
+        mw.loader.using('mediawiki.api').then(function() {
+            var deck = new Deck().initialize($('#mdw-chartdata-pre').text());
+            var cardPanel = new CardPanel(cardSection(), tooltipElement(), new ImageSource());
+            controller = new Controller(cardPanel, deck).start();
+        });
     });
 })(jQuery);
