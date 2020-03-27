@@ -1,6 +1,6 @@
 /*jshint -W043 */ // allow multiline strings
-/*jshint -W109 */ // strungs must use single quote
-console.log("cardnames.js");
+/*jshint -W109 */ // strings must use single quote
+/*jshint -W098 */ // unused global
 var globalCardnames = "Abandoned Sarcophagus|C\n\
 Abrade|R\n\
 Academy Drake|U\n\
