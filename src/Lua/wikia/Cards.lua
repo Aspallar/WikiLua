@@ -70,6 +70,21 @@ local setNames = {
     ["SHM"]="Shadowmoor";
     ["THB"]="Theros Beyond Death";
     ["M15"]="Magic 2015 Core Set";
+    ["ARB"]="Alara Reborn";
+    ["CON"]="Conflux";
+    ["DKA"]="Dark Ascension";
+    ["DTK"]="Dragons of Tarkir";
+    ["ISD"]="Innistrad";
+    ["JOU"]="Journey into Nyx";
+    ["M13"]="Magic 2013";
+    ["MMQ"]="Mercadian Masques";
+    ["ODY"]="Odyssey";
+    ["ONS"]="Onslaught";
+    ["RTR"]="Return to Ravnica";
+    ["SOM"]="Scars of Mirrodin";
+    ["SCG"]="Scourge";
+    ["ALA"]="Shards of Alara";
+    ["ZEN"]="Zendikar";
 }
 
 local function SetLinkName(setCode)
