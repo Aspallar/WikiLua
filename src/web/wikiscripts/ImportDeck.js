@@ -1,7 +1,7 @@
 // ==========================================================================
 // ImportDeck
 //
-// Version 1.12.0
+// Version 1.13.0
 // Author: Aspallar
 //
 // Provides a user friendly way to import a deck from Magic Arena
@@ -15,7 +15,7 @@
     /* global mw, tooltips, BannerNotification, magicArena*/
     'use strict';
 
-    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-12-0'))
+    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-13-0'))
         return;
 
     var newDeckTemplate = '';
@@ -247,7 +247,7 @@
     }
 
     function stripSetCode(cardEntry) {
-        return cardEntry.replace(/\([A-Z][0-9A-Z][0-9A-Z]\)/, '');
+        return cardEntry.replace(/\([A-Z][0-9A-Z][0-9A-Z]\)|\(CONF\)/, '');
     }
 
     function isCommanderKeyword(entry) {
