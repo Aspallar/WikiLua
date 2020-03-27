@@ -10,6 +10,7 @@ local deckIsHistoric = false
 local brawlCards = {
     ["Rhys the Redeemed"] = 1;
     ["Talrand, Sky Summoner"] = 1;
+    ["Bladewing the Risen"] = 1;
 }
 
 p.Commander = {} -- will only contain 1 entry, it's a table to maintain symmetry with others
