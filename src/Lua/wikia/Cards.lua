@@ -85,6 +85,7 @@ local setNames = {
     ["SCG"]="Scourge";
     ["ALA"]="Shards of Alara";
     ["ZEN"]="Zendikar";
+    ["SOI"]="Shadows over Innistrad";
 }
 
 local function SetLinkName(setCode)
