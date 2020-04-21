@@ -2,10 +2,10 @@
 // Deck Export
 // Adds the export text box to deck articles with copy to clipboard button
 // and a select to allow export cards to be replaced with reprint alternatives.
-// Version 3.5.0
+// Version 3.6.0
 // Author: Aspallar
 //
-// ** Please dont edit this code directly in the wikia.
+// ** Please dont edit this code directly in the wika.
 // ** Instead use the git repository https://github.com/Aspallar/WikiLua
 //
 (function ($) {
@@ -15,7 +15,7 @@
     if (document.getElementById('mdw-arena-export-div') === null ||
             document.getElementById('mdw-rarity-table-full') === null ||
             document.getElementById('mdw-rarity-table-small') === null ||
-            $('#mdw-disabled-js').attr('data-deckexport-3-5-0'))
+            $('#mdw-disabled-js').attr('data-deckexport-3-6-0'))
         return;
 
     function RarityTotals(cards) {
@@ -47,10 +47,11 @@
     }; // End RarityTotals
 
     function ImportData() {
-        var importCards = [];
-        var altImportCards = [];
-        var sideboardCards = [];
-        var commander = null;
+        var importCards = [],
+            altImportCards = [],
+            sideboardCards = [],
+            commander = null,
+            companion = null;
 
         function baseDisplayName(card) {
             var set = card.set === 'CON' ? 'CONF' : card.set;
@@ -88,10 +89,11 @@
             if (dataString !== null && dataString.length > 0) {
                 importCards = JSON.parse(dataString);
                 for (var k = 0, l = importCards.length; k < l; k++) {
-                    if (importCards[k].isCmd) {
-                        commander = importCards[k];
-                        break; //for
-                    }
+                    var card = importCards[k];
+                    if (card.isCmd)
+                        commander = card;
+                    else if (card.isCmp)
+                        companion = card;
                 }
             }
         }
@@ -151,19 +153,12 @@
             }
         }
 
-        function brawlText() {
-            var text = 'Commander\n' + importDisplayName(commander) + '\n\nDeck\n';
+        function deckText(includeSideboard) {
+            var text = commander ? 'Commander\n' + importDisplayName(commander) + '\n\n' : '';
+            text += companion ? 'Companion\n' + importDisplayName(companion) + '\n\nDeck\n' : 'Deck\n';
             importCards.forEach(function(card) {
-                if (!card.isCmd)
+                if (!(card.isCmp || card.isCmd))
                     text += importDisplayName(card) + '\n';
-            });
-            return text;
-        }
-
-        function standardText(includeSideboard) {
-            var text = 'Deck\n';
-            importCards.forEach(function(card) {
-                text += importDisplayName(card) + '\n';
             });
             if (includeSideboard && sideboardCards.length > 0) {
                 text += '\nSideboard\n';
@@ -185,7 +180,7 @@
                 return new RarityTotals(sideboardCards);
             },
             text: function (includeSideboard) {
-                return commander ? brawlText() : standardText(includeSideboard);
+                return deckText(includeSideboard);
             },
             getAltOptions: function () {
                 var options = document.createDocumentFragment();

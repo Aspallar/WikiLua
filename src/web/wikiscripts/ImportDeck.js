@@ -1,7 +1,7 @@
 // ==========================================================================
 // ImportDeck
 //
-// Version 1.13.0
+// Version 1.14.0
 // Author: Aspallar
 //
 // Provides a user friendly way to import a deck from Magic Arena
@@ -15,16 +15,17 @@
     /* global mw, tooltips, BannerNotification, magicArena*/
     'use strict';
 
-    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-13-0'))
+    if (document.getElementById('mdw-import-deck') === null || $('#mdw-disabled-js').attr('data-importdeck-1-14-0'))
         return;
 
-    var newDeckTemplate = '';
-    var translation = null;
-    var commanderKeywords = ['commander'];
-    var deckKeywords = ['deck'];
-    var sideboardKeywords = ['sideboard'];
-    var titleCaser;
-    var awaitingCharts = true;
+    var keywords,
+        titleCaser,
+        maxEntryLength,
+        disallowedEntryCharacters,
+        newDeckTemplate = '',
+        awaitingCharts = true,
+        translation = null,
+        cardRegex = /^(\d+)\s+.*\S.*$/;
 
     function TitleCaser(minorWords, acronyms) {
 
@@ -250,79 +251,151 @@
         return cardEntry.replace(/\([A-Z][0-9A-Z][0-9A-Z]\)|\(CONF\)/, '');
     }
 
-    function isCommanderKeyword(entry) {
-        return commanderKeywords.indexOf(entry.toLowerCase()) !== -1;
-    }
+    function Keywords(deckImport) {
+        var commanderKeywords = ['commander'],
+            deckKeywords = ['deck'],
+            sideboardKeywords = ['sideboard'],
+            companionKeywords = ['companion'];
 
-    function isDeckKeyword(entry) {
-        return deckKeywords.indexOf(entry.toLowerCase()) !== -1;
-    }
-
-    function isSideboardKeyword(entry) {
-        return sideboardKeywords.indexOf(entry.toLowerCase()) !== -1;
-    }
-
-    // TODO: rewrite this to parse new game import/export formats without the nasy hacks
-    function parseDeckDef(deckdef) {
-        var match;
-        var disallowed = disallowedRegex();
-        var maxLength = $('#mdw-import-deck').attr('data-maxcardlength') || 40;
-        var result = { validEntries: [], badEntries: [], sideboardCount: 0, cardCount: 0, sideCardCount: 0 };
-
-        var entries = deckdef.split('\n').map(function (entry) {return entry.trim(); });
-        var isBrawl = isCommanderKeyword(entries[0]);
-        if (isBrawl){
-            entries = entries.filter(function (entry) { return entry.length > 0; });
-        } else {
-            // Turn new format for normal decks to old format (nasty hack)
-            if (isDeckKeyword(entries[0])) {
-                do {
-                    entries.shift();
-                } while (entries.length > 0 && entries[0].length === 0);
+        function extendKeywords(values, keywords) {
+            if (values) {
+                values.split('|').forEach(function (val) {
+                    keywords.push(val);
+                });
             }
-            entries = entries.map(function (entry) {
-                return isSideboardKeyword(entry) ? '' : entry;
-            }).filter(function (entry, index) {
-                return entry.length > 0 || (index > 0 && entries[index - 1].length !== 0);
-            });
         }
-        var commanderDone = false;
-        var deckDone = false;
 
-        entries.forEach(function (entry) {
-            if (entry.length === 0) {
-                ++result.sideboardCount;
-                result.validEntries.push('--- sideboard ---');
-            } else if (entry.length > maxLength) {
-                result.badEntries.push(entry.substring(0, maxLength) + '... (too long)');
-            } else if (disallowed && disallowed.test(stripSetCode(entry))) {
-                result.badEntries.push(entry);
-            } else if (isBrawl && isCommanderKeyword(entry)) {
-                if (commanderDone) {
-                    result.badEntries.push('More than 1 "Commander" entry');
-                }
-                else {
-                    result.validEntries.push('Commander');
-                    commanderDone = true;
-                }
-            } else if (isBrawl && isDeckKeyword(entry)) {
-                if (deckDone) {
-                    result.badEntries.push('More than 1 "Deck" entry');
-                }
-                else {
-                    result.validEntries.push('Deck');
-                    deckDone = true;
-                }
-            } else if ((match = /^(\d+)\s+.*\S.*$/.exec(entry))) {
+        extendKeywords(deckImport.attr('data-deck'), deckKeywords);
+        extendKeywords(deckImport.attr('data-commander'), commanderKeywords);
+        extendKeywords(deckImport.attr('data-sideboard'), sideboardKeywords);
+        extendKeywords(deckImport.attr('data-companion'), companionKeywords);
+
+        return {
+            isCommander: function(entry) {
+                return commanderKeywords.indexOf(entry.toLowerCase()) !== -1;
+            },
+            isDeck: function(entry) {
+                return deckKeywords.indexOf(entry.toLowerCase()) !== -1;
+            },
+            isSideboard: function(entry) {
+                return sideboardKeywords.indexOf(entry.toLowerCase()) !== -1;
+            },
+            isCompanion: function(entry) {
+                return companionKeywords.indexOf(entry.toLowerCase()) !== -1;
+            },
+            isKeyword: function(entry) {
+                return this.isCommander(entry) ||
+                    this.isCompanion(entry) ||
+                    this.isDeck(entry) ||
+                    this.isSideboard(entry);
+            }
+        
+        };
+    } // Keywords
+
+    function parseCardResult(entry, result) {
+        var match, amount = -1;
+        if (entry.length > maxEntryLength) {
+            result.badEntries.push(entry.substring(0, maxEntryLength) + '... (too long)');
+        } else if (disallowedEntryCharacters && disallowedEntryCharacters.test(stripSetCode(entry))) {
+            result.badEntries.push(entry);
+        } else {
+            if ( (match = cardRegex.exec(entry)) ) {
+                amount = parseInt(match[1], 10);
                 result.validEntries.push(correctCardName(entry));
-                if (result.sideboardCount === 0)
-                    result.cardCount += parseInt(match[1], 10);
-                else
-                    result.sideCardCount += parseInt(match[1], 10);
             } else {
                 result.badEntries.push(entry);
             }
+        }
+        return amount;
+    }
+
+    function addKeywordResult(entry, englishKeyword, alreadyDone, outOfSequence, result) {
+        if (alreadyDone)
+            result.badEntries.push('More than 1 ' + entry);
+        else if (outOfSequence)
+            result.badEntries.push(entry + ' is in the wrong place.');
+        else
+            result.validEntries.push(englishKeyword);
+    }
+
+    function addAmount(amount, addToSideboard, result) {
+        if (amount > 0) {
+            if (addToSideboard)
+                result.sideCardCount += amount;
+             else
+                result.cardCount += amount;
+        }
+    }
+
+    function parseLegacyFormat(entries, result) {
+        var amount, sideboardDone = false, sideboardError = false;
+        entries = entries.map(function (entry) {
+            return keywords.isSideboard(entry) ? '' : entry;
+        }).filter(function (entry, index) {
+            return entry.length > 0 || (index > 0 && entries[index - 1].length !== 0);
         });
+        entries.forEach(function (entry) {
+            if (entry.length === 0) {
+                if (sideboardDone) {
+                    if (!sideboardError) {
+                        result.badEntries.push('More than 1 sideboard specified');
+                        sideboardError = true;
+                    }
+                } else {
+                    result.validEntries.push('-- sideboard --');
+                }
+                sideboardDone = true;
+            } else {
+                amount = parseCardResult(entry, result);
+                addAmount(amount, sideboardDone, result);
+            }
+        });
+    }
+
+    function parseCurrentFormat(entries, result) {
+        var amount,
+            inCompanion = false,
+            commanderDone = false, companionDone = false, deckDone = false, sideboardDone = false, amountOne = false;
+        entries = entries.filter(function (entry) { return entry.length !== 0; });
+        entries.forEach(function (entry) {
+            if (keywords.isCommander(entry)) {
+                addKeywordResult(entry, 'Commander', commanderDone, companionDone || deckDone || sideboardDone, result);
+                commanderDone = true;
+                amountOne = true;
+            } else if (keywords.isCompanion(entry)) {
+                addKeywordResult(entry, 'Companion', companionDone, deckDone || sideboardDone, result);
+                inCompanion = true;
+                companionDone = true;
+            } else if (keywords.isDeck(entry)) {
+                addKeywordResult(entry, 'Deck', deckDone, sideboardDone, result);
+                deckDone = true;
+            } else if (keywords.isSideboard(entry)) {
+                addKeywordResult(entry, '-- sideboard --', sideboardDone, false, result);
+                sideboardDone = true;
+            } else {
+                amount = parseCardResult(entry, result);
+                if (amountOne) {
+                    amountOne = false;
+                    if (amount !== 1) {
+                        result.badEntries.push('The amount of commanders/companions must be 1');
+                    }
+                }
+                if (inCompanion)
+                    inCompanion = false;
+                else
+                    addAmount(amount, sideboardDone, result);
+            }
+        });
+    }
+
+    function parseDeckDef(deckdef) {
+        var result = { validEntries: [], badEntries: [], cardCount: 0, sideCardCount: 0 };
+        var entries = deckdef.split('\n').map(function (entry) {return entry.trim(); });
+        if (keywords.isKeyword(entries[0]))
+            parseCurrentFormat(entries, result);
+        else
+            parseLegacyFormat(entries, result);
         return result;
     }
 
@@ -508,23 +581,16 @@
         annon.fadeIn(400);
     }
 
-    function extendKeywords(values, keywords) {
-        if (values) {
-            values.split('|').forEach(function (val) {
-                keywords.push(val);
-            });
-        }
-    }
-
     function initialize() {
         var deckImport = $('#mdw-import-deck');
-        extendKeywords(deckImport.attr('data-deck'), deckKeywords);
-        extendKeywords(deckImport.attr('data-commander'), commanderKeywords);
-        extendKeywords(deckImport.attr('data-sideboard'), sideboardKeywords);
-        if (deckImport.attr('data-allowanon') || mw.config.get('wgUserId'))
+        if (deckImport.attr('data-allowanon') || mw.config.get('wgUserId')) {
+            keywords = new Keywords(deckImport);
+            disallowedEntryCharacters = disallowedRegex();
+            maxEntryLength = deckImport.attr('data-maxcardlength') || 40;
             initializeImportForm(deckImport);
-        else
+        } else {
             mustBeSignedIn();
+        }
     }
 
     $(initialize);

@@ -94,6 +94,7 @@ end
 local function GetCardLists()
     local s = ""
     s = s .. CardTypeSection(deck.Commander, "[[File:Icon commander.svg|23px|link=|baseline]]", "Commander", false)
+    s = s .. CardTypeSection(deck.Companion, "[[File:Icon companion.svg|23px|link=|baseline]]", "Companion", false)
     s = s .. CardTypeSection(deck.Land, "[[File:Icon land.png|23px|link=]]", "Lands", false)
     s = s .. CardTypeSection(deck.Creature, "[[File:Icon creature.png|23px|link=]]", "Creatures", true)
     s = s .. CardTypeSection(deck.Artifact, "[[File:Icon artifact.png|23px|link=]]", "Artifacts", true)
@@ -139,6 +140,7 @@ local function LocalCardEntry(amount, exportName, card)
         set = ExportSetName(card.SetCode);
         rarity = card.Rarity;
         isCmd = card.IsCommander;
+        isCmp = card.IsCompanion;
     }
 end
 
@@ -195,7 +197,7 @@ local function DeckListSection(name)
 end
 
 local function ParseDeck(list)
-    local isSideboard, isCommander = false, false
+    local isSideboard, isCommander, isCompanion = false, false, false
     for _, cardEntry in pairs(list) do
         cardEntry = string.lower(mw.text.trim(cardEntry))
         if cardEntry ~= "" and cardEntry ~= "deck" then
@@ -203,6 +205,8 @@ local function ParseDeck(list)
                 isSideboard = true
             elseif cardEntry == "commander" then
                 isCommander = true
+            elseif cardEntry == "companion" then
+                isCompanion = true
             else
                 local amount, name = ParseCardEntry(cardEntry)
                 local card = cardService.GetByNameIgnoreCase(name)
@@ -210,6 +214,9 @@ local function ParseDeck(list)
                     if isCommander then
                         isCommander = false
                         deck.AddCommander(card, not cardService.IsStandard(card))
+                    elseif isCompanion then
+                        isCompanion = false
+                        deck.AddCompanion(card)
                     elseif isSideboard then
                         deck.AddSideboard(amount, card, not cardService.IsStandard(card))
                     else
@@ -218,6 +225,7 @@ local function ParseDeck(list)
                 else
                     deck.AddError(amount, name)
                     isCommander = false
+                    isCompanion = false
                 end
             end
         end

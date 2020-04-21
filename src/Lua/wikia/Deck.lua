@@ -14,7 +14,10 @@ local brawlCards = {
     ["The Gitrog Monster"] = 1;
 }
 
-p.Commander = {} -- will only contain 1 entry, it's a table to maintain symmetry with others
+-- these two will only contain 1 entry, it's a table to maintain symmetry with others
+p.Commander = {}
+p.Companion = {}
+
 p.Land = {}
 p.Creature = {}
 p.Artifact = {}
@@ -78,7 +81,7 @@ local function UpdateHistoric(card, isHistoric)
 end
 
 function p.All()
-    local cardlists = {p.Commander, p.Land, p.Creature, p.Artifact, p.Enchantment, p.Instant, p.Sorcery, p.Planeswalker}
+    local cardlists = {p.Commander, p.Companion, p.Land, p.Creature, p.Artifact, p.Enchantment, p.Instant, p.Sorcery, p.Planeswalker}
     local entryIndex = 1
     local cardlistIndex = 1
     return function ()
@@ -102,6 +105,12 @@ function p.AddCommander(card, isHistoric)
     numCardsInDeck = numCardsInDeck + 1
     card.IsCommander = true;
     p.Commander = { {1, card} }
+end
+
+function p.AddCompanion(card)
+    assert(#p.Companion == 0, "AddCompanion called more than once")
+    card.IsCompanion = true;
+    p.Companion = { {1, card} }
 end
 
 function p.AddCard(amount, card, isHistoric)
