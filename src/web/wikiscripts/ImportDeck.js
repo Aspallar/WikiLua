@@ -201,8 +201,8 @@
         showWorking();
         mw.loader.using('mediawiki.api').then(function () {
             var content = newDeckTemplate.replace('$1', getDeckText(deckEntries)) +
-                '\n<!-- Original Deck Text\n' + originalText.replace(/>/g, '&gt;') + '-->\n';
-            var title = 'Decks/' + name;
+                    '\n<!-- Original Deck Text\n' + originalText.replace(/>/g, '&gt;') + '-->\n',
+                title = 'Decks/' + name;
             new mw.Api().post({
                 action: 'edit',
                 title: title,
@@ -361,12 +361,10 @@
         entries.forEach(function (entry) {
             if (keywords.isCommander(entry)) {
                 addKeywordResult(entry, 'Commander', commanderDone, companionDone || deckDone || sideboardDone, result);
-                commanderDone = true;
-                amountOne = true;
+                commanderDone = amountOne = true;
             } else if (keywords.isCompanion(entry)) {
                 addKeywordResult(entry, 'Companion', companionDone, deckDone || sideboardDone, result);
-                inCompanion = true;
-                companionDone = true;
+                inCompanion = companionDone = amountOne = true;
             } else if (keywords.isDeck(entry)) {
                 addKeywordResult(entry, 'Deck', deckDone, sideboardDone, result);
                 deckDone = true;
@@ -390,8 +388,8 @@
     }
 
     function parseDeckDef(deckdef) {
-        var result = { validEntries: [], badEntries: [], cardCount: 0, sideCardCount: 0 };
-        var entries = deckdef.split('\n').map(function (entry) {return entry.trim(); });
+        var result = { validEntries: [], badEntries: [], cardCount: 0, sideCardCount: 0 },
+            entries = deckdef.split('\n').map(function (entry) {return entry.trim(); });
         if (keywords.isKeyword(entries[0]))
             parseCurrentFormat(entries, result);
         else
@@ -412,8 +410,8 @@
         var deckTemplate = '{{Deck|Name=Deck Preview\n|BackTo=none\n|Deck=' + getDeckText(deckEntries) + '}}';
         showWorking();
         wikiParse(deckTemplate).done(function (deckHtml) {
-            hideWorking();
             var deckPreview = $('#mdw-import-deck-preview');
+            hideWorking();
             deckPreview.html(deckHtml).find('a').attr('target', '_blank');
             if (tooltips && tooltips.applyTooltips)
                 tooltips.applyTooltips(deckPreview.get(0));
@@ -437,10 +435,10 @@
 
     function clickImport() {
         clearErrors();
-        var result;
-        var nameValid = validateDeckName();
-        var deckErrors = [];
-        var text = $('#mdw-import-deckdef').val().trim();
+        var result,
+            nameValid = validateDeckName(),
+            deckErrors = [],
+            text = $('#mdw-import-deckdef').val().trim();
         if (text.length === 0)
             deckErrors.push('You must enter a deck definition');
         else {
@@ -464,9 +462,9 @@
 
     function clickPreview() {
         clearErrors();
-        var result;
-        var deckErrors = [];
-        var text = $('#mdw-import-deckdef').val().trim();
+        var result,
+            deckErrors = [],
+            text = $('#mdw-import-deckdef').val().trim();
         if (text.length === 0)
             deckErrors.push('You must enter a deck definition');
         else {
@@ -526,23 +524,24 @@
 
     function createForm() {
         /*jshint multistr:true*/
+        var importBtn = $('<input type="button" id="mdw-import-button" value="Import Deck" />')
+                .click(clickImport),
+            previewBtn = $('<input type="button" id="mdw-preview-button" value="Preview Deck" disabled />')
+                .click(clickPreview),
+            languages = $('<label><input type="radio" name="mdw-import-lang" id="mdw-import-english" checked value="en"><span>English</span></label>\
+                <label><input type="radio" name="mdw-import-lang" value="de"><span>Deutsch</span></label>\
+                <label><input type="radio" name="mdw-import-lang" value="es"><span>Español</span></label>\
+                <label><input type="radio" name="mdw-import-lang" value="fr"><span>Français</span></label>\
+                <label><input type="radio" name="mdw-import-lang" value="it"><span>Italiano</span></label>\
+                <label><input type="radio" name="mdw-import-lang" value="pt-br"><span>Português</span></label>');
+
         $('#mdw-import-deckname-span').append(
             $('<input type="text" id="mdw-import-deckname" size="40" maxlength="100" placeholder="Deck name" />')
                 .blur(makeTitleCase)
         );
         $('#mdw-import-deckdef-span')
             .append('<textarea id="mdw-import-deckdef" cols="60" rows="25"></textarea>');
-        var importBtn = $('<input type="button" id="mdw-import-button" value="Import Deck" />')
-            .click(clickImport);
-        var previewBtn = $('<input type="button" id="mdw-preview-button" value="Preview Deck" disabled />')
-            .click(clickPreview);
         $('#mdw-import-button-span').append(importBtn).append('&nbsp;').append(previewBtn);
-        var languages = $('<label><input type="radio" name="mdw-import-lang" id="mdw-import-english" checked value="en"><span>English</span></label>\
-            <label><input type="radio" name="mdw-import-lang" value="de"><span>Deutsch</span></label>\
-            <label><input type="radio" name="mdw-import-lang" value="es"><span>Español</span></label>\
-            <label><input type="radio" name="mdw-import-lang" value="fr"><span>Français</span></label>\
-            <label><input type="radio" name="mdw-import-lang" value="it"><span>Italiano</span></label>\
-            <label><input type="radio" name="mdw-import-lang" value="pt-br"><span>Português</span></label>');
         languages.find('input[name="mdw-import-lang"]').change(changeLanguage);
         $('#mdw-lang-span').replaceWith(languages);
         mw.hook('magicarena.chartsready').add(function () {
@@ -571,11 +570,12 @@
     }
 
     function mustBeSignedIn() {
+        var signIn,
+            annon = $('#mdw-import-noannon'),
+            signInLink = $('a[data-tracking-label="account.sign-in"]').attr('href');
         $('#mdw-import-content').remove();
-        var annon = $('#mdw-import-noannon');
-        var signInLink = $('a[data-tracking-label="account.sign-in"]').attr('href');
         if (signInLink) {
-            var signIn = annon.find('#mdw-sign-in');
+            signIn = annon.find('#mdw-sign-in');
             signIn.html($('<a>').attr('href', signInLink).html(signIn.html()));
         }
         annon.fadeIn(400);
