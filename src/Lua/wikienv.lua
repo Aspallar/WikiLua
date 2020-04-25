@@ -84,3 +84,26 @@ end
 originalRequire('mwhtml').setupInterface({
     uniqPrefix = "\x7f'\"`UNIQ", uniqSuffix = ";"
 })
+
+local utils = {}
+
+function utils.MakeUpstreamFrame(parentFrameArgs, frameArgs, parentTitle)
+   local parentFrame = {
+        args = parentFrameArgs;
+        getTitle = function ()
+            return parentTitle
+        end
+   }
+   local frame = {
+       args = frameArgs;
+       getParent = function()
+           return parentFrame
+       end;
+       preprocess = function(self, content)
+           return content
+       end;
+   }
+   return frame
+end
+
+return utils

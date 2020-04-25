@@ -316,11 +316,6 @@ local function GenerateDeckFromList(name, commander, list, backto)
         OtherCategories(playableOrHistoric == "", deck.Brawl()))
 end
 
-function p.TestGenerateDeckFromList(name, inputList, backto, commander)
-    local list = mw.text.split(inputList, "\n" )
-    return GenerateDeckFromList(name, commander, list, backto)
-end
-
 function p.GenerateDeckFromList(frame)
     local args = utils.RecreateTable(frame:getParent().args)
     local list = mw.text.split(args.Deck, "\n")

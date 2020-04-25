@@ -86,6 +86,7 @@ local setNames = {
     ["ALA"]="Shards of Alara";
     ["ZEN"]="Zendikar";
     ["SOI"]="Shadows over Innistrad";
+    ["IKO"]="Ikoria Lair of Behemoths";
 }
 
 local function SetLinkName(setCode)
@@ -273,10 +274,6 @@ function p.GetOtherCardsTable(frame)
     return frame:preprocess(result)
 end
 
-function p.TestGetCardsTable(criteria)
-    return GetCardsTable(criteria)
-end
-
 local function cardResultPageNavigation(startCard,endCard,numresults,page,linkBase)
     return [[! colspan="3" align="right"|Showing results ]]..startCard.." to "..endCard.." out of "..numresults.." "..((page == 1 ) and "" or([=[[[]=]..linkBase.. page - 1 ..[=[|Previous page]]]=])).." "..((startCard+numCardsPerPage>numresults) and "" or ([=[[[]=]..linkBase.. page + 1 ..[=[|Next page]]]=])).."\n"
 end
@@ -310,12 +307,8 @@ local function GetPagedCardsTable(criteria, title)
 
     s = cardResultPageNavigation(startCard, endCard, numresults, page, linkBase) ..
         s .. "\n|-\n" ..
-        cardResultPageNavigation(startCard,endCard,numresults,page,linkBase)
+        cardResultPageNavigation(startCard, endCard, numresults, page, linkBase)
     return s
-end
-
-function p.TestGetPagedCardsTable(criteria, title)
-    return GetPagedCardsTable(criteria, title)
 end
 
 function p.GetPagedCardsTable(frame)

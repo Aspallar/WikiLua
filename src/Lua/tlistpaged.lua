@@ -1,7 +1,17 @@
-require("wikienv")
+local wikienv = require("wikienv")
 local cards = require("wikia\\cards")
--- local result1 = cards.TestGetCardsTable({"Set$XLN"})
--- local result2 = cards.TestGetCardsTable({"Set$RIX"})
-local result = -- cards.TestGetPagedCardsTable(nil, "Cards/1") ..
-	cards.TestGetPagedCardsTable(nil, "Cards/1")
+
+local function PrintPage(pageNumber)
+	print("PAGE " .. pageNumber)
+	print("============================================================")
+end
+
+local result = cards.GetPagedCardsTable(wikienv.MakeUpstreamFrame(nil, {}, "Cards/1"))
+
+PrintPage(1)
+print(result)
+
+result = cards.GetPagedCardsTable(wikienv.MakeUpstreamFrame(nil, {}, "Cards/2"))
+
+PrintPage(2)
 print(result)

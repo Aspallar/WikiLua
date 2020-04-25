@@ -99,6 +99,10 @@ local criteriaList = {
     NameMatches = function(card, condition)
         return match(card.Name, condition)
     end;
+    -- condition ∈ {Lua Pattern}
+    TextMatches = function(card, condition)
+        return card.Text ~= nil and match(card.Text, condition)
+    end;
     -- condition ∈ {true,false}
     Standard = function(card, condition)
         return p.IsStandard(card) == condition

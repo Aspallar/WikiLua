@@ -26,6 +26,7 @@
                 case 'hisban': text = 'Contains banned/suspended cards.'; break;
                 case 'not60': text = 'Invalid brawl deck. Does not have exactly 60 cards.'; break;
                 case 'list': text = 'Removing old temporary card list'; break;
+                case 'comp': text = 'Missing companion.'; break;
                 default: text = ''; break;
             }
 
