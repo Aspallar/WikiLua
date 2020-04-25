@@ -8,6 +8,7 @@ local totalCards = #cards
 local gsub, match, find, lower, upper = string.gsub, string.match, string.find, string.lower, string.upper
 
 local standardSets = {
+    ["IKO"] = 1;
     ["THB"] = 1;
     ["GRN"] = 1;
     ["RNA"] = 1;
