@@ -6,13 +6,13 @@ local p = {}
 
 local tinsert, sub, gsub = table.insert, string.sub, string.gsub
 
-local cardRowTemplate= [[|-valign="top"
+local cardRowTemplate= [[|-
 |%s
 |%s
 |%s
 ]]
 
-local anyCardRowTemplate= [[|-valign="top"
+local anyCardRowTemplate= [[|-
 |%s
 |%s
 ]]
