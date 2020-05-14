@@ -2,7 +2,7 @@
 // ==========================================================================
 // Sample Hand
 // Implements sample hand generation for deck articles
-// Version 1.4.1
+// Version 1.5.0
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wikia.
@@ -14,7 +14,7 @@
 
     // do nothing on articles with no random hand or this version is disabled on page
     if (document.getElementById('mdw-random-hand') === null ||
-            $('#mdw-disabled-js').attr('data-samplehand-1-4-1')) {
+            $('#mdw-disabled-js').attr('data-samplehand-1-5-0')) {
         return;
     }
 
@@ -43,8 +43,8 @@
             return this;
         },
         drawCard: function () {
-            var randomAvailable = Math.floor(Math.random() * this.cardsLeft);
-            var availableCount = 0;
+            var randomAvailable = Math.floor(Math.random() * this.cardsLeft),
+                availableCount = 0;
             for (var k = 0, l = this.cards.length; k < l; k++) {
                 var card = this.cards[k];
                 if (card.available) {
@@ -71,7 +71,7 @@
             try {
                 var data = JSON.parse(dataString);
                 data.forEach(function (entry) {
-                    if (!entry.isCmd) {
+                    if (!entry.isCmd && !entry.isCmp) {
                         var adjustedName = adjustName(entry.name);
                         for (var k = 0; k < entry.num; k++)
                             deck.push(new DeckEntry(adjustedName));
@@ -87,9 +87,9 @@
     }; // End Deck
 
     function ImageSource() {
-        var sourceCache = {};
-        var pending = {};
-        var api = new mw.Api();
+        var sourceCache = Object.create(null),
+            pending = Object.create(null),
+            api = new mw.Api();
 
         return {
             setCardImageSource: function (img, cardName) {
@@ -107,8 +107,8 @@
                         prop: 'text',
                         text: '[[File:' + cardName + '.png|223px|link=]]',
                     }).done(function (data) {
-                        var text = data.parse.text['*'];
-                        var imageUrl = /src\s*=\s*"([^"]+)"/.exec(text)[1];
+                        var text = data.parse.text['*'],
+                            imageUrl = /src\s*=\s*"([^"]+)"/.exec(text)[1];
                         sourceCache[cardName] = imageUrl;
                         pending[cardName].forEach(function (cardImage) {
                             cardImage.attr('src', imageUrl);
@@ -123,8 +123,8 @@
     } // End ImageSource
 
     function CardPanel(container, tooltip, imageSource) {
-        var smallImages = true;
-        var cardWidth = tooltip.width();
+        var smallImages = true,
+            cardWidth = tooltip.width();
 
         function setTooltip() {
             /*jshint -W040 */ // allow old school jquery use of this
@@ -180,13 +180,13 @@
     } // End CardPanel
 
     function Controller(cardPanel, deck) {
-        var randomHandButton = $('#mdw-random-hand-button');
-        var imageSizeButton = $('#mdw-random-hand-image-size');
-        var drawCardButton = $('#mdw-random-hand-draw-card');
-        var clearButton = $('#mdw-random-hand-clear');
-        var mulliganButton = $('#mdw-random-hand-mulligan');
-        var handOnlyButtons = $(imageSizeButton).add(drawCardButton).add(clearButton).add(mulliganButton);
-        var handSize;
+        var randomHandButton = $('#mdw-random-hand-button'),
+            imageSizeButton = $('#mdw-random-hand-image-size'),
+            drawCardButton = $('#mdw-random-hand-draw-card'),
+            clearButton = $('#mdw-random-hand-clear'),
+            mulliganButton = $('#mdw-random-hand-mulligan'),
+            handOnlyButtons = $(imageSizeButton).add(drawCardButton).add(clearButton).add(mulliganButton),
+            handSize;
 
         function showMessage(msg) {
             $('#mdw-random-hand-message').text(msg);
@@ -286,8 +286,8 @@
     }
 
     function cardSection() {
-        var sampleHandDiv = $('<div id="mdw-random-hand" class="mdw-hidden"></div>');
-        var sampleHandContents = $(document.createDocumentFragment())
+        var sampleHandDiv = $('<div id="mdw-random-hand" class="mdw-hidden"></div>'),
+            sampleHandContents = $(document.createDocumentFragment())
             .append('<input type="button" id="mdw-random-hand-button" value="Sample Hand" />&nbsp;')
             .append('<input type="button" id="mdw-random-hand-mulligan" class="mdw-hidden" value="Mulligan" />&nbsp;')
             .append('<input type="button" id="mdw-random-hand-image-size" class="mdw-hidden" value="Large Images" />&nbsp;')
