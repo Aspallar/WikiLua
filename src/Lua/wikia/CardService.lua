@@ -68,11 +68,11 @@ local criteriaList = {
     end;
     -- condition ∈ {Any set code}
     Set = function(card, condition)
-        return (card.SetCode == condition) or (Contains(card.Allsets, condition))
+        return Contains(card.Allsets, condition)
     end;
     -- condition ∈ {Common,Uncommon,Rare,Mythic Rare}
     Rarity = function(card, condition)
-        return (card.Rarity == condition) or (Contains(card.Rarities, condition))
+        return Contains(card.Rarities, condition)
     end;
     -- condition ∈ {Any text}
     Text = function(card, condition)
@@ -225,7 +225,7 @@ function p.GetOtherByCriteria(criteria)
 end
 
 function p.IsStandard(card)
-    return standardSets[card.SetCode] ~= nil
+    return standardSets[card.Allsets[1]] ~= nil
 end
 
 return p

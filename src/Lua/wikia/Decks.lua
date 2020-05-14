@@ -115,8 +115,11 @@ local function ExportCardName(card)
         else
             card2 = cardService.GetOtherByNumber(otherCardNumber)
         end
-        if card2 ~= nil and (card.SetCode == "GRN" or card.SetCode == "RNA" or (card2.Text ~= nil and string.find(card2.Text, "Aftermath") ~= nil)) then
-            return card.Name .. " // " .. card2.Name
+        if card2 ~= nil then
+            local setCode = card.Allsets[1]
+            if setCode == "GRN" or setCode == "RNA" or (card2.Text ~= nil and string.find(card2.Text, "Aftermath") ~= nil) then
+                return card.Name .. " // " .. card2.Name
+            end
         end
     end
     return card.Name
@@ -137,15 +140,15 @@ local function LocalCardEntry(amount, exportName, card)
         cmc = card.cmc;
         types = card.Types;
         cardNumber = CardNumberNumericPart(card.CardNumber);
-        set = ExportSetName(card.SetCode);
-        rarity = card.Rarity;
+        set = ExportSetName(card.Allsets[1]);
+        rarity = card.Rarities[1];
         isCmd = card.IsCommander;
         isCmp = card.IsCompanion;
     }
 end
 
 local function AddAltCards(name, card, altCardList)
-    if card.Sets ~= nil and card.Rarity ~= "Basic Land" then
+    if card.Sets ~= nil and card.Rarities[1] ~= "Basic Land" then
         for _, set in pairs(card.Sets) do
             local carddata = {
                 name = name;

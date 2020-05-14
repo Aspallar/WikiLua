@@ -139,8 +139,10 @@ local function DescriptionBox(card, amount)
 end
 
 local function ExpansionSymbol(card)
-    local title = setNames[card.SetCode] .. " " .. card.Rarity
-    return "<span title=\"" .. title .. "\">{{" .. card.SetCode..card.Rarity:sub(1,1).."}}</span>"
+    local rarity = card.Rarities[1]
+    local setCode = card.Allsets[1]
+    local title = setNames[setCode] .. " " .. rarity
+    return "<span title=\"" .. title .. "\">{{" .. setCode .. rarity:sub(1,1).."}}</span>"
 end
 
 local function GetRulings(card, isOtherCard)
@@ -195,7 +197,7 @@ local function GetReprints(card)
     local reprints = ""
     if card.Sets then
         reprints = "{{Clear}}\n"
-        if card.Rarity == "Basic Land" then
+        if card.Rarities[1] == "Basic Land" then
             reprints = reprints .. "{{LandReprint}}"
         else
             reprints = reprints .. GetReprintsTable(card)
@@ -224,8 +226,8 @@ local function GenerateCardInfo(card)
     if card.Flavor then tinsert(contents, {"Flavor", gsub(card.Flavor, "&lt;/?i&gt;", "''")}) end
     if card.Loyalty then tinsert(contents, {"Loyalty", card.Loyalty}) end
     if card.Power then tinsert(contents, {"P/T", PT(card)}) end
-    tinsert(contents, {"Expansion", ExpansionSymbol(card) .. " " .. SetLink(card.SetCode)})
-    tinsert(contents, {"Rarity", card.Rarity})
+    tinsert(contents, {"Expansion", ExpansionSymbol(card) .. " " .. SetLink(card.Allsets[1])})
+    tinsert(contents, {"Rarity", card.Rarities[1]})
     if card.Banned then tinsert(contents, {"Banned In", BanText(card.Banned)}) end
 
     local info = ""
@@ -367,7 +369,7 @@ function p.GetCardCategories(card)
         tinsert(categories,setNames[setcode])
     end
     ConcatTables(categories,card.Colors)
-    tinsert(categories,card.Rarity)
+    tinsert(categories,card.Rarities[1])
     ConcatTables(categories,card.SuperTypes)
     ConcatTables(categories,card.Types)
     ConcatTables(categories,card.SubTypes)
