@@ -1,7 +1,7 @@
 // ==========================================================================
 // Start: Deck Charts
 // Renders charts on deck articles
-// Version 1.5.0
+// Version 1.5.1
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wikia.
@@ -12,15 +12,110 @@ window.magicArena.charts = window.magicArena.charts || (function ($) {
     /*globals google, mw, _ */
     'use strict';
 
-    if (document.getElementById('mdw-deckcharts') === null || $('#mdw-disabled-js').attr('data-deckcharts-1-5-0'))
+    if (document.getElementById('mdw-deckcharts') === null || $('#mdw-disabled-js').attr('data-deckcharts-1-5-1'))
         return null;
 
-    var colorPieChartId = 'mdw-cardsbycolor-chart';
-    var manaCurveChartId = 'mdw-manacurve-chart';
-    var typesPieChartId = 'mdw-types-chart';
-    var meanCmcId = 'mdw-mean-cmc';
-    var landProbabilitiesId = 'mdw-land-probabilities';
-    var lastManaCurveCmc = 6; // max cmc to show on mana curve chart
+    var colorPieChartId = 'mdw-cardsbycolor-chart',
+        manaCurveChartId = 'mdw-manacurve-chart',
+        typesPieChartId = 'mdw-types-chart',
+        meanCmcId = 'mdw-mean-cmc',
+        landProbabilitiesId = 'mdw-land-probabilities',
+        lastManaCurveCmc = 6, // max cmc to show on mana curve chart
+
+        colorColors = {
+            Red: '#f28f78',
+            Green: '#7dcd98',
+            Blue: '#92d4f7',
+            White: '#ffffd9',
+            Black: '#515151',
+            Multicolored: '#ffd778',
+            Colorless: '#abafb0'
+        },
+
+        typeColors = {
+            Land: '#FFFFFF',
+            Creature: '#F5F5F5',
+            Artifact: '#606060',
+            Enchantment: '#696969',
+            Instant: '#808080',
+            Sorcery: '#B0B0B0',
+            Planeswalker: '#C8C8C8'
+        },
+
+        dataIndex = {
+            color: 0,
+            num: 1,
+            cmc: 2,
+            type: 0
+        },
+
+        charts = {
+            colorPie: {
+                options: {
+                    height: 240,
+                    pieSliceText: 'value',
+                    pieSliceBorderColor: 'black',
+                    pieSliceTextStyle: {
+                        color: 'black',
+                        bold: true
+                    },
+                    backgroundColor: {
+                        fill: 'transparent'
+                    },
+                    legend: {
+                        textStyle: {
+                            color: 'black'
+                        }
+                    }
+                }
+            },
+            manaCurve: {
+                selectedRow: null,
+                options: {
+                    height: 240,
+                    legend: {
+                        position: 'top',
+                        maxLines: 3
+                    },
+                    bar: {
+                        groupWidth: '80%'
+                    },
+                    isStacked: true,
+                    backgroundColor: {
+                        fill: 'transparent'
+                    },
+                    vAxis: { }
+                },
+                clearSelection: function () {
+                    this.selectedRow = null;
+                    this.chart.setSelection([]);
+                },
+                setSelection: function (row) {
+                    this.chart.setSelection([{row:row, column:null}]);
+                    this.selectedRow = row;
+                }
+            },
+            typesPie: {
+                options: {
+                    height: 240,
+                    pieSliceText: 'value',
+                    pieSliceBorderColor: 'black',
+                    pieSliceTextStyle: {
+                        color: 'black',
+                        bold: true
+                    },
+                    backgroundColor: {
+                        fill: 'transparent'
+                    },
+                    legend: {
+                        textStyle: {
+                            color: 'black'
+                        },
+                        position: 'labeled'
+                    }
+                }
+            }
+        };
 
     function hasColorPieChart() {
         return document.getElementById(colorPieChartId) !== null;
@@ -42,126 +137,9 @@ window.magicArena.charts = window.magicArena.charts || (function ($) {
         return document.getElementById(landProbabilitiesId) !== null;
     }
 
-    function chartColor(dataColor) {
-        var colors = {
-            Red: '#f28f78',
-            Green: '#7dcd98',
-            Blue: '#92d4f7',
-            White: '#ffffd9',
-            Black: '#515151',
-            Multicolored: '#ffd778',
-            Colorless: '#abafb0'
-        };
-        return colors[dataColor];
-    }
-
-    function cardTypeColor(type) {
-        var colors = {
-            Land: '#FFFFFF',
-            Creature: '#F5F5F5',
-            Artifact: '#606060',
-            Enchantment: '#696969',
-            Instant: '#808080',
-            Sorcery: '#B0B0B0',
-            Planeswalker: '#C8C8C8'
-        };
-        return colors[type];
-    }
-
-    var dataIndex = {
-        color: 0,
-        num: 1,
-        cmc: 2,
-        type: 0
-    };
-
-    var charts = {
-        colorPie: {
-            data: null,
-            colors: null,
-            chart: null
-        },
-        manaCurve: {
-            data: null,
-            colors: null,
-            ticks: null,
-            chart: null
-        },
-        typesPie: {
-            data: null,
-            colors: null,
-            chart: null
-        }
-    };
-
-    function drawManaCurveChart() {
-        var options = {
-            height: 240,
-            legend: {
-                position: 'top',
-                maxLines: 3
-            },
-            bar: {
-                groupWidth: '80%'
-            },
-            isStacked: true,
-            backgroundColor: {
-                fill: 'transparent'
-            },
-            vAxis: {
-                ticks: charts.manaCurve.ticks
-            },
-            colors: charts.manaCurve.colors
-        };
-        if (charts.manaCurve.chart && charts.manaCurve.data)
-            charts.manaCurve.chart.draw(charts.manaCurve.data, options);
-    }
-
-    function drawColorPieChart() {
-        var options = {
-            height: 240,
-            colors: charts.colorPie.colors,
-            pieSliceText: 'value',
-            pieSliceBorderColor: 'black',
-            pieSliceTextStyle: {
-                color: 'black',
-                bold: true
-            },
-            backgroundColor: {
-                fill: 'transparent'
-            },
-            legend: {
-                textStyle: {
-                    color: 'black'
-                }
-            }
-        };
-        if (charts.colorPie.chart && charts.colorPie.data)
-            charts.colorPie.chart.draw(charts.colorPie.data, options);
-    }
-
-    function drawTypesPieChart() {
-        var options = {
-            height: 240,
-            colors: charts.typesPie.colors,
-            pieSliceText: 'value',
-            pieSliceBorderColor: 'black',
-            pieSliceTextStyle: {
-                color: 'black',
-                bold: true
-            },
-            backgroundColor: {
-                fill: 'transparent'
-            },
-            legend: {
-                textStyle: {
-                    color: 'black'
-                },
-                position: 'labeled'
-            }
-        };
-        if (charts.typesPie.chart && charts.typesPie.data)
-            charts.typesPie.chart.draw(charts.typesPie.data, options);
+    function drawChart(chart) {
+        if (chart.chart && chart.data)
+            chart.chart.draw(chart.data, chart.options);
     }
 
     var statistics = {
@@ -178,17 +156,9 @@ window.magicArena.charts = window.magicArena.charts || (function ($) {
         }
     };
 
-    function findCardInData(data, name) {
-        for (var k = 0, l = data.length; k < l; k++) {
-            if (data[k].name === name)
-                return data[k];
-        }
-        return null;
-    }
-
     function findCard(deckData, sideboardData, name) {
-        var card = findCardInData(deckData, name) || findCardInData(sideboardData, name);
-        return card ? card : null;
+        function nameMatch(c) { return c.name === name; }
+        return deckData.find(nameMatch) || sideboardData.find(nameMatch);
     }
 
     function cmcClass(cmc) {
@@ -203,45 +173,38 @@ window.magicArena.charts = window.magicArena.charts || (function ($) {
         $('.mdw-card-highlight').removeClass('mdw-card-highlight');
     }
 
-    var selectedManaCurveRow = null;
-
-    function clearManaCurveSelection() {
-        selectedManaCurveRow = null;
-        charts.manaCurve.chart.setSelection([]);
-    }
-
     function onManaCurveSelect() {
+        var mc = charts.manaCurve;
         clearHighlight();
         charts.colorPie.chart.setSelection([]);
-        var selected = charts.manaCurve.chart.getSelection();
+        var selected = mc.chart.getSelection();
         if (selected.length > 0 && selected[0].column !== null) {
             var row = selected[0].row;
-            if (row !== selectedManaCurveRow) {
+            if (row !== mc.selectedRow) {
                 $('.' + cmcClass(row)).addClass('mdw-card-highlight');
-                charts.manaCurve.chart.setSelection([{row:row, column:null}]);
-                selectedManaCurveRow = row;
+                mc.setSelection(row);
             } else {
-                clearManaCurveSelection();
+                mc.clearSelection();
             }
         }
     }
 
     function onColorPieSelect() {
+        var cp = charts.colorPie;
         clearHighlight();
-        var selected = charts.colorPie.chart.getSelection();
+        var selected = cp.chart.getSelection();
         if (selected.length > 0) {
-            var color = charts.colorPie.data.getValue(selected[0].row, 0);
+            var color = cp.data.getValue(selected[0].row, 0);
             $('.' + colorClass(color)).addClass('mdw-card-highlight');
-            clearManaCurveSelection();
+            charts.manaCurve.clearSelection();
         }
     }
 
     function addHighlightClasses(deckData, sideboardData) {
         $('div.div-col.columns.column-count.column-count-2 span.card-image-tooltip').each(function () {
-            var cardElement = $(this);
-            var name = cardElement.text();
-            var card = findCard(deckData, sideboardData, name);
-            if (card !== null) {
+            var cardElement = $(this),
+                card = findCard(deckData, sideboardData, cardElement.text());
+            if (card) {
                 if (typeof card.cmc === 'number')  
                     cardElement.addClass(cmcClass(card.cmc));
                 if (typeof card.adjustedColor === 'string' && card.adjustedColor.length > 0)
@@ -287,30 +250,19 @@ window.magicArena.charts = window.magicArena.charts || (function ($) {
         return cardData;
     }
 
-    function getChartData() {
-        return getData('mdw-chartdata-pre');
-    }
-
-    function getSideboardData() {
-        return getData('mdw-sideboard-data');
-    }
-
     function hasNonLands(data) {
         return data.some(function (card) { return !card.isLand; });
     }
 
     function zeroedArray(size) {
         var arr = [];
-        for (var k = 0; k < size; k++)
+        while (size--)
             arr.push(0);
         return arr;
     }
 
     function getCardTotals(cardData) {
-        var totals = {
-            cards: 0,
-            lands: 0
-        };
+        var totals = { cards: 0, lands: 0 };
         for (var k = 0, l = cardData.length; k < l; k++) {
             var card = cardData[k];
             totals.cards += card.num;
@@ -330,17 +282,15 @@ window.magicArena.charts = window.magicArena.charts || (function ($) {
     }
 
     function meanConvertedManaCost(chartData) {
-        var cmcCardCount = 0;
-        var totalCmc = 0;
+        var count = 0, totalCmc = 0;
         for (var k = 0, l = chartData.length; k < l; k++) {
             var card = chartData[k];
             if (!card.isLand) {
-                cmcCardCount += card.num;
+                count += card.num;
                 totalCmc += card.cmc * card.num;
             }
         }
-        var mean = totalCmc / cmcCardCount;
-        return mean;
+        return totalCmc / count;
     }
 
     function getColorOnlyData(cardData) {
@@ -368,17 +318,22 @@ window.magicArena.charts = window.magicArena.charts || (function ($) {
         return typeData;
     }
 
-    function sumByType(data) {
-        var summedData = [];
+    function sumData(data, groupBy) {
+
+        function shouldSum(next, current) {
+            return groupBy.every(function (i) { return current[i] === next[i]; });
+        }
+    
+        var current, summedData = [];
         if (data.length === 0)
             return summedData;
-        summedData.push(data[0]);
-        for (var k = 1; k < data.length; k++) {
-            var lastIndex = summedData.length - 1;
-            if (data[k][dataIndex.type] === summedData[lastIndex][dataIndex.type])
-                summedData[lastIndex][dataIndex.num] += data[k][dataIndex.num];
+        summedData.push(current = data[0]);
+        for (var k = 1, l = data.length; k < l; k++) {
+            var next = data[k];
+            if (shouldSum(next, current))
+                current[dataIndex.num] += next[dataIndex.num];
             else
-                summedData.push(data[k]);
+                summedData.push(current = next);
         }
         return summedData;
     }
@@ -399,44 +354,12 @@ window.magicArena.charts = window.magicArena.charts || (function ($) {
         return colorData;
     }
 
-    function sumByColor(data) {
-        var summedData = [];
-        if (data.length === 0)
-            return summedData;
-        summedData.push(data[0]);
-        for (var k = 1; k < data.length; k++) {
-            var lastIndex = summedData.length - 1;
-            if (data[k][dataIndex.color] === summedData[lastIndex][dataIndex.color])
-                summedData[lastIndex][dataIndex.num] += data[k][dataIndex.num];
-            else
-                summedData.push(data[k]);
-        }
-        return summedData;
-    }
-
-    function sumByColorAndCost(data) {
-        var summedData = [];
-        if (data.length === 0)
-            return summedData;
-        summedData.push(data[0]);
-        for (var k = 1; k < data.length; k++) {
-            var lastIndex = summedData.length - 1;
-            if (data[k][dataIndex.color] === summedData[lastIndex][dataIndex.color] &&
-                    data[k][dataIndex.cmc] === summedData[lastIndex][dataIndex.cmc])
-                summedData[lastIndex][1] += data[k][1];
-            else
-                summedData.push(data[k]);
-        }
-        return summedData;
-    }
-
     function makeLabelsForManaCurve(chartData) {
-        var labels = ['Cost'];
-        var k = 0;
-        while (k < chartData.length) {
+        var labels = ['Cost'], k = 0, l = chartData.length;
+        while (k < l) {
             var color = chartData[k++][dataIndex.color];
             labels.push(color);
-            while (k < chartData.length && chartData[k][dataIndex.color] === color)
+            while (k < l && chartData[k][dataIndex.color] === color)
                 ++k;
         }
         return labels;
@@ -453,15 +376,14 @@ window.magicArena.charts = window.magicArena.charts || (function ($) {
     }
 
     function fillDataForManaCurve(data, chartData, maxCmc) {
-        var index = 1;
-        var color = chartData[0][dataIndex.color];
-        chartData.forEach(function (chartDataRow) {
-            if (color !== chartDataRow[dataIndex.color]) {
+        var index = 1, color = chartData[0][dataIndex.color];
+        chartData.forEach(function (row) {
+            if (color !== row[dataIndex.color]) {
                 ++index;
-                color = chartDataRow[dataIndex.color];
+                color = row[dataIndex.color];
             }
-            var cmc = Math.min(chartDataRow[dataIndex.cmc], maxCmc);
-            data[cmc + 1][index] += chartDataRow[dataIndex.num];
+            var cmc = Math.min(row[dataIndex.cmc], maxCmc);
+            data[cmc + 1][index] += row[dataIndex.num];
         });
     }
 
@@ -487,10 +409,10 @@ window.magicArena.charts = window.magicArena.charts || (function ($) {
         } while (tick < maxColumnTotal);
     }
 
-    function formatDataForManaCurveChart(chartData, ticks) {
-        var lastCmc = lastManaCurveCmc + 1;
-        var labels = makeLabelsForManaCurve(chartData);
-        var data = [labels];
+    function shapeDataForManaCurveChart(chartData, ticks) {
+        var lastCmc = lastManaCurveCmc + 1,
+            labels = makeLabelsForManaCurve(chartData),
+            data = [labels];
         addZeroedDataSeriesForManaCurve(data, lastCmc, labels.length);
         fillDataForManaCurve(data, chartData, lastCmc - 1);
         var maxColumnTotal = nullZeroValuesInData(data, lastCmc);
@@ -499,69 +421,67 @@ window.magicArena.charts = window.magicArena.charts || (function ($) {
     }
 
     function cacheManaCurveData(data) {
-        var rawData = getColorWithCostData(data);
-        var summedData = sumByColorAndCost(rawData);
-        var ticks = [];
-        var formattedData = formatDataForManaCurveChart(summedData, ticks);
+        var summedData = sumData(getColorWithCostData(data), [dataIndex.color, dataIndex.cmc]),
+            ticks = [],
+            shapedData = shapeDataForManaCurveChart(summedData, ticks),
+            sectionColors = [];
 
-        var sectionColors = [];
-        for (var k = 1; k < formattedData[0].length; k++)
-            sectionColors.push(chartColor(formattedData[0][k]));
+        for (var k = 1; k < shapedData[0].length; k++)
+            sectionColors.push(colorColors[shapedData[0][k]]);
 
-        charts.manaCurve.data = google.visualization.arrayToDataTable(formattedData);
-        charts.manaCurve.colors = sectionColors;
-        charts.manaCurve.ticks = ticks;
+        var mc = charts.manaCurve;
+        mc.data = google.visualization.arrayToDataTable(shapedData);
+        mc.options.colors = sectionColors;
+        mc.options.vAxis.ticks = ticks;
     }
 
     function cacheColorPieData(cardData) {
-        var rawData = getColorOnlyData(cardData);
-        var summedData = sumByColor(rawData);
+        var summedData = sumData(getColorOnlyData(cardData), [dataIndex.color]),
+            dt = new google.visualization.DataTable();
 
-        var dataTable = new google.visualization.DataTable();
-        dataTable.addColumn('string', 'Color');
-        dataTable.addColumn('number', 'Amount');
-        dataTable.addRows(summedData);
+        dt.addColumn('string', 'Color');
+        dt.addColumn('number', 'Amount');
+        dt.addRows(summedData);
 
-        var sliceColors = [];
-        summedData.forEach(function (e) {
-            sliceColors.push(chartColor(e[dataIndex.color]));
+        var sliceColors = summedData.map(function (e) {
+            return colorColors[e[dataIndex.color]];
         });
 
-        charts.colorPie.data = dataTable;
-        charts.colorPie.colors = sliceColors;
+        var cp = charts.colorPie;
+        cp.data = dt;
+        cp.options.colors = sliceColors;
     }
 
     function cacheTypesPieData(cardData) {
-        var rawData = getCardTypeData(cardData);
-        var summedData = sumByType(rawData);
+        var summedData = sumData(getCardTypeData(cardData), [dataIndex.type]),
+            dt = new google.visualization.DataTable();
 
-        var dataTable = new google.visualization.DataTable();
-        dataTable.addColumn('string', 'Type');
-        dataTable.addColumn('number', 'Amount');
-        dataTable.addRows(summedData);
+        dt.addColumn('string', 'Type');
+        dt.addColumn('number', 'Amount');
+        dt.addRows(summedData);
 
-        var sliceColors = [];
-        summedData.forEach(function (e) {
-            sliceColors.push(cardTypeColor(e[dataIndex.type]));
+        var sliceColors = summedData.map(function (e) {
+            return typeColors[e[dataIndex.type]];
         });
 
-        charts.typesPie.data = dataTable;
-        charts.typesPie.colors = sliceColors;
+        var tp = charts.typesPie;
+        tp.data = dt;
+        tp.options.colors = sliceColors;
     }
 
     function createCharts() {
-        var chartContainer = document.getElementById(typesPieChartId);
-        if (chartContainer  !== null) {
-            charts.typesPie.chart = new google.visualization.PieChart(chartContainer);
+        var container = document.getElementById(typesPieChartId);
+        if (container  !== null) {
+            charts.typesPie.chart = new google.visualization.PieChart(container);
         }
-        chartContainer = document.getElementById(colorPieChartId);
-        if (chartContainer !== null) {
-            charts.colorPie.chart = new google.visualization.PieChart(chartContainer);
+        container = document.getElementById(colorPieChartId);
+        if (container !== null) {
+            charts.colorPie.chart = new google.visualization.PieChart(container);
             google.visualization.events.addListener(charts.colorPie.chart, 'select', onColorPieSelect);
         }
-        chartContainer = document.getElementById(manaCurveChartId);
-        if (chartContainer !== null) {
-            charts.manaCurve.chart = new google.visualization.ColumnChart(chartContainer);
+        container = document.getElementById(manaCurveChartId);
+        if (container !== null) {
+            charts.manaCurve.chart = new google.visualization.ColumnChart(container);
             google.visualization.events.addListener(charts.manaCurve.chart, 'select', onManaCurveSelect);
         }
     }
@@ -588,11 +508,11 @@ window.magicArena.charts = window.magicArena.charts || (function ($) {
 
     function drawAllCharts() {
         if (hasColorPieChart())
-            drawColorPieChart();
+            drawChart(charts.colorPie);
         if (hasManaCurveChart())
-            drawManaCurveChart();
+            drawChart(charts.manaCurve);
         if (hasTypesPieChart())
-            drawTypesPieChart();
+            drawChart(charts.typesPie);
     }
 
     function setAllNonChartSections(chartData) {
@@ -622,10 +542,10 @@ window.magicArena.charts = window.magicArena.charts || (function ($) {
     }
 
     function refresh() {
-        var data = getChartData();
+        var data = getData('mdw-chartdata-pre');
         if (hasNonLands(data)) {
             setVisible(true);
-            addHighlightClasses(data, getSideboardData());
+            addHighlightClasses(data, getData('mdw-sideboard-data'));
             cacheColorPieData(data);
             cacheManaCurveData(data);
             cacheTypesPieData(data);
