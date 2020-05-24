@@ -7,11 +7,10 @@
         return $('<span>', {class: 'mdw-error', text: msg}).after('<br>');
     }
 
-    function createTemplates(setCode, iconSize, status) {
+    function createTemplates(setCode, iconSize, status, suffixes) {
         var api, editToken,
             template = '[[File:{1}.png|{2}px|link=]]<noinclude>[[Category:Icon templates]] [[Category:Set Icons]]</noinclude>',
-            summary = 'Set icon template for ' + setCode,
-            suffixes =  ['B', 'U', 'C', 'R', 'M'];
+            summary = 'Set icon template for ' + setCode;
 
         function create() {
             var templateName, title, imageName, content, suffix = suffixes.shift();
@@ -49,7 +48,10 @@
         var ok = true,
             status = $('#mdw-askset-status'),
             setCode = $('#mdw-askset-setcode').val().trim().toUpperCase(),
-            iconSize = $('#mdw-askset-iconsize').val().trim();
+            iconSize = $('#mdw-askset-iconsize').val().trim(),
+            suffixes =  $.map($('#mdw-askset-rarity input:checked'), function (e) {
+                return $(e).val();
+            });
 
         status.empty();
         if (setCode.length === 0) {
@@ -65,33 +67,38 @@
             ok = false;
         }
         
+        if (suffixes.length === 0) {
+            status.append(error('Must check at least 1 rarity'));
+            ok = false;
+        }
+        
         if (ok) 
-            createTemplates(setCode, iconSize, status);
+            createTemplates(setCode, iconSize, status, suffixes);
+    }
+
+    function rarityCheckbox(code) {
+        return $('<label>').append(
+            $('<input>', {type: 'checkbox', value: code, checked: true})
+        ).append(code).after(' &nbsp;&nbsp;');
     }
 
     function setTemplates(event) {
         /*jshint -W043 */
-        var form = '<table>\
+        var form = $('<table>\
 <tr>\
-<td>\
-Set\
-</td>\
-<td>\
-<input type="text" id="mdw-askset-setcode" class="mdw-askset-input"/>\
-</td>\
+<td>Set</td>\
+<td><input type="text" id="mdw-askset-setcode" class="mdw-askset-input"/></td>\
 </tr>\
 <tr>\
-<td>\
-Size\
-</td>\
-<td>\
-<input type="text" id="mdw-askset-iconsize" class="mdw-askset-input"/> px\
-</td>\
+<td>Size</td>\
+<td><input type="text" id="mdw-askset-iconsize" class="mdw-askset-input"/> px</td>\
 </tr>\
+<tr><td id="mdw-askset-rarity" colspan="2"></td></tr>\
 </table>\
 <hr>\
-<div id="mdw-askset-status"></div>';
+<div id="mdw-askset-status"></div>'), rarities = form.find('#mdw-askset-rarity');
         event.preventDefault();
+        ['B', 'C', 'U', 'R', 'M'].forEach(function (c) { rarities.append(rarityCheckbox(c)); } );
         $.showCustomModal('Set Templates', form, {
             id: 'mdw-askset-dialog',
             width: 350,
