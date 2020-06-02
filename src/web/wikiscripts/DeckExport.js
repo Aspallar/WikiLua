@@ -2,7 +2,7 @@
 // Deck Export
 // Adds the export text box to deck articles with copy to clipboard button
 // and a select to allow export cards to be replaced with reprint alternatives.
-// Version 3.6.0
+// Version 3.6.1
 // Author: Aspallar
 //
 // ** Please dont edit this code directly in the wika.
@@ -10,12 +10,13 @@
 //
 (function ($) {
     'use strict';
+    /*global mw*/
 
     // don't run if wrong page or this version is disabled on page
     if (document.getElementById('mdw-arena-export-div') === null ||
             document.getElementById('mdw-rarity-table-full') === null ||
             document.getElementById('mdw-rarity-table-small') === null ||
-            $('#mdw-disabled-js').attr('data-deckexport-3-6-0'))
+            $('#mdw-disabled-js').attr('data-deckexport-3-6-1'))
         return;
 
     function RarityTotals(cards) {
@@ -180,12 +181,12 @@
                 return new RarityTotals(sideboardCards);
             },
             text: function (includeSideboard) {
-                return deckText(includeSideboard);
+                return mw.html.escape(deckText(includeSideboard));
             },
             getAltOptions: function () {
                 var options = document.createDocumentFragment();
                 altImportCards.forEach(function (card) {
-                    $('<option>').html(baseDisplayName(card)).appendTo(options);
+                    $('<option>').html(mw.html.escape(baseDisplayName(card))).appendTo(options);
                 });
                 return options;
             },
@@ -262,7 +263,7 @@
             document.execCommand('copy');
             $('#mdw-copied-message').html(' copied to clipboard.');
             setTimeout(function () {
-                $('#mdw-copied-message').html('');
+                $('#mdw-copied-message').empty();
             }, 1200);
         }
 
@@ -316,18 +317,18 @@
 
         function setupImportUi(container) {
             var elements = $(
-                    '<input type="button" id="mdw-copy-export" value="Copy" />' +
-                    '<span id="mdw-copied-message" />' +
-                    '<br />' +
-                    '<textarea id="mdw-arena-export-contents" style="width:90%" readonly>' +
-                    importData.text(useSideboard) +
-                    '</textarea>'
+                '<input type="button" id="mdw-copy-export" value="Copy" />' +
+                '<span id="mdw-copied-message" />' +
+                '<br />' +
+                '<textarea id="mdw-arena-export-contents" style="width:90%" readonly>' +
+                importData.text(useSideboard) +
+                '</textarea>'
             );
             $(container).append(elements);
             sizeTextareaToContents(document.getElementById('mdw-arena-export-contents'));
             setRarityContents();
             $('#mdw-copy-export').click(onClickCopy);
-        }
+    }
 
         return {
             start: function() {
