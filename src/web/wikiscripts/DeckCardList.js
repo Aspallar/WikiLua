@@ -1,13 +1,11 @@
 // ==========================================================================
 // Displays a detailed card list of all cards in a deck.
 //
-// Version 1.1.0
+// Version 1.1.1
 // Author: Aspallar
 //
 // ** Please do not edit this code directly in the wikia.
 // ** Instead use the git repository https://github.com/Aspallar/WikiLua
-//
-// This code was inspired by the rating system used on http://de.sonic.wikia.com
 //
 //<nowiki>
 (function ($) {
@@ -15,7 +13,7 @@
     /*jshint -W003*/
     'use strict';
 
-    if(document.getElementById('mdw-view-card-list') === null || $('#mdw-disabled-js').attr('data-deckcardlist-1-1-0'))
+    if(document.getElementById('mdw-view-card-list') === null || $('#mdw-disabled-js').attr('data-deckcardlist-1-1-1'))
         return;
 
     var parsed = false;
@@ -40,36 +38,28 @@
 
     function showWorking() {
         $('#mdw-view-card-list').html($('<img>', {
-            src: mw.config.get('stylepath') + '/common/images/ajax.gif',
+            src: mw.config.get('stylepath') + '/common/images/ajax.gif'
         }));
     }
 
     function cardData(selector) {
-        var cards;
-        try { cards = JSON.parse($(selector).text()); } catch(e) { }
-        return cards || [];
+        try { return JSON.parse($(selector).text()); } catch(e) { return []; }
     }
 
-    function cardTabel(cards) {
-        var text = '';
-        if (cards.length > 0) {
-            text = '{| class="CardRow article-table"\n';
-            cards.forEach(function (card) {
-                text += '{{CardRow|' + adjustName(card.name) + '|' + card.num + '}}\n';
-            });
-            text += '|}\n';
-        }
-        return text;
+    function cardTable(cards) {
+        return cards.length > 0 ? cards.reduce(function (acc, card) {
+            return acc + '{{CardRow|' + adjustName(card.name) + '|' + card.num + '}}\n';
+        }, '{| class="CardRow article-table"\n') + '|}\n' : false;
     }
 
     function cardListText() {
-        var mainText = cardTabel(cardData('#mdw-chartdata-pre'));
-        var sideText = cardTabel(cardData('#mdw-sideboard-data'));
-        var text = '';
-        if (mainText.length !== 0)
+        var mainText = cardTable(cardData('#mdw-chartdata-pre')),
+            sideText = cardTable(cardData('#mdw-sideboard-data')),
+            text = '';
+        if (mainText)
             text += '===Main===\n' + mainText;
-        if (sideText.length !== 0) {
-            if (mainText.length !== 0)
+        if (sideText) {
+            if (mainText)
                 text += '<hr/>\n';
             text += '===Sideboard===\n' + sideText;
         }
@@ -88,7 +78,7 @@
         mw.loader.using('mediawiki.api', function () {
             new mw.Api().post({
                 action: 'parse',
-                disablepp: '1',
+                disablepp: '',
                 prop: 'text',
                 text: text
             }).done(function (data) {
@@ -108,8 +98,8 @@
             });
         });
     }
-
-    function clickViewList() {
+   
+    function clickViewList() { 
         if (parsed) {
             $('#mdw-deck-card-list').toggle(400, function() {
                 setButtonText();
@@ -122,5 +112,3 @@
     $(showButton);
 
 }(jQuery));
-
-// #8ccbe6 cae1e2
