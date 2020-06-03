@@ -3,8 +3,9 @@
     /*global mw */
     'use strict';
 
-    function error(msg) {
-        return $('<span>', {class: 'mdw-error', text: msg}).after('<br>');
+    function error(container, msg) {
+        container.append($('<span>', {class: 'mdw-error', text: msg}).after('<br>'));
+        return false;
     }
 
     function createTemplates(setCode, iconSize, status, suffixes) {
@@ -27,13 +28,13 @@
                 token: editToken
             }).done(function (res) {
                 if (res.error)
-                    status.append(error(templateName + ' (' + res.error.code + ')'));
+                    error(status, templateName + ' (' + res.error.code + ')');
                 else
                     status.append($('<span>').text(templateName + ' (' + res.edit.result + ')')).append('<br>');
                 if (suffixes.length > 0)
                     setTimeout(create, 500);
             }).fail(function () {
-                status.append(error('Network Error'));
+                error(status, 'Network Error');
             });
         }
 
@@ -46,31 +47,24 @@
 
     function createTemplateClick() {
         var ok = true,
-            status = $('#mdw-askset-status'),
-            setCode = $('#mdw-askset-setcode').val().trim().toUpperCase(),
-            iconSize = $('#mdw-askset-iconsize').val().trim(),
-            suffixes =  $.map($('#mdw-askset-rarity input:checked'), function (e) {
+            status = $('#mdw-ctt-status'),
+            setCode = $('#mdw-ctt-setcode').val().trim().toUpperCase(),
+            iconSize = $('#mdw-ctt-iconsize').val().trim(),
+            suffixes =  $.map($('#mdw-ctt-rarity input:checked'), function (e) {
                 return $(e).val();
             });
 
         status.empty();
-        if (setCode.length === 0) {
-            status.append(error('Set must be supplied'));
-            ok = false;
-        }
+        if (setCode.length === 0)
+            ok = error(status, 'Set must be supplied');
 
-        if (iconSize.length === 0) {
-            status.append(error('Size must be supplied'));
-            ok = false;
-        } else if (!/^\d+$/.test(iconSize)) {
-            status.append(error('Size must be a number'));
-            ok = false;
-        }
+        if (iconSize.length === 0)
+            ok = error(status, 'Size must be supplied');
+        else if (!/^\d+$/.test(iconSize))
+            ok = error(status, 'Size must be a number');
         
-        if (suffixes.length === 0) {
-            status.append(error('Must check at least 1 rarity'));
-            ok = false;
-        }
+        if (suffixes.length === 0) 
+            ok = error(status, 'Must check at least 1 rarity');
         
         if (ok) 
             createTemplates(setCode, iconSize, status, suffixes);
@@ -87,20 +81,20 @@
         var form = $('<table>\
 <tr>\
 <td>Set</td>\
-<td><input type="text" id="mdw-askset-setcode" class="mdw-askset-input"/></td>\
+<td><input type="text" id="mdw-ctt-setcode" class="mdw-ctt-input"/></td>\
 </tr>\
 <tr>\
 <td>Size</td>\
-<td><input type="text" id="mdw-askset-iconsize" class="mdw-askset-input"/> px</td>\
+<td><input type="text" id="mdw-ctt-iconsize" class="mdw-ctt-input"/> px</td>\
 </tr>\
-<tr><td id="mdw-askset-rarity" colspan="2"></td></tr>\
+<tr><td id="mdw-ctt-rarity" colspan="2"></td></tr>\
 </table>\
 <hr>\
-<div id="mdw-askset-status"></div>'), rarities = form.find('#mdw-askset-rarity');
+<div id="mdw-ctt-status"></div>'), rarities = form.find('#mdw-ctt-rarity');
         event.preventDefault();
         ['B', 'C', 'U', 'R', 'M'].forEach(function (c) { rarities.append(rarityCheckbox(c)); } );
         $.showCustomModal('Set Templates', form, {
-            id: 'mdw-askset-dialog',
+            id: 'mdw-ctt-dialog',
             width: 350,
             buttons: [
                 {
@@ -112,7 +106,7 @@
                     message: 'Close',
                     defaultButton: true,
                     handler: function () {
-                        $('#mdw-askset-dialog').closeModal();
+                        $('#mdw-ctt-dialog').closeModal();
                     }
                 }
             ]
