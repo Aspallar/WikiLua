@@ -4,7 +4,7 @@
     if (mw.config.get('wgPageName') !== 'Special:CreateCardPages')
         return;
 
-    var api, cardNames, editToken, summary, status, lastStatus, cardIndex = 0;
+    var api, cardNames, summary, status, lastStatus, cardIndex = 0;
 
     function fetchCardNames(setCode) {
         var deferred = $.Deferred(),
@@ -62,7 +62,7 @@
             createonly: '',
             title: cardNames[cardIndex],
             text: '{{CardPage}}',
-            token: editToken
+            token: mw.user.tokens.get('editToken')
         }).done(function (data) {
             if (data.error)
                 endMessage(data.error.code, true);
@@ -87,7 +87,6 @@
             status.empty();
             fetchCardNames(setCode).done(function () {
                 if (cardNames.length > 0) {
-                    editToken = mw.user.tokens.get('editToken');
                     summary = 'Creating card pages for ' + setCode;
                     setTimeout(createCardPages, 100);
                 } else {
